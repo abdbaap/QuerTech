@@ -26,7 +26,7 @@ const courses=[
 ]
 export default function Courses() {
   return (
-    <div className="flex p-8 flex-col w-full justify-center items-center gap-8  text-center ">
+    <div id='courses' className="flex p-8 flex-col w-full justify-center items-center gap-8  text-center ">
         <h1 className="text-4xl font-bold">Not Able To Learn Anything In Streak</h1>
         <div className="flex flex-wrap w-full justify-evenly text-black items-center gap-16">
             {courses.map((item,I) => { 

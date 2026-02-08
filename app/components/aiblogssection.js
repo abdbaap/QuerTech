@@ -85,7 +85,7 @@ const aiblogs=[
 ]
 export default function Aiblogssection() {
   return (
-       <div id='aiblogs' className="flex flex-col justify-center p-8 items-center gap-8 h-auto xl:h-screen text-center  w-full">
+       <div id='Ai' className="flex flex-col justify-center p-8 items-center gap-8 h-auto xl:h-screen text-center  w-full">
         <h1 className="text-4xl font-bold capitalize">enhance your performance with ai</h1>
         <div className="flex   h-auto xl:h-130 noscrollbar   justify-evenly items-center snap-mandatory snap-x overflow-x-scroll w-full gap-16    p-0  ">
       {aiblogs.map((item,i) => { 

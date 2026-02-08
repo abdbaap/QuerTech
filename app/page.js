@@ -16,8 +16,8 @@ export default function Home() {
    <Aiblogssection/>
    <Courses/>
    <LifeLessons/>
-   <Gaming/>
    <Motivation/>
+   <Gaming/>
    <Solutions/>
     </div>
   );

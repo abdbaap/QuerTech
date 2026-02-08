@@ -116,7 +116,7 @@ export default function LifeLessons() {
 //   }
 ];
   return (
-    <div id='LifeLessons' className="flex flex-col justify-center w-full p-8 h-full  gap-8 items-center">
+    <div id='Life Lessons' className="flex flex-col justify-center w-full p-8 h-full  gap-8 items-center">
         <h2 className="text-4xl font-bold">Improve Your Life</h2>
         <div className="flex flex-wrap justify-center items-center w-full LifeLessons h-full relative ">
       

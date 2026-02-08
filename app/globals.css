@@ -35,6 +35,6 @@
 /* 3. Old IE & Edge (Trident/EdgeHTML) */
 .noscrollbar { -ms-overflow-style: none; }
 body{
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.647);
   color: white;
 }

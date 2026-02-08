@@ -26,11 +26,11 @@ const SolutionBlogs=[
 ]
 export default function Solutions() {
   return (
-    <div className="flex w-full bg-gray-400 text-center  flex-col justify-center text-black gap-8 py-8">
+    <div id='solution' className="flex w-full bg-gray-300 text-center  flex-col justify-center text-black gap-8 py-8">
         <h1 className="text-4xl font-bold">Stuck In Some Problems</h1>
-        <div className="flex overflow-hidden w-full max-h-100vh snap-center snap-x snap-mandatory justify-evenly items-center">
+        <div className="flex noscrollbar overflow-hidden w-full max-h-100vh snap-center snap-x snap-mandatory justify-evenly items-center">
 {SolutionBlogs.map((item,index) => { return(
-    <div className="flex hover:tracking-wider transition-all duration-500 flex-col bg-gray-950 text-white justify-center w-80 h-100 rounded-xl items-center p-8 gap-2">
+    <div key={index} className="flex hover:tracking-wider transition-all duration-500 flex-col bg-gray-950 text-white justify-center w-80 h-100 rounded-xl items-center p-8 gap-2">
         <Image src="/solution.webp" width={40} height={40} alt={item.tags}></Image>
         <h1 className="text-2xl font-bold">{item.blog_title}</h1>
         <h2 className="text-xl">{item.description}</h2>

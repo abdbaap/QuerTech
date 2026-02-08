@@ -36,7 +36,7 @@ import "./aiblogssection.css"
 ];
 export default function Gaming() {
   return (
-    <div className="flex w-full text-center p-8 flex-col justify-center items-center bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 animate-gradient gap-8 xl:p-32 ">
+    <div id='gaming' className="flex w-full text-center p-8 flex-col justify-center items-center bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 animate-gradient gap-8 xl:p-32 ">
       <h2 className="text-4xl font-bold text-white">Confuse About Gaming</h2>
       <div className="flex justify-evenly items-center noscrollbar overflow-x-scroll w-full gap-16 snap-x snap-mandatory">
 {GamingBlogs.map((item,index) => { 
