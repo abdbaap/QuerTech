@@ -1,0 +1,8 @@
+
+.noscrollbar::-webkit-scrollbar { display: none; }
+
+/* 2. Firefox (Gecko) */
+.noscrollbar { scrollbar-width: none; }
+
+/* 3. Old IE & Edge (Trident/EdgeHTML) */
+.noscrollbar { -ms-overflow-style: none; }

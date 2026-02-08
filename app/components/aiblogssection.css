@@ -1,0 +1,13 @@
+
+.noscrollbar::-webkit-scrollbar { display: none; }
+
+/* 2. Firefox (Gecko) */
+.noscrollbar { scrollbar-width: none; }
+
+/* 3. Old IE & Edge (Trident/EdgeHTML) */
+.noscrollbar { -ms-overflow-style: none; }
+.glassmorphismeffect{
+    backdrop-filter: blur(16px);
+    background: rgba(0, 0, 0, 0.203);
+    /* box-shadow: 100px solid black 100px solid black ; */
+}

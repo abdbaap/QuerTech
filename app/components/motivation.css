@@ -1,0 +1,8 @@
+.motivationcard h1{
+    writing-mode: vertical-rl;
+}
+.motivationcard:hover h1{
+    transition: all;
+    transition-duration: 500ms;
+    letter-spacing: 0.2rem;
+}
