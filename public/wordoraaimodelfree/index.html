@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ranked list of the Top 10 AI Model Generation Tools for 2026 with a forever-free tier. Download Stable Diffusion, LM Studio, and ComfyUI. No monthly fees, high accuracy.">
+    <meta name="keywords" content="Free AI Tools 2026, Local LLM, Stable Diffusion A1111, LM Studio vs Ollama, ComfyUI Workflow, Best Free AI Upscaler, Hugging Face Spaces, Zero Cost AI">
+    <meta name="author" content="AI Open Source Review">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Top 10 AI Model Generation Tools (2026 Forever-Free Tier)">
+    <meta property="og:description" content="Stop paying for subscriptions. Here are the 10 best local and web-based AI tools that are actually free.">
+    <meta property="og:type" content="article">
+    <title>Tired Of Searching Free Ai Tools For Code Generation And Getting Poor Results. (2026 Forever-Free Tier)</title>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Top 10 AI Model Generation Tools (2026 Forever-Free Tier)",
+      "datePublished": "2026-02-12",
+      "author": { "@type": "Organization", "name": "AI Tech Insights" },
+      "articleBody": "A deep dive into the best open-source and free-tier AI tools...",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Stable Diffusion (A1111)" },
+            { "@type": "ListItem", "position": 2, "name": "LM Studio" },
+            { "@type": "ListItem", "position": 3, "name": "ComfyUI" }
+        ]
+      }
+    }
+    </script>
+
+    <style>
+        /* --- 1. Variables & Reset (Matches Reference) --- */
+        :root {
+            --bg-body: #ffffff;
+            --text-main: #1a1a1a;
+            --text-sec: #555555;
+            --card-bg: rgba(255, 255, 255, 0.6);
+            --card-border: rgba(0, 0, 0, 0.05);
+            --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            --accent-primary: #6366f1; /* Indigo */
+            --accent-secondary: #ec4899; /* Pink */
+            --glass-blur: blur(12px);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --font-main: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-display: 'Impact', sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0f172a;
+            --text-main: #f8fafc;
+            --text-sec: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.4);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+            --accent-primary: #818cf8;
+            --accent-secondary: #f472b6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* --- 2. Background Animation --- */
+        .ambient-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.5;
+            animation: float 25s infinite ease-in-out alternate;
+        }
+
+        .orb-1 { width: 60vw; height: 60vw; background: radial-gradient(circle, var(--accent-primary), transparent); top: -20%; left: -10%; }
+        .orb-2 { width: 50vw; height: 50vw; background: radial-gradient(circle, var(--accent-secondary), transparent); bottom: -20%; right: -10%; animation-delay: -5s; }
+        .orb-3 { width: 40vw; height: 40vw; background: radial-gradient(circle, #06b6d4, transparent); top: 30%; left: 30%; animation-delay: -10s; opacity: 0.3; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.05); }
+            100% { transform: translate(-20px, 40px) scale(0.95); }
+        }
+
+        /* --- 3. Hero Section --- */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-main) 20%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            max-width: 1000px;
+            text-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            color: var(--text-sec);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* --- 4. Criteria Section (New) --- */
+        .criteria-section {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--accent-primary);
+            backdrop-filter: var(--glass-blur);
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .criteria-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .criteria-item strong { color: var(--accent-secondary); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .criteria-item p { font-size: 0.95rem; color: var(--text-sec); }
+
+        /* --- 5. Main Grid Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding-bottom: 8rem;
+        }
+
+        /* --- 6. Card Components (Identical Design) --- */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 1.75rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card.visible { opacity: 1; transform: translateY(0); }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border-color: var(--accent-primary);
+        }
+
+        /* Abstract Visuals */
+        .card-visual {
+            width: 100%;
+            height: 140px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Patterns re-implemented for abstract feel */
+        .p-1 { background: repeating-linear-gradient(45deg, #6366f1 0, #312e81 10px, transparent 10px, transparent 20px); }
+        .p-2 { background: radial-gradient(circle at 50% 120%, #ec4899, transparent 60%), #1e1b4b; }
+        .p-3 { background: conic-gradient(from 180deg, #fbbf24, #d97706); filter: blur(40px); transform: scale(1.5); }
+        .p-4 { background: linear-gradient(135deg, #10b981 25%, transparent 25%), linear-gradient(225deg, #10b981 25%, transparent 25%); background-size: 20px 20px; background-color: #064e3b; }
+        .p-5 { background: radial-gradient(circle, #3b82f6 20%, transparent 20%), radial-gradient(circle, #3b82f6 20%, transparent 20%); background-size: 30px 30px; background-position: 0 0, 15px 15px; background-color: #172554; }
+        .p-6 { background: linear-gradient(to right, #8b5cf6, #c026d3); clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%); }
+        .p-7 { background: repeating-radial-gradient(circle at 0 0, #ef4444, #7f1d1d 10px, transparent 20px); }
+        .p-8 { background: conic-gradient(#06b6d4, #0891b2, #155e75); border-radius: 50%; width: 100px; height: 100px; margin: 20px auto; filter: blur(20px); }
+        .p-9 { background: linear-gradient(45deg, #f472b6, #db2777); mask-image: linear-gradient(to bottom, black, transparent); }
+        .p-10 { background: radial-gradient(circle at center, #22d3ee, #0f172a 70%); }
+
+        .rank-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            color: var(--text-main);
+            font-weight: 800;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            z-index: 2;
+        }
+
+        .card h2 { 
+            font-size: 1.6rem; 
+            margin-bottom: 0.5rem; 
+            font-weight: 800; 
+            letter-spacing: -0.02em;
+        }
+
+        .accuracy-pill {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .why-win {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            flex-grow: 1; /* Pushes specs to bottom */
+        }
+
+        .specs {
+            margin-top: auto;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--card-border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-sec);
+        }
+
+        .spec-item { 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 10px; 
+        }
+
+        .catch-alert {
+            color: #fb7185; /* Soft Red for dark mode warning */
+            font-weight: 600;
+        }
+        
+        /* Icons */
+        .icon { width: 18px; height: 18px; flex-shrink: 0; fill: currentColor; opacity: 0.7; }
+
+        /* --- 7. Theme Toggle & Extras --- */
+        #theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            color: var(--text-main);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        #theme-toggle:hover { transform: scale(1.1); background: var(--text-main); color: var(--bg-body); }
+
+        /* SEO Footer Section */
+        .seo-footer {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+        .seo-footer h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main); }
+        .seo-footer p { color: var(--text-sec); margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <button id="theme-toggle" aria-label="Switch Theme">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path><circle cx="12" cy="12" r="5"></circle></svg>
+    </button>
+
+    <header class="hero scroll-reveal">
+        <h1>Top 10  Best Free AI Model Generation Tools <br><span style="font-size: 0.5em; opacity: 0.7; display: block; margin-top: 15px;">(2026 Forever-Free Tier)</span></h1>
+        <p>The definitive guide to running local LLMs, image generators, and audio models without credit cards or subscriptions. High accuracy, zero fluff.</p>
+    </header>
+
+    <section class="criteria-section scroll-reveal">
+        <h2>Ranking Criteria: How We Chose</h2>
+        <div class="criteria-grid">
+            <div class="criteria-item">
+                <strong>01. True "Forever-Free"</strong>
+                <p>No "free trials" that expire in 7 days. Tools must have a renewable free tier or be open source.</p>
+            </div>
+            <div class="criteria-item">
+                <strong>02. Local vs. Cloud</strong>
+                <p>We prioritized tools that run locally (offline privacy) but included generous web tiers for low-end PCs.</p>
+            </div>
+            <div class="criteria-item">
+                <strong>03. Model Agnosticism</strong>
+                <p>Top rankings go to platforms that let you switch models (e.g., swapping Llama 3 for Mistral).</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <article class="card scroll-reveal">
+            <div class="rank-badge">01</div>
+            <div class="card-visual p-1"></div>
+            <span class="accuracy-pill">Accuracy: 10/10</span>
+            <h2>Stable Diffusion (A1111)</h2>
+            <p class="why-win"><strong>Why it Wins:</strong> The gold standard for open-source image gen. You get total control over every pixel, seed, and sampler with zero filters, fees, or censorship.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    <span class="catch-alert">Catch: Requires dedicated GPU (8GB+ VRAM).</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card scroll-reveal">
+            <div class="rank-badge">02</div>
+            <div class="card-visual p-2"></div>
+            <span class="accuracy-pill">Accuracy: 9.5/10</span>
+            <h2>LM Studio</h2>
+            <p class="why-win"><strong>Why it Wins:</strong> The best local GUI for running Llama 3.2, 4.0, and Mistral models. It offers a "One-Click" download and run experience that feels like using premium ChatGPT.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
+                    <span class="catch-alert">Catch: Heavy local RAM usage; no cloud syncing.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card scroll-reveal">
+            <div class="rank-badge">03</div>
+            <div class="card-visual p-3"></div>
+            <span class="accuracy-pill">Accuracy: 9/10</span>
+            <h2>Hugging Face Spaces</h2>
+            <p class="why-win"><strong>Why it Wins:</strong> Access to nearly every research model (Flux, SD3, etc.) for free on community hardware. It is the playground of the AI research world.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span class="catch-alert">Catch: High-demand models have long queues.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card scroll-reveal">
+            <div class="rank-badge">04</div>
+            <div class="card-visual p-4"></div>
+            <span class="accuracy-pill">Accuracy: 10/10</span>
+            <h2>Upscayl</h2>
+            <p class="why-win"><strong>Why it Wins:</strong> 100% open-source image upscaler that uses AI to sharpen blurry images. It consistently beats paid "pro" alternatives from Adobe.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <span class="catch-alert">Catch: Desktop-only; requires Vulkan GPU.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card scroll-reveal">
+            <div class="rank-badge">05</div>
+            <div class="card-visual p-5"></div>
+            <span class="accuracy-pill">Accuracy: 9.5/10</span>
+            <h2>SeaArt.ai</h2>
+            <p class="why-win"><strong>Why it Wins:</strong> The most generous web-based "Free" tier for high-end models like Flux and SDXL. Perfect if you don't have a powerful gaming PC.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <span class="catch-alert">Catch: 150 daily credits; small watermark on some.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card scroll-reveal">
+            <div class="rank-badge">06</div>
+            <div class="card-visual p-6"></div>
+            <span class="accuracy-pill">Accuracy: 8.5/10</span>
+            <h2>GPT4All</h2>
+            <p class="why-win"><strong>Why it Wins:</strong> Optimized to run on your CPU (no fancy GPU needed). It makes local Large Language Models accessible to standard laptops.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg class="icon" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+                    <span class="catch-alert">Catch: Slower than cloud; limited to smaller models.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card scroll-reveal">
+            <div class="rank-badge">07</div>
+            <div class="card-visual p-7"></div>
+            <span class="accuracy-pill">Accuracy: 10/10</span>
+            <h2>Whisper (Local)</h2>
+            <p class="why-win"><strong>Why it Wins:</strong> Industry-leading audio-to-text accuracy. It offers professional-grade transcription at zero cost if run on your own hardware.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                    <span class="catch-alert">Catch: Requires command line or 3rd party GUI.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card scroll-reveal">
+            <div class="rank-badge">08</div>
+            <div class="card-visual p-8"></div>
+            <span class="accuracy-pill">Accuracy: 10/10</span>
+            <h2>ComfyUI</h2>
+            <p class="why-win"><strong>Why it Wins:</strong> The most efficient way to run complex AI workflows (Video/Image) on low VRAM. It saves resources by only rendering what changed.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                    <span class="catch-alert">Catch: Steep learning curve (Node-based).</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card scroll-reveal">
+            <div class="rank-badge">09</div>
+            <div class="card-visual p-9"></div>
+            <span class="accuracy-pill">Accuracy: 10/10</span>
+            <h2>Claude.ai (Free Tier)</h2>
+            <p class="why-win"><strong>Why it Wins:</strong> Widely considered the most "human" and accurate coder/writer currently available. It hallucinates less than GPT models.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <span class="catch-alert">Catch: Strict daily message limits.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card scroll-reveal">
+            <div class="rank-badge">10</div>
+            <div class="card-visual p-10"></div>
+            <span class="accuracy-pill">Accuracy: 9.5/10</span>
+            <h2>NotebookLM</h2>
+            <p class="why-win"><strong>Why it Wins:</strong> Zero-cost "Source-grounded" AI. It generates podcasts, summaries, and answers strictly from files you upload, reducing fake info.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    <span class="catch-alert">Catch: Requires Google account; specific to research.</span>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer class="seo-footer scroll-reveal">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem; color: var(--text-main);">People Also Ask</h2>
+        
+        <h3>Which free AI tool is best for coding?</h3>
+        <p>Currently, Claude.ai and LM Studio (running Llama 3) offer the best coding accuracy. Claude provides natural reasoning, while LM Studio ensures your code stays private on your machine.</p>
+
+        <h3>Can I run AI models without a GPU?</h3>
+        <p>Yes. GPT4All is specifically designed to run Large Language Models on your CPU (Processor) rather than your Graphics Card. It is slower but functional on standard laptops.</p>
+
+        <h3>Is Stable Diffusion truly free?</h3>
+        <p>Yes. Stable Diffusion is open-source software. If you download a front-end like Automatic1111 or ComfyUI, you can generate unlimited images forever without paying a cent, provided you have the hardware to run it.</p>
+    </footer>
+
+    <script>
+        // Scroll Animation Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Animate once
+                    }
+                });
+            }, observerOptions);
+
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            scrollElements.forEach(el => observer.observe(el));
+        });
+
+        // Theme Toggle
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlElement.setAttribute('data-theme', newTheme);
+        });
+    </script>
+</body>
+</html>

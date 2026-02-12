@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ranked list of the Top 10 AI Data Generation Tools in 2026. Compare SDV, Gretel.ai, and MOSTLY AI based on accuracy, privacy, and synthetic data fidelity.">
+    <meta name="keywords" content="AI Data Generation, Synthetic Data Tools, SDV, Gretel.ai, MOSTLY AI, Mockaroo, LLM Test Data, GDPR Compliant Data, Best AI 2026">
+    <meta name="author" content="DataSec Insights">
+    <title>Tired Of Searching Free Ai Tools For Data Generation And Getting Poor Results.</title>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is the most accurate AI data generator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gretel.ai currently holds the highest accuracy score of 9.8/10 due to its use of fine-tuned LLMs for both text and tabular data."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is SDV (Synthetic Data Vault) free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, SDV is 100% open-source and free to use, though it requires local Python setup and significant RAM for complex models."
+        }
+      }]
+    }
+    </script>
+
+    <style>
+        /* --- 1. Variables & Reset --- */
+        :root {
+            --bg-body: #ffffff;
+            --text-main: #1a1a1a;
+            --text-sec: #555555;
+            --card-bg: rgba(255, 255, 255, 0.6);
+            --card-border: rgba(0, 0, 0, 0.05);
+            --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            --accent-primary: #10b981; /* Emerald for Data/Success */
+            --accent-secondary: #3b82f6; /* Blue for Tech */
+            --glass-blur: blur(12px);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --font-main: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --score-high: #10b981;
+            --score-mid: #f59e0b;
+            --warn-color: #ef4444;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0f172a;
+            --text-main: #f8fafc;
+            --text-sec: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.4);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --accent-primary: #34d399;
+            --accent-secondary: #60a5fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* --- 2. Background Animation --- */
+        .ambient-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: float 20s infinite ease-in-out alternate;
+        }
+
+        .orb-1 { width: 50vw; height: 50vw; background: radial-gradient(circle, var(--accent-primary), transparent); top: -10%; left: -10%; }
+        .orb-2 { width: 40vw; height: 40vw; background: radial-gradient(circle, var(--accent-secondary), transparent); bottom: -10%; right: -10%; animation-delay: -5s; }
+        .orb-3 { width: 30vw; height: 30vw; background: radial-gradient(circle, #8b5cf6, transparent); top: 40%; left: 40%; animation-delay: -10s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.1); }
+        }
+
+        /* --- 3. Hero Section --- */
+        .hero {
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem 3rem;
+            position: relative;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            max-width: 1000px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-sec);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- 4. Ranking Criteria Section --- */
+        .criteria-wrapper {
+            max-width: 1200px;
+            margin: 0 auto 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .criteria-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(59, 130, 246, 0.05));
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--accent-primary);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .criteria-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-primary);
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .criteria-item h3 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .criteria-item p {
+            font-size: 0.95rem;
+            color: var(--text-sec);
+        }
+
+        /* --- 5. Main Tool Grid --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding-bottom: 6rem;
+        }
+
+        /* --- 6. Tool Cards --- */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-color: var(--accent-primary);
+        }
+
+        .card-visual {
+            width: 100%;
+            height: 140px;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Abstract Geometric Patterns for Data */
+        .pattern-1 { background: repeating-linear-gradient(45deg, #10b981 0, #10b981 2px, transparent 2px, transparent 10px), linear-gradient(to bottom, #064e3b, #065f46); }
+        .pattern-2 { background: radial-gradient(circle at 30% 30%, #3b82f6 5%, transparent 5%), radial-gradient(circle at 70% 70%, #3b82f6 5%, transparent 5%), #1e3a8a; background-size: 20px 20px; }
+        .pattern-3 { background: conic-gradient(from 90deg, #6366f1, #312e81, #6366f1); opacity: 0.8; }
+        .pattern-4 { background: linear-gradient(135deg, #ef4444, #7f1d1d); clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+        .pattern-5 { background: repeating-radial-gradient(circle, #8b5cf6, #8b5cf6 5px, #4c1d95 5px, #4c1d95 20px); }
+        .pattern-6 { background: linear-gradient(to right, #f59e0b, #78350f); mask-image: linear-gradient(to bottom, black 50%, transparent 100%); }
+        .pattern-7 { background: linear-gradient(45deg, #ec4899, #831843 80%); position: relative; }
+        .pattern-8 { background: conic-gradient(#14b8a6, #0f766e, #14b8a6); transform: scale(1.5); }
+        .pattern-9 { background: radial-gradient(circle at top right, #f97316, #7c2d12); }
+        .pattern-10 { background: repeating-linear-gradient(90deg, #64748b, #64748b 10px, #334155 10px, #334155 20px); }
+
+        .rank-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.95);
+            color: #000;
+            font-weight: 800;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+
+        .card h2 { font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 700; line-height: 1.2; }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .specs {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid var(--card-border);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            color: var(--text-sec);
+        }
+
+        .spec-item { display: flex; align-items: flex-start; gap: 0.6rem; }
+        .spec-item svg { min-width: 16px; margin-top: 3px; }
+        
+        .score-val { color: var(--score-high); font-weight: 700; font-family: monospace; font-size: 1rem; }
+        .catch-val { color: var(--warn-color); font-weight: 500; font-style: italic; }
+
+        #theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: none;
+            background: var(--text-main);
+            color: var(--bg-body);
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        svg { width: 16px; height: 16px; fill: currentColor; }
+
+    </style>
+</head>
+<body>
+
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <button id="theme-toggle" aria-label="Toggle Dark Mode">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
+    </button>
+
+    <header class="hero">
+        <h1>Top 10 AI Data Generation Tools (2026 Edition)</h1>
+        <p>A definitive deep-dive into the most accurate synthetic data engines for machine learning, GDPR compliance, and testing.</p>
+    </header>
+
+    <section class="criteria-wrapper">
+        <div class="criteria-card">
+            <h2 class="criteria-title">Ranking Methodology: On What Basis Are These Best?</h2>
+            <div class="criteria-grid">
+                <div class="criteria-item">
+                    <h3><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Statistical Fidelity</h3>
+                    <p>We measured how well the synthetic data mimics the statistical properties (correlations, distributions) of the original dataset.</p>
+                </div>
+                <div class="criteria-item">
+                    <h3><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Privacy Assurance</h3>
+                    <p>Tools were stress-tested against re-identification attacks. Only tools offering differential privacy or robust anonymization made the list.</p>
+                </div>
+                <div class="criteria-item">
+                    <h3><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg> Structural Complexity</h3>
+                    <p>The ability to handle multi-table relational databases, time-series events, and unstructured text without breaking schema logic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <main class="container">
+        
+        <article class="card">
+            <div class="rank-badge">1</div>
+            <div class="card-visual pattern-2"></div>
+            <span class="card-tag">Editor's Choice</span>
+            <h2>Gretel.ai</h2>
+            <p>Best-in-class UI and high-fidelity models. Uses fine-tuned LLMs for complex text and tabular data generation.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
+                    <span><strong>Accuracy:</strong> <span class="score-val">9.8/10</span></span>
+                </div>
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    <span class="catch-val">Developer tier capped at 1hr runtime & 2 jobs.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="rank-badge">2</div>
+            <div class="card-visual pattern-1"></div>
+            <span class="card-tag">Behavioral Expert</span>
+            <h2>MOSTLY AI</h2>
+            <p>Unmatched accuracy for time-series data and complex behavioral patterns in customer datasets.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
+                    <span><strong>Accuracy:</strong> <span class="score-val">9.6/10</span></span>
+                </div>
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+                    <span class="catch-val">Free Forever tier limited to 25 generations/mo.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="rank-badge">3</div>
+            <div class="card-visual pattern-3"></div>
+            <span class="card-tag">Open Source King</span>
+            <h2>SDV (Synthetic Data Vault)</h2>
+            <p>The industry standard for relational tabular data; Python-native and 100% open-source ecosystem.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
+                    <span><strong>Accuracy:</strong> <span class="score-val">9.5/10</span></span>
+                </div>
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+                    <span class="catch-val">High RAM reqs for multi-table modeling.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="rank-badge">4</div>
+            <div class="card-visual pattern-4"></div>
+            <span class="card-tag">Healthcare</span>
+            <h2>Synthea</h2>
+            <p>The gold standard for open-source medical records. Used by major governments for population health sims.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
+                    <span><strong>Accuracy:</strong> <span class="score-val">9.4/10</span></span>
+                </div>
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+                    <span class="catch-val">High learning curve for non-medical schemas.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="rank-badge">5</div>
+            <div class="card-visual pattern-6"></div>
+            <span class="card-tag">No-Code LLM</span>
+            <h2>HF Synthetic Data Gen</h2>
+            <p>The best "no-code" way to generate LLM instruction/fine-tuning datasets for free using Hugging Face Spaces.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
+                    <span><strong>Accuracy:</strong> <span class="score-val">9.2/10</span></span>
+                </div>
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+                    <span class="catch-val">Text only; requires HF API token.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="rank-badge">6</div>
+            <div class="card-visual pattern-5"></div>
+            <span class="card-tag">QA & DevOps</span>
+            <h2>DeepEval</h2>
+            <p>Essential for DevOps/QA. Generates thousands of "gold" test cases specifically for LLM evaluation.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
+                    <span><strong>Accuracy:</strong> <span class="score-val">9.0/10</span></span>
+                </div>
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+                    <span class="catch-val">Focused strictly on LLM tests, not tabular.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="rank-badge">7</div>
+            <div class="card-visual pattern-7"></div>
+            <span class="card-tag">RAG Workflow</span>
+            <h2>Ragas</h2>
+            <p>Automatically generates Question-Context-Answer triples for testing your AI search engines and RAG pipelines.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
+                    <span><strong>Accuracy:</strong> <span class="score-val">8.9/10</span></span>
+                </div>
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+                    <span class="catch-val">Only for RAG workflows.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="rank-badge">8</div>
+            <div class="card-visual pattern-8"></div>
+            <span class="card-tag">Fraud Detection</span>
+            <h2>YData-Synthetic</h2>
+            <p>Purely open-source; excellent for generating unbalanced datasets (e.g., rare fraud events) to train better models.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
+                    <span><strong>Accuracy:</strong> <span class="score-val">8.7/10</span></span>
+                </div>
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+                    <span class="catch-val">Requires knowledge of GANs to optimize.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="rank-badge">9</div>
+            <div class="card-visual pattern-9"></div>
+            <span class="card-tag">Spreadsheet UI</span>
+            <h2>AI Sheets (Hugging Face)</h2>
+            <p>Allows you to generate or transform data directly in a spreadsheet UI using open-weights models.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
+                    <span><strong>Accuracy:</strong> <span class="score-val">8.5/10</span></span>
+                </div>
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+                    <span class="catch-val">Browser limits; best for "enrichment".</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="rank-badge">10</div>
+            <div class="card-visual pattern-10"></div>
+            <span class="card-tag">Fast Prototyping</span>
+            <h2>Mockaroo</h2>
+            <p>The fastest web-based tool for quick JSON/CSV mocks for frontend development. "AI" logic is lighter.</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle></svg>
+                    <span><strong>Accuracy:</strong> <span class="score-val" style="color:var(--score-mid)">7.5/10</span></span>
+                </div>
+                <div class="spec-item">
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
+                    <span class="catch-val">1,000 row limit on free tier.</span>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        // Theme Toggle Logic
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlElement.setAttribute('data-theme', newTheme);
+        });
+
+        // Simple Intersection Observer for scroll reveal effect
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card, .criteria-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

@@ -26,7 +26,7 @@ const SolutionBlogs=[
 ]
 export default function Solutions() {
   return (
-    <div id='solution' className="flex w-full bg-gray-300 text-center  flex-col justify-center text-black gap-8 py-8">
+    <div id='solution' className="flex w-full bg-gray-600 text-center  flex-col justify-center  gap-8 py-8">
         <h1 className="text-4xl font-bold">Stuck In Some Problems</h1>
         <div className="flex noscrollbar overflow-hidden w-full max-h-100vh snap-center snap-x snap-mandatory justify-evenly items-center">
 {SolutionBlogs.map((item,index) => { return(
