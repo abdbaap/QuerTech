@@ -42,7 +42,7 @@ const Pixelify_sans = Pixelify_Sans({
 });
 export default function Herosection() {
   return (
-    <div id="#home" className="herosection text-white w-full gap-32 bg-black justify-center items-center flex flex-col text-center p-16">
+    <div id="#home" className="herosection text-white w-full gap-32 bg-black justify-center items-center flex flex-col text-center xl:p-16 p-2">
       <h1 className="text-6xl text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 animate-gradient font-bold capitalize space-y-1 overflow-hidden ">
         <span> Easy Tips and Life Hacks to Help You Stay Ahead in </span>{" "}
         <span className={`${Pixelify_sans.className}`}> Tech</span>
