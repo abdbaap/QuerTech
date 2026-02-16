@@ -2,11 +2,13 @@ import Image from "next/image";
 import React from 'react'
 import Herosection from "./components/herosection";
 import Aiblogssection from "./components/aiblogssection";
-import Courses from "./components/courses";
-import LifeLessons from "./components/lifelessons";
-import Gaming from "./components/gaming";
-import Motivation from "./components/motivation";
-import Solutions from "./components/solutions";
+
+// import SolutionBlog from "./components/Solution";
+import CoursesBlog from "./components/courses";
+import MotivationBlog from "./components/motivation";
+import GamingBlog from "./components/gaming";
+import LifeLessonsBlog from "./components/lifelessons";
+import SolutionsBlog from "./components/solution";
 
 
 export default function Home() {
@@ -14,11 +16,11 @@ export default function Home() {
     <div className="flex flex-col  justify-center overflow-x-hidden gap-32 items-center w-screen">
       <Herosection/>
    <Aiblogssection/>
-   <Courses/>
-   <LifeLessons/>
-   <Motivation/>
-   <Gaming/>
-   <Solutions/>
+   <CoursesBlog/>
+   <LifeLessonsBlog/>
+   <MotivationBlog/>
+   <GamingBlog/>
+   <SolutionsBlog/>
     </div>
   );
 }

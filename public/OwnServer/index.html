@@ -1,0 +1,724 @@
+
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags - Exactly as Provided -->
+    <title>Unleash Your FREE Minecraft Java Server on PC - No Lag!</title>
+    <meta name="description" content="Tired of lag & limits? Discover how to instantly host your OWN FREE Minecraft Java server on PC! Gain total control, add plugins & invite friends effortlessly. Master it now!">
+    <meta name="keywords" content="how to host minecraft server on pc free, minecraft java server setup guide, best way to host private minecraft server, no lag minecraft server hosting, minecraft server with plugins pc, host minecraft server for friends free, minecraft server without port forwarding, spigotmc server setup tutorial, custom minecraft server on personal computer, minecraft server queues bypass, eliminate minecraft server limitations, minecraft server for tlauncher users, install minecraft plugins on pc server, minecraft server ram allocation guide, playit.gg minecraft setup guide, create your own minecraft world server, java development kit 17 minecraft, private minecraft multiplayer server, minecraft server cost free, ultimate minecraft server control, #MinecraftServer, #Minecraft, #JavaEdition, #FreeServer, #PCHosting, #ServerGuide, #Tutorial, #SpigotMC, #Playitgg, #Plugins, #CustomServer, #NoLag, #Multiplayer, #DIYServer, #GamingTips, #TechTutorial, #PrivateGaming, #GamerLife, #SetupGuide, #OnlineGaming">
+
+    <!-- Open Graph / Social Media Meta Tags (Enhancing "Premium" SEO) -->
+    <meta property="og:title" content="Unleash Your FREE Minecraft Java Server on PC - No Lag!">
+    <meta property="og:description" content="Tired of lag & limits? Discover how to instantly host your OWN FREE Minecraft Java server on PC! Gain total control, add plugins & invite friends effortlessly. Master it now!">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yourwebsite.com/minecraft-server-guide"> <!-- Replace with actual URL -->
+    <meta property="og:image" content="https://yourwebsite.com/og-image.jpg"> <!-- Replace with a relevant image URL -->
+    <meta property="og:site_name" content="Gaming Tech Guides">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Unleash Your FREE Minecraft Java Server on PC - No Lag!">
+    <meta name="twitter:description" content="Tired of lag & limits? Discover how to instantly host your OWN FREE Minecraft Java server on PC! Gain total control, add plugins & invite friends effortlessly. Master it now!">
+    <meta name="twitter:image" content="https://yourwebsite.com/twitter-image.jpg"> <!-- Replace with a relevant image URL -->
+    <meta name="twitter:creator" content="@YourTwitterHandle"> <!-- Replace with your Twitter handle -->
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%25' y='50%25' font-size='80' text-anchor='middle' dominant-baseline='central'%3E⛏️%3C/text%3E%3C/svg%3E">
+
+    <!-- Google Fonts - Inter for clean sans-serif typography, similar to SF Pro Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables for Theme Palette */
+        :root {
+            --color-slate-darkest: #09172a;
+            --color-slate-dark: #12243d;
+            --color-slate-medium: #1a3253;
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-text-light: #e2e8f0;
+            --color-text-medium: #aab8c2;
+            --color-border-transparent: rgba(255, 255, 255, 0.1);
+            --gradient-main: linear-gradient(45deg, var(--color-indigo), var(--color-pink));
+            --gradient-radial-orb-1: radial-gradient(circle at 30% 30%, var(--color-indigo) 0%, transparent 70%);
+            --gradient-radial-orb-2: radial-gradient(circle at 70% 70%, var(--color-pink) 0%, transparent 70%);
+
+            --font-family-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+            /* Glassmorphism properties */
+            --glass-blur: 15px;
+            --glass-bg-opacity: 0.15;
+            --glass-border-opacity: 0.2;
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Base Styles & Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px; /* Base for fluid typography */
+        }
+
+        body {
+            font-family: var(--font-family-primary);
+            background-color: var(--color-slate-darkest);
+            color: var(--color-text-light);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll from orb animations */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative; /* For orbs positioning */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Container for content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem; /* Mobile-first padding */
+            position: relative; /* For z-index stacking */
+            z-index: 10;
+        }
+
+        /* Headings & Typography */
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem); /* Fluid scaling */
+            font-weight: 900;
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 700;
+            margin-top: 2.5rem;
+            color: var(--color-text-light);
+            text-align: center;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 600;
+            color: var(--color-indigo);
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        h4 {
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            font-weight: 600;
+            color: var(--color-pink);
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1em;
+            color: var(--color-text-medium);
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            list-style-type: disc;
+            color: var(--color-text-medium);
+        }
+
+        ol {
+            list-style-type: decimal;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-pink);
+            text-decoration: underline;
+        }
+
+        /* Section Styling (Glassmorphism) */
+        section {
+            background: rgba(var(--color-slate-medium), var(--glass-bg-opacity)); /* Using color directly, not var */
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--color-border-transparent);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--glass-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative; /* For hover effects */
+            perspective: 1000px; /* Needed for 3D transforms on children */
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        .intro-text {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--color-text-light);
+            font-weight: 500;
+        }
+
+        /* Card Layout for Prerequisites & Steps */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: rgba(var(--color-slate-medium), var(--glass-bg-opacity) * 0.7); /* Lighter glass */
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--color-border-transparent);
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: var(--glass-shadow);
+            position: relative;
+            transform-style: preserve-3d; /* Enable 3D transform for children */
+            transition: transform 0.3s ease-out, border-color 0.3s ease-out;
+            border-color: rgba(255, 255, 255, 0.1); /* Initial border color */
+        }
+
+        /* 3D Card Lifting & Border Transition */
+        .card.hovered {
+            transform: perspective(1000px) scale(1.02) translateZ(20px);
+            border-color: var(--color-indigo); /* Border color on hover */
+            box-shadow: 0 16px 48px rgba(var(--color-indigo), 0.3);
+        }
+
+        /* Card header with icon/pattern and rank badge */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background-color: var(--color-indigo);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--color-text-light);
+            background: var(--gradient-main);
+            box-shadow: 0 4px 15px rgba(var(--color-indigo), 0.5);
+            /* CSS generated geometric pattern */
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='100' height='100' fill='black'/%3E%3Cpath d='M0 0 L100 0 L50 50 Z M0 100 L100 100 L50 50 Z' fill='white'/%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='100' height='100' fill='black'/%3E%3Cpath d='M0 0 L100 0 L50 50 Z M0 100 L100 100 L50 50 Z' fill='white'/%3E%3C/svg%3E");
+            mask-size: cover;
+            -webkit-mask-size: cover;
+        }
+
+        .card-icon.jdk {
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='100' height='100' fill='black'/%3E%3Ccircle cx='50' cy='50' r='40' fill='white'/%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='100' height='100' fill='black'/%3E%3Ccircle cx='50' cy='50' r='40' fill='white'/%3E%3C/svg%3E");
+            background: linear-gradient(135deg, #FF5733, #FFC300); /* Java colors */
+        }
+        .card-icon.spigot {
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='100' height='100' fill='black'/%3E%3Crect x='10' y='10' width='30' height='30' fill='white'/%3E%3Crect x='60' y='10' width='30' height='30' fill='white'/%3E%3Crect x='10' y='60' width='30' height='30' fill='white'/%3E%3Crect x='60' y='60' width='30' height='30' fill='white'/%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='100' height='100' fill='black'/%3E%3Crect x='10' y='10' width='30' height='30' fill='white'/%3E%3Crect x='60' y='10' width='30' height='30' fill='white'/%3E%3Crect x='10' y='60' width='30' height='30' fill='white'/%3E%3Crect x='60' y='60' width='30' height='30' fill='white'/%3E%3C/svg%3E");
+            background: linear-gradient(135deg, #5DADE2, #2E86C1); /* Spigot-like colors */
+        }
+        .card-icon.playit {
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='100' height='100' fill='black'/%3E%3Cpolygon points='50 10, 90 50, 50 90, 10 50' fill='white'/%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='100' height='100' fill='black'/%3E%3Cpolygon points='50 10, 90 50, 50 90, 10 50' fill='white'/%3E%3C/svg%3E");
+            background: linear-gradient(135deg, #4CAF50, #8BC34A); /* Playit.gg-like colors */
+        }
+
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-text-light);
+        }
+
+        /* Step Card Styling with Rank Badges */
+        .step-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: rgba(var(--color-slate-medium), var(--glass-bg-opacity) * 0.7);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--color-border-transparent);
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: var(--glass-shadow);
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease-out, border-color 0.3s ease-out;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .step-card.hovered {
+            transform: perspective(1000px) scale(1.01) translateZ(15px);
+            border-color: var(--color-pink); /* Different border color for steps */
+            box-shadow: 0 12px 36px rgba(var(--color-pink), 0.25);
+        }
+
+        .step-badge {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text-light);
+            box-shadow: 0 4px 15px rgba(var(--color-pink), 0.5);
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-content h4 {
+            margin-top: 0; /* Override default h4 margin */
+        }
+        .step-content p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* Background Orbs Animation */
+        #background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Below content */
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3;
+            filter: blur(50px);
+            animation: moveOrbs 20s infinite ease-in-out alternate, pulseOpacity 10s infinite alternate;
+        }
+
+        .orb:nth-child(odd) {
+            background: var(--gradient-radial-orb-1);
+        }
+
+        .orb:nth-child(even) {
+            background: var(--gradient-radial-orb-2);
+        }
+
+        @keyframes moveOrbs {
+            0% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(20vw, 15vh) scale(1.1); }
+            50% { transform: translate(0, 30vh) scale(0.9); }
+            75% { transform: translate(-20vw, 10vh) scale(1.2); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        @keyframes pulseOpacity {
+            0% { opacity: 0.2; }
+            50% { opacity: 0.4; }
+            100% { opacity: 0.2; }
+        }
+
+        /* Floating Theme Toggle (Visual only, functional in JS if needed) */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(var(--color-slate-medium), var(--glass-bg-opacity));
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--color-border-transparent);
+            box-shadow: var(--glass-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            font-size: 1.5rem;
+            color: var(--color-indigo);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--gradient-main);
+            color: var(--color-text-light);
+            box-shadow: 0 0 20px rgba(var(--color-indigo), 0.7);
+            transform: scale(1.1);
+        }
+
+        /* Code Block Styling */
+        pre {
+            background-color: var(--color-slate-dark);
+            border-radius: 8px;
+            padding: 1em;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace;
+            font-size: 0.9em;
+            color: #d1d9e6;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 1em;
+        }
+
+        code {
+            color: #ec4899;
+            font-weight: 500;
+        }
+
+        pre code {
+            color: inherit;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                margin-top: 1.5rem;
+            }
+
+            section {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr; /* Stack cards on mobile */
+            }
+
+            .step-card {
+                flex-direction: column; /* Stack badge and content */
+                align-items: center;
+                text-align: center;
+            }
+
+            .step-badge {
+                margin-bottom: 1rem;
+            }
+
+            .theme-toggle {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Ambient Background Orbs -->
+    <div id="background-orbs"></div>
+
+    <div class="container">
+        <header>
+            <h1 class="text-gradient">Unleash Your FREE Minecraft Java Server on PC - No Lag!</h1>
+            <p class="intro-text">Master the art of self-hosting your private Minecraft Java Edition server. Gain total control, customize with plugins, and invite your friends, all without the queues or costs of third-party services.</p>
+        </header>
+
+        <main>
+            <section id="executive-summary">
+                <h2>Executive Summary</h2>
+                <p>This comprehensive guide demystifies the process of setting up a private Minecraft Java Edition server directly on your personal computer. Bypass the common limitations and frustrating queues of free hosting services, and take full control over game settings, player limits, and modifications. We provide a detailed, step-by-step technical walkthrough, covering essential software installations, server file configurations, and enabling remote access for your friends. Embrace cost-efficiency and enhanced customization through plugin integration to create your ultimate Minecraft multiplayer experience.</p>
+            </section>
+
+            <section id="motivation">
+                <h2>Why Self-Host Your Minecraft Server?</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon" style="background: linear-gradient(135deg, #FF6F61, #DE4747);">⏳</div>
+                            <h4 class="card-title">Eliminate Queues & Waiting</h4>
+                        </div>
+                        <p>Say goodbye to annoying queues and long waiting times that plague free external server providers. Your server is always ready when you are.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon" style="background: linear-gradient(135deg, #4CAF50, #8BC34A);">📈</div>
+                            <h4 class="card-title">Remove Player Limitations</h4>
+                        </div>
+                        <p>Configure your server for "100 players" or more, limited only by your PC's resources. Enjoy true scalability without artificial caps.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon" style="background: linear-gradient(135deg, #00BCD4, #00838F);">⚙️</div>
+                            <h4 class="card-title">Full Control & Customization</h4>
+                        </div>
+                        <p>Gain complete control over all server settings, game modes, difficulty, and the ability to install powerful plugins for a unique experience.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="prerequisites">
+                <h2>Essential Prerequisites & Software</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon jdk">JAVA</div>
+                            <h4 class="card-title">Java Development Kit (JDK 17)</h4>
+                        </div>
+                        <p>Your server requires <strong>JDK 17</strong> to run. Download the executable (<code>.exe</code>) from Oracle's Java SE 17 Archive Downloads website.</p>
+                        <p><em>Note: Ensure you download the correct version for your operating system.</em></p>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon spigot">MC</div>
+                            <h4 class="card-title">Minecraft Server Software (SpigotMC/PaperMC)</h4>
+                        </div>
+                        <p>While the official Minecraft server exists, we recommend <strong>SpigotMC Server</strong> (e.g., <code>spigot-1.19.2.jar</code>) or PaperMC for superior performance and plugin compatibility.</p>
+                        <p><em>The video specifically demonstrates SpigotMC.</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="setup-procedure">
+                <h2>Step-by-Step Server Setup Guide</h2>
+                <div class="step-list">
+                    <div class="step-card">
+                        <div class="step-badge">1</div>
+                        <div class="step-content">
+                            <h4>Create Server Directory</h4>
+                            <p>Establish a dedicated, easily accessible folder on your PC (e.g., <code>C:\Minecraft Server</code>) to house all your server files. This keeps everything organized.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-badge">2</div>
+                        <div class="step-content">
+                            <h4>Place & Rename Server Jar</h4>
+                            <p>Move your downloaded SpigotMC <code>.jar</code> file (e.g., <code>spigot-1.19.2.jar</code>) into your new server directory. <strong>Immediately rename this file to <code>server.jar</code></strong> for easier command line usage.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-badge">3</div>
+                        <div class="step-content">
+                            <h4>Create Start Script</h4>
+                            <p>In the server directory, create a new text document. Paste the following command into it:</p>
+                            <pre><code>java -Xms1G -Xmx2G -jar server.jar nogui</code></pre>
+                            <p>Save this file as <code>Start Server.bat</code>. Adjust <code>-Xms1G</code> (initial) and <code>-Xmx2G</code> (maximum) to allocate RAM, matching your PC's available resources (e.g., "1G to 2G").</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-badge">4</div>
+                        <div class="step-content">
+                            <h4>Initial Server Run</h4>
+                            <p>Execute the <code>Start Server.bat</code> file. The server will attempt to start, generate essential configuration files (like <code>eula.txt</code> and <code>server.properties</code>), and then close automatically.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-badge">5</div>
+                        <div class="step-content">
+                            <h4>Accept EULA</h4>
+                            <p>Locate and open <code>eula.txt</code> within your server directory using Notepad. Change the line <code>eula=false</code> to <code>eula=true</code> to accept Minecraft's End User License Agreement. Save the file.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-badge">6</div>
+                        <div class="step-content">
+                            <h4>Configure Server Properties</h4>
+                            <p>Open <code>server.properties</code> with Notepad. Important modifications include:</p>
+                            <ul>
+                                <li><code>online-mode=false</code>: Allows players using non-official launchers (like TLauncher) to join.</li>
+                                <li><code>max-players=70</code>: Adjust the maximum player count (e.g., to "70").</li>
+                                <li><code>motd=EXPOSUREEE Ka Minecraft Server</code>: Customize your server's Message of the Day.</li>
+                                <li>Other properties like <code>gamemode</code>, <code>difficulty</code>, and <code>view-distance</code> can also be tailored to your preference.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="external-access">
+                <h2>Enabling External Access for Friends</h2>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon playit">🔗</div>
+                        <h4 class="card-title">Connect Friends with Playit.gg (No Port Forwarding!)</h4>
+                    </div>
+                    <ol>
+                        <li><strong>Download & Run Playit.gg Agent:</strong> Download and execute <code>playit.exe</code> from <a href="https://playit.gg" target="_blank">Playit.gg</a>. This will open a browser window for account setup.</li>
+                        <li><strong>Account Setup:</strong> Sign in or create a Playit.gg account.</li>
+                        <li><strong>Add Agent & Tunnel:</strong> Click "Add Agent" and then select "Minecraft Java" as the Tunnel Type.</li>
+                        <li><strong>Configure Tunnel:</strong> Set Local IPV4 to <code>127.0.0.1</code> and Local Port to <code>25565</code>.</li>
+                        <li><strong>Share Public Address:</strong> Create the tunnel and copy the provided public address (e.g., <code>max-handled.craft.ply.gg</code>). Share this address with your friends so they can join your server directly!</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="management-commands">
+                <h2>Essential Server Management Commands</h2>
+                <ul>
+                    <li><strong>Granting Operator (OP) Status:</strong> In the server console (the black command window), type <code>op [player_name]</code> (e.g., <code>op EXPOSUREEE</code>) to give a player administrative privileges.</li>
+                    <li><strong>Stopping the Server:</strong> Always type <code>stop</code> in the server console to gracefully shut down the server, ensuring all player progress and world data are saved.</li>
+                </ul>
+            </section>
+
+            <section id="plugin-installation">
+                <h2>Installing Plugins for Enhanced Gameplay</h2>
+                <p>To extend your server's functionality with plugins (requires SpigotMC or PaperMC):</p>
+                <ol>
+                    <li><strong>Place Plugin Jar:</strong> Download your desired plugin's <code>.jar</code> file and place it directly into the <code>plugins</code> folder within your Minecraft server directory.</li>
+                    <li><strong>Restart Server:</strong> After placing the plugin, restart your server by running <code>Start Server.bat</code>. The server will automatically install and activate the plugin.</li>
+                </ol>
+            </section>
+
+            <section id="actionable-insights">
+                <h2>Unlock Your Custom Minecraft Experience</h2>
+                <p>By following this guide, you gain the power to host a fully custom, private Minecraft server without the burden of monthly hosting costs. This newfound freedom allows you to:</p>
+                <ul>
+                    <li><strong>Modify Game Mechanics:</strong> Implement unique gameplay through plugins using SpigotMC or PaperMC.</li>
+                    <li><strong>Personalize Your Server:</strong> Set custom messages, difficulty, game modes, and world properties.</li>
+                    <li><strong>Control Player Access:</strong> Easily manage who joins your server and grant administrative privileges.</li>
+                    <li><strong>Effortless Remote Access:</strong> Playit.gg simplifies inviting friends, eliminating the need for complex port forwarding.</li>
+                </ul>
+                <p>Empower yourself to create a truly tailored and community-focused Minecraft experience that's entirely yours.</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- Floating Theme Toggle (Currently visual, could expand to subtle contrast shifts) -->
+    <div class="theme-toggle" title="Toggle Contrast (Visual)">
+        🌓
+    </div>
+
+    <script>
+        // IIFE for scope isolation and immediate execution
+        (function() {
+            /**
+             * Premium Interactions & Animations
+             */
+
+            // 1. Animated Ambient Background Orbs
+            const backgroundOrbs = document.getElementById('background-orbs');
+            const numOrbs = 8; // Number of orbs to generate
+
+            for (let i = 0; i < numOrbs; i++) {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+                
+                // Randomize initial position, size, and animation delays
+                const size = Math.random() * 200 + 100; // 100px to 300px
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.left = `${Math.random() * 100}vw`;
+                orb.style.top = `${Math.random() * 100}vh`;
+                orb.style.animationDelay = `${Math.random() * -15}s`; // Stagger animations
+                orb.style.animationDuration = `${Math.random() * 10 + 15}s`; // 15s to 25s
+                orb.style.filter = `blur(${Math.random() * 50 + 30}px)`; // Vary blur
+                orb.style.opacity = `${Math.random() * 0.2 + 0.1}`; // Vary opacity
+
+                backgroundOrbs.appendChild(orb);
+            }
+
+            // 2. Tactile Hover Effects (3D Card Lifting & Border Transitions)
+            const interactiveCards = document.querySelectorAll('.card, .step-card, section');
+
+            interactiveCards.forEach(card => {
+                let currentTransform = ''; // Store current transform to combine with mouse-tilt
+
+                // Mouse movement effect for 3D tilt
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left; // x position within the element.
+                    const y = e.clientY - rect.top;  // y position within the element.
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = ((y - centerY) / centerY) * 10; // Max 10 degrees rotation
+                    const rotateY = ((x - centerX) / centerX) * -10; // Max 10 degrees rotation
+
+                    card.style.transform = `perspective(1000px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+                    card.classList.add('hovered'); // Add class for border/shadow transition
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = ''; // Reset transform
+                    card.classList.remove('hovered'); // Remove class
+                });
+            });
+
+
+            // 3. Floating Theme Toggle (for subtle contrast adjustment or future light mode)
+            const themeToggle = document.querySelector('.theme-toggle');
+            let isHighContrast = false; // Initial state
+
+            // This toggle is mostly visual in this dark-themed solution.
+            // For a full theme toggle, you'd switch a 'data-theme' attribute on <body>
+            // and have extensive CSS variables for light/dark modes.
+            // For "premium" feel with a single theme, it could subtly adjust contrast.
+            themeToggle.addEventListener('click', () => {
+                if (isHighContrast) {
+                    document.documentElement.style.setProperty('--color-slate-darkest', '#09172a');
+                    document.documentElement.style.setProperty('--color-text-light', '#e2e8f0');
+                    document.documentElement.style.setProperty('--glass-bg-opacity', '0.15');
+                    themeToggle.innerHTML = '🌓';
+                } else {
+                    document.documentElement.style.setProperty('--color-slate-darkest', '#010a11'); // Even darker
+                    document.documentElement.style.setProperty('--color-text-light', '#f0f5fa'); // Brighter text
+                    document.documentElement.style.setProperty('--glass-bg-opacity', '0.25'); // More opaque glass
+                    themeToggle.innerHTML = '☀️'; // Indicating higher contrast/brightness
+                }
+                isHighContrast = !isHighContrast;
+            });
+        })();
+    </script>
+</body>
+</html>
+```

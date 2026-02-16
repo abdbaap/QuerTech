@@ -1,0 +1,41 @@
+[
+  {
+    "blog_title": "Master Your Exams",
+    "link": "WinExams",
+    "description": "Transform exam fear into power! This guide helps students boost confidence, adopt a warrior mindset, and achieve their best scores. Learn to own your exams and embrace life's bigger picture.",
+    "tags": [
+      "Exam Stress",
+      "Student Motivation",
+      "Exam Confidence",
+      "Warrior Mindset",
+      "Study Success"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Exam Mindset Mastery",
+    "link": "Conquer",
+    "description": "Beat exam anxiety, boost confidence, and master your studies with Prashant Kirad's powerful strategy for success. Learn to embrace a warrior mindset and thrive in every challenge.",
+    "tags": [
+      "Exam Anxiety",
+      "Student Motivation",
+      "Confidence",
+      "Mindset",
+      "Success"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
+    "blog_title": "Achieve Anything: The Discipline & Consistency Method",
+    "link": "AchieveX",
+    "description": "This video illustrates the profound impact of implementing discipline and consistency into daily life. The speaker recounts his initial skepticism towards Andrew Tate's philosophy, detailing a subsequent one-year commitment that led to undeniable positive outcomes. This personal trial solidified his belief in the necessity of these foundational habits for achieving desired results.",
+    "tags": [
+      "Discipline",
+      "Consistency",
+      "Andrew Tate",
+      "Self-Improvement",
+      "Life Habits"
+    ],
+    "color": "bg-blue-900 shadow-blue-400"
+  }
+]
