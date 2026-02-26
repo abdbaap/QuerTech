@@ -1,89 +1,101 @@
 <?xml version="1" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/1">
   <url>
-    <loc>https://quertech.vercel.app/</loc>
+    <loc>https://quertech-articles.vercel.app/</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/wordoraaiavatarfree/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/wordoraaiavatarfree/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/wordoraaicodefree/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/wordoraaicodefree/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/wordoraaidatafree/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/wordoraaidatafree/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/wordoraaidesignfree/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/wordoraaidesignfree/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/wordoraaiimagefree/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/wordoraaiimagefree/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/wordoraaimodelfree/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/wordoraaimodelfree/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/wordoraaipptfree/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/wordoraaipptfree/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/wordoraaitextfree/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/wordoraaitextfree/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/wordoraaivideofree/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/wordoraaivideofree/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/wordorafreeai/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/wordorafreeai/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/Conquer/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/Conquer/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/OwnServer/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/OwnServer/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://quertech.vercel.app/WinExams/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/WinExams/index.html</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1</priority>
   </url>
 
 
+
+    <loc>https://quertech-articles.vercel.app/AceFEJob/index.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quertech-articles.vercel.app/CrackDev/index.html</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

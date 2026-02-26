@@ -1,1 +1,33 @@
-[]
+[
+  {
+    "blog_title": "Mastering Front-End Developer Interviews: Your 7-Stage Guide",
+    "link": "CrackDev",
+    "description": "Ace your front-end developer interviews! This comprehensive 7-stage guide covers resume, DSA, JS fundamentals, system design, UI/UX, and behavioral rounds to help you secure your first off-campus job.",
+    "tags": [
+      "Front-End Interviews",
+      "Developer Career",
+      "JavaScript",
+      "System Design",
+      "DSA",
+      "Hiring Trends",
+      "Job Search",
+      "Tech Interview Prep"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-500"
+  },
+  {
+    "blog_title": "Mastering Front-End Interviews: Product Company Guide",
+    "link": "AceFEJob",
+    "description": "Navigate the 7-stage front-end interview process for product companies and high-value startups. Learn to ace deep JavaScript, system design, and product thinking to secure top-tier developer roles.",
+    "tags": [
+      "Front-End Interview",
+      "FE Developer",
+      "Product Company",
+      "System Design",
+      "JavaScript Interview",
+      "Career Growth",
+      "Tech Interview Prep"
+    ],
+    "color": "bg-emerald-900 shadow-emerald-500"
+  }
+]

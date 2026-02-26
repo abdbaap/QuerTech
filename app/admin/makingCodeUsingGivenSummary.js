@@ -6,7 +6,7 @@ import { DecidingTitleFolder } from "./step4thinkingtitle";
 import fs from "fs/promises"
 import {addingBlogToSitemap} from "./step5addingBlogToHomepage"
 import path from "path";
-export async function GeneratingCode(url,category) {
+export async function GeneratingCodeUsingSummary(summary) {
   try {
     if(!url ||!category){
          return {  success: false,
@@ -15,24 +15,21 @@ export async function GeneratingCode(url,category) {
       // slug:FileName+
       }
     }
-    const summary = await MakingADeepSummaryOfTheVideo(url);
-
     // console.log('summary', summary)
 
-    if (summary.success && summary.summary.length > 1) {
       const metaTags = await MakingSeoFriendlyMetaTagsForBlog(summary?.summary);
 
       // console.log('metaTags.metaTags', metaTags.metaTags)
 
       if (metaTags.success && metaTags.metaTags.length > 1) {
-        const code = await GeneratingDeepCode(summary?.summary, metaTags?.metaTags);
+        const code = await GeneratingDeepCode(summary, metaTags?.metaTags);
 
 
 
 
 // console.log('code', code)
 
-        const titleFolder = await DecidingTitleFolder(summary?.summary);
+        const titleFolder = await DecidingTitleFolder(summary);
 
         // console.log('titleFolder', titleFolder)
 
@@ -72,14 +69,7 @@ export async function GeneratingCode(url,category) {
       }
       
     }
-    else{
-          return {  success: false,
-      message: `Code Generation Failed , error :::::   ${summary.E}`,
-      // code,
-      // slug:FileName+
-        }
-      }
-  } catch (e) {
+   catch (e) {
     return {
       success: false,
       message: `Code Generation Failed , error :::::   ${e}`,

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { GeneratingCode } from "./makingCode"; // Import our function from Step 2
-
+import { GeneratingCodeUsingSummary } from "./makingCodeUsingGivenSummary";
 export default function Home() {
   // State variables: like a "memory" for our component
   const [url, setUrl] = useState("");      // Stores what you type in the box
@@ -14,6 +14,7 @@ export default function Home() {
   }); // Stores the summary from the AI
   const [loading, setLoading] = useState(false); // True while the AI is thinking
 const [category, setCategory] = useState("")
+const [Points, setPoints] = useState("")
   async function handleButtonClick() {
     setLoading(true); // Show "Loading..." status
     
@@ -32,11 +33,15 @@ if(response.success){
     })
   }
   }
+  async function GenerateBlogUsingGivenSummary() {
+    const response=await GeneratingCodeUsingSummary(Points)
+    setResult(response)
+  }
 
   return (
     <div className="bg-white text-black w-screen py-16 flex flex-col justify-center items-center" style={{ padding: '40px', fontFamily: 'sans-serif' }}>
       <h1>YouTube AI Summarizer</h1>
-      
+      <div className="bg-purple-700 w-full text-white rounded-xl">
       {/* The Input Box */}
       <input 
         type="text" 
@@ -45,6 +50,18 @@ if(response.success){
         onChange={(e) => setUrl(e.target.value)} // Update 'url' as you type
         style={{ padding: '10px', width: '300px', marginRight: '10px', color: 'black' }}
       />
+      </div>
+      <div className="bg-blue-800 text-white rounded-xl">
+        <h1 className="text-3xl">Enter Points And Get The Blog</h1>
+         <input 
+        type="text" 
+        placeholder="Paste Your summary here..."
+        value={Points}
+        onChange={(e) => setPoints(e.target.value)} // Update 'url' as you type
+        style={{ padding: '10px', width: '300px', marginRight: '10px', color: 'black' }}
+      />
+      <button onClick={GenerateBlogUsingGivenSummary} className="bg-yellow-500 text-red-900 text-2xl font-bold rounded-xl">Get Using Summary</button>
+      </div>
 <div className="flex w-full p-16 gap-16 flex flx-col justify-center items-center">
 <button onClick={()=>setCategory("aiblogssection")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Ai Blog</button>
 <button onClick={()=>setCategory("courses")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Courses</button>
@@ -53,8 +70,7 @@ if(response.success){
 <button onClick={()=>setCategory("motivation")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Motivation</button>
 <button onClick={()=>setCategory("solution")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Solutions</button></div>
       {/* The Button */}
-      <iframe src={url ?url:"https://quertech.vercel.app" }  style={{ width: '100%', height: '500px', border: '1px solid #ccc' }} 
-      title="Generated Site"></iframe>
+    <video src={url}></video>
       <button 
         onClick={handleButtonClick}
         disabled={loading}

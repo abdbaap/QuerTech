@@ -1,0 +1,757 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- High-Conversion Metadata Suite for CMS Implementation -->
+    <!-- 1. Meta Title (Under 60 characters) -->
+    <title>Tired of Rejected Applications? Master Front-End Interviews!</title>
+
+    <!-- 2. Meta Description (Under 160 characters) -->
+    <meta name="description" content="Unlock your dream front-end dev job! Our 7-stage guide reveals modern hiring, deep JavaScript, system design, & resume secrets. Get hired fast with proven strategies.">
+
+    <!-- High-Volume, Long-Tail SEO Keywords & Trending Tags -->
+    <meta name="keywords" content="front-end developer interview guide, ace front-end interviews, front-end interview process, javascript interview questions, front-end system design interview, front-end resume tips, how to get front-end job, product company front-end interview, off-campus front-end job, technical interview preparation, front-end hiring trends, data structures algorithms front-end, behavioral interview tech, offer negotiation tech job, react developer interview, frontend roadmap job, killer front-end resume, expert front-end advice, frontend interview strategies, javascript fundamentals interview, ui ux interview questions, web developer interview, coding assessment front-end, tech job application secrets, modern front-end hiring, product thinking interview, dev interview success">
+
+    <!-- Open Graph / Social Media Meta Tags (Enhance shareability) -->
+    <meta property="og:title" content="Master Front-End Interviews & Land Your Dream Dev Job!">
+    <meta property="og:description" content="A comprehensive 7-stage guide to mastering modern front-end developer interviews, from resume to offer. Strategies, insights, and resources for success.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yourdomain.com/front-end-interview-guide"> <!-- IMPORTANT: Replace with the actual URL of your page -->
+    <meta property="og:image" content="https://yourdomain.com/og-image.jpg"> <!-- IMPORTANT: Replace with a relevant, high-quality image URL (1200x630px recommended) -->
+    <meta property="og:image:alt" content="Front-End Developer Interview Guide thumbnail">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yourtwitterhandle"> <!-- IMPORTANT: Replace with your Twitter handle -->
+    <meta name="twitter:creator" content="@yourtwitterhandle"> <!-- IMPORTANT: Replace with your Twitter handle -->
+    <meta name="twitter:title" content="Master Front-End Interviews & Land Your Dream Dev Job!">
+    <meta name="twitter:description" content="A comprehensive 7-stage guide to mastering modern front-end developer interviews, from resume to offer. Strategies, insights, and resources for success.">
+    <meta name="twitter:image" content="https://yourdomain.com/twitter-image.jpg"> <!-- IMPORTANT: Replace with a relevant image URL -->
+
+    <!-- Favicon (Emoji for simplicity, replace with custom SVG/PNG) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🚀%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+
+    <!-- Google Fonts for 'Inter' - Used as a robust web fallback for 'SF Pro Display' -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Inline CSS for a self-contained, high-performance solution -->
+    <style>
+        /* CSS Variables for theme management, responsiveness, and easy updates */
+        :root {
+            /* Core Color Palette */
+            --color-indigo: #6366f1; /* Primary accent 1 */
+            --color-pink: #ec4899;   /* Primary accent 2 (toggle option) */
+            --color-slate-dark: #09172a; /* Deep background */
+            --color-slate-medium: #1a2b42; /* Slightly lighter for elements like toggle button */
+            --color-slate-light: #2c405a; /* Base for glassmorphic elements */
+            --color-text-primary: #e0e7ff; /* High-contrast text */
+            --color-text-secondary: #a0a6bd; /* Subtler descriptive text */
+
+            /* RGB versions for use in rgba() functions (to correctly apply opacity) */
+            --color-indigo-rgb: 99, 102, 241;
+            --color-pink-rgb: 236, 72, 153;
+            --color-slate-light-rgb: 44, 64, 90;
+            --color-text-primary-rgb: 224, 231, 255; /* Used for glass border highlight */
+
+            /* Gradient for header text */
+            --color-text-gradient-start: var(--color-indigo);
+            --color-text-gradient-end: var(--color-pink);
+
+            /* Glassmorphism Properties */
+            --glass-bg-opacity: 0.15; /* Background transparency */
+            --glass-border-opacity: 0.3; /* Border transparency */
+            --glass-blur: 10px; /* Blur intensity */
+            --glass-shadow-color: rgba(0, 0, 0, 0.37); /* Shadow for depth */
+
+            /* Typography Stack */
+            --font-sans: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            --font-size-base: 1.125rem; /* Base font size (18px) */
+            --line-height-base: 1.7;
+
+            /* Spacing Units */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+
+            /* Border Radii */
+            --border-radius-sm: 8px;
+            --border-radius-md: 15px;
+            --border-radius-lg: 25px;
+
+            /* Transitions for smooth animations */
+            --transition-speed: 0.3s;
+            --transition-timing: ease-in-out;
+
+            /* Dynamic accent color, defaults to indigo */
+            --current-accent-color: var(--color-indigo);
+            --current-accent-color-rgb: var(--color-indigo-rgb);
+        }
+
+        /* Accent color toggle: Switches to pink when body has 'accent-pink' class */
+        body.accent-pink {
+            --current-accent-color: var(--color-pink);
+            --current-accent-color-rgb: var(--color-pink-rgb);
+            /* Adjust gradient if needed for theme */
+            --color-text-gradient-start: var(--color-pink);
+            --color-text-gradient-end: var(--color-indigo);
+        }
+
+        /* Base Reset & Box Sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Smooth scroll behavior for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Main Body Styles */
+        body {
+            font-family: var(--font-sans);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-base);
+            color: var(--color-text-primary);
+            background-color: var(--color-slate-dark);
+            min-height: 100vh;
+            display: flex; /* Use flex to push footer to bottom */
+            flex-direction: column;
+            position: relative;
+            overflow-x: hidden; /* Prevent horizontal scroll from animating orbs */
+        }
+
+        /* Custom Scrollbar Styling (subtle for premium feel) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-slate-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-slate-medium);
+            border-radius: 10px;
+            border: 2px solid var(--color-slate-dark);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--current-accent-color);
+        }
+
+        /* Global Typography & Hierarchy */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-text-primary);
+        }
+
+        h1 {
+            /* Fluid scaling for main title */
+            font-size: clamp(2.5rem, 6vw + 1rem, 4.5rem);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+            /* Gradient-masked header effect */
+            background: linear-gradient(45deg, var(--color-text-gradient-start), var(--color-text-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text; /* Standard property for cross-browser compatibility */
+            text-fill-color: transparent; /* Standard property for cross-browser compatibility */
+        }
+
+        h2 {
+            /* Fluid scaling for section titles */
+            font-size: clamp(1.8rem, 4vw + 0.5rem, 3rem);
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+            border-bottom: 2px solid rgba(var(--current-accent-color-rgb), 0.3); /* Subtle accent underline */
+            padding-bottom: var(--spacing-sm);
+            text-align: center;
+        }
+
+        h3 {
+            /* Fluid scaling for card/article titles */
+            font-size: clamp(1.4rem, 3vw + 0.2rem, 2.2rem);
+            margin-top: var(--spacing-lg);
+            color: var(--current-accent-color); /* Accent color for emphasis */
+            text-align: center; /* Center on mobile */
+        }
+        @media (min-width: 768px) {
+            h3 { text-align: left; } /* Align left on larger screens */
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-text-secondary); /* Subtler color for body text */
+        }
+
+        strong {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        ul, ol {
+            margin-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text-secondary);
+        }
+
+        ul li, ol li {
+            margin-bottom: var(--spacing-xs);
+        }
+        /* List marker accent color */
+        ul li::marker, ol li::marker {
+            color: var(--current-accent-color);
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: var(--spacing-xl) auto;
+            padding: 0 var(--spacing-md);
+            position: relative;
+            z-index: 1; /* Ensure content stacks above background orbs */
+        }
+
+        /* Glassmorphic Card Base Style */
+        .glass-card {
+            background: rgba(var(--color-slate-light-rgb), var(--glass-bg-opacity));
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid rgba(var(--color-text-primary-rgb), var(--glass-border-opacity));
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 8px 32px 0 var(--glass-shadow-color);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            transition: all var(--transition-speed) var(--transition-timing);
+            position: relative; /* For z-index and pseudo-elements */
+            overflow: hidden; /* Ensures content stays within rounded borders */
+        }
+
+        /* Tactile Hover Effects (3D card lifting & border color transitions) */
+        .glass-card:hover {
+            transform: translateY(-8px) scale(1.01) perspective(1000px) rotateX(1deg); /* Subtle 3D lift */
+            box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.45), 0 0 20px rgba(var(--current-accent-color-rgb), 0.5); /* Enhanced shadow with accent glow */
+            border-color: rgba(var(--current-accent-color-rgb), 0.6); /* Accent border on hover */
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            text-align: center;
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        /* Grid Layout for Cards */
+        .interview-stages,
+        .company-emphasis,
+        .actionable-insights {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        /* Responsive Grid Adjustments for larger screens */
+        @media (min-width: 768px) {
+            .interview-stages {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-fitting columns */
+            }
+            .company-emphasis {
+                grid-template-columns: repeat(3, 1fr); /* Three columns */
+            }
+        }
+
+        /* Individual Card Styling (similar to glass-card but for specific content) */
+        .interview-stage-card,
+        .company-type-card,
+        .insight-card {
+            background: rgba(var(--color-slate-light-rgb), var(--glass-bg-opacity));
+            backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid rgba(var(--color-text-primary-rgb), var(--glass-border-opacity));
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            padding: var(--spacing-lg);
+            transition: all var(--transition-speed) var(--transition-timing);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid var(--current-accent-color); /* Emphasize with accent bar */
+        }
+
+        /* Hover effects for individual cards */
+        .interview-stage-card:hover,
+        .company-type-card:hover,
+        .insight-card:hover {
+            transform: translateY(-5px); /* Lift effect */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(var(--current-accent-color-rgb), 0.3); /* Enhanced glow */
+            border-color: rgba(var(--current-accent-color-rgb), 0.6);
+        }
+
+        /* CSS-Generated Geometric Patterns (Top-Right "Badge") */
+        .interview-stage-card::before,
+        .company-type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--current-accent-color) 0%, transparent 50%);
+            opacity: 0.1;
+            clip-path: polygon(0 0, 100% 0, 100% 100%); /* Triangle shape */
+            transition: opacity var(--transition-speed) var(--transition-timing);
+            pointer-events: none; /* Ensure it doesn't interfere with clicks */
+        }
+        .interview-stage-card:hover::before,
+        .company-type-card:hover::before {
+            opacity: 0.2;
+        }
+
+        /* Rank Badge / Stage Number */
+        .stage-number {
+            position: absolute;
+            top: var(--spacing-sm);
+            left: var(--spacing-sm);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: rgba(var(--current-accent-color-rgb), 0.3); /* Semi-transparent accent color */
+            line-height: 1;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: var(--spacing-xl);
+            right: var(--spacing-xl);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-slate-medium);
+            border: 2px solid var(--current-accent-color); /* Accent border */
+            color: var(--current-accent-color); /* Accent icon color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(var(--current-accent-color-rgb), 0.7); /* Subtle glow */
+            transition: background var(--transition-speed) var(--transition-timing), border-color var(--transition-speed) var(--transition-timing), color var(--transition-speed) var(--transition-timing), box-shadow var(--transition-speed) var(--transition-timing), transform 0.1s linear;
+            z-index: 100; /* Ensure it's always on top */
+        }
+
+        .theme-toggle:hover {
+            background: var(--current-accent-color);
+            color: var(--color-text-primary);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(var(--current-accent-color-rgb), 0.9);
+            transform: scale(1.05); /* Slight scale on hover */
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-md);
+            margin-top: auto; /* Pushes footer to the bottom of the page */
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Ambient Background Orbs */
+        .orb-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none; /* Ensures orbs don't block interaction */
+            z-index: 0; /* Ensures orbs are behind content */
+            filter: blur(5px); /* Soften the orbs for an ambient look */
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--current-accent-color) 0%, transparent 70%); /* Fading glow */
+            opacity: 0.1;
+            animation: moveOrb 20s infinite alternate; /* Basic animation, JS adjusts duration/delay */
+        }
+
+        /* Keyframe animation for orbs (simple diagonal movement) */
+        @keyframes moveOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(calc(100vw - 100%), calc(50vh - 50%)) scale(1.1); }
+            100% { transform: translate(calc(0vw - 100%), calc(100vh - 100%)) scale(0.9); }
+        }
+
+        /* Specific list/paragraph styling within cards for compactness */
+        .interview-stage-card ul, .interview-stage-card ol,
+        .company-type-card ul, .company-type-card ol,
+        .insight-card ul, .insight-card ol {
+            margin-left: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.95rem; /* Slightly smaller text for lists */
+        }
+        .interview-stage-card p, .company-type-card p, .insight-card p {
+            font-size: 1rem;
+        }
+
+        /* Responsive adjustments for theme toggle button */
+        @media (max-width: 768px) {
+            .theme-toggle {
+                bottom: var(--spacing-md);
+                right: var(--spacing-md);
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Entry Animation for cards on scroll (triggered by JS) */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s var(--transition-timing), transform 0.6s var(--transition-timing);
+        }
+
+        .fade-in-on-scroll.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for ambient background orbs. JavaScript will populate this. -->
+    <div class="orb-container"></div>
+
+    <!-- Main content wrapper to center and apply max-width -->
+    <div class="container">
+        <!-- Header section with hero title and executive summary -->
+        <header class="hero glass-card fade-in-on-scroll">
+            <h1>Master Front-End Interviews!</h1>
+            <p><strong>Executive Summary:</strong> This video outlines a seven-stage front-end developer interview process, from resume review to offer negotiation, highlighting current hiring trends and specific technical and behavioral expectations. It emphasizes a shift towards evaluating product thinking, architectural design, and deep JavaScript understanding over rote knowledge, providing actionable strategies and resources to secure a first off-campus job.</p>
+        </header>
+
+        <main>
+            <section class="significant-arguments">
+                <h2>Significant Arguments, Facts, and Steps</h2>
+
+                <article class="glass-card fade-in-on-scroll">
+                    <h3>Evolving Hiring Landscape</h3>
+                    <p>Companies are moving away from traditional mass hiring and reliance on LinkedIn referrals due to skills gaps and a demand for more nuanced candidate evaluation.</p>
+                </article>
+
+                <h2 id="interview-flow">The Seven-Stage Front-End Interview Flow</h2>
+                <div class="interview-stages">
+                    <!-- Stage 1: Resume / Application Review -->
+                    <article class="interview-stage-card fade-in-on-scroll">
+                        <span class="stage-number">1</span>
+                        <h3>Resume / Application Review</h3>
+                        <p><strong>Purpose:</strong> A technical filter designed to screen out non-serious candidates.</p>
+                        <h4>Companies look for:</h4>
+                        <ul>
+                            <li>Clear, purposeful mention of tech stack.</li>
+                            <li>Quantified impact metrics (e.g., performance, users, speed, scale).</li>
+                            <li>Architectural decisions made.</li>
+                            <li>Demonstration of ownership (not just tutorial projects).</li>
+                        </ul>
+                        <h4>Rejection Factors:</h4>
+                        <ul>
+                            <li>Generic statements like "Built a React app."</li>
+                            <li>Lack of state management explanation.</li>
+                            <li>Absence of real-world complexity.</li>
+                        </ul>
+                        <h4>Tools & Strategy:</h4>
+                        <ul>
+                            <li>Utilize LaTeX editors like Overleaf for ATS-friendly resumes.</li>
+                            <li>Prioritize quantifiable achievements in projects and experience, followed by relevant education and skills.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Stage 2: Online Coding Assessment (DSA Round) -->
+                    <article class="interview-stage-card fade-in-on-scroll">
+                        <span class="stage-number">2</span>
+                        <h3>Online Coding Assessment (DSA Round)</h3>
+                        <h4>Platforms:</h4>
+                        <ul>
+                            <li>HackerRank, Codility, LeetCode, CodeSignal.</li>
+                        </ul>
+                        <h4>Tests for:</h4>
+                        <ul>
+                            <li>JavaScript fundamentals, logical problem-solving.</li>
+                            <li>Array/string manipulation, asynchronous behavior understanding.</li>
+                            <li>Time complexity basics.</li>
+                        </ul>
+                        <h4>Preparation:</h4>
+                        <ul>
+                            <li>Solve at least 100 LeetCode problems (50 easy, 30-35 medium, rest hard).</li>
+                            <li>Focus on improving problem-solving abilities.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Stage 3: Technical Interview - JavaScript & Fundamentals -->
+                    <article class="interview-stage-card fade-in-on-scroll">
+                        <span class="stage-number">3</span>
+                        <h3>Technical Interview - JavaScript & Fundamentals</h3>
+                        <p><strong>Nature:</strong> The deepest JavaScript round, commonly seen at companies like Uber, Stripe, and Google.</p>
+                        <h4>Topics Probed:</h4>
+                        <ul>
+                            <li>Closures and scope, hoisting, event loop (microtask vs. macrotask).</li>
+                            <li>Prototypes and inheritance, the <code>this</code> keyword behavior.</li>
+                            <li>Array methods (map, filter, reduce), and writing utilities from scratch.</li>
+                        </ul>
+                        <h4>Evaluation Focus:</h4>
+                        <ul>
+                            <li>Understanding the <em>mental model</em> of JavaScript and its internal workings, not just memorizing definitions.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Stage 4: Technical Interview - Front-End System Design -->
+                    <article class="interview-stage-card fade-in-on-scroll">
+                        <span class="stage-number">4</span>
+                        <h3>Technical Interview - Front-End System Design</h3>
+                        <h4>Common at:</h4>
+                        <ul>
+                            <li>Meta, Airbnb, Uber.</li>
+                        </ul>
+                        <h4>Focus:</h4>
+                        <ul>
+                            <li>Component and state architecture (distinct from backend system design).</li>
+                        </ul>
+                        <h4>Evaluation:</h4>
+                        <ul>
+                            <li>Assesses a candidate's ability to break down UI into components, folder structure thinking.</li>
+                            <li>State management choices (Redux, Context, local state), API caching strategies.</li>
+                            <li>Performance optimization (lazy loading, memoization, code splitting), and component reusability.</li>
+                            <li>Candidates are expected to think like an architect.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Stage 5: Technical Interview - UI/UX & Product Thinking -->
+                    <article class="interview-stage-card fade-in-on-scroll">
+                        <span class="stage-number">5</span>
+                        <h3>Technical Interview - UI/UX & Product Thinking</h3>
+                        <h4>Common in product-focused companies like:</h4>
+                        <ul>
+                            <li>Amazon and Netflix.</li>
+                        </ul>
+                        <h4>Evaluation:</h4>
+                        <ul>
+                            <li>Accessibility understanding (A11y principles), responsive layout decisions.</li>
+                            <li>Handling various UI states (error, loading, empty), visual hierarchy.</li>
+                            <li>Rationale behind element placement. Emphasizes a "user-focused engineer" mindset.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Stage 6: Behavioral / Culture Fit -->
+                    <article class="interview-stage-card fade-in-on-scroll">
+                        <span class="stage-number">6</span>
+                        <h3>Behavioral / Culture Fit</h3>
+                        <h4>Importance:</h4>
+                        <ul>
+                            <li>Crucial for big tech and startups, which seek "perfect candidates" ready for immediate core responsibilities.</li>
+                        </ul>
+                        <h4>Evaluation:</h4>
+                        <ul>
+                            <li>Communication clarity, conflict handling, ownership stories.</li>
+                            <li>Problem-solving in teams, and managing production issues.</li>
+                            <li>Candidates must explain technical experiences as structured stories.</li>
+                        </ul>
+                    </article>
+
+                    <!-- Stage 7: HR / Offer Round -->
+                    <article class="interview-stage-card fade-in-on-scroll">
+                        <span class="stage-number">7</span>
+                        <h3>HR / Offer Round</h3>
+                        <h4>Topics:</h4>
+                        <ul>
+                            <li>Salary discussion, role expectations, joining timeline, and negotiation.</li>
+                        </ul>
+                        <h4>Key:</h4>
+                        <ul>
+                            <li>Confidence and clear communication are vital.</li>
+                            <li>Companies often have negotiation flexibility, especially for referred candidates.</li>
+                        </ul>
+                    </article>
+                </div> <!-- /interview-stages -->
+
+                <h2 id="company-emphasis">Company-Specific Stage Emphasis</h2>
+                <div class="company-emphasis">
+                    <!-- Company Type: Product Companies -->
+                    <article class="company-type-card fade-in-on-scroll">
+                        <h3>Product Companies</h3>
+                        <p>(Uber, Meta, Stripe, Airbnb)</p>
+                        <ul>
+                            <li>Prioritize deep JavaScript knowledge.</li>
+                            <li>Strong system design capabilities.</li>
+                            <li>Product and UX thinking, and a clean architectural mindset.</li>
+                        </ul>
+                    </article>
+                    <!-- Company Type: Startups -->
+                    <article class="company-type-card fade-in-on-scroll">
+                        <h3>Startups</h3>
+                        <ul>
+                            <li>Focus on practical feature building, real project discussions.</li>
+                            <li>Speed of development, and clean, readable code.</li>
+                            <li>Many offer equity as part of compensation.</li>
+                        </ul>
+                    </article>
+                    <!-- Company Type: Service Companies -->
+                    <article class="company-type-card fade-in-on-scroll">
+                        <h3>Service Companies</h3>
+                        <ul>
+                            <li>Emphasize strong JavaScript fundamentals.</li>
+                            <li>Data Structures & Algorithms (DSA) style questions.</li>
+                            <li>Effective communication.</li>
+                        </ul>
+                    </article>
+                </div> <!-- /company-emphasis -->
+
+                <h2 id="scoring-preparation">Secret Interviewer Scoring & Preparation</h2>
+                <div class="secret-scoring glass-card fade-in-on-scroll">
+                    <p>Across all rounds, interviewers secretly score for the ability to:</p>
+                    <ul>
+                        <li>Think in components.</li>
+                        <li>Manage state logically.</li>
+                        <li>Reason about performance.</li>
+                        <li>Debug mentally.</li>
+                        <li>Explain code clearly.</li>
+                    </ul>
+                    <p>The focus is on the <em>thinking process</em> rather than just correct answers.</p>
+                    <h4>Recommended Platforms:</h4>
+                    <ul>
+                        <li><strong>GreatFrontEnd:</strong> Real interview questions, detailed guides.</li>
+                        <li><strong>FrontendExpert:</strong> Practical exercises.</li>
+                        <li><strong>Interviewing.io:</strong> Live mock interviews.</li>
+                        <li><strong>LeetCode/CodeSignal:</strong> Coding assessment practice.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="actionable-insights">
+                <h2 id="actionable-insights-section">Actionable Insights</h2>
+                <div class="interview-stages"> <!-- Re-using grid layout for cards -->
+                    <article class="insight-card fade-in-on-scroll">
+                        <h3>Strategic & Quantifiable Resume</h3>
+                        <p>Develop a resume that transcends basic descriptions, featuring quantifiable achievements, clear architectural decisions, and a demonstration of project ownership to pass initial technical filters.</p>
+                    </article>
+                    <article class="insight-card fade-in-on-scroll">
+                        <h3>Deep Foundational Knowledge</h3>
+                        <p>Invest in a profound understanding of JavaScript's internal mechanisms, DSA, and front-end system design principles, as these are core requirements across all company types, especially product-focused organizations.</p>
+                    </article>
+                    <article class="insight-card fade-in-on-scroll">
+                        <h3>Cultivate Product & User-Centric Thinking</h3>
+                        <p>Practice designing and discussing UI/UX solutions with a strong emphasis on accessibility, responsiveness, and practical problem-solving, showcasing a mindset aligned with delivering user-focused products.</p>
+                    </article>
+                    <article class="insight-card fade-in-on-scroll">
+                        <h3>Enhance Soft Skills</h3>
+                        <p>Actively develop communication, conflict resolution, and teamwork abilities. Frame technical experiences as structured narratives that highlight ownership and problem-solving to excel in behavioral rounds.</p>
+                    </article>
+                    <article class="insight-card fade-in-on-scroll">
+                        <h3>Targeted Job Search & Negotiation</h3>
+                        <p>Research companies thoroughly (using platforms like Wellfound for startups) to understand their core business and values. In the offer stage, negotiate confidently, asserting your value based on your demonstrated skills and understanding of the role.</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Floating Theme Toggle Button: Changes accent color between indigo and pink -->
+    <button class="theme-toggle" aria-label="Toggle Accent Color">🎨</button>
+
+    <!-- Footer for copyright and attribution -->
+    <footer>
+        <p>&copy; 2023 Front-End Interview Guide. All rights reserved.</p>
+        <p>Crafted with expertise and passion for empowering developers.</p>
+    </footer>
+
+    <!-- Inline JavaScript for interactivity and dynamic elements -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Ambient Background Orbs Generation & Animation ---
+            const orbContainer = document.querySelector('.orb-container');
+            const numberOfOrbs = 12; // Number of animated orbs to create
+
+            function createOrb() {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                // Random size for variety (between 80px and 200px)
+                const size = Math.random() * 120 + 80;
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+
+                // Random initial position within the viewport
+                const startX = Math.random() * window.innerWidth;
+                const startY = Math.random() * window.innerHeight;
+                orb.style.left = `${startX}px`;
+                orb.style.top = `${startY}px`;
+
+                // Random animation duration for less uniformity (15s to 35s)
+                const duration = Math.random() * 20 + 15;
+                orb.style.animationDuration = `${duration}s`;
+
+                // Random animation delay to start at different points in their cycle
+                const delay = Math.random() * -duration / 2; // Negative delay starts animation mid-way
+                orb.style.animationDelay = `${delay}s`;
+
+                orbContainer.appendChild(orb);
+            }
+
+            // Generate orbs on page load
+            for (let i = 0; i < numberOfOrbs; i++) {
+                createOrb();
+            }
+
+            // --- Floating Theme Toggle Interactivity ---
+            const themeToggle = document.querySelector('.theme-toggle');
+            const body = document.body;
+
+            themeToggle.addEventListener('click', () => {
+                // Toggle the 'accent-pink' class on the body to switch accent colors via CSS variables
+                body.classList.toggle('accent-pink');
+
+                // Optional: Add a brief visual feedback on click
+                themeToggle.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    themeToggle.style.transform = 'scale(1)';
+                }, 100);
+            });
+
+            // --- Intersection Observer for Scroll-Based Card Animations (Premium Touch) ---
+            // Select all elements that should animate into view
+            const animatedCards = document.querySelectorAll('.fade-in-on-scroll');
+
+            const observerOptions = {
+                root: null, // The viewport is the root
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the item is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add 'fade-in' class to trigger the CSS animation
+                        entry.target.classList.add('fade-in');
+                        // Stop observing the element once it has animated
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe each card
+            animatedCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
+```

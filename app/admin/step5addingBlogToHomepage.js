@@ -7,7 +7,7 @@ export async function addingBlogToSitemap(domain) {
 
     const date = new Date().toISOString().split('T')[0];
     const newSitemapEntry = `  <url>
-    <loc>https://quertech.vercel.app${domain}</loc>
+    <loc>https://quertech.vercel.app/${domain}</loc>
     <lastmod>${date}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
