@@ -34,7 +34,7 @@ if(response.success){
   }
   }
   async function GenerateBlogUsingGivenSummary() {
-    const response=await GeneratingCodeUsingSummary(Points)
+    const response=await GeneratingCodeUsingSummary(Points,category)
     setResult(response)
   }
 
@@ -62,13 +62,13 @@ if(response.success){
       />
       <button onClick={GenerateBlogUsingGivenSummary} className="bg-yellow-500 text-red-900 text-2xl font-bold rounded-xl">Get Using Summary</button>
       </div>
-<div className="flex w-full p-16 gap-16 flex flx-col justify-center items-center">
+      {category.length<=0 && <div className="flex w-full p-16 gap-16 flex flx-col justify-center items-center">
 <button onClick={()=>setCategory("aiblogssection")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Ai Blog</button>
 <button onClick={()=>setCategory("courses")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Courses</button>
 <button onClick={()=>setCategory("gaming")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">gaming</button>
 <button onClick={()=>setCategory("lifelessons")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">lifeLessns</button>
 <button onClick={()=>setCategory("motivation")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Motivation</button>
-<button onClick={()=>setCategory("solution")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Solutions</button></div>
+<button onClick={()=>setCategory("solution")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Solutions</button></div>}
       {/* The Button */}
     <video src={url}></video>
       <button 

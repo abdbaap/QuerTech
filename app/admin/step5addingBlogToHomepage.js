@@ -15,4 +15,5 @@ export async function addingBlogToSitemap(domain) {
 </urlset>`;
 sitemapContent = sitemapContent.replace("</urlset>", newSitemapEntry);
 await fs.writeFile(sitemapUrl,sitemapContent,"utf-8")
+console.log('blog added to sitemap')
 }

@@ -1,5 +1,36 @@
 [
   {
+    "blog_title": "Node JS Full Course 2025 | Microservices, Redis, CI CD, Docker, VPS Hosting | Hostinger | Part 2",
+    "link": "/MicroPro",
+    "description": "This course details the transition from monolithic Node.js development to a scalable microservices architecture using an event-driven design pattern. By integrating Redis for high-performance caching and RabbitMQ for service decoupling, the system achieves efficient communication and data consistency across independent Identity, Post, Media, and Search services.",
+    "tags": [
+      "Node.js Microservices",
+      "Event-Driven",
+      "Redis",
+      "RabbitMQ",
+      "Docker",
+      "CI/CD",
+      "API Gateway",
+      "Scalable Architecture"
+    ],
+    "color": "bg-violet-700 shadow-violet-400"
+  },
+  {
+    "blog_title": "Chrome Zero-Day Alert",
+    "link": "ChromeHack",
+    "description": "Urgent Chrome alert! A critical 'use-after-free' zero-day (CVE-2026-2441) was actively exploited, allowing remote code execution. Discover how to protect your browser & system NOW. Update immediately!",
+    "tags": [
+      "Chrome",
+      "Security",
+      "Zero-Day",
+      "Exploit",
+      "Update",
+      "Vulnerability",
+      "UAF"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-500"
+  },
+  {
     "blog_title": "Mastering Front-End Developer Interviews: Your 7-Stage Guide",
     "link": "CrackDev",
     "description": "Ace your front-end developer interviews! This comprehensive 7-stage guide covers resume, DSA, JS fundamentals, system design, UI/UX, and behavioral rounds to help you secure your first off-campus job.",

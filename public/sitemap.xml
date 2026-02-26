@@ -98,4 +98,16 @@
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
+<url>
+    <loc>https://quertech.vercel.app/ChromeHack/index.html</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech.vercel.app//MicroPro/index.html</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
 </urlset>

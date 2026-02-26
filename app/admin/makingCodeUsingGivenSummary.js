@@ -6,9 +6,9 @@ import { DecidingTitleFolder } from "./step4thinkingtitle";
 import fs from "fs/promises"
 import {addingBlogToSitemap} from "./step5addingBlogToHomepage"
 import path from "path";
-export async function GeneratingCodeUsingSummary(summary) {
+export async function GeneratingCodeUsingSummary(summary,category) {
   try {
-    if(!url ||!category){
+    if(!category){
          return {  success: false,
       message: `no url or category given`,
       // code,
@@ -17,7 +17,7 @@ export async function GeneratingCodeUsingSummary(summary) {
     }
     // console.log('summary', summary)
 
-      const metaTags = await MakingSeoFriendlyMetaTagsForBlog(summary?.summary);
+      const metaTags = await MakingSeoFriendlyMetaTagsForBlog(summary);
 
       // console.log('metaTags.metaTags', metaTags.metaTags)
 
@@ -62,7 +62,7 @@ export async function GeneratingCodeUsingSummary(summary) {
       }
       else{
         return {  success: false,
-      message: `Code Generation Failed , error :::::   ${metaTags.E}`,
+      message: `Meta Tags Generation Failed Generation Failed , error :::::   ${metaTags.e}`,
       // code,
       // slug:FileName+
       }

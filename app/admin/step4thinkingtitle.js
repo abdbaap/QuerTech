@@ -16,6 +16,7 @@ export async function DecidingTitleFolder(points) {
   } take this for example and the title u generated should be in place of link  and there should be random dark color of tailwind css in place of color with the shadow color s that it can create a neon effect ${points}`
     const content=await model.generateContent(prompt)
     const TitleForNewBlog=await content.response.text()
+    console.log('title generation succedssfull')
     try{
  const jsonObject=JSON.parse(TitleForNewBlog)
     return { success: true, data: jsonObject };

@@ -18,5 +18,6 @@ export async function GeneratingDeepCode(summary,metaTags) {
     const result= await modelForGeneratingCode.generateContent(prompt)
     const code =await result.response.text()
     const fixedCode=await code.split("<!DOCTYPE html>")[1]
+    console.log('Code Generation Successfull')
     return fixedCode
 }
