@@ -6,11 +6,11 @@ export async function addingBlogToSitemap(domain) {
     let sitemapContent=await fs.readFile(sitemapUrl,"utf-8")
 
     const date = new Date().toISOString().split('T')[0];
-    const newSitemapEntry = `  <url>
+    const newSitemapEntry = `<url>
     <loc>https://quertech.vercel.app/${domain}</loc>
     <lastmod>${date}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>1</priority>
   </url>
 </urlset>`;
 sitemapContent = sitemapContent.replace("</urlset>", newSitemapEntry);
