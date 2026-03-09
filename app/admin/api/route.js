@@ -6,7 +6,7 @@ export async function POST(req) {
         method:"POST",
         headers:{"Content-Type":"application/json ; charset=utf-8"},
         body:JSON.stringify({
-            host:"https://quertech-articles.vercel.app",
+            host:"quertech-articles.vercel.app",
             key:process.env.INDEXNOWKEY,
             keyLocation:`https://quertech-articles.vercel.app/${process.env.INDEXNOWKEY}`,
             urlList:urlList
