@@ -1,97 +1,188 @@
 "use client"; // This tells Next.js: "This part is interactive (buttons, typing)"
 
 import { useState } from "react";
-import { GeneratingCode } from "./makingCode"; // Import our function from Step 2
+import { GeneratingFies } from "./6GeneratingFiles"; // Import our function from Step 2
 import { GeneratingCodeUsingSummary } from "./makingCodeUsingGivenSummary";
+
+import { MakingADeepSummaryOfTheVideo } from "./1makingPoints";
+import { MakingSeoFriendlyMetaTagsForBlog } from "./2makingMetaTags";
+import { GeneratingDeepCode } from "./3generatingcode";
+import { DecidingTitleFolder } from "./4thinkingtitle";
+
+import ListOFAllBlogs from "../blogData/listofallblogs"
 export default function Home() {
   // State variables: like a "memory" for our component
-  const [url, setUrl] = useState("");      // Stores what you type in the box
+  const [url, setUrl] = useState(""); // Stores what you type in the box
   const [result, setResult] = useState({
-    success:false,
-    message:"",
-    code:"",
-    slug:","
+    success: false,
+    message: "",
+    code: "",
+    slug: ",",
   }); // Stores the summary from the AI
   const [loading, setLoading] = useState(false); // True while the AI is thinking
-const [category, setCategory] = useState("")
-const [Points, setPoints] = useState("")
-  async function handleButtonClick() {
-    setLoading(true); // Show "Loading..." status
+  const [category, setCategory] = useState("");
+  const [Points, setPoints] = useState("");
+  const [Message, setMessage] = useState("");
+const [urlList, seturlList] = useState([])
+  //
+
+  async function GenerateCodeUsingYoutubeVideo() {
+    const summary = await MakingADeepSummaryOfTheVideo(url);
+
+    setMessage(summary.message);
+    if (summary.success) {
+      const MetaTags = await MakingSeoFriendlyMetaTagsForBlog(summary?.summary);
+
+      setMessage(MetaTags.message);
+      if (MetaTags.success) {
+        const code = await GeneratingDeepCode(
+          summary?.summary,
+          MetaTags?.metaTags,
+        );
+        setMessage(code.message);
+          if (code.success) {
+          setResult({
+            success: false,
+            message: "Only Code Generation Was SUccessFull",
+            code: code?.fixedCode,
+            slug: ",",
+          });
+
+          const TitleFolder = await DecidingTitleFolder(summary?.summary);
+          setMessage(TitleFolder.success);
+             if (TitleFolder.success) {
+            const output = await GeneratingFies(TitleFolder,code?.fixedCode,category);
+            setMessage(output.message);
+          
+            const cleanSlug =await TitleFolder.data.link.replace(/^\/+/, "");
+          setResult({
+            code:code?.fixedCode,
+            message:output.message,
+            slug:`https://quertech-articles.vercel.app/${cleanSlug}/index.html`,
+            success:true
+          })
+              if(output.success){
+                const isUrlInList=await urlList.find(result.slug)
+                 if(!isUrlInList){
+                seturlList([...urlList,`https://quertech-articles.vercel.app/${cleanSlug}/index.html`])
+                 }
+              }
+        }
+      }
+    }
+  }
+  
+  }
+  //
+  async function GenerateBlogUsingGivenSummary() {}
+ async function AddingFOrIndexing() {
+    // We call OUR server route, which doesn't have CORS issues
+    const response = await fetch("/admin/api", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ urlList: urlList })
+    });
     
-    // Call the server function we wrote in Step 2
-    const response = await GeneratingCode(url,category);
- 
-if(response.success){
-  
-
-  setResult(response); // Save the summary to show on screen
-  setLoading(false)
-  }
-  else{
-    setResult({
-      message:`${response.message}`
-    })
-  }
-  }
-  async function GenerateBlogUsingGivenSummary() {
-    const response=await GeneratingCodeUsingSummary(Points,category)
-    setResult(response)
-  }
-
+    let fixedResponse= await response.json();
+    setMessage(fixedResponse.message)
+}
+  //
   return (
-    <div className="bg-white text-black w-screen py-16 flex flex-col justify-center items-center" style={{ padding: '40px', fontFamily: 'sans-serif' }}>
-      <h1>YouTube AI Summarizer</h1>
-      <div className="bg-purple-700 w-full text-white rounded-xl">
-      {/* The Input Box */}
-      <input 
-        type="text" 
-        placeholder="Paste YouTube Link here..."
-        value={url}
-        onChange={(e) => setUrl(e.target.value)} // Update 'url' as you type
-        style={{ padding: '10px', width: '300px', marginRight: '10px', color: 'black' }}
-      />
-      </div>
-      <div className="bg-blue-800 text-white rounded-xl">
-        <h1 className="text-3xl">Enter Points And Get The Blog</h1>
-         <input 
-        type="text" 
-        placeholder="Paste Your summary here..."
-        value={Points}
-        onChange={(e) => setPoints(e.target.value)} // Update 'url' as you type
-        style={{ padding: '10px', width: '300px', marginRight: '10px', color: 'black' }}
-      />
-      <button onClick={GenerateBlogUsingGivenSummary} className="bg-yellow-500 text-red-900 text-2xl font-bold rounded-xl">Get Using Summary</button>
-      </div>
-      {category.length<=0 && <div className="flex w-full p-16 gap-16 flex flx-col justify-center items-center">
-<button onClick={()=>setCategory("aiblogssection")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Ai Blog</button>
-<button onClick={()=>setCategory("courses")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Courses</button>
-<button onClick={()=>setCategory("gaming")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">gaming</button>
-<button onClick={()=>setCategory("lifelessons")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">lifeLessns</button>
-<button onClick={()=>setCategory("motivation")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Motivation</button>
-<button onClick={()=>setCategory("solution")} className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold">Solutions</button></div>}
-      {/* The Button */}
-    <video src={url}></video>
-      <button 
-        onClick={handleButtonClick}
-        disabled={loading}
-        style={{ padding: '10px 20px', cursor: 'pointer' }}
-      >
-        {loading ? "Summarizing..." : "Get Summary"}
-      </button>
-
-      {/* The Result Box (only shows if there is a result) */}
-  
-        <div style={{ marginTop: '20px', padding: '20px', backgroundColor: '#f0f0f0', color: 'black' }}>
-          <h3>Summary:</h3>
-          <p style={{ whiteSpace: 'pre-wrap' }}>{result.message}</p>
+    <div className="flex w-screen flex-col justify-center items-center gap-16 p-32 bg-black text-white">
+      <h1 className="text-4xl font-bold">Blog Generator Only For Admins</h1>
+      {category.length <= 0 && (
+        <div className="flex w-full p-16 gap-16 flex flx-col justify-center items-center">
+          <button
+            onClick={() => setCategory("aiblogssection")}
+            className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold"
+          >
+            Ai Blog
+          </button>
+          <button
+            onClick={() => setCategory("courses")}
+            className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold"
+          >
+            Courses
+          </button>
+          <button
+            onClick={() => setCategory("gaming")}
+            className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold"
+          >
+            gaming
+          </button>
+          <button
+            onClick={() => setCategory("lifelessons")}
+            className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold"
+          >
+            lifeLessns
+          </button>
+          <button
+            onClick={() => setCategory("techonology")}
+            className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold"
+          >
+            Motivation
+          </button>
+          <button
+            onClick={() => setCategory("solution")}
+            className="bg-purple-700 rounded-xl p-6 text-white text-2xl font-bold"
+          >
+            Solutions
+          </button>
         </div>
+      )}
+
+      <div className="flex flex-col justify-center items-center w-full bg-orange-800 gap-8">
+        <h2 className="text-2xl">Generate Blog Using Video Url</h2>
+
+        <input
+          type="text"
+          placeholder="Paste YouTube Link here..."
+          value={url}
+          className="border-white border text-gray-50 rounded-2xl"
+          onChange={(e) => setUrl(e.target.value)} // Update 'url' as you type
+          style={{
+            padding: "10px",
+            width: "300px",
+            marginRight: "10px",
+            color: "black",
+          }}
+        />
+
+        {category.length>0&&url.length>0&&<button
+          onClick={() => GenerateCodeUsingYoutubeVideo()}
+          className="text-xl text-white font-bold rounded-xl px-4 py-2"
+        >
+          Generate Now
+        </button>}
+        <div className="flex gap-4">
+          <span>Successs</span>
+          <div className="bg-pink-900 rounded-xl p-4">{result.success}</div>
+          <div className="flex gap-4">
+            <span>message</span>
+            <span className="bg-amber-700 rounded-xl p-4">{Message}</span>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center items-center bg-red-700 w-full rounded-xl p-8">
+       
+
       
-      <iframe 
-      srcDoc={result.code} 
-      style={{ width: '100%', height: '500px', border: '1px solid #ccc' }} 
-      title="Generated Site"
-    />
+
+        </div>
+    <div className="bg-black text-white">
+      <h1 className="text-xl font-bold">Add Urls For Indexing</h1>
+      {ListOFAllBlogs.map((item,e) => { 
+      if(!urlList.includes(`https://quertech-articles.vercel.app/${item.link}/index.html` ))  return  <div key={e}  onClick={()=>seturlList([...urlList,`https://quertech-articles.vercel.app/${item.link}/index.html`])} className="bg-white text-black rounded-xl font-bold">{item.link}</div>
+       })}
     </div>
     
+       <button onClick={()=>AddingFOrIndexing()} className="flex p-4 text-xl font-bold">Add For Indexing</button>
+      </div>
+      <h1>Result</h1>
+      <iframe
+        srcDoc={result.code}
+        style={{ width: "100%", height: "500px", border: "1px solid #ccc" }}
+        title="Generated Site"
+      />
+    </div>
   );
-}
+  }

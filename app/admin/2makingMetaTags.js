@@ -12,12 +12,11 @@ export async function MakingSeoFriendlyMetaTagsForBlog(summary) {
     const result= await modelForMakingMetaTags.generateContent(prompt)
 
     const metaTags=await result.response.text()
-    console.log('metaTags generation Successfull', metaTags)
-    return {success:true,message:"there was an error generating the summary",metaTags}
+    return {success:true,message:"Meta Tags Generated SuccessFully",metaTags}
     
 }
 catch(e){
-    return {success:false,message:"there was an error generating the summary",e}
+    return {success:false,message:`there was an error generating the MetaTags, ${e}`}
 }
 
 }

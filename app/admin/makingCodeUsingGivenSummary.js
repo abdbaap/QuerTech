@@ -1,10 +1,10 @@
 "use server";
-import { MakingADeepSummaryOfTheVideo } from "./step1makingPoints";
-import { MakingSeoFriendlyMetaTagsForBlog } from "./step2makingMetaTags";
-import { GeneratingDeepCode } from "./step3generatingcode";
-import { DecidingTitleFolder } from "./step4thinkingtitle";
+import { MakingADeepSummaryOfTheVideo } from "./1makingPoints";
+import { MakingSeoFriendlyMetaTagsForBlog } from "./2makingMetaTags";
+import { GeneratingDeepCode } from "./3generatingcode";
+import { DecidingTitleFolder } from "./4thinkingtitle";
 import fs from "fs/promises"
-import {addingBlogToSitemap} from "./step5addingBlogToHomepage"
+import {addingBlogToSitemap} from "./5addingBlogToSitemap"
 import path from "path";
 export async function GeneratingCodeUsingSummary(summary,category) {
   try {

@@ -1,9 +1,11 @@
 "use server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import path from "path";
+import fs from "fs/promises"
 const GenAiForGeneratingCode=new GoogleGenerativeAI(process.env.GEMINI_API_KEY3)
 export async function GeneratingDeepCode(summary,metaTags) {
 
-
+try{
     const modelForGeneratingCode=GenAiForGeneratingCode.getGenerativeModel({ model: "gemini-2.5-flash" })
 
 
@@ -18,6 +20,35 @@ export async function GeneratingDeepCode(summary,metaTags) {
     const result= await modelForGeneratingCode.generateContent(prompt)
     const code =await result.response.text()
     const fixedCode=await code.split("<!DOCTYPE html>")[1]
+   const Navbar=` <div class="flex fixed z-40 navbar justify-center bg-black text-white  w-full items-center p-2 px-8">
+      <a href="#home" class={"text-5xl font-bold "}>QuerTech</a>
+    </div>`
+
+      const listOfAllBlogsPath=path.join(process.cwd(),"app/blogData/listofallblogs.json")
+const fileData = await fs.readFile(listOfAllBlogsPath, "utf-8");
+const ListOfAllBlogs = JSON.parse(fileData);
+let allLinks=""
+for (let i = 0; i < ListOfAllBlogs.length; i++) {
+  allLinks+=`<a href="/${ListOfAllBlogs[i].link}">/${ListOfAllBlogs[i].blog_title}</a>`
+    
+}
+const FinalFooter=`<div class="flex flex-col justify-center items-center gap-2 bg-black text-white w-full p-8">${allLinks}</div>`
+   const firstSplit = fixedCode.split("<body>");
+        const headSection = firstSplit[0];
+        const restOfCode = firstSplit[1];
+
+        // Split the remaining part at body end
+        const secondSplit = restOfCode.split("</body>");
+        const mainContent = secondSplit[0];
+        const closingTags = secondSplit[1];
+
+        // 5. Final Assembly (No commas, just clean addition)
+        const FinalCode = `<!DOCTYPE html>${headSection}<body>${Navbar}${mainContent}${FinalFooter}</body>${closingTags}`;
     console.log('Code Generation Successfull')
-    return fixedCode
+   
+    return {success:true,message:"code  Generated SuccessFully",FinalCode}
+}
+catch (E){
+    return {success:false,message:`there was an error generating the Code, ${E}`}
+}
 }

@@ -5,7 +5,7 @@ import Aiblogssection from "./components/aiblogssection";
 
 // import SolutionBlog from "./components/Solution";
 import CoursesBlog from "./components/courses";
-import MotivationBlog from "./components/motivation";
+import MotivationBlog from "./components/techonolgy";
 import GamingBlog from "./components/gaming";
 import LifeLessonsBlog from "./components/lifelessons";
 import SolutionsBlog from "./components/solution";
