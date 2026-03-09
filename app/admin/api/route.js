@@ -16,6 +16,6 @@ export async function POST(req) {
             return NextResponse.json({ success: true, message: "Added To Crawl" });
         } else {
             const errorText = await response.text();
-            return NextResponse.json({ success: false, message: "Bing Error", details: errorText }, { status: 400 });
+            return NextResponse.json({ success: false, message: `Bing Error:   ${errorText}`, details: errorText }, { status: 400 });
         }
 }
