@@ -8,7 +8,7 @@ export async function POST(req) {
         body:JSON.stringify({
             host:"quertech-articles.vercel.app",
             key:process.env.INDEXNOWKEY,
-            keyLocation:`https://quertech-articles.vercel.app/${process.env.INDEXNOWKEY}`,
+            keyLocation:`https://quertech-articles.vercel.app/${process.env.INDEXNOWKEY}.txtdf`,
             urlList:urlList
                 })
     })
