@@ -22,7 +22,7 @@ const categories = [
   },
   {
     img: "/motivation.webp",
-    name: "motivation",
+    name: "Tech",
     color: "shadow-pink-400 bg-pink-700",
   },
   {
