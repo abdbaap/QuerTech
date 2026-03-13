@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "blog_title": "Boost Your FPS: Ultimate Windows 10/11 Gaming Guide",
+    "link": "FPSBoost",
+    "description": "Unlock peak gaming performance on Windows 10 & 11, even on old PCs! This guide reveals crucial software tweaks like Storage Sense, Game Mode, and visual settings to drastically boost FPS and responsiveness without expensive hardware upgrades.",
+    "tags": [
+      "Windows Optimization",
+      "Gaming Performance",
+      "FPS Boost",
+      "Low-End PC Gaming",
+      "System Tweaks",
+      "Windows 10 Gaming",
+      "Windows 11 Gaming"
+    ],
+    "color": "bg-violet-700 shadow-violet-400"
+  }
+]

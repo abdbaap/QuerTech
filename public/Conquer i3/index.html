@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- SEO Optimization: Integrated Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNLEASH Gaming: 20 Best PC Games for i3/4GB RAM (2025)</title>
+    <meta name="description" content="Tired of lag? UNLOCK 20 BEST PC games perfect for your Intel i3 / 4GB RAM system in 2025! Get smooth gameplay & dominate without upgrading. Your ultimate guide!">
+    <meta name="keywords" content="PC games for i3 4GB RAM, Best games for low spec PC 2025, Intel i3 processor games, 4GB RAM gaming PC titles, Budget gaming setup games, Games for old PC hardware, Low-end PC games no graphics card, What games can I play on i3 4GB RAM, Top 20 low spec PC games, Games that run on 2GB RAM, Intel Core 2 Duo games, Sleeping Dogs minimum requirements i3, Max Payne 3 low spec, GTA 4 on old PC, Far Cry 3 minimum specs i3, Assassin's Creed Black Flag i3 4GB RAM, Watch Dogs low end PC, Bully Scholarship Edition system requirements, Need for Speed Most Wanted old PC, Just Cause 2 i3 compatible, Hitman Absolution low spec PC, Batman Arkham City low end gaming, Prototype minimum requirements PC, Saints Row The Third i3 performance, Tomb Raider 2013 low end, Call of Duty Modern Warfare 2 old PC, Sniper Elite 3 minimum specs, Spec Ops The Line low end PC, Amazing Spider-Man low spec, Splinter Cell Conviction i3">
+    
+    <!-- Favicon - Premium touch with a simple emoji representing gaming/tech -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%' y='90%' style='font-size:90px; text-anchor:middle;'%3E🎮%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+
+    <!-- Preconnect for Google Fonts if a custom font like Inter was used (not SF Pro Display for performance) -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet"> -->
+
+    <style>
+        /*
+         * UI/UX Design Summary Interpretation:
+         * - Sophisticated glassmorphic UI/UX aesthetic.
+         * - Dark-themed, high-contrast palette of indigo (#6366f1), pink (#ec4899), and slate (#09172a).
+         * - Animated ambient background orbs.
+         * - Typography: Clean, professional sans-serif stack led by 'SF Pro Display', fluid scaling (clamp), bold gradient-masked header.
+         * - Interaction: Tactile hover effects (3D card lifting, border-color transitions), floating theme toggle.
+         * - Imagery: CSS-generated geometric patterns and rank badges instead of static photography.
+         */
+
+        /* --- CSS Variables for Color Palette & Design System --- */
+        :root {
+            /* Dark Theme Colors */
+            --color-slate-900: #09172a; /* Main Dark Background */
+            --color-slate-800: #1a2b42; /* Slightly Lighter Dark Background for sections */
+            --color-indigo-500: #6366f1; /* Primary Accent / Interactive */
+            --color-indigo-600: #4f46e5; /* Darker Indigo for hover/active */
+            --color-pink-500: #ec4899; /* Secondary Accent / Highlight */
+            --color-pink-600: #db2777; /* Darker Pink for hover/active */
+            --color-text-light: #e2e8f0; /* Main Light Text */
+            --color-text-muted: #94a3b8; /* Muted Text / Secondary Info */
+            --color-border-transparent: rgba(226, 232, 240, 0.15); /* Transparent Border for Glassmorphism */
+            --color-card-background: rgba(9, 23, 42, 0.4); /* Transparent Slate for Glassmorphism cards */
+            --color-glass-shadow: rgba(0, 0, 0, 0.4); /* Dark shadow for glass effect */
+            --color-gradient-start: var(--color-pink-500);
+            --color-gradient-end: var(--color-indigo-500);
+
+            /* Light Theme Colors (for theme toggle) */
+            --color-light-bg: #f8fafc;
+            --color-light-card-bg: rgba(255, 255, 255, 0.7);
+            --color-light-text: #1e293b;
+            --color-light-muted-text: #475569;
+            --color-light-border-transparent: rgba(15, 23, 42, 0.1);
+            --color-light-glass-shadow: rgba(0, 0, 0, 0.1);
+
+            /* RGB versions for rgba() functions */
+            --color-slate-900-rgb: 9, 23, 42;
+            --color-text-light-rgb: 226, 232, 240;
+            --color-indigo-500-rgb: 99, 102, 241;
+            --color-pink-500-rgb: 236, 72, 153;
+        }
+
+        /* --- Light Theme Overrides (using data-theme attribute) --- */
+        body[data-theme="light"] {
+            --color-slate-900: var(--color-light-bg);
+            --color-slate-800: #e2e8f0;
+            --color-text-light: var(--color-light-text);
+            --color-text-muted: var(--color-light-muted-text);
+            --color-border-transparent: var(--color-light-border-transparent);
+            --color-card-background: var(--color-light-card-bg);
+            --color-glass-shadow: var(--color-light-glass-shadow);
+        }
+
+        /* --- Base & Reset Styles --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            /* Prioritize SF Pro Display, then fall back to common sans-serifs. */
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: var(--color-text-light);
+            background-color: var(--color-slate-900);
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+            background-color: var(--color-slate-900);
+            color: var(--color-text-light);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            position: relative; /* For ambient orbs positioning */
+        }
+
+        main {
+            flex-grow: 1;
+            width: min(100%, 1200px);
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative; /* Ensure content is above orbs */
+            z-index: 10; /* Above background orbs */
+        }
+
+        a {
+            color: var(--color-indigo-500);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-pink-500);
+            text-decoration: underline;
+        }
+
+        /* --- Typography & Fluid Scaling --- */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw + 1rem, 4.5rem); /* Fluid scaling for main title */
+            letter-spacing: -0.03em;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw + 1rem, 3rem);
+            margin-bottom: 1rem;
+            color: var(--color-indigo-500);
+        }
+
+        h3 {
+            font-size: clamp(1.4rem, 3vw + 0.8rem, 2rem);
+            color: var(--color-pink-500);
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw + 0.5rem, 1.15rem);
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            font-size: clamp(0.95rem, 1.8vw + 0.5rem, 1.1rem);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        li::before {
+            content: "•"; /* Custom bullet for list items */
+            color: var(--color-indigo-500);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Gradient Masked Header */
+        .gradient-text {
+            background-image: linear-gradient(90deg, var(--color-gradient-start), var(--color-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback for browsers not supporting background-clip: text */
+            display: inline-block; /* Essential for background-clip: text to work on non-block elements */
+            transition: background-image 0.3s ease; /* For theme toggle */
+        }
+
+        body[data-theme="light"] .gradient-text {
+            --color-gradient-start: var(--color-indigo-600);
+            --color-gradient-end: var(--color-pink-600);
+        }
+
+        /* --- Glassmorphic Effect Styles --- */
+        .glassmorphic-card {
+            background-color: var(--color-card-background);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border: 1px solid var(--color-border-transparent);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 var(--color-glass-shadow);
+            padding: 2rem;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden; /* For inner geometric patterns */
+        }
+
+        .glassmorphic-card:hover {
+            border-color: var(--color-indigo-500); /* Border color transition */
+            transform: translateY(-5px) scale(1.01) rotateX(2deg); /* 3D card lifting */
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        /* --- Layout: Flexbox and Grid --- */
+        header {
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .intro-section, .summary-section, .insights-section, .observations-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .game-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .game-card {
+            /* Inherits glassmorphic-card styles */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .game-card h3 {
+            margin-bottom: 1rem;
+            color: var(--color-text-light); /* Override pink for main title to be light */
+            position: relative;
+            z-index: 2; /* Above patterns */
+        }
+        .game-card h3 span{
+             color: var(--color-pink-500);
+        }
+
+        .game-specs {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            position: relative;
+            z-index: 2;
+        }
+
+        .game-specs div {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.2rem 0;
+            border-bottom: 1px dashed rgba(var(--color-text-light-rgb), 0.08);
+        }
+        .game-specs div:last-child {
+            border-bottom: none;
+        }
+
+        .game-specs strong {
+            color: var(--color-text-light);
+            font-weight: 400; /* Not too bold */
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            border-top: 1px solid var(--color-border-transparent);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- CSS-Generated Geometric Patterns (Imagery Strategy) --- */
+        .game-card::before,
+        .game-card::after {
+            content: '';
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .game-card::before {
+            width: 100px;
+            height: 100px;
+            top: -30px;
+            left: -30px;
+            background: radial-gradient(circle at top left, var(--color-indigo-500), transparent 70%);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            transform: rotate(-15deg);
+        }
+
+        .game-card::after {
+            width: 80px;
+            height: 80px;
+            bottom: -20px;
+            right: -20px;
+            background: conic-gradient(from 90deg at 50% 50%, var(--color-pink-500) 0%, transparent 70%, var(--color-pink-500) 100%);
+            border-radius: 50%;
+            transform: rotate(30deg);
+        }
+
+        .game-card:hover::before,
+        .game-card:hover::after {
+            opacity: 0.2;
+        }
+        
+        /* Rank Badges - Simple example, could be more complex SVG or pseudo-elements */
+        .game-rank {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(45deg, var(--color-indigo-500), var(--color-pink-500));
+            color: var(--color-text-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            z-index: 3; /* Above patterns */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .game-rank span {
+            font-size: 1.1em; /* Make the number slightly larger */
+        }
+
+        /* --- Animated Ambient Background Orbs --- */
+        .orb-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0; /* Behind main content */
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color-indigo-500-rgb), 0.3), rgba(var(--color-pink-500-rgb), 0.2), transparent 70%);
+            border-radius: 50%;
+            animation: orb-move var(--duration) infinite alternate, orb-pulse var(--pulse-duration) infinite ease-in-out;
+            filter: blur(calc(var(--size) / 3)); /* Blur based on size */
+            opacity: 0; /* Start hidden, fade in with JS */
+            transition: background 0.3s ease; /* For theme toggle */
+        }
+
+        body[data-theme="light"] .orb {
+            background: radial-gradient(circle at center, rgba(var(--color-indigo-500-rgb), 0.1), rgba(var(--color-pink-500-rgb), 0.08), transparent 70%);
+        }
+
+        @keyframes orb-move {
+            0% { transform: translate(var(--x-start), var(--y-start)) scale(var(--scale)); opacity: 0.6; }
+            100% { transform: translate(var(--x-end), var(--y-end)) scale(var(--scale)); opacity: 0.4; }
+        }
+
+        @keyframes orb-pulse {
+            0% { transform: scale(var(--scale)); }
+            50% { transform: scale(calc(var(--scale) * 1.05)); }
+            100% { transform: scale(var(--scale)); }
+        }
+
+        /* --- Floating Theme Toggle --- */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--color-indigo-500);
+            color: var(--color-text-light);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            z-index: 100; /* Ensure it's always on top */
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--color-indigo-600);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .theme-toggle:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-toggle .icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle.dark-mode .icon {
+            transform: rotate(360deg);
+        }
+
+        /* --- Accessibility & Responsiveness --- */
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 8vw + 1rem, 3.5rem);
+            }
+
+            h2 {
+                font-size: clamp(1.5rem, 5vw + 1rem, 2.5rem);
+            }
+
+            h3 {
+                font-size: clamp(1.2rem, 4vw + 0.8rem, 1.8rem);
+            }
+
+            .glassmorphic-card {
+                padding: 1.5rem;
+            }
+
+            .game-list {
+                grid-template-columns: 1fr; /* Single column on small screens */
+            }
+
+            .theme-toggle {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            main {
+                padding: 0.75rem;
+            }
+
+            header {
+                padding: 2rem 0;
+            }
+
+            p {
+                font-size: clamp(0.95rem, 2.5vw + 0.5rem, 1.1rem);
+            }
+        }
+
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Ambient Background Orbs Container -->
+    <div class="orb-container"></div>
+
+    <main>
+        <header>
+            <h1 class="gradient-text">UNLEASH Gaming</h1>
+            <h1>20 Best PC Games for i3/4GB RAM (2025)</h1>
+        </header>
+
+        <section class="glassmorphic-card intro-section">
+            <h2>Video Purpose and Tone Analysis</h2>
+            <p>This comprehensive guide is tailored for gamers navigating low-specification systems, specifically those equipped with an Intel i3 processor and 4GB of RAM, remaining highly relevant for 2025. The presentation maintains an informative, direct, and practical tone. It meticulously utilizes gameplay footage and clear on-screen technical specifications for each game, ensuring an objective and data-driven resource, devoid of subjective commentary.</p>
+        </section>
+
+        <section class="glassmorphic-card summary-section">
+            <h2>Executive Summary</h2>
+            <p>This compilation serves as an invaluable resource for budget-conscious gamers, identifying 20 PC games that operate effectively on low-end hardware configurations (Intel i3 / 4GB RAM). Each entry delivers detailed minimum system requirements, showcasing a diverse range of genres from action-adventure to racing. The guide efficiently distills essential compatibility information, empowering users to maximize their gaming options on older or less powerful machines without the need for costly upgrades.</p>
+        </section>
+
+        <section class="game-list">
+            <h2>Significant Arguments and Technical Details</h2>
+            <p class="glassmorphic-card" style="grid-column: 1 / -1; font-size: 1.1rem; color: var(--color-text-muted); padding: 1rem 2rem;">
+                The video meticulously lists 20 games along with their minimum required specifications, highlighting a consistent pattern of accessibility for older hardware:
+            </p>
+
+            <!-- Game Cards - Dynamically generated data based on summary -->
+            <!-- Game 1 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>1</span></div>
+                <h3>Sleeping Dogs</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel i3 CPU</span></div>
+                    <div><strong>RAM:</strong><span>4GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>Low GPU</span></div>
+                    <div><strong>Storage:</strong><span>7 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 2 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>2</span></div>
+                <h3>Max Payne 3</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel i3 CPU</span></div>
+                    <div><strong>RAM:G</strong><span>4GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>Low GPU</span></div>
+                    <div><strong>Storage:</strong><span>35 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 3 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>3</span></div>
+                <h3>GTA 4</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Core 2 Duo 1.8GHz</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>Low GPU</span></div>
+                    <div><strong>Storage:</strong><span>16 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 4 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>4</span></div>
+                <h3>Mafia 2</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Pentium D</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>Low GPU</span></div>
+                    <div><strong>Storage:</strong><span>10 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 5 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>5</span></div>
+                <h3>Far Cry 3</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Dual-Core CPU</span></div>
+                    <div><strong>RAM:</strong><span>4 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>Low GPU</span></div>
+                    <div><strong>Storage:</strong><span>15 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 6 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>6</span></div>
+                <h3>Assassin's Creed 4 Black Flag</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Dual-Core CPU</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>Low GPU</span></div>
+                    <div><strong>Storage:</strong><span>30 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 7 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>7</span></div>
+                <h3>Watch Dogs</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Core 2 Quad Q8400</span></div>
+                    <div><strong>RAM:</strong><span>4 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>Low GPU</span></div>
+                    <div><strong>Storage:</strong><span>25 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 8 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>8</span></div>
+                <h3>Bully Scholarship Edition</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Pentium 4</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>No dedicated GPU (integrated)</span></div>
+                    <div><strong>Storage:</strong><span>4.7 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 9 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>9</span></div>
+                <h3>Need for Speed: Most Wanted</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Core 2 Duo 2.4 GHz</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>512 MB VRAM</span></div>
+                    <div><strong>Storage:</strong><span>20 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 10 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>10</span></div>
+                <h3>Just Cause 2</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Core 2 Duo 2.4 GHz</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>256 MB VRAM</span></div>
+                    <div><strong>Storage:</strong><span>10 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 11 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>11</span></div>
+                <h3>Hitman Absolution</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Dual-core CPU</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>512 MB VRAM</span></div>
+                    <div><strong>Storage:</strong><span>24 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 12 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>12</span></div>
+                <h3>Batman Arkham City</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Core 2 Duo 2.4 GHz</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>512 MB VRAM</span></div>
+                    <div><strong>Storage:</strong><span>17 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 13 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>13</span></div>
+                <h3>Prototype</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Core 2 Duo 1.86 GHz or AMD Athlon X2 4000</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>256 MB VRAM</span></div>
+                    <div><strong>Storage:</strong><span>8 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 14 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>14</span></div>
+                <h3>Saints Row The Third</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Core 2 Duo 1.86 GHz or AMD Athlon X2 4000</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>320 MB VRAM</span></div>
+                    <div><strong>Storage:</strong><span>10 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 15 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>15</span></div>
+                <h3>Tomb Raider (2013)</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Core2 Duo 1.86 GHz or AMD Athlon64 X2 2.1 GHz</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>512 MB VRAM</span></div>
+                    <div><strong>Storage:</strong><span>12 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 16 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>16</span></div>
+                <h3>Call of Duty Modern Warfare 2 (2009)</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Pentium 4 3.2 GHz or AMD Athlon 64 3200+</span></div>
+                    <div><strong>RAM:</strong><span>1 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>256 MB VRAM</span></div>
+                    <div><strong>Storage:</strong><span>12 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 17 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>17</span></div>
+                <h3>Sniper Elite 3</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Pentium D 3GHz or AMD Athlon 64 X2 4200+</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>256 MB VRAM</span></div>
+                    <div><strong>Storage:</strong><span>18 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 18 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>18</span></div>
+                <h3>Spec Ops The Line</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Core 2 Duo @ 2GHz / AMD Athlon 64 X2</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>256 MB VRAM</span></div>
+                    <div><strong>Storage:</strong><span>6 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 19 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>19</span></div>
+                <h3>The Amazing Spider-Man</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Core 2 Duo 2.6 GHz or AMD Athlon 64 X2 3800+</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>512 MB VRAM</span></div>
+                    <div><strong>Storage:</strong><span>9 GB</span></div>
+                </div>
+            </article>
+            <!-- Game 20 -->
+            <article class="glassmorphic-card game-card">
+                <div class="game-rank">#<span>20</span></div>
+                <h3>Splinter Cell Conviction</h3>
+                <div class="game-specs">
+                    <div><strong>CPU:</strong><span>Intel Core 2 Duo 1.8 GHz or AMD Athlon X2 64</span></div>
+                    <div><strong>RAM:</strong><span>2 GB RAM</span></div>
+                    <div><strong>GPU:</strong><span>256 MB VRAM</span></div>
+                    <div><strong>Storage:</strong><span>10 GB</span></div>
+                </div>
+            </article>
+        </section>
+
+        <section class="glassmorphic-card observations-section">
+            <h2>Key Technical Observations</h2>
+            <p>Our analysis reveals recurring technical patterns among these compatible titles:</p>
+            <ul>
+                <li>**RAM Requirements:** Frequently between <strong>2 GB to 4 GB RAM</strong>.</li>
+                <li>**CPU Diversity:** Predominantly requiring various <strong>Intel Core 2 Duo or Pentium series CPUs</strong>, with support for specific older AMD Athlon processors also noted.</li>
+                <li>**GPU VRAM:** Often ranges from <strong>256 MB to 512 MB VRAM</strong>, indicating accessibility even with integrated or entry-level discrete graphics.</li>
+                <li>**Storage Variability:** Needs differ significantly, from a compact <strong>4.7 GB (Bully Scholarship Edition)</strong> up to a more substantial <strong>35 GB (Max Payne 3)</strong>.</li>
+            </ul>
+        </section>
+
+        <section class="glassmorphic-card insights-section">
+            <h2>Actionable Insights</h2>
+            <ul>
+                <li><strong>Extended Hardware Utility:</strong> Owners of older or budget PC hardware (matching i3/4GB RAM benchmarks) can confidently expand their gaming libraries with a proven selection of titles, extending the useful life of their systems.</li>
+                <li><strong>Informed Game Selection:</strong> The specific minimum requirements provided empower users to make informed purchasing decisions, avoiding compatibility issues and ensuring a smoother gaming experience.</li>
+                <li><strong>Performance Benchmarking:</strong> The consistent recurrence of specifications like 256-512 MB VRAM and Dual-Core CPUs offers a practical benchmark for assessing potential performance on similarly configured systems.</li>
+                <li><strong>Strategic Upgrades (If Needed):</strong> Understanding these baseline requirements can guide strategic, minimal upgrades (e.g., a small GPU VRAM boost) for users aiming to access a broader range of older titles without significant investment.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 UNLEASH Gaming. All rights reserved. Designed for low-spec PC gamers.</p>
+    </footer>
+
+    <!-- Floating Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle dark and light theme">
+        <span class="icon">☀️</span>
+    </button>
+
+    <script>
+        // --- Vanilla JavaScript for Interactivity and Animations ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. Ambient Background Orbs ---
+            const orbContainer = document.querySelector('.orb-container');
+            const numberOfOrbs = 10; // Number of orbs to generate
+
+            function createOrb() {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                // Random size (min 80px, max 200px)
+                const size = Math.random() * 120 + 80;
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.setProperty('--size', `${size}px`);
+
+                // Random starting position (within viewport, slightly outside for smoother entry)
+                const startX = Math.random() * 120 - 10 + 'vw'; // -10vw to 110vw
+                const startY = Math.random() * 120 - 10 + 'vh'; // -10vh to 110vh
+                orb.style.left = startX;
+                orb.style.top = startY;
+
+                // Random end position for animation (movement range)
+                const endX = Math.random() * 120 - 10 + 'vw';
+                const endY = Math.random() * 120 - 10 + 'vh';
+                orb.style.setProperty('--x-start', startX);
+                orb.style.setProperty('--y-start', startY);
+                orb.style.setProperty('--x-end', endX);
+                orb.style.setProperty('--y-end', endY);
+
+                // Random animation duration (15s to 30s)
+                const duration = Math.random() * 15 + 15;
+                orb.style.setProperty('--duration', `${duration}s`);
+
+                // Random pulse duration (3s to 6s)
+                const pulseDuration = Math.random() * 3 + 3;
+                orb.style.setProperty('--pulse-duration', `${pulseDuration}s`);
+
+                // Initial opacity fade-in
+                setTimeout(() => orb.style.opacity = Math.random() * 0.4 + 0.2, 50); // Fade in to 20-60% opacity
+
+                orbContainer.appendChild(orb);
+            }
+
+            for (let i = 0; i < numberOfOrbs; i++) {
+                createOrb();
+            }
+
+            // --- 2. Floating Theme Toggle ---
+            const themeToggleBtn = document.querySelector('.theme-toggle');
+            const themeIcon = themeToggleBtn.querySelector('.icon');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+            // Function to set the theme
+            function setTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                document.body.setAttribute('data-theme', theme); // Also apply to body for specific CSS
+                localStorage.setItem('theme', theme);
+                themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+                themeToggleBtn.classList.toggle('dark-mode', theme === 'dark');
+            }
+
+            // Get saved theme from localStorage or default to system preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else if (prefersDarkScheme.matches) {
+                setTheme('dark'); // Default to dark if system prefers it
+            } else {
+                setTheme('light'); // Default to light otherwise
+            }
+
+            // Listen for changes in system theme preference
+            prefersDarkScheme.addEventListener('change', (event) => {
+                // Only change if no theme is explicitly set by the user
+                if (!localStorage.getItem('theme')) {
+                    setTheme(event.matches ? 'dark' : 'light');
+                }
+            });
+
+            // Toggle theme on button click
+            themeToggleBtn.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/MasterEng">Master English: Quick Level Check</a><a href="/DevPath">Code Conquer</a><a href="/aidevpro">AI Web Dev Roadmap 2026</a><a href="/wordorafreeai">Wordora Free AI (All-in-One)</a><a href="/wordoraaicodefree">Wordora AI Code Free</a><a href="/wordoraaimodelfree">Wordora AI Models</a><a href="/wordoraaiimagefree">Wordora AI Image Free</a><a href="/wordoraaivideofree">Wordora AI Video Free</a><a href="/wordoraaipptfree">Wordora AI PPT</a><a href="/wordoraaitextfree">Wordora AI Text</a><a href="/wordoraaidesignfree">Wordora AI Design</a><a href="/wordoraaidatafree">Wordora AI Data</a><a href="/wordoraaiavatars">Wordora AI Avatars</a>
+</div></body>
+</html>
+```

@@ -1,1 +1,60 @@
-[]
+[
+  {
+    "blog_title": "Max Games",
+    "link": "maxgames",
+    "description": "Unleash 50 visually rich PC games on an i5 8th Gen, 8GB RAM PC! Discover what's truly playable without a high-end GPU. Budget gaming power revealed.",
+    "tags": [
+      "Budget Gaming",
+      "i5 PC Games",
+      "Low Spec Gaming",
+      "PC Performance",
+      "Minimal GPU",
+      "High Graphics Games"
+    ],
+    "color": "bg-emerald-700 shadow-emerald-400"
+  },
+  {
+    "blog_title": "Unleash i3 Gaming Power",
+    "link": "Maxi3",
+    "description": "Discover 30 top PC games that run flawlessly on entry-level i3 processors and 4GB RAM. Maximize your budget gaming rig with this guide, proving you don't need a high-end PC for great gaming.",
+    "tags": [
+      "i3 Gaming",
+      "Budget PC Games",
+      "Low-End Gaming",
+      "4GB RAM Games",
+      "Entry-Level PC Gaming",
+      "PC Games for i3"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Unleash Stories: 10 Epic Games for Low-End PCs",
+    "link": "epiclite",
+    "description": "Discover 10 classic story-rich PC games that run smoothly on low-end hardware (4GB RAM, integrated graphics). Dive into immersive narratives like Prototype, Max Payne 2, and Assassin's Creed 2, without needing a high-end rig.",
+    "tags": [
+      "Low-End PC Games",
+      "Story Games",
+      "Budget Gaming",
+      "PC Recommendations",
+      "Integrated Graphics",
+      "Narrative Games",
+      "Prototype",
+      "Mafia 2",
+      "Assassin's Creed 2"
+    ],
+    "color": "bg-violet-800 shadow-violet-400"
+  },
+  {
+    "blog_title": "20 Low-Spec PC Games for i3 & 4GB RAM (2025)",
+    "link": "Conquer i3",
+    "description": "Unlock epic gaming on a budget! This guide reveals 20 PC titles perfectly optimized for low-spec systems (Intel i3 / 4GB RAM) in 2025. Dive into diverse genres and extend your hardware's life without compromise.",
+    "tags": [
+      "Low-Spec Gaming",
+      "i3 PC Games",
+      "Budget PC Gaming",
+      "4GB RAM Games",
+      "PC Compatibility"
+    ],
+    "color": "bg-green-800 shadow-green-400"
+  }
+]

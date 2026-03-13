@@ -1,77 +1,282 @@
-
-    [
+[
+  {
+    "blog_title": "Boost Your FPS: Ultimate Windows 10/11 Gaming Guide",
+    "link": "FPSBoost",
+    "description": "Unlock peak gaming performance on Windows 10 & 11, even on old PCs! This guide reveals crucial software tweaks like Storage Sense, Game Mode, and visual settings to drastically boost FPS and responsiveness without expensive hardware upgrades.",
+    "tags": [
+      "Windows Optimization",
+      "Gaming Performance",
+      "FPS Boost",
+      "Low-End PC Gaming",
+      "System Tweaks",
+      "Windows 10 Gaming",
+      "Windows 11 Gaming"
+    ],
+    "color": "bg-violet-700 shadow-violet-400"
+  },
+  {
+    "blog_title": "5 Secret Skills For Student Financial Freedom",
+    "link": "PowerEarn",
+    "description": "Unlock financial independence! Discover 5 high-income skills like voice-over, handmade art, and social media management. Learn how to earn big and fund your education while still a student, turning passion into profit.",
+    "tags": [
+      "Student Finance",
+      "High-Income Skills",
+      "Earn While Studying",
+      "Financial Freedom",
+      "Skill Development",
+      "Student Money"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Max Games",
+    "link": "maxgames",
+    "description": "Unleash 50 visually rich PC games on an i5 8th Gen, 8GB RAM PC! Discover what's truly playable without a high-end GPU. Budget gaming power revealed.",
+    "tags": [
+      "Budget Gaming",
+      "i5 PC Games",
+      "Low Spec Gaming",
+      "PC Performance",
+      "Minimal GPU",
+      "High Graphics Games"
+    ],
+    "color": "bg-emerald-700 shadow-emerald-400"
+  },
+  {
+    "blog_title": "Unleash i3 Gaming Power",
+    "link": "Maxi3",
+    "description": "Discover 30 top PC games that run flawlessly on entry-level i3 processors and 4GB RAM. Maximize your budget gaming rig with this guide, proving you don't need a high-end PC for great gaming.",
+    "tags": [
+      "i3 Gaming",
+      "Budget PC Games",
+      "Low-End Gaming",
+      "4GB RAM Games",
+      "Entry-Level PC Gaming",
+      "PC Games for i3"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Beat Brain Fog: Reclaim Your Mental Clarity",
+    "link": "BeatFog",
+    "description": "Unlock your mind! Learn the real causes of brain fog – beyond just fatigue – and discover scientifically-backed solutions to boost focus, memory, and energy. Reclaim your mental sharpness today.",
+    "tags": [
+      "Brain Fog",
+      "Cognitive Decline",
+      "Mental Clarity",
+      "Focus Boost",
+      "Memory Improvement",
+      "Neuroscience",
+      "Stress Management",
+      "Sleep Hygiene",
+      "BDNF"
+    ],
+    "color": "bg-emerald-900 shadow-emerald-400"
+  },
+  {
+    "blog_title": "Unleash Stories: 10 Epic Games for Low-End PCs",
+    "link": "epiclite",
+    "description": "Discover 10 classic story-rich PC games that run smoothly on low-end hardware (4GB RAM, integrated graphics). Dive into immersive narratives like Prototype, Max Payne 2, and Assassin's Creed 2, without needing a high-end rig.",
+    "tags": [
+      "Low-End PC Games",
+      "Story Games",
+      "Budget Gaming",
+      "PC Recommendations",
+      "Integrated Graphics",
+      "Narrative Games",
+      "Prototype",
+      "Mafia 2",
+      "Assassin's Creed 2"
+    ],
+    "color": "bg-violet-800 shadow-violet-400"
+  },
+  {
+    "blog_title": "20 Low-Spec PC Games for i3 & 4GB RAM (2025)",
+    "link": "Conquer i3",
+    "description": "Unlock epic gaming on a budget! This guide reveals 20 PC titles perfectly optimized for low-spec systems (Intel i3 / 4GB RAM) in 2025. Dive into diverse genres and extend your hardware's life without compromise.",
+    "tags": [
+      "Low-Spec Gaming",
+      "i3 PC Games",
+      "Budget PC Gaming",
+      "4GB RAM Games",
+      "PC Compatibility"
+    ],
+    "color": "bg-green-800 shadow-green-400"
+  },
+  {
+    "blog_title": "Master English: Quick Level Check",
+    "link": "MasterEng",
+    "description": "Discover your English proficiency in minutes! This fast 5-question quiz assesses your grammar, vocabulary, and listening skills, instantly revealing if you're Beginner, Intermediate, or Advanced. Pinpoint areas for improvement and accelerate your language mastery!",
+    "tags": [
+      "English Quiz",
+      "Language Learning",
+      "Proficiency Test",
+      "Grammar Check",
+      "Vocabulary Test",
+      "Listening Skills",
+      "CEFR Levels",
+      "English Mastery"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Code Conquer",
+    "link": "DevPath",
+    "description": "Aspiring coder? Debunk myths! This guide reveals the real path to pro success, emphasizing consistency, small wins, and embracing confusion as a learning sign. Unlock your true coding potential.",
+    "tags": [
+      "Coding Beginners",
+      "Dev Path",
+      "Coding Motivation",
+      "Learn to Code",
+      "Programming Success",
+      "Developer Mindset",
+      "Code Consistency"
+    ],
+    "color": "bg-violet-700 shadow-violet-400"
+  },
+  {
+    "blog_title": "AI Web Dev Roadmap 2026",
+    "link": "aidevpro",
+    "description": "Unlock 10x productivity. Master web dev fundamentals (HTML, CSS, JS, React, TS, Express, SQL/NoSQL) and strategically leverage AI to become a job-ready, profitable developer by 2026. Your complete AI-era roadmap.",
+    "tags": [
+      "AI Web Dev",
+      "2026 Roadmap",
+      "Frontend",
+      "Backend",
+      "AI Productivity",
+      "ReactJS",
+      "NodeJS"
+    ],
+    "color": "bg-fuchsia-900 shadow-fuchsia-400"
+  },
   {
     "blog_title": "Wordora Free AI (All-in-One)",
     "link": "wordorafreeai",
     "description": "The ultimate AI 'everything' hub. I’ve mixed the best free tools from every category—text, image, and data—into one massive list. If you need a quick AI tool for anything, start here.",
-    "tags": ["Best AI Tools", "Free AI Directory", "AI Toolkit", "Productivity", "Top AI 2026"]
-    ,
-    "color":"bg-gray-950"
+    "tags": [
+      "Best AI Tools",
+      "Free AI Directory",
+      "AI Toolkit",
+      "Productivity",
+      "Top AI 2026"
+    ],
+    "color": "bg-gray-950"
   },
   {
     "blog_title": "Wordora AI Code Free",
     "link": "wordoraaicodefree",
     "description": "Stop struggling with bugs! I've found the best 30 AI coding tools like Cursor and Windsurf that literally write code for you. Perfect for 'Vibe Coding' and building apps without deep syntax knowledge.",
-    "tags": ["AI Coding", "Vibe Coding", "Agentic AI", "Free Code Tools", "2026 Tech Trends"],
-    "color":"bg-red-700 shadow-red-400"
+    "tags": [
+      "AI Coding",
+      "Vibe Coding",
+      "Agentic AI",
+      "Free Code Tools",
+      "2026 Tech Trends"
+    ],
+    "color": "bg-red-700 shadow-red-400"
   },
-  
   {
     "blog_title": "Wordora AI Models",
     "link": "wordoraaimodelfree",
     "description": "Confused about which AI model to use? I compare the top 30 LLMs like Gemini 2.0 and Llama 4. Find out which one is the smartest for reasoning, math, or creative writing in seconds.",
-    "tags": ["AI Models", "LLM Comparison", "Gemini 2", "Open Source AI", "Artificial Intelligence"],
-    "color":"bg-orange-700 shadow-orange-400"
+    "tags": [
+      "AI Models",
+      "LLM Comparison",
+      "Gemini 2",
+      "Open Source AI",
+      "Artificial Intelligence"
+    ],
+    "color": "bg-orange-700 shadow-orange-400"
   },
   {
     "blog_title": "Wordora AI Image Free",
     "link": "wordoraaiimagefree",
     "description": "Create insane aesthetic art for free. I’ve tested 30 tools like Midjourney and DALL-E 3 that turn your wildest ideas into high-res visuals. Perfect for social media and creative school projects.",
-    "tags": ["AI Image Generator", "Free AI Art", "Text to Image", "Visual Design", "Midjourney Free"]
-    ,
-    "color":"bg-purple-700 shadow-purple-400"
+    "tags": [
+      "AI Image Generator",
+      "Free AI Art",
+      "Text to Image",
+      "Visual Design",
+      "Midjourney Free"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
   },
   {
     "blog_title": "Wordora AI Video Free",
     "link": "wordoraaivideofree",
     "description": "Text-to-video is the new meta. Check out the top 30 free tools like Sora and Runway to make viral clips and cinematic videos without an editor. High-quality AI video generation for everyone.",
-    "tags": ["AI Video", "Sora AI", "Text to Video", "Content Creation", "Viral Video Tools"],
-    "color":"bg-blue-700 shadow-blue-400"
+    "tags": [
+      "AI Video",
+      "Sora AI",
+      "Text to Video",
+      "Content Creation",
+      "Viral Video Tools"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
   },
   {
     "blog_title": "Wordora AI PPT",
     "link": "wordoraaipptfree",
     "description": "Generate entire presentation decks in one click. I’ve picked 30 AI tools like Gamma that handle the design and content for you. It’s a total life-saver for class assignments and group projects.",
-    "tags": ["AI PPT", "Gamma AI", "Presentation Hacks", "Student Productivity", "AI Design"],
-    "color":"bg-green-700 shadow-green-400"
+    "tags": [
+      "AI PPT",
+      "Gamma AI",
+      "Presentation Hacks",
+      "Student Productivity",
+      "AI Design"
+    ],
+    "color": "bg-green-700 shadow-green-400"
   },
   {
     "blog_title": "Wordora AI Text",
     "link": "wordoraaitextfree",
     "description": "Write better, faster. I’ve listed 30 AI text tools for summarizing long papers and writing SEO-friendly blogs. Beat writer's block instantly and get your essays done in half the time.",
-    "tags": ["AI Writing", "Text Generator", "Essay Helper", "SEO Writing", "Content Creation"]
-    ,
-    "color":"bg-pink-700 shadow-pink-400"
+    "tags": [
+      "AI Writing",
+      "Text Generator",
+      "Essay Helper",
+      "SEO Writing",
+      "Content Creation"
+    ],
+    "color": "bg-pink-700 shadow-pink-400"
   },
   {
     "blog_title": "Wordora AI Design",
     "link": "wordoraaidesignfree",
     "description": "Pro-level design without the learning curve. These 30 AI tools handle logos, UI, and graphics automatically. It's the future of Generative UI and digital branding for your personal projects.",
-    "tags": ["AI Design", "Generative UI", "Logo Maker", "Graphic Design", "Canva AI"],
-    "color":"bg-orange-700 shadow-orange-400"
+    "tags": [
+      "AI Design",
+      "Generative UI",
+      "Logo Maker",
+      "Graphic Design",
+      "Canva AI"
+    ],
+    "color": "bg-orange-700 shadow-orange-400"
   },
   {
     "blog_title": "Wordora AI Data",
     "link": "wordoraaidatafree",
     "description": "Master data analysis without the headache. These top 30 AI tools turn messy numbers into clean charts and insights using the latest RAG technology. Perfect for research and smart decision-making.",
-    "tags": ["AI Data", "Data Science", "RAG", "Predictive Analytics", "Research Tools"],
-    "color":"bg-green-700 shadow-green-400"
+    "tags": [
+      "AI Data",
+      "Data Science",
+      "RAG",
+      "Predictive Analytics",
+      "Research Tools"
+    ],
+    "color": "bg-green-700 shadow-green-400"
   },
   {
     "blog_title": "Wordora AI Avatars",
     "link": "wordoraaiavatars",
     "description": "Make your own digital twin! I found the best 30 AI avatar and talking head tools like HeyGen. Great for making YouTube videos or cool profile pics that actually look like you.",
-    "tags": ["AI Avatars", "Digital Twins", "Talking Heads", "AI Video", "HeyGen"],
-    "color":"bg-amber-700 shadow-amber-400"
+    "tags": [
+      "AI Avatars",
+      "Digital Twins",
+      "Talking Heads",
+      "AI Video",
+      "HeyGen"
+    ],
+    "color": "bg-amber-700 shadow-amber-400"
   }
 ]

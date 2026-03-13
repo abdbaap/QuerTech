@@ -12,7 +12,8 @@ import { DecidingTitleFolder } from "./4thinkingtitle";
 import ListOFAllBlogs from "../blogData/listofallblogs"
 export default function Home() {
   // State variables: like a "memory" for our component
-  const [url, setUrl] = useState(""); // Stores what you type in the box
+  const [url, setUrl] = useState("");
+  const [urlListForBlogGeneration, setUrlListForBlogGeneration] = useState([]) // Stores what you type in the box
   const [result, setResult] = useState({
     success: false,
     message: "",
@@ -25,18 +26,104 @@ export default function Home() {
   const [Message, setMessage] = useState("");
 const [urlList, seturlList] = useState([])
   //
+  
+  const addMoreUrls=async() => { 
+     setUrlListForBlogGeneration([...urlListForBlogGeneration,{url,category}])
+     setUrl("")
+     setCategory("")
+   }
+
+
+// 
 
   async function GenerateCodeUsingYoutubeVideo() {
-    const summary = await MakingADeepSummaryOfTheVideo(url);
+  if (urlListForBlogGeneration.length === 0&&!url &&url.length<=0) {
+    setMessage("Queue is empty!");
+    return;
+  }
 
-    setMessage(summary.message);
-    if (summary.success) {
-      const MetaTags = await MakingSeoFriendlyMetaTagsForBlog(summary?.summary);
+  setLoading(true);
+  
+  // 1. Snapshot the queue locally
+  const localQueue =urlListForBlogGeneration.length === 0?[{url,category}]: [...urlListForBlogGeneration];
+  console.log("Starting batch for:", localQueue.length, "URLs");
+
+  for (let i = 0; i < localQueue.length; i++) {
+    const item = localQueue[i];
+    
+    try {
+      setMessage(`Processing (${i + 1}/${localQueue.length}): ${item.url}`);
+      console.log(`Working on item ${i + 1}:`, item.url);
+
+      // --- LOGIC STEPS (Use 'item.url' and 'item.category', NOT state) ---
+      
+      const summary = await MakingADeepSummaryOfTheVideo(item.url);
+      if (!summary || !summary.success) {
+        console.error("Summary failed for:", item.url);
+        continue; 
+      }
+
+      const MetaTags = await MakingSeoFriendlyMetaTagsForBlog(summary.summary);
+      
+      const code = await GeneratingDeepCode(summary.summary, MetaTags.metaTags);
+      if (!code || !code.success) {
+        console.error("Code generation failed for:", item.url);
+        continue;
+      }
+
+      const TitleFolder = await DecidingTitleFolder(summary.summary);
+      
+      if (TitleFolder && TitleFolder.success) {
+        // Use item.category directly from the queue object
+        const output = await GeneratingFies(TitleFolder, code.FinalCode, item.category);
+        
+        const cleanSlug = TitleFolder.data.link.replace(/^\/+/, "".replace("/",""));
+        const finalUrl = `https://quertech-articles.vercel.app/${cleanSlug}/index.html`;
+
+        // --- UPDATE UI SAFELY ---
+        
+        setResult({
+          code: code.FinalCode,
+          message: output.message,
+          slug: finalUrl,
+          success: true,
+        });
+
+        if (output.success) {
+          seturlList((prev) => {
+            if (!prev.includes(finalUrl)) return [...prev, finalUrl];
+            return prev;
+          });
+          console.log("Successfully processed:", cleanSlug);
+        }
+      }
+    } catch (err) {
+      console.error("CRITICAL ERROR on loop index", i, err);
+      setMessage(`Failed on ${item.url}. moving to next...`);
+      // The 'continue' ensures the loop doesn't die
+      continue; 
+    }
+  }
+
+  // 2. Cleanup only after the ENTIRE 'for' loop finishes
+  setUrlListForBlogGeneration([]);
+  setLoading(false);
+  setMessage("Batch process complete!");
+  console.log("Batch process complete!");
+}
+
+
+
+  // 
+  //
+  async function GenerateBlogUsingGivenSummary() {
+    
+      const MetaTags = await MakingSeoFriendlyMetaTagsForBlog(Points);
 
       setMessage(MetaTags.message);
       if (MetaTags.success) {
         const code = await GeneratingDeepCode(
-          summary?.summary,
+          Points,
           MetaTags?.metaTags,
         );
         setMessage(code.message);
@@ -44,19 +131,19 @@ const [urlList, seturlList] = useState([])
           setResult({
             success: false,
             message: "Only Code Generation Was SUccessFull",
-            code: code?.fixedCode,
+            code: code?.FinalCode,
             slug: ",",
           });
 
-          const TitleFolder = await DecidingTitleFolder(summary?.summary);
+          const TitleFolder = await DecidingTitleFolder(Points);
           setMessage(TitleFolder.success);
              if (TitleFolder.success) {
-            const output = await GeneratingFies(TitleFolder,code?.fixedCode,category);
+            const output = await GeneratingFies(TitleFolder,code?.FinalCode,category);
             setMessage(output.message);
           
             const cleanSlug =await TitleFolder.data.link.replace(/^\/+/, "");
           setResult({
-            code:code?.fixedCode,
+            code:code?.FinalCode,
             message:output.message,
             slug:`https://quertech-articles.vercel.app/${cleanSlug}/index.html`,
             success:true
@@ -68,13 +155,13 @@ const [urlList, seturlList] = useState([])
                  }
               }
         }
-      }
+      
     }
   }
-  
   }
-  //
-  async function GenerateBlogUsingGivenSummary() {}
+
+
+  // 
  async function AddingFOrIndexing() {
     // We call OUR server route, which doesn't have CORS issues
     const response = await fetch("/admin/api", {
@@ -86,7 +173,10 @@ const [urlList, seturlList] = useState([])
     let fixedResponse= await response.json();
     setMessage(fixedResponse.message)
 }
-  //
+  // 
+
+
+
   return (
     <div className="flex w-screen flex-col justify-center items-center gap-16 p-32 bg-black text-white">
       <h1 className="text-4xl font-bold">Blog Generator Only For Admins</h1>
@@ -147,6 +237,7 @@ const [urlList, seturlList] = useState([])
             color: "black",
           }}
         />
+        <button onClick={() => { addMoreUrls() }} className="bg-black rounded-xl text-white">Add More Urls</button>
 
         {category.length>0&&url.length>0&&<button
           onClick={() => GenerateCodeUsingYoutubeVideo()}
@@ -177,6 +268,53 @@ const [urlList, seturlList] = useState([])
     
        <button onClick={()=>AddingFOrIndexing()} className="flex p-4 text-xl font-bold">Add For Indexing</button>
       </div>
+
+
+
+      {/*  */}
+      <div className="flex flex-col justify-center items-center w-full bg-orange-800 gap-8">
+        <h2 className="text-2xl">Generate Blog Using summary</h2>
+
+        <input
+          type="text"
+          placeholder="Paste Summary here..."
+          value={url}
+          className="border-white border text-gray-50 rounded-2xl"
+          onChange={(e) => setPoints(e.target.value)} // Update 'url' as you type
+          style={{
+            padding: "10px",
+            width: "300px",
+            marginRight: "10px",
+            color: "black",
+          }}
+        />
+
+        {category.length>0&&Points.length>0&&<button
+          onClick={() => GenerateBlogUsingGivenSummary()}
+          className="text-xl text-white font-bold rounded-xl px-4 py-2"
+        >
+          Generate Now
+        </button>}
+        <div className="flex gap-4">
+          <span>Successs</span>
+          <div className="bg-pink-900 rounded-xl p-4">{result.success}</div>
+          <div className="flex gap-4">
+            <span>message</span>
+            <span className="bg-amber-700 rounded-xl p-4">{Message}</span>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center items-center bg-red-700 w-full rounded-xl p-8">
+       
+
+      
+
+        </div>
+   
+      </div>
+
+
+
+      {/*  */}
       <h1>Result</h1>
       <iframe
         srcDoc={result.code}

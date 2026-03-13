@@ -1,1 +1,49 @@
-[]
+[
+  {
+    "blog_title": "5 Secret Skills For Student Financial Freedom",
+    "link": "PowerEarn",
+    "description": "Unlock financial independence! Discover 5 high-income skills like voice-over, handmade art, and social media management. Learn how to earn big and fund your education while still a student, turning passion into profit.",
+    "tags": [
+      "Student Finance",
+      "High-Income Skills",
+      "Earn While Studying",
+      "Financial Freedom",
+      "Skill Development",
+      "Student Money"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Beat Brain Fog: Reclaim Your Mental Clarity",
+    "link": "BeatFog",
+    "description": "Unlock your mind! Learn the real causes of brain fog – beyond just fatigue – and discover scientifically-backed solutions to boost focus, memory, and energy. Reclaim your mental sharpness today.",
+    "tags": [
+      "Brain Fog",
+      "Cognitive Decline",
+      "Mental Clarity",
+      "Focus Boost",
+      "Memory Improvement",
+      "Neuroscience",
+      "Stress Management",
+      "Sleep Hygiene",
+      "BDNF"
+    ],
+    "color": "bg-emerald-900 shadow-emerald-400"
+  },
+  {
+    "blog_title": "Master English: Quick Level Check",
+    "link": "MasterEng",
+    "description": "Discover your English proficiency in minutes! This fast 5-question quiz assesses your grammar, vocabulary, and listening skills, instantly revealing if you're Beginner, Intermediate, or Advanced. Pinpoint areas for improvement and accelerate your language mastery!",
+    "tags": [
+      "English Quiz",
+      "Language Learning",
+      "Proficiency Test",
+      "Grammar Check",
+      "Vocabulary Test",
+      "Listening Skills",
+      "CEFR Levels",
+      "English Mastery"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  }
+]

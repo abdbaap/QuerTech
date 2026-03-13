@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar";
+import Script from "next/script";
 const poppins=Poppins({
   weight:"400",
   subset:["latin"],
@@ -15,10 +16,18 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <meta name="google-adsense-account" content="ca-pub-6836466532865002"/>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6836466532865002"
+     crossorigin="anonymous"></script>
     <link rel="canonical" href="https://quertech-articles.vercel.app" />
         <meta name="google-site-verification" content="MIDLOYFbs4SS5EOC6oQcQd2CU6R4U0gxy70ESi1oLew" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6836466532865002"
      crossorigin="anonymous"></script>
+       <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6836466532865002"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
       </head>
       <body
         className={`${poppins.className} noscrollbar`}
@@ -26,6 +35,7 @@ export default function RootLayout({ children }) {
         <Navbar/>
         {children}
       </body>
+      
     </html>
   );
 }

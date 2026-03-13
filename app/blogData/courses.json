@@ -1,3 +1,32 @@
 [
-
+  {
+    "blog_title": "Code Conquer",
+    "link": "DevPath",
+    "description": "Aspiring coder? Debunk myths! This guide reveals the real path to pro success, emphasizing consistency, small wins, and embracing confusion as a learning sign. Unlock your true coding potential.",
+    "tags": [
+      "Coding Beginners",
+      "Dev Path",
+      "Coding Motivation",
+      "Learn to Code",
+      "Programming Success",
+      "Developer Mindset",
+      "Code Consistency"
+    ],
+    "color": "bg-violet-700 shadow-violet-400"
+  },
+  {
+    "blog_title": "AI Web Dev Roadmap 2026",
+    "link": "aidevpro",
+    "description": "Unlock 10x productivity. Master web dev fundamentals (HTML, CSS, JS, React, TS, Express, SQL/NoSQL) and strategically leverage AI to become a job-ready, profitable developer by 2026. Your complete AI-era roadmap.",
+    "tags": [
+      "AI Web Dev",
+      "2026 Roadmap",
+      "Frontend",
+      "Backend",
+      "AI Productivity",
+      "ReactJS",
+      "NodeJS"
+    ],
+    "color": "bg-fuchsia-900 shadow-fuchsia-400"
+  }
 ]
