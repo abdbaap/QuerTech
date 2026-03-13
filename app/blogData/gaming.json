@@ -1,5 +1,34 @@
 [
   {
+    "blog_title": "PS3 Unleashed: Epic Gaming Showcase",
+    "link": "PS3Glory",
+    "description": "Experience the raw power of PlayStation 3! This ultimate highlight reel showcases dynamic gameplay, intense combat, and groundbreaking innovation from a legendary era. Relive gaming history with action from titles like The Last of Us, God of War III, and Assassin's Creed.",
+    "tags": [
+      "PS3",
+      "PlayStation 3",
+      "Gaming Highlights",
+      "Action Games",
+      "Console Gaming",
+      "Gameplay Compilation",
+      "Epic Gaming"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "i3/4GB RAM: Budget Gaming Unleashed!",
+    "link": "i3Power",
+    "description": "Discover how Intel Core i3 PCs with 4GB RAM deliver smooth, optimized gaming across diverse titles. Practical benchmarks prove budget hardware can still power epic gameplay.",
+    "tags": [
+      "i3 Gaming",
+      "Budget PC Gaming",
+      "4GB RAM Gaming",
+      "Optimized Gaming",
+      "PC Benchmarks",
+      "Low-Spec Gaming"
+    ],
+    "color": "bg-emerald-700 shadow-emerald-400"
+  },
+  {
     "blog_title": "Max Games",
     "link": "maxgames",
     "description": "Unleash 50 visually rich PC games on an i5 8th Gen, 8GB RAM PC! Discover what's truly playable without a high-end GPU. Budget gaming power revealed.",

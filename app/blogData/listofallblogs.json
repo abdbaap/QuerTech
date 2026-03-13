@@ -1,5 +1,49 @@
 [
   {
+    "blog_title": "PS3 Unleashed: Epic Gaming Showcase",
+    "link": "PS3Glory",
+    "description": "Experience the raw power of PlayStation 3! This ultimate highlight reel showcases dynamic gameplay, intense combat, and groundbreaking innovation from a legendary era. Relive gaming history with action from titles like The Last of Us, God of War III, and Assassin's Creed.",
+    "tags": [
+      "PS3",
+      "PlayStation 3",
+      "Gaming Highlights",
+      "Action Games",
+      "Console Gaming",
+      "Gameplay Compilation",
+      "Epic Gaming"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Ultimate Fat Loss Blueprint",
+    "link": "torchfat",
+    "description": "Unlock sustainable fat loss with this science-backed guide. Learn to create your own diet and workout plan, combining calorie deficit, intermittent fasting, accurate tracking, and a powerful cardio & strength regimen. Ditch quick fixes, embrace discipline, and transform your body.",
+    "tags": [
+      "Fat Loss",
+      "Calorie Deficit",
+      "Intermittent Fasting",
+      "Strength Training",
+      "Cardio",
+      "Diet Plan",
+      "Workout Plan"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-500"
+  },
+  {
+    "blog_title": "i3/4GB RAM: Budget Gaming Unleashed!",
+    "link": "i3Power",
+    "description": "Discover how Intel Core i3 PCs with 4GB RAM deliver smooth, optimized gaming across diverse titles. Practical benchmarks prove budget hardware can still power epic gameplay.",
+    "tags": [
+      "i3 Gaming",
+      "Budget PC Gaming",
+      "4GB RAM Gaming",
+      "Optimized Gaming",
+      "PC Benchmarks",
+      "Low-Spec Gaming"
+    ],
+    "color": "bg-emerald-700 shadow-emerald-400"
+  },
+  {
     "blog_title": "Boost Your FPS: Ultimate Windows 10/11 Gaming Guide",
     "link": "FPSBoost",
     "description": "Unlock peak gaming performance on Windows 10 & 11, even on old PCs! This guide reveals crucial software tweaks like Storage Sense, Game Mode, and visual settings to drastically boost FPS and responsiveness without expensive hardware upgrades.",
