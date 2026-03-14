@@ -1,5 +1,21 @@
 [
   {
+    "blog_title": "Thrive in Indian Game Dev: $16.7B Boom, Top Skills & High Salaries",
+    "link": "DevThrive",
+    "description": "Unlock a high-growth game development career in India. Explore the $16.7B market, essential skills (Unreal, AI), competitive salaries, and strategic insights to succeed in a booming industry backed by government support.",
+    "tags": [
+      "Game Development India",
+      "GameDev Career",
+      "Unreal Engine",
+      "AI in Gaming",
+      "Gaming Industry India",
+      "Game Dev Salaries",
+      "Mobile Gaming",
+      "AVGC India"
+    ],
+    "color": "bg-purple-900 shadow-purple-600"
+  },
+  {
     "blog_title": "Code Conquer",
     "link": "DevPath",
     "description": "Aspiring coder? Debunk myths! This guide reveals the real path to pro success, emphasizing consistency, small wins, and embracing confusion as a learning sign. Unlock your true coding potential.",

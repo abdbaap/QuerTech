@@ -1,5 +1,18 @@
 [
   {
+    "blog_title": "Action & Shooter Evolution: A Visual Showcase",
+    "link": "ActionEvo",
+    "description": "Witness the thrilling evolution of action and shooter games! This high-octane showcase packs diverse gameplay, combat, and visuals from iconic titles across generations. Discover influential mechanics from Sniper Elite to Max Payne, and see what defines modern gaming.",
+    "tags": [
+      "Action Games",
+      "Shooter Games",
+      "Game Evolution",
+      "Combat Gameplay",
+      "Iconic Games"
+    ],
+    "color": "bg-cyan-950 shadow-cyan-400"
+  },
+  {
     "blog_title": "PS3 Unleashed: Epic Gaming Showcase",
     "link": "PS3Glory",
     "description": "Experience the raw power of PlayStation 3! This ultimate highlight reel showcases dynamic gameplay, intense combat, and groundbreaking innovation from a legendary era. Relive gaming history with action from titles like The Last of Us, God of War III, and Assassin's Creed.",

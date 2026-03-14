@@ -1,5 +1,82 @@
 [
   {
+    "blog_title": "Thrive in Indian Game Dev: $16.7B Boom, Top Skills & High Salaries",
+    "link": "DevThrive",
+    "description": "Unlock a high-growth game development career in India. Explore the $16.7B market, essential skills (Unreal, AI), competitive salaries, and strategic insights to succeed in a booming industry backed by government support.",
+    "tags": [
+      "Game Development India",
+      "GameDev Career",
+      "Unreal Engine",
+      "AI in Gaming",
+      "Gaming Industry India",
+      "Game Dev Salaries",
+      "Mobile Gaming",
+      "AVGC India"
+    ],
+    "color": "bg-purple-900 shadow-purple-600"
+  },
+  {
+    "blog_title": "India's Perilous Foreign Policy Amidst Global Conflict",
+    "link": "INDIAPERIL",
+    "description": "A critical analysis of the escalating US-Israel-Iran war and its severe economic impact on India. Learn how India's foreign policy choices are questioned amid rising oil prices, the Strait of Hormuz closure, and strategic risks.",
+    "tags": [
+      "India Foreign Policy",
+      "US-Israel-Iran Conflict",
+      "Geopolitics",
+      "Energy Security",
+      "Strait of Hormuz",
+      "Modi Government",
+      "International Relations",
+      "Economic Impact"
+    ],
+    "color": "bg-fuchsia-900 shadow-fuchsia-700"
+  },
+  {
+    "blog_title": "Ignite Your Dev Journey: Code for Joy, Build for Mastery",
+    "link": "BuildSkill",
+    "description": "Daily 'coding for fun' cultivates mastery. Dedicate 30-60 mins to personal projects, like building AI asset managers or email visualizers. Develop skills, innovate, and build a real portfolio without pressure. Embrace intrinsic motivation for true growth.",
+    "tags": [
+      "Coding Habit",
+      "Developer Growth",
+      "Side Projects",
+      "Skill Development",
+      "Intrinsic Motivation",
+      "AI Development",
+      "Data Visualization"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Master Your Focus: Scientific Strategies for Peak Concentration",
+    "link": "Mastery",
+    "description": "Our attention spans are shrinking faster than a goldfish's! Discover scientifically-backed brain hacks and ancient wisdom (like the 90-20 rule and Trataka) to regain deep concentration, conquer distractions, and massively boost your productivity.",
+    "tags": [
+      "Focus",
+      "Attention Span",
+      "Productivity",
+      "Brain Hacks",
+      "Dopamine",
+      "Ultradian Rhythm",
+      "Trataka",
+      "Concentration",
+      "Mindset"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Action & Shooter Evolution: A Visual Showcase",
+    "link": "ActionEvo",
+    "description": "Witness the thrilling evolution of action and shooter games! This high-octane showcase packs diverse gameplay, combat, and visuals from iconic titles across generations. Discover influential mechanics from Sniper Elite to Max Payne, and see what defines modern gaming.",
+    "tags": [
+      "Action Games",
+      "Shooter Games",
+      "Game Evolution",
+      "Combat Gameplay",
+      "Iconic Games"
+    ],
+    "color": "bg-cyan-950 shadow-cyan-400"
+  },
+  {
     "blog_title": "PS3 Unleashed: Epic Gaming Showcase",
     "link": "PS3Glory",
     "description": "Experience the raw power of PlayStation 3! This ultimate highlight reel showcases dynamic gameplay, intense combat, and groundbreaking innovation from a legendary era. Relive gaming history with action from titles like The Last of Us, God of War III, and Assassin's Creed.",

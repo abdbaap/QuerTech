@@ -1,5 +1,37 @@
 [
   {
+    "blog_title": "Ignite Your Dev Journey: Code for Joy, Build for Mastery",
+    "link": "BuildSkill",
+    "description": "Daily 'coding for fun' cultivates mastery. Dedicate 30-60 mins to personal projects, like building AI asset managers or email visualizers. Develop skills, innovate, and build a real portfolio without pressure. Embrace intrinsic motivation for true growth.",
+    "tags": [
+      "Coding Habit",
+      "Developer Growth",
+      "Side Projects",
+      "Skill Development",
+      "Intrinsic Motivation",
+      "AI Development",
+      "Data Visualization"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Master Your Focus: Scientific Strategies for Peak Concentration",
+    "link": "Mastery",
+    "description": "Our attention spans are shrinking faster than a goldfish's! Discover scientifically-backed brain hacks and ancient wisdom (like the 90-20 rule and Trataka) to regain deep concentration, conquer distractions, and massively boost your productivity.",
+    "tags": [
+      "Focus",
+      "Attention Span",
+      "Productivity",
+      "Brain Hacks",
+      "Dopamine",
+      "Ultradian Rhythm",
+      "Trataka",
+      "Concentration",
+      "Mindset"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
     "blog_title": "5 Secret Skills For Student Financial Freedom",
     "link": "PowerEarn",
     "description": "Unlock financial independence! Discover 5 high-income skills like voice-over, handmade art, and social media management. Learn how to earn big and fund your education while still a student, turning passion into profit.",
