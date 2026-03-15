@@ -78,7 +78,8 @@ const [urlList, seturlList] = useState([])
         const output = await GeneratingFies(TitleFolder, code.FinalCode, item.category);
         
         const cleanSlug = TitleFolder.data.link.replace(/\//g, "");
-        const finalUrl = `https://quertech-articles.vercel.app/${cleanSlug}/index.html`;
+        const finalSlug = cleanSlug.replace(/^\/+/, "");
+        const finalUrl = `https://quertech-articles.vercel.app/${finalSlug}/index.html`;
 
         // --- UPDATE UI SAFELY ---
         

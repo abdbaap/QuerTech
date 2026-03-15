@@ -1,5 +1,31 @@
 [
   {
+    "blog_title": "CI/CD Essentials",
+    "link": "autodeploy",
+    "description": "Unlock faster, more reliable software delivery. This guide demystifies CI/CD, covering essential concepts, top tools like GitHub Actions, and zero-downtime deployment strategies to automate your DevOps.",
+    "tags": [
+      "CI/CD",
+      "DevOps",
+      "Automation",
+      "Deployment",
+      "GitHub Actions"
+    ],
+    "color": "bg-teal-900 shadow-teal-400"
+  },
+  {
+    "blog_title": "Microservices Demystified: The Future of Scalable Architecture",
+    "link": "ArchPower",
+    "description": "Discover how Microservices architecture revolutionizes app development with unmatched scalability and flexibility, overcoming Monolith limitations. Essential insights for modern enterprise solutions.",
+    "tags": [
+      "Microservices",
+      "Monolith Architecture",
+      "Scalability",
+      "Flexible Apps",
+      "Enterprise Tech"
+    ],
+    "color": "bg-teal-700 shadow-teal-400"
+  },
+  {
     "blog_title": "Value Objects: Code Mastery",
     "link": "PureCode",
     "description": "Stop primitive obsession! Discover how Value Objects make your Python code robust, readable, and bug-free. Validate once, trust everywhere for perfect software.",

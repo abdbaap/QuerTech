@@ -1,5 +1,63 @@
 [
   {
+    "blog_title": "MSI Titan vs. Custom PC: Who Reigns Supreme at ₹7 Lakh?",
+    "link": "BUILDVSBUY",
+    "description": "Comparing the ₹6.2 Lakh MSI Titan 18HX gaming laptop with a ₹7 Lakh custom desktop PC. Both feature top-tier Intel Core Ultra 9 and RTX 5090. Discover which offers superior performance, portability, and value for your high-end computing needs.",
+    "tags": [
+      "MSI Titan",
+      "Custom PC",
+      "RTX 5090",
+      "Gaming Battle",
+      "Build vs Buy",
+      "High-End PC"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-700"
+  },
+  {
+    "blog_title": "Teen Earn From Home",
+    "link": "TeenCash",
+    "description": "Indian teens, discover 5 legit online income streams from home! Skip low-pay tasks; earn well testing sites, selling notes, tutoring, photos, or transcribing. Easy, practical ways to make real money.",
+    "tags": [
+      "Teenage Income",
+      "Online Earning",
+      "Work From Home",
+      "India Teens",
+      "Legit Money"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "YouTube Shorts Automation: Earn $400 Daily with AI",
+    "link": "AutoCash",
+    "description": "Discover a 'copy-paste' YouTube Shorts automation strategy to earn $400-500 daily. Learn how to repurpose viral content with AI scripts, voiceovers, and mobile editing to create unique, monetizable videos under fair use guidelines. See real earnings data and a step-by-step workflow.",
+    "tags": [
+      "YouTube Shorts",
+      "AI Automation",
+      "Content Repurposing",
+      "Earn Online",
+      "Fair Use",
+      "Monetization",
+      "CapCut",
+      "ChatGPT",
+      "ElevenLabs"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "PC Price Plunge Confirmed: Build Smart Now!",
+    "link": "TechPlunge",
+    "description": "Amazon data reveals a definitive downward trend for RAM & GPU prices. It's a favorable time for PC builders, with potential for further drops. Get our data-backed insights on when to build and save.",
+    "tags": [
+      "PC Price Drop",
+      "Component Prices",
+      "GPU Deals",
+      "RAM Deals",
+      "PC Building",
+      "Tech Market"
+    ],
+    "color": "bg-teal-700 shadow-teal-400"
+  },
+  {
     "blog_title": "ASUS TUF A14: AI Powerhouse Unleashed",
     "link": "AISurge",
     "description": "The ASUS TUF Gaming A14 redefines portable power. Featuring AMD Ryzen AI Max+ and a potent integrated GPU, it delivers surprising performance for creators and gamers, rivaling dedicated graphics. Experience peak AI efficiency in a compact, durable design.",

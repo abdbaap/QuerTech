@@ -1,5 +1,66 @@
 [
   {
+    "blog_title": "Sharpen Your Focus: 5 Scientific Steps to Master Attention",
+    "link": "SHARPEN",
+    "description": "Unlock peak performance by mastering focus! Our attention spans are shorter than a goldfish's, but this guide reveals 5 scientifically-backed steps—from ancient Trataka to modern brain hacks like the 90-20 rule—to sharpen your mind, boost productivity, and conquer digital distractions.",
+    "tags": [
+      "Focus",
+      "Attention Span",
+      "Productivity",
+      "Brain Hacks",
+      "Science of Focus",
+      "Dopamine",
+      "Trataka",
+      "Ultradian Rhythms",
+      "Digital Distraction",
+      "Cognitive Enhancement"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Hack Your Brain to Crave Studying: The Dopamine Method",
+    "link": "BrainHack",
+    "description": "Unlock your brain's potential! Learn the 'Dopamine Loading Method' to reprogram your reward system, turn studying into a satisfying habit, and make your brain addicted to growth. No more willpower struggles – just smart neurochemistry.",
+    "tags": [
+      "Brain Hacking",
+      "Dopamine",
+      "Study Habits",
+      "Neuroscience",
+      "Productivity",
+      "Learning",
+      "Motivation"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Ask & Receive: Jim Rohn's Success Key",
+    "link": "UNLOCK",
+    "description": "Unlock your full potential! Jim Rohn reveals the simple yet powerful 'art of asking' – a skill crucial for achieving any desire. Learn to ask with intelligence and faith to manifest your dreams.",
+    "tags": [
+      "Asking",
+      "Success Principles",
+      "Jim Rohn",
+      "Manifestation",
+      "Goal Achievement",
+      "Personal Growth"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Conquer Procrastination: Start Now",
+    "link": "CONQUER",
+    "description": "Stuck on 'someday'? Overcome procrastination and the fear of starting by prioritizing momentum over motivation. Learn how a single, imperfect action can unlock progress and help you achieve your goals.",
+    "tags": [
+      "Procrastination",
+      "Motivation",
+      "Productivity",
+      "Action",
+      "Goal Setting",
+      "Mindset"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
     "blog_title": "Ignite Your Dev Journey: Code for Joy, Build for Mastery",
     "link": "BuildSkill",
     "description": "Daily 'coding for fun' cultivates mastery. Dedicate 30-60 mins to personal projects, like building AI asset managers or email visualizers. Develop skills, innovate, and build a real portfolio without pressure. Embrace intrinsic motivation for true growth.",
