@@ -1,5 +1,21 @@
 [
   {
+    "blog_title": "ASUS TUF A14: AI Powerhouse Unleashed",
+    "link": "AISurge",
+    "description": "The ASUS TUF Gaming A14 redefines portable power. Featuring AMD Ryzen AI Max+ and a potent integrated GPU, it delivers surprising performance for creators and gamers, rivaling dedicated graphics. Experience peak AI efficiency in a compact, durable design.",
+    "tags": [
+      "ASUS TUF A14",
+      "AI Laptop",
+      "Ryzen AI Max",
+      "Integrated GPU",
+      "Gaming Laptop",
+      "Creator PC",
+      "Portable Tech",
+      "Copilot+ PC"
+    ],
+    "color": "bg-blue-800 shadow-blue-500"
+  },
+  {
     "blog_title": "Boost Your FPS: Ultimate Windows 10/11 Gaming Guide",
     "link": "FPSBoost",
     "description": "Unlock peak gaming performance on Windows 10 & 11, even on old PCs! This guide reveals crucial software tweaks like Storage Sense, Game Mode, and visual settings to drastically boost FPS and responsiveness without expensive hardware upgrades.",

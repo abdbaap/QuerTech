@@ -77,7 +77,7 @@ const [urlList, seturlList] = useState([])
         // Use item.category directly from the queue object
         const output = await GeneratingFies(TitleFolder, code.FinalCode, item.category);
         
-        const cleanSlug = TitleFolder.data.link.replace(/^\/+/, "".replace("/",""));
+        const cleanSlug = TitleFolder.data.link.replace(/\//g, "");
         const finalUrl = `https://quertech-articles.vercel.app/${cleanSlug}/index.html`;
 
         // --- UPDATE UI SAFELY ---

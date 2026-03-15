@@ -1,4 +1,4 @@
-<?xml version="1" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://quertech-articles.vercel.app/</loc>
@@ -68,110 +68,170 @@
   </url>
  
 <url>
-    <loc>https://quertech.vercel.app/aidevpro/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/aidevpro/index.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/DevPath/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/DevPath/index.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/MasterEng/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/MasterEng/index.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/Conquer i3/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/Conquer%20i3/index.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/epiclite/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/epiclite/index.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/BeatFog/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/BeatFog/index.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/Maxi3/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/Maxi3/index.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/maxgames/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/maxgames/index.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/PowerEarn/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/PowerEarn/index.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/FPSBoost/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/FPSBoost/index.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/i3Power/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/i3Power/index.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/torchfat/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/torchfat/index.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/PS3Glory/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/PS3Glory/index.html</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/ActionEvo/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/ActionEvo/index.html</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/Mastery/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/Mastery/index.html</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/BuildSkill/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/BuildSkill/index.html</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/INDIAPERIL/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/INDIAPERIL/index.html</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
 <url>
-    <loc>https://quertech.vercel.app/DevThrive/index.html</loc>
+    <loc>https://quertech-articles.vercel.app/DevThrive/index.html</loc>
     <lastmod>2026-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/GridGuide/index.html</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/Glass%20Win11/index.html</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/EpicPlay/index.html</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/CTriumph/index.html</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app//AISurge/index.html</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/JS%20Boost/index.html</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/MasterData/index.html</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/AuthBoost/index.html</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/PureCode/index.html</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/ApexPlay/index.html</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>

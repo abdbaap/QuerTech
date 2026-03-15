@@ -1,5 +1,156 @@
 [
   {
+    "blog_title": "Apex Combat: Unpacking Gaming's Elite Mechanics",
+    "link": "ApexPlay",
+    "description": "Dive into an ultimate visual showcase of elite video game combat! Explore diverse and impactful mechanics from Sniper Elite to Dark Souls, revealing how developers craft truly engaging fight systems. Discover top-tier strategies and innovative combat design across gaming's celebrated titles.",
+    "tags": [
+      "Game Combat",
+      "Combat Mechanics",
+      "Gaming Skills",
+      "Elite Gameplay",
+      "Action Design"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-500"
+  },
+  {
+    "blog_title": "Value Objects: Code Mastery",
+    "link": "PureCode",
+    "description": "Stop primitive obsession! Discover how Value Objects make your Python code robust, readable, and bug-free. Validate once, trust everywhere for perfect software.",
+    "tags": [
+      "Value Objects",
+      "Primitive Obsession",
+      "Clean Code",
+      "Python",
+      "Domain-Driven Design",
+      "Robust Code"
+    ],
+    "color": "bg-emerald-900 shadow-emerald-500"
+  },
+  {
+    "blog_title": "Mastering JWTs: Secure & Scalable Auth",
+    "link": "AuthBoost",
+    "description": "Unlock the power of JSON Web Tokens (JWTs)! This guide reveals their structure, secure implementation, and why they're essential for scalable, stateless authentication in modern web apps. Learn to ditch sessions and boost security.",
+    "tags": [
+      "JWT",
+      "Authentication",
+      "API Security",
+      "Stateless Auth",
+      "Web Security"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-500"
+  },
+  {
+    "blog_title": "Master Backend & System Design",
+    "link": "MasterData",
+    "description": "Unlock backend mastery! Learn to efficiently manage data, design databases, and scale systems with practical examples. Essential guide for aspiring and current developers.",
+    "tags": [
+      "Backend Development",
+      "System Design",
+      "Data Management",
+      "Databases",
+      "Scaling",
+      "Developer Guide"
+    ],
+    "color": "bg-violet-900 shadow-violet-500"
+  },
+  {
+    "blog_title": "Lightning JS: Rapid Core Mastery",
+    "link": "JS Boost",
+    "description": "Get up to speed on JavaScript FAST! This rapid-fire 'JS 101' guide distills 100+ core concepts, from history to async/await and modern frameworks. Master JS essentials quickly.",
+    "tags": [
+      "JavaScript",
+      "JS 101",
+      "Web Development",
+      "Programming",
+      "Node.js",
+      "Async/Await",
+      "DOM",
+      "Frontend JS",
+      "Full-Stack JS",
+      "ES6"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "ASUS TUF A14: AI Powerhouse Unleashed",
+    "link": "AISurge",
+    "description": "The ASUS TUF Gaming A14 redefines portable power. Featuring AMD Ryzen AI Max+ and a potent integrated GPU, it delivers surprising performance for creators and gamers, rivaling dedicated graphics. Experience peak AI efficiency in a compact, durable design.",
+    "tags": [
+      "ASUS TUF A14",
+      "AI Laptop",
+      "Ryzen AI Max",
+      "Integrated GPU",
+      "Gaming Laptop",
+      "Creator PC",
+      "Portable Tech",
+      "Copilot+ PC"
+    ],
+    "color": "bg-blue-800 shadow-blue-500"
+  },
+  {
+    "blog_title": "24-Hour C Pong: No AI Triumph",
+    "link": "CTriumph",
+    "description": "See how one dev learned C from scratch and built a full Pong game in just 9 hours, no AI! Uncover the raw challenges of C syntax, game physics, and creating a 'dumb' AI opponent.",
+    "tags": [
+      "C Programming",
+      "Pong Game",
+      "Game Dev",
+      "24-Hour Challenge",
+      "No AI Code",
+      "ncurses",
+      "Coding Journey"
+    ],
+    "color": "bg-emerald-900 shadow-emerald-400"
+  },
+  {
+    "blog_title": "Game Mechanics Unveiled: The Ultimate Action Showcase",
+    "link": "EpicPlay",
+    "description": "Dive into a comprehensive showcase of diverse, visceral gameplay mechanics across top video games. Discover innovative combat, unique movement, and dynamic environmental interactions perfect for inspiring game designers, content creators, and any gaming enthusiast looking for impactful insights and action-packed moments.",
+    "tags": [
+      "Gaming",
+      "Gameplay Mechanics",
+      "Video Games",
+      "Action Games",
+      "Game Design",
+      "Combat",
+      "Movement Systems",
+      "RPG Mechanics",
+      "Gaming Podcast"
+    ],
+    "color": "bg-fuchsia-700 shadow-fuchsia-400"
+  },
+  {
+    "blog_title": "Glass-Effect Windows 11: Ultimate Desktop Setup",
+    "link": "Glass Win11",
+    "description": "Transform your Windows 11 desktop into a stunning, modern glass-effect interface! This guide uses Windhawk, Lively Wallpaper, and Rainmeter to achieve translucent UI, live backgrounds, and sleek widgets. Get that clean, aesthetic look.",
+    "tags": [
+      "Windows 11 Customization",
+      "Glass Effect UI",
+      "Desktop Aesthetics",
+      "Windhawk",
+      "Lively Wallpaper",
+      "Rainmeter",
+      "Modern Desktop",
+      "Tech Tutorial",
+      "Windows Mods"
+    ],
+    "color": "bg-violet-800 shadow-violet-400"
+  },
+  {
+    "blog_title": "Mastering CSS Grid & Flexbox: Responsive Design Guide",
+    "link": "GridGuide",
+    "description": "Demystify CSS Grid and Flexbox for responsive web design. Learn when to use Grid for 2D layouts and Flexbox for 1D arrangements, with practical examples for layout mastery.",
+    "tags": [
+      "CSS Grid",
+      "Flexbox",
+      "Responsive Design",
+      "Web Development",
+      "Front-end",
+      "Layouts"
+    ],
+    "color": "bg-blue-800 shadow-blue-400"
+  },
+  {
     "blog_title": "Thrive in Indian Game Dev: $16.7B Boom, Top Skills & High Salaries",
     "link": "DevThrive",
     "description": "Unlock a high-growth game development career in India. Explore the $16.7B market, essential skills (Unreal, AI), competitive salaries, and strategic insights to succeed in a booming industry backed by government support.",

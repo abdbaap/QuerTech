@@ -1,5 +1,22 @@
 [
   {
+    "blog_title": "Glass-Effect Windows 11: Ultimate Desktop Setup",
+    "link": "Glass Win11",
+    "description": "Transform your Windows 11 desktop into a stunning, modern glass-effect interface! This guide uses Windhawk, Lively Wallpaper, and Rainmeter to achieve translucent UI, live backgrounds, and sleek widgets. Get that clean, aesthetic look.",
+    "tags": [
+      "Windows 11 Customization",
+      "Glass Effect UI",
+      "Desktop Aesthetics",
+      "Windhawk",
+      "Lively Wallpaper",
+      "Rainmeter",
+      "Modern Desktop",
+      "Tech Tutorial",
+      "Windows Mods"
+    ],
+    "color": "bg-violet-800 shadow-violet-400"
+  },
+  {
     "blog_title": "India's Perilous Foreign Policy Amidst Global Conflict",
     "link": "INDIAPERIL",
     "description": "A critical analysis of the escalating US-Israel-Iran war and its severe economic impact on India. Learn how India's foreign policy choices are questioned amid rising oil prices, the Strait of Hormuz closure, and strategic risks.",
