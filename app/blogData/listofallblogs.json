@@ -1,5 +1,176 @@
 [
   {
+    "blog_title": "GlowFX",
+    "link": "GlowFX",
+    "description": "Craft dazzling animated glow borders! Discover how to create dynamic, rotating gradient effects purely with HTML & CSS using pseudo-elements, conic gradients, and the powerful @property rule. Elevate your UI with advanced, performant CSS.",
+    "tags": [
+      "CSS Animation",
+      "Glowing Border",
+      "Conic Gradient",
+      "HTML CSS",
+      "Web Dev"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-500"
+  },
+  {
+    "blog_title": "Master CSS Scroll Effects",
+    "link": "Scroll FX",
+    "description": "Unlock native CSS scroll-driven animations without JavaScript! Master new CSS properties like `animation-timeline` and `animation-range` for smooth, performant element transitions, enhancing web interactivity with minimal code.",
+    "tags": [
+      "CSS Animations",
+      "Scroll Effects",
+      "No JavaScript",
+      "Web Performance",
+      "Frontend Dev"
+    ],
+    "color": "bg-sky-800 shadow-sky-400"
+  },
+  {
+    "blog_title": "Google Play Store Desktop App Guide",
+    "link": "PlayWin",
+    "description": "Learn to quickly install Google Play Store as a desktop app shortcut on Windows using Microsoft Edge. Get instant, easy access to your favorite Android apps directly from your desktop, bypassing browser steps for a streamlined experience.",
+    "tags": [
+      "Google Play Store",
+      "Desktop Shortcut",
+      "Windows",
+      "Microsoft Edge",
+      "PWA",
+      "Web App",
+      "Productivity",
+      "Android Apps"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Install Android Apps on Windows 11",
+    "link": "APKonWin",
+    "description": "Seamlessly install Android APKs on Windows 11! This guide covers two powerful methods: WSATools from the Microsoft Store and the open-source WSA PacMan. Learn essential WSA setup, configuration, and troubleshooting to run your favorite Android apps on your desktop.",
+    "tags": [
+      "Windows 11",
+      "Android Apps",
+      "APK Installation",
+      "WSA",
+      "WSATools",
+      "WSA PacMan",
+      "Android on PC"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Mod Android Apps (No Root)",
+    "link": "Mod Games",
+    "description": "Unlock game value edits & app customization without root! Master Apktool M to decrypt, modify, and recompile Android apps for personalized experiences.",
+    "tags": [
+      "Android Modding",
+      "Apktool M",
+      "No Root",
+      "Game Customization",
+      "APK Editing"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Unlock Game Power: Mod Android APKs for Unlimited Currency",
+    "link": "Mod Game",
+    "description": "Learn to customize Android games! This guide shows how to use Apktool M to decompile APKs, modify in-game data (like currency), and recompile for your own 'modded' apps. Unlock hidden potential and control your game experience.",
+    "tags": [
+      "Android Modding",
+      "APK Decompile",
+      "Game Currency Hacks",
+      "Apktool M Tutorial",
+      "Game Customization"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Google AI: Build Apps Instantly",
+    "link": "AppGenius",
+    "description": "Revolutionize app development! Google's AI pipeline (Stitch, Antigravity, Flutter) lets you generate fully functional, cross-platform mobile apps from simple text or a website, no coding needed. Create apps instantly and deploy them easily.",
+    "tags": [
+      "Google AI",
+      "No-Code App",
+      "Flutter",
+      "AI App Builder",
+      "Mobile Development"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-500"
+  },
+  {
+    "blog_title": "Turbocharge Android Apps on Windows 11",
+    "link": "TurboDroid",
+    "description": "Run Android apps & games natively on Windows 11 without lag! This guide uses WSA, WSATools & ADB for seamless mobile-like performance on your PC. Ditch emulators now!",
+    "tags": [
+      "Android Apps",
+      "Windows 11",
+      "WSA Setup",
+      "No Lag",
+      "PC Gaming"
+    ],
+    "color": "bg-emerald-800 shadow-emerald-400"
+  },
+  {
+    "blog_title": "Git Commit Blunders: Fix Wrong Branch Fast",
+    "link": "GitFix",
+    "description": "Accidentally committed to the wrong Git branch? Learn to fix it like a pro! This guide covers using `git cherry-pick` to move commits and `git reset --hard` to clean your main branch, ensuring a flawless codebase. Master Git recovery and boost your professional coding skills.",
+    "tags": [
+      "Git",
+      "Git Recovery",
+      "Git Commits",
+      "Branching",
+      "git cherry-pick",
+      "git reset",
+      "Developer Tools",
+      "Coding Best Practices"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
+    "blog_title": "Code Muscle: Master Dev Skills",
+    "link": "CODEMAST",
+    "description": "Unlock true coding mastery. Learn why active, hands-on practice, not AI, builds vital 'muscle memory' for developers. Ace interviews & code like a pro with our 70/30 rule.",
+    "tags": [
+      "Coding Practice",
+      "Muscle Memory",
+      "AI Coding",
+      "Developer Skills",
+      "Programming",
+      "Technical Interview",
+      "Hands-On Coding"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "PC Graphics Master Guide",
+    "link": "Game Max",
+    "description": "Unlock peak PC gaming! Master Ray Tracing, DLSS, Frame Generation & more. Learn how graphics tech impacts visuals & FPS to optimize your settings for ultimate realism or competitive edge. Your essential guide.",
+    "tags": [
+      "PC Graphics",
+      "Gaming Tech",
+      "FPS Boost",
+      "Ray Tracing",
+      "DLSS FSR",
+      "Game Optimization"
+    ],
+    "color": "bg-emerald-700 shadow-emerald-400"
+  },
+  {
+    "blog_title": "CLI Master",
+    "link": "CLIMaster",
+    "description": "Elevate your Windows Terminal! Customize with a stunning theme, Nerd Font, and Fastfetch for a powerful, personalized CLI experience. Get system stats at a glance!",
+    "tags": [
+      "Windows Terminal",
+      "CLI Customization",
+      "Fastfetch",
+      "Nerd Fonts",
+      "PowerShell",
+      "Catppuccin",
+      "Terminal Theme",
+      "System Info",
+      "Windows 11"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
     "blog_title": "Mastering CSS Position Property: Absolute, Relative, Fixed, Sticky, and Z-index Explained",
     "link": "MasterPos",
     "description": "Unlock advanced web design with this comprehensive CSS position tutorial. Master 'relative', 'absolute', 'fixed', 'sticky', and 'z-index' for precise element layout and control over visual stacking. Learn to break elements from normal flow and manage layers effectively.",

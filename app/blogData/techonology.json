@@ -1,5 +1,93 @@
 [
   {
+    "blog_title": "Google Play Store Desktop App Guide",
+    "link": "PlayWin",
+    "description": "Learn to quickly install Google Play Store as a desktop app shortcut on Windows using Microsoft Edge. Get instant, easy access to your favorite Android apps directly from your desktop, bypassing browser steps for a streamlined experience.",
+    "tags": [
+      "Google Play Store",
+      "Desktop Shortcut",
+      "Windows",
+      "Microsoft Edge",
+      "PWA",
+      "Web App",
+      "Productivity",
+      "Android Apps"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Install Android Apps on Windows 11",
+    "link": "APKonWin",
+    "description": "Seamlessly install Android APKs on Windows 11! This guide covers two powerful methods: WSATools from the Microsoft Store and the open-source WSA PacMan. Learn essential WSA setup, configuration, and troubleshooting to run your favorite Android apps on your desktop.",
+    "tags": [
+      "Windows 11",
+      "Android Apps",
+      "APK Installation",
+      "WSA",
+      "WSATools",
+      "WSA PacMan",
+      "Android on PC"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Mod Android Apps (No Root)",
+    "link": "Mod Games",
+    "description": "Unlock game value edits & app customization without root! Master Apktool M to decrypt, modify, and recompile Android apps for personalized experiences.",
+    "tags": [
+      "Android Modding",
+      "Apktool M",
+      "No Root",
+      "Game Customization",
+      "APK Editing"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Turbocharge Android Apps on Windows 11",
+    "link": "TurboDroid",
+    "description": "Run Android apps & games natively on Windows 11 without lag! This guide uses WSA, WSATools & ADB for seamless mobile-like performance on your PC. Ditch emulators now!",
+    "tags": [
+      "Android Apps",
+      "Windows 11",
+      "WSA Setup",
+      "No Lag",
+      "PC Gaming"
+    ],
+    "color": "bg-emerald-800 shadow-emerald-400"
+  },
+  {
+    "blog_title": "PC Graphics Master Guide",
+    "link": "Game Max",
+    "description": "Unlock peak PC gaming! Master Ray Tracing, DLSS, Frame Generation & more. Learn how graphics tech impacts visuals & FPS to optimize your settings for ultimate realism or competitive edge. Your essential guide.",
+    "tags": [
+      "PC Graphics",
+      "Gaming Tech",
+      "FPS Boost",
+      "Ray Tracing",
+      "DLSS FSR",
+      "Game Optimization"
+    ],
+    "color": "bg-emerald-700 shadow-emerald-400"
+  },
+  {
+    "blog_title": "CLI Master",
+    "link": "CLIMaster",
+    "description": "Elevate your Windows Terminal! Customize with a stunning theme, Nerd Font, and Fastfetch for a powerful, personalized CLI experience. Get system stats at a glance!",
+    "tags": [
+      "Windows Terminal",
+      "CLI Customization",
+      "Fastfetch",
+      "Nerd Fonts",
+      "PowerShell",
+      "Catppuccin",
+      "Terminal Theme",
+      "System Info",
+      "Windows 11"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
     "blog_title": "MSI Titan vs. Custom PC: Who Reigns Supreme at ₹7 Lakh?",
     "link": "BUILDVSBUY",
     "description": "Comparing the ₹6.2 Lakh MSI Titan 18HX gaming laptop with a ₹7 Lakh custom desktop PC. Both feature top-tier Intel Core Ultra 9 and RTX 5090. Discover which offers superior performance, portability, and value for your high-end computing needs.",

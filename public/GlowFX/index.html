@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- SEO Optimization: Integrated Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Primary Meta Tags -->
+    <title>Ignite Your UI: Animated Glowing CSS Border Effect</title>
+    <meta name="description" content="Tired of static designs? Unlock stunning, animated glowing borders with pure HTML & CSS! Master conic-gradient, ::before, and @property for dynamic, high-performance UI. Get started!">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://quertech-articles.vercel.app/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app/">
+    <meta property="og:title" content="Ignite Your UI: Animated Glowing CSS Border Effect">
+    <meta property="og:description" content="Tired of static designs? Unlock stunning, animated glowing borders with pure HTML & CSS! Master conic-gradient, ::before, and @property for dynamic, high-performance UI. Get started!">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/social-preview.png"> <!-- Placeholder for a visually appealing preview image -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://quertech-articles.vercel.app/">
+    <meta property="twitter:title" content="Ignite Your UI: Animated Glowing CSS Border Effect">
+    <meta property="twitter:description" content="Tired of static designs? Unlock stunning, animated glowing borders with pure HTML & CSS! Master conic-gradient, ::before, and @property for dynamic, high-performance UI. Get started!">
+    <meta property="twitter:image" content="https://quertech-articles.vercel.app/social-preview.png"> <!-- Placeholder for a visually appealing preview image -->
+
+    <!-- SEO Keywords & Trending Tags -->
+    <meta name="keywords" content="css glowing border animation, html css animated border, conic gradient border effect, css @property animation tutorial, dynamic css glow effect, css pseudo elements tutorial, pure css animation no javascript, elevate ui with css, frontend development tutorial, web design css tricks, modern css techniques, css performance animation, how to make glowing border css, css animation best practices, web animation tutorial, coding tutorial for beginners, developer tools css, ui ux design tips">
+
+    <!-- Favicon (simple SVG for immediate display) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+    <!-- Google Fonts Preconnect (if using, otherwise rely on system fonts for SF Pro Display) -->
+    <!-- For 'SF Pro Display', we primarily rely on system fonts or robust fallbacks.
+         If a specific Google Font similar to SF Pro were chosen, it would be linked here.
+         For this solution, we stick to the suggested system font stack for 'SF Pro Display'. -->
+
+    <style>
+        /*
+         * GLOBAL STYLES & CSS VARIABLES
+         * Defining a dark-themed, high-contrast palette and fluid typography.
+         * The @property rule is crucial for animating CSS custom properties.
+         */
+        :root {
+            /* Color Palette */
+            --color-indigo: #6366f1; /* Main accent color */
+            --color-pink: #ec4899;   /* Secondary accent color */
+            --color-slate: #09172a;  /* Primary background dark */
+            --color-slate-light: #152238; /* Slightly lighter slate for card backgrounds */
+            --color-text-primary: #e0e7ff; /* Light text for contrast */
+            --color-text-secondary: #a7b7d1; /* Subtler text */
+            --color-code-background: #1e293b; /* Dark background for code blocks */
+            --color-code-border: #334155; /* Border for code blocks */
+            --color-border-glass: rgba(99, 102, 241, 0.3); /* Glassmorphic border color (indigo-tinted) */
+            --color-glass-bg: rgba(9, 23, 42, 0.6); /* Glassmorphic background (slate-tinted transparent) */
+            --color-toggle-bg: rgba(99, 102, 241, 0.2); /* Theme toggle background */
+            --color-toggle-icon: var(--color-text-primary); /* Theme toggle icon color */
+
+            /* Font Stack */
+            --font-stack-primary: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+            /* Fluid Typography Scale (using clamp for responsiveness) */
+            --font-size-h1: clamp(2.5rem, 6vw + 1rem, 4.5rem);
+            --font-size-h2: clamp(1.8rem, 4vw + 1rem, 3rem);
+            --font-size-h3: clamp(1.4rem, 3vw + 0.5rem, 2.2rem);
+            --font-size-p: clamp(1rem, 1.5vw + 0.5rem, 1.15rem);
+            --font-size-li: clamp(0.95rem, 1.4vw + 0.45rem, 1.1rem);
+            --font-size-code: clamp(0.9rem, 1.3vw + 0.4rem, 1.05rem);
+
+            /* Spacing */
+            --spacing-unit: 1rem; /* Base unit for responsive spacing */
+        }
+
+        /*
+         * THEME-SPECIFIC ADJUSTMENTS (for the floating toggle demo)
+         * In this dark-themed design, the toggle will subtly change accent.
+         */
+        body.accent-alt {
+            --color-indigo: #f06292; /* A softer pink/red for alternative accent */
+            --color-pink: #80cbc4;   /* A teal for alternative accent */
+            --color-border-glass: rgba(240, 98, 146, 0.3);
+            --color-toggle-bg: rgba(240, 98, 146, 0.2);
+        }
+
+        /*
+         * CSS @property Rule
+         * Enables animating custom CSS variables, crucial for the rotating gradient border.
+         * Browser support is excellent in modern browsers (Chromium, Firefox, Safari).
+         */
+        @property --deg {
+            syntax: "<angle>";
+            inherits: true;
+            initial-value: 0deg;
+        }
+
+        /*
+         * BASE STYLES & RESET
+         */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-stack-primary);
+            font-size: var(--font-size-p);
+            line-height: 1.6;
+            color: var(--color-text-primary);
+            background-color: var(--color-slate);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top, as content might be tall */
+            padding: calc(4 * var(--spacing-unit)) var(--spacing-unit); /* Responsive padding */
+            overflow-x: hidden; /* Prevent horizontal scroll from orbs */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            z-index: 1; /* Ensure body content is above background orbs */
+        }
+
+        /*
+         * CONTAINER & LAYOUT
+         * Flexbox for centering and responsive structure.
+         */
+        .container {
+            width: 100%;
+            max-width: 900px; /* Max width for readability */
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: calc(2 * var(--spacing-unit)); /* Spacing between sections */
+            position: relative;
+            z-index: 10; /* Ensure content is above orbs */
+        }
+
+        /*
+         * TYPOGRAPHY
+         * Fluid scaling and gradient mask for main header.
+         */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-unit);
+            color: var(--color-text-primary); /* Default for most headers */
+        }
+
+        h1 {
+            font-size: var(--font-size-h1);
+            text-align: center;
+            padding-bottom: 0.5em; /* Space for the gradient effect */
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent; /* Fallback for browsers without text-fill-color */
+            filter: drop-shadow(0 0 5px rgba(99, 102, 241, 0.5)); /* Subtle glow for header */
+            animation: textGlowPulse 3s infinite alternate ease-in-out;
+        }
+        @keyframes textGlowPulse {
+            0% { filter: drop-shadow(0 0 5px rgba(99, 102, 241, 0.5)); }
+            100% { filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.6)); }
+        }
+
+        h2 {
+            font-size: var(--font-size-h2);
+            border-bottom: 1px solid var(--color-border-glass);
+            padding-bottom: calc(0.5 * var(--spacing-unit));
+            margin-bottom: calc(1.5 * var(--spacing-unit));
+        }
+
+        h3 {
+            font-size: var(--font-size-h3);
+            margin-top: calc(2 * var(--spacing-unit));
+            color: var(--color-indigo);
+        }
+
+        p {
+            margin-bottom: var(--spacing-unit);
+            font-size: var(--font-size-p);
+            color: var(--color-text-secondary);
+        }
+
+        ul, ol {
+            margin-left: calc(2 * var(--spacing-unit));
+            margin-bottom: var(--spacing-unit);
+            list-style-type: none; /* Custom list styling */
+        }
+
+        ul li, ol li {
+            position: relative;
+            margin-bottom: calc(0.7 * var(--spacing-unit));
+            padding-left: calc(1.5 * var(--spacing-unit));
+            font-size: var(--font-size-li);
+            color: var(--color-text-secondary);
+        }
+
+        /* Custom list item bullets */
+        ul li::before {
+            content: '–'; /* En dash for list items */
+            position: absolute;
+            left: 0;
+            color: var(--color-pink);
+            font-weight: bold;
+        }
+
+        ol li::before {
+            content: counter(item) ".";
+            counter-increment: item;
+            position: absolute;
+            left: 0;
+            color: var(--color-indigo);
+            font-weight: bold;
+        }
+        ol {
+            counter-reset: item;
+        }
+
+        /*
+         * GLASSMORPHIC UI COMPONENTS
+         */
+        .blog-post {
+            display: flex;
+            flex-direction: column;
+            gap: calc(2 * var(--spacing-unit));
+            background: transparent; /* Main article has no bg, sections do */
+        }
+
+        .section-glassmorphic {
+            background-color: var(--color-glass-bg);
+            backdrop-filter: blur(15px) saturate(1.8);
+            border: 1px solid var(--color-border-glass);
+            border-radius: 15px;
+            padding: calc(2 * var(--spacing-unit));
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .section-glassmorphic:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px 0 rgba(0, 0, 0, 0.4), 0 5px 15px rgba(99, 102, 241, 0.3);
+            border-color: var(--color-indigo);
+        }
+
+        /*
+         * CODE BLOCKS
+         */
+        pre {
+            background-color: var(--color-code-background);
+            border: 1px solid var(--color-code-border);
+            border-radius: 8px;
+            padding: var(--spacing-unit);
+            overflow-x: auto;
+            font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+            font-size: var(--font-size-code);
+            line-height: 1.4;
+            color: var(--color-text-primary);
+            margin-top: var(--spacing-unit);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        code {
+            font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+            font-size: var(--font-size-code);
+            color: var(--color-pink); /* Inline code highlight */
+            background-color: rgba(236, 72, 153, 0.1);
+            padding: 0.1em 0.3em;
+            border-radius: 4px;
+        }
+        pre code {
+            color: var(--color-text-primary); /* Code block text color */
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        /*
+         * ANIMATED AMBIENT BACKGROUND ORBS
+         * Creating a sense of depth and modernity.
+         */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px); /* Heavy blur for atmospheric effect */
+            opacity: 0.6;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            will-change: transform, opacity;
+        }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at center, var(--color-indigo) 0%, rgba(99, 102, 241, 0) 70%);
+            top: 10%;
+            left: 15%;
+            animation: orb-movement-1 20s infinite alternate, orb-pulse 8s infinite alternate;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle at center, var(--color-pink) 0%, rgba(236, 72, 153, 0) 70%);
+            bottom: 20%;
+            right: 10%;
+            animation: orb-movement-2 25s infinite alternate, orb-pulse 10s infinite alternate reverse;
+        }
+
+        .orb-3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle at center, var(--color-slate-light) 0%, rgba(21, 34, 56, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center it initially */
+            animation: orb-movement-3 30s infinite alternate, orb-pulse 12s infinite alternate;
+        }
+
+        @keyframes orb-movement-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(150px, 100px) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        @keyframes orb-movement-2 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-100px, -150px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        @keyframes orb-movement-3 {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-70%, -30%) scale(1.2); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        @keyframes orb-pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.6; }
+        }
+
+        /*
+         * THEME TOGGLE (Floating Accessibility Feature)
+         */
+        .theme-toggle {
+            position: fixed;
+            bottom: calc(2 * var(--spacing-unit));
+            right: calc(2 * var(--spacing-unit));
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--color-toggle-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--color-border-glass);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--color-indigo);
+            border-color: var(--color-indigo);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 2px 5px var(--color-indigo);
+        }
+
+        .theme-toggle svg {
+            color: var(--color-toggle-icon);
+            width: 24px;
+            height: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .theme-toggle:hover svg {
+            color: var(--color-text-primary);
+        }
+
+        /*
+         * DEMONSTRATION BOX FOR GLOWING BORDER EFFECT
+         * Incorporates the tutorial's core CSS.
+         */
+        .box-demo-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: calc(2 * var(--spacing-unit));
+            margin-top: calc(2 * var(--spacing-unit));
+            margin-bottom: calc(2 * var(--spacing-unit));
+            min-height: 250px; /* Ensure space for the box */
+            /* This wrapper could also get a subtle geometric pattern */
+            background-image:
+                linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            border-radius: 10px;
+        }
+
+        .box {
+            background: var(--color-slate-light); /* Base box background from video, adjusted for design */
+            height: 200px;
+            aspect-ratio: 1/1;
+            border-radius: 10px;
+            position: relative;
+            z-index: 1; /* Ensure box content is above its own ::after glow */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: var(--color-text-primary);
+            font-weight: 600;
+            overflow: hidden; /* Important for masking pseudo-elements within */
+
+            /* Hover effects for 3D card lifting */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform, box-shadow; /* Optimize animation */
+        }
+
+        .box:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5), 0 8px 20px rgba(236, 72, 153, 0.3);
+        }
+
+        /* ::before and ::after pseudo-elements for the glowing border */
+        .box::before,
+        .box::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            border-radius: inherit; /* Inherit border-radius from parent .box */
+            background: conic-gradient(
+                from var(--deg) at center,
+                #000000 0%, var(--color-indigo) 0%, var(--color-indigo) 35%, var(--color-pink) 50%, #b800ff 70%, #b800ff 100%
+            );
+            animation: autorotate 2s linear infinite;
+            will-change: transform, background-image; /* Optimize animation */
+            transition: background 0.3s ease; /* For potential border-color transitions */
+        }
+
+        .box::before {
+            z-index: 2; /* Above the main box content */
+            padding: 2px; /* This creates the visible border thickness */
+            /* Mask the gradient to just the border area */
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude; /* Standard for creating cutout effects */
+        }
+
+        .box::after {
+            z-index: -2; /* Behind the main box content to create the glow */
+            filter: blur(30px); /* The diffused glowing effect */
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Subtle hover effect for the glow intensity */
+        .box:hover::after {
+            opacity: 1;
+            filter: blur(40px);
+        }
+
+        /* Keyframe Animation for the rotating gradient */
+        @keyframes autorotate {
+            to {
+                --deg: 360deg; /* Animates the custom --deg property */
+            }
+        }
+
+        /*
+         * FOOTER
+         */
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-top: calc(4 * var(--spacing-unit));
+            padding-top: calc(2 * var(--spacing-unit));
+            border-top: 1px solid var(--color-border-glass);
+        }
+
+        /*
+         * RESPONSIVENESS (Mobile-first approach)
+         */
+        @media (max-width: 768px) {
+            body {
+                padding: calc(2 * var(--spacing-unit)) var(--spacing-unit);
+            }
+
+            .container {
+                gap: var(--spacing-unit);
+            }
+
+            .section-glassmorphic {
+                padding: var(--spacing-unit);
+            }
+
+            h1 {
+                font-size: var(--font-size-h1); /* Re-apply clamp for potentially smaller viewports */
+                padding-bottom: 0.3em;
+            }
+
+            h2 {
+                font-size: var(--font-size-h2);
+                margin-bottom: var(--spacing-unit);
+            }
+
+            .box-demo-wrapper {
+                min-height: 200px;
+                padding: var(--spacing-unit);
+            }
+            .box {
+                height: 150px; /* Smaller box on mobile */
+                width: 150px;
+            }
+
+            .theme-toggle {
+                bottom: var(--spacing-unit);
+                right: var(--spacing-unit);
+                width: 40px;
+                height: 40px;
+            }
+            .theme-toggle svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                padding-bottom: 0.2em;
+            }
+            .box {
+                height: 120px; /* Even smaller box */
+                width: 120px;
+            }
+            pre {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Background Orbs for Depth and Modernity -->
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Floating Theme Toggle (for Accent Color Switching) -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Accent Color">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
+    <!-- Main Content Container -->
+    <main class="container">
+        <article class="blog-post">
+            <header>
+                <h1 class="gradient-text">Ignite Your UI: Animated Glowing CSS Border Effect</h1>
+                <p class="summary-intro">As an expert Content Analyst and Technical Writer, I've thoroughly analyzed the provided video content to bring you this in-depth guide on creating captivating UI effects.</p>
+            </header>
+
+            <section class="section-glassmorphic">
+                <h2>Executive Summary</h2>
+                <p>This tutorial illustrates the creation of a dynamic, glowing border effect on a simple HTML <code>div</code> using advanced CSS techniques. It leverages <code>::before</code> and <code>::after</code> pseudo-elements, conic gradients, and the <code>@property</code> rule to animate a custom CSS variable, resulting in a smooth, rotating gradient border with a blur effect. This method not only elevates the visual aesthetics but also optimizes performance by utilizing native browser capabilities.</p>
+            </section>
+
+            <section class="demo-section section-glassmorphic">
+                <h2>Live Demonstration</h2>
+                <p>Observe the mesmerizing animated glowing border effect we're about to build:</p>
+                <div class="box-demo-wrapper">
+                    <div class="box">
+                        <span aria-hidden="true">✨ Glow Effect ✨</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-glassmorphic">
+                <h2>Key Technical Arguments and Steps</h2>
+                <ol>
+                    <li>
+                        <h3>Initial HTML Structure</h3>
+                        <p>The foundation of our effect begins with a single, simple <code>div</code> element. This <code>div</code> will serve as the canvas for our animated border.</p>
+                        <pre><code class="language-html">&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</code></pre>
+                    </li>
+                    <li>
+                        <h3>Base Styling (<code>body</code> and <code>.box</code>)</h3>
+                        <p>We first set up the <code>body</code> to perfectly center our <code>.box</code> element. The <code>.box</code> itself receives foundational styling including a dark background, fixed dimensions (a perfect square), rounded corners, and <code>position: relative</code>, which is crucial for positioning its pseudo-elements.</p>
+                        <pre><code class="language-css">body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0e0e1a; /* Base background, adjusted for glassmorphic design */
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    color: var(--color-text-primary);
+}
+
+.box {
+    background: #1d1d24; /* Base box background, adjusted for design */
+    height: 200px;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    position: relative;
+    /* Adding premium hover effects for a tactile feel */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.box:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4), 0 5px 15px rgba(236, 72, 153, 0.2);
+}
+</code></pre>
+                    </li>
+                    <li>
+                        <h3>Creating the Glowing Border with Pseudo-elements</h3>
+                        <p>The magic of the glowing border is achieved using <code>::before</code> and <code>::after</code> pseudo-elements. Both are absolutely positioned to precisely cover the <code>.box</code>, inheriting its rounded corners. The <code>::before</code> element forms the sharp, visible gradient border, while <code>::after</code> creates the diffused blur, acting as the glow. Crucially, we use the <code>@property</code> rule to define <code>--deg</code>, a custom CSS property that will control the rotation.</p>
+                        <pre><code class="language-css">/* Custom property for the rotating gradient angle (declared globally or near usage) */
+@property --deg {
+    syntax: "&lt;angle&gt;";
+    inherits: true;
+    initial-value: 0deg;
+}
+
+.box::before,
+.box::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+    background: conic-gradient(
+        from var(--deg) at center,
+        #000000 0%, var(--color-indigo) 0%, var(--color-indigo) 35%, var(--color-pink) 50%, #b800ff 70%, #b800ff 100%
+    );
+    animation: autorotate 2s linear infinite;
+}
+
+.box::before {
+    z-index: 2;
+    padding: 2px; /* Defines the border thickness */
+    /* Using mask-composite: exclude to cut out the inner part, leaving only the border */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; /* For WebKit browsers */
+    mask-composite: exclude;     /* Standard syntax */
+    transition: background 0.3s ease; /* For potential border-color transitions */
+}
+
+.box::after {
+    z-index: -2; /* Positions this behind the main box content */
+    filter: blur(30px); /* The crucial blur for the glowing effect */
+    opacity: 0.7;
+    transition: opacity 0.3s ease, filter 0.3s ease; /* Smooth glow changes */
+}
+
+/* Enhancing the glow on hover */
+.box:hover::after {
+    opacity: 1;
+    filter: blur(40px);
+}
+</code></pre>
+                    </li>
+                    <li>
+                        <h3>Animating Gradient Rotation with <code>@property</code></h3>
+                        <p>The <code>@property</code> rule is a cutting-edge CSS feature that allows us to register custom properties, making them animatable. By defining <code>--deg</code>, we can smoothly transition its value from <code>0deg</code> to <code>360deg</code>, directly influencing the <code>conic-gradient</code>'s starting angle. This technique offers robust performance compared to JavaScript-based angle manipulation.</p>
+                        <pre><code class="language-css">/* Re-iterating the @property definition for clarity */
+@property --deg {
+    syntax: "&lt;angle&gt;";
+    inherits: true;
+    initial-value: 0deg;
+}
+
+/* This --deg variable is then used within the conic-gradient: */
+/* background: conic-gradient(from var(--deg) at center, ...); */
+</code></pre>
+                    </li>
+                    <li>
+                        <h3>Keyframe Animation</h3>
+                        <p>Finally, a standard <code>@keyframes</code> animation, named <code>autorotate</code>, is created. This animation simply transitions our custom <code>--deg</code> property from its initial <code>0deg</code> to <code>360deg</code>. Applied to both pseudo-elements with <code>animation: autorotate 2s linear infinite;</code>, it creates a continuous, seamless rotation of the gradient, delivering the stunning glowing effect.</p>
+                        <pre><code class="language-css">@keyframes autorotate {
+    to {
+        --deg: 360deg; /* Rotates the custom angle variable */
+    }
+}
+/* This animation is applied to .box::before and .box::after */
+/* animation: autorotate 2s linear infinite; */
+</code></pre>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="section-glassmorphic">
+                <h2>Actionable Insights</h2>
+                <p>This tutorial provides a powerful and visually appealing CSS technique that can significantly enhance UI elements. Developers can apply this method to:</p>
+                <ul>
+                    <li><strong>Elevate UI Aesthetics:</strong> Create dynamic, modern, and engaging visual effects for buttons, cards, input fields, or other container elements to draw user attention and improve visual hierarchy.</li>
+                    <li><strong>Improve User Experience:</strong> Utilize subtle animations like a glowing border to provide clear visual feedback, highlight interactive components, or indicate active states, making the interface more intuitive.</li>
+                    <li><strong>Master Advanced CSS:</strong> Gain practical experience with cutting-edge CSS features like <code>conic-gradient</code>, <code>::before</code>/<code>::after</code> pseudo-elements, and the transformative <code>@property</code> rule, unlocking more complex and performant animations directly within CSS.</li>
+                    <li><strong>Optimize Performance:</strong> By leveraging native CSS animations and the <code>@property</code> rule, this approach generally offers superior performance and smoother animations compared to JavaScript-based animation libraries for similar visual effects, ensuring a fast-loading and responsive user interface.</li>
+                </ul>
+            </section>
+
+            <footer class="section-glassmorphic">
+                <p>&copy; 2023 QuerTech. All rights reserved.</p>
+            </footer>
+        </article>
+    </main>
+
+    <script>
+        // Vanilla JavaScript for the Theme Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Check for saved theme preference, though for this dark-themed page
+            // we're primarily demonstrating an accent color switch.
+            const currentAccent = localStorage.getItem('accentPreference') || 'default';
+            if (currentAccent === 'alt') {
+                body.classList.add('accent-alt');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                // Toggle a class on the body to switch accent colors
+                body.classList.toggle('accent-alt');
+
+                // Save preference (even for accent)
+                if (body.classList.contains('accent-alt')) {
+                    localStorage.setItem('accentPreference', 'alt');
+                    themeToggle.setAttribute('aria-label', 'Switch to Default Accent');
+                } else {
+                    localStorage.setItem('accentPreference', 'default');
+                    themeToggle.setAttribute('aria-label', 'Switch to Alternative Accent');
+                }
+            });
+
+            // Set initial aria-label based on current state
+            if (body.classList.contains('accent-alt')) {
+                themeToggle.setAttribute('aria-label', 'Switch to Default Accent');
+            } else {
+                themeToggle.setAttribute('aria-label', 'Switch to Alternative Accent');
+            }
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/Scroll FX">Master CSS Scroll Effects</a><a href="/PlayWin">Google Play Store Desktop App Guide</a><a href="/APKonWin">Install Android Apps on Windows 11</a><a href="/Mod Games">Mod Android Apps (No Root)</a><a href="/Mod Game">Unlock Game Power: Mod Android APKs for Unlimited Currency</a><a href="/AppGenius">Google AI: Build Apps Instantly</a><a href="/TurboDroid">Turbocharge Android Apps on Windows 11</a><a href="/GitFix">Git Commit Blunders: Fix Wrong Branch Fast</a><a href="/CODEMAST">Code Muscle: Master Dev Skills</a><a href="/Game Max">PC Graphics Master Guide</a><a href="/CLIMaster">CLI Master</a><a href="/MasterPos">Mastering CSS Position Property: Absolute, Relative, Fixed, Sticky, and Z-index Explained</a><a href="/GERMANDG">Germany UG Guide</a><a href="/MindBoost">Study Mastery: Ace Your Exams</a><a href="/SHARPEN">Sharpen Your Focus: 5 Scientific Steps to Master Attention</a><a href="/BrainHack">Hack Your Brain to Crave Studying: The Dopamine Method</a><a href="/UNLOCK">Ask & Receive: Jim Rohn's Success Key</a><a href="/CONQUER">Conquer Procrastination: Start Now</a><a href="/BUILDVSBUY">MSI Titan vs. Custom PC: Who Reigns Supreme at ₹7 Lakh?</a><a href="/TeenCash">Teen Earn From Home</a><a href="/AutoCash">YouTube Shorts Automation: Earn $400 Daily with AI</a><a href="/TechPlunge">PC Price Plunge Confirmed: Build Smart Now!</a><a href="/autodeploy">CI/CD Essentials</a><a href="/ArchPower">Microservices Demystified: The Future of Scalable Architecture</a><a href="/ApexPlay">Apex Combat: Unpacking Gaming's Elite Mechanics</a><a href="/PureCode">Value Objects: Code Mastery</a><a href="/AuthBoost">Mastering JWTs: Secure & Scalable Auth</a><a href="/MasterData">Master Backend & System Design</a><a href="/JS Boost">Lightning JS: Rapid Core Mastery</a><a href="/AISurge">ASUS TUF A14: AI Powerhouse Unleashed</a><a href="/CTriumph">24-Hour C Pong: No AI Triumph</a><a href="/EpicPlay">Game Mechanics Unveiled: The Ultimate Action Showcase</a><a href="/Glass Win11">Glass-Effect Windows 11: Ultimate Desktop Setup</a><a href="/GridGuide">Mastering CSS Grid & Flexbox: Responsive Design Guide</a><a href="/DevThrive">Thrive in Indian Game Dev: $16.7B Boom, Top Skills & High Salaries</a><a href="/INDIAPERIL">India's Perilous Foreign Policy Amidst Global Conflict</a><a href="/BuildSkill">Ignite Your Dev Journey: Code for Joy, Build for Mastery</a><a href="/Mastery">Master Your Focus: Scientific Strategies for Peak Concentration</a><a href="/ActionEvo">Action & Shooter Evolution: A Visual Showcase</a><a href="/PS3Glory">PS3 Unleashed: Epic Gaming Showcase</a><a href="/torchfat">Ultimate Fat Loss Blueprint</a><a href="/i3Power">i3/4GB RAM: Budget Gaming Unleashed!</a><a href="/FPSBoost">Boost Your FPS: Ultimate Windows 10/11 Gaming Guide</a><a href="/PowerEarn">5 Secret Skills For Student Financial Freedom</a><a href="/maxgames">Max Games</a><a href="/Maxi3">Unleash i3 Gaming Power</a><a href="/BeatFog">Beat Brain Fog: Reclaim Your Mental Clarity</a><a href="/epiclite">Unleash Stories: 10 Epic Games for Low-End PCs</a><a href="/Conquer i3">20 Low-Spec PC Games for i3 & 4GB RAM (2025)</a><a href="/MasterEng">Master English: Quick Level Check</a><a href="/DevPath">Code Conquer</a><a href="/aidevpro">AI Web Dev Roadmap 2026</a><a href="/wordorafreeai">Wordora Free AI (All-in-One)</a><a href="/wordoraaicodefree">Wordora AI Code Free</a><a href="/wordoraaimodelfree">Wordora AI Models</a><a href="/wordoraaiimagefree">Wordora AI Image Free</a><a href="/wordoraaivideofree">Wordora AI Video Free</a><a href="/wordoraaipptfree">Wordora AI PPT</a><a href="/wordoraaitextfree">Wordora AI Text</a><a href="/wordoraaidesignfree">Wordora AI Design</a><a href="/wordoraaidatafree">Wordora AI Data</a><a href="/wordoraaiavatars">Wordora AI Avatars</a>
+</div></body>
+</html>
+```

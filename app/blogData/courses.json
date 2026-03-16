@@ -1,5 +1,47 @@
 [
   {
+    "blog_title": "GlowFX",
+    "link": "GlowFX",
+    "description": "Craft dazzling animated glow borders! Discover how to create dynamic, rotating gradient effects purely with HTML & CSS using pseudo-elements, conic gradients, and the powerful @property rule. Elevate your UI with advanced, performant CSS.",
+    "tags": [
+      "CSS Animation",
+      "Glowing Border",
+      "Conic Gradient",
+      "HTML CSS",
+      "Web Dev"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-500"
+  },
+  {
+    "blog_title": "Master CSS Scroll Effects",
+    "link": "Scroll FX",
+    "description": "Unlock native CSS scroll-driven animations without JavaScript! Master new CSS properties like `animation-timeline` and `animation-range` for smooth, performant element transitions, enhancing web interactivity with minimal code.",
+    "tags": [
+      "CSS Animations",
+      "Scroll Effects",
+      "No JavaScript",
+      "Web Performance",
+      "Frontend Dev"
+    ],
+    "color": "bg-sky-800 shadow-sky-400"
+  },
+  {
+    "blog_title": "Git Commit Blunders: Fix Wrong Branch Fast",
+    "link": "GitFix",
+    "description": "Accidentally committed to the wrong Git branch? Learn to fix it like a pro! This guide covers using `git cherry-pick` to move commits and `git reset --hard` to clean your main branch, ensuring a flawless codebase. Master Git recovery and boost your professional coding skills.",
+    "tags": [
+      "Git",
+      "Git Recovery",
+      "Git Commits",
+      "Branching",
+      "git cherry-pick",
+      "git reset",
+      "Developer Tools",
+      "Coding Best Practices"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
     "blog_title": "Mastering CSS Position Property: Absolute, Relative, Fixed, Sticky, and Z-index Explained",
     "link": "MasterPos",
     "description": "Unlock advanced web design with this comprehensive CSS position tutorial. Master 'relative', 'absolute', 'fixed', 'sticky', and 'z-index' for precise element layout and control over visual stacking. Learn to break elements from normal flow and manage layers effectively.",

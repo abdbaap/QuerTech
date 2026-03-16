@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Provided Meta Tags for SEO Optimization -->
+    <title>Git Wrong Branch Commit? Fix it FAST & Clean!</title>
+    <meta name="description" content="Accidentally committed to the wrong Git branch? Don't panic! Master `git cherry-pick` & `git reset --hard` instantly. Our guide fixes your mess, keeps code pristine. Essential dev skill!">
+    <meta name="keywords" content="git wrong branch commit, fix git commit, git cherry-pick, git reset hard, undo git commit, how to undo git commit on wrong branch, move commits to another branch git, git accidentally committed to master, clean master branch git, git situational foundations, developer git recovery guide, prevent wrong branch commits, git undo changes tutorial, git workflow management tips, correct git history, git common mistakes fix, git commands, version control, developer productivity, codebase integrity, dev tips, git best practices, coding mistakes, software development, programming errors, tech tips, learn git, git for beginners, pro git skills, devlifehacks">
+    <meta name="author" content="Quertech Articles">
+    <link rel="canonical" href="https://quertech-articles.vercel.app/git-wrong-branch-fix.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://quertech-articles.vercel.app/git-wrong-branch-fix.html">
+    <meta property="og:title" content="Git Wrong Branch Commit? Fix it FAST & Clean!">
+    <meta property="og:description" content="Accidentally committed to the wrong Git branch? Don't panic! Master `git cherry-pick` & `git reset --hard` instantly. Our guide fixes your mess, keeps code pristine. Essential dev skill!">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/og-image-git-recovery.jpg"> <!-- Placeholder image -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://quertech-articles.vercel.app/git-wrong-branch-fix.html">
+    <meta property="twitter:title" content="Git Wrong Branch Commit? Fix it FAST & Clean!">
+    <meta property="twitter:description" content="Accidentally committed to the wrong Git branch? Don't panic! Master `git cherry-pick` & `git reset --hard` instantly. Our guide fixes your mess, keeps code pristine. Essential dev skill!">
+    <meta property="twitter:image" content="https://quertech-articles.vercel.app/twitter-image-git-recovery.jpg"> <!-- Placeholder image -->
+
+    <!-- Favicon - Self-contained SVG -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <style>
+        /* Modern CSS Reset & Root Variables */
+        :root {
+            --color-slate-dark: #09172a;
+            --color-slate-light: #1e293b;
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-text-light: #e2e8f0;
+            --color-text-muted: #94a3b8;
+            --color-border-glass: rgba(255, 255, 255, 0.1);
+            --color-bg-glass: rgba(255, 255, 255, 0.05);
+
+            --font-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+
+            --font-size-base: 1rem;
+            --font-size-sm: clamp(0.8rem, 0.7vw + 0.5rem, 1rem);
+            --font-size-md: clamp(1rem, 1vw + 0.8rem, 1.25rem);
+            --font-size-lg: clamp(1.25rem, 1.5vw + 1rem, 1.5rem);
+            --font-size-xl: clamp(1.5rem, 2vw + 1.25rem, 2rem);
+            --font-size-xxl: clamp(2rem, 3vw + 1.5rem, 3rem);
+            --font-size-header: clamp(2.5rem, 5vw + 2rem, 4.5rem);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-display);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--color-text-light);
+            background-color: var(--color-slate-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Background Orbs */
+        .orb-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(80px); /* Heavy blur for ambient effect */
+            opacity: 0.4;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: float 15s infinite ease-in-out alternate;
+            background-image: radial-gradient(circle, var(--color-indigo) 0%, var(--color-pink) 100%);
+            mix-blend-mode: screen; /* For a glowing, blending effect */
+        }
+
+        .orb:nth-child(1) { width: 250px; height: 250px; top: 10%; left: 15%; animation-delay: 0s; transform: scale(0.9); }
+        .orb:nth-child(2) { width: 350px; height: 350px; bottom: 5%; right: 10%; animation-delay: 5s; transform: scale(1.1); }
+        .orb:nth-child(3) { width: 200px; height: 200px; top: 30%; right: 25%; animation-delay: 10s; transform: scale(0.8); }
+        .orb:nth-child(4) { width: 400px; height: 400px; bottom: 20%; left: 20%; animation-delay: 15s; transform: scale(1.2); }
+        .orb:nth-child(5) { width: 300px; height: 300px; top: 5%; left: 50%; animation-delay: 20s; transform: scale(1.0); }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(var(--s, 1)); }
+            50% { transform: translate(calc(var(--dx, 20px)), calc(var(--dy, 30px))) scale(calc(var(--s, 1) * 1.05)); }
+            100% { transform: translate(0, 0) scale(var(--s, 1)); }
+        }
+        .orb:nth-child(1) { --s: 0.9; --dx: 25px; --dy: -15px; }
+        .orb:nth-child(2) { --s: 1.1; --dx: -30px; --dy: 20px; }
+        .orb:nth-child(3) { --s: 0.8; --dx: 15px; --dy: 35px; }
+        .orb:nth-child(4) { --s: 1.2; --dx: -20px; --dy: -25px; }
+        .orb:nth-child(5) { --s: 1.0; --dx: 30px; --dy: 10px; }
+
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: var(--spacing-xxl) auto;
+            padding: 0 var(--spacing-lg);
+            position: relative; /* For z-index to be above orbs */
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xl);
+            perspective: 1000px; /* For 3D transform on hover */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .blog-logo {
+            font-size: var(--font-size-xl);
+            font-weight: bold;
+            color: var(--color-indigo);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: 0.05em;
+        }
+
+        h1 {
+            font-size: var(--font-size-header);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+            /* Gradient Masked Header */
+            background-image: linear-gradient(to right, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: var(--color-indigo); /* Fallback */
+            text-shadow: 0 4px 15px rgba(var(--color-indigo), 0.3);
+        }
+
+        h2, h3 {
+            font-weight: 700;
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            color: var(--color-indigo);
+        }
+        h2 { font-size: var(--font-size-xxl); }
+        h3 { font-size: var(--font-size-xl); }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text-light);
+            font-size: var(--font-size-md);
+        }
+
+        a {
+            color: var(--color-pink);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--color-indigo);
+            text-decoration: underline;
+        }
+
+        /* Glassmorphic Card Style */
+        .glass-card {
+            background: var(--color-bg-glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--color-border-glass);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            padding: var(--spacing-xl);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+            position: relative;
+            transform-style: preserve-3d; /* Enable 3D transforms for children */
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px) translateZ(10px) rotateX(1deg); /* Subtle 3D lift */
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4), 0 0 0 2px var(--color-indigo); /* Enhanced shadow + border glow */
+            border-color: var(--color-indigo);
+        }
+        .glass-card > *:not(.code-block-header) { /* Adjust children z-index to avoid overlap issues with parent's transform */
+            transform: translateZ(15px);
+        }
+
+
+        /* Lists */
+        ul, ol {
+            margin-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            list-style-type: none; /* Custom bullet points */
+        }
+        ul li::before {
+            content: '•';
+            color: var(--color-pink);
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        ol li {
+            margin-bottom: var(--spacing-sm);
+        }
+        ol li::marker {
+            color: var(--color-indigo);
+            font-weight: bold;
+        }
+
+        /* Code Blocks */
+        pre {
+            background-color: var(--color-slate-light);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: var(--font-size-sm);
+            line-height: 1.4;
+            color: var(--color-text-light);
+            position: relative;
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border for code blocks */
+        }
+
+        code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            background-color: var(--color-slate-light);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            color: var(--color-pink); /* Inline code accent */
+            font-size: 0.9em;
+        }
+
+        .code-block-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--color-slate-light);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            padding: var(--spacing-sm) var(--spacing-md);
+            margin-bottom: -1px; /* Overlap with pre border */
+            border-bottom: 1px solid var(--color-border-glass);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
+        }
+
+        .copy-code-btn {
+            background-color: var(--color-indigo);
+            color: white;
+            border: none;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .copy-code-btn:hover {
+            background-color: var(--color-pink);
+            transform: translateY(-1px);
+        }
+        .copy-code-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Highlight Git commands */
+        .code-command {
+            color: var(--color-indigo);
+            font-weight: bold;
+        }
+        .code-hash {
+            color: var(--color-pink);
+            font-weight: bold;
+        }
+
+        /* CSS Generated Imagery / Badges */
+        .terminal-badge {
+            width: 120px;
+            height: 120px;
+            margin: var(--spacing-xl) auto;
+            background: linear-gradient(45deg, var(--color-indigo) 0%, var(--color-pink) 100%);
+            border-radius: 20px;
+            position: relative;
+            transform: rotate(45deg); /* Diamond shape */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .terminal-badge:hover {
+            transform: rotate(45deg) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+        .terminal-badge::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background-color: var(--color-slate-light);
+            border-radius: 15px;
+            transform: rotate(-45deg);
+            z-index: 1;
+        }
+        .terminal-badge::after {
+            content: '>'; /* Prompt symbol */
+            position: absolute;
+            font-family: var(--font-display);
+            font-size: 5rem;
+            color: var(--color-indigo);
+            z-index: 2;
+            transform: rotate(-45deg);
+            font-weight: 900;
+            opacity: 0.8;
+            text-shadow: 0 0 10px rgba(var(--color-indigo), 0.5);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: var(--spacing-xxl);
+            padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+            text-align: center;
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
+            border-top: 1px solid var(--color-border-glass);
+        }
+        footer a {
+            color: var(--color-indigo);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: var(--spacing-xl) auto;
+                padding: 0 var(--spacing-md);
+                gap: var(--spacing-lg);
+            }
+            h1 {
+                font-size: var(--font-size-xxl);
+            }
+            .glass-card {
+                padding: var(--spacing-lg);
+            }
+            .glass-card:hover {
+                transform: none; /* Disable 3D effect on small screens for better UX */
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+                border-color: var(--color-border-glass);
+            }
+            .orb {
+                width: 150px !important;
+                height: 150px !important;
+                opacity: 0.15;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: var(--spacing-lg) auto;
+                padding: 0 var(--spacing-sm);
+                gap: var(--spacing-md);
+            }
+            h1 {
+                font-size: var(--font-size-xl);
+            }
+            p {
+                font-size: var(--font-size-sm);
+            }
+            .glass-card {
+                padding: var(--spacing-md);
+            }
+            .blog-logo {
+                font-size: var(--font-size-lg);
+            }
+            .copy-code-btn {
+                font-size: 0.75rem;
+                padding: 0.3em 0.6em;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Ambient Background Orbs -->
+    <div class="orb-container">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <a href="https://quertech-articles.vercel.app" class="blog-logo">⚡ Quertech Articles</a>
+            <h1>Git Wrong Branch Commit? Fix it FAST & Clean!</h1>
+            <p class="subtitle" style="font-size: var(--font-size-lg); color: var(--color-text-light);">
+                Don't panic when you commit to the wrong Git branch. This guide empowers developers with practical "situational Git foundations" to resolve common "mess-ups" independently.
+            </p>
+        </header>
+
+        <main>
+            <article>
+                <section class="glass-card">
+                    <h2>Executive Summary</h2>
+                    <p>
+                        This video addresses a common developer challenge: recovering from accidental Git commits on the wrong branch.
+                        It highlights the frequent occurrence of developers mistakenly committing changes to the main Git branch instead of a feature branch.
+                        This guide provides a step-by-step approach to rectify this "wrong branch mess-up" by using <code>git cherry-pick</code> to transfer the intended commits to the correct feature branch and <code>git reset --hard</code> to clean the main branch. Mastering these commands ensures codebase integrity and efficient workflow management, fostering better professional coding practices.
+                    </p>
+                </section>
+
+                <section class="glass-card">
+                    <h2>Understanding the Problem: "Situational Git Foundations"</h2>
+                    <p>
+                        Many developers are familiar with basic Git commands like <code class="code-command">git init</code>, <code class="code-command">git add</code>, <code class="code-command">git commit</code>, and <code class="code-command">git checkout</code>. However, the real challenge often lies in lacking "situational foundations" – the knowledge to handle real-world mistakes and unexpected scenarios. One of the most common "kaand" (mess-ups) involves committing changes to the wrong branch.
+                    </p>
+
+                    <h3>Common Scenario: Wrong Branch Commits</h3>
+                    <p>
+                        Imagine you're developing a new feature. You correctly create a feature branch, but then inadvertently switch back to <code>master</code> (or <code>main</code>) and make several functional commits there. This creates a messy commit history on your main branch, which needs immediate rectification.
+                    </p>
+
+                    <h3>Illustrative Mistake Sequence</h3>
+                    <p>Consider the following sequence of events that leads to this common Git mess:</p>
+                    <ol>
+                        <li>Initialize Git repository on the <code class="code-command">master</code> branch.</li>
+                        <li>Create <code class="code-command">index.html</code> and commit it as "chalo shuru kro" (let's start).</li>
+                        <li>Create a new <code class="code-command">feature</code> branch (<code class="code-command">git checkout -b feature</code>).</li>
+                        <li><strong>Mistakenly switch back to <code class="code-command">master</code> (<code class="code-command">git checkout master</code>).</strong></li>
+                        <li>Add <code class="code-command">login.html</code> and commit as "add login page" on <code class="code-command">master</code>.</li>
+                        <li>Add API integration code to <code class="code-command">login.html</code> and commit as "add api integration" on <code class="code-command">master</code>.</li>
+                        <li>Add authentication token logic to <code class="code-command">login.html</code> and commit as "add auth token" on <code class="code-command">master</code>.</li>
+                    </ol>
+                    <p>
+                        At this point, your <code class="code-command">master</code> branch is ahead of where it should be, containing commits meant for your <code class="code-command">feature</code> branch.
+                    </p>
+                </section>
+
+                <section class="glass-card">
+                    <h2>Diagnosis with <code class="code-command">git log</code></h2>
+                    <p>
+                        The first step to recovery is understanding the current state of your repository. Using <code class="code-command">git log</code> with specific flags helps visualize the commit history:
+                    </p>
+                    <div class="code-block-header">
+                        <span>Terminal: Visualize History</span>
+                        <button class="copy-code-btn" data-target-id="log-command">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                            </svg>
+                            Copy Code
+                        </button>
+                    </div>
+                    <pre id="log-command"><code><span class="code-command">git log --oneline --all --graph</span></code></pre>
+                    <p>
+                        This command will likely reveal that your <code>master</code> branch has three unintended commits ahead of the <code>feature</code> branch, which remains behind at its original commit point.
+                    </p>
+                </section>
+
+                <section class="glass-card">
+                    <h2>Recovery Strategy: Transfer & Clean</h2>
+                    <p>
+                        The solution is two-fold:
+                        <ol>
+                            <li>Transfer the accidental commits from the <code>master</code> branch to the correct <code>feature</code> branch.</li>
+                            <li>Reset the <code>master</code> branch to its correct, clean state before the unintended commits.</li>
+                        </ol>
+                    </p>
+
+                    <h3>Step-by-step Recovery</h3>
+                    <ol>
+                        <li>
+                            <h4>Identify Commits:</h4>
+                            <p>Note the commit hashes of the accidental commits on <code>master</code>. You'll need these for cherry-picking. For our example, let's assume these hashes:</p>
+                            <div class="code-block-header">
+                                <span>Accidental Commits (from newest to oldest)</span>
+                                <button class="copy-code-btn" data-target-id="commit-hashes">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                                    </svg>
+                                    Copy Code
+                                </button>
+                            </div>
+                            <pre id="commit-hashes"><code><span class="code-hash">7b4f49d</span> (add auth token)
+<span class="code-hash">a773076</span> (add api integration)
+<span class="code-hash">48c665a</span> (add login page)</code></pre>
+                        </li>
+                        <li>
+                            <h4>Switch to Feature Branch:</h4>
+                            <p>Navigate to the branch where these commits *should* have been applied:</p>
+                            <div class="code-block-header">
+                                <span>Terminal: Switch Branch</span>
+                                <button class="copy-code-btn" data-target-id="checkout-feature">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                                    </svg>
+                                    Copy Code
+                                </button>
+                            </div>
+                            <pre id="checkout-feature"><code><span class="code-command">git checkout feature</span></code></pre>
+                        </li>
+                        <li>
+                            <h4>Cherry-Pick Commits:</h4>
+                            <p>Apply each accidental commit to the <code>feature</code> branch using <code class="code-command">git cherry-pick</code>. <strong>Crucially, cherry-pick in <em>reverse chronological order</em> (oldest commit first) to maintain the correct commit history sequence.</strong></p>
+                            <div class="code-block-header">
+                                <span>Terminal: Cherry-Picking Commits</span>
+                                <button class="copy-code-btn" data-target-id="cherry-pick-commands">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M4 1.5H3a2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                                    </svg>
+                                    Copy Code
+                                </button>
+                            </div>
+                            <pre id="cherry-pick-commands"><code><span class="code-command">git cherry-pick</span> <span class="code-hash">48c665a</span> <span class="code-comment"># add login page (oldest)</span>
+<span class="code-command">git cherry-pick</span> <span class="code-hash">a773076</span> <span class="code-comment"># add api integration</span>
+<span class="code-command">git cherry-pick</span> <span class="code-hash">7b4f49d</span> <span class="code-comment"># add auth token (newest)</span></code></pre>
+                        </li>
+                        <li>
+                            <h4>Clean Master Branch:</h4>
+                            <p>Switch back to <code>master</code>, then reset it to remove the accidental commits. If there are <code>N</code> accidental commits, use <code class="code-command">git reset --hard HEAD~N</code>. In our case, <code>N</code> is 3.</p>
+                            <div class="code-block-header">
+                                <span>Terminal: Clean Master Branch</span>
+                                <button class="copy-code-btn" data-target-id="reset-master">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M4 1.5H3a2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                                    </svg>
+                                    Copy Code
+                                </button>
+                            </div>
+                            <pre id="reset-master"><code><span class="code-command">git checkout master</span>
+<span class="code-command">git reset --hard HEAD~3</span></code></pre>
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="glass-card">
+                    <h2>Verification & Preventive Measures</h2>
+                    <p>
+                        After completing the recovery steps, run <code class="code-command">git log --oneline --all --graph</code> again. You should now see that the <code>feature</code> branch correctly contains all the new commits, and the <code>master</code> branch is clean, pointing to its original state before the mess-up.
+                    </p>
+
+                    <div class="terminal-badge" title="Well-configured Terminal"></div>
+
+                    <h3>Terminal Importance</h3>
+                    <p>
+                        The speaker emphasizes the utility of a well-configured terminal (like <a href="https://ohmyz.sh/" target="_blank" rel="noopener noreferrer">zsh with Git plugins</a>) that visibly indicates the current Git branch. This simple visual cue can significantly help prevent such mistakes by reminding you which branch is active before you commit.
+                    </p>
+                </section>
+
+                <section class="glass-card">
+                    <h2>Actionable Insights</h2>
+                    <ul>
+                        <li>
+                            <strong>Prioritize Foundational Git:</strong> Beyond basic command memorization, developers must understand situational Git commands for effective version control and error recovery in collaborative environments.
+                        </li>
+                        <li>
+                            <strong>Preventive Measures:</strong> Configure your terminal to display the current Git branch prominently to minimize accidental commits on the wrong branch. Always verify the active branch before committing.
+                        </li>
+                        <li>
+                            <strong>Master Recovery Techniques:</strong> Familiarize yourself with <code class="code-command">git cherry-pick</code> and <code class="code-command">git reset --hard HEAD~N</code> for transferring and undoing commits respectively. Knowing these tools is crucial for self-sufficiency and maintaining a clean project history.
+                        </li>
+                        <li>
+                            <strong>Practice and Share:</strong> Actively practice these recovery scenarios to build muscle memory. Share this knowledge with colleagues and juniors to elevate overall team proficiency and avoid costly mistakes in production codebases.
+                        </li>
+                    </ul>
+                </section>
+            </article>
+        </main>
+
+        <footer>
+            <p>&copy; <span id="current-year"></span> <a href="https://quertech-articles.vercel.app">Quertech Articles</a>. All rights reserved.</p>
+            <p>Built with precision and passion by your expert Full-Stack Developer & UI/UX Designer.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scroll for anchor links (if any were added)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Copy to clipboard functionality for code blocks
+        document.querySelectorAll('.copy-code-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.targetId;
+                const codeBlock = document.getElementById(targetId);
+                if (codeBlock) {
+                    const textToCopy = codeBlock.innerText;
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        button.innerHTML = `
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+                            Copied!
+                        `;
+                        setTimeout(() => {
+                            button.innerHTML = `
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M4 1.5H3a2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                                    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                                </svg>
+                                Copy Code
+                            `;
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                        button.textContent = 'Error!';
+                        setTimeout(() => {
+                            button.innerHTML = `
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M4 1.5H3a2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                                    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                                </svg>
+                                Copy Code
+                            `;
+                        }, 2000);
+                    });
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/CODEMAST">Code Muscle: Master Dev Skills</a><a href="/Game Max">PC Graphics Master Guide</a><a href="/CLIMaster">CLI Master</a><a href="/MasterPos">Mastering CSS Position Property: Absolute, Relative, Fixed, Sticky, and Z-index Explained</a><a href="/GERMANDG">Germany UG Guide</a><a href="/MindBoost">Study Mastery: Ace Your Exams</a><a href="/SHARPEN">Sharpen Your Focus: 5 Scientific Steps to Master Attention</a><a href="/BrainHack">Hack Your Brain to Crave Studying: The Dopamine Method</a><a href="/UNLOCK">Ask & Receive: Jim Rohn's Success Key</a><a href="/CONQUER">Conquer Procrastination: Start Now</a><a href="/BUILDVSBUY">MSI Titan vs. Custom PC: Who Reigns Supreme at ₹7 Lakh?</a><a href="/TeenCash">Teen Earn From Home</a><a href="/AutoCash">YouTube Shorts Automation: Earn $400 Daily with AI</a><a href="/TechPlunge">PC Price Plunge Confirmed: Build Smart Now!</a><a href="/autodeploy">CI/CD Essentials</a><a href="/ArchPower">Microservices Demystified: The Future of Scalable Architecture</a><a href="/ApexPlay">Apex Combat: Unpacking Gaming's Elite Mechanics</a><a href="/PureCode">Value Objects: Code Mastery</a><a href="/AuthBoost">Mastering JWTs: Secure & Scalable Auth</a><a href="/MasterData">Master Backend & System Design</a><a href="/JS Boost">Lightning JS: Rapid Core Mastery</a><a href="/AISurge">ASUS TUF A14: AI Powerhouse Unleashed</a><a href="/CTriumph">24-Hour C Pong: No AI Triumph</a><a href="/EpicPlay">Game Mechanics Unveiled: The Ultimate Action Showcase</a><a href="/Glass Win11">Glass-Effect Windows 11: Ultimate Desktop Setup</a><a href="/GridGuide">Mastering CSS Grid & Flexbox: Responsive Design Guide</a><a href="/DevThrive">Thrive in Indian Game Dev: $16.7B Boom, Top Skills & High Salaries</a><a href="/INDIAPERIL">India's Perilous Foreign Policy Amidst Global Conflict</a><a href="/BuildSkill">Ignite Your Dev Journey: Code for Joy, Build for Mastery</a><a href="/Mastery">Master Your Focus: Scientific Strategies for Peak Concentration</a><a href="/ActionEvo">Action & Shooter Evolution: A Visual Showcase</a><a href="/PS3Glory">PS3 Unleashed: Epic Gaming Showcase</a><a href="/torchfat">Ultimate Fat Loss Blueprint</a><a href="/i3Power">i3/4GB RAM: Budget Gaming Unleashed!</a><a href="/FPSBoost">Boost Your FPS: Ultimate Windows 10/11 Gaming Guide</a><a href="/PowerEarn">5 Secret Skills For Student Financial Freedom</a><a href="/maxgames">Max Games</a><a href="/Maxi3">Unleash i3 Gaming Power</a><a href="/BeatFog">Beat Brain Fog: Reclaim Your Mental Clarity</a><a href="/epiclite">Unleash Stories: 10 Epic Games for Low-End PCs</a><a href="/Conquer i3">20 Low-Spec PC Games for i3 & 4GB RAM (2025)</a><a href="/MasterEng">Master English: Quick Level Check</a><a href="/DevPath">Code Conquer</a><a href="/aidevpro">AI Web Dev Roadmap 2026</a><a href="/wordorafreeai">Wordora Free AI (All-in-One)</a><a href="/wordoraaicodefree">Wordora AI Code Free</a><a href="/wordoraaimodelfree">Wordora AI Models</a><a href="/wordoraaiimagefree">Wordora AI Image Free</a><a href="/wordoraaivideofree">Wordora AI Video Free</a><a href="/wordoraaipptfree">Wordora AI PPT</a><a href="/wordoraaitextfree">Wordora AI Text</a><a href="/wordoraaidesignfree">Wordora AI Design</a><a href="/wordoraaidatafree">Wordora AI Data</a><a href="/wordoraaiavatars">Wordora AI Avatars</a>
+</div></body>
+</html>
+```

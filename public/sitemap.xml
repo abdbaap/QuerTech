@@ -313,4 +313,76 @@
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/CLIMaster/index.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/Game%20Max/index.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/CODEMAST/index.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/GitFix/index.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/TurboDroid/index.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/AppGenius/index.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/Mod%20Game/index.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/Mod%20Games/index.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/APKonWin/index.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/PlayWin/index.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/Scroll%20FX/index.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://quertech-articles.vercel.app/GlowFX/index.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
 </urlset>

@@ -1,5 +1,33 @@
 [
   {
+    "blog_title": "Unlock Game Power: Mod Android APKs for Unlimited Currency",
+    "link": "Mod Game",
+    "description": "Learn to customize Android games! This guide shows how to use Apktool M to decompile APKs, modify in-game data (like currency), and recompile for your own 'modded' apps. Unlock hidden potential and control your game experience.",
+    "tags": [
+      "Android Modding",
+      "APK Decompile",
+      "Game Currency Hacks",
+      "Apktool M Tutorial",
+      "Game Customization"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Code Muscle: Master Dev Skills",
+    "link": "CODEMAST",
+    "description": "Unlock true coding mastery. Learn why active, hands-on practice, not AI, builds vital 'muscle memory' for developers. Ace interviews & code like a pro with our 70/30 rule.",
+    "tags": [
+      "Coding Practice",
+      "Muscle Memory",
+      "AI Coding",
+      "Developer Skills",
+      "Programming",
+      "Technical Interview",
+      "Hands-On Coding"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
     "blog_title": "Germany UG Guide",
     "link": "GERMANDG",
     "description": "Indian 12th pass? Secure your German Bachelor's! This guide cuts through confusion: Studentenkolleg, direct entry, and Ausbildung options. Plan your path wisely.",

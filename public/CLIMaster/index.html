@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- SEO Meta Tags (Provided) -->
+    <title>Stunning Windows 11 Terminal Customization & System Info!</title>
+    <meta name="description" content="Tired of a bland Windows Terminal? Transform your Windows 11 CLI with this guide! Get a custom theme, Nerd Font & Fastfetch for stunning visuals + instant system info. Boost productivity!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app/windows-terminal-customization">
+    <meta property="og:title" content="Stunning Windows 11 Terminal Customization & System Info!">
+    <meta property="og:description" content="Tired of a bland Windows Terminal? Transform your Windows 11 CLI with this guide! Get a custom theme, Nerd Font & Fastfetch for stunning visuals + instant system info. Boost productivity!">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/images/windows-terminal-customization-og.jpg"> <!-- Placeholder for a specific OG image relevant to the content -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://quertech-articles.vercel.app/windows-terminal-customization">
+    <meta property="twitter:title" content="Stunning Windows 11 Terminal Customization & System Info!">
+    <meta property="twitter:description" content="Tired of a bland Windows Terminal? Transform your Windows 11 CLI with this guide! Get a custom theme, Nerd Font & Fastfetch for stunning visuals + instant system info. Boost productivity!">
+    <meta property="twitter:image" content="https://quertech-articles.vercel.app/images/windows-terminal-customization-twitter.jpg"> <!-- Placeholder for a specific Twitter image relevant to the content -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://quertech-articles.vercel.app/windows-terminal-customization">
+
+    <!-- Favicon (using a common emoji as a placeholder for simplicity in single-file) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+    <style>
+        /* Global Reset & Variables */
+        :root {
+            /* Color Palette */
+            --indigo: #6366f1;
+            --pink: #ec4899;
+            --slate-dark: #09172a; /* Main background */
+            --slate-medium: #1a2333; /* Slightly lighter slate for contrast */
+            --slate-light: #2d3a4b; /* Card backgrounds */
+            --text-color-primary: #e2e8f0; /* Light grey for general text */
+            --text-color-secondary: #94a3b8; /* Darker grey for less emphasis */
+            --code-bg: rgba(99, 102, 241, 0.1); /* Indigo transparent for code */
+            --code-border: rgba(99, 102, 241, 0.3);
+            --gradient-start: var(--indigo);
+            --gradient-end: var(--pink);
+
+            /* Glassmorphism base */
+            --glass-bg-base: rgba(15, 23, 42, 0.4); /* slate-dark with transparency */
+            --glass-border-base: rgba(99, 102, 241, 0.2);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+            /* Typography */
+            --font-stack: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            --font-size-base: 1rem; /* 16px */
+
+            /* Transitions */
+            --transition-speed: 0.3s;
+            --transition-ease: cubic-bezier(0.2, 0.8, 0.2, 1); /* Premium ease-in-out */
+            
+            /* Dynamic Accent Color for Theme Toggle */
+            --current-accent: var(--indigo);
+        }
+
+        /* Basic Resets */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body & Base Typography */
+        body {
+            font-family: var(--font-stack);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--text-color-primary);
+            background-color: var(--slate-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden; /* Prevent horizontal scroll from orbs */
+            position: relative;
+        }
+
+        /* Fluid Typography with clamp() */
+        h1 {
+            font-size: clamp(2.5rem, 6vw + 1rem, 4.5rem);
+            line-height: 1.1;
+            font-weight: 800;
+            background-image: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+        }
+        h2 { font-size: clamp(2rem, 4vw + 1rem, 3rem); margin-top: 2.5rem; margin-bottom: 1.2rem; color: var(--text-color-primary); }
+        h3 { font-size: clamp(1.5rem, 3vw + 0.5rem, 2rem); margin-top: 2rem; margin-bottom: 1rem; color: var(--text-color-primary); }
+        h4 { font-size: clamp(1.2rem, 2vw + 0.2rem, 1.5rem); margin-top: 1.5rem; margin-bottom: 0.8rem; color: var(--text-color-primary); }
+        p { margin-bottom: 1rem; }
+        a { color: var(--current-accent); text-decoration: none; transition: color var(--transition-speed) var(--transition-ease); }
+        a:hover { color: var(--pink); text-decoration: underline; }
+        ul, ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        strong { color: var(--text-color-primary); } /* Ensure bold text stands out */
+
+        /* Code Styling */
+        code, pre {
+            font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            background-color: var(--code-bg);
+            border: 1px solid var(--code-border);
+            border-radius: 8px;
+            padding: 0.2em 0.5em;
+            color: var(--text-color-primary);
+            display: inline-block;
+            white-space: pre-wrap;
+            word-break: break-all;
+            hyphens: auto;
+        }
+        pre {
+            display: block;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            max-width: 100%;
+            -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+        }
+        pre code {
+            padding: 0;
+            border: none;
+            background: none;
+            word-break: normal;
+        }
+
+        /* Glassmorphic Container */
+        .glass-container {
+            background: var(--glass-bg-base);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border-base);
+            box-shadow: var(--glass-shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: clamp(1.5rem, 5vw, 3rem);
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden; /* Keep patterns inside */
+            transition: transform var(--transition-speed) var(--transition-ease), box-shadow var(--transition-speed) var(--transition-ease);
+        }
+
+        /* 3D Card Lifting Effect */
+        .glass-card {
+            background: var(--glass-bg-base); /* Slightly different transparency for cards */
+            border-radius: 15px;
+            border: 1px solid var(--glass-border-base);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            transition: all var(--transition-speed) var(--transition-ease);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; /* For grid items */
+        }
+        .glass-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+            border-color: var(--current-accent); /* Border color transition */
+        }
+        .glass-card h3 {
+            margin-top: 0;
+            background-image: linear-gradient(to right, var(--current-accent), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: background-image var(--transition-speed) var(--transition-ease);
+        }
+
+        /* Ambient Background Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px); /* Heavy blur for ambient effect */
+            opacity: 0.6;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .orb-1 {
+            background: radial-gradient(circle, var(--indigo) 0%, rgba(99, 102, 241, 0) 70%);
+            width: 350px; height: 350px;
+            top: 5%; left: -10%;
+            animation: moveOrb1 20s infinite alternate ease-in-out;
+        }
+        .orb-2 {
+            background: radial-gradient(circle, var(--pink) 0%, rgba(236, 72, 153, 0) 70%);
+            width: 400px; height: 400px;
+            bottom: 10%; right: -15%;
+            animation: moveOrb2 25s infinite alternate-reverse ease-in-out;
+        }
+        .orb-3 {
+            background: radial-gradient(circle, var(--indigo) 0%, rgba(99, 102, 241, 0) 70%);
+            width: 250px; height: 250px;
+            top: 40%; right: 20%;
+            animation: moveOrb3 18s infinite alternate ease-in-out;
+            opacity: 0.4;
+        }
+        .orb-4 {
+            background: radial-gradient(circle, var(--pink) 0%, rgba(236, 72, 153, 0) 70%);
+            width: 300px; height: 300px;
+            bottom: -5%; left: 15%;
+            animation: moveOrb4 22s infinite alternate-reverse ease-in-out;
+            opacity: 0.5;
+        }
+
+        @keyframes moveOrb1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30vw, 15vh) scale(1.1); }
+        }
+        @keyframes moveOrb2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-20vw, -10vh) scale(1.1); }
+        }
+        @keyframes moveOrb3 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-10vw, 20vh) scale(1.2); }
+        }
+        @keyframes moveOrb4 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(25vw, -15vh) scale(1.1); }
+        }
+
+        /* Main Layout */
+        #app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            flex-grow: 1; /* Pushes footer to bottom */
+            position: relative;
+            z-index: 1; /* Keep content above orbs */
+        }
+
+        header {
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        header .home-link {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 600;
+            color: var(--text-color-primary);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        header .home-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--indigo), var(--pink));
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform var(--transition-speed) var(--transition-ease);
+        }
+        header .home-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        main {
+            padding-bottom: 3rem; /* Space for floating buttons */
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--indigo), var(--pink));
+            border-radius: 2px;
+        }
+
+        /* Grid for steps */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* CSS Generated Geometric Patterns & Rank Badges for tools */
+        .step-card {
+            position: relative;
+            z-index: 1;
+        }
+        .step-card h3 {
+            position: relative;
+            padding-left: 3rem; /* Space for badge */
+        }
+        .rank-badge {
+            position: absolute;
+            left: 0;
+            top: 0px; /* Adjust as needed */
+            width: 2.2rem;
+            height: 2.2rem;
+            background: linear-gradient(45deg, var(--current-accent), var(--pink));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: background var(--transition-speed) var(--transition-ease);
+        }
+
+        /* Geometric Background pattern for "tool identity" - applied subtly */
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 70%),
+                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+            background-size: 40px 40px;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        /* Specific patterns for some cards for visual distinction */
+        #step-font::before {
+             background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px);
+        }
+        #step-theme::before {
+            background-image: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 70%);
+            background-size: 60px 60px;
+        }
+        #step-fastfetch::before {
+            background-image:
+                linear-gradient(0deg, transparent 50%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.03) 100%),
+                linear-gradient(90deg, transparent 50%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.03) 100%);
+            background-size: 30px 30px;
+        }
+
+
+        /* Keywords & Tags Section */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+        .tag-item {
+            background-color: var(--slate-medium);
+            color: var(--text-color-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid var(--slate-light);
+            transition: all var(--transition-speed) var(--transition-ease);
+            cursor: default;
+        }
+        .tag-item:hover {
+            border-color: var(--current-accent);
+            color: var(--text-color-primary);
+            box-shadow: 0 0 15px rgba(var(--current-accent), 0.3);
+            transform: translateY(-2px);
+        }
+        .tag-item.trending {
+            background: linear-gradient(45deg, var(--current-accent), var(--pink));
+            color: white;
+            border-color: transparent;
+            font-weight: 600;
+        }
+        .tag-item.trending:hover {
+            box-shadow: 0 0 20px rgba(var(--current-accent), 0.5);
+        }
+
+        /* Floating UI Elements */
+        .floating-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--current-accent), var(--pink));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: all var(--transition-speed) var(--transition-ease);
+            z-index: 1000;
+        }
+        .floating-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+        .floating-button:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+        
+        #theme-toggle {
+            right: calc(2rem + 50px + 1rem); /* 2rem right + button width + 1rem gap */
+            background: var(--slate-medium);
+            color: var(--current-accent);
+            border: 1px solid var(--glass-border-base);
+            font-size: 1.2rem;
+        }
+        #theme-toggle:hover {
+            color: var(--pink);
+            background: var(--slate-light);
+            border-color: var(--current-accent);
+        }
+        #theme-toggle .icon {
+            transition: transform 0.5s ease-in-out;
+        }
+        #theme-toggle.rotated .icon {
+            transform: rotate(180deg);
+        }
+        
+        #back-to-top {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            margin-top: auto; /* Push to bottom */
+            color: var(--text-color-secondary);
+            font-size: 0.9em;
+            border-top: 1px solid var(--glass-border-base);
+            background-color: var(--slate-dark);
+            position: relative;
+            z-index: 1;
+        }
+        footer a {
+            color: var(--current-accent);
+        }
+        footer a:hover {
+            color: var(--pink);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #app-container {
+                padding: 0 1rem;
+            }
+            .glass-container {
+                padding: clamp(1rem, 4vw, 2rem);
+            }
+            .steps-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+            header h1 {
+                font-size: clamp(2rem, 8vw, 3.5rem);
+            }
+            h2 {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+            }
+            h3 {
+                font-size: clamp(1.3rem, 5vw, 1.8rem);
+            }
+            .floating-button {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+            #theme-toggle {
+                right: calc(1.5rem + 45px + 0.75rem);
+            }
+            .section-title {
+                margin-bottom: 2rem;
+            }
+            .orb {
+                filter: blur(50px); /* Less blur on mobile for performance */
+                opacity: 0.4;
+            }
+            .orb-1, .orb-2, .orb-3, .orb-4 {
+                width: 250px; height: 250px; /* Smaller orbs */
+            }
+        }
+
+        /* Scroll-Reveal Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--transition-ease), transform 0.8s var(--transition-ease);
+        }
+        .scroll-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scroll-reveal.fade-in {
+            transition: opacity 1s var(--transition-ease);
+            transform: none; /* No vertical translation for simple fade */
+        }
+        .scroll-reveal.fade-in.is-visible {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Ambient Background Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+
+    <div id="app-container">
+        <header>
+            <a href="https://quertech-articles.vercel.app" class="home-link" aria-label="Back to QuerTech Articles Homepage">QuerTech Articles</a>
+            <h1>Stunning Windows Terminal Customization on Windows 11</h1>
+            <p class="scroll-reveal fade-in" style="font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-color-secondary);">
+                Elevate your command-line experience with a personalized, high-performance setup.
+            </p>
+        </header>
+
+        <main>
+            <section id="introduction" class="glass-container scroll-reveal">
+                <h2 class="section-title">Elevate Your Terminal Experience</h2>
+                <p>
+                    This tutorial serves as a comprehensive guide to customizing the Windows Terminal on Windows 11.
+                    Our primary goal is to transform the default, often bland, terminal into a visually stunning and highly functional command-line interface.
+                    By enhancing its visual appeal and integrating essential system information, we aim to significantly elevate your daily workflow.
+                </p>
+                <p>
+                    The speaker in the analyzed video maintains an <strong style="color:var(--pink);">enthusiastic, informal, and highly practical tone</strong>,
+                    using relatable analogies and crystal-clear instructions to make this technical process accessible and engaging for everyone.
+                </p>
+            </section>
+
+            <section id="executive-summary" class="glass-container scroll-reveal">
+                <h3>Executive Summary: Beyond the Default</h3>
+                <p>
+                    This guide provides a step-by-step process for transforming your default Windows Terminal into a truly personalized and informative CLI dashboard.
+                    We'll achieve this by integrating a custom theme, a specialized <strong style="color:var(--current-accent);">Nerd Font</strong>, and the powerful
+                    <strong style="color:var(--current-accent);">Fastfetch</strong> system information tool. Prepare to move beyond standard aesthetics and embrace a command-line experience tailored to you.
+                </p>
+            </section>
+
+            <section id="customization-guide">
+                <h2 class="section-title">Your Step-by-Step Customization Guide</h2>
+                <div class="steps-grid">
+
+                    <article id="step-font" class="glass-card scroll-reveal">
+                        <span class="rank-badge">1</span>
+                        <h3>Prerequisite: Install JetBrainsMono Nerd Font</h3>
+                        <p><strong>Crucial Step:</strong> Without a Nerd Font, special characters and icons used in the customized terminal will not display correctly, leading to a suboptimal visual experience. The recommended font is JetBrainsMono Nerd Font.</p>
+                        <p>You can download it from a reliable source like <a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener noreferrer">JetBrains Mono official page</a> or <a href="https://www.nerdfonts.com/font-downloads" target="_blank" rel="noopener noreferrer">Nerd Fonts website</a>.</p>
+                    </article>
+
+                    <article id="step-theme" class="glass-card scroll-reveal">
+                        <span class="rank-badge">2</span>
+                        <h3>Terminal Theme Customization (Catppuccin Mocha)</h3>
+                        <ol>
+                            <li>Access the speaker's GitHub repository for configuration files (e.g., `<a href="https://github.com/YourSpeaker/WindowsTerminalConfig" target="_blank" rel="noopener noreferrer">github.com/YourSpeaker/WindowsTerminalConfig</a>`).</li>
+                            <li>Navigate to the <code>/Terminal/settings.json</code> file.</li>
+                            <li>Copy the <strong>raw JSON content</strong> provided in the repository.</li>
+                            <li>Open Windows Terminal settings, then select "Open JSON file" to directly edit its configuration.</li>
+                            <li><strong>Replace the entire existing content</strong> of your local <code>settings.json</code> file with the copied code and save. This immediately applies the Catppuccin Mocha theme and the JetBrainsMono Nerd Font.</li>
+                        </ol>
+                    </article>
+
+                    <article id="step-powershell-profile" class="glass-card scroll-reveal">
+                        <span class="rank-badge">3</span>
+                        <h3>PowerShell Profile Management</h3>
+                        <p>Your PowerShell profile file (<code>profile.ps1</code>) is key for custom startup commands.</p>
+                        <ol>
+                            <li>Determine its location by executing <code>$PROFILE</code> in the Windows Terminal.</li>
+                            <li>If the profile file does not exist, create it using the command:
+                                <pre><code>New-Item -Path $profile.CurrentUserAllHosts -Type File -Force</code></pre>
+                            </li>
+                        </ol>
+                    </article>
+
+                    <article id="step-fastfetch" class="glass-card scroll-reveal">
+                        <span class="rank-badge">4</span>
+                        <h3>Fastfetch Installation and Configuration</h3>
+                        <ol>
+                            <li>Install <code>fastfetch</code> using Winget: <pre><code>winget install fastfetch</code></pre></li>
+                            <li>Return to the speaker's GitHub repository and navigate to the <code>/Fastfetch/</code> directory.</li>
+                            <li>Download the <code>config.jsonc</code> and <code>ascii.txt</code> files.</li>
+                            <li>Create a hidden directory named <code>.config</code> within your user profile directory (e.g., <code>C:\Users\&lt;Your_Username&gt;\</code>).
+                                <ul>
+                                    <li><em>To make the folder hidden:</em> Right-click <code>.config</code>, "Show more options," "Properties," check "Hidden," Apply, OK.</li>
+                                    <li><em>To view hidden files:</em> In File Explorer, "View," "Show," enable "Hidden items."</li>
+                                </ul>
+                            </li>
+                            <li>Inside <code>.config</code>, create another folder named <code>fastfetch</code>.</li>
+                            <li>Move the downloaded <code>config.jsonc</code> and <code>ascii.txt</code> files into <code>C:\Users\&lt;Your_Username&gt;\.config\fastfetch</code>.</li>
+                            <li>Edit <code>config.jsonc</code>: Locate the <code>source</code> path for the logo and replace <code>%USERPROFILE%</code> with your actual Windows username. Save.</li>
+                        </ol>
+                    </article>
+
+                    <article id="step-integrate-fastfetch" class="glass-card scroll-reveal">
+                        <span class="rank-badge">5</span>
+                        <h3>Integrate Fastfetch with PowerShell Profile</h3>
+                        <ol>
+                            <li>Go back to the speaker's GitHub repository: <code>/PowerShell/Microsoft.PowerShell_profile.ps1</code>.</li>
+                            <li>Copy the <strong>raw content</strong> of this PowerShell script.</li>
+                            <li>Open your local <code>profile.ps1</code> file (from step 3), paste the copied code into it.</li>
+                            <li>Replace the <code>%USERPROFILE%</code> placeholder in the <code>fastfetch -c ...</code> line with your actual username.</li>
+                            <li>Save and close the <code>profile.ps1</code> file.</li>
+                        </ol>
+                    </article>
+
+                    <article id="step-verification" class="glass-card scroll-reveal">
+                        <span class="rank-badge">6</span>
+                        <h3>Verification</h3>
+                        <p><strong>Congratulations!</strong> Open a new tab in your Windows Terminal. You should now see:</p>
+                        <ul>
+                            <li>The customized Catppuccin Mocha theme.</li>
+                            <li>The crisp JetBrainsMono Nerd Font.</li>
+                            <li>The Fastfetch output, complete with your custom ASCII art and essential system statistics.</li>
+                        </ul>
+                        <p>Your terminal is now a personalized, powerful, and aesthetically pleasing command center!</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <section id="actionable-insights" class="glass-container scroll-reveal">
+                <h2 class="section-title">Actionable Insights: The "So What"</h2>
+                <p>
+                    Implementing these steps transforms a utilitarian CLI into a personalized, informative dashboard, significantly enhancing the user experience.
+                    Users gain not only an aesthetically pleasing terminal but also immediate access to critical system statistics upon launch,
+                    improving efficiency for developers, system administrators, and power users.
+                </p>
+                <p>
+                    The high degree of customizability, managed through simple configuration files, empowers individuals to tailor their terminal's
+                    appearance and functionality to their specific preferences and workflows, making the command-line environment more engaging and less daunting.
+                </p>
+            </section>
+
+            <section id="keywords-tags-display" class="glass-container scroll-reveal">
+                <h2 class="section-title">Explore Further: Keywords & Tags</h2>
+                <h4>High-Volume, Long-Tail SEO Keywords:</h4>
+                <div class="tags-container">
+                    <span class="tag-item">how to customize windows terminal windows 11</span>
+                    <span class="tag-item">windows 11 terminal aesthetic setup guide</span>
+                    <span class="tag-item">add system information to windows terminal</span>
+                    <span class="tag-item">best windows terminal themes for windows 11</span>
+                    <span class="tag-item">install fastfetch on windows terminal</span>
+                    <span class="tag-item">windows 11 powershell profile customization</span>
+                    <span class="tag-item">jetbrainsmono nerd font windows terminal</span>
+                    <span class="tag-item">catppuccin theme windows 11 terminal</span>
+                    <span class="tag-item">make windows terminal look professional</span>
+                    <span class="tag-item">enhance windows 11 command line experience</span>
+                    <span class="tag-item">visual windows terminal configuration</span>
+                    <span class="tag-item">developer workstation windows terminal setup</span>
+                    <span class="tag-item">personalized windows 11 terminal dashboard</span>
+                </div>
+
+                <h4>Trending Tags:</h4>
+                <div class="tags-container">
+                    <span class="tag-item trending">#WindowsTerminal</span>
+                    <span class="tag-item trending">#Windows11</span>
+                    <span class="tag-item trending">#CLICustomization</span>
+                    <span class="tag-item trending">#TechTutorial</span>
+                    <span class="tag-item trending">#PowerShell</span>
+                    <span class="tag-item trending">#Fastfetch</span>
+                    <span class="tag-item trending">#NerdFonts</span>
+                    <span class="tag-item trending">#Catppuccin</span>
+                    <span class="tag-item trending">#DevSetup</span>
+                    <span class="tag-item trending">#Productivity</span>
+                    <span class="tag-item trending">#SystemInfo</span>
+                    <span class="tag-item trending">#CustomThemes</span>
+                    <span class="tag-item trending">#TechTips</span>
+                    <span class="tag-item trending">#WindowsCustomization</span>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 QuerTech Articles. All rights reserved. | <a href="https://quertech-articles.vercel.app" target="_blank" rel="noopener noreferrer">Visit Our Homepage</a></p>
+        </footer>
+    </div>
+
+    <!-- Floating UI Elements -->
+    <button id="theme-toggle" class="floating-button" aria-label="Toggle accent color">
+        <span class="icon">✨</span>
+    </button>
+    <button id="back-to-top" class="floating-button" aria-label="Scroll back to top">⬆️</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Theme Toggle Functionality ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const root = document.documentElement;
+            const accentColors = ['#6366f1', '#ec4899']; // Indigo, Pink
+            let currentAccentIndex = 0;
+
+            const updateAccentColor = () => {
+                currentAccentIndex = (currentAccentIndex + 1) % accentColors.length;
+                root.style.setProperty('--current-accent', accentColors[currentAccentIndex]);
+                themeToggle.classList.toggle('rotated', currentAccentIndex === 1); // Rotate icon for visual feedback
+            };
+
+            themeToggle.addEventListener('click', updateAccentColor);
+
+            // Initialize with the first accent color (indigo)
+            root.style.setProperty('--current-accent', accentColors[currentAccentIndex]);
+
+            // --- Back to Top Button Functionality ---
+            const backToTopButton = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) { // Show button after scrolling 300px down
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // --- Scroll Reveal Animations (Intersection Observer) ---
+            const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.1 // 10% of the element must be visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            scrollRevealElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // --- Smooth Scrolling for Anchor Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Offset for fixed header/better view
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Pre-reveal initial elements if they are already in view on load
+            scrollRevealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    el.classList.add('is-visible');
+                }
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/MasterPos">Mastering CSS Position Property: Absolute, Relative, Fixed, Sticky, and Z-index Explained</a><a href="/GERMANDG">Germany UG Guide</a><a href="/MindBoost">Study Mastery: Ace Your Exams</a><a href="/SHARPEN">Sharpen Your Focus: 5 Scientific Steps to Master Attention</a><a href="/BrainHack">Hack Your Brain to Crave Studying: The Dopamine Method</a><a href="/UNLOCK">Ask & Receive: Jim Rohn's Success Key</a><a href="/CONQUER">Conquer Procrastination: Start Now</a><a href="/BUILDVSBUY">MSI Titan vs. Custom PC: Who Reigns Supreme at ₹7 Lakh?</a><a href="/TeenCash">Teen Earn From Home</a><a href="/AutoCash">YouTube Shorts Automation: Earn $400 Daily with AI</a><a href="/TechPlunge">PC Price Plunge Confirmed: Build Smart Now!</a><a href="/autodeploy">CI/CD Essentials</a><a href="/ArchPower">Microservices Demystified: The Future of Scalable Architecture</a><a href="/ApexPlay">Apex Combat: Unpacking Gaming's Elite Mechanics</a><a href="/PureCode">Value Objects: Code Mastery</a><a href="/AuthBoost">Mastering JWTs: Secure & Scalable Auth</a><a href="/MasterData">Master Backend & System Design</a><a href="/JS Boost">Lightning JS: Rapid Core Mastery</a><a href="/AISurge">ASUS TUF A14: AI Powerhouse Unleashed</a><a href="/CTriumph">24-Hour C Pong: No AI Triumph</a><a href="/EpicPlay">Game Mechanics Unveiled: The Ultimate Action Showcase</a><a href="/Glass Win11">Glass-Effect Windows 11: Ultimate Desktop Setup</a><a href="/GridGuide">Mastering CSS Grid & Flexbox: Responsive Design Guide</a><a href="/DevThrive">Thrive in Indian Game Dev: $16.7B Boom, Top Skills & High Salaries</a><a href="/INDIAPERIL">India's Perilous Foreign Policy Amidst Global Conflict</a><a href="/BuildSkill">Ignite Your Dev Journey: Code for Joy, Build for Mastery</a><a href="/Mastery">Master Your Focus: Scientific Strategies for Peak Concentration</a><a href="/ActionEvo">Action & Shooter Evolution: A Visual Showcase</a><a href="/PS3Glory">PS3 Unleashed: Epic Gaming Showcase</a><a href="/torchfat">Ultimate Fat Loss Blueprint</a><a href="/i3Power">i3/4GB RAM: Budget Gaming Unleashed!</a><a href="/FPSBoost">Boost Your FPS: Ultimate Windows 10/11 Gaming Guide</a><a href="/PowerEarn">5 Secret Skills For Student Financial Freedom</a><a href="/maxgames">Max Games</a><a href="/Maxi3">Unleash i3 Gaming Power</a><a href="/BeatFog">Beat Brain Fog: Reclaim Your Mental Clarity</a><a href="/epiclite">Unleash Stories: 10 Epic Games for Low-End PCs</a><a href="/Conquer i3">20 Low-Spec PC Games for i3 & 4GB RAM (2025)</a><a href="/MasterEng">Master English: Quick Level Check</a><a href="/DevPath">Code Conquer</a><a href="/aidevpro">AI Web Dev Roadmap 2026</a><a href="/wordorafreeai">Wordora Free AI (All-in-One)</a><a href="/wordoraaicodefree">Wordora AI Code Free</a><a href="/wordoraaimodelfree">Wordora AI Models</a><a href="/wordoraaiimagefree">Wordora AI Image Free</a><a href="/wordoraaivideofree">Wordora AI Video Free</a><a href="/wordoraaipptfree">Wordora AI PPT</a><a href="/wordoraaitextfree">Wordora AI Text</a><a href="/wordoraaidesignfree">Wordora AI Design</a><a href="/wordoraaidatafree">Wordora AI Data</a><a href="/wordoraaiavatars">Wordora AI Avatars</a>
+</div></body>
+</html>
+```
