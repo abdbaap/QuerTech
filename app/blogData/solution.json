@@ -1,5 +1,21 @@
 [
   {
+    "blog_title": "Study Mastery: Ace Your Exams",
+    "link": "MindBoost",
+    "description": "Struggling with exams? Unlock your potential with 3 scientifically-backed study techniques: Feynman, Pomodoro, and Spaced Repetition. Boost focus, retention, and confidence to ace your academics.",
+    "tags": [
+      "Study Techniques",
+      "Academic Success",
+      "Feynman Technique",
+      "Pomodoro Technique",
+      "Spaced Repetition",
+      "Learning Strategies",
+      "Exam Prep",
+      "Student Motivation"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-500"
+  },
+  {
     "blog_title": "Glass-Effect Windows 11: Ultimate Desktop Setup",
     "link": "Glass Win11",
     "description": "Transform your Windows 11 desktop into a stunning, modern glass-effect interface! This guide uses Windhawk, Lively Wallpaper, and Rainmeter to achieve translucent UI, live backgrounds, and sleek widgets. Get that clean, aesthetic look.",

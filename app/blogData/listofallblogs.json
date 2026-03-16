@@ -1,5 +1,51 @@
 [
   {
+    "blog_title": "Mastering CSS Position Property: Absolute, Relative, Fixed, Sticky, and Z-index Explained",
+    "link": "MasterPos",
+    "description": "Unlock advanced web design with this comprehensive CSS position tutorial. Master 'relative', 'absolute', 'fixed', 'sticky', and 'z-index' for precise element layout and control over visual stacking. Learn to break elements from normal flow and manage layers effectively.",
+    "tags": [
+      "CSS Position",
+      "Web Design",
+      "CSS Layout",
+      "Frontend Development",
+      "z-index",
+      "relative position",
+      "absolute position",
+      "fixed position",
+      "sticky position"
+    ],
+    "color": "bg-blue-800 shadow-blue-500"
+  },
+  {
+    "blog_title": "Germany UG Guide",
+    "link": "GERMANDG",
+    "description": "Indian 12th pass? Secure your German Bachelor's! This guide cuts through confusion: Studentenkolleg, direct entry, and Ausbildung options. Plan your path wisely.",
+    "tags": [
+      "Germany Study",
+      "Studentenkolleg",
+      "Bachelor Germany",
+      "Indian Students",
+      "Ausbildung"
+    ],
+    "color": "bg-emerald-900 shadow-emerald-500"
+  },
+  {
+    "blog_title": "Study Mastery: Ace Your Exams",
+    "link": "MindBoost",
+    "description": "Struggling with exams? Unlock your potential with 3 scientifically-backed study techniques: Feynman, Pomodoro, and Spaced Repetition. Boost focus, retention, and confidence to ace your academics.",
+    "tags": [
+      "Study Techniques",
+      "Academic Success",
+      "Feynman Technique",
+      "Pomodoro Technique",
+      "Spaced Repetition",
+      "Learning Strategies",
+      "Exam Prep",
+      "Student Motivation"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-500"
+  },
+  {
     "blog_title": "Sharpen Your Focus: 5 Scientific Steps to Master Attention",
     "link": "SHARPEN",
     "description": "Unlock peak performance by mastering focus! Our attention spans are shorter than a goldfish's, but this guide reveals 5 scientifically-backed steps—from ancient Trataka to modern brain hacks like the 90-20 rule—to sharpen your mind, boost productivity, and conquer digital distractions.",

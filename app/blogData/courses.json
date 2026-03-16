@@ -1,5 +1,22 @@
 [
   {
+    "blog_title": "Mastering CSS Position Property: Absolute, Relative, Fixed, Sticky, and Z-index Explained",
+    "link": "MasterPos",
+    "description": "Unlock advanced web design with this comprehensive CSS position tutorial. Master 'relative', 'absolute', 'fixed', 'sticky', and 'z-index' for precise element layout and control over visual stacking. Learn to break elements from normal flow and manage layers effectively.",
+    "tags": [
+      "CSS Position",
+      "Web Design",
+      "CSS Layout",
+      "Frontend Development",
+      "z-index",
+      "relative position",
+      "absolute position",
+      "fixed position",
+      "sticky position"
+    ],
+    "color": "bg-blue-800 shadow-blue-500"
+  },
+  {
     "blog_title": "CI/CD Essentials",
     "link": "autodeploy",
     "description": "Unlock faster, more reliable software delivery. This guide demystifies CI/CD, covering essential concepts, top tools like GitHub Actions, and zero-downtime deployment strategies to automate your DevOps.",
