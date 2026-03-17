@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- SEO Meta Tags from provided summary -->
+    <title>Fix Tailwind CSS Vite v8 React: No More Dependency Errors!</title>
+    <meta name="description" content="Tired of Vite v8 Tailwind CSS errors? This ultimate guide crushes dependency conflicts using npm overrides in React. Unlock seamless integration & a robust setup today!">
+    <meta name="keywords" content="Tailwind CSS Vite v8 React setup guide, Fix Tailwind CSS Vite 8 dependency error, npm overrides Tailwind CSS Vite compatibility, How to install Tailwind CSS in Vite v8, Vite v8 React Tailwind CSS tutorial, resolve ERESOLVE unable to resolve dependency tree Vite 8 Tailwind, Tailwind CSS plugin not compatible with Vite v8 solution, Vite config Tailwind CSS React project, frontend development with Vite v8 Tailwind, React development environment setup Vite 8 Tailwind, #ViteJS, #TailwindCSS, #ReactJS, #WebDevelopment, #FrontendDev, #NPM, #CodingTutorial, #DevTips, #DependencyManagement, #Vite8, #JavaScript, #DevProblemSolved">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://quertech-articles.vercel.app/fix-tailwind-vite-v8-react-errors">
+    <meta property="og:title" content="Fix Tailwind CSS Vite v8 React: No More Dependency Errors!">
+    <meta property="og:description" content="Tired of Vite v8 Tailwind CSS errors? This ultimate guide crushes dependency conflicts using npm overrides in React. Unlock seamless integration & a robust setup today!">
+    <!-- You might want to add an og:image here if you have a specific social media preview image -->
+    <!-- <meta property="og:image" content="https://quertech-articles.vercel.app/path/to/preview.jpg"> -->
+
+    <!-- Favicon (Optional, but good for premium UX) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%25' y='50%25' font-size='90' text-anchor='middle' dominant-baseline='central'%3E⚛️%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+
+    <!-- Inter Font (Fallback/Alternative for SF Pro Display on non-Apple devices) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /*
+         * CORE STYLES & VARIABLES
+         * Establishes the dark-themed, high-contrast palette and typography.
+         * Fluid scaling for typography is applied using clamp().
+         */
+        :root {
+            /* Color Palette */
+            --color-indigo: #6366f1; /* Main accent color */
+            --color-pink: #ec4899;   /* Secondary accent color */
+            --color-slate: #09172a;  /* Deep dark background */
+            --color-text-primary: #e0e7ff; /* Light text for readability */
+            --color-text-secondary: #a7a7a7; /* Muted text */
+            --color-card-bg: rgba(9, 23, 42, 0.6); /* Glassmorphic card background */
+            --color-card-border: rgba(99, 102, 241, 0.4); /* Subtle border for cards */
+            --color-card-border-hover: var(--color-pink); /* Hover border color */
+            --color-code-bg: rgba(2, 6, 23, 0.7); /* Code block background */
+            --color-code-text: #8be9fd; /* Code text color */
+            --color-highlight-1: #f1fa8c; /* Syntax highlighting */
+            --color-highlight-2: #bd93f9; /* Syntax highlighting */
+
+            /* Typography */
+            --font-primary: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            --font-size-base: 1rem;
+            --font-size-h1: clamp(2.5rem, 6vw, 4rem);
+            --font-size-h2: clamp(1.8rem, 4vw, 2.8rem);
+            --font-size-h3: clamp(1.4rem, 3vw, 2rem);
+            --font-weight-bold: 700;
+            --font-weight-normal: 400;
+
+            /* Spacing */
+            --spacing-unit: 1rem;
+
+            /* Glassmorphism Effect */
+            --glass-blur: 10px;
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+            /* Transitions */
+            --transition-speed: 0.3s;
+            --transition-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Ease-out-quad */
+
+            /* Theme Toggle Variables (for potential future expansion/contrast modes) */
+            --theme-toggle-bg: var(--color-indigo);
+            --theme-toggle-fg: var(--color-text-primary);
+        }
+
+        /*
+         * BASE STYLES
+         * Resets, global typography, and background.
+         */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--color-text-primary);
+            background-color: var(--color-slate);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden; /* Prevent horizontal scroll from orb animations */
+            position: relative; /* For background orbs */
+        }
+
+        /* Headings */
+        h1, h2, h3 {
+            font-weight: var(--font-weight-bold);
+            line-height: 1.2;
+            margin-bottom: var(--spacing-unit);
+            color: var(--color-text-primary);
+        }
+
+        h1 { font-size: var(--font-size-h1); }
+        h2 { font-size: var(--font-size-h2); }
+        h3 { font-size: var(--font-size-h3); }
+
+        p {
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+            color: var(--color-text-primary);
+        }
+        p small {
+            font-size: 0.75em;
+            color: var(--color-text-secondary);
+            display: block; /* Ensure small text starts on a new line */
+            margin-top: -0.5rem; /* Pull it up closer to the heading */
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            transition: color var(--transition-speed) var(--transition-ease);
+        }
+        a:hover {
+            color: var(--color-pink);
+            text-decoration: underline;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: var(--spacing-unit) * 1.5;
+            list-style-type: disc;
+        }
+
+        ol {
+            list-style-type: decimal;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /*
+         * LAYOUT & CONTAINER
+         */
+        .container {
+            width: min(100% - 2rem, 1200px); /* Responsive max-width with padding */
+            margin-inline: auto;
+            padding-top: calc(var(--spacing-unit) * 2);
+            padding-bottom: calc(var(--spacing-unit) * 4);
+            flex-grow: 1; /* Allow main content to grow */
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing-unit) * 2); /* Spacing between cards */
+        }
+
+        /*
+         * HEADER
+         * Gradient-masked header for main title.
+         */
+        .main-header {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 4) var(--spacing-unit) calc(var(--spacing-unit) * 2);
+            background: linear-gradient(135deg, var(--color-slate) 0%, rgba(9, 23, 42, 0.8) 100%);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .main-header h1 {
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent; /* Fallback for browsers not supporting background-clip */
+            display: inline-block; /* Required for background-clip: text */
+            margin-bottom: var(--spacing-unit);
+            font-weight: var(--font-weight-bold);
+            text-shadow: 0 4px 15px rgba(99, 102, 241, 0.4), 0 0 5px rgba(236, 72, 153, 0.2); /* Subtle glow */
+        }
+
+        .main-header .tagline {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            max-width: 800px;
+            margin-inline: auto;
+            color: var(--color-text-secondary);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /*
+         * GLASSMORPHIC CARD STYLES
+         * Characterized by frosted glass effect, subtle borders, and shadows.
+         */
+        .card {
+            background-color: var(--color-card-bg);
+            border: 1px solid var(--color-card-border);
+            border-radius: 16px;
+            padding: calc(var(--spacing-unit) * 2);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            box-shadow: var(--glass-shadow);
+            position: relative;
+            overflow: hidden; /* For badge positioning */
+        }
+
+        /*
+         * INTERACTIVE CARD EFFECTS
+         * 3D card lifting and border-color transitions on hover.
+         * Mouse-driven 3D tilt is implemented via JavaScript.
+         */
+        .interactive-card {
+            transition: transform var(--transition-speed) var(--transition-ease),
+                        box-shadow var(--transition-speed) var(--transition-ease),
+                        border-color var(--transition-speed) var(--transition-ease);
+        }
+
+        .interactive-card:hover {
+            border-color: var(--color-card-border-hover);
+            box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.6);
+        }
+
+        /*
+         * BADGES / CSS-GENERATED GEOMETRIC PATTERNS
+         * Distinct, tech-forward identity for each tool/section.
+         */
+        .badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--color-pink), var(--color-indigo));
+            color: white;
+            font-size: 0.8rem;
+            font-weight: var(--font-weight-bold);
+            padding: 0.5rem 1.5rem;
+            border-bottom-left-radius: 10px;
+            z-index: 10;
+            transform: translateY(-0px); /* Adjust as needed */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Specific badge styling for variety */
+        .problem-statement .badge { background: linear-gradient(135deg, #ef4444, #dc2626); } /* Red */
+        .solution-overrides .badge { background: linear-gradient(135deg, #22c55e, #16a34a); } /* Green */
+        .verification .badge { background: linear-gradient(135deg, #0ea5e9, #0284c7); } /* Blue */
+
+        /*
+         * CODE BLOCKS
+         * Styled for readability in a dark theme.
+         */
+        pre {
+            background-color: var(--color-code-bg);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            position: relative; /* For copy button */
+            margin-bottom: var(--spacing-unit);
+            font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', 'JetBrains Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: var(--color-code-text);
+            border: 1px solid rgba(var(--color-indigo), 0.2);
+        }
+
+        code {
+            color: var(--color-code-text);
+        }
+
+        pre code {
+            display: block; /* Ensure code block takes full width */
+            white-space: pre-wrap; /* Wrap long lines */
+            word-break: break-all; /* Break words if necessary */
+        }
+
+        /* Basic syntax highlighting for common elements */
+        .language-bash { color: var(--color-highlight-1); }
+        .language-javascript .keyword { color: var(--color-indigo); font-weight: bold; }
+        .language-javascript .string { color: var(--color-pink); }
+        .language-json .property { color: var(--color-indigo); }
+        .language-json .string { color: var(--color-highlight-1); }
+        .language-json .number { color: var(--color-highlight-2); }
+        .language-css .atrule { color: var(--color-indigo); }
+        .language-css .string { color: var(--color-pink); }
+
+        /* Copy Button for code blocks */
+        .copy-button {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background-color: rgba(99, 102, 241, 0.7);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0.4em 0.8em;
+            cursor: pointer;
+            font-size: 0.75em;
+            transition: background-color var(--transition-speed) var(--transition-ease);
+            opacity: 0;
+            pointer-events: none;
+        }
+        pre:hover .copy-button, .copy-button.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .copy-button:hover {
+            background-color: var(--color-indigo);
+        }
+        .copy-button.copied {
+            background-color: #22c55e; /* Green for copied state */
+        }
+
+        /*
+         * FLOATING THEME TOGGLE (Accessibility Feature / Contrast)
+         */
+        .theme-toggle {
+            position: fixed;
+            bottom: var(--spacing-unit);
+            right: var(--spacing-unit);
+            z-index: 1000;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--theme-toggle-bg);
+            color: var(--theme-toggle-fg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: background-color var(--transition-speed) var(--transition-ease),
+                        transform var(--transition-speed) var(--transition-ease),
+                        box-shadow var(--transition-speed) var(--transition-ease);
+            user-select: none;
+            border: 2px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* When 'high-contrast' class is active on body */
+        body.high-contrast {
+            --color-card-bg: rgba(15, 30, 50, 0.7); /* Slightly darker, more opaque */
+            --color-card-border: var(--color-indigo);
+            --color-card-border-hover: var(--color-pink);
+            --color-text-primary: #ffffff; /* Brighter white */
+            --color-text-secondary: #cccccc;
+            --glass-blur: 15px; /* More blur */
+            --glass-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5); /* Stronger shadow */
+            --theme-toggle-bg: var(--color-pink); /* Toggle visual change */
+        }
+
+        /*
+         * ANIMATED AMBIENT BACKGROUND ORBS
+         * Provides depth and modernity with subtle movement.
+         */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            filter: blur(50px); /* Blur the orbs for an ethereal effect */
+            opacity: 0.6;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: orb-anim 20s infinite alternate ease-in-out;
+            background: radial-gradient(circle, rgba(99,102,241,0.8) 0%, rgba(236,72,153,0.4) 100%);
+        }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-duration: 25s;
+            animation-delay: -2s;
+            background: radial-gradient(circle, var(--color-indigo) 0%, var(--color-pink) 100%);
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 70%;
+            animation-duration: 30s;
+            animation-delay: -5s;
+            background: radial-gradient(circle, var(--color-pink) 0%, var(--color-indigo) 100%);
+        }
+
+        .orb-3 {
+            width: 250px;
+            height: 250px;
+            top: 80%;
+            left: 20%;
+            animation-duration: 22s;
+            animation-delay: -10s;
+            background: radial-gradient(circle, rgba(236,72,153,0.6) 0%, rgba(99,102,241,0.8) 100%);
+        }
+
+        @keyframes orb-anim {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(calc(var(--spacing-unit) * 10), calc(var(--spacing-unit) * -8)) scale(1.1);
+            }
+            66% {
+                transform: translate(calc(var(--spacing-unit) * -15), calc(var(--spacing-unit) * 12)) scale(0.9);
+            }
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+        }
+
+        /*
+         * FOOTER
+         */
+        .main-footer {
+            text-align: center;
+            padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+            color: var(--color-text-secondary);
+            font-size: 0.9em;
+            margin-top: calc(var(--spacing-unit) * 4);
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+            background: linear-gradient(0deg, var(--color-slate) 0%, rgba(9, 23, 42, 0.8) 100%);
+        }
+        .main-footer p {
+            margin-bottom: 0.5rem;
+            color: inherit;
+        }
+        .main-footer p:last-child {
+            margin-bottom: 0;
+        }
+
+        /*
+         * RESPONSIVENESS (Mobile-First)
+         */
+        @media (min-width: 768px) {
+            .container {
+                gap: calc(var(--spacing-unit) * 3);
+            }
+            .main-header {
+                padding: calc(var(--spacing-unit) * 6) var(--spacing-unit) calc(var(--spacing-unit) * 3);
+            }
+            .card {
+                padding: calc(var(--spacing-unit) * 2.5);
+            }
+            h1 { font-size: var(--font-size-h1); }
+            h2 { font-size: var(--font-size-h2); }
+            h3 { font-size: var(--font-size-h3); }
+
+            /* Grid layout for larger screens (optional, but good for content flow) */
+            .container {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-auto-rows: minmax(min-content, max-content);
+            }
+            .intro, .actionable-insights {
+                grid-column: span 2; /* Make these sections span full width */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr); /* 3 columns for even more space */
+            }
+            .intro, .actionable-insights {
+                grid-column: span 3;
+            }
+        }
+
+        /* Ensure preformatted text doesn't overflow */
+        pre code {
+            white-space: pre; /* Keep pre-formatted as is for larger screens */
+            word-break: normal;
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Animated Ambient Background Orbs -->
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Floating Theme Toggle (for contrast mode) -->
+    <div id="theme-toggle" class="theme-toggle" role="button" aria-label="Toggle High Contrast Mode" tabindex="0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.344 3.003C11.93 1.967 15.228 1.95 18.25 2.972c.9.303 1.554 1.144 1.761 2.215a7.35 7.35 0 01-.842 4.793.817.817 0m-.009-1.006c-1.396.447-2.748.895-4.047 1.488-1.574.721-2.903 2.091-3.69 3.821C.854 12.394 2.115 17.5 5.008 20.392a11.954 11.954 0 0014.288 0c2.893-2.893 4.154-8.006 2.39-12.083-.787-1.73-2.116-3.1-3.69-3.821a30.865 30.865 0 00-4.047-1.488 28.982 28.982 0 00-4.653-.51c-.694.062-1.353.117-1.953.17Z" clip-rule="evenodd" />
+            <path d="M12 6.75a.75.75 0 01.75.75v3h3a.75.75 0 010 1.5h-3v3a.75.75 0 01-1.5 0v-3h-3a.75.75 0 010-1.5h3v-3a.75.75 0 01.75-.75Z" />
+        </svg>
+    </div>
+
+    <!-- Main Header Section -->
+    <header class="main-header">
+        <h1 class="gradient-text">Fix Tailwind CSS Vite v8 React: No More Dependency Errors!</h1>
+        <p class="tagline">Tired of Vite v8 Tailwind CSS errors? This ultimate guide crushes dependency conflicts using npm overrides in React. Unlock seamless integration & a robust setup today!</p>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container">
+        <!-- Introduction and Executive Summary -->
+        <section class="intro card">
+            <h2>Video Purpose</h2>
+            <p>This video aims to resolve a specific dependency conflict encountered when developers attempt to integrate Tailwind CSS with the newly released Vite v8. It provides a step-by-step technical guide on how to successfully install and configure Tailwind CSS in a React project built with Vite v8.</p>
+            <h3>Speaker Tone</h3>
+            <p>The speaker maintains an informative and instructional tone, clearly articulating the problem, explaining the underlying technical reasons for the error, and demonstrating the solution with precise commands and code modifications.</p>
+            <h2>Executive Summary</h2>
+            <p>Developers frequently face dependency errors when attempting to install Tailwind CSS with Vite v8 due to version conflicts, as the Tailwind CSS plugin is not yet fully compatible with Vite's latest iteration. This tutorial offers a practical solution by using <code>npm overrides</code> to force compatibility, ensuring seamless integration of Tailwind CSS into React applications built with Vite v8. By following the outlined steps, one can efficiently set up a robust frontend development environment.</p>
+        </section>
+
+        <!-- Problem Statement Section -->
+        <section class="problem-statement card interactive-card">
+            <div class="badge">Problem</div>
+            <h2>1. Problem Statement <small>(0:00-0:36)</small></h2>
+            <p>Installing Tailwind CSS with the latest Vite v8.x often results in dependency errors and version conflicts. This is because the <code>@tailwindcss/vite</code> plugin currently expects Vite versions <code>^5.2.0</code>, <code>^6</code>, or <code>^7</code>, while the new project is running Vite <code>v8.0.0</code>.</p>
+        </section>
+
+        <!-- Project Initialization Section -->
+        <section class="project-init card interactive-card">
+            <div class="badge">Step 1</div>
+            <h2>2. Project Initialization <small>(1:15-2:00)</small></h2>
+            <ul>
+                <li>Start a new React project using the latest Vite version:
+                    <pre><code class="language-bash">npm create vite@latest</code></pre>
+                </li>
+                <li>Select "React" as the framework and "JavaScript" as the variant.</li>
+                <li>Confirm the successful setup by running the project, which displays the default Vite + React boilerplate on <code>localhost:5173</code>.</li>
+            </ul>
+        </section>
+
+        <!-- Initial Tailwind Installation Attempt Section -->
+        <section class="initial-attempt card interactive-card">
+            <div class="badge">Step 2</div>
+            <h2>3. Initial Tailwind Installation Attempt <small>(2:50-3:25)</small></h2>
+            <ul>
+                <li>Attempt to install Tailwind CSS and its Vite plugin:
+                    <pre><code class="language-bash">npm install tailwindcss @tailwindcss/vite</code></pre>
+                </li>
+                <li>Observe the <code>npm ERR! ERESOLVE unable to resolve dependency tree</code> errors, explicitly highlighting the conflict between <code>@tailwindcss/vite@4.2.1</code> and the project's <code>Vite@8.0.0</code>.</li>
+            </ul>
+        </section>
+
+        <!-- Solution: Implementing npm overrides Section -->
+        <section class="solution-overrides card interactive-card">
+            <div class="badge">Solution!</div>
+            <h2>4. Solution: Implementing <code>npm overrides</code> <small>(3:25-4:50)</small></h2>
+            <ul>
+                <li>Navigate to the <code>package.json</code> file.</li>
+                <li>Add an <code>overrides</code> section to explicitly tell npm to use Vite v8.0.0 for the <code>@tailwindcss/vite</code> package, even if its declared peer dependency is lower.</li>
+                <li>Add the following to <code>package.json</code>:
+                    <pre><code class="language-json">{
+    "overrides": {
+        "@tailwindcss/vite": {
+            "vite": "8.0.0"
+        }
+    }
+}</code></pre>
+                </li>
+                <li>Rerun the Tailwind CSS installation:
+                    <pre><code class="language-bash">npm install tailwindcss @tailwindcss/vite</code></pre>
+                </li>
+                <li>Confirm the installation completes successfully, indicating "added 18 packages, and audited 171 packages."</li>
+            </ul>
+        </section>
+
+        <!-- Vite Configuration Section -->
+        <section class="vite-config card interactive-card">
+            <div class="badge">Step 3</div>
+            <h2>5. Vite Configuration <small>(5:00-5:30)</small></h2>
+            <ul>
+                <li>Open <code>vite.config.js</code>.</li>
+                <li>Import the Tailwind CSS plugin:
+                    <pre><code class="language-javascript">import tailwindcss from '@tailwindcss/vite';</code></pre>
+                </li>
+                <li>Add <code>tailwindcss()</code> to the <code>plugins</code> array within <code>defineConfig</code>:
+                    <pre><code class="language-javascript">plugins: [react(), tailwindcss()],</code></pre>
+                </li>
+            </ul>
+        </section>
+
+        <!-- CSS Integration Section -->
+        <section class="css-integration card interactive-card">
+            <div class="badge">Step 4</div>
+            <h2>6. CSS Integration <small>(5:30-6:00)</small></h2>
+            <ul>
+                <li>In <code>src/index.css</code>, import Tailwind's base styles:
+                    <pre><code class="language-css">@import 'tailwindcss';</code></pre>
+                </li>
+                <li>Remove or delete any existing framework-specific CSS files, such as <code>App.css</code>, as Tailwind will now manage styling.</li>
+            </ul>
+        </section>
+
+        <!-- Verification of Tailwind Section -->
+        <section class="verification card interactive-card">
+            <div class="badge">Verify!</div>
+            <h2>7. Verification of Tailwind <small>(6:00-6:50)</small></h2>
+            <ul>
+                <li>Modify <code>src/App.jsx</code> to include a simple element, for example, a <code>div</code> containing text.</li>
+                <li>Apply Tailwind utility classes to the element, such as <code>className="text-red-700 font-bold text-6xl"</code>.</li>
+                <li>Run the development server. The browser displays the text styled according to the Tailwind classes (red, bold, large), confirming that Tailwind CSS is correctly functioning with Vite v8.</li>
+            </ul>
+        </section>
+
+        <!-- Actionable Insights Section -->
+        <section class="actionable-insights card">
+            <h2>Actionable Insights</h2>
+            <ul>
+                <li>When setting up new React projects with Vite v8 that require Tailwind CSS, developers must anticipate and resolve version conflicts using <code>npm overrides</code> in <code>package.json</code> to ensure <code>@tailwindcss/vite</code> is compatible with the latest Vite version.</li>
+                <li>Successful integration necessitates modifying <code>vite.config.js</code> to include the <code>tailwindcss()</code> plugin and importing <code>tailwindcss</code> into the main stylesheet (e.g., <code>index.css</code>), replacing any default framework CSS for a streamlined approach.</li>
+                <li>Proactively addressing these dependency and configuration steps will prevent common installation failures, enabling a smooth development workflow and leveraging Tailwind CSS's utility-first approach within the most current Vite environment.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <p>&copy; 2023 QuerTech Articles. All rights reserved.</p>
+        <p>A solution by an expert Full-Stack Developer & UI/UX Designer.</p>
+    </footer>
+
+    <!-- JavaScript for Interactivity and Premium UX -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. Floating Theme Toggle (High Contrast Mode) ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Check for saved preference or system preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'high-contrast') {
+                body.classList.add('high-contrast');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('high-contrast');
+                if (body.classList.contains('high-contrast')) {
+                    localStorage.setItem('theme', 'high-contrast');
+                } else {
+                    localStorage.removeItem('theme'); // Or set to 'default'
+                }
+            });
+
+            // Accessibility: allow keyboard interaction
+            themeToggle.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault(); // Prevent default scroll for space bar
+                    themeToggle.click();
+                }
+            });
+
+            // --- 2. Interactive Card 3D Tilt Effect on Hover ---
+            const interactiveCards = document.querySelectorAll('.interactive-card');
+
+            interactiveCards.forEach(card => {
+                let rect; // Store card dimensions and position
+
+                // Get initial position when mouse enters
+                card.addEventListener('mouseenter', () => {
+                    rect = card.getBoundingClientRect();
+                });
+
+                // Calculate tilt based on mouse position
+                card.addEventListener('mousemove', (e) => {
+                    if (!rect) return; // Ensure rect is defined
+
+                    // Calculate mouse position relative to the card's center
+                    const x = e.clientX - rect.left; // x position within the element.
+                    const y = e.clientY - rect.top;  // y position within the element.
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    // Calculate rotation angles (smaller value for subtle effect)
+                    const rotateX = (y - centerY) / centerY * -5; // Max -5deg to 5deg
+                    const rotateY = (x - centerX) / centerX * 5;   // Max -5deg to 5deg
+
+                    // Apply the 3D transform
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                // Reset transform when mouse leaves
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+                    rect = null; // Clear rect
+                });
+            });
+
+
+            // --- 3. Copy to Clipboard for Code Blocks ---
+            document.querySelectorAll('pre').forEach(preBlock => {
+                const copyButton = document.createElement('button');
+                copyButton.className = 'copy-button';
+                copyButton.textContent = 'Copy';
+                preBlock.appendChild(copyButton);
+
+                copyButton.addEventListener('click', () => {
+                    const code = preBlock.querySelector('code').textContent;
+                    navigator.clipboard.writeText(code).then(() => {
+                        copyButton.textContent = 'Copied!';
+                        copyButton.classList.add('copied');
+                        setTimeout(() => {
+                            copyButton.textContent = 'Copy';
+                            copyButton.classList.remove('copied');
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                    });
+                });
+
+                // Show copy button on hover
+                preBlock.addEventListener('mouseenter', () => {
+                    copyButton.classList.add('show');
+                });
+                preBlock.addEventListener('mouseleave', () => {
+                    if (!copyButton.classList.contains('copied')) { // Keep visible if "Copied!" message is showing
+                        copyButton.classList.remove('show');
+                    }
+                });
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/GlowFX">GlowFX</a><a href="/Scroll FX">Master CSS Scroll Effects</a><a href="/PlayWin">Google Play Store Desktop App Guide</a><a href="/APKonWin">Install Android Apps on Windows 11</a><a href="/Mod Games">Mod Android Apps (No Root)</a><a href="/Mod Game">Unlock Game Power: Mod Android APKs for Unlimited Currency</a><a href="/AppGenius">Google AI: Build Apps Instantly</a><a href="/TurboDroid">Turbocharge Android Apps on Windows 11</a><a href="/GitFix">Git Commit Blunders: Fix Wrong Branch Fast</a><a href="/CODEMAST">Code Muscle: Master Dev Skills</a><a href="/Game Max">PC Graphics Master Guide</a><a href="/CLIMaster">CLI Master</a><a href="/MasterPos">Mastering CSS Position Property: Absolute, Relative, Fixed, Sticky, and Z-index Explained</a><a href="/GERMANDG">Germany UG Guide</a><a href="/MindBoost">Study Mastery: Ace Your Exams</a><a href="/SHARPEN">Sharpen Your Focus: 5 Scientific Steps to Master Attention</a><a href="/BrainHack">Hack Your Brain to Crave Studying: The Dopamine Method</a><a href="/UNLOCK">Ask & Receive: Jim Rohn's Success Key</a><a href="/CONQUER">Conquer Procrastination: Start Now</a><a href="/BUILDVSBUY">MSI Titan vs. Custom PC: Who Reigns Supreme at ₹7 Lakh?</a><a href="/TeenCash">Teen Earn From Home</a><a href="/AutoCash">YouTube Shorts Automation: Earn $400 Daily with AI</a><a href="/TechPlunge">PC Price Plunge Confirmed: Build Smart Now!</a><a href="/autodeploy">CI/CD Essentials</a><a href="/ArchPower">Microservices Demystified: The Future of Scalable Architecture</a><a href="/ApexPlay">Apex Combat: Unpacking Gaming's Elite Mechanics</a><a href="/PureCode">Value Objects: Code Mastery</a><a href="/AuthBoost">Mastering JWTs: Secure & Scalable Auth</a><a href="/MasterData">Master Backend & System Design</a><a href="/JS Boost">Lightning JS: Rapid Core Mastery</a><a href="/AISurge">ASUS TUF A14: AI Powerhouse Unleashed</a><a href="/CTriumph">24-Hour C Pong: No AI Triumph</a><a href="/EpicPlay">Game Mechanics Unveiled: The Ultimate Action Showcase</a><a href="/Glass Win11">Glass-Effect Windows 11: Ultimate Desktop Setup</a><a href="/GridGuide">Mastering CSS Grid & Flexbox: Responsive Design Guide</a><a href="/DevThrive">Thrive in Indian Game Dev: $16.7B Boom, Top Skills & High Salaries</a><a href="/INDIAPERIL">India's Perilous Foreign Policy Amidst Global Conflict</a><a href="/BuildSkill">Ignite Your Dev Journey: Code for Joy, Build for Mastery</a><a href="/Mastery">Master Your Focus: Scientific Strategies for Peak Concentration</a><a href="/ActionEvo">Action & Shooter Evolution: A Visual Showcase</a><a href="/PS3Glory">PS3 Unleashed: Epic Gaming Showcase</a><a href="/torchfat">Ultimate Fat Loss Blueprint</a><a href="/i3Power">i3/4GB RAM: Budget Gaming Unleashed!</a><a href="/FPSBoost">Boost Your FPS: Ultimate Windows 10/11 Gaming Guide</a><a href="/PowerEarn">5 Secret Skills For Student Financial Freedom</a><a href="/maxgames">Max Games</a><a href="/Maxi3">Unleash i3 Gaming Power</a><a href="/BeatFog">Beat Brain Fog: Reclaim Your Mental Clarity</a><a href="/epiclite">Unleash Stories: 10 Epic Games for Low-End PCs</a><a href="/Conquer i3">20 Low-Spec PC Games for i3 & 4GB RAM (2025)</a><a href="/MasterEng">Master English: Quick Level Check</a><a href="/DevPath">Code Conquer</a><a href="/aidevpro">AI Web Dev Roadmap 2026</a><a href="/wordorafreeai">Wordora Free AI (All-in-One)</a><a href="/wordoraaicodefree">Wordora AI Code Free</a><a href="/wordoraaimodelfree">Wordora AI Models</a><a href="/wordoraaiimagefree">Wordora AI Image Free</a><a href="/wordoraaivideofree">Wordora AI Video Free</a><a href="/wordoraaipptfree">Wordora AI PPT</a><a href="/wordoraaitextfree">Wordora AI Text</a><a href="/wordoraaidesignfree">Wordora AI Design</a><a href="/wordoraaidatafree">Wordora AI Data</a><a href="/wordoraaiavatars">Wordora AI Avatars</a>
+</div></body>
+</html>
+```

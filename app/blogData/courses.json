@@ -1,5 +1,35 @@
 [
   {
+    "blog_title": "Python Roadmap: Master Coding",
+    "link": "Python Path",
+    "description": "Unlock Python mastery with Shraddha Khapra's 3-stage roadmap. Learn essential concepts, best practices, and career-boosting skills from fundamentals to specialization, emphasizing active practice and strategic AI use. Start coding today!",
+    "tags": [
+      "Python Programming",
+      "Learn Python",
+      "Python Roadmap",
+      "Coding Guide",
+      "Shraddha Khapra",
+      "Programming Skills",
+      "AI Tools"
+    ],
+    "color": "bg-purple-900 shadow-purple-400"
+  },
+  {
+    "blog_title": "Tailwind Vite8 Fix",
+    "link": "SolveVite",
+    "description": "Unlock seamless Tailwind CSS integration with Vite v8! This guide tackles common dependency conflicts using `npm overrides`, providing a precise, step-by-step solution to get your React project running smoothly.",
+    "tags": [
+      "Vite v8",
+      "Tailwind CSS",
+      "npm overrides",
+      "Dependency Conflict",
+      "React",
+      "Frontend Dev",
+      "Vite Plugin"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
     "blog_title": "GlowFX",
     "link": "GlowFX",
     "description": "Craft dazzling animated glow borders! Discover how to create dynamic, rotating gradient effects purely with HTML & CSS using pseudo-elements, conic gradients, and the powerful @property rule. Elevate your UI with advanced, performant CSS.",
