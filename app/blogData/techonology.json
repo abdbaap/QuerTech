@@ -1,5 +1,18 @@
 [
   {
+    "blog_title": "Master Mouse Mods: Drag Click & Clear Shell Guide",
+    "link": "DIYClick",
+    "description": "Upgrade your gaming mouse! This DIY guide shows how to mod for peak drag-clicking performance with extended buttons and stunning transparent shell aesthetics. Master your clicks!",
+    "tags": [
+      "Mouse Mod",
+      "Drag Click",
+      "Gaming DIY",
+      "Custom Mouse",
+      "Transparent"
+    ],
+    "color": "bg-teal-900 shadow-teal-400"
+  },
+  {
     "blog_title": "Google Play Store Desktop App Guide",
     "link": "PlayWin",
     "description": "Learn to quickly install Google Play Store as a desktop app shortcut on Windows using Microsoft Edge. Get instant, easy access to your favorite Android apps directly from your desktop, bypassing browser steps for a streamlined experience.",

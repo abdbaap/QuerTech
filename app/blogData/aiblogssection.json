@@ -1,5 +1,34 @@
 [
   {
+    "blog_title": "Google Antigravity: AI App Revolution",
+    "link": "ZeroCode",
+    "description": "Discover Google Antigravity, the free AI IDE that revolutionizes app development. Build full-stack web & mobile apps fast with 'Vibe Coding' – no traditional code needed. Create your vision 10x quicker!",
+    "tags": [
+      "Google Antigravity",
+      "AI IDE",
+      "No-Code",
+      "App Development",
+      "Vibe Coding",
+      "Full-Stack Apps",
+      "AI Agents",
+      "Rapid Development"
+    ],
+    "color": "bg-blue-800 shadow-blue-400"
+  },
+  {
+    "blog_title": "Rocket.new AI Apps",
+    "link": "LaunchAI",
+    "description": "Build full-stack web apps fast with Rocket.new's AI. Go from prompt to live deployment in minutes, with modern designs, integrated backends, and more. For all skill levels.",
+    "tags": [
+      "AI Web Dev",
+      "Fullstack Apps",
+      "Rapid Dev",
+      "No-Code",
+      "AI Platform"
+    ],
+    "color": "bg-violet-800 shadow-violet-400"
+  },
+  {
     "blog_title": "Google AI: Build Apps Instantly",
     "link": "AppGenius",
     "description": "Revolutionize app development! Google's AI pipeline (Stitch, Antigravity, Flutter) lets you generate fully functional, cross-platform mobile apps from simple text or a website, no coding needed. Create apps instantly and deploy them easily.",

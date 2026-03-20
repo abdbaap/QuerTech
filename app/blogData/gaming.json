@@ -1,5 +1,21 @@
 [
   {
+    "blog_title": "Aternos 24/7: Free Uptime Bot Guide",
+    "link": "FreeUptime",
+    "description": "Learn to keep your Aternos Minecraft server online 24/7 for free! This step-by-step guide uses an AFK bot with GitHub & Render.com to prevent inactivity shutdowns.",
+    "tags": [
+      "Aternos",
+      "Minecraft",
+      "24/7 Server",
+      "AFK Bot",
+      "Free Hosting",
+      "GitHub",
+      "Render.com",
+      "Server Uptime"
+    ],
+    "color": "bg-blue-900 shadow-blue-400"
+  },
+  {
     "blog_title": "Apex Combat: Unpacking Gaming's Elite Mechanics",
     "link": "ApexPlay",
     "description": "Dive into an ultimate visual showcase of elite video game combat! Explore diverse and impactful mechanics from Sniper Elite to Dark Souls, revealing how developers craft truly engaging fight systems. Discover top-tier strategies and innovative combat design across gaming's celebrated titles.",

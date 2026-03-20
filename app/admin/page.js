@@ -25,6 +25,7 @@ export default function Home() {
   const [Points, setPoints] = useState("");
   const [Message, setMessage] = useState("");
 const [urlList, seturlList] = useState([])
+const [urlListInCaseOfError, setUrlListInCaseOfError] = useState([])
   //
   
   const addMoreUrls=async() => { 
@@ -60,6 +61,7 @@ const [urlList, seturlList] = useState([])
       const summary = await MakingADeepSummaryOfTheVideo(item.url);
       if (!summary || !summary.success) {
         console.error("Summary failed for:", item.url);
+        setUrlListInCaseOfError([...urlListInCaseOfError,item.url])
         continue; 
       }
 
@@ -68,6 +70,7 @@ const [urlList, seturlList] = useState([])
       const code = await GeneratingDeepCode(summary.summary, MetaTags.metaTags);
       if (!code || !code.success) {
         console.error("Code generation failed for:", item.url);
+        setUrlListInCaseOfError([...urlListInCaseOfError,item.url])
         continue;
       }
 
@@ -100,6 +103,7 @@ const [urlList, seturlList] = useState([])
       }
     } catch (err) {
       console.error("CRITICAL ERROR on loop index", i, err);
+      setUrlListInCaseOfError([...urlListInCaseOfError,item.url])
       setMessage(`Failed on ${item.url}. moving to next...`);
       // The 'continue' ensures the loop doesn't die
       continue; 

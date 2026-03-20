@@ -1,5 +1,32 @@
 [
   {
+    "blog_title": "Master Python Core Fundamentals",
+    "link": "PythonCore",
+    "description": "Unlock Python's power! This crash course teaches beginners essential syntax, data types, functions, and error handling. Build a chatbot and master foundational coding skills for any project.",
+    "tags": [
+      "Python",
+      "Beginner Coding",
+      "Python Fundamentals",
+      "Programming Tutorial",
+      "Code Examples"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-600"
+  },
+  {
+    "blog_title": "Mastering Python's Core Concepts",
+    "link": "PYPOWER",
+    "description": "Unlock Python's potential! This foundational guide introduces 10 essential programming concepts, from variables and data types to classes and 'dunder' methods, empowering you to write robust, readable, and reusable code.",
+    "tags": [
+      "Python Fundamentals",
+      "Python Programming",
+      "Core Python",
+      "Data Types",
+      "Classes",
+      "Dunder Methods"
+    ],
+    "color": "bg-violet-800 shadow-violet-400"
+  },
+  {
     "blog_title": "Python Roadmap: Master Coding",
     "link": "Python Path",
     "description": "Unlock Python mastery with Shraddha Khapra's 3-stage roadmap. Learn essential concepts, best practices, and career-boosting skills from fundamentals to specialization, emphasizing active practice and strategic AI use. Start coding today!",
