@@ -5,9 +5,9 @@ import "./aiblogssection.css"
 import Link from 'next/link';
 export default function GamingBlog() {
   return (
-    <div id='gaming' className="flex w-full text-center p-8 flex-col justify-center items-center bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 animate-gradient gap-8 xl:p-32 ">
+    <div id='gaming' className="flex w-full text-center  flex-col justify-center items-center bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 animate-gradient gap-8 xl:p-32 ">
       <h2 className="text-4xl font-bold text-white">Confuse About Gaming</h2>
-      <div className="flex justify-evenly items-center noscrollbar overflow-x-scroll w-full gap-16 snap-x snap-mandatory">
+      <div className="flex justify-evenly px-10 xl:px-auto items-center noscrollbar overflow-x-scroll w-full gap-16 snap-x snap-mandatory">
 {GamingBlogs.map((item,index) => { 
   return (
     <Link target='_blank' href={`https://quertech-articles.vercel.app/${item.link}/index.html`} key={index} className="flex flex-none text-white  justify-between snap-center items-center w-75 xl:w-110  shrink-0">
