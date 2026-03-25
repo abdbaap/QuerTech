@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { GeneratingFies } from "./6GeneratingFiles"; // Import our function from Step 2
 import { GeneratingCodeUsingSummary } from "./makingCodeUsingGivenSummary";
-
 import { MakingADeepSummaryOfTheVideo } from "./1makingPoints";
 import { MakingSeoFriendlyMetaTagsForBlog } from "./2makingMetaTags";
 import { GeneratingDeepCode } from "./3generatingcode";
@@ -94,8 +93,23 @@ const [urlListInCaseOfError, setUrlListInCaseOfError] = useState([])
         });
 
         if (output.success) {
+
+          await fetch("/admin/apiforOtherProcess", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      url: finalUrl,
+      category: item.category,
+      summary: summary.summary,
+      code: code.FinalCode,
+      metaTags: MetaTags.metaTags,
+      titleFolder: TitleFolder.data.titleFolder
+    })
+  });
           seturlList((prev) => {
+
             if (!prev.includes(finalUrl)) return [...prev, finalUrl];
+           
             return prev;
           });
           console.log("Successfully processed:", cleanSlug);

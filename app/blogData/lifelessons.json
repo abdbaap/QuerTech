@@ -1,5 +1,47 @@
 [
   {
+    "blog_title": "Wealth Mindset: 5 Rules",
+    "link": "prosper",
+    "description": "Transform your mindset for financial success. Learn 5 rules and practical habits from a personal journey from bankruptcy to wealth, focusing on value creation and smart money management.",
+    "tags": [
+      "Wealth Mindset",
+      "Financial Habits",
+      "Money Management",
+      "Financial Freedom",
+      "Value Creation"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-600"
+  },
+  {
+    "blog_title": "The 3-Second Rule: Master Discipline, Conquer Resistance",
+    "link": "ActNow",
+    "description": "Unlock unstoppable discipline! This 5-step guide reveals how to beat procrastination by understanding your brain's comfort-seeking nature. Learn the '3-second kill switch' and daily discomfort rituals to become a high-pressure machine.",
+    "tags": [
+      "Procrastination",
+      "Discipline",
+      "Self-improvement",
+      "Motivation",
+      "Mindset",
+      "Productivity",
+      "3-Second Rule",
+      "Mental Resistance"
+    ],
+    "color": "bg-blue-900 shadow-blue-400"
+  },
+  {
+    "blog_title": "The Art of Discipline: Conquer Procrastination",
+    "link": "Rewire",
+    "description": "Master procrastination! Himeesh Madaan reveals 4 types and a 21-day system to rewire your brain for discipline and consistent action. End emotional delays, start achieving.",
+    "tags": [
+      "Procrastination",
+      "Discipline",
+      "Rewire Brain",
+      "Productivity",
+      "Himeesh Madaan"
+    ],
+    "color": "bg-emerald-800 shadow-emerald-400"
+  },
+  {
     "blog_title": "Unlock Game Power: Mod Android APKs for Unlimited Currency",
     "link": "Mod Game",
     "description": "Learn to customize Android games! This guide shows how to use Apktool M to decompile APKs, modify in-game data (like currency), and recompile for your own 'modded' apps. Unlock hidden potential and control your game experience.",

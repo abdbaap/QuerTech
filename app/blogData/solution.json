@@ -1,5 +1,112 @@
 [
   {
+    "blog_title": "The 90-Minute Sleep Secret: Maximize Recovery & Boost Focus",
+    "link": "PEAKSLEEP",
+    "description": "Unlock peak daily performance by mastering sleep quality over mere duration. Discover the science behind 90-minute sleep cycles, practical steps like the '3-2-1 method,' and morning light exposure to maximize recovery, focus, and energy. Stop just sleeping and start truly restoring!",
+    "tags": [
+      "Sleep Quality",
+      "Sleep Optimization",
+      "Peak Performance",
+      "90-Minute Cycles",
+      "Circadian Rhythm",
+      "Productivity Boost",
+      "Efficient Sleep"
+    ],
+    "color": "bg-blue-900 shadow-blue-500"
+  },
+  {
+    "blog_title": "Google Cloud Gen AI Academy: Master AI Skills",
+    "link": "MasterAI",
+    "description": "Unlock your potential! Google Cloud's FREE Gen AI Academy APAC 2026 offers expert workshops, CodeLabs, and mentorship. Master Generative AI, earn a certificate, win up to $10,000, and boost your career in AI.",
+    "tags": [
+      "Google Gen AI",
+      "Free AI Course",
+      "AI Skills",
+      "APAC",
+      "Career Boost",
+      "AI Certification"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Healthy Weight Gain Blueprint",
+    "link": "GainPower",
+    "description": "Struggling to gain weight healthily? Debunk myths and discover science-backed strategies tailored to your body type. Learn specific diets, workouts, and lifestyle changes to build muscle and avoid 'Thin Outside, Fat Inside' risks.",
+    "tags": [
+      "Healthy Weight Gain",
+      "Weight Gain Diet",
+      "Body Type",
+      "Ectomorph",
+      "Muscle Building",
+      "Nutrition",
+      "Workout",
+      "TOFI"
+    ],
+    "color": "bg-violet-700 shadow-violet-400"
+  },
+  {
+    "blog_title": "AI vs. Humans: The Real IT Job Market Future",
+    "link": "Human AI Win",
+    "description": "Ex-Google engineer Mohammad Fraz debunks AI layoff myths, revealing post-COVID overhiring and AI limitations. Discover why human expertise, especially in mid-level and expert IT roles, is crucial amidst AI's 'plateau effect' and re-hiring trends. Learn to upskill and thrive in the evolving tech landscape.",
+    "tags": [
+      "AI Layoffs",
+      "IT Job Market",
+      "Human Expertise",
+      "AI Limitations",
+      "Software Engineering",
+      "Tech Careers",
+      "LearnYard"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Infosys Springboard: Free Digital Skills & Career Growth",
+    "link": "progrow",
+    "description": "Unlock your potential with Infosys Springboard! Get 12,000+ free courses, virtual internships, and certifications for digital & life skills. No fees, no exams – just career growth.",
+    "tags": [
+      "Infosys Springboard",
+      "Free Education",
+      "Digital Skills",
+      "Virtual Internships",
+      "Career Development",
+      "Online Certifications",
+      "Tech Skills"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-600"
+  },
+  {
+    "blog_title": "PDF Excel Riches: Your Freelance Guide",
+    "link": "ExcelCash",
+    "description": "An expert guide from a Microsoft Certified Trainer on converting PDFs to clean Excel for lucrative freelance gigs. Learn essential data cleaning and transformation skills to earn a 'second salary' with practical, step-by-step methods and tools.",
+    "tags": [
+      "Freelancing",
+      "PDF to Excel",
+      "Data Cleaning",
+      "Excel Skills",
+      "Fiverr",
+      "Second Salary",
+      "Online Earning",
+      "Microsoft Excel"
+    ],
+    "color": "bg-blue-900 shadow-blue-400"
+  },
+  {
+    "blog_title": "Master Your Memory: Neuroscience Strategies for Exam Success",
+    "link": "Ace Memory",
+    "description": "Struggling to remember what you read? Unlock neuroscience-backed strategies for superior memory retention, perfect for demanding exams like UPSC. Learn active recall, spaced repetition, and how to build powerful, lasting memories by understanding your brain's natural processes.",
+    "tags": [
+      "Memory Retention",
+      "Study Strategies",
+      "Neuroscience Learning",
+      "Active Recall",
+      "Spaced Repetition",
+      "UPSC Exam Prep",
+      "Learning Hacks",
+      "Brain Training"
+    ],
+    "color": "bg-violet-800 shadow-violet-400"
+  },
+  {
     "blog_title": "Code Mastery Method",
     "link": "Code Win",
     "description": "Stop failing at coding! Discover the project-based method for rapid mastery, leveraging building, smart AI, and community. Ditch endless tutorials, start creating and succeeding today.",

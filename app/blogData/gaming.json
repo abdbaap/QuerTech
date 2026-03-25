@@ -1,5 +1,21 @@
 [
   {
+    "blog_title": "Minecraft FPS Boost: Smooth Gameplay on Low-End PCs",
+    "link": "ProCraft",
+    "description": "Unlock super smooth Minecraft gameplay on any low-end PC! This guide tackles lag, screen tearing, and inconsistent frame times with expert mods, precise settings, and GPU tools for a truly fluid experience.",
+    "tags": [
+      "Minecraft",
+      "FPS Boost",
+      "Low-End PC",
+      "Smooth Gameplay",
+      "Lag Fix",
+      "Screen Tearing",
+      "Sideyy Boost",
+      "MSI Afterburner"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
     "blog_title": "Aternos 24/7: Free Uptime Bot Guide",
     "link": "FreeUptime",
     "description": "Learn to keep your Aternos Minecraft server online 24/7 for free! This step-by-step guide uses an AFK bot with GitHub & Render.com to prevent inactivity shutdowns.",

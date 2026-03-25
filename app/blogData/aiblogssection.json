@@ -1,5 +1,121 @@
 [
   {
+    "blog_title": "Claude AI Productivity",
+    "link": "SAVETIME",
+    "description": "Master Claude & Cowork! Automate tasks, manage files, analyze data, and streamline online interactions with powerful AI. Save 2-3 hours daily and boost your productivity.",
+    "tags": [
+      "Claude AI",
+      "Productivity Tools",
+      "AI Automation",
+      "Workflow Management",
+      "Data Analysis"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "AI Kids Cash",
+    "link": "AI Kids Cash",
+    "description": "Unlock YouTube's massive 3D kids' rhyme market with AI! Learn a free, fast, step-by-step workflow to generate high-quality animated videos, music, and visuals in minutes. Start earning huge from an untapped niche now!",
+    "tags": [
+      "AI YouTube Profit",
+      "Kids Rhymes AI",
+      "3D Animation",
+      "Content Creation AI",
+      "Monetize YouTube"
+    ],
+    "color": "bg-purple-900 shadow-purple-400"
+  },
+  {
+    "blog_title": "AI's Rapid Ascent: Autonomous Agents & Ubiquitous Integration",
+    "link": "AIPower",
+    "description": "Dive into the accelerating world of AI: from Gemini's deep integration in Google Workspace to autonomous agents redefining research and business. Explore Claude's visual builder, Perplexity's AI OS, and the rise of AI-powered ecosystems. Discover key insights into adoption, innovation, and essential new tools.",
+    "tags": [
+      "AI",
+      "Autonomous AI",
+      "AI Integration",
+      "AI Agents",
+      "Tech Trends",
+      "Generative AI",
+      "Claude AI",
+      "Google Gemini"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Unlock Elite AI: Build Real-World Systems",
+    "link": "AIElite",
+    "description": "Tired of AI education that creates 'API callers'? This expert debunks the AI learning 'scam,' offering a 6-step system to shift from consuming content to building real-world systems, making you a top 0.1% AI Engineer or Architect.",
+    "tags": [
+      "AI Education",
+      "AI Engineer",
+      "MLOps",
+      "AI Architect",
+      "Skill Development",
+      "AI Career Path",
+      "Real-World AI",
+      "AI Systems"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
+    "blog_title": "Unleashing Gemini 3.0 Pro: The Apex of Multimodal AI",
+    "link": "Apex AI",
+    "description": "Google's Gemini 3.0 Pro redefines AI with advanced multimodal understanding, unprecedented reasoning, and long-context processing. Explore how this powerhouse transforms data analysis, content creation, and search, ushering in a new era of AI innovation.",
+    "tags": [
+      "Gemini 3.0 Pro",
+      "Multimodal AI",
+      "Advanced AI",
+      "Google AI",
+      "AI Innovation",
+      "Agentic AI",
+      "Long Context AI"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Master Claude Code: Revolutionize Your AI Development Workflow",
+    "link": "DevLead",
+    "description": "Dive into our new playlist on Claude Code by Anthropic! Learn AI-assisted and agentic coding to build scalable, real-world applications. Boost your productivity 10x, eradicate AI fear, and master the future of software development.",
+    "tags": [
+      "Claude Code",
+      "AI Coding",
+      "Agentic Development",
+      "Software Engineering",
+      "AI Productivity",
+      "Anthropic AI"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-500"
+  },
+  {
+    "blog_title": "Master Your Workflow with Claude AI",
+    "link": "AIProMax",
+    "description": "Ditch generic chatbots! Discover how Claude's unique Artifacts, Projects, and Analysis tools supercharge your writing, coding, and data tasks. Get precise, professional results every time.",
+    "tags": [
+      "Claude AI",
+      "AI Productivity",
+      "Workflow Automation",
+      "Data Analysis",
+      "AI Writing",
+      "AI Coding",
+      "Anthropic Claude"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-600"
+  },
+  {
+    "blog_title": "Master AI Prompting: Boost Productivity & Creativity",
+    "link": "masterai",
+    "description": "Unlock AI's full potential! Learn expert prompting to boost productivity, ignite creativity, and revolutionize learning. Move beyond basic Q&A and master AI for stunning visuals, dynamic presentations, and personalized education.",
+    "tags": [
+      "AI Prompting",
+      "AI Productivity",
+      "AI Creativity",
+      "AI Learning",
+      "Prompt Engineering",
+      "AI Skills"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
     "blog_title": "Google Antigravity: AI App Revolution",
     "link": "ZeroCode",
     "description": "Discover Google Antigravity, the free AI IDE that revolutionizes app development. Build full-stack web & mobile apps fast with 'Vibe Coding' – no traditional code needed. Create your vision 10x quicker!",
