@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags for SEO Optimization -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tired of laggy, limited free servers? Host your OWN Minecraft server for friends using your PC & PaperMC! Get amazing performance & custom features. Click to learn how!">
+    <meta name="keywords" content="Minecraft server hosting, host Minecraft server PC, PaperMC server setup, private Minecraft server, self-host Minecraft, how to host a minecraft server on your own computer, best minecraft server software paper, minecraft server java edition private, minecraft server for friends easy setup, optimize minecraft server performance paper, minecraft server hardware requirements, playit.gg minecraft server external access, add plugins to minecraft server paper, free minecraft server hosting alternative, setup dedicated minecraft server windows, Craft Your World, Ultimate Server Control, Lag-Free Gaming, Budget Server Hosting, Unlock Minecraft, Expert Setup, Your Own Game, Dominate Hosting, Beyond Vanilla, Connect Globally">
+    <meta name="author" content="QuerTech Articles">
+    <link rel="canonical" href="https://quertech-articles.vercel.app">
+    <meta property="og:title" content="Host Your Own Minecraft Server | PaperMC Guide">
+    <meta property="og:description" content="Tired of laggy, limited free servers? Host your OWN Minecraft server for friends using your PC & PaperMC! Get amazing performance & custom features. Click to learn how!">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/og-image.png"> <!-- Placeholder for your Open Graph image -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Host Your Own Minecraft Server | PaperMC Guide">
+    <meta name="twitter:description" content="Tired of laggy, limited free servers? Host your OWN Minecraft server for friends using your PC & PaperMC! Get amazing performance & custom features. Click to learn how!">
+    <meta name="twitter:image" content="https://quertech-articles.vercel.app/twitter-image.png"> <!-- Placeholder for your Twitter Card image -->
+
+    <title>Host Your Own Minecraft Server | PaperMC Guide</title>
+
+    <style>
+        /* Global Styles & Variables */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-dark: #09172a;
+            --color-slate-light: #1f2937;
+            --color-gray: #9ca3af;
+            --color-white: #ffffff;
+            --color-accent: rgba(99, 102, 241, 0.8); /* Slightly transparent for orbs */
+            --font-primary: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --gradient-header: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+
+            --shadow-depth-1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-depth-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-depth-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-lift: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -6px rgba(0, 0, 0, 0.1);
+
+            --transition-smooth: all 0.3s ease-in-out;
+        }
+
+        /* Ambient Background Orbs */
+        .orb {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0) 70%), radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(236, 72, 153, 0) 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.8;
+            animation: float 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(15vw, 10vh) scale(1.2);
+            }
+            100% {
+                transform: translate(-10vw, -15vh) scale(0.9);
+            }
+        }
+
+        /* Scrollbar Styling (Optional but enhances premium feel) */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-slate-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-indigo);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-pink);
+        }
+
+        /* Base Styles */
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-slate-dark);
+            color: var(--color-gray);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            scroll-behavior: smooth; /* Smooth scrolling for anchors */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative; /* For orb positioning */
+            z-index: 1; /* Ensure content is above background */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--color-white);
+            font-weight: 700;
+        }
+
+        /* Fluid Typography using clamp */
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem); /* Min 40px, Preferred 6vw, Max 64px */
+            background: var(--gradient-header);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5em;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem); /* Min 32px, Preferred 4vw, Max 48px */
+            margin-top: 2em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid rgba(236, 72, 153, 0.3);
+            padding-bottom: 0.5em;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem); /* Min 24px, Preferred 3vw, Max 36px */
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            color: var(--color-pink);
+        }
+
+        p {
+            margin-bottom: 1.5em;
+            font-size: clamp(1rem, 2vw, 1.125rem); /* Min 16px, Preferred 2vw, Max 18px */
+        }
+
+        a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        a:hover {
+            color: var(--color-pink);
+            text-decoration: underline;
+        }
+
+        strong {
+            color: var(--color-white);
+            font-weight: 700;
+        }
+
+        /* Layout: Flexbox for main sections */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .article-section {
+            flex: 2; /* Takes more space */
+            min-width: 300px; /* Minimum width before wrapping */
+            background-color: rgba(255, 255, 255, 0.05); /* Subtle glass effect */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-depth-2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); /* For Safari */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar {
+            flex: 1; /* Takes less space */
+            min-width: 250px;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-depth-2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Header */
+        .header {
+            background-color: rgba(9, 23, 42, 0.7); /* Darker, slightly transparent */
+            padding: 20px 0;
+            box-shadow: var(--shadow-depth-1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--color-white);
+            text-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
+        }
+
+        .logo span {
+            color: var(--color-pink);
+        }
+
+        /* Navigation */
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--color-gray);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-pink);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-white);
+            text-decoration: none;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(9, 23, 42, 0.8), rgba(9, 23, 42, 0.8)); /* Overlay for contrast */
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-depth-3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero h1 {
+            margin-bottom: 0.5em;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            max-width: 700px;
+            margin: 0 auto 1.5em auto;
+            color: var(--color-gray);
+        }
+
+        /* Call to Action Button */
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient-header);
+            color: var(--color-white);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-depth-2);
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-lift);
+            color: var(--color-white);
+            text-decoration: none;
+        }
+
+        /* Content Sections Styling */
+        .article-section h2,
+        .article-section h3 {
+            margin-top: 0; /* Reset top margin for consistency */
+        }
+
+        /* Key Takeaways / Lists */
+        .key-takeaways {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5em;
+        }
+
+        .key-takeaways li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 1em;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+        }
+
+        .key-takeaways li::before {
+            content: '•'; /* Using a bullet, can be replaced with an SVG icon */
+            position: absolute;
+            left: 0;
+            color: var(--color-pink);
+            font-weight: bold;
+            font-size: 1.4em;
+            top: -2px; /* Adjust vertical alignment */
+        }
+
+        /* Code Blocks */
+        pre {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: "SF Mono", "Consolas", "Monaco", monospace;
+            font-size: clamp(0.875rem, 1.5vw, 1rem); /* Min 14px, Preferred 1.5vw, Max 16px */
+            line-height: 1.6;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5em;
+        }
+
+        code {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: "SF Mono", "Consolas", "Monaco", monospace;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            color: var(--color-gray);
+        }
+
+        /* Geometric Patterns for Tools/Badges */
+        .tool-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-depth-2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-smooth);
+            cursor: pointer; /* Indicate interactivity */
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lift);
+        }
+
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+
+        /* Rank Badges / CSS Generated Patterns */
+        .tool-icon.java {
+            background: linear-gradient(135deg, var(--color-indigo) 0%, var(--color-pink) 100%);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+        }
+        .tool-icon.java::before {
+            content: 'JDK';
+            color: var(--color-white);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .tool-icon.papermc {
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(236, 72, 153, 0.6),
+                rgba(236, 72, 153, 0.6) 10px,
+                rgba(99, 102, 241, 0.6) 10px,
+                rgba(99, 102, 241, 0.6) 20px
+            );
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+        }
+        .tool-icon.papermc::before {
+            content: 'PMC';
+            color: var(--color-white);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .tool-icon.playitgg {
+            background: radial-gradient(circle, var(--color-pink) 0%, var(--color-indigo) 100%);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+        }
+        .tool-icon.playitgg::before {
+            content: 'PLAY';
+            color: var(--color-white);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .tool-card-content h4 {
+            margin-top: 0;
+            margin-bottom: 0.3em;
+            font-size: 1.2rem;
+            color: var(--color-white);
+        }
+
+        .tool-card-content p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: var(--color-gray);
+        }
+
+        /* Sidebar Styles */
+        .sidebar h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            border-bottom: 1px solid rgba(236, 72, 153, 0.3);
+            padding-bottom: 0.5em;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.8em;
+        }
+
+        .sidebar a {
+            color: var(--color-indigo);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+
+        .sidebar a:hover {
+            color: var(--color-pink);
+            text-decoration: underline;
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: var(--gradient-header);
+            color: var(--color-white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--shadow-depth-3);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            border: 2px solid var(--color-white);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lift);
+        }
+
+        .theme-toggle i {
+            font-size: 1.8rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: rgba(9, 23, 42, 0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .footer p {
+            margin-bottom: 0;
+            color: var(--color-gray);
+        }
+
+        .footer a {
+            color: var(--color-indigo);
+            font-weight: 600;
+        }
+
+        /* Responsive Design: Mobile-First */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 15px;
+                width: 100%;
+            }
+
+            .nav-links li {
+                margin: 8px 0;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .hero p {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+            }
+
+            .main-content {
+                flex-direction: column;
+            }
+
+            .article-section,
+            .sidebar {
+                width: 100%;
+                box-sizing: border-box; /* Ensure padding doesn't exceed width */
+            }
+
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .theme-toggle i {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .lift-on-hover {
+            transition: var(--transition-smooth);
+        }
+        .lift-on-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lift);
+        }
+
+    </style>
+    <!-- Font Awesome for Icons (Theme Toggle) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ922SBCZGoft+h/w9yUoB7w41g2q6jIqM4h/c0o20K+I9f3eY6+U0b3Gg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Ambient Background Orbs -->
+    <div class="orb" style="top: 10%; left: 5%;"></div>
+    <div class="orb" style="bottom: 20%; right: 10%; width: 150px; height: 150px; animation-duration: 20s;"></div>
+    <div class="orb" style="top: 30%; left: 40%; width: 250px; height: 250px; animation-duration: 18s; animation-delay: -5s;"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">QuerTech <span>Host</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#setup">Setup Guide</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#customization">Customization</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Host Your Own Minecraft Server with PaperMC</h1>
+            <p>Unlock ultimate control and performance. Turn your PC into a lag-free Minecraft haven for you and your friends.</p>
+            <a href="#setup" class="cta-button">Start Hosting Now</a>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="main-content container">
+
+        <!-- Article Section -->
+        <section class="article-section fade-in">
+            <h2 id="setup">Your Server, Your Rules: A PaperMC Hosting Guide</h2>
+            <p>Tired of the limitations of free Minecraft server hosting? This guide empowers you to take control, leveraging your own hardware and the superior performance of <strong>PaperMC</strong> to create a truly personalized Minecraft experience.</p>
+
+            <h3 id="executive-summary">Executive Summary</h3>
+            <p>This guide details how to host a Minecraft server on your personal computer using <strong>PaperMC</strong>, a high-performance alternative to the vanilla server. The process involves downloading essential software like Java and PaperMC, and utilizing a tool like <strong>playit.gg</strong> to enable external connections, allowing your friends to join from anywhere.</p>
+
+            <h3 id="key-takeaways">Key Takeaways:</h3>
+            <ul class="key-takeaways">
+                <li><strong>Server Hosting Alternative:</strong> Utilize your old PCs to host a Minecraft server, bypassing the limitations and costs of third-party services.</li>
+                <li><strong>Hardware Recommendations:</strong> A machine with an i5-3470 CPU and 8GB RAM is a good starting point for a small server. Aim for newer CPUs and at least 8GB RAM for optimal performance.</li>
+                <li><strong>Software Essentials:</strong> Install Java Development Kit (JDK) 21.0.5, and download the PaperMC server JAR for enhanced performance and stability.</li>
+                <li><strong>Simplified Setup:</strong> Create a dedicated folder, place the PaperMC JAR, and use a batch file to run the server with allocated RAM.</li>
+                <li><strong>Enable External Connections:</strong> Use <strong>playit.gg</strong> to create a secure tunnel, making your server accessible to friends globally.</li>
+                <li><strong>Customization Power:</strong> Modify <code>server.properties</code> to adjust game settings and install plugins for unique gameplay features.</li>
+            </ul>
+
+            <h3 id="software-installation">Software Installation: The Foundation</h3>
+            <p>Before we can build your custom server, we need to lay the groundwork with essential software.</p>
+
+            <h4>1. Java Development Kit (JDK)</h4>
+            <p>PaperMC requires a specific Java version to run. Ensure you have <strong>JDK 21.0.5</strong> installed. You can download it from the official <a href="https://jdk.java.net/21/" target="_blank" rel="noopener noreferrer">Java SE Development Kit 21</a> page.</p>
+
+            <h4>2. PaperMC Server JAR</h4>
+            <p>PaperMC offers significant performance improvements over the vanilla Minecraft server. Download the latest stable build from the <a href="https://papermc.io/downloads" target="_blank" rel="noopener noreferrer">PaperMC downloads page</a>.</p>
+
+            <h3 id="server-configuration">Server Configuration: Crafting Your World</h3>
+            <p>Let's get your server up and running.</p>
+
+            <ol>
+                <li><strong>Create a Dedicated Folder:</strong> On your desktop or preferred drive, create a new folder named something like "MyMinecraftServer".</li>
+                <li><strong>Place and Rename PaperMC:</strong> Move the downloaded PaperMC JAR file into this folder and rename it to <code>server.jar</code> for simplicity.</li>
+                <li><strong>Create the Batch File:</strong>
+                    <p>Inside the "MyMinecraftServer" folder, create a new text file and name it <code>run.bat</code>. Paste the following command into it:</p>
+                    <pre><code class="language-batch">java -Xmx2048M -jar server.jar nogui</code></pre>
+                    <p>This command allocates 2GB of RAM (<code>-Xmx2048M</code>) to your server and runs it without a graphical interface (<code>nogui</code>), which is more efficient.</p>
+                </li>
+                <li><strong>First Run:</strong> Double-click <code>run.bat</code> to start the server. It will generate necessary configuration files. The server will likely stop after the first run because of the EULA.</li>
+                <li><strong>Accept the EULA:</strong> Open the newly generated <code>eula.txt</code> file. Change the line <code>eula=false</code> to <code>eula=true</code> and save the file.</li>
+                <li><strong>Restart the Server:</strong> Run <code>run.bat</code> again. Your server should now start successfully.</li>
+            </ol>
+
+            <h3 id="enabling-external-connections">Enabling External Connections: Bring Your Friends Along</h3>
+            <p>To allow friends from outside your local network to join, you'll need a way to expose your server. <strong>playit.gg</strong> is an excellent, easy-to-use service for this.</p>
+
+            <div class="tool-card">
+                <div class="tool-icon playitgg"></div>
+                <div class="tool-card-content">
+                    <h4>Playit.gg</h4>
+                    <p>Effortless port forwarding and server connectivity.</p>
+                </div>
+            </div>
+
+            <ol start="7">
+                <li><strong>Download Playit.gg:</strong> Visit <a href="https://playit.gg/" target="_blank" rel="noopener noreferrer">playit.gg</a> and download their installer.</li>
+                <li><strong>Run the Installer:</strong> Execute the downloaded file.</li>
+                <li><strong>Create a Minecraft Tunnel:</strong>
+                    <ul>
+                        <li>Select "Minecraft Java (game)" when prompted.</li>
+                        <li>Choose "Global Anycast (Free)" for the region.</li>
+                    </ul>
+                </li>
+                <li><strong>Get Your Shareable Address:</strong> Playit.gg will provide you with a public address (e.g., <code>hotel-kon.gl.playit.gg</code>). This is the address your friends will use to connect.</li>
+            </ol>
+
+            <h3 id="server-customization">Server Customization: Tailoring Your Experience</h3>
+            <p>Dive deeper into personalizing your server.</p>
+
+            <h4 id="server-properties">Adjusting Server Settings</h4>
+            <p>The <code>server.properties</code> file in your server folder allows you to tweak various game settings. You can modify:</p>
+            <ul>
+                <li><code>gamemode</code> (survival, creative, adventure, spectator)</li>
+                <li><code>difficulty</code> (peaceful, easy, normal, hard)</li>
+                <li><code>view-distance</code> (impacts performance and render distance)</li>
+                <li><code>max-players</code> (maximum number of players allowed)</li>
+                <li>And many more!</li>
+            </ul>
+
+            <h4 id="adding-plugins">Adding Plugins for Enhanced Features</h4>
+            <p>Plugins can dramatically expand your server's capabilities. Popular sources include <a href="https://www.spigotmc.org/resources/" target="_blank" rel="noopener noreferrer">SpigotMC Resources</a>.</p>
+            <ol>
+                <li>Download the plugin JAR file (e.g., Terra for world generation, WorldEdit for map editing).</li>
+                <li>Create a folder named <code>plugins</code> inside your "MyMinecraftServer" directory.</li>
+                <li>Place the downloaded plugin JAR files into the <code>plugins</code> folder.</li>
+                <li>Restart your server for the plugins to take effect.</li>
+            </ol>
+            <p><strong>Security Advisory:</strong> Only share your server IP address with trusted individuals to maintain server security.</p>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="sidebar fade-in">
+            <h3 id="tools">Essential Tools</h3>
+            <p>Here are the key components you'll be working with:</p>
+
+            <div class="tool-card">
+                <div class="tool-icon java"></div>
+                <div class="tool-card-content">
+                    <h4>Java JDK</h4>
+                    <p>Runtime for PaperMC.</p>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon papermc"></div>
+                <div class="tool-card-content">
+                    <h4>PaperMC</h4>
+                    <p>High-performance Minecraft server software.</p>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon playitgg"></div>
+                <div class="tool-card-content">
+                    <h4>Playit.gg</h4>
+                    <p>External connection facilitator.</p>
+                </div>
+            </div>
+
+            <h3 id="customization">Quick Links</h3>
+            <ul>
+                <li><a href="#setup">Server Setup Steps</a></li>
+                <li><a href="#software-installation">Install Java & PaperMC</a></li>
+                <li><a href="#enabling-external-connections">Connect from Anywhere</a></li>
+                <li><a href="#server-properties">Server Properties</a></li>
+                <li><a href="#adding-plugins">Add Plugins</a></li>
+            </ul>
+
+            <h3 id="actionable-insights">Actionable Insights</h3>
+            <p><strong>Cost-Effective Hosting:</strong> Save money by repurposing old hardware.</p>
+            <p><strong>Performance Boost:</strong> Experience smoother gameplay with PaperMC.</p>
+            <p><strong>Global Access:</strong> Connect with friends worldwide using playit.gg.</p>
+            <p><strong>Unlimited Customization:</strong> Create a unique game world with plugins.</p>
+        </aside>
+
+    </main>
+
+    <!-- Floating Theme Toggle -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
+        <i class="fas fa-moon"></i> <!-- Icon will change via JS -->
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 QuerTech Articles. All rights reserved.</p>
+            <p>Craft your world with confidence. Learn more at <a href="https://quertech-articles.vercel.app" target="_blank" rel="noopener noreferrer">quertech-articles.vercel.app</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Theme Toggle Functionality ---
+            const themeToggle = document.getElementById('themeToggle');
+            const sunIcon = '<i class="fas fa-sun"></i>';
+            const moonIcon = '<i class="fas fa-moon"></i>';
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+            function setTheme(theme) {
+                if (theme === 'dark') {
+                    document.body.classList.add('dark-theme');
+                    themeToggle.innerHTML = sunIcon;
+                } else {
+                    document.body.classList.remove('dark-theme');
+                    themeToggle.innerHTML = moonIcon;
+                }
+                localStorage.setItem('theme', theme);
+            }
+
+            // Initialize theme based on localStorage or system preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else if (prefersDarkScheme.matches) {
+                setTheme('dark');
+            } else {
+                setTheme('light'); // Default to light if no preference
+            }
+
+            // Listen for changes in system preference
+            prefersDarkScheme.addEventListener('change', (e) => {
+                const newTheme = e.matches ? 'dark' : 'light';
+                setTheme(newTheme);
+            });
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
+                setTheme(currentTheme);
+            });
+
+            // --- Smooth Scrolling for Anchor Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // --- Fade-in Animation for Sections ---
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observerOptions = {
+                root: null,
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, observerOptions);
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // --- 3D Card Lifting Hover Effect ---
+            const cards = document.querySelectorAll('.tool-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / (rect.height / 2) * 5; // Max rotation 5 degrees
+                    const rotateY = -(x - centerX) / (rect.width / 2) * 5; // Max rotation -5 degrees
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+                    card.style.boxShadow = `var(--shadow-lift), 0 ${-rotateX * 2}px ${5 + Math.abs(rotateY * 2)}px rgba(0,0,0,0.2), 0 ${rotateY * 2}px ${5 + Math.abs(rotateX * 2)}px rgba(0,0,0,0.2)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                    card.style.boxShadow = 'var(--shadow-depth-2)';
+                });
+            });
+
+            // --- Initialize Orbs Animation ---
+            const orbs = document.querySelectorAll('.orb');
+            orbs.forEach((orb, index) => {
+                const animationDuration = 15 + Math.random() * 10; // Random duration between 15s and 25s
+                const animationDelay = Math.random() * -10; // Random delay, can be negative
+
+                orb.style.animation = `float ${animationDuration}s ease-in-out infinite alternate ${animationDelay}s`;
+                orb.style.left = `${Math.random() * 100}%`;
+                orb.style.top = `${Math.random() * 100}%`;
+                orb.style.opacity = `${0.5 + Math.random() * 0.4}`; // Random opacity between 0.5 and 0.9
+                orb.style.filter = `blur(${80 + Math.random() * 40}px)`; // Random blur
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

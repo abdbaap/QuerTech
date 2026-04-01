@@ -6,7 +6,7 @@ const GenAiForGeneratingCode=new GoogleGenerativeAI(process.env.GEMINI_API_KEY3)
 export async function GeneratingDeepCode(summary,metaTags) {
 
 try{
-    const modelForGeneratingCode=GenAiForGeneratingCode.getGenerativeModel({ model: "gemini-2.5-flash" })
+    const modelForGeneratingCode=GenAiForGeneratingCode.getGenerativeModel({ model: "gemini-2.5-flash-lite" })
 
 
       const design="The design of this blog utilizes a sophisticated glassmorphic UI/UX aesthetic, characterized by a dark-themed, high-contrast palette of indigo (#6366f1), pink (#ec4899), and slate (#09172a), accented by animated ambient background orbs that provide a sense of depth and modernity. The typography relies on a clean, professional sans-serif stack led by 'SF Pro Display', using fluid scaling (via clamp) and a bold gradient-masked header to establish a clear visual hierarchy and high scannability. From an interaction design standpoint, the blog prioritizes user engagement through tactile hover effects—such as 3D card lifting and border-color transitions—and functional accessibility features like a floating theme toggle. Rather than using static photography, the imagery strategy employs CSS-generated geometric patterns and rank badges to create a distinct, tech-forward identity for each tool, ensuring the interface remains lightweight while visually reinforcing the AI-centric subject matter.  "
@@ -53,6 +53,7 @@ const FinalFooter=`<div style="display: flex; flex-direction: column; justify-co
     return {success:true,message:"code  Generated SuccessFully",FinalCode}
 }
 catch (E){
+  console.log('`there was an error generating the Summary, ${E}`', `there was an error generating the Summary, ${E}`)
     return {success:false,message:`there was an error generating the Code, ${E}`}
 }
 }

@@ -5,7 +5,7 @@ const GenAiForMakingSummary=new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
 
 export async function MakingADeepSummaryOfTheVideo(url) {
 
-   try{ const modelForBuildingSummary=GenAiForMakingSummary.getGenerativeModel({ model: "gemini-2.5-flash" })
+   try{ const modelForBuildingSummary=GenAiForMakingSummary.getGenerativeModel({ model: "gemini-2.5-flash-lite" })
 
     const videoPart = {
       fileData: {
@@ -20,6 +20,7 @@ export async function MakingADeepSummaryOfTheVideo(url) {
     return {success:true,message:"Summary Generated SuccessFully",summary,code:""}
 }
 catch (E){
+  console.log('first', `there was an error generating the Summary, ${E}`)
     return {success:false,message:`there was an error generating the Summary, ${E}`}
 }
 }

@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const genAiForDecidingTitle=new GoogleGenerativeAI(process.env.GEMINI_API_KEY4)
 export async function DecidingTitleFolder(points) {
     
-    const model=genAiForDecidingTitle.getGenerativeModel({ model: "gemini-2.5-flash",generationConfig:{
+    const model=genAiForDecidingTitle.getGenerativeModel({ model: "gemini-2.5-flash-lite",generationConfig:{
         responseMimeType:"application/json"
     } })
 

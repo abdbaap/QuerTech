@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Provided Meta Tags for SEO -->
+    <title>Stop Procrastinating! 30-Day AI Plan to Skyrocket Income</title>
+    <meta name="description" content="Tired of being stuck? Our 30-day AI framework helps you crush procrastination, master AI tools & rapidly achieve financial goals. Unlock your income potential today!">
+    
+    <!-- Additional SEO & UX Meta Tags -->
+    <meta name="author" content="AI Automation Expert">
+    <meta name="keywords" content="how to stop procrastinating and make money, overcome procrastination entrepreneur, beat procrastination 30 days, get unstuck in business, end procrastination for good, ai business ideas for beginners, make money with AI in 30 days, ai automation for entrepreneurs, start an AI company in 30 days, AI tools for financial freedom, how to make money with ChatGPT, leveraging AI for business growth, AI automation income streams, build a million dollar company with AI, 30 day business plan with AI, AI business framework step-by-step, proven AI success blueprint, 5 step AI business strategy, rapid business growth strategy AI, personal AI advisor for business, online income opportunities 2024, entrepreneurship for beginners, financial goals 30 days, make your first $300 online, digital nomad income AI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://quertech-articles.vercel.app"> <!-- Assuming this is the canonical URL -->
+
+    <!-- Favicon (optional, but good practice) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <!-- Preconnect to Google Fonts for performance (if using external fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Using Inter as a close alternative to SF Pro Display, which is Apple-specific -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables for theming and colors */
+        :root {
+            /* Dark Theme Colors */
+            --color-primary: #6366f1; /* Indigo */
+            --color-secondary: #ec4899; /* Pink */
+            --color-background: #09172a; /* Slate - dark */
+            --color-card-bg: rgba(9, 23, 42, 0.6); /* Semi-transparent slate for glassmorphism */
+            --color-text-light: rgba(255, 255, 255, 0.9);
+            --color-text-medium: rgba(255, 255, 255, 0.7);
+            --color-text-dark: rgba(255, 255, 255, 0.5);
+            --color-border: rgba(255, 255, 255, 0.1);
+            --color-gradient-start: var(--color-primary);
+            --color-gradient-end: var(--color-secondary);
+            --glassmorphism-blur: 10px;
+            --glassmorphism-border: 1px solid var(--color-border);
+            --glassmorphism-radius: 15px;
+
+            /* Light Theme Colors (for toggle) */
+            --light-color-background: #f0f4f8; /* Light gray-blue */
+            --light-color-card-bg: rgba(255, 255, 255, 0.8);
+            --light-color-text-light: rgba(0, 0, 0, 0.9);
+            --light-color-text-medium: rgba(0, 0, 0, 0.7);
+            --light-color-text-dark: rgba(0, 0, 0, 0.5);
+            --light-color-border: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Light theme specific overrides */
+        body.light-theme {
+            --color-background: var(--light-color-background);
+            --color-card-bg: var(--light-color-card-bg);
+            --color-text-light: var(--light-color-text-light);
+            --color-text-medium: var(--light-color-text-medium);
+            --color-text-dark: var(--light-color-text-dark);
+            --color-border: var(--light-color-border);
+            /* Adjust primary/secondary for better contrast on light, or keep as is */
+            --color-primary: #4f46e5; /* Slightly darker indigo */
+            --color-secondary: #db2777; /* Slightly darker pink */
+        }
+
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-text-medium);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden; /* Prevent horizontal scroll from orb animations */
+            position: relative;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Ambient Background Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--color-primary) 0%, var(--color-secondary) 100%);
+            opacity: 0.3;
+            filter: blur(50px);
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            animation-direction: alternate;
+            z-index: -1;
+        }
+
+        .orb:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 15%;
+            animation: orb-move-1 25s infinite alternate;
+        }
+        .orb:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            bottom: 5%;
+            right: 10%;
+            background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-primary) 100%);
+            animation: orb-move-2 20s infinite alternate;
+        }
+        .orb:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 30%;
+            right: 25%;
+            animation: orb-move-3 30s infinite alternate;
+        }
+        .orb:nth-child(4) {
+            width: 250px;
+            height: 250px;
+            bottom: 20%;
+            left: 5%;
+            animation: orb-move-4 22s infinite alternate;
+        }
+
+        @keyframes orb-move-1 {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            50% { transform: translate(10vw, 15vh) scale(1.1); opacity: 0.4; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+        }
+        @keyframes orb-move-2 {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            50% { transform: translate(-10vw, -10vh) scale(1.2); opacity: 0.4; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+        }
+        @keyframes orb-move-3 {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            50% { transform: translate(-5vw, 10vh) scale(1.05); opacity: 0.35; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+        }
+        @keyframes orb-move-4 {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            50% { transform: translate(12vw, -8vh) scale(1.15); opacity: 0.4; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+        }
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            position: relative; /* For z-index to work against orbs */
+            z-index: 1;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--color-text-light);
+            line-height: 1.2;
+            margin-bottom: 0.8em;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw + 1rem, 4.5rem); /* Fluid scaling */
+            font-weight: 900;
+            background: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4.5vw + 1rem, 3.2rem);
+            margin-top: 1.5em;
+            position: relative;
+            padding-bottom: 0.3em;
+            border-bottom: var(--glassmorphism-border);
+            text-shadow: 0 0 5px rgba(99, 102, 241, 0.3); /* Subtle text shadow for depth */
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.2rem);
+            margin-top: 1.2em;
+        }
+
+        p {
+            margin-bottom: 1em;
+            font-size: clamp(1rem, 1.2vw + 0.5rem, 1.15rem);
+        }
+
+        strong {
+            color: var(--color-text-light);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Glassmorphic Card Styling */
+        .card {
+            background-color: var(--color-card-bg);
+            backdrop-filter: blur(var(--glassmorphism-blur));
+            border: var(--glassmorphism-border);
+            border-radius: var(--glassmorphism-radius);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            transform-style: preserve-3d; /* For 3D hover effect */
+        }
+
+        .card:hover {
+            transform: translateY(-8px) translateZ(10px); /* Lift and slight forward tilt */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--color-secondary); /* Border color transition */
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        /* List Styling */
+        ol, ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        ol li, ul li {
+            margin-bottom: 0.5em;
+            font-size: clamp(1rem, 1.2vw + 0.5rem, 1.15rem);
+        }
+
+        /* Specific section styling */
+        .hero {
+            text-align: center;
+            padding: 4rem 1.5rem;
+        }
+        .hero p {
+            font-size: clamp(1.1rem, 1.5vw + 0.8rem, 1.4rem);
+            max-width: 800px;
+            margin: 1.5rem auto 0;
+            color: var(--color-text-light);
+        }
+
+        .section-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+        }
+        .section-title-wrapper h2 {
+            margin: 0;
+            border-bottom: none; /* Remove default h2 border here */
+            flex-grow: 1;
+        }
+        .section-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            filter: drop-shadow(0 0 5px var(--color-secondary)); /* Icon glow */
+        }
+
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 2.5em;
+            height: 2.5em;
+            background-color: var(--color-primary);
+            color: var(--color-background); /* Dark text on primary */
+            font-weight: 700;
+            border-radius: 50%;
+            font-size: 0.9em;
+            margin-right: 0.8em;
+            flex-shrink: 0;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+        }
+        .card ol li::before {
+            content: counter(item); /* Use CSS counter for numbered list */
+            counter-increment: item;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.8em;
+            height: 1.8em;
+            background-color: var(--color-secondary);
+            color: var(--color-background);
+            font-weight: 600;
+            border-radius: 50%;
+            font-size: 0.8em;
+            margin-right: 0.8em;
+            flex-shrink: 0;
+            box-shadow: 0 0 8px rgba(236, 72, 153, 0.4);
+        }
+        .card ol {
+            counter-reset: item; /* Reset counter for each ordered list in a card */
+            list-style: none; /* Remove default numbering */
+            margin-left: 0;
+        }
+        .card ol li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1em;
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-card-bg);
+            backdrop-filter: blur(var(--glassmorphism-blur));
+            border: var(--glassmorphism-border);
+            color: var(--color-text-light);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .theme-toggle:hover {
+            background-color: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+            transform: scale(1.05);
+        }
+        .theme-toggle svg {
+            transition: transform 0.3s ease;
+        }
+        .theme-toggle.light-mode svg {
+            transform: rotate(360deg);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto; /* Pushes footer to bottom */
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--color-text-dark);
+            border-top: var(--glassmorphism-border);
+            backdrop-filter: blur(var(--glassmorphism-blur));
+            background-color: var(--color-card-bg);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            h1 {
+                margin-top: 1rem;
+            }
+            .hero {
+                padding: 3rem 1rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+            .theme-toggle {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: clamp(2rem, 8vw + 0.5rem, 3rem);
+            }
+            h2 {
+                font-size: clamp(1.5rem, 6vw + 0.5rem, 2.5rem);
+            }
+            h3 {
+                font-size: clamp(1.2rem, 5vw + 0.3rem, 1.8rem);
+            }
+            .card {
+                padding: 1rem;
+            }
+            .card ol li::before {
+                width: 1.5em;
+                height: 1.5em;
+                font-size: 0.7em;
+                margin-right: 0.5em;
+            }
+            .section-icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Animated Ambient Background Orbs -->
+    <div class="background-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <header class="container hero">
+        <h1>Stop Procrastinating! 30-Day AI Plan to Skyrocket Income</h1>
+        <p>Transform from a state of procrastination to successful entrepreneurial action with our practical, AI-integrated 30-day framework.</p>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <div class="section-title-wrapper">
+                <span class="section-icon">💡</span>
+                <h2>Executive Summary</h2>
+            </div>
+            <p>This presentation outlines a practical, AI-integrated 30-day framework designed to transform individuals from a state of procrastination to successful entrepreneurial action, with a focus on AI automation. It stresses the importance of defining clear goals, dedicating productive hours, and aggressively executing using modern AI tools. The speaker’s own journey serves as a motivational case study, demonstrating how structured implementation can lead to significant results in under a year.</p>
+        </section>
+
+        <section class="card">
+            <div class="section-title-wrapper">
+                <span class="section-icon">📈</span>
+                <h2>Significant Arguments, Facts, and Steps</h2>
+            </div>
+
+            <h3>The Age of AI Opportunity</h3>
+            <p>Sam Altman predicts a single person can build a "million-dollar company" in the current AI era, highlighting immense opportunities.</p>
+
+            <h3>The Procrastination Trap</h3>
+            <p>Many individuals remain "stuck in a circle" of thinking and procrastinating for 1.5 to 2 years, despite having aspirations and familial expectations. The speaker personally experienced two years of procrastination before taking decisive action.</p>
+
+            <h3>The One Difference: Execution</h3>
+            <p>The key distinction between successful individuals like Ali Abdaal, Iman Ghadzi, Alex Hormozi, and Elon Musk is their aggressive execution, often "10x faster" than others, even at their peak.</p>
+
+            <h3>Speaker's Success Story</h3>
+            <p>After overcoming two years of procrastination, a focused 10-month effort resulted in over "1 lakh+ followers" across YouTube and Instagram and engagement with major tech channels through AI mini-courses.</p>
+        </section>
+
+        <section class="card">
+            <div class="section-title-wrapper">
+                <span class="section-icon">🚀</span>
+                <h2>The 5-Step Framework (for a 30-day plan)</h2>
+            </div>
+            <p>This structured approach helps you build momentum and achieve your financial goals.</p>
+            <ol>
+                <li><strong>Define Current Situation:</strong> Honestly assess one's present stage, including employment status, satisfaction, and existing state of being "stuck" or "confused."</li>
+                <li><strong>Assess Productive Work Hours:</strong> Quantify daily hours spent on learning and growth (e.g., "1-2 hours"). The speaker committed "5-6 hours, or even more" to achieving goals.</li>
+                <li><strong>Set Desired Income:</strong> Realistically define a desired income target for the "next 6 months" (e.g., "$100, $300, $400").</li>
+                <li><strong>Identify Skills:</strong> List existing skills (e.g., "AI automation, editing, web coding") or acknowledge a current lack of skills.</li>
+                <li><strong>Define a Single Clear Goal:</strong> Focus on "one goal" for the "next 30 days," avoiding the mistake 80% of people make by listing multiple goals. Examples include becoming a Shopify expert, AI automation expert, earning the "first $100/$300," or securing "first 5 free clients/testimonials."</li>
+            </ol>
+        </section>
+
+        <section class="card">
+            <div class="section-title-wrapper">
+                <span class="section-icon">🤖</span>
+                <h2>Leveraging AI as a Personal Advisor</h2>
+            </div>
+            <p>Utilize AI tools like Claude AI or ChatGPT to act as a "Personal AI Advisor."</p>
+            <ul>
+                <li>Create a dedicated project (e.g., "Personal AI Advisor") and input the defined current situation, productive hours, desired income, skills, and 30-day goal into the AI's instructions.</li>
+                <li>Upload files (previous projects, achievements, case studies) to further personalize the AI's advice.</li>
+            </ul>
+
+            <h3>Finding Main and Supporting AI Tools</h3>
+            <p>Research and define both "main AI tools" and "supporting AI tools" relevant to your chosen niche.</p>
+            <ul>
+                <li><strong>Main AI tools:</strong> N8N, make.com (for automation); CapCut, Premiere Pro (for editing).</li>
+                <li><strong>Supporting AI tools:</strong> Higgsfield, Nano Banana (for image generation); VIO 3.1 (for video generation); tools for client requirements, payments.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <div class="section-title-wrapper">
+                <span class="section-icon">🗓️</span>
+                <h2>The 30-Day AI Automation Roadmap</h2>
+            </div>
+            <p>A detailed four-week breakdown to guide your journey from learning to closing clients.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3><span class="rank-badge">W1</span> Learn the Weapon (Days 1-7)</h3>
+                    <p>Master fundamentals, pick a niche, and define your offer. Focus on learning through YouTube, free/paid courses (e.g., Aaghaz's 3-month AI program).</p>
+                </div>
+                <div class="card">
+                    <h3><span class="rank-badge">W2</span> Build Your Proof (Days 8-14)</h3>
+                    <p>Develop at least "10 real portfolio automations" using tools like Loom for demos. Aim for "30 leads" and initiate "cold outreach."</p>
+                </div>
+                <div class="card">
+                    <h3><span class="rank-badge">W3</span> Get Your Testimonials (Days 15-21)</h3>
+                    <p>Secure "1-2 free clients," deliver valuable work, and actively collect testimonials (including video testimonials).</p>
+                </div>
+                <div class="card">
+                    <h3><span class="rank-badge">W4</span> Close the $300 (Days 22-30)</h3>
+                    <p>"Double down" on outreach, aiming for "100 messages a day" through emails, LinkedIn, and personalized video pitches. Submit compelling samples, like the example of a thumbnail designer creating a sample within five hours. Focus on converting at least "1 paid client at $300."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="section-title-wrapper">
+                <span class="section-icon">💪</span>
+                <h2>Motivation and Accountability</h2>
+            </div>
+            <p>Track progress with checkboxes for daily and weekly KPIs to maintain motivation, especially when monetary rewards are not immediately apparent. Consider a mentor or structured program like "Aaghaz" for accountability.</p>
+        </section>
+
+        <section class="card">
+            <div class="section-title-wrapper">
+                <span class="section-icon">🎯</span>
+                <h2>Actionable Insights</h2>
+            </div>
+            <p>Key takeaways to implement for immediate impact:</p>
+            <ol>
+                <li><strong>Self-Assessment is Crucial:</strong> Begin by honestly documenting your current situation, productivity, financial aspirations, and existing skills to establish a realistic starting point.</li>
+                <li><strong>Define a Singular, Achievable Goal:</strong> Prioritize one clear, measurable 30-day goal to prevent overwhelm and maintain sharp focus, similar to Steve Jobs' approach to execution.</li>
+                <li><strong>Leverage AI for Personalized Guidance:</strong> Utilize AI chat platforms like Claude AI as a "Personal AI Advisor" by inputting your detailed goals and context. This AI can help structure your plan and provide ongoing advice.</li>
+                <li><strong>Master Key Tools and Build Proof:</strong> Dedicate initial weeks to learning essential AI tools in your chosen niche and actively build a portfolio of mini-projects to demonstrate capability.</li>
+                <li><strong>Prioritize Client Acquisition and Testimonials:</strong> Actively engage in outreach, initially offering free services to secure testimonials and build credibility, which will be invaluable for future paid clients.</li>
+                <li><strong>Maintain Relentless Execution:</strong> Consistently double down on efforts, particularly outreach, and track progress diligently. Even small, consistent wins contribute to long-term success and motivation.</li>
+            </ol>
+        </section>
+    </main>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark and light theme">
+        <!-- SVG for Moon (dark mode) / Sun (light mode) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> AI Automation Insights. All rights reserved.</p>
+        <p>Built with passion for AI-driven success.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+            const sunIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+
+            /**
+             * Applies the stored theme preference or defaults to dark.
+             * Updates the UI elements accordingly.
+             */
+            const applyTheme = (theme) => {
+                if (theme === 'light') {
+                    body.classList.add('light-theme');
+                    themeToggle.classList.add('light-mode');
+                    themeToggle.innerHTML = sunIcon;
+                    themeToggle.setAttribute('aria-label', 'Switch to dark theme');
+                } else {
+                    body.classList.remove('light-theme');
+                    themeToggle.classList.remove('light-mode');
+                    themeToggle.innerHTML = moonIcon;
+                    themeToggle.setAttribute('aria-label', 'Switch to light theme');
+                }
+            };
+
+            // Initialize theme from localStorage or default to dark
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            applyTheme(savedTheme);
+
+            /**
+             * Toggles between dark and light themes on button click.
+             * Stores the new preference in localStorage.
+             */
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

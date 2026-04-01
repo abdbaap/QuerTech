@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Provided Meta Tags for SEO -->
+    <title>Master Discipline & Beat Urges Now!</title>
+    <meta name="description" content="Tired of losing to destructive habits? Unleash REAL self-control. Learn 5 powerful steps to conquer urges, boost willpower & reclaim your focus. Click for immediate results!">
+    <!-- High-Volume, Long-Tail SEO Keywords -->
+    <meta name="keywords" content="how to build self discipline, overcome destructive habits, stop lustful urges, regain control of impulses, strengthen willpower fast, practical discipline strategies, mental redirection techniques, habit replacement methods, control phone temptation, improve focus and discipline, sleep and willpower connection, actionable self-mastery steps, digital temptation management, build productive habits, stop impulsive behavior">
+    <!-- Trending Tags (often used in social media, can influence search visibility) -->
+    <meta property="og:title" content="Master Discipline & Beat Urges Now!">
+    <meta property="og:description" content="Tired of losing to destructive habits? Unleash REAL self-control. Learn 5 powerful steps to conquer urges, boost willpower & reclaim your focus. Click for immediate results!">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://quertech-articles.vercel.app/discipline-and-attention"> <!-- Assuming this is the specific page -->
+    <meta property="og:image" content="https://quertech-articles.vercel.app/images/og-image.jpg"> <!-- Placeholder for actual OG image -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Master Discipline & Beat Urges Now!">
+    <meta name="twitter:description" content="Tired of losing to destructive habits? Unleash REAL self-control. Learn 5 powerful steps to conquer urges, boost willpower & reclaim your focus. Click for immediate results!">
+    <meta name="twitter:image" content="https://quertech-articles.vercel.app/images/twitter-image.jpg"> <!-- Placeholder for actual Twitter image -->
+    <link rel="canonical" href="https://quertech-articles.vercel.app/discipline-and-attention"> <!-- Placeholder -->
+
+    <style>
+        /* Global Variables & Reset */
+        :root {
+            --color-primary-indigo: #6366f1;
+            --color-accent-pink: #ec4899;
+            --color-background-dark: #09172a;
+            --color-text-light: #e2e8f0;
+            --color-text-muted: #94a3b8;
+            --color-card-background: rgba(255, 255, 255, 0.05);
+            --color-card-border-hover: var(--color-accent-pink);
+            --font-family-sans-serif: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            --border-radius-card: 12px;
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --shadow-card-hover: 0 20px 40px rgba(0, 0, 0, 0.5);
+            --transition-smooth: all 0.3s ease-out;
+            --blur-effect: blur(8px);
+            --orb-color-1: rgba(99, 102, 241, 0.3);
+            --orb-color-2: rgba(236, 72, 137, 0.3);
+            --orb-color-3: rgba(147, 51, 238, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-sans-serif);
+            background-color: var(--color-background-dark);
+            color: var(--color-text-light);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
+        }
+
+        /* Ambient Background Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, var(--orb-color-1), transparent);
+            border-radius: 50%;
+            opacity: 0.7;
+            filter: blur(50px); /* Apply blur to make them glow */
+            animation: float 15s ease-in-out infinite alternate;
+        }
+
+        .orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+            background: radial-gradient(circle, var(--orb-color-1), transparent);
+            animation-delay: -5s;
+        }
+
+        .orb:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            bottom: -200px;
+            right: -200px;
+            background: radial-gradient(circle, var(--orb-color-2), transparent);
+            animation-delay: -10s;
+        }
+
+        .orb:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, var(--orb-color-3), transparent);
+            animation-delay: -7s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-50px) translateX(50px);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            background: var(--color-background-dark);
+            position: relative; /* For gradient mask */
+            z-index: 1; /* Ensure header is above background orbs */
+        }
+
+        .header-title {
+            font-size: clamp(2rem, 7vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            /* Gradient Mask for Header */
+            background: linear-gradient(
+                90deg,
+                var(--color-primary-indigo),
+                var(--color-accent-pink)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 5px rgba(236, 72, 137, 0.4); /* Subtle glow */
+        }
+
+        .header-subtitle {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            color: var(--color-text-muted);
+            font-weight: 400;
+        }
+
+        /* Main Content Area */
+        main {
+            flex: 1; /* Allows main to grow and push footer down */
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column for mobile */
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr 2fr; /* Sidebar and main content on larger screens */
+            }
+        }
+
+        /* Sidebar */
+        aside {
+            background: var(--color-card-background);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-card);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect); /* Safari support */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+            position: sticky; /* Make sidebar sticky */
+            top: 2rem; /* Distance from top when sticky */
+            height: fit-content; /* Allow it to take only necessary height */
+        }
+
+        aside:hover {
+            box-shadow: var(--shadow-card-hover);
+            transform: translateY(-5px);
+        }
+
+        .sidebar-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-accent-pink);
+            border-bottom: 1px solid var(--color-text-muted);
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar-list a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-smooth);
+            position: relative;
+            padding-left: 1.5rem; /* Space for badge */
+        }
+
+        .sidebar-list a:hover {
+            color: var(--color-accent-pink);
+        }
+
+        /* Rank Badges (CSS Generated) */
+        .sidebar-list a::before {
+            content: '';
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            margin-right: 0.75rem;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--color-text-muted); /* Default */
+            box-shadow: 0 0 8px rgba(236, 72, 137, 0.5); /* Glow */
+        }
+
+        .sidebar-list a:nth-child(1)::before {
+            content: "1"; /* Number badge */
+            background: linear-gradient(45deg, var(--color-primary-indigo), var(--color-accent-pink));
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4), 0 0 8px rgba(236, 72, 137, 0.5);
+        }
+
+        .sidebar-list a:nth-child(2)::before {
+            content: "2";
+            background: linear-gradient(45deg, var(--color-primary-indigo), var(--color-accent-pink));
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4), 0 0 8px rgba(236, 72, 137, 0.5);
+        }
+         .sidebar-list a:nth-child(3)::before {
+            content: "3";
+            background: linear-gradient(45deg, var(--color-primary-indigo), var(--color-accent-pink));
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4), 0 0 8px rgba(236, 72, 137, 0.5);
+        }
+         .sidebar-list a:nth-child(4)::before {
+            content: "4";
+            background: linear-gradient(45deg, var(--color-primary-indigo), var(--color-accent-pink));
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4), 0 0 8px rgba(236, 72, 137, 0.5);
+        }
+         .sidebar-list a:nth-child(5)::before {
+            content: "5";
+            background: linear-gradient(45deg, var(--color-primary-indigo), var(--color-accent-pink));
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4), 0 0 8px rgba(236, 72, 137, 0.5);
+        }
+
+
+        /* Main Content Section */
+        section.main-content {
+            background: var(--color-card-background);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-card);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect); /* Safari support */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+        }
+
+        section.main-content:hover {
+            box-shadow: var(--shadow-card-hover);
+            transform: translateY(-5px);
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: var(--color-primary-indigo);
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--color-accent-pink);
+            margin-top: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+            color: var(--color-text-light);
+            margin-top: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--color-text-muted);
+        }
+
+        strong {
+            color: var(--color-text-light);
+            font-weight: 600;
+        }
+
+        /* Specific styling for content */
+        .content-section {
+            margin-bottom: 2rem;
+        }
+
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-card);
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-smooth);
+            cursor: pointer; /* Indicate interactivity */
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.02); /* Subtle inner highlight */
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(236, 72, 137, 0.3);
+            border-color: var(--color-accent-pink);
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary-indigo);
+            flex-shrink: 0; /* Prevent number from shrinking */
+            text-shadow: 0 0 5px var(--color-primary-indigo);
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-text-light);
+            flex-grow: 1; /* Allow title to take available space */
+        }
+
+        .step-description {
+            color: var(--color-text-muted);
+            margin-left: calc(2rem + 1rem); /* Align with step-card content */
+            font-size: 0.95rem;
+            display: none; /* Hidden by default */
+            opacity: 0;
+            transition: opacity var(--transition-smooth), margin-top var(--transition-smooth);
+            margin-top: 0;
+        }
+
+        .step-card.expanded .step-description {
+            display: block;
+            opacity: 1;
+            margin-top: 0.5rem;
+        }
+
+        .actionable-insights h3 {
+            color: var(--color-accent-pink);
+            font-size: 1.3rem;
+            margin-top: 1rem;
+        }
+
+        .actionable-insights ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .actionable-insights li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--color-text-muted);
+        }
+
+        .actionable-insights li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary-indigo);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--color-primary-indigo);
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.7);
+            border-color: var(--color-accent-pink);
+        }
+
+        .theme-toggle::before,
+        .theme-toggle::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+            transition: var(--transition-smooth);
+        }
+
+        .theme-toggle::before {
+            transform: rotate(45deg);
+        }
+
+        .theme-toggle::after {
+            transform: rotate(-45deg);
+        }
+
+        /* Dark Mode (if toggled) */
+        body.dark-mode {
+            --color-background-dark: #000000;
+            --color-text-light: #f3f4f6;
+            --color-text-muted: #9ca3af;
+            --color-card-background: rgba(255, 255, 255, 0.03);
+            --color-card-border-hover: var(--color-accent-pink);
+            --color-primary-indigo: #8b5cf6; /* Lighter indigo for contrast */
+            --color-accent-pink: #f472b6; /* Lighter pink for contrast */
+        }
+
+        body.dark-mode .theme-toggle {
+            background: var(--color-accent-pink);
+            box-shadow: 0 5px 15px rgba(244, 114, 182, 0.5);
+        }
+         body.dark-mode .theme-toggle:hover {
+            box-shadow: 0 8px 25px rgba(244, 114, 182, 0.7);
+        }
+
+        body.dark-mode .header-title {
+            background: linear-gradient(90deg, var(--color-primary-indigo), var(--color-accent-pink));
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        body.dark-mode .sidebar-list a::before {
+             background-color: var(--color-text-muted);
+        }
+        body.dark-mode .sidebar-list a:nth-child(n)::before {
+            box-shadow: 0 0 8px var(--color-accent-pink);
+        }
+        body.dark-mode .step-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(244, 114, 182, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-card-background);
+            backdrop-filter: var(--blur-effect);
+            -webkit-backdrop-filter: var(--blur-effect);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer a {
+            color: var(--color-primary-indigo);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: var(--color-accent-pink);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            .content-wrapper {
+                grid-template-columns: 1fr; /* Stack sidebar and main content */
+            }
+
+            aside {
+                position: static; /* Remove sticky positioning on small screens */
+                margin-bottom: 1.5rem;
+                width: 100%; /* Ensure it takes full width */
+            }
+
+            .theme-toggle {
+                bottom: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+            }
+
+            .theme-toggle::before, .theme-toggle::after {
+                width: 15px;
+                height: 2px;
+            }
+
+            .step-card {
+                flex-wrap: wrap; /* Allow wrapping on small screens */
+            }
+            .step-number {
+                font-size: 1.5rem;
+            }
+            .step-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 2rem;
+            }
+            .header-subtitle {
+                font-size: 1rem;
+            }
+            main {
+                padding: 1.5rem 0.5rem;
+            }
+            section.main-content, aside {
+                padding: 1rem;
+            }
+            .step-card {
+                padding: 1rem;
+            }
+            .step-number {
+                margin-right: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Ambient Background Orbs -->
+    <div class="background-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <header>
+        <h1 class="header-title">Mastering Discipline and Attention</h1>
+        <p class="header-subtitle">Your Actionable Guide to Building Unshakeable Self-Control</p>
+    </header>
+
+    <main>
+        <div class="content-wrapper">
+            <aside>
+                <h2 class="sidebar-title">Key Steps</h2>
+                <ul class="sidebar-list">
+                    <li><a href="#step1">Remove the Triggers</a></li>
+                    <li><a href="#step2">Train Your Body</a></li>
+                    <li><a href="#step3">Master Your Attention</a></li>
+                    <li><a href="#step4">Fix Your Sleep</a></li>
+                    <li><a href="#step5">Replace the Habit</a></li>
+                </ul>
+            </aside>
+
+            <section class="main-content">
+                <div class="content-section">
+                    <h1>Reclaim Your Willpower, Conquer Destructive Habits</h1>
+                    <p>In a world of constant distractions and instant gratification, building genuine self-discipline and attention is more crucial than ever. This guide provides a powerful, five-step strategy to break free from destructive urges, strengthen your willpower, and achieve lasting self-mastery. It’s time to take control.</p>
+                </div>
+
+                <div class="content-section">
+                    <h2>The 5-Step Blueprint to Self-Mastery</h2>
+
+                    <div id="step1" class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Remove the Triggers</div>
+                        <div class="step-description">
+                            <p>Your environment dictates your battles. A brain flooded with temptation, especially from your devices, creates an uphill struggle. Cleanse your surroundings: hide, delete, or uninstall whatever fuels destructive urges. Make discipline the path of least resistance.</p>
+                        </div>
+                    </div>
+
+                    <div id="step2" class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Train Your Body</div>
+                        <div class="step-description">
+                            <p>An idle body breeds fertile ground for destructive impulses. Engage in rigorous physical activity – lifting weights, running, anything that demands exertion. An exhausted body leads to a calm, focused mind. Channel your raw energy into productive physical training.</p>
+                        </div>
+                    </div>
+
+                    <div id="step3" class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Master Your Attention</div>
+                        <div class="step-description">
+                            <p>Lust and other destructive urges are masters at hijacking your focus. The moment an urge arises, your mission is immediate redirection. Stand up, move, change your scenery. Each redirection strengthens your attention "muscle."</p>
+                        </div>
+                    </div>
+
+                    <div id="step4" class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Fix Your Sleep</div>
+                        <div class="step-description">
+                            <p>Late nights are the enemy of discipline. Fatigue erodes willpower, making you vulnerable to impulses. Protect your sleep fiercely; it is the bedrock of a strong, resilient mind and unwavering self-control.</p>
+                        </div>
+                    </div>
+
+                    <div id="step5" class="step-card">
+                        <div class="step-number">5</div>
+                        <div class="step-title">Replace the Habit</div>
+                        <div class="step-description">
+                            <p>Destructive habits cannot simply be wished away; they must be actively replaced. Fill your empty time with purpose. Build something, work towards a meaningful goal. Idle moments are the doorways to relapse; constructive activity is the gatekeeper.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section actionable-insights">
+                    <h2>Actionable Insights: The "So What?"</h2>
+                    <p>Overcoming destructive urges is a proactive, multi-faceted endeavor. By consciously shaping your environment, physical state, and mental focus, you build an impenetrable shield of willpower.</p>
+                    <ul>
+                        <li><strong>Environment Design:</strong> Proactively purge temptations, especially from digital spaces.</li>
+                        <li><strong>Physical Discipline:</strong> Treat your body as a tool for mental fortitude; regular exertion is non-negotiable.</li>
+                        <li><strong>Mental Agility:</strong> Cultivate an instant redirection reflex for unwanted thoughts, treating it as a mental workout.</li>
+                        <li><strong>Sleep Prioritization:</strong> Understand that adequate rest is a foundational element for cognitive function and willpower.</li>
+                        <li><strong>Constructive Replacement:</strong> Actively fill idle time with meaningful pursuits to displace undesirable habits.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 QuerTech. All rights reserved. | Visit us at <a href="https://quertech-articles.vercel.app" target="_blank" rel="noopener noreferrer">quertech-articles.vercel.app</a></p>
+    </footer>
+
+    <!-- Floating Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Step Card Accordion/Expand Functionality ---
+            const stepCards = document.querySelectorAll('.step-card');
+            stepCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Close all other expanded cards first
+                    stepCards.forEach(otherCard => {
+                        if (otherCard !== card && otherCard.classList.contains('expanded')) {
+                            otherCard.classList.remove('expanded');
+                        }
+                    });
+
+                    // Toggle the clicked card
+                    card.classList.toggle('expanded');
+                });
+            });
+
+            // --- Theme Toggle Functionality ---
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+            // Apply initial theme from localStorage
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+                // Update toggle state visually if needed, but this is just a visual toggle
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                const darkModeEnabled = body.classList.contains('dark-mode');
+                localStorage.setItem('darkMode', darkModeEnabled);
+            });
+
+            // --- Smooth Scrolling for Sidebar Links ---
+            document.querySelectorAll('.sidebar-list a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Scroll to the target element with a smooth behavior
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start' // Align to the top of the element
+                        });
+
+                        // Optionally, expand the clicked step card
+                        if (targetId.startsWith('#step') && targetElement.classList.contains('step-card')) {
+                            // Close other expanded cards if any
+                            stepCards.forEach(card => {
+                                if (card !== targetElement && card.classList.contains('expanded')) {
+                                    card.classList.remove('expanded');
+                                }
+                            });
+                            // Expand the target card
+                            targetElement.classList.add('expanded');
+                        }
+                    }
+                });
+            });
+
+            // --- Initial Orb Animation Trigger ---
+            // Orbs animate automatically due to CSS, but this ensures the DOM is ready.
+            // No explicit JS needed here for animation startup.
+
+            // --- Add subtle hover effects to sidebar links ---
+            const sidebarLinks = document.querySelectorAll('.sidebar-list a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('mouseover', () => {
+                    link.style.color = 'var(--color-accent-pink)';
+                });
+                link.addEventListener('mouseout', () => {
+                    // Revert to current theme's color if not explicitly set by dark-mode class
+                    const currentBodyColor = getComputedStyle(document.body).getPropertyValue('--color-text-light');
+                    const hoverColor = getComputedStyle(document.body).getPropertyValue('--color-accent-pink');
+                    // Only revert if it's not currently the hover color and dark mode is active or not
+                    if (getComputedStyle(link).color !== hoverColor) {
+                         link.style.color = ''; // Use CSS variable
+                    }
+                });
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

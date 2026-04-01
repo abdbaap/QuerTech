@@ -1,192 +1,100 @@
 [
   {
-    "blog_title": "Master Mouse Mods: Drag Click & Clear Shell Guide",
-    "link": "DIYClick",
-    "description": "Upgrade your gaming mouse! This DIY guide shows how to mod for peak drag-clicking performance with extended buttons and stunning transparent shell aesthetics. Master your clicks!",
+    "blog_title": "TradeMaster",
+    "link": "/trademaster",
+    "description": "Unlock your trading potential with our 90-day roadmap. Learn to master one strategy, eliminate distractions, and build the discipline for consistent profits.",
     "tags": [
-      "Mouse Mod",
-      "Drag Click",
-      "Gaming DIY",
-      "Custom Mouse",
-      "Transparent"
+      "Trading",
+      "Profitable Trader",
+      "90 Day Plan",
+      "Trading Strategy",
+      "Discipline"
     ],
-    "color": "bg-teal-900 shadow-teal-400"
+    "color": "bg-blue-700 shadow-blue-400"
   },
   {
-    "blog_title": "Google Play Store Desktop App Guide",
-    "link": "PlayWin",
-    "description": "Learn to quickly install Google Play Store as a desktop app shortcut on Windows using Microsoft Edge. Get instant, easy access to your favorite Android apps directly from your desktop, bypassing browser steps for a streamlined experience.",
+    "blog_title": "Sora Shut",
+    "link": "/sorashut",
+    "description": "OpenAI's Sora is gone. Discover why high compute costs, fierce AI competition, and investor doubts forced its closure, revealing the tough economic reality for AI giants and the potential for market shifts.",
     "tags": [
-      "Google Play Store",
-      "Desktop Shortcut",
-      "Windows",
-      "Microsoft Edge",
-      "PWA",
-      "Web App",
+      "Sora",
+      "OpenAI",
+      "AI Economics",
+      "Compute Costs",
+      "AI Winter",
+      "TurboQuant",
+      "AI Industry"
+    ],
+    "color": "bg-red-600 shadow-red-400"
+  },
+  {
+    "blog_title": "Earn Now",
+    "link": "/earnnown",
+    "description": "Learn how to monetize your images, wallpapers, and videos using the Monetag advertising platform. This tutorial guides you through the sign-up process and leveraging 'Direct Links' to generate revenue from your digital assets.",
+    "tags": [
+      "Monetize Images",
+      "Video Monetization",
+      "Ad Network",
+      "Monetag",
+      "Direct Links",
+      "Earn Money Online"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "iPhone Hacks",
+    "link": "/iphonehacks",
+    "description": "Unlock your iPhone's full potential! Discover 14 essential apps to boost productivity, enhance well-being, and simplify your life, from smart note-taking to AI-powered insights.",
+    "tags": [
+      "iPhone Apps",
       "Productivity",
-      "Android Apps"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Install Android Apps on Windows 11",
-    "link": "APKonWin",
-    "description": "Seamlessly install Android APKs on Windows 11! This guide covers two powerful methods: WSATools from the Microsoft Store and the open-source WSA PacMan. Learn essential WSA setup, configuration, and troubleshooting to run your favorite Android apps on your desktop.",
-    "tags": [
-      "Windows 11",
-      "Android Apps",
-      "APK Installation",
-      "WSA",
-      "WSATools",
-      "WSA PacMan",
-      "Android on PC"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Mod Android Apps (No Root)",
-    "link": "Mod Games",
-    "description": "Unlock game value edits & app customization without root! Master Apktool M to decrypt, modify, and recompile Android apps for personalized experiences.",
-    "tags": [
-      "Android Modding",
-      "Apktool M",
-      "No Root",
-      "Game Customization",
-      "APK Editing"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Turbocharge Android Apps on Windows 11",
-    "link": "TurboDroid",
-    "description": "Run Android apps & games natively on Windows 11 without lag! This guide uses WSA, WSATools & ADB for seamless mobile-like performance on your PC. Ditch emulators now!",
-    "tags": [
-      "Android Apps",
-      "Windows 11",
-      "WSA Setup",
-      "No Lag",
-      "PC Gaming"
-    ],
-    "color": "bg-emerald-800 shadow-emerald-400"
-  },
-  {
-    "blog_title": "PC Graphics Master Guide",
-    "link": "Game Max",
-    "description": "Unlock peak PC gaming! Master Ray Tracing, DLSS, Frame Generation & more. Learn how graphics tech impacts visuals & FPS to optimize your settings for ultimate realism or competitive edge. Your essential guide.",
-    "tags": [
-      "PC Graphics",
-      "Gaming Tech",
-      "FPS Boost",
-      "Ray Tracing",
-      "DLSS FSR",
-      "Game Optimization"
+      "Life Hacks",
+      "Tech",
+      "iOS"
     ],
     "color": "bg-emerald-700 shadow-emerald-400"
   },
   {
-    "blog_title": "CLI Master",
-    "link": "CLIMaster",
-    "description": "Elevate your Windows Terminal! Customize with a stunning theme, Nerd Font, and Fastfetch for a powerful, personalized CLI experience. Get system stats at a glance!",
+    "blog_title": "Cloud Pro",
+    "link": "/cloudpro",
+    "description": "Demystifying the Cloud Engineer role: Learn day-to-day tasks, salary insights, and career growth opportunities in designing, building, and managing scalable cloud infrastructure. Understand key challenges like 'ClickOps Debt' and the impact of AI, and discover essential skills for success.",
     "tags": [
-      "Windows Terminal",
-      "CLI Customization",
-      "Fastfetch",
-      "Nerd Fonts",
-      "PowerShell",
-      "Catppuccin",
-      "Terminal Theme",
-      "System Info",
-      "Windows 11"
+      "Cloud Engineer",
+      "Cloud Computing",
+      "AWS",
+      "Azure",
+      "GCP",
+      "DevOps",
+      "Career",
+      "Salary"
     ],
-    "color": "bg-indigo-900 shadow-indigo-400"
+    "color": "bg-blue-700 shadow-blue-400"
   },
   {
-    "blog_title": "MSI Titan vs. Custom PC: Who Reigns Supreme at ₹7 Lakh?",
-    "link": "BUILDVSBUY",
-    "description": "Comparing the ₹6.2 Lakh MSI Titan 18HX gaming laptop with a ₹7 Lakh custom desktop PC. Both feature top-tier Intel Core Ultra 9 and RTX 5090. Discover which offers superior performance, portability, and value for your high-end computing needs.",
+    "blog_title": "Trade Gold",
+    "link": "/tradegold",
+    "description": "Unlock profitable trades! Discover real-time strategies for Gold, TCS, and Nifty. Learn to identify winning entries, manage risk, and profit from market moves.",
     "tags": [
-      "MSI Titan",
-      "Custom PC",
-      "RTX 5090",
-      "Gaming Battle",
-      "Build vs Buy",
-      "High-End PC"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-700"
-  },
-  {
-    "blog_title": "Teen Earn From Home",
-    "link": "TeenCash",
-    "description": "Indian teens, discover 5 legit online income streams from home! Skip low-pay tasks; earn well testing sites, selling notes, tutoring, photos, or transcribing. Easy, practical ways to make real money.",
-    "tags": [
-      "Teenage Income",
-      "Online Earning",
-      "Work From Home",
-      "India Teens",
-      "Legit Money"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "YouTube Shorts Automation: Earn $400 Daily with AI",
-    "link": "AutoCash",
-    "description": "Discover a 'copy-paste' YouTube Shorts automation strategy to earn $400-500 daily. Learn how to repurpose viral content with AI scripts, voiceovers, and mobile editing to create unique, monetizable videos under fair use guidelines. See real earnings data and a step-by-step workflow.",
-    "tags": [
-      "YouTube Shorts",
-      "AI Automation",
-      "Content Repurposing",
-      "Earn Online",
-      "Fair Use",
-      "Monetization",
-      "CapCut",
-      "ChatGPT",
-      "ElevenLabs"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-400"
-  },
-  {
-    "blog_title": "PC Price Plunge Confirmed: Build Smart Now!",
-    "link": "TechPlunge",
-    "description": "Amazon data reveals a definitive downward trend for RAM & GPU prices. It's a favorable time for PC builders, with potential for further drops. Get our data-backed insights on when to build and save.",
-    "tags": [
-      "PC Price Drop",
-      "Component Prices",
-      "GPU Deals",
-      "RAM Deals",
-      "PC Building",
-      "Tech Market"
+      "Trading Strategies",
+      "Gold Trading",
+      "TCS Trading",
+      "Nifty Trading",
+      "Risk Management",
+      "Profitable Trades"
     ],
     "color": "bg-teal-700 shadow-teal-400"
   },
   {
-    "blog_title": "ASUS TUF A14: AI Powerhouse Unleashed",
-    "link": "AISurge",
-    "description": "The ASUS TUF Gaming A14 redefines portable power. Featuring AMD Ryzen AI Max+ and a potent integrated GPU, it delivers surprising performance for creators and gamers, rivaling dedicated graphics. Experience peak AI efficiency in a compact, durable design.",
+    "blog_title": "MacBook Air M5: Ultimate Power",
+    "link": "M5 Power",
+    "description": "Unbox the new MacBook Air M5: a powerful, versatile laptop with an M5 chip, stunning Liquid Retina display, 18hr battery, and AI capabilities. Perfect for 99.9% of users, from casual to pro video editing and coding.",
     "tags": [
-      "ASUS TUF A14",
-      "AI Laptop",
-      "Ryzen AI Max",
-      "Integrated GPU",
-      "Gaming Laptop",
-      "Creator PC",
-      "Portable Tech",
-      "Copilot+ PC"
+      "MacBook Air M5",
+      "M5 Chip",
+      "Apple Laptop",
+      "AI Performance",
+      "Tech Review"
     ],
-    "color": "bg-blue-800 shadow-blue-500"
-  },
-  {
-    "blog_title": "Boost Your FPS: Ultimate Windows 10/11 Gaming Guide",
-    "link": "FPSBoost",
-    "description": "Unlock peak gaming performance on Windows 10 & 11, even on old PCs! This guide reveals crucial software tweaks like Storage Sense, Game Mode, and visual settings to drastically boost FPS and responsiveness without expensive hardware upgrades.",
-    "tags": [
-      "Windows Optimization",
-      "Gaming Performance",
-      "FPS Boost",
-      "Low-End PC Gaming",
-      "System Tweaks",
-      "Windows 10 Gaming",
-      "Windows 11 Gaming"
-    ],
-    "color": "bg-violet-700 shadow-violet-400"
+    "color": "bg-indigo-800 shadow-indigo-400"
   }
 ]

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Provided Meta Tags for SEO Optimization -->
+    <title>Unlock Your Brain: 6 Habits to SKYROCKET Intelligence!</title>
+    <meta name="description" content="Tired of feeling limited? Discover 6 scientifically-backed habits to TRANSFORM your brain, boost memory, and unlock true cognitive potential. Stop believing intelligence is fixed – start growing!">
+    <meta name="keywords" content="increase intelligence, boost brain power, cognitive enhancement, memory improvement, brain habits, grow intelligence, mental agility, critical thinking, unlock potential, brain health, how to get smarter, scientific ways to boost IQ, habits to improve memory, daily routines for a sharper mind, is intelligence fixed, cultivate cognitive abilities, brain training exercises, overcome mental blocks, thinking without distractions, learn new things faster, Einstein's daily habits, improve problem-solving skills, boost creativity and focus, neuroscience brain hacks, develop a growth mindset">
+    <meta name="author" content="Quertech Articles">
+    <!-- Open Graph Tags for Social Media Sharing -->
+    <meta property="og:title" content="Unlock Your Brain: 6 Habits to SKYROCKET Intelligence!">
+    <meta property="og:description" content="Tired of feeling limited? Discover 6 scientifically-backed habits to TRANSFORM your brain, boost memory, and unlock true cognitive potential. Stop believing intelligence is fixed – start growing!">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://quertech-articles.vercel.app/article-intelligence-habits">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/images/intelligence-thumbnail.jpg"> <!-- Placeholder image URL -->
+    <!-- Twitter Card Tags for Twitter Sharing -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Unlock Your Brain: 6 Habits to SKYROCKET Intelligence!">
+    <meta name="twitter:description" content="Tired of feeling limited? Discover 6 scientifically-backed habits to TRANSFORM your brain, boost memory, and unlock true cognitive potential. Stop believing intelligence is fixed – start growing!">
+    <meta name="twitter:image" content="https://quertech-articles.vercel.app/images/intelligence-thumbnail.jpg"> <!-- Placeholder image URL -->
+    <!-- Canonical Link for SEO -->
+    <link rel="canonical" href="https://quertech-articles.vercel.app/article-intelligence-habits">
+    <!-- End Provided Meta Tags -->
+
+    <!-- Favicon - using a simple SVG to keep it self-contained -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%' y='50%' style='dominant-baseline:central;text-anchor:middle;font-family:sans-serif;font-size:90px;fill:%236366f1;'%3EB%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+
+    <style>
+        /* CSS Reset & Variables for Theming */
+        :root {
+            /* Dark Theme Colors (Default) */
+            --primary-bg: #09172a; /* Slate */
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-color-primary: rgba(255, 255, 255, 0.9);
+            --text-color-secondary: rgba(255, 255, 255, 0.7);
+            --heading-gradient-start: #6366f1; /* Indigo */
+            --heading-gradient-end: #ec4899; /* Pink */
+            --card-shadow: rgba(0, 0, 0, 0.3);
+            --link-color: #6366f1; /* Indigo */
+            --link-hover-color: #ec4899; /* Pink */
+            --btn-bg: #6366f1;
+            --btn-text: #ffffff;
+            --toggle-bg: #1a2b40;
+            --toggle-handle: #ec4899;
+            --toggle-border: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Light Theme Colors */
+        body.light-mode {
+            --primary-bg: #f0f2f5;
+            --glass-bg: rgba(0, 0, 0, 0.05);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --text-color-primary: #1a202c;
+            --text-color-secondary: #4a5568;
+            --card-shadow: rgba(0, 0, 0, 0.1);
+            --link-color: #6366f1;
+            --link-hover-color: #ec4899;
+            --btn-bg: #6366f1;
+            --btn-text: #ffffff;
+            --toggle-bg: #cfd8dc;
+            --toggle-handle: #6366f1;
+            --toggle-border: rgba(0, 0, 0, 0.15);
+        }
+
+        /* Universal Box-Sizing and Reset Margins/Paddings */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Body Styling: Font, Background, Colors, Transitions */
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden; /* Prevent horizontal scroll from background orbs */
+            position: relative; /* Context for absolute positioned background orbs */
+        }
+
+        /* Ambient Background Orbs */
+        .background-orb {
+            position: absolute;
+            width: clamp(100px, 20vw, 300px); /* Fluid size */
+            height: clamp(100px, 20vw, 300px);
+            border-radius: 50%;
+            opacity: 0.2;
+            filter: blur(80px); /* Ethereal blur effect */
+            background: linear-gradient(45deg, var(--heading-gradient-start), var(--heading-gradient-end));
+            animation: orb-animate 20s infinite alternate ease-in-out; /* Continuous animation */
+            z-index: -1; /* Place behind all content */
+        }
+
+        /* Specific positioning and animation delays for each orb */
+        .orb-1 { top: 10%; left: 15%; animation-delay: 0s; transform: scale(1.2); }
+        .orb-2 { top: 60%; left: 80%; animation-delay: 5s; transform: scale(0.9); }
+        .orb-3 { top: 30%; left: 50%; animation-delay: 10s; transform: scale(1.1); }
+        .orb-4 { top: 85%; left: 30%; animation-delay: 15s; transform: scale(1.3); }
+
+        /* Keyframe animation for orbs: movement, scaling, rotation, opacity changes */
+        @keyframes orb-animate {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.2; }
+            25% { transform: translate(20vw, -10vh) scale(1.1) rotate(45deg); opacity: 0.25; }
+            50% { transform: translate(-15vw, 15vh) scale(0.9) rotate(90deg); opacity: 0.15; }
+            75% { transform: translate(10vw, -20vh) scale(1.2) rotate(135deg); opacity: 0.22; }
+            100% { transform: translate(0, 0) scale(1) rotate(180deg); opacity: 0.2; }
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1; /* Ensure content is above background orbs */
+        }
+
+        /* Glassmorphic Base Styles for Sections and Cards */
+        .glass-card, .glass-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px); /* Core glass effect */
+            -webkit-backdrop-filter: blur(15px); /* Safari compatibility */
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 32px 0 var(--card-shadow); /* Soft shadow for depth */
+            transition: all 0.3s ease-in-out; /* Smooth transitions for hover effects */
+        }
+
+        /* General Hover Effect for Glass Cards/Sections (subtle lift) */
+        .glass-card:hover, .glass-section:hover {
+            transform: translateY(-5px) scale(1.01); /* Slight lift */
+            box-shadow: 0 12px 40px 0 var(--card-shadow); /* Enhanced shadow */
+            border-color: var(--heading-gradient-start); /* Border color transition */
+        }
+        /* Overriding for header and main sections as they are larger */
+        header .glass-section:hover {
+            transform: translateY(0) scale(1); /* No lift for the large header */
+            border-color: var(--glass-border); /* Revert border if not meant to change */
+            box-shadow: 0 8px 32px 0 var(--card-shadow);
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem); /* Fluid scaling for main title */
+            font-weight: 900;
+            line-height: 1.1;
+            background: linear-gradient(45deg, var(--heading-gradient-start), var(--heading-gradient-end));
+            -webkit-background-clip: text; /* Gradient text effect */
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        header p.lead {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--text-color-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Main Content General Styling */
+        main {
+            padding-bottom: 50px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem); /* Fluid scaling for section titles */
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--heading-gradient-start), var(--heading-gradient-end));
+            -webkit-background-clip: text; /* Gradient text effect */
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: clamp(1.4rem, 2.5vw, 2rem); /* Fluid scaling for sub-titles */
+            color: var(--text-color-primary);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-color-secondary);
+        }
+
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            color: var(--text-color-secondary);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text-color-primary);
+        }
+
+        em {
+            color: var(--link-color); /* Highlight important phrases */
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--link-hover-color);
+            text-decoration: underline;
+        }
+
+        /* Habit Cards Layout (CSS Grid) */
+        .habit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .habit-card {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding-top: 60px; /* Space for the floating badge */
+            min-height: 280px;
+            box-shadow: 0 4px 15px 0 var(--card-shadow); /* Lighter shadow than main sections */
+            /* Add 3D perspective to enable 3D transforms */
+            perspective: 1000px;
+        }
+
+        /* Tactile Hover Effect: 3D card lifting and border transition */
+        .habit-card:hover {
+            transform: translateY(-8px) rotateX(2deg) rotateY(2deg) scale(1.02); /* More pronounced 3D lift and tilt */
+            box-shadow: 0 15px 45px 0 var(--card-shadow); /* Deeper shadow on hover */
+            border-color: var(--link-hover-color); /* Pink border on hover */
+        }
+
+        .habit-card h3 {
+            font-size: clamp(1.2rem, 2vw, 1.7rem);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .habit-card p {
+            font-size: 0.95rem;
+            color: var(--text-color-secondary);
+        }
+
+        /* CSS-generated Geometric Patterns / Rank Badges for Habits */
+        .habit-card::before {
+            content: attr(data-habit-number); /* Uses the data-habit-number attribute from HTML */
+            position: absolute;
+            top: -20px; /* Positions badge above the card */
+            left: 50%;
+            transform: translateX(-50%) rotate(0deg);
+            background: linear-gradient(45deg, var(--heading-gradient-start), var(--heading-gradient-end));
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%; /* Circular badge shape */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            /* Outer shadow matches background, then a soft drop shadow */
+            box-shadow: 0 0 0 5px var(--primary-bg), 0 5px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            z-index: 10; /* Ensure badge is on top */
+        }
+        /* Badge hover effect */
+        .habit-card:hover::before {
+            transform: translateX(-50%) rotate(10deg) scale(1.05); /* Slight rotation and scale on hover */
+            box-shadow: 0 0 0 5px var(--primary-bg), 0 8px 25px rgba(0, 0, 0, 0.6); /* Enhanced shadow */
+            border-color: var(--link-hover-color);
+        }
+
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000; /* Ensure it's always on top */
+            background-color: var(--toggle-bg);
+            border: 1px solid var(--toggle-border);
+            border-radius: 50px;
+            width: 60px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 2px;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            /* Reset default button styles */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            outline: none;
+        }
+
+        /* Position the handle for light mode */
+        .theme-toggle.light .toggle-handle {
+            transform: translateX(30px);
+        }
+
+        /* Styling for the toggle handle */
+        .toggle-handle {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: var(--toggle-handle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* SVG icon styling within the handle */
+        .toggle-handle svg {
+            width: 18px;
+            height: 18px;
+            fill: white; /* Sun/Moon color */
+            transition: fill 0.3s ease;
+        }
+
+        /* Adjust icon color for light mode handle */
+        .theme-toggle.light .toggle-handle svg {
+            fill: var(--primary-bg); /* Darker icon for light mode handle */
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 50px;
+            color: var(--text-color-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            header {
+                padding: 40px 15px 30px;
+            }
+            header h1 {
+                font-size: clamp(2rem, 8vw, 3.5rem);
+            }
+            header p.lead {
+                font-size: clamp(1rem, 3vw, 1.2rem);
+            }
+            h2 {
+                font-size: clamp(1.5rem, 5vw, 2.2rem);
+            }
+            h3 {
+                font-size: clamp(1.2rem, 4vw, 1.6rem);
+            }
+            .habit-grid {
+                grid-template-columns: 1fr; /* Stack cards vertically on mobile */
+            }
+            .theme-toggle {
+                bottom: 15px;
+                right: 15px;
+                width: 50px;
+                height: 25px;
+                padding: 1px;
+            }
+            .toggle-handle {
+                width: 23px;
+                height: 23px;
+            }
+            .theme-toggle.light .toggle-handle {
+                transform: translateX(25px);
+            }
+            .toggle-handle svg {
+                width: 15px;
+                height: 15px;
+            }
+            .background-orb {
+                filter: blur(60px); /* Slightly less blur on smaller screens for performance/aesthetics */
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Ambient Background Orbs for visual depth -->
+    <div class="background-orb orb-1"></div>
+    <div class="background-orb orb-2"></div>
+    <div class="background-orb orb-3"></div>
+    <div class="background-orb orb-4"></div>
+
+    <header>
+        <div class="container glass-section">
+            <h1>Unlock Your Brain: 6 Habits to SKYROCKET Intelligence!</h1>
+            <p class="lead">Intelligence is not a fixed attribute but a dynamic capacity directly influenced by daily habits. Discover scientifically-backed practices to significantly cultivate your cognitive abilities and foster a more robust mind.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Video Purpose Section -->
+        <section class="glass-section">
+            <h2>Video Purpose</h2>
+            <p>The video's primary purpose is to challenge the widespread belief that intelligence is a fixed, genetically determined trait. It aims to empower viewers by presenting a scientifically supported framework of six actionable habits that, when consistently practiced, can actively enhance cognitive abilities and foster a more robust and adaptable mind.</p>
+            <p>The speaker adopts an authoritative yet encouraging tone, conveying complex ideas in a clear, accessible manner. The delivery is direct and motivational, designed to inspire viewers to implement the suggested habits for intellectual growth.</p>
+        </section>
+
+        <!-- Executive Summary Section -->
+        <section class="glass-section">
+            <h2>Executive Summary</h2>
+            <p>Intelligence is not an unchangeable attribute but a dynamic capacity directly influenced by daily habits. By shifting from passive consumption to active engagement and adopting specific practices, individuals can significantly cultivate their cognitive abilities. The essence lies in intentionally training the brain through various activities to enhance problem-solving, creativity, memory, and overall mental agility.</p>
+        </section>
+
+        <!-- Main Arguments and Habits Section -->
+        <section class="glass-section">
+            <h2>Significant Arguments, Facts, or Steps</h2>
+            <p><strong>Intelligence is Dynamic:</strong> Intelligence is not static throughout life; it evolves and can be enhanced. Historical examples like Albert Einstein, initially labeled "slow" by teachers, and Thomas Edison, expelled from school for perceived lack of understanding, demonstrate that early assessments do not dictate lifelong intellectual potential. Their eventual groundbreaking achievements stemmed from cultivated habits, not innate fixed intelligence.</p>
+
+            <!-- Grid for Habit Cards -->
+            <div class="habit-grid">
+                <!-- Habit 1 Card -->
+                <article class="glass-card habit-card" data-habit-number="1">
+                    <h3>Habit 1: Think Without Digital Input</h3>
+                    <p><strong>Concept:</strong> Engaging in focused, undistracted thought.</p>
+                    <p><strong>Neuroscience Insight:</strong> The brain becomes smarter when compelled to generate ideas without constant external stimulation.</p>
+                    <p><strong>Example:</strong> Albert Einstein spent hours in solitary imagination, walking without books or notes, purely thinking.</p>
+                    <p><strong>Action:</strong> Dedicate 20-30 minutes daily to silent walking or reflection, intentionally avoiding phones, music, or other distractions. This initial discomfort is a sign of intelligence growing.</p>
+                </article>
+
+                <!-- Habit 2 Card -->
+                <article class="glass-card habit-card" data-habit-number="2">
+                    <h3>Habit 2: Prioritize Self-Attempt Before Seeking Help</h3>
+                    <p><strong>Concept:</strong> Engaging in a "try, mistake, retry" cycle when solving problems.</p>
+                    <p><strong>Brain Strengthening:</strong> The brain develops strength by actively wrestling with challenges and learning from errors, rather than receiving immediate solutions.</p>
+                    <p><strong>Example:</strong> Benjamin Franklin's technique involved reading a text, closing it, and then attempting to rewrite it from memory.</p>
+                    <p><strong>Action:</strong> For any problem, first attempt to solve it independently, even if it leads to mistakes. Only then should one seek assistance. This iterative process is crucial for intelligence building.</p>
+                </article>
+
+                <!-- Habit 3 Card -->
+                <article class="glass-card habit-card" data-habit-number="3">
+                    <h3>Habit 3: Utilize Writing for Deep Thinking</h3>
+                    <p><strong>Concept:</strong> Employing writing as a tool for cognitive processing and clarity, not merely for storage.</p>
+                    <p><strong>Cognitive Benefit:</strong> Writing helps slow down "overthinking" by organizing scattered thoughts and enabling focus on a single idea. The act of writing visually reinforces concepts in the brain.</p>
+                    <p><strong>Action:</strong> Maintain a "Daily Thinking Journal" to articulate personal understanding and identify areas of confusion ("What do I actually understand?" "What confuses me?"). This promotes understanding over mere information collection.</p>
+                </article>
+
+                <!-- Habit 4 Card -->
+                <article class="glass-card habit-card" data-habit-number="4">
+                    <h3>Habit 4: Embrace Diverse Learning</h3>
+                    <p><strong>Concept:</strong> Actively learning across a broad spectrum of subjects rather than restricting oneself to a single domain.</p>
+                    <p><strong>Enhanced Connectivity:</strong> Learning diverse topics and seeking connections between them forces the brain to form new neural pathways, leading to faster and more agile thinking.</p>
+                    <p><strong>Action:</strong> Commit to learning something new and different each week, outside one's regular field of study. The greater the brain's interconnectedness, the higher its intelligence.</p>
+                </article>
+
+                <!-- Habit 5 Card -->
+                <article class="glass-card habit-card" data-habit-number="5">
+                    <h3>Habit 5: Train Memory as a Skill</h3>
+                    <p><strong>Concept:</strong> Memory is a trainable skill, comparable to a muscle, rather than an inherent talent.</p>
+                    <p><strong>Memory Reinforcement:</strong> Active recall and explanation of learned material strengthen memory.</p>
+                    <p><strong>Action:</strong> After studying, close the book and explain the content to someone else. Teaching others is an effective method for solidifying information in one's own mind and enhancing recall.</p>
+                </article>
+
+                <!-- Habit 6 Card -->
+                <article class="glass-card habit-card" data-habit-number="6">
+                    <h3>Habit 6: Allow Brain Rest and Recharge</h3>
+                    <p><strong>Concept:</strong> Adequate rest is crucial for cognitive integration and performance enhancement.</p>
+                    <p><strong>Brain Optimization:</strong> The brain "upgrades" and processes information most effectively during periods of rest, not continuous activity.</p>
+                    <p><strong>Example:</strong> Charles Darwin worked only 4-5 hours daily, dedicating the remainder to walks and rest, recognizing the importance of downtime for intellectual work.</p>
+                    <p><strong>Action:</strong> Ensure sufficient sleep, seek daily sunlight exposure, and occasionally permit moments of boredom. Boredom is not a sign of weakness but a vital state for brain recharging and creative insight generation.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Actionable Insights Section -->
+        <section class="glass-section">
+            <h2>Actionable Insights</h2>
+            <p>To genuinely enhance cognitive functions, prioritize the deliberate cultivation of these six habits. Instead of merely consuming information, actively engage with it through undistracted thinking, independent problem-solving, and reflective writing. Expand intellectual horizons by embracing diverse subjects and seeking connections. Treat memory as a skill to be honed through active recall and teaching. Crucially, recognize and integrate periods of dedicated rest and even boredom, as these are indispensable for brain optimization and fostering lasting intellectual agility.</p>
+        </section>
+    </main>
+
+    <!-- Footer with copyright and homepage link -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Quertech Articles. All rights reserved. | <a href="https://quertech-articles.vercel.app" target="_blank" rel="noopener noreferrer">Visit Our Homepage</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle dark and light theme">
+        <div class="toggle-handle">
+            <!-- Sun icon (initially visible for dark mode) -->
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <!-- Moon icon (initially hidden for dark mode) -->
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </div>
+    </button>
+
+    <script>
+        // JavaScript for Theme Toggle Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.querySelector('.theme-toggle');
+            const toggleHandle = themeToggleBtn.querySelector('.toggle-handle');
+            const iconSun = toggleHandle.querySelector('.icon-sun');
+            const iconMoon = toggleHandle.querySelector('.icon-moon');
+
+            // Function to apply the selected theme
+            const setTheme = (isLightMode) => {
+                if (isLightMode) {
+                    document.body.classList.add('light-mode');
+                    themeToggleBtn.classList.add('light');
+                    iconSun.style.display = 'none';
+                    iconMoon.style.display = 'block';
+                    localStorage.setItem('theme', 'light'); // Save preference
+                } else {
+                    document.body.classList.remove('light-mode');
+                    themeToggleBtn.classList.remove('light');
+                    iconSun.style.display = 'block';
+                    iconMoon.style.display = 'none';
+                    localStorage.setItem('theme', 'dark'); // Save preference
+                }
+            };
+
+            // Check for a saved theme preference in localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                setTheme(true); // Apply light theme if saved
+            } else {
+                setTheme(false); // Default to dark mode otherwise
+            }
+
+            // Event listener for theme toggle button click
+            themeToggleBtn.addEventListener('click', () => {
+                // Determine current theme state and toggle
+                const isLightMode = document.body.classList.contains('light-mode');
+                setTheme(!isLightMode); // Switch to the opposite theme
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

@@ -1,224 +1,82 @@
 [
   {
-    "blog_title": "Wealth Mindset: 5 Rules",
-    "link": "prosper",
-    "description": "Transform your mindset for financial success. Learn 5 rules and practical habits from a personal journey from bankruptcy to wealth, focusing on value creation and smart money management.",
+    "blog_title": "Code Hour",
+    "link": "/codehour",
+    "description": "Unlock your coding potential in just 60 minutes a day! Discover the proven strategy to actively build, debug, and master programming skills faster than passive learning.",
     "tags": [
-      "Wealth Mindset",
-      "Financial Habits",
-      "Money Management",
-      "Financial Freedom",
-      "Value Creation"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-600"
-  },
-  {
-    "blog_title": "The 3-Second Rule: Master Discipline, Conquer Resistance",
-    "link": "ActNow",
-    "description": "Unlock unstoppable discipline! This 5-step guide reveals how to beat procrastination by understanding your brain's comfort-seeking nature. Learn the '3-second kill switch' and daily discomfort rituals to become a high-pressure machine.",
-    "tags": [
-      "Procrastination",
-      "Discipline",
-      "Self-improvement",
-      "Motivation",
-      "Mindset",
-      "Productivity",
-      "3-Second Rule",
-      "Mental Resistance"
-    ],
-    "color": "bg-blue-900 shadow-blue-400"
-  },
-  {
-    "blog_title": "The Art of Discipline: Conquer Procrastination",
-    "link": "Rewire",
-    "description": "Master procrastination! Himeesh Madaan reveals 4 types and a 21-day system to rewire your brain for discipline and consistent action. End emotional delays, start achieving.",
-    "tags": [
-      "Procrastination",
-      "Discipline",
-      "Rewire Brain",
-      "Productivity",
-      "Himeesh Madaan"
-    ],
-    "color": "bg-emerald-800 shadow-emerald-400"
-  },
-  {
-    "blog_title": "Unlock Game Power: Mod Android APKs for Unlimited Currency",
-    "link": "Mod Game",
-    "description": "Learn to customize Android games! This guide shows how to use Apktool M to decompile APKs, modify in-game data (like currency), and recompile for your own 'modded' apps. Unlock hidden potential and control your game experience.",
-    "tags": [
-      "Android Modding",
-      "APK Decompile",
-      "Game Currency Hacks",
-      "Apktool M Tutorial",
-      "Game Customization"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Code Muscle: Master Dev Skills",
-    "link": "CODEMAST",
-    "description": "Unlock true coding mastery. Learn why active, hands-on practice, not AI, builds vital 'muscle memory' for developers. Ace interviews & code like a pro with our 70/30 rule.",
-    "tags": [
-      "Coding Practice",
-      "Muscle Memory",
-      "AI Coding",
-      "Developer Skills",
+      "Coding",
+      "Learn to Code",
       "Programming",
-      "Technical Interview",
-      "Hands-On Coding"
+      "60 Minute Challenge",
+      "Active Learning",
+      "Problem Solving"
     ],
-    "color": "bg-indigo-800 shadow-indigo-400"
+    "color": "bg-blue-700 shadow-blue-400"
   },
   {
-    "blog_title": "Germany UG Guide",
-    "link": "GERMANDG",
-    "description": "Indian 12th pass? Secure your German Bachelor's! This guide cuts through confusion: Studentenkolleg, direct entry, and Ausbildung options. Plan your path wisely.",
+    "blog_title": "Gen Z Debt",
+    "link": "/genzdebt",
+    "description": "Gen Z in India faces mounting debt from lifestyle spending, job instability, and BNPL schemes. Discover the financial challenges and learn smart money management strategies to build wealth.",
     "tags": [
-      "Germany Study",
-      "Studentenkolleg",
-      "Bachelor Germany",
-      "Indian Students",
-      "Ausbildung"
+      "Gen Z",
+      "India",
+      "Debt",
+      "Financial Management",
+      "BNPL",
+      "Job Instability",
+      "Personal Finance"
     ],
-    "color": "bg-emerald-900 shadow-emerald-500"
+    "color": "bg-red-700 shadow-red-400"
   },
   {
-    "blog_title": "Sharpen Your Focus: 5 Scientific Steps to Master Attention",
-    "link": "SHARPEN",
-    "description": "Unlock peak performance by mastering focus! Our attention spans are shorter than a goldfish's, but this guide reveals 5 scientifically-backed steps—from ancient Trataka to modern brain hacks like the 90-20 rule—to sharpen your mind, boost productivity, and conquer digital distractions.",
+    "blog_title": "Mind Hack",
+    "link": "/mindhack",
+    "description": "Reclaim your brain from dopamine addiction. Learn how to break free from bad habits and master self-control with this 7-day detox system. Stop feeling weak, start living powerfully.",
     "tags": [
-      "Focus",
-      "Attention Span",
+      "Mind Control",
+      "Dopamine Detox",
+      "Self-Mastery",
+      "Habit Breaking",
+      "Productivity"
+    ],
+    "color": "bg-red-600 shadow-red-400"
+  },
+  {
+    "blog_title": "Master Grit",
+    "link": "/mastergrit",
+    "description": "Reclaim control from destructive urges. Discover a 5-step plan to build ironclad discipline, conquer temptation, and redirect your attention for ultimate self-mastery.",
+    "tags": [
+      "Self-Discipline",
+      "Willpower",
+      "Habit Control",
+      "Mental Fortitude",
+      "Productivity"
+    ],
+    "color": "bg-red-700 shadow-red-400"
+  },
+  {
+    "blog_title": "Sharpen Your Mind: 6 Habits for Smarter Brains",
+    "link": "BrainGrow",
+    "description": "Unlock your brain's true potential! This guide reveals 6 powerful, science-backed habits proven to actively boost your intelligence, memory, and problem-solving skills. Stop passive consumption, start growing your mind.",
+    "tags": [
+      "Intelligence Habits",
+      "Brain Growth",
+      "Cognitive Boost",
+      "Mindset Shift",
+      "Memory Training"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "20 Skills To Win",
+    "link": "GainPower",
+    "description": "Unlock your potential. Discover 20 critical skills like deep work, public speaking & emotional control for ultimate personal and professional growth. Your blueprint to mastery!",
+    "tags": [
+      "Personal Growth",
+      "Life Skills",
+      "Self-Improvement",
       "Productivity",
-      "Brain Hacks",
-      "Science of Focus",
-      "Dopamine",
-      "Trataka",
-      "Ultradian Rhythms",
-      "Digital Distraction",
-      "Cognitive Enhancement"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Hack Your Brain to Crave Studying: The Dopamine Method",
-    "link": "BrainHack",
-    "description": "Unlock your brain's potential! Learn the 'Dopamine Loading Method' to reprogram your reward system, turn studying into a satisfying habit, and make your brain addicted to growth. No more willpower struggles – just smart neurochemistry.",
-    "tags": [
-      "Brain Hacking",
-      "Dopamine",
-      "Study Habits",
-      "Neuroscience",
-      "Productivity",
-      "Learning",
-      "Motivation"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Ask & Receive: Jim Rohn's Success Key",
-    "link": "UNLOCK",
-    "description": "Unlock your full potential! Jim Rohn reveals the simple yet powerful 'art of asking' – a skill crucial for achieving any desire. Learn to ask with intelligence and faith to manifest your dreams.",
-    "tags": [
-      "Asking",
-      "Success Principles",
-      "Jim Rohn",
-      "Manifestation",
-      "Goal Achievement",
-      "Personal Growth"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Conquer Procrastination: Start Now",
-    "link": "CONQUER",
-    "description": "Stuck on 'someday'? Overcome procrastination and the fear of starting by prioritizing momentum over motivation. Learn how a single, imperfect action can unlock progress and help you achieve your goals.",
-    "tags": [
-      "Procrastination",
-      "Motivation",
-      "Productivity",
-      "Action",
-      "Goal Setting",
-      "Mindset"
-    ],
-    "color": "bg-purple-700 shadow-purple-400"
-  },
-  {
-    "blog_title": "Ignite Your Dev Journey: Code for Joy, Build for Mastery",
-    "link": "BuildSkill",
-    "description": "Daily 'coding for fun' cultivates mastery. Dedicate 30-60 mins to personal projects, like building AI asset managers or email visualizers. Develop skills, innovate, and build a real portfolio without pressure. Embrace intrinsic motivation for true growth.",
-    "tags": [
-      "Coding Habit",
-      "Developer Growth",
-      "Side Projects",
-      "Skill Development",
-      "Intrinsic Motivation",
-      "AI Development",
-      "Data Visualization"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Master Your Focus: Scientific Strategies for Peak Concentration",
-    "link": "Mastery",
-    "description": "Our attention spans are shrinking faster than a goldfish's! Discover scientifically-backed brain hacks and ancient wisdom (like the 90-20 rule and Trataka) to regain deep concentration, conquer distractions, and massively boost your productivity.",
-    "tags": [
-      "Focus",
-      "Attention Span",
-      "Productivity",
-      "Brain Hacks",
-      "Dopamine",
-      "Ultradian Rhythm",
-      "Trataka",
-      "Concentration",
-      "Mindset"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "5 Secret Skills For Student Financial Freedom",
-    "link": "PowerEarn",
-    "description": "Unlock financial independence! Discover 5 high-income skills like voice-over, handmade art, and social media management. Learn how to earn big and fund your education while still a student, turning passion into profit.",
-    "tags": [
-      "Student Finance",
-      "High-Income Skills",
-      "Earn While Studying",
-      "Financial Freedom",
-      "Skill Development",
-      "Student Money"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Beat Brain Fog: Reclaim Your Mental Clarity",
-    "link": "BeatFog",
-    "description": "Unlock your mind! Learn the real causes of brain fog – beyond just fatigue – and discover scientifically-backed solutions to boost focus, memory, and energy. Reclaim your mental sharpness today.",
-    "tags": [
-      "Brain Fog",
-      "Cognitive Decline",
-      "Mental Clarity",
-      "Focus Boost",
-      "Memory Improvement",
-      "Neuroscience",
-      "Stress Management",
-      "Sleep Hygiene",
-      "BDNF"
-    ],
-    "color": "bg-emerald-900 shadow-emerald-400"
-  },
-  {
-    "blog_title": "Master English: Quick Level Check",
-    "link": "MasterEng",
-    "description": "Discover your English proficiency in minutes! This fast 5-question quiz assesses your grammar, vocabulary, and listening skills, instantly revealing if you're Beginner, Intermediate, or Advanced. Pinpoint areas for improvement and accelerate your language mastery!",
-    "tags": [
-      "English Quiz",
-      "Language Learning",
-      "Proficiency Test",
-      "Grammar Check",
-      "Vocabulary Test",
-      "Listening Skills",
-      "CEFR Levels",
-      "English Mastery"
+      "Mastery"
     ],
     "color": "bg-indigo-900 shadow-indigo-400"
   }

@@ -1,1368 +1,454 @@
 [
   {
-    "blog_title": "The 90-Minute Sleep Secret: Maximize Recovery & Boost Focus",
-    "link": "PEAKSLEEP",
-    "description": "Unlock peak daily performance by mastering sleep quality over mere duration. Discover the science behind 90-minute sleep cycles, practical steps like the '3-2-1 method,' and morning light exposure to maximize recovery, focus, and energy. Stop just sleeping and start truly restoring!",
-    "tags": [
-      "Sleep Quality",
-      "Sleep Optimization",
-      "Peak Performance",
-      "90-Minute Cycles",
-      "Circadian Rhythm",
-      "Productivity Boost",
-      "Efficient Sleep"
-    ],
-    "color": "bg-blue-900 shadow-blue-500"
-  },
-  {
-    "blog_title": "Wealth Mindset: 5 Rules",
-    "link": "prosper",
-    "description": "Transform your mindset for financial success. Learn 5 rules and practical habits from a personal journey from bankruptcy to wealth, focusing on value creation and smart money management.",
-    "tags": [
-      "Wealth Mindset",
-      "Financial Habits",
-      "Money Management",
-      "Financial Freedom",
-      "Value Creation"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-600"
-  },
-  {
-    "blog_title": "Google Cloud Gen AI Academy: Master AI Skills",
-    "link": "MasterAI",
-    "description": "Unlock your potential! Google Cloud's FREE Gen AI Academy APAC 2026 offers expert workshops, CodeLabs, and mentorship. Master Generative AI, earn a certificate, win up to $10,000, and boost your career in AI.",
-    "tags": [
-      "Google Gen AI",
-      "Free AI Course",
-      "AI Skills",
-      "APAC",
-      "Career Boost",
-      "AI Certification"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "The 3-Second Rule: Master Discipline, Conquer Resistance",
-    "link": "ActNow",
-    "description": "Unlock unstoppable discipline! This 5-step guide reveals how to beat procrastination by understanding your brain's comfort-seeking nature. Learn the '3-second kill switch' and daily discomfort rituals to become a high-pressure machine.",
-    "tags": [
-      "Procrastination",
-      "Discipline",
-      "Self-improvement",
-      "Motivation",
-      "Mindset",
-      "Productivity",
-      "3-Second Rule",
-      "Mental Resistance"
-    ],
-    "color": "bg-blue-900 shadow-blue-400"
-  },
-  {
-    "blog_title": "Minecraft FPS Boost: Smooth Gameplay on Low-End PCs",
-    "link": "ProCraft",
-    "description": "Unlock super smooth Minecraft gameplay on any low-end PC! This guide tackles lag, screen tearing, and inconsistent frame times with expert mods, precise settings, and GPU tools for a truly fluid experience.",
-    "tags": [
-      "Minecraft",
-      "FPS Boost",
-      "Low-End PC",
-      "Smooth Gameplay",
-      "Lag Fix",
-      "Screen Tearing",
-      "Sideyy Boost",
-      "MSI Afterburner"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Python Dictionaries: Core Concepts & Methods",
-    "link": "CORE DICTS",
-    "description": "Unlock Python's foundational data structure! This tutorial covers dictionary creation, modification, and iteration, demonstrating essential methods like get(), update(), and pop() for robust data management.",
-    "tags": [
-      "Python Dictionaries",
-      "Data Structures",
-      "Python Tutorial",
-      "Coding Basics",
-      "Dictionary Methods"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-500"
-  },
-  {
-    "blog_title": "Master Python's Match-Case",
-    "link": "MatchGain",
-    "description": "Unlock cleaner, more readable Python code with the new `match-case` statement (Python 3.10+). This tutorial shows how to replace lengthy `if-elif-else` chains with powerful pattern matching for superior clarity and maintainability.",
-    "tags": [
-      "Python 3.10",
-      "Match Case",
-      "Pattern Matching",
-      "Code Refactoring",
-      "Python Tutorial",
-      "Control Flow"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Claude AI Productivity",
-    "link": "SAVETIME",
-    "description": "Master Claude & Cowork! Automate tasks, manage files, analyze data, and streamline online interactions with powerful AI. Save 2-3 hours daily and boost your productivity.",
-    "tags": [
-      "Claude AI",
-      "Productivity Tools",
-      "AI Automation",
-      "Workflow Management",
-      "Data Analysis"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "AI Kids Cash",
-    "link": "AI Kids Cash",
-    "description": "Unlock YouTube's massive 3D kids' rhyme market with AI! Learn a free, fast, step-by-step workflow to generate high-quality animated videos, music, and visuals in minutes. Start earning huge from an untapped niche now!",
-    "tags": [
-      "AI YouTube Profit",
-      "Kids Rhymes AI",
-      "3D Animation",
-      "Content Creation AI",
-      "Monetize YouTube"
-    ],
-    "color": "bg-purple-900 shadow-purple-400"
-  },
-  {
-    "blog_title": "Healthy Weight Gain Blueprint",
-    "link": "GainPower",
-    "description": "Struggling to gain weight healthily? Debunk myths and discover science-backed strategies tailored to your body type. Learn specific diets, workouts, and lifestyle changes to build muscle and avoid 'Thin Outside, Fat Inside' risks.",
-    "tags": [
-      "Healthy Weight Gain",
-      "Weight Gain Diet",
-      "Body Type",
-      "Ectomorph",
-      "Muscle Building",
-      "Nutrition",
-      "Workout",
-      "TOFI"
-    ],
-    "color": "bg-violet-700 shadow-violet-400"
-  },
-  {
-    "blog_title": "AI's Rapid Ascent: Autonomous Agents & Ubiquitous Integration",
-    "link": "AIPower",
-    "description": "Dive into the accelerating world of AI: from Gemini's deep integration in Google Workspace to autonomous agents redefining research and business. Explore Claude's visual builder, Perplexity's AI OS, and the rise of AI-powered ecosystems. Discover key insights into adoption, innovation, and essential new tools.",
-    "tags": [
-      "AI",
-      "Autonomous AI",
-      "AI Integration",
-      "AI Agents",
-      "Tech Trends",
-      "Generative AI",
-      "Claude AI",
-      "Google Gemini"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Unlock Elite AI: Build Real-World Systems",
-    "link": "AIElite",
-    "description": "Tired of AI education that creates 'API callers'? This expert debunks the AI learning 'scam,' offering a 6-step system to shift from consuming content to building real-world systems, making you a top 0.1% AI Engineer or Architect.",
-    "tags": [
-      "AI Education",
-      "AI Engineer",
-      "MLOps",
-      "AI Architect",
-      "Skill Development",
-      "AI Career Path",
-      "Real-World AI",
-      "AI Systems"
-    ],
-    "color": "bg-purple-700 shadow-purple-400"
-  },
-  {
-    "blog_title": "Monetag Direct Cash",
-    "link": "ClickCash",
-    "description": "Discover how to monetize digital assets like images and videos using Monetag Direct Links. Bypass traditional platform requirements and earn online, even with a $5 PayPal payout. Learn content strategies, Blogger integration, and how Pinterest can boost your dollar earnings.",
-    "tags": [
-      "Monetag",
-      "Online Earnings",
-      "Direct Links",
-      "Content Monetization",
-      "Pinterest Marketing",
-      "Passive Income",
-      "Blogger Strategy",
-      "Ad Revenue"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "AI vs. Humans: The Real IT Job Market Future",
-    "link": "Human AI Win",
-    "description": "Ex-Google engineer Mohammad Fraz debunks AI layoff myths, revealing post-COVID overhiring and AI limitations. Discover why human expertise, especially in mid-level and expert IT roles, is crucial amidst AI's 'plateau effect' and re-hiring trends. Learn to upskill and thrive in the evolving tech landscape.",
-    "tags": [
-      "AI Layoffs",
-      "IT Job Market",
-      "Human Expertise",
-      "AI Limitations",
-      "Software Engineering",
-      "Tech Careers",
-      "LearnYard"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Unleashing Gemini 3.0 Pro: The Apex of Multimodal AI",
-    "link": "Apex AI",
-    "description": "Google's Gemini 3.0 Pro redefines AI with advanced multimodal understanding, unprecedented reasoning, and long-context processing. Explore how this powerhouse transforms data analysis, content creation, and search, ushering in a new era of AI innovation.",
-    "tags": [
-      "Gemini 3.0 Pro",
-      "Multimodal AI",
-      "Advanced AI",
-      "Google AI",
-      "AI Innovation",
-      "Agentic AI",
-      "Long Context AI"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Infosys Springboard: Free Digital Skills & Career Growth",
-    "link": "progrow",
-    "description": "Unlock your potential with Infosys Springboard! Get 12,000+ free courses, virtual internships, and certifications for digital & life skills. No fees, no exams – just career growth.",
-    "tags": [
-      "Infosys Springboard",
-      "Free Education",
-      "Digital Skills",
-      "Virtual Internships",
-      "Career Development",
-      "Online Certifications",
-      "Tech Skills"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-600"
-  },
-  {
-    "blog_title": "PDF Excel Riches: Your Freelance Guide",
-    "link": "ExcelCash",
-    "description": "An expert guide from a Microsoft Certified Trainer on converting PDFs to clean Excel for lucrative freelance gigs. Learn essential data cleaning and transformation skills to earn a 'second salary' with practical, step-by-step methods and tools.",
-    "tags": [
-      "Freelancing",
-      "PDF to Excel",
-      "Data Cleaning",
-      "Excel Skills",
-      "Fiverr",
-      "Second Salary",
-      "Online Earning",
-      "Microsoft Excel"
-    ],
-    "color": "bg-blue-900 shadow-blue-400"
-  },
-  {
-    "blog_title": "Master Claude Code: Revolutionize Your AI Development Workflow",
-    "link": "DevLead",
-    "description": "Dive into our new playlist on Claude Code by Anthropic! Learn AI-assisted and agentic coding to build scalable, real-world applications. Boost your productivity 10x, eradicate AI fear, and master the future of software development.",
-    "tags": [
-      "Claude Code",
-      "AI Coding",
-      "Agentic Development",
-      "Software Engineering",
-      "AI Productivity",
-      "Anthropic AI"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-500"
-  },
-  {
-    "blog_title": "Master Your Workflow with Claude AI",
-    "link": "AIProMax",
-    "description": "Ditch generic chatbots! Discover how Claude's unique Artifacts, Projects, and Analysis tools supercharge your writing, coding, and data tasks. Get precise, professional results every time.",
-    "tags": [
-      "Claude AI",
-      "AI Productivity",
-      "Workflow Automation",
-      "Data Analysis",
-      "AI Writing",
-      "AI Coding",
-      "Anthropic Claude"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-600"
-  },
-  {
-    "blog_title": "Master AI Prompting: Boost Productivity & Creativity",
-    "link": "masterai",
-    "description": "Unlock AI's full potential! Learn expert prompting to boost productivity, ignite creativity, and revolutionize learning. Move beyond basic Q&A and master AI for stunning visuals, dynamic presentations, and personalized education.",
-    "tags": [
-      "AI Prompting",
-      "AI Productivity",
-      "AI Creativity",
-      "AI Learning",
-      "Prompt Engineering",
-      "AI Skills"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Master Your Memory: Neuroscience Strategies for Exam Success",
-    "link": "Ace Memory",
-    "description": "Struggling to remember what you read? Unlock neuroscience-backed strategies for superior memory retention, perfect for demanding exams like UPSC. Learn active recall, spaced repetition, and how to build powerful, lasting memories by understanding your brain's natural processes.",
-    "tags": [
-      "Memory Retention",
-      "Study Strategies",
-      "Neuroscience Learning",
-      "Active Recall",
-      "Spaced Repetition",
-      "UPSC Exam Prep",
-      "Learning Hacks",
-      "Brain Training"
-    ],
-    "color": "bg-violet-800 shadow-violet-400"
-  },
-  {
-    "blog_title": "The Art of Discipline: Conquer Procrastination",
-    "link": "Rewire",
-    "description": "Master procrastination! Himeesh Madaan reveals 4 types and a 21-day system to rewire your brain for discipline and consistent action. End emotional delays, start achieving.",
-    "tags": [
-      "Procrastination",
-      "Discipline",
-      "Rewire Brain",
-      "Productivity",
-      "Himeesh Madaan"
-    ],
-    "color": "bg-emerald-800 shadow-emerald-400"
-  },
-  {
-    "blog_title": "Master Python Core Fundamentals",
-    "link": "PythonCore",
-    "description": "Unlock Python's power! This crash course teaches beginners essential syntax, data types, functions, and error handling. Build a chatbot and master foundational coding skills for any project.",
-    "tags": [
-      "Python",
-      "Beginner Coding",
-      "Python Fundamentals",
-      "Programming Tutorial",
-      "Code Examples"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-600"
-  },
-  {
-    "blog_title": "Master Mouse Mods: Drag Click & Clear Shell Guide",
-    "link": "DIYClick",
-    "description": "Upgrade your gaming mouse! This DIY guide shows how to mod for peak drag-clicking performance with extended buttons and stunning transparent shell aesthetics. Master your clicks!",
-    "tags": [
-      "Mouse Mod",
-      "Drag Click",
-      "Gaming DIY",
-      "Custom Mouse",
-      "Transparent"
-    ],
-    "color": "bg-teal-900 shadow-teal-400"
-  },
-  {
-    "blog_title": "Aternos 24/7: Free Uptime Bot Guide",
-    "link": "FreeUptime",
-    "description": "Learn to keep your Aternos Minecraft server online 24/7 for free! This step-by-step guide uses an AFK bot with GitHub & Render.com to prevent inactivity shutdowns.",
-    "tags": [
-      "Aternos",
-      "Minecraft",
-      "24/7 Server",
-      "AFK Bot",
-      "Free Hosting",
-      "GitHub",
-      "Render.com",
-      "Server Uptime"
-    ],
-    "color": "bg-blue-900 shadow-blue-400"
-  },
-  {
-    "blog_title": "Code Mastery Method",
-    "link": "Code Win",
-    "description": "Stop failing at coding! Discover the project-based method for rapid mastery, leveraging building, smart AI, and community. Ditch endless tutorials, start creating and succeeding today.",
-    "tags": [
-      "Coding Education",
-      "Project-Based Learning",
-      "Learn to Code",
-      "Programming Mastery",
-      "AI in Coding"
-    ],
-    "color": "bg-violet-900 shadow-violet-400"
-  },
-  {
-    "blog_title": "Mastering Python's Core Concepts",
-    "link": "PYPOWER",
-    "description": "Unlock Python's potential! This foundational guide introduces 10 essential programming concepts, from variables and data types to classes and 'dunder' methods, empowering you to write robust, readable, and reusable code.",
-    "tags": [
-      "Python Fundamentals",
-      "Python Programming",
-      "Core Python",
-      "Data Types",
-      "Classes",
-      "Dunder Methods"
-    ],
-    "color": "bg-violet-800 shadow-violet-400"
-  },
-  {
-    "blog_title": "Google Antigravity: AI App Revolution",
-    "link": "ZeroCode",
-    "description": "Discover Google Antigravity, the free AI IDE that revolutionizes app development. Build full-stack web & mobile apps fast with 'Vibe Coding' – no traditional code needed. Create your vision 10x quicker!",
-    "tags": [
-      "Google Antigravity",
-      "AI IDE",
-      "No-Code",
-      "App Development",
-      "Vibe Coding",
-      "Full-Stack Apps",
-      "AI Agents",
-      "Rapid Development"
-    ],
-    "color": "bg-blue-800 shadow-blue-400"
-  },
-  {
-    "blog_title": "Rocket.new AI Apps",
-    "link": "LaunchAI",
-    "description": "Build full-stack web apps fast with Rocket.new's AI. Go from prompt to live deployment in minutes, with modern designs, integrated backends, and more. For all skill levels.",
-    "tags": [
-      "AI Web Dev",
-      "Fullstack Apps",
-      "Rapid Dev",
-      "No-Code",
-      "AI Platform"
-    ],
-    "color": "bg-violet-800 shadow-violet-400"
-  },
-  {
-    "blog_title": "Python Roadmap: Master Coding",
-    "link": "Python Path",
-    "description": "Unlock Python mastery with Shraddha Khapra's 3-stage roadmap. Learn essential concepts, best practices, and career-boosting skills from fundamentals to specialization, emphasizing active practice and strategic AI use. Start coding today!",
-    "tags": [
-      "Python Programming",
-      "Learn Python",
-      "Python Roadmap",
-      "Coding Guide",
-      "Shraddha Khapra",
-      "Programming Skills",
-      "AI Tools"
-    ],
-    "color": "bg-purple-900 shadow-purple-400"
-  },
-  {
-    "blog_title": "Tailwind Vite8 Fix",
-    "link": "SolveVite",
-    "description": "Unlock seamless Tailwind CSS integration with Vite v8! This guide tackles common dependency conflicts using `npm overrides`, providing a precise, step-by-step solution to get your React project running smoothly.",
-    "tags": [
-      "Vite v8",
-      "Tailwind CSS",
-      "npm overrides",
-      "Dependency Conflict",
-      "React",
-      "Frontend Dev",
-      "Vite Plugin"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "GlowFX",
-    "link": "GlowFX",
-    "description": "Craft dazzling animated glow borders! Discover how to create dynamic, rotating gradient effects purely with HTML & CSS using pseudo-elements, conic gradients, and the powerful @property rule. Elevate your UI with advanced, performant CSS.",
-    "tags": [
-      "CSS Animation",
-      "Glowing Border",
-      "Conic Gradient",
-      "HTML CSS",
-      "Web Dev"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-500"
-  },
-  {
-    "blog_title": "Master CSS Scroll Effects",
-    "link": "Scroll FX",
-    "description": "Unlock native CSS scroll-driven animations without JavaScript! Master new CSS properties like `animation-timeline` and `animation-range` for smooth, performant element transitions, enhancing web interactivity with minimal code.",
-    "tags": [
-      "CSS Animations",
-      "Scroll Effects",
-      "No JavaScript",
-      "Web Performance",
-      "Frontend Dev"
-    ],
-    "color": "bg-sky-800 shadow-sky-400"
-  },
-  {
-    "blog_title": "Google Play Store Desktop App Guide",
-    "link": "PlayWin",
-    "description": "Learn to quickly install Google Play Store as a desktop app shortcut on Windows using Microsoft Edge. Get instant, easy access to your favorite Android apps directly from your desktop, bypassing browser steps for a streamlined experience.",
-    "tags": [
-      "Google Play Store",
-      "Desktop Shortcut",
-      "Windows",
-      "Microsoft Edge",
-      "PWA",
-      "Web App",
-      "Productivity",
-      "Android Apps"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Install Android Apps on Windows 11",
-    "link": "APKonWin",
-    "description": "Seamlessly install Android APKs on Windows 11! This guide covers two powerful methods: WSATools from the Microsoft Store and the open-source WSA PacMan. Learn essential WSA setup, configuration, and troubleshooting to run your favorite Android apps on your desktop.",
-    "tags": [
-      "Windows 11",
-      "Android Apps",
-      "APK Installation",
-      "WSA",
-      "WSATools",
-      "WSA PacMan",
-      "Android on PC"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Mod Android Apps (No Root)",
-    "link": "Mod Games",
-    "description": "Unlock game value edits & app customization without root! Master Apktool M to decrypt, modify, and recompile Android apps for personalized experiences.",
-    "tags": [
-      "Android Modding",
-      "Apktool M",
-      "No Root",
-      "Game Customization",
-      "APK Editing"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Unlock Game Power: Mod Android APKs for Unlimited Currency",
-    "link": "Mod Game",
-    "description": "Learn to customize Android games! This guide shows how to use Apktool M to decompile APKs, modify in-game data (like currency), and recompile for your own 'modded' apps. Unlock hidden potential and control your game experience.",
-    "tags": [
-      "Android Modding",
-      "APK Decompile",
-      "Game Currency Hacks",
-      "Apktool M Tutorial",
-      "Game Customization"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Google AI: Build Apps Instantly",
-    "link": "AppGenius",
-    "description": "Revolutionize app development! Google's AI pipeline (Stitch, Antigravity, Flutter) lets you generate fully functional, cross-platform mobile apps from simple text or a website, no coding needed. Create apps instantly and deploy them easily.",
-    "tags": [
-      "Google AI",
-      "No-Code App",
-      "Flutter",
-      "AI App Builder",
-      "Mobile Development"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-500"
-  },
-  {
-    "blog_title": "Turbocharge Android Apps on Windows 11",
-    "link": "TurboDroid",
-    "description": "Run Android apps & games natively on Windows 11 without lag! This guide uses WSA, WSATools & ADB for seamless mobile-like performance on your PC. Ditch emulators now!",
-    "tags": [
-      "Android Apps",
-      "Windows 11",
-      "WSA Setup",
-      "No Lag",
-      "PC Gaming"
-    ],
-    "color": "bg-emerald-800 shadow-emerald-400"
-  },
-  {
-    "blog_title": "Git Commit Blunders: Fix Wrong Branch Fast",
-    "link": "GitFix",
-    "description": "Accidentally committed to the wrong Git branch? Learn to fix it like a pro! This guide covers using `git cherry-pick` to move commits and `git reset --hard` to clean your main branch, ensuring a flawless codebase. Master Git recovery and boost your professional coding skills.",
-    "tags": [
-      "Git",
-      "Git Recovery",
-      "Git Commits",
-      "Branching",
-      "git cherry-pick",
-      "git reset",
-      "Developer Tools",
-      "Coding Best Practices"
-    ],
-    "color": "bg-purple-700 shadow-purple-400"
-  },
-  {
-    "blog_title": "Code Muscle: Master Dev Skills",
-    "link": "CODEMAST",
-    "description": "Unlock true coding mastery. Learn why active, hands-on practice, not AI, builds vital 'muscle memory' for developers. Ace interviews & code like a pro with our 70/30 rule.",
-    "tags": [
-      "Coding Practice",
-      "Muscle Memory",
-      "AI Coding",
-      "Developer Skills",
-      "Programming",
-      "Technical Interview",
-      "Hands-On Coding"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-400"
-  },
-  {
-    "blog_title": "PC Graphics Master Guide",
-    "link": "Game Max",
-    "description": "Unlock peak PC gaming! Master Ray Tracing, DLSS, Frame Generation & more. Learn how graphics tech impacts visuals & FPS to optimize your settings for ultimate realism or competitive edge. Your essential guide.",
-    "tags": [
-      "PC Graphics",
-      "Gaming Tech",
-      "FPS Boost",
-      "Ray Tracing",
-      "DLSS FSR",
-      "Game Optimization"
-    ],
-    "color": "bg-emerald-700 shadow-emerald-400"
-  },
-  {
-    "blog_title": "CLI Master",
-    "link": "CLIMaster",
-    "description": "Elevate your Windows Terminal! Customize with a stunning theme, Nerd Font, and Fastfetch for a powerful, personalized CLI experience. Get system stats at a glance!",
-    "tags": [
-      "Windows Terminal",
-      "CLI Customization",
-      "Fastfetch",
-      "Nerd Fonts",
-      "PowerShell",
-      "Catppuccin",
-      "Terminal Theme",
-      "System Info",
-      "Windows 11"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Mastering CSS Position Property: Absolute, Relative, Fixed, Sticky, and Z-index Explained",
-    "link": "MasterPos",
-    "description": "Unlock advanced web design with this comprehensive CSS position tutorial. Master 'relative', 'absolute', 'fixed', 'sticky', and 'z-index' for precise element layout and control over visual stacking. Learn to break elements from normal flow and manage layers effectively.",
-    "tags": [
-      "CSS Position",
-      "Web Design",
-      "CSS Layout",
-      "Frontend Development",
-      "z-index",
-      "relative position",
-      "absolute position",
-      "fixed position",
-      "sticky position"
-    ],
-    "color": "bg-blue-800 shadow-blue-500"
-  },
-  {
-    "blog_title": "Germany UG Guide",
-    "link": "GERMANDG",
-    "description": "Indian 12th pass? Secure your German Bachelor's! This guide cuts through confusion: Studentenkolleg, direct entry, and Ausbildung options. Plan your path wisely.",
-    "tags": [
-      "Germany Study",
-      "Studentenkolleg",
-      "Bachelor Germany",
-      "Indian Students",
-      "Ausbildung"
-    ],
-    "color": "bg-emerald-900 shadow-emerald-500"
-  },
-  {
-    "blog_title": "Study Mastery: Ace Your Exams",
-    "link": "MindBoost",
-    "description": "Struggling with exams? Unlock your potential with 3 scientifically-backed study techniques: Feynman, Pomodoro, and Spaced Repetition. Boost focus, retention, and confidence to ace your academics.",
-    "tags": [
-      "Study Techniques",
-      "Academic Success",
-      "Feynman Technique",
-      "Pomodoro Technique",
-      "Spaced Repetition",
-      "Learning Strategies",
-      "Exam Prep",
-      "Student Motivation"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-500"
-  },
-  {
-    "blog_title": "Sharpen Your Focus: 5 Scientific Steps to Master Attention",
-    "link": "SHARPEN",
-    "description": "Unlock peak performance by mastering focus! Our attention spans are shorter than a goldfish's, but this guide reveals 5 scientifically-backed steps—from ancient Trataka to modern brain hacks like the 90-20 rule—to sharpen your mind, boost productivity, and conquer digital distractions.",
-    "tags": [
-      "Focus",
-      "Attention Span",
-      "Productivity",
-      "Brain Hacks",
-      "Science of Focus",
-      "Dopamine",
-      "Trataka",
-      "Ultradian Rhythms",
-      "Digital Distraction",
-      "Cognitive Enhancement"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Hack Your Brain to Crave Studying: The Dopamine Method",
-    "link": "BrainHack",
-    "description": "Unlock your brain's potential! Learn the 'Dopamine Loading Method' to reprogram your reward system, turn studying into a satisfying habit, and make your brain addicted to growth. No more willpower struggles – just smart neurochemistry.",
-    "tags": [
-      "Brain Hacking",
-      "Dopamine",
-      "Study Habits",
-      "Neuroscience",
-      "Productivity",
-      "Learning",
-      "Motivation"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Ask & Receive: Jim Rohn's Success Key",
-    "link": "UNLOCK",
-    "description": "Unlock your full potential! Jim Rohn reveals the simple yet powerful 'art of asking' – a skill crucial for achieving any desire. Learn to ask with intelligence and faith to manifest your dreams.",
-    "tags": [
-      "Asking",
-      "Success Principles",
-      "Jim Rohn",
-      "Manifestation",
-      "Goal Achievement",
-      "Personal Growth"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Conquer Procrastination: Start Now",
-    "link": "CONQUER",
-    "description": "Stuck on 'someday'? Overcome procrastination and the fear of starting by prioritizing momentum over motivation. Learn how a single, imperfect action can unlock progress and help you achieve your goals.",
-    "tags": [
-      "Procrastination",
-      "Motivation",
-      "Productivity",
-      "Action",
-      "Goal Setting",
-      "Mindset"
-    ],
-    "color": "bg-purple-700 shadow-purple-400"
-  },
-  {
-    "blog_title": "MSI Titan vs. Custom PC: Who Reigns Supreme at ₹7 Lakh?",
-    "link": "BUILDVSBUY",
-    "description": "Comparing the ₹6.2 Lakh MSI Titan 18HX gaming laptop with a ₹7 Lakh custom desktop PC. Both feature top-tier Intel Core Ultra 9 and RTX 5090. Discover which offers superior performance, portability, and value for your high-end computing needs.",
-    "tags": [
-      "MSI Titan",
-      "Custom PC",
-      "RTX 5090",
-      "Gaming Battle",
-      "Build vs Buy",
-      "High-End PC"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-700"
-  },
-  {
-    "blog_title": "Teen Earn From Home",
-    "link": "TeenCash",
-    "description": "Indian teens, discover 5 legit online income streams from home! Skip low-pay tasks; earn well testing sites, selling notes, tutoring, photos, or transcribing. Easy, practical ways to make real money.",
-    "tags": [
-      "Teenage Income",
-      "Online Earning",
-      "Work From Home",
-      "India Teens",
-      "Legit Money"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "YouTube Shorts Automation: Earn $400 Daily with AI",
-    "link": "AutoCash",
-    "description": "Discover a 'copy-paste' YouTube Shorts automation strategy to earn $400-500 daily. Learn how to repurpose viral content with AI scripts, voiceovers, and mobile editing to create unique, monetizable videos under fair use guidelines. See real earnings data and a step-by-step workflow.",
-    "tags": [
-      "YouTube Shorts",
-      "AI Automation",
-      "Content Repurposing",
-      "Earn Online",
-      "Fair Use",
-      "Monetization",
-      "CapCut",
-      "ChatGPT",
-      "ElevenLabs"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-400"
-  },
-  {
-    "blog_title": "PC Price Plunge Confirmed: Build Smart Now!",
-    "link": "TechPlunge",
-    "description": "Amazon data reveals a definitive downward trend for RAM & GPU prices. It's a favorable time for PC builders, with potential for further drops. Get our data-backed insights on when to build and save.",
-    "tags": [
-      "PC Price Drop",
-      "Component Prices",
-      "GPU Deals",
-      "RAM Deals",
-      "PC Building",
-      "Tech Market"
-    ],
-    "color": "bg-teal-700 shadow-teal-400"
-  },
-  {
-    "blog_title": "CI/CD Essentials",
-    "link": "autodeploy",
-    "description": "Unlock faster, more reliable software delivery. This guide demystifies CI/CD, covering essential concepts, top tools like GitHub Actions, and zero-downtime deployment strategies to automate your DevOps.",
-    "tags": [
-      "CI/CD",
-      "DevOps",
-      "Automation",
-      "Deployment",
-      "GitHub Actions"
-    ],
-    "color": "bg-teal-900 shadow-teal-400"
-  },
-  {
-    "blog_title": "Microservices Demystified: The Future of Scalable Architecture",
-    "link": "ArchPower",
-    "description": "Discover how Microservices architecture revolutionizes app development with unmatched scalability and flexibility, overcoming Monolith limitations. Essential insights for modern enterprise solutions.",
-    "tags": [
-      "Microservices",
-      "Monolith Architecture",
-      "Scalability",
-      "Flexible Apps",
-      "Enterprise Tech"
-    ],
-    "color": "bg-teal-700 shadow-teal-400"
-  },
-  {
-    "blog_title": "Apex Combat: Unpacking Gaming's Elite Mechanics",
-    "link": "ApexPlay",
-    "description": "Dive into an ultimate visual showcase of elite video game combat! Explore diverse and impactful mechanics from Sniper Elite to Dark Souls, revealing how developers craft truly engaging fight systems. Discover top-tier strategies and innovative combat design across gaming's celebrated titles.",
-    "tags": [
-      "Game Combat",
-      "Combat Mechanics",
-      "Gaming Skills",
-      "Elite Gameplay",
-      "Action Design"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-500"
-  },
-  {
-    "blog_title": "Value Objects: Code Mastery",
-    "link": "PureCode",
-    "description": "Stop primitive obsession! Discover how Value Objects make your Python code robust, readable, and bug-free. Validate once, trust everywhere for perfect software.",
-    "tags": [
-      "Value Objects",
-      "Primitive Obsession",
-      "Clean Code",
-      "Python",
-      "Domain-Driven Design",
-      "Robust Code"
-    ],
-    "color": "bg-emerald-900 shadow-emerald-500"
-  },
-  {
-    "blog_title": "Mastering JWTs: Secure & Scalable Auth",
-    "link": "AuthBoost",
-    "description": "Unlock the power of JSON Web Tokens (JWTs)! This guide reveals their structure, secure implementation, and why they're essential for scalable, stateless authentication in modern web apps. Learn to ditch sessions and boost security.",
-    "tags": [
-      "JWT",
-      "Authentication",
-      "API Security",
-      "Stateless Auth",
-      "Web Security"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-500"
-  },
-  {
-    "blog_title": "Master Backend & System Design",
-    "link": "MasterData",
-    "description": "Unlock backend mastery! Learn to efficiently manage data, design databases, and scale systems with practical examples. Essential guide for aspiring and current developers.",
-    "tags": [
-      "Backend Development",
-      "System Design",
-      "Data Management",
-      "Databases",
-      "Scaling",
-      "Developer Guide"
-    ],
-    "color": "bg-violet-900 shadow-violet-500"
-  },
-  {
-    "blog_title": "Lightning JS: Rapid Core Mastery",
-    "link": "JS Boost",
-    "description": "Get up to speed on JavaScript FAST! This rapid-fire 'JS 101' guide distills 100+ core concepts, from history to async/await and modern frameworks. Master JS essentials quickly.",
-    "tags": [
-      "JavaScript",
-      "JS 101",
-      "Web Development",
-      "Programming",
-      "Node.js",
-      "Async/Await",
-      "DOM",
-      "Frontend JS",
-      "Full-Stack JS",
-      "ES6"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-400"
-  },
-  {
-    "blog_title": "ASUS TUF A14: AI Powerhouse Unleashed",
-    "link": "AISurge",
-    "description": "The ASUS TUF Gaming A14 redefines portable power. Featuring AMD Ryzen AI Max+ and a potent integrated GPU, it delivers surprising performance for creators and gamers, rivaling dedicated graphics. Experience peak AI efficiency in a compact, durable design.",
-    "tags": [
-      "ASUS TUF A14",
-      "AI Laptop",
-      "Ryzen AI Max",
-      "Integrated GPU",
-      "Gaming Laptop",
-      "Creator PC",
-      "Portable Tech",
-      "Copilot+ PC"
-    ],
-    "color": "bg-blue-800 shadow-blue-500"
-  },
-  {
-    "blog_title": "24-Hour C Pong: No AI Triumph",
-    "link": "CTriumph",
-    "description": "See how one dev learned C from scratch and built a full Pong game in just 9 hours, no AI! Uncover the raw challenges of C syntax, game physics, and creating a 'dumb' AI opponent.",
-    "tags": [
-      "C Programming",
-      "Pong Game",
-      "Game Dev",
-      "24-Hour Challenge",
-      "No AI Code",
-      "ncurses",
-      "Coding Journey"
-    ],
-    "color": "bg-emerald-900 shadow-emerald-400"
-  },
-  {
-    "blog_title": "Game Mechanics Unveiled: The Ultimate Action Showcase",
-    "link": "EpicPlay",
-    "description": "Dive into a comprehensive showcase of diverse, visceral gameplay mechanics across top video games. Discover innovative combat, unique movement, and dynamic environmental interactions perfect for inspiring game designers, content creators, and any gaming enthusiast looking for impactful insights and action-packed moments.",
-    "tags": [
-      "Gaming",
-      "Gameplay Mechanics",
-      "Video Games",
-      "Action Games",
-      "Game Design",
-      "Combat",
-      "Movement Systems",
-      "RPG Mechanics",
-      "Gaming Podcast"
-    ],
-    "color": "bg-fuchsia-700 shadow-fuchsia-400"
-  },
-  {
-    "blog_title": "Glass-Effect Windows 11: Ultimate Desktop Setup",
-    "link": "Glass Win11",
-    "description": "Transform your Windows 11 desktop into a stunning, modern glass-effect interface! This guide uses Windhawk, Lively Wallpaper, and Rainmeter to achieve translucent UI, live backgrounds, and sleek widgets. Get that clean, aesthetic look.",
-    "tags": [
-      "Windows 11 Customization",
-      "Glass Effect UI",
-      "Desktop Aesthetics",
-      "Windhawk",
-      "Lively Wallpaper",
-      "Rainmeter",
-      "Modern Desktop",
-      "Tech Tutorial",
-      "Windows Mods"
-    ],
-    "color": "bg-violet-800 shadow-violet-400"
-  },
-  {
-    "blog_title": "Mastering CSS Grid & Flexbox: Responsive Design Guide",
-    "link": "GridGuide",
-    "description": "Demystify CSS Grid and Flexbox for responsive web design. Learn when to use Grid for 2D layouts and Flexbox for 1D arrangements, with practical examples for layout mastery.",
-    "tags": [
-      "CSS Grid",
-      "Flexbox",
-      "Responsive Design",
-      "Web Development",
-      "Front-end",
-      "Layouts"
-    ],
-    "color": "bg-blue-800 shadow-blue-400"
-  },
-  {
-    "blog_title": "Thrive in Indian Game Dev: $16.7B Boom, Top Skills & High Salaries",
-    "link": "DevThrive",
-    "description": "Unlock a high-growth game development career in India. Explore the $16.7B market, essential skills (Unreal, AI), competitive salaries, and strategic insights to succeed in a booming industry backed by government support.",
-    "tags": [
-      "Game Development India",
-      "GameDev Career",
-      "Unreal Engine",
-      "AI in Gaming",
-      "Gaming Industry India",
-      "Game Dev Salaries",
-      "Mobile Gaming",
-      "AVGC India"
-    ],
-    "color": "bg-purple-900 shadow-purple-600"
-  },
-  {
-    "blog_title": "India's Perilous Foreign Policy Amidst Global Conflict",
-    "link": "INDIAPERIL",
-    "description": "A critical analysis of the escalating US-Israel-Iran war and its severe economic impact on India. Learn how India's foreign policy choices are questioned amid rising oil prices, the Strait of Hormuz closure, and strategic risks.",
-    "tags": [
-      "India Foreign Policy",
-      "US-Israel-Iran Conflict",
-      "Geopolitics",
-      "Energy Security",
-      "Strait of Hormuz",
-      "Modi Government",
-      "International Relations",
-      "Economic Impact"
-    ],
-    "color": "bg-fuchsia-900 shadow-fuchsia-700"
-  },
-  {
-    "blog_title": "Ignite Your Dev Journey: Code for Joy, Build for Mastery",
-    "link": "BuildSkill",
-    "description": "Daily 'coding for fun' cultivates mastery. Dedicate 30-60 mins to personal projects, like building AI asset managers or email visualizers. Develop skills, innovate, and build a real portfolio without pressure. Embrace intrinsic motivation for true growth.",
-    "tags": [
-      "Coding Habit",
-      "Developer Growth",
-      "Side Projects",
-      "Skill Development",
-      "Intrinsic Motivation",
-      "AI Development",
-      "Data Visualization"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Master Your Focus: Scientific Strategies for Peak Concentration",
-    "link": "Mastery",
-    "description": "Our attention spans are shrinking faster than a goldfish's! Discover scientifically-backed brain hacks and ancient wisdom (like the 90-20 rule and Trataka) to regain deep concentration, conquer distractions, and massively boost your productivity.",
-    "tags": [
-      "Focus",
-      "Attention Span",
-      "Productivity",
-      "Brain Hacks",
-      "Dopamine",
-      "Ultradian Rhythm",
-      "Trataka",
-      "Concentration",
-      "Mindset"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Action & Shooter Evolution: A Visual Showcase",
-    "link": "ActionEvo",
-    "description": "Witness the thrilling evolution of action and shooter games! This high-octane showcase packs diverse gameplay, combat, and visuals from iconic titles across generations. Discover influential mechanics from Sniper Elite to Max Payne, and see what defines modern gaming.",
-    "tags": [
-      "Action Games",
-      "Shooter Games",
-      "Game Evolution",
-      "Combat Gameplay",
-      "Iconic Games"
-    ],
-    "color": "bg-cyan-950 shadow-cyan-400"
-  },
-  {
-    "blog_title": "PS3 Unleashed: Epic Gaming Showcase",
-    "link": "PS3Glory",
-    "description": "Experience the raw power of PlayStation 3! This ultimate highlight reel showcases dynamic gameplay, intense combat, and groundbreaking innovation from a legendary era. Relive gaming history with action from titles like The Last of Us, God of War III, and Assassin's Creed.",
-    "tags": [
-      "PS3",
-      "PlayStation 3",
-      "Gaming Highlights",
-      "Action Games",
-      "Console Gaming",
-      "Gameplay Compilation",
-      "Epic Gaming"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Ultimate Fat Loss Blueprint",
-    "link": "torchfat",
-    "description": "Unlock sustainable fat loss with this science-backed guide. Learn to create your own diet and workout plan, combining calorie deficit, intermittent fasting, accurate tracking, and a powerful cardio & strength regimen. Ditch quick fixes, embrace discipline, and transform your body.",
-    "tags": [
-      "Fat Loss",
-      "Calorie Deficit",
-      "Intermittent Fasting",
-      "Strength Training",
-      "Cardio",
-      "Diet Plan",
-      "Workout Plan"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-500"
-  },
-  {
-    "blog_title": "i3/4GB RAM: Budget Gaming Unleashed!",
-    "link": "i3Power",
-    "description": "Discover how Intel Core i3 PCs with 4GB RAM deliver smooth, optimized gaming across diverse titles. Practical benchmarks prove budget hardware can still power epic gameplay.",
-    "tags": [
-      "i3 Gaming",
-      "Budget PC Gaming",
-      "4GB RAM Gaming",
-      "Optimized Gaming",
-      "PC Benchmarks",
-      "Low-Spec Gaming"
-    ],
-    "color": "bg-emerald-700 shadow-emerald-400"
-  },
-  {
-    "blog_title": "Boost Your FPS: Ultimate Windows 10/11 Gaming Guide",
-    "link": "FPSBoost",
-    "description": "Unlock peak gaming performance on Windows 10 & 11, even on old PCs! This guide reveals crucial software tweaks like Storage Sense, Game Mode, and visual settings to drastically boost FPS and responsiveness without expensive hardware upgrades.",
-    "tags": [
-      "Windows Optimization",
-      "Gaming Performance",
-      "FPS Boost",
-      "Low-End PC Gaming",
-      "System Tweaks",
-      "Windows 10 Gaming",
-      "Windows 11 Gaming"
-    ],
-    "color": "bg-violet-700 shadow-violet-400"
-  },
-  {
-    "blog_title": "5 Secret Skills For Student Financial Freedom",
-    "link": "PowerEarn",
-    "description": "Unlock financial independence! Discover 5 high-income skills like voice-over, handmade art, and social media management. Learn how to earn big and fund your education while still a student, turning passion into profit.",
-    "tags": [
-      "Student Finance",
-      "High-Income Skills",
-      "Earn While Studying",
-      "Financial Freedom",
-      "Skill Development",
-      "Student Money"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Max Games",
-    "link": "maxgames",
-    "description": "Unleash 50 visually rich PC games on an i5 8th Gen, 8GB RAM PC! Discover what's truly playable without a high-end GPU. Budget gaming power revealed.",
-    "tags": [
-      "Budget Gaming",
-      "i5 PC Games",
-      "Low Spec Gaming",
-      "PC Performance",
-      "Minimal GPU",
-      "High Graphics Games"
-    ],
-    "color": "bg-emerald-700 shadow-emerald-400"
-  },
-  {
-    "blog_title": "Unleash i3 Gaming Power",
-    "link": "Maxi3",
-    "description": "Discover 30 top PC games that run flawlessly on entry-level i3 processors and 4GB RAM. Maximize your budget gaming rig with this guide, proving you don't need a high-end PC for great gaming.",
-    "tags": [
-      "i3 Gaming",
-      "Budget PC Games",
-      "Low-End Gaming",
-      "4GB RAM Games",
-      "Entry-Level PC Gaming",
-      "PC Games for i3"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Beat Brain Fog: Reclaim Your Mental Clarity",
-    "link": "BeatFog",
-    "description": "Unlock your mind! Learn the real causes of brain fog – beyond just fatigue – and discover scientifically-backed solutions to boost focus, memory, and energy. Reclaim your mental sharpness today.",
-    "tags": [
-      "Brain Fog",
-      "Cognitive Decline",
-      "Mental Clarity",
-      "Focus Boost",
-      "Memory Improvement",
-      "Neuroscience",
-      "Stress Management",
-      "Sleep Hygiene",
-      "BDNF"
-    ],
-    "color": "bg-emerald-900 shadow-emerald-400"
-  },
-  {
-    "blog_title": "Unleash Stories: 10 Epic Games for Low-End PCs",
-    "link": "epiclite",
-    "description": "Discover 10 classic story-rich PC games that run smoothly on low-end hardware (4GB RAM, integrated graphics). Dive into immersive narratives like Prototype, Max Payne 2, and Assassin's Creed 2, without needing a high-end rig.",
-    "tags": [
-      "Low-End PC Games",
-      "Story Games",
-      "Budget Gaming",
-      "PC Recommendations",
-      "Integrated Graphics",
-      "Narrative Games",
-      "Prototype",
-      "Mafia 2",
-      "Assassin's Creed 2"
-    ],
-    "color": "bg-violet-800 shadow-violet-400"
-  },
-  {
-    "blog_title": "20 Low-Spec PC Games for i3 & 4GB RAM (2025)",
-    "link": "Conquer i3",
-    "description": "Unlock epic gaming on a budget! This guide reveals 20 PC titles perfectly optimized for low-spec systems (Intel i3 / 4GB RAM) in 2025. Dive into diverse genres and extend your hardware's life without compromise.",
-    "tags": [
-      "Low-Spec Gaming",
-      "i3 PC Games",
-      "Budget PC Gaming",
-      "4GB RAM Games",
-      "PC Compatibility"
-    ],
-    "color": "bg-green-800 shadow-green-400"
-  },
-  {
-    "blog_title": "Master English: Quick Level Check",
-    "link": "MasterEng",
-    "description": "Discover your English proficiency in minutes! This fast 5-question quiz assesses your grammar, vocabulary, and listening skills, instantly revealing if you're Beginner, Intermediate, or Advanced. Pinpoint areas for improvement and accelerate your language mastery!",
-    "tags": [
-      "English Quiz",
-      "Language Learning",
-      "Proficiency Test",
-      "Grammar Check",
-      "Vocabulary Test",
-      "Listening Skills",
-      "CEFR Levels",
-      "English Mastery"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Code Conquer",
-    "link": "DevPath",
-    "description": "Aspiring coder? Debunk myths! This guide reveals the real path to pro success, emphasizing consistency, small wins, and embracing confusion as a learning sign. Unlock your true coding potential.",
-    "tags": [
-      "Coding Beginners",
-      "Dev Path",
-      "Coding Motivation",
-      "Learn to Code",
-      "Programming Success",
-      "Developer Mindset",
-      "Code Consistency"
-    ],
-    "color": "bg-violet-700 shadow-violet-400"
-  },
-  {
-    "blog_title": "AI Web Dev Roadmap 2026",
-    "link": "aidevpro",
-    "description": "Unlock 10x productivity. Master web dev fundamentals (HTML, CSS, JS, React, TS, Express, SQL/NoSQL) and strategically leverage AI to become a job-ready, profitable developer by 2026. Your complete AI-era roadmap.",
-    "tags": [
-      "AI Web Dev",
-      "2026 Roadmap",
-      "Frontend",
-      "Backend",
-      "AI Productivity",
-      "ReactJS",
-      "NodeJS"
-    ],
-    "color": "bg-fuchsia-900 shadow-fuchsia-400"
-  },
-  {
-    "blog_title": "Wordora Free AI (All-in-One)",
-    "link": "wordorafreeai",
-    "description": "The ultimate AI 'everything' hub. I’ve mixed the best free tools from every category—text, image, and data—into one massive list. If you need a quick AI tool for anything, start here.",
-    "tags": [
-      "Best AI Tools",
-      "Free AI Directory",
-      "AI Toolkit",
-      "Productivity",
-      "Top AI 2026"
-    ],
-    "color": "bg-gray-950"
-  },
-  {
-    "blog_title": "Wordora AI Code Free",
-    "link": "wordoraaicodefree",
-    "description": "Stop struggling with bugs! I've found the best 30 AI coding tools like Cursor and Windsurf that literally write code for you. Perfect for 'Vibe Coding' and building apps without deep syntax knowledge.",
-    "tags": [
-      "AI Coding",
-      "Vibe Coding",
-      "Agentic AI",
-      "Free Code Tools",
-      "2026 Tech Trends"
-    ],
-    "color": "bg-red-700 shadow-red-400"
-  },
-  {
-    "blog_title": "Wordora AI Models",
-    "link": "wordoraaimodelfree",
-    "description": "Confused about which AI model to use? I compare the top 30 LLMs like Gemini 2.0 and Llama 4. Find out which one is the smartest for reasoning, math, or creative writing in seconds.",
-    "tags": [
-      "AI Models",
-      "LLM Comparison",
-      "Gemini 2",
-      "Open Source AI",
-      "Artificial Intelligence"
-    ],
-    "color": "bg-orange-700 shadow-orange-400"
-  },
-  {
-    "blog_title": "Wordora AI Image Free",
-    "link": "wordoraaiimagefree",
-    "description": "Create insane aesthetic art for free. I’ve tested 30 tools like Midjourney and DALL-E 3 that turn your wildest ideas into high-res visuals. Perfect for social media and creative school projects.",
-    "tags": [
-      "AI Image Generator",
-      "Free AI Art",
-      "Text to Image",
-      "Visual Design",
-      "Midjourney Free"
-    ],
-    "color": "bg-purple-700 shadow-purple-400"
-  },
-  {
-    "blog_title": "Wordora AI Video Free",
-    "link": "wordoraaivideofree",
-    "description": "Text-to-video is the new meta. Check out the top 30 free tools like Sora and Runway to make viral clips and cinematic videos without an editor. High-quality AI video generation for everyone.",
-    "tags": [
-      "AI Video",
-      "Sora AI",
-      "Text to Video",
-      "Content Creation",
-      "Viral Video Tools"
+    "blog_title": "TradeMaster",
+    "link": "/trademaster",
+    "description": "Unlock your trading potential with our 90-day roadmap. Learn to master one strategy, eliminate distractions, and build the discipline for consistent profits.",
+    "tags": [
+      "Trading",
+      "Profitable Trader",
+      "90 Day Plan",
+      "Trading Strategy",
+      "Discipline"
     ],
     "color": "bg-blue-700 shadow-blue-400"
   },
   {
-    "blog_title": "Wordora AI PPT",
-    "link": "wordoraaipptfree",
-    "description": "Generate entire presentation decks in one click. I’ve picked 30 AI tools like Gamma that handle the design and content for you. It’s a total life-saver for class assignments and group projects.",
+    "blog_title": "Code Hour",
+    "link": "/codehour",
+    "description": "Unlock your coding potential in just 60 minutes a day! Discover the proven strategy to actively build, debug, and master programming skills faster than passive learning.",
     "tags": [
-      "AI PPT",
-      "Gamma AI",
-      "Presentation Hacks",
-      "Student Productivity",
-      "AI Design"
+      "Coding",
+      "Learn to Code",
+      "Programming",
+      "60 Minute Challenge",
+      "Active Learning",
+      "Problem Solving"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Sora Shut",
+    "link": "/sorashut",
+    "description": "OpenAI's Sora is gone. Discover why high compute costs, fierce AI competition, and investor doubts forced its closure, revealing the tough economic reality for AI giants and the potential for market shifts.",
+    "tags": [
+      "Sora",
+      "OpenAI",
+      "AI Economics",
+      "Compute Costs",
+      "AI Winter",
+      "TurboQuant",
+      "AI Industry"
+    ],
+    "color": "bg-red-600 shadow-red-400"
+  },
+  {
+    "blog_title": "Host Mine",
+    "link": "/hostmine",
+    "description": "Build your own Minecraft realm! Learn to host a performant server on your PC with PaperMC and let friends join using playit.gg. Perfect for custom worlds and endless adventures.",
+    "tags": [
+      "Minecraft Server",
+      "PaperMC",
+      "Self-Hosting",
+      "Gaming",
+      "Playit.gg"
     ],
     "color": "bg-green-700 shadow-green-400"
   },
   {
-    "blog_title": "Wordora AI Text",
-    "link": "wordoraaitextfree",
-    "description": "Write better, faster. I’ve listed 30 AI text tools for summarizing long papers and writing SEO-friendly blogs. Beat writer's block instantly and get your essays done in half the time.",
+    "blog_title": "Earn Now",
+    "link": "/earnnown",
+    "description": "Learn how to monetize your images, wallpapers, and videos using the Monetag advertising platform. This tutorial guides you through the sign-up process and leveraging 'Direct Links' to generate revenue from your digital assets.",
     "tags": [
-      "AI Writing",
-      "Text Generator",
-      "Essay Helper",
-      "SEO Writing",
-      "Content Creation"
+      "Monetize Images",
+      "Video Monetization",
+      "Ad Network",
+      "Monetag",
+      "Direct Links",
+      "Earn Money Online"
     ],
-    "color": "bg-pink-700 shadow-pink-400"
+    "color": "bg-blue-700 shadow-blue-400"
   },
   {
-    "blog_title": "Wordora AI Design",
-    "link": "wordoraaidesignfree",
-    "description": "Pro-level design without the learning curve. These 30 AI tools handle logos, UI, and graphics automatically. It's the future of Generative UI and digital branding for your personal projects.",
+    "blog_title": "iPhone Hacks",
+    "link": "/iphonehacks",
+    "description": "Unlock your iPhone's full potential! Discover 14 essential apps to boost productivity, enhance well-being, and simplify your life, from smart note-taking to AI-powered insights.",
     "tags": [
-      "AI Design",
-      "Generative UI",
-      "Logo Maker",
-      "Graphic Design",
-      "Canva AI"
+      "iPhone Apps",
+      "Productivity",
+      "Life Hacks",
+      "Tech",
+      "iOS"
     ],
-    "color": "bg-orange-700 shadow-orange-400"
+    "color": "bg-emerald-700 shadow-emerald-400"
   },
   {
-    "blog_title": "Wordora AI Data",
-    "link": "wordoraaidatafree",
-    "description": "Master data analysis without the headache. These top 30 AI tools turn messy numbers into clean charts and insights using the latest RAG technology. Perfect for research and smart decision-making.",
+    "blog_title": "Sleep Hack",
+    "link": "/sleephack",
+    "description": "Unlock peak performance with science-backed strategies for truly restorative sleep. Learn to optimize your sleep cycles for enhanced focus, energy, and well-being by understanding deep and REM sleep, mastering wind-down routines, and leveraging morning light.",
     "tags": [
-      "AI Data",
-      "Data Science",
+      "Sleep Science",
+      "Sleep Quality",
+      "Deep Sleep",
+      "REM Sleep",
+      "Circadian Rhythm",
+      "Sleep Hacks",
+      "Performance"
+    ],
+    "color": "bg-blue-800 shadow-blue-400"
+  },
+  {
+    "blog_title": "Gen Z Debt",
+    "link": "/genzdebt",
+    "description": "Gen Z in India faces mounting debt from lifestyle spending, job instability, and BNPL schemes. Discover the financial challenges and learn smart money management strategies to build wealth.",
+    "tags": [
+      "Gen Z",
+      "India",
+      "Debt",
+      "Financial Management",
+      "BNPL",
+      "Job Instability",
+      "Personal Finance"
+    ],
+    "color": "bg-red-700 shadow-red-400"
+  },
+  {
+    "blog_title": "Cloud Pro",
+    "link": "/cloudpro",
+    "description": "Demystifying the Cloud Engineer role: Learn day-to-day tasks, salary insights, and career growth opportunities in designing, building, and managing scalable cloud infrastructure. Understand key challenges like 'ClickOps Debt' and the impact of AI, and discover essential skills for success.",
+    "tags": [
+      "Cloud Engineer",
+      "Cloud Computing",
+      "AWS",
+      "Azure",
+      "GCP",
+      "DevOps",
+      "Career",
+      "Salary"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Glow Up",
+    "link": "/glow-up",
+    "description": "Unlock radiant skin! Discover 7 common habits destroying your complexion and learn simple, effective steps for a healthier, glowing face. Transform your skin with science-backed advice.",
+    "tags": [
+      "Skincare Mistakes",
+      "Glowing Skin",
+      "Healthy Habits",
+      "Skin Health",
+      "Beauty Tips"
+    ],
+    "color": "bg-emerald-600 shadow-emerald-400"
+  },
+  {
+    "blog_title": "Achieve Goals",
+    "link": "/achievegoals",
+    "description": "Learn the powerful 3-step framework used by successful individuals to guarantee goal achievement. Discover how to define precise targets, overcome obstacles with proactive solutions, and anchor actions into your daily routine for unstoppable progress.",
+    "tags": [
+      "Goal Achievement",
+      "Success Habits",
+      "Productivity",
+      "Action Planning",
+      "Motivation"
+    ],
+    "color": "bg-blue-600 shadow-blue-400"
+  },
+  {
+    "blog_title": "Wealth First",
+    "link": "/wealthfirst",
+    "description": "Stop bad money habits and achieve financial freedom! Discover 8 wealth-killing mistakes and learn the 'pay yourself first' secret to budgeting, saving, and investing for a richer future.",
+    "tags": [
+      "Financial Freedom",
+      "Wealth Building",
+      "Personal Finance",
+      "Saving",
+      "Investing",
+      "Budgeting",
+      "Debt Management",
+      "Financial Habits"
+    ],
+    "color": "bg-green-700 shadow-green-400"
+  },
+  {
+    "blog_title": "AI Career",
+    "link": "/aicareer",
+    "description": "Launch your AI engineering career! Learn essential skills in LLMs, RAG, Agents, and LLMOps. Build your portfolio and land a high-paying job.",
+    "tags": [
+      "AI Engineer",
+      "Career Roadmap",
+      "LLMs",
       "RAG",
-      "Predictive Analytics",
-      "Research Tools"
+      "LLMOps",
+      "AI Jobs"
     ],
-    "color": "bg-green-700 shadow-green-400"
+    "color": "bg-indigo-700 shadow-indigo-400"
   },
   {
-    "blog_title": "Wordora AI Avatars",
-    "link": "wordoraaiavatars",
-    "description": "Make your own digital twin! I found the best 30 AI avatar and talking head tools like HeyGen. Great for making YouTube videos or cool profile pics that actually look like you.",
+    "blog_title": "2 Min Boost",
+    "link": "/2minboost",
+    "description": "Discover how to beat procrastination and build habits with the powerful 2-minute rule, adapted from productivity giants like David Allen and James Clear. Start small, gain momentum, and transform your workflow.",
     "tags": [
-      "AI Avatars",
-      "Digital Twins",
-      "Talking Heads",
-      "AI Video",
-      "HeyGen"
+      "Productivity",
+      "2 Minute Rule",
+      "Atomic Habits",
+      "Getting Things Done",
+      "Procrastination",
+      "Habits"
     ],
-    "color": "bg-amber-700 shadow-amber-400"
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Mind Hack",
+    "link": "/mindhack",
+    "description": "Reclaim your brain from dopamine addiction. Learn how to break free from bad habits and master self-control with this 7-day detox system. Stop feeling weak, start living powerfully.",
+    "tags": [
+      "Mind Control",
+      "Dopamine Detox",
+      "Self-Mastery",
+      "Habit Breaking",
+      "Productivity"
+    ],
+    "color": "bg-red-600 shadow-red-400"
+  },
+  {
+    "blog_title": "AI Model",
+    "link": "/aimodel",
+    "description": "Create stunning AI influencers from a single photo and video! Learn how to use tools like Lovart.ai and KIE.AI to generate realistic digital twins for social media and more. Step-by-step guide with free options.",
+    "tags": [
+      "AI Influencers",
+      "AI Models",
+      "Digital Twins",
+      "AI Video Generation",
+      "Lovart.ai",
+      "KIE.AI"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Master Grit",
+    "link": "/mastergrit",
+    "description": "Reclaim control from destructive urges. Discover a 5-step plan to build ironclad discipline, conquer temptation, and redirect your attention for ultimate self-mastery.",
+    "tags": [
+      "Self-Discipline",
+      "Willpower",
+      "Habit Control",
+      "Mental Fortitude",
+      "Productivity"
+    ],
+    "color": "bg-red-700 shadow-red-400"
+  },
+  {
+    "blog_title": "Trade Gold",
+    "link": "/tradegold",
+    "description": "Unlock profitable trades! Discover real-time strategies for Gold, TCS, and Nifty. Learn to identify winning entries, manage risk, and profit from market moves.",
+    "tags": [
+      "Trading Strategies",
+      "Gold Trading",
+      "TCS Trading",
+      "Nifty Trading",
+      "Risk Management",
+      "Profitable Trades"
+    ],
+    "color": "bg-teal-700 shadow-teal-400"
+  },
+  {
+    "blog_title": "Master AI Income: 5 Models for 2026 Success",
+    "link": "AI Thrive",
+    "description": "Unlock significant wealth with AI! Discover 5 potent AI business models for 2026. Learn agentic automation & context engineering to leverage emerging opportunities and thrive in the AI-driven economy.",
+    "tags": [
+      "AI Income",
+      "Make Money AI",
+      "AI Business Models",
+      "AI Entrepreneurship",
+      "2026 Wealth",
+      "AI Automation",
+      "AI Consulting",
+      "ElevenLabs",
+      "AI Content"
+    ],
+    "color": "bg-purple-900 shadow-purple-700"
+  },
+  {
+    "blog_title": "Unlock Free AI Video Power",
+    "link": "FREEAIVID",
+    "description": "Stop paying! Get 4 FREE AI video tools like Vheer & Arena AI to create unlimited, high-quality, watermark-free videos. Ditch Grook AI and boost your content now!",
+    "tags": [
+      "Free AI Video",
+      "AI Video Tools",
+      "Video Generation",
+      "AI Alternatives",
+      "Content Creation",
+      "Watermark-Free"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Future Code: Agentic Engineering Guide",
+    "link": "AIReady",
+    "description": "Crush coding in 2026! Learn Agentic Engineering – master AI code agents. This guide builds essential dev foundations & leverages AI for rapid learning to become a future-proof coder.",
+    "tags": [
+      "AI Coding",
+      "Agentic Engineering",
+      "Future Dev",
+      "Learn to Code",
+      "AI Tools"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Elevate AI Coding: Context Rules Unlocked",
+    "link": "AIRules",
+    "description": "Transform your AI coding assistant into a reliable partner! Learn to use dedicated rules files to define project context, coding styles, and tech stack, ensuring consistent, error-free code across any editor. Boost your workflow efficiency now!",
+    "tags": [
+      "AI Coding",
+      "AI Assistants",
+      "Rules Files",
+      "Contextual AI",
+      "Code Consistency",
+      "Developer Tools",
+      "Workflow Efficiency"
+    ],
+    "color": "bg-teal-700 shadow-teal-400"
+  },
+  {
+    "blog_title": "Claude CoWork: Your PC's Agent AI",
+    "link": "AIAgent",
+    "description": "Anthropic's Claude CoWork is an agentic AI that controls your computer, automating complex tasks like crypto trading, market analysis, and report generation. It opens apps, manages files, and executes trades with direct API integration. Transform your workflow with this game-changing autonomous assistant.",
+    "tags": [
+      "Agentic AI",
+      "Claude CoWork",
+      "AI Automation",
+      "Crypto Trading",
+      "Computer Control",
+      "Anthropic",
+      "TradingView"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-600"
+  },
+  {
+    "blog_title": "RAG Architect",
+    "link": "RAG Master",
+    "description": "Master RAG with this no-fluff deep dive for developers. Explore core concepts, debunk myths, and implement 10 advanced RAG patterns—like Agentic & Graph RAG—to build robust, accurate enterprise AI applications and eliminate LLM hallucinations.",
+    "tags": [
+      "RAG",
+      "LLM",
+      "AI",
+      "Enterprise AI",
+      "Machine Learning",
+      "Advanced RAG Patterns",
+      "AI Architecture",
+      "Hallucination Mitigation",
+      "Aishwarya Srinivasan"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-500"
+  },
+  {
+    "blog_title": "MacBook Air M5: Ultimate Power",
+    "link": "M5 Power",
+    "description": "Unbox the new MacBook Air M5: a powerful, versatile laptop with an M5 chip, stunning Liquid Retina display, 18hr battery, and AI capabilities. Perfect for 99.9% of users, from casual to pro video editing and coding.",
+    "tags": [
+      "MacBook Air M5",
+      "M5 Chip",
+      "Apple Laptop",
+      "AI Performance",
+      "Tech Review"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "AdSense Breakthrough",
+    "link": "Profit",
+    "description": "Unlock AdSense profit! Learn my proven 1st-try approval strategy to beat 'low-value content' rejections: create long-form, original content with a vital human touch even with AI. Monetize your site today!",
+    "tags": [
+      "Google AdSense",
+      "AdSense Approval",
+      "Content Monetization",
+      "AI Content",
+      "Low Value Content",
+      "Blogging Tips"
+    ],
+    "color": "bg-emerald-900 shadow-emerald-500"
+  },
+  {
+    "blog_title": "Unlock Elite Tech Skills: Free Courses & Certifications Guide",
+    "link": "FreeCerts",
+    "description": "Access high-demand tech courses from Google, Microsoft, & IBM for free on Coursera & other top platforms. Leverage financial aid, preview modes, and official platforms to get certified & boost your career!",
+    "tags": [
+      "Free Courses",
+      "Tech Skills",
+      "Certifications",
+      "Coursera Financial Aid",
+      "Google Skillshop",
+      "IBM SkillsBuild",
+      "Career Growth"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Sharpen Your Mind: 6 Habits for Smarter Brains",
+    "link": "BrainGrow",
+    "description": "Unlock your brain's true potential! This guide reveals 6 powerful, science-backed habits proven to actively boost your intelligence, memory, and problem-solving skills. Stop passive consumption, start growing your mind.",
+    "tags": [
+      "Intelligence Habits",
+      "Brain Growth",
+      "Cognitive Boost",
+      "Mindset Shift",
+      "Memory Training"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "30-Day AI Wealth Blueprint",
+    "link": "AIProfit",
+    "description": "Crush procrastination & unlock financial goals in 30 days. This framework reveals how to leverage AI for rapid entrepreneurial success, turning aspiring ideas into million-dollar realities. Learn the 5-step blueprint.",
+    "tags": [
+      "AI Entrepreneurship",
+      "30 Day Plan",
+      "Financial Goals",
+      "Procrastination",
+      "AI Automation",
+      "Business Growth"
+    ],
+    "color": "bg-emerald-900 shadow-emerald-400"
+  },
+  {
+    "blog_title": "The AI Engineer: Mastering Future Skills",
+    "link": "Mastery",
+    "description": "AI automates coding but sparks incidents. Learn how engineers elevate their role by mastering AI-proof skills like design, ethics, and contextual understanding, making them irreplaceable in the AI-driven future.",
+    "tags": [
+      "AI Engineering",
+      "Developer Skills",
+      "Future of AI",
+      "Human-AI Collaboration",
+      "Strategic Thinking"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "20 Skills To Win",
+    "link": "GainPower",
+    "description": "Unlock your potential. Discover 20 critical skills like deep work, public speaking & emotional control for ultimate personal and professional growth. Your blueprint to mastery!",
+    "tags": [
+      "Personal Growth",
+      "Life Skills",
+      "Self-Improvement",
+      "Productivity",
+      "Mastery"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide",
+    "link": "DECIMLFRAUD",
+    "description": "URGENT! The Deciml investing app, heavily promoted by influencers, has reportedly trapped user funds. Learn how to recover your money from this alleged fraud and what steps to take now.",
+    "tags": [
+      "Deciml App",
+      "Investment Fraud",
+      "Influencer Accountability",
+      "Fund Recovery",
+      "Scam Alert",
+      "MF Central"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-600"
   }
 ]

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="Regain Control: Conquer Bad Habits Now!">
+    <meta name="description" content="Tired of being stuck? Break free from dopamine addiction & a 'hijacked brain.' Discover powerful strategies to reclaim your mind & build an unstoppable life.">
+    <meta name="keywords" content="how to stop dopamine addiction, overcome detrimental habits, brain control strategies, self-mastery techniques, break free from social media addiction, digital detox for brain reset, stop endless scrolling habits, how to regain self-control, conquer urges and cravings, build a powerful mind, stop feeling weak and stuck, take back control of your life, anti-boredom system for productivity, physical exhaustion for mental clarity, replacing bad habits with good ones">
+    <meta name="author" content="QuerTech">
+    <meta property="og:title" content="Regain Control: Conquer Bad Habits Now!">
+    <meta property="og:description" content="Tired of being stuck? Break free from dopamine addiction & a 'hijacked brain.' Discover powerful strategies to reclaim your mind & build an unstoppable life.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/images/og-image.jpg"> <!-- Replace with a relevant OG image -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Regain Control: Conquer Bad Habits Now!">
+    <meta name="twitter:description" content="Tired of being stuck? Break free from dopamine addiction & a 'hijacked brain.' Discover powerful strategies to reclaim your mind & build an unstoppable life.">
+    <meta name="twitter:image" content="https://quertech-articles.vercel.app/images/twitter-image.jpg"> <!-- Replace with a relevant Twitter image -->
+
+    <title>Regain Control: Conquer Bad Habits Now!</title>
+
+    <style>
+        /* Global Variables & Reset */
+        :root {
+            --primary-indigo: #6366f1;
+            --primary-pink: #ec4899;
+            --background-dark: #09172a;
+            --text-light: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-hover: #8b5cf6; /* Lighter shade for hover */
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+
+            /* Typography */
+            --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --font-family-heading: var(--font-family-base);
+            --line-height-base: 1.6;
+            --line-height-heading: 1.2;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px; /* Base font size for rem calculations */
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            line-height: var(--line-height-base);
+            color: var(--text-light);
+            background-color: var(--background-dark);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: radial-gradient(circle, rgba(9,23,42,1) 0%, rgba(40,42,54,1) 100%); /* Subtle dark gradient */
+        }
+
+        /* Animated Background Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, rgba(236,72,153,0.1) 50%, rgba(9,23,42,0) 70%);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0;
+            animation: float 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translate(calc(var(--maxX) * 1px), calc(var(--maxY) * 1px)) scale(1.5);
+                opacity: 0.3;
+            }
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-family-heading);
+            line-height: var(--line-height-heading);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.02em; /* Slight negative tracking for headings */
+        }
+
+        h1 { font-size: clamp(2.5rem, 6vw, 4rem); } /* Fluid scaling */
+        h2 { font-size: clamp(2rem, 5vw, 3.2rem); }
+        h3 { font-size: clamp(1.75rem, 4vw, 2.8rem); }
+        h4 { font-size: clamp(1.5rem, 3.5vw, 2.4rem); }
+        h5 { font-size: clamp(1.25rem, 3vw, 2rem); }
+        h6 { font-size: clamp(1rem, 2.5vw, 1.6rem); }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        a {
+            color: var(--primary-indigo);
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+            text-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Gradient Header Mask */
+        .gradient-mask {
+            background: linear-gradient(90deg, var(--primary-indigo), var(--primary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block; /* Necessary for background-clip to work */
+        }
+
+        /* Layout & Structure */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        main {
+            flex: 1; /* Allow main content to grow and push footer down */
+            padding-top: 70px; /* Space for fixed header */
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(9, 23, 42, 0.8); /* Translucent dark background */
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.3s ease;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-light);
+            letter-spacing: -0.03em;
+            text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-pink);
+            text-shadow: 0 0 8px rgba(236, 72, 153, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden; /* To contain orb effects if any */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+            max-width: 800px; /* Limit width for better readability */
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--text-light);
+            background: linear-gradient(90deg, var(--primary-indigo), var(--primary-pink));
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4), 0 8px 20px rgba(236, 72, 153, 0.4);
+            background: linear-gradient(90deg, var(--accent-hover), #d946ef); /* Slightly lighter/brighter on hover */
+        }
+
+        /* Content Sections */
+        .content-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .content-section p {
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* Tool Cards - Representing Key Arguments/Steps */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative; /* For pseudo-elements */
+            overflow: hidden; /* Ensure pseudo-elements don't overflow */
+        }
+
+        .tool-card::before,
+        .tool-card::after {
+            content: '';
+            position: absolute;
+            background-color: rgba(99, 102, 241, 0.1);
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .tool-card::before {
+            top: 10%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(99, 102, 241, 0.15);
+        }
+
+        .tool-card::after {
+            bottom: 10%;
+            right: 10%;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(236, 72, 153, 0.1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3), 0 10px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .tool-card:hover::before,
+        .tool-card:hover::after {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .tool-card .icon-container {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(236, 72, 153, 0.1) 70%);
+            border-radius: 12px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* CSS Generated Geometric Patterns & Rank Badges */
+        .tool-card .icon-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 2px, transparent 4px, rgba(255, 255, 255, 0.05) 6px),
+                              repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 2px, transparent 4px, rgba(255, 255, 255, 0.05) 6px);
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        /* Specific badge styles for each tool */
+        .tool-card.detox .icon-container::before {
+            background-image: repeating-linear-gradient(135deg, rgba(99, 102, 241, 0.1) 1px, transparent 3px, rgba(99, 102, 241, 0.1) 5px),
+                              repeating-linear-gradient(-135deg, rgba(99, 102, 241, 0.1) 1px, transparent 3px, rgba(99, 102, 241, 0.1) 5px);
+        }
+        .tool-card.visual .icon-container::before {
+            background-image: repeating-linear-gradient(60deg, rgba(236, 72, 153, 0.1) 1px, transparent 3px, rgba(236, 72, 153, 0.1) 5px),
+                              repeating-linear-gradient(-60deg, rgba(236, 72, 153, 0.1) 1px, transparent 3px, rgba(236, 72, 153, 0.1) 5px);
+        }
+        .tool-card.physical .icon-container::before {
+             background-image: repeating-linear-gradient(30deg, rgba(99, 102, 241, 0.08) 2px, transparent 4px, rgba(99, 102, 241, 0.08) 6px),
+                              repeating-linear-gradient(-30deg, rgba(236, 72, 153, 0.08) 2px, transparent 4px, rgba(236, 72, 153, 0.08) 6px);
+        }
+        .tool-card.urge .icon-container::before {
+            background-image: repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.07) 3px, transparent 6px, rgba(255, 255, 255, 0.07) 9px);
+        }
+        .tool-card.boredom .icon-container::before {
+            background-image: repeating-linear-gradient(0deg, rgba(99, 102, 241, 0.1) 2px, transparent 4px, rgba(99, 102, 241, 0.1) 6px),
+                              repeating-linear-gradient(90deg, rgba(236, 72, 153, 0.1) 2px, transparent 4px, rgba(236, 72, 153, 0.1) 6px);
+        }
+
+
+        .tool-card h3 {
+            font-size: clamp(1.25rem, 3vw, 1.8rem);
+            margin-bottom: 0.8rem;
+            color: var(--primary-indigo);
+            letter-spacing: -0.01em;
+        }
+
+        .tool-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            text-align: left;
+            flex-grow: 1; /* Allows description to take available space */
+            margin-bottom: 0;
+        }
+
+        .tool-card .rank-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--primary-indigo), var(--primary-pink));
+            color: var(--text-light);
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--background-dark);
+            color: var(--text-light);
+            border: 1px solid var(--card-border);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1001;
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(99, 102, 241, 0.3);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .theme-toggle i { /* Assuming an icon font like Font Awesome */
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(9, 23, 42, 0.8);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: auto; /* Pushes footer to the bottom */
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin-bottom: 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary-pink);
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            html { font-size: 14px; }
+            .container { width: 95%; }
+
+            header { padding: 0.8rem 0; }
+            .logo { font-size: 1.5rem; }
+            nav ul { gap: 1rem; }
+            nav a { font-size: 1rem; }
+
+            .hero { padding: 6rem 0; min-height: 50vh; }
+            .hero h1 { font-size: clamp(2rem, 8vw, 3.2rem); }
+            .hero p { font-size: 1.1rem; }
+            .cta-button { padding: 0.8rem 1.5rem; font-size: 1rem; }
+
+            .content-section { margin-bottom: 3rem; }
+            .content-section h2 { margin-bottom: 2rem; }
+
+            .tool-grid {
+                grid-template-columns: 1fr; /* Stack cards on smaller screens */
+            }
+
+            .tool-card {
+                padding: 1.5rem;
+            }
+
+            .tool-card .rank-badge {
+                top: 10px;
+                right: 10px;
+            }
+
+            .theme-toggle {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+            .theme-toggle i { font-size: 1.2rem; }
+        }
+
+        @media (max-width: 480px) {
+            html { font-size: 13px; }
+            .logo { font-size: 1.3rem; }
+            nav { display: none; } /* Hide nav on small mobile, consider a burger menu */
+
+            .hero { padding: 5rem 0; }
+            .hero h1 { font-size: clamp(1.8rem, 10vw, 2.8rem); }
+            .hero p { font-size: 1rem; }
+            .cta-button { padding: 0.7rem 1.2rem; font-size: 0.95rem; }
+
+            .tool-card { padding: 1rem; }
+            .tool-card h3 { font-size: 1.3rem; }
+            .tool-card p { font-size: 0.9rem; }
+        }
+    </style>
+
+    <!-- Font Awesome for Theme Toggle Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Animated Background Orbs -->
+    <div class="background-orbs">
+        <!-- Orbs will be dynamically added by JavaScript -->
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="https://quertech-articles.vercel.app" class="logo">QuerTech</a>
+            <nav>
+                <ul>
+                    <li><a href="#problem">Problem</a></li>
+                    <li><a href="#solution">Solution</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1><span class="gradient-mask">Reclaim Your Mind.</span> Conquer Destructive Habits.</h1>
+                <p>Tired of feeling weak, distracted, and stuck? Your brain might be hijacked. Learn powerful strategies to break free from dopamine addiction, regain self-mastery, and build an unstoppable life.</p>
+                <a href="#solution" class="cta-button">Discover the System</a>
+            </div>
+        </section>
+
+        <section id="problem" class="content-section">
+            <div class="container">
+                <h2>The "Hijacked Brain" Cycle</h2>
+                <p>Modern life bombards us with constant stimulation, training our brains to crave immediate gratification. This leads to a cycle of weakness, distraction, and a profound feeling of being stuck, as our natural ability to focus and persevere erodes.</p>
+            </div>
+        </section>
+
+        <section id="solution" class="content-section">
+            <div class="container">
+                <h2>The System for Self-Mastery</h2>
+                <p>True power comes from within. By implementing this proven system, you can detoxify your mind, re-engineer your environment, and build an unshakeable foundation for a life of purpose and achievement.</p>
+
+                <div class="tool-grid">
+                    <!-- Tool Card 1: Dopamine Detox -->
+                    <div class="tool-card detox" data-id="detox">
+                        <div class="rank-badge">Step 1</div>
+                        <div class="icon-container"></div>
+                        <h3>Dopamine Detox</h3>
+                        <p>Implement a 7-day period with zero digital indulgence. Embrace boredom to reset your reward pathways and make normal stimuli feel powerful again.</p>
+                    </div>
+
+                    <!-- Tool Card 2: Visual Control -->
+                    <div class="tool-card visual" data-id="visual">
+                        <div class="rank-badge">Step 2</div>
+                        <div class="icon-container"></div>
+                        <h3>Visual Control</h3>
+                        <p>"What you see is what you become." Curate your digital environment. Unfollow triggers, block distracting sites, and take back control of your attention.</p>
+                    </div>
+
+                    <!-- Tool Card 3: Physical Exhaustion -->
+                    <div class="tool-card physical" data-id="physical">
+                        <div class="rank-badge">Step 3</div>
+                        <div class="icon-container"></div>
+                        <h3>Physical Exhaustion</h3>
+                        <p>Channel your energy. Engage in strenuous physical activity to redirect testosterone from unwanted thoughts and build discipline through fatigue.</p>
+                    </div>
+
+                    <!-- Tool Card 4: Urge Replacement -->
+                    <div class="tool-card urge" data-id="urge">
+                        <div class="rank-badge">Step 4</div>
+                        <div class="icon-container"></div>
+                        <h3>Urge Replacement</h3>
+                        <p>Don't suppress urges, replace them. Use cold showers, push-ups, or a quick call to shift your focus and ride the wave of desire without giving in.</p>
+                    </div>
+
+                    <!-- Tool Card 5: Anti-Boredom System -->
+                    <div class="tool-card boredom" data-id="boredom">
+                        <div class="rank-badge">Step 5</div>
+                        <div class="icon-container"></div>
+                        <h3>Anti-Boredom System</h3>
+                        <p>An idle mind is vulnerable. Always have a plan for when boredom strikes – a book, a project, a skill to learn. Keep your mind occupied and disciplined.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <div class="container">
+                <h2>Ready to Take Back Control?</h2>
+                <p>Your potential is limitless when your mind is unchained. Start implementing these strategies today and begin your journey towards an empowered, unstoppable life.</p>
+                <p>Visit us at <a href="https://quertech-articles.vercel.app" target="_blank">quertech-articles.vercel.app</a> for more insights.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 QuerTech. All rights reserved. | Designed with a <a href="https://quertech-articles.vercel.app">premium</a> user experience.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle" title="Toggle Dark Mode (Example)">
+        <i class="fas fa-moon"></i> <!-- Example: Moon icon -->
+    </div>
+
+    <script>
+        // --- Global Variables & Initialization ---
+        const body = document.body;
+        const header = document.querySelector('header');
+        const orbsContainer = document.querySelector('.background-orbs');
+        const orbCount = 5; // Number of background orbs
+        const orbMaxTranslation = 300; // Max px for orb movement
+        const themeToggle = document.getElementById('themeToggle');
+        const themeToggleIcon = themeToggle.querySelector('i');
+
+        // --- Animation: Background Orbs ---
+        function createOrb() {
+            const orb = document.createElement('div');
+            orb.classList.add('orb');
+            const size = Math.random() * 150 + 50; // Orb size between 50px and 200px
+            orb.style.width = `${size}px`;
+            orb.style.height = `${size}px`;
+            orb.style.top = `${Math.random() * 100}vh`;
+            orb.style.left = `${Math.random() * 100}vw`;
+
+            // Set random translation range for each orb
+            orb.style.setProperty('--maxX', (Math.random() - 0.5) * orbMaxTranslation);
+            orb.style.setProperty('--maxY', (Math.random() - 0.5) * orbMaxTranslation);
+
+            return orb;
+        }
+
+        function animateOrbs() {
+            for (let i = 0; i < orbCount; i++) {
+                const orb = createOrb();
+                orbsContainer.appendChild(orb);
+            }
+        }
+
+        // --- Interaction Design: Scroll Effects ---
+        function handleScrollEffects() {
+            const scrollY = window.scrollY;
+            const headerHeight = header.offsetHeight;
+
+            // Header background fade/blur on scroll
+            if (scrollY > headerHeight) {
+                header.style.backgroundColor = 'rgba(9, 23, 42, 0.95)';
+                header.style.backdropFilter = 'blur(20px) saturate(180%)';
+            } else {
+                header.style.backgroundColor = 'rgba(9, 23, 42, 0.8)';
+                header.style.backdropFilter = 'blur(15px) saturate(180%)';
+            }
+        }
+
+        // --- Interaction Design: Theme Toggle ---
+        function toggleTheme() {
+            body.classList.toggle('dark-mode'); // Example class for dark mode
+            themeToggleIcon.classList.toggle('fa-sun'); // Switch icon
+            themeToggleIcon.classList.toggle('fa-moon');
+
+            // In a single-file solution, we'd ideally use CSS variables
+            // and swap them. Here, we'll just toggle a class as a placeholder.
+            // For true dark mode, you'd need to define dark mode CSS rules.
+            console.log('Theme toggled (example). Implement actual dark mode styles.');
+        }
+
+        // --- Event Listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOrbs();
+            handleScrollEffects(); // Initial call for header state
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+        window.addEventListener('scroll', handleScrollEffects);
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // --- UI/UX Enhancements ---
+        // Interactive Hover Effects for Tool Cards (already handled by CSS transitions)
+        // The CSS `:hover` states and `transition` properties provide the 3D lifting and border-color transitions.
+        // The pseudo-elements (`::before`, `::after`) with blur and opacity changes on hover add depth and glow.
+
+        // Accessibility: Ensure focus states are clear (handled by default browser styles and good contrast)
+
+        // Performance:
+        // - Single file for fast loading.
+        // - Optimized CSS (Flexbox/Grid).
+        // - Minimal JS for interactivity.
+        // - Use of `clamp()` for fluid typography.
+        // - Placeholder for theme toggle functionality (needs actual CSS implementation).
+
+        // Further enhancements could include:
+        // - A proper mobile menu for navigation on smaller screens.
+        // - More sophisticated orb animations or particle effects.
+        // - A JavaScript-based theme switcher that swaps CSS variables for true dark mode.
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

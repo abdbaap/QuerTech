@@ -1,201 +1,170 @@
 [
   {
-    "blog_title": "The 90-Minute Sleep Secret: Maximize Recovery & Boost Focus",
-    "link": "PEAKSLEEP",
-    "description": "Unlock peak daily performance by mastering sleep quality over mere duration. Discover the science behind 90-minute sleep cycles, practical steps like the '3-2-1 method,' and morning light exposure to maximize recovery, focus, and energy. Stop just sleeping and start truly restoring!",
+    "blog_title": "Sleep Hack",
+    "link": "/sleephack",
+    "description": "Unlock peak performance with science-backed strategies for truly restorative sleep. Learn to optimize your sleep cycles for enhanced focus, energy, and well-being by understanding deep and REM sleep, mastering wind-down routines, and leveraging morning light.",
     "tags": [
+      "Sleep Science",
       "Sleep Quality",
-      "Sleep Optimization",
-      "Peak Performance",
-      "90-Minute Cycles",
+      "Deep Sleep",
+      "REM Sleep",
       "Circadian Rhythm",
-      "Productivity Boost",
-      "Efficient Sleep"
+      "Sleep Hacks",
+      "Performance"
     ],
-    "color": "bg-blue-900 shadow-blue-500"
+    "color": "bg-blue-800 shadow-blue-400"
   },
   {
-    "blog_title": "Google Cloud Gen AI Academy: Master AI Skills",
-    "link": "MasterAI",
-    "description": "Unlock your potential! Google Cloud's FREE Gen AI Academy APAC 2026 offers expert workshops, CodeLabs, and mentorship. Master Generative AI, earn a certificate, win up to $10,000, and boost your career in AI.",
+    "blog_title": "Glow Up",
+    "link": "/glow-up",
+    "description": "Unlock radiant skin! Discover 7 common habits destroying your complexion and learn simple, effective steps for a healthier, glowing face. Transform your skin with science-backed advice.",
     "tags": [
-      "Google Gen AI",
-      "Free AI Course",
-      "AI Skills",
-      "APAC",
-      "Career Boost",
-      "AI Certification"
+      "Skincare Mistakes",
+      "Glowing Skin",
+      "Healthy Habits",
+      "Skin Health",
+      "Beauty Tips"
+    ],
+    "color": "bg-emerald-600 shadow-emerald-400"
+  },
+  {
+    "blog_title": "Achieve Goals",
+    "link": "/achievegoals",
+    "description": "Learn the powerful 3-step framework used by successful individuals to guarantee goal achievement. Discover how to define precise targets, overcome obstacles with proactive solutions, and anchor actions into your daily routine for unstoppable progress.",
+    "tags": [
+      "Goal Achievement",
+      "Success Habits",
+      "Productivity",
+      "Action Planning",
+      "Motivation"
+    ],
+    "color": "bg-blue-600 shadow-blue-400"
+  },
+  {
+    "blog_title": "Wealth First",
+    "link": "/wealthfirst",
+    "description": "Stop bad money habits and achieve financial freedom! Discover 8 wealth-killing mistakes and learn the 'pay yourself first' secret to budgeting, saving, and investing for a richer future.",
+    "tags": [
+      "Financial Freedom",
+      "Wealth Building",
+      "Personal Finance",
+      "Saving",
+      "Investing",
+      "Budgeting",
+      "Debt Management",
+      "Financial Habits"
+    ],
+    "color": "bg-green-700 shadow-green-400"
+  },
+  {
+    "blog_title": "AI Career",
+    "link": "/aicareer",
+    "description": "Launch your AI engineering career! Learn essential skills in LLMs, RAG, Agents, and LLMOps. Build your portfolio and land a high-paying job.",
+    "tags": [
+      "AI Engineer",
+      "Career Roadmap",
+      "LLMs",
+      "RAG",
+      "LLMOps",
+      "AI Jobs"
     ],
     "color": "bg-indigo-700 shadow-indigo-400"
   },
   {
-    "blog_title": "Healthy Weight Gain Blueprint",
-    "link": "GainPower",
-    "description": "Struggling to gain weight healthily? Debunk myths and discover science-backed strategies tailored to your body type. Learn specific diets, workouts, and lifestyle changes to build muscle and avoid 'Thin Outside, Fat Inside' risks.",
+    "blog_title": "2 Min Boost",
+    "link": "/2minboost",
+    "description": "Discover how to beat procrastination and build habits with the powerful 2-minute rule, adapted from productivity giants like David Allen and James Clear. Start small, gain momentum, and transform your workflow.",
     "tags": [
-      "Healthy Weight Gain",
-      "Weight Gain Diet",
-      "Body Type",
-      "Ectomorph",
-      "Muscle Building",
-      "Nutrition",
-      "Workout",
-      "TOFI"
+      "Productivity",
+      "2 Minute Rule",
+      "Atomic Habits",
+      "Getting Things Done",
+      "Procrastination",
+      "Habits"
     ],
-    "color": "bg-violet-700 shadow-violet-400"
+    "color": "bg-blue-700 shadow-blue-400"
   },
   {
-    "blog_title": "AI vs. Humans: The Real IT Job Market Future",
-    "link": "Human AI Win",
-    "description": "Ex-Google engineer Mohammad Fraz debunks AI layoff myths, revealing post-COVID overhiring and AI limitations. Discover why human expertise, especially in mid-level and expert IT roles, is crucial amidst AI's 'plateau effect' and re-hiring trends. Learn to upskill and thrive in the evolving tech landscape.",
+    "blog_title": "Future Code: Agentic Engineering Guide",
+    "link": "AIReady",
+    "description": "Crush coding in 2026! Learn Agentic Engineering – master AI code agents. This guide builds essential dev foundations & leverages AI for rapid learning to become a future-proof coder.",
     "tags": [
-      "AI Layoffs",
-      "IT Job Market",
-      "Human Expertise",
-      "AI Limitations",
-      "Software Engineering",
-      "Tech Careers",
-      "LearnYard"
+      "AI Coding",
+      "Agentic Engineering",
+      "Future Dev",
+      "Learn to Code",
+      "AI Tools"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "AdSense Breakthrough",
+    "link": "Profit",
+    "description": "Unlock AdSense profit! Learn my proven 1st-try approval strategy to beat 'low-value content' rejections: create long-form, original content with a vital human touch even with AI. Monetize your site today!",
+    "tags": [
+      "Google AdSense",
+      "AdSense Approval",
+      "Content Monetization",
+      "AI Content",
+      "Low Value Content",
+      "Blogging Tips"
+    ],
+    "color": "bg-emerald-900 shadow-emerald-500"
+  },
+  {
+    "blog_title": "Unlock Elite Tech Skills: Free Courses & Certifications Guide",
+    "link": "FreeCerts",
+    "description": "Access high-demand tech courses from Google, Microsoft, & IBM for free on Coursera & other top platforms. Leverage financial aid, preview modes, and official platforms to get certified & boost your career!",
+    "tags": [
+      "Free Courses",
+      "Tech Skills",
+      "Certifications",
+      "Coursera Financial Aid",
+      "Google Skillshop",
+      "IBM SkillsBuild",
+      "Career Growth"
     ],
     "color": "bg-indigo-700 shadow-indigo-400"
   },
   {
-    "blog_title": "Infosys Springboard: Free Digital Skills & Career Growth",
-    "link": "progrow",
-    "description": "Unlock your potential with Infosys Springboard! Get 12,000+ free courses, virtual internships, and certifications for digital & life skills. No fees, no exams – just career growth.",
+    "blog_title": "30-Day AI Wealth Blueprint",
+    "link": "AIProfit",
+    "description": "Crush procrastination & unlock financial goals in 30 days. This framework reveals how to leverage AI for rapid entrepreneurial success, turning aspiring ideas into million-dollar realities. Learn the 5-step blueprint.",
     "tags": [
-      "Infosys Springboard",
-      "Free Education",
-      "Digital Skills",
-      "Virtual Internships",
-      "Career Development",
-      "Online Certifications",
-      "Tech Skills"
+      "AI Entrepreneurship",
+      "30 Day Plan",
+      "Financial Goals",
+      "Procrastination",
+      "AI Automation",
+      "Business Growth"
+    ],
+    "color": "bg-emerald-900 shadow-emerald-400"
+  },
+  {
+    "blog_title": "The AI Engineer: Mastering Future Skills",
+    "link": "Mastery",
+    "description": "AI automates coding but sparks incidents. Learn how engineers elevate their role by mastering AI-proof skills like design, ethics, and contextual understanding, making them irreplaceable in the AI-driven future.",
+    "tags": [
+      "AI Engineering",
+      "Developer Skills",
+      "Future of AI",
+      "Human-AI Collaboration",
+      "Strategic Thinking"
+    ],
+    "color": "bg-indigo-900 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide",
+    "link": "DECIMLFRAUD",
+    "description": "URGENT! The Deciml investing app, heavily promoted by influencers, has reportedly trapped user funds. Learn how to recover your money from this alleged fraud and what steps to take now.",
+    "tags": [
+      "Deciml App",
+      "Investment Fraud",
+      "Influencer Accountability",
+      "Fund Recovery",
+      "Scam Alert",
+      "MF Central"
     ],
     "color": "bg-indigo-900 shadow-indigo-600"
-  },
-  {
-    "blog_title": "PDF Excel Riches: Your Freelance Guide",
-    "link": "ExcelCash",
-    "description": "An expert guide from a Microsoft Certified Trainer on converting PDFs to clean Excel for lucrative freelance gigs. Learn essential data cleaning and transformation skills to earn a 'second salary' with practical, step-by-step methods and tools.",
-    "tags": [
-      "Freelancing",
-      "PDF to Excel",
-      "Data Cleaning",
-      "Excel Skills",
-      "Fiverr",
-      "Second Salary",
-      "Online Earning",
-      "Microsoft Excel"
-    ],
-    "color": "bg-blue-900 shadow-blue-400"
-  },
-  {
-    "blog_title": "Master Your Memory: Neuroscience Strategies for Exam Success",
-    "link": "Ace Memory",
-    "description": "Struggling to remember what you read? Unlock neuroscience-backed strategies for superior memory retention, perfect for demanding exams like UPSC. Learn active recall, spaced repetition, and how to build powerful, lasting memories by understanding your brain's natural processes.",
-    "tags": [
-      "Memory Retention",
-      "Study Strategies",
-      "Neuroscience Learning",
-      "Active Recall",
-      "Spaced Repetition",
-      "UPSC Exam Prep",
-      "Learning Hacks",
-      "Brain Training"
-    ],
-    "color": "bg-violet-800 shadow-violet-400"
-  },
-  {
-    "blog_title": "Code Mastery Method",
-    "link": "Code Win",
-    "description": "Stop failing at coding! Discover the project-based method for rapid mastery, leveraging building, smart AI, and community. Ditch endless tutorials, start creating and succeeding today.",
-    "tags": [
-      "Coding Education",
-      "Project-Based Learning",
-      "Learn to Code",
-      "Programming Mastery",
-      "AI in Coding"
-    ],
-    "color": "bg-violet-900 shadow-violet-400"
-  },
-  {
-    "blog_title": "Study Mastery: Ace Your Exams",
-    "link": "MindBoost",
-    "description": "Struggling with exams? Unlock your potential with 3 scientifically-backed study techniques: Feynman, Pomodoro, and Spaced Repetition. Boost focus, retention, and confidence to ace your academics.",
-    "tags": [
-      "Study Techniques",
-      "Academic Success",
-      "Feynman Technique",
-      "Pomodoro Technique",
-      "Spaced Repetition",
-      "Learning Strategies",
-      "Exam Prep",
-      "Student Motivation"
-    ],
-    "color": "bg-indigo-800 shadow-indigo-500"
-  },
-  {
-    "blog_title": "Glass-Effect Windows 11: Ultimate Desktop Setup",
-    "link": "Glass Win11",
-    "description": "Transform your Windows 11 desktop into a stunning, modern glass-effect interface! This guide uses Windhawk, Lively Wallpaper, and Rainmeter to achieve translucent UI, live backgrounds, and sleek widgets. Get that clean, aesthetic look.",
-    "tags": [
-      "Windows 11 Customization",
-      "Glass Effect UI",
-      "Desktop Aesthetics",
-      "Windhawk",
-      "Lively Wallpaper",
-      "Rainmeter",
-      "Modern Desktop",
-      "Tech Tutorial",
-      "Windows Mods"
-    ],
-    "color": "bg-violet-800 shadow-violet-400"
-  },
-  {
-    "blog_title": "India's Perilous Foreign Policy Amidst Global Conflict",
-    "link": "INDIAPERIL",
-    "description": "A critical analysis of the escalating US-Israel-Iran war and its severe economic impact on India. Learn how India's foreign policy choices are questioned amid rising oil prices, the Strait of Hormuz closure, and strategic risks.",
-    "tags": [
-      "India Foreign Policy",
-      "US-Israel-Iran Conflict",
-      "Geopolitics",
-      "Energy Security",
-      "Strait of Hormuz",
-      "Modi Government",
-      "International Relations",
-      "Economic Impact"
-    ],
-    "color": "bg-fuchsia-900 shadow-fuchsia-700"
-  },
-  {
-    "blog_title": "Ultimate Fat Loss Blueprint",
-    "link": "torchfat",
-    "description": "Unlock sustainable fat loss with this science-backed guide. Learn to create your own diet and workout plan, combining calorie deficit, intermittent fasting, accurate tracking, and a powerful cardio & strength regimen. Ditch quick fixes, embrace discipline, and transform your body.",
-    "tags": [
-      "Fat Loss",
-      "Calorie Deficit",
-      "Intermittent Fasting",
-      "Strength Training",
-      "Cardio",
-      "Diet Plan",
-      "Workout Plan"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-500"
-  },
-  {
-    "blog_title": "Boost Your FPS: Ultimate Windows 10/11 Gaming Guide",
-    "link": "FPSBoost",
-    "description": "Unlock peak gaming performance on Windows 10 & 11, even on old PCs! This guide reveals crucial software tweaks like Storage Sense, Game Mode, and visual settings to drastically boost FPS and responsiveness without expensive hardware upgrades.",
-    "tags": [
-      "Windows Optimization",
-      "Gaming Performance",
-      "FPS Boost",
-      "Low-End PC Gaming",
-      "System Tweaks",
-      "Windows 10 Gaming",
-      "Windows 11 Gaming"
-    ],
-    "color": "bg-violet-700 shadow-violet-400"
   }
 ]
