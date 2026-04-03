@@ -1,5 +1,116 @@
 [
   {
+    "blog_title": "UI Colors Guide",
+    "link": "/uicolorguide",
+    "description": "Master UI colors! Learn to pick effective colors with HSL and OKLCH models for stunning, user-friendly interfaces. Unlock your design potential.",
+    "tags": [
+      "UI Colors",
+      "Color Models",
+      "HSL",
+      "OKLCH",
+      "UI Design",
+      "Color Theory"
+    ],
+    "color": "bg-blue-600 shadow-blue-400"
+  },
+  {
+    "blog_title": "AI Code Wins",
+    "link": "/aicodewins",
+    "description": "Unlock 13+ AI coding projects! Learn data analysis, NLP, game dev & more. Build your portfolio with practical AI applications.",
+    "tags": [
+      "AI Coding",
+      "Programming Projects",
+      "Learn AI",
+      "NLP",
+      "Data Analysis",
+      "Game Development"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
+    "blog_title": "Code Truths",
+    "link": "/codetruths",
+    "description": "Stop \"vibe coding\"! AI generates code fast, but understanding systems makes you a better developer. Learn why deep knowledge beats AI shortcuts for bug-free code and career growth.",
+    "tags": [
+      "AI Coding",
+      "Vibe Coding",
+      "Developer Skills",
+      "Code Debugging",
+      "System Design"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Claude Offline",
+    "link": "/claudeoffline",
+    "description": "Unlock Claude Code for free, local, and unlimited AI-assisted coding. Follow 5 steps to install Ollama, download models, and build apps offline.",
+    "tags": [
+      "Claude Code",
+      "AI Coding",
+      "Offline AI",
+      "Ollama",
+      "Local AI",
+      "Free Coding"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
+    "blog_title": "Server Hacks",
+    "link": "/serverhacks",
+    "description": "Turn an old laptop into a powerful home server! Learn to install Ubuntu Server, host Jellyfin for media streaming, and even run your own Minecraft server. Perfect for tech enthusiasts and budget-friendly projects.",
+    "tags": [
+      "Ubuntu Server",
+      "Home Server",
+      "Jellyfin",
+      "Minecraft Server",
+      "Laptop Repurpose",
+      "Tech Tutorial"
+    ],
+    "color": "bg-cyan-700 shadow-cyan-400"
+  },
+  {
+    "blog_title": "Learn Faster",
+    "link": "/learnfaster",
+    "description": "Unlock your brain's potential! Discover the '3C Protocol' for deep learning, ditch rote memorization, and master any subject with science-backed strategies. Boost retention and achieve true understanding.",
+    "tags": [
+      "Learning",
+      "Study Hacks",
+      "Memory",
+      "Cognitive Science",
+      "Productivity"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "AI Limits",
+    "link": "/AILimits",
+    "description": "Explore the surprising limitations of AI in freelance tasks. Discover why AI fails 97.5% of the time in complex jobs and what this means for the future of work.",
+    "tags": [
+      "AI",
+      "Freelance",
+      "Future of Work",
+      "Automation",
+      "Limitations"
+    ],
+    "color": "bg-blue-800 shadow-blue-400"
+  },
+  {
+    "blog_title": "AI Career Path",
+    "link": "/aicareer",
+    "description": "Your 6-month blueprint to becoming an AI engineer. Master practical skills, build real projects, and deploy AI applications. Demystify the AI ecosystem and land your dream role.",
+    "tags": [
+      "AI Engineer",
+      "Career Roadmap",
+      "AI Skills",
+      "LLMs",
+      "Project-Based Learning",
+      "Prompt Engineering",
+      "Deployment",
+      "MLOps"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
     "blog_title": "Sleep Hack",
     "link": "/sleephack",
     "description": "Unlock peak performance with science-backed strategies for truly restorative sleep. Learn to optimize your sleep cycles for enhanced focus, energy, and well-being by understanding deep and REM sleep, mastering wind-down routines, and leveraging morning light.",

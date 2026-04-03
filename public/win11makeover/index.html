@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Title -->
+    <title>Transform Windows 11: Dark Mode, Widgets & More!</title>
+    <!-- Meta Description -->
+    <meta name="description" content="Tired of boring Windows 11? Get a stunning, personalized desktop with easy dark mode, translucent taskbar, and useful widgets. Watch now to unlock your ultimate PC setup!">
+    <meta name="keywords" content="windows 11 dark mode tutorial, how to customize windows 11 desktop, windows 11 translucent taskbar setup, best windows 11 desktop widgets, rainmeter windows 11 tutorial, windhawk windows 11 mods guide, make windows 11 look better, personalized windows 11 desktop ideas, animated wallpaper windows 11, easy windows 11 customization">
+    <meta name="author" content="QuerTech Articles">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Transform Windows 11: Dark Mode, Widgets & More!">
+    <meta property="og:description" content="Tired of boring Windows 11? Get a stunning, personalized desktop with easy dark mode, translucent taskbar, and useful widgets. Watch now to unlock your ultimate PC setup!">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:site_name" content="QuerTech Articles">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Transform Windows 11: Dark Mode, Widgets & More!">
+    <meta name="twitter:description" content="Tired of boring Windows 11? Get a stunning, personalized desktop with easy dark mode, translucent taskbar, and useful widgets. Watch now to unlock your ultimate PC setup!">
+
+    <link rel="canonical" href="https://quertech-articles.vercel.app">
+
+    <title>Windows 11 Customization Guide</title>
+    <style>
+        /* Font Declarations - Leading with SF Pro Display for premium feel */
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/sf-symbols-app/5.1.0/SF-Pro-Display-Regular.woff2') format('woff2'),
+                 url('https://cdnjs.cloudflare.com/ajax/libs/sf-symbols-app/5.1.0/SF-Pro-Display-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/sf-symbols-app/5.1.0/SF-Pro-Display-Semibold.woff2') format('woff2'),
+                 url('https://cdnjs.cloudflare.com/ajax/libs/sf-symbols-app/5.1.0/SF-Pro-Display-Semibold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/sf-symbols-app/5.1.0/SF-Pro-Display-Bold.woff2') format('woff2'),
+                 url('https://cdnjs.cloudflare.com/ajax/libs/sf-symbols-app/5.1.0/SF-Pro-Display-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Color Palette */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-dark: #09172a;
+            --color-slate-light: #1e293b; /* A slightly lighter shade for contrast within dark theme */
+            --color-white-transparent: rgba(255, 255, 255, 0.8);
+            --color-gray-light: #94a3b8;
+        }
+
+        /* Global Styles & Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            line-height: 1.7;
+            background-color: var(--color-slate-dark);
+            color: var(--color-white-transparent);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            display: grid; /* Use Grid for main layout */
+            grid-template-rows: auto 1fr auto; /* Header, Main Content, Footer */
+            min-height: 100vh;
+        }
+
+        /* Animated Background Orbs */
+        #background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(236, 72, 153, 0.2) 50%, rgba(9, 23, 42, 0) 70%);
+            filter: blur(100px);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(1.2); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: clamp(2rem, 6vw, 4rem); /* Fluid scaling */
+            font-weight: bold;
+            margin-bottom: 2rem;
+            position: relative; /* For potential future overlays */
+            z-index: 1; /* Ensure header is above background */
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Main Content Area */
+        main {
+            padding: 0 1rem 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            z-index: 1; /* Ensure content is above background */
+        }
+
+        /* Section Styling */
+        section {
+            background-color: rgba(9, 30, 52, 0.5); /* Slightly transparent dark slate */
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(236, 72, 153, 0.3); /* Pink glow on hover */
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p, li {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 1rem;
+            color: var(--color-white-transparent);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.5em;
+            margin-bottom: 0.8rem;
+        }
+
+        li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.4em;
+            width: 0.6em;
+            height: 0.6em;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Tool Cards */
+        .tool-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(9, 30, 52, 0.6);
+            backdrop-filter: blur(10px) saturate(150%);
+            -webkit-backdrop-filter: blur(10px) saturate(150%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s ease;
+            text-align: center;
+            height: 250px; /* Fixed height for uniformity */
+        }
+
+        .tool-card:hover {
+            transform: perspective(1000px) rotateX(5deg) translateY(-5px); /* 3D lift effect */
+            box-shadow: 0 8px 30px 0 rgba(236, 72, 153, 0.4), 0 0 15px rgba(99, 102, 241, 0.5);
+            border-color: var(--color-pink); /* Border color transition */
+        }
+
+        .tool-icon-container {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(236, 72, 153, 0.3) 50%, rgba(9, 23, 42, 0) 70%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--color-white-transparent);
+        }
+
+        .tool-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--color-indigo);
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-description {
+            font-size: 0.95rem;
+            color: var(--color-gray-light);
+            flex-grow: 1; /* Allows description to take available space */
+            margin-bottom: 1rem;
+        }
+
+        .tool-users {
+            font-size: 0.8rem;
+            color: rgba(148, 163, 184, 0.7);
+            font-style: italic;
+        }
+
+        /* Specific Tool Card Styling (Geometric Patterns/Rank Badges) */
+        .tool-icon-container.windhawk {
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, rgba(0, 0, 0, 0) 60%),
+                        repeating-linear-gradient(45deg, rgba(236, 72, 153, 0.1), rgba(236, 72, 153, 0.2) 10px, rgba(9, 23, 42, 0) 10px, rgba(9, 23, 42, 0) 20px);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+        .tool-icon-container.windhawk .tool-icon { color: #fff; } /* White icon for better contrast */
+
+        .tool-icon-container.rainmeter {
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.5) 0%, rgba(0, 0, 0, 0) 60%),
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><circle cx="50" cy="50" r="45" fill="none" stroke="rgba(99,102,241,0.3)" stroke-width="5"/><path d="M50 10 L60 30 L80 35 L65 50 L70 70 L50 60 L30 70 L35 50 L20 35 L40 30 Z" fill="rgba(255,255,255,0.5)"/></svg>');
+            background-size: cover;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+         .tool-icon-container.rainmeter .tool-icon { color: #fff; } /* White icon for better contrast */
+
+        .tool-icon-container.lively {
+            background: radial-gradient(circle, rgba(9, 23, 42, 0.4) 0%, rgba(0, 0, 0, 0) 60%),
+                        repeating-conic-gradient(from 0deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.2) 15deg, rgba(236, 72, 153, 0.1) 30deg, rgba(236, 72, 153, 0.2) 45deg);
+            background-size: 100px 100px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+        .tool-icon-container.lively .tool-icon { color: #fff; } /* White icon for better contrast */
+
+
+        /* Key Info Section */
+        .key-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .key-info-item {
+            background-color: rgba(9, 30, 52, 0.5);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .key-info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px 0 rgba(236, 72, 153, 0.3);
+        }
+
+        .key-info-item h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--color-indigo);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .key-info-item h3::before {
+            content: '✨'; /* Star emoji for visual flair */
+            font-size: 1.2rem;
+        }
+
+        .key-info-item p {
+            font-size: 1rem;
+            color: var(--color-gray-light);
+            margin-bottom: 0; /* Remove bottom margin for the last paragraph in an item */
+        }
+
+        /* Theme Toggle */
+        .theme-toggle-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+
+        .theme-toggle {
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-indigo);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px 0 rgba(99, 102, 241, 0.4);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            outline: none;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--color-pink);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px 0 rgba(236, 72, 153, 0.6);
+        }
+
+        .theme-toggle .icon {
+            font-size: 2rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+            background-color: rgba(9, 30, 52, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--color-gray-light);
+            z-index: 1;
+        }
+
+        footer a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--color-pink);
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 0.5rem;
+                font-size: clamp(1.8rem, 5vw, 3rem);
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: clamp(1.3rem, 4vw, 2rem);
+            }
+
+            p, li {
+                font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            }
+
+            .tool-card {
+                height: auto; /* Allow cards to be taller on smaller screens */
+            }
+
+            .theme-toggle-container {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+            }
+
+            .theme-toggle .icon {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: clamp(1.6rem, 6vw, 2.5rem);
+            }
+
+            section {
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            h2 {
+                font-size: clamp(1.2rem, 5vw, 1.8rem);
+                margin-bottom: 1rem;
+            }
+
+            p, li {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+            }
+
+            .key-info-grid {
+                grid-template-columns: 1fr; /* Stack items on very small screens */
+            }
+        }
+
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Animated Background Orbs -->
+    <div id="background-orbs"></div>
+
+    <header>
+        <h1>Windows 11 Customization Mastery</h1>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h2>Unlock Your Ultimate Windows 11 Desktop</h2>
+            <p>Tired of the default Windows 11 look? This guide transforms your PC into a visually stunning and highly functional workspace. Discover how to achieve a sleek dark mode, a mesmerizing translucent taskbar, and powerful desktop widgets that keep you informed and organized.</p>
+        </section>
+
+        <section id="tools">
+            <h2>Tools for Transformation</h2>
+            <p>We'll leverage a curated set of powerful, yet easy-to-use applications to achieve these premium customizations:</p>
+            <div class="key-info-grid">
+                <div class="tool-card windhawk">
+                    <div class="tool-icon-container windhawk">
+                        <span class="tool-icon">⚙️</span> <!-- Gear icon -->
+                    </div>
+                    <div class="tool-name">Windhawk</div>
+                    <div class="tool-description">A powerful platform for applying advanced "mods" to Windows, enabling deep visual and functional tweaks.</div>
+                    <div class="tool-users">Used by over 500,000 users across its mods.</div>
+                </div>
+                <div class="tool-card rainmeter">
+                    <div class="tool-icon-container rainmeter">
+                        <span class="tool-icon">📊</span> <!-- Bar chart icon -->
+                    </div>
+                    <div class="tool-name">Rainmeter</div>
+                    <div class="tool-description">Highly versatile desktop customization tool for creating and displaying dynamic widgets, skins, and information panels.</div>
+                    <div class="tool-users">Popular skins used by tens of thousands.</div>
+                </div>
+                <div class="tool-card lively">
+                    <div class="tool-icon-container lively">
+                        <span class="tool-icon">✨</span> <!-- Sparkles icon -->
+                    </div>
+                    <div class="tool-name">Lively Wallpaper</div>
+                    <div class="tool-description">An application that brings your desktop to life with animated, interactive, and even web-based wallpapers.</div>
+                    <div class="tool-users">Enhance your aesthetic with millions of possibilities.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="customization-steps">
+            <h2>Step-by-Step Guide</h2>
+            <p>Follow these clear steps to give your Windows 11 the premium makeover it deserves:</p>
+
+            <div class="key-info-item">
+                <h3>1. Dark Mode Implementation</h3>
+                <p>Activate Windows 11's built-in dark theme for a sophisticated base. Navigate to <em>Settings &gt; Personalization &gt; Colors</em> and select 'Dark'.</p>
+            </div>
+
+            <div class="key-info-item">
+                <h3>2. Translucent Taskbar & Start Menu</h3>
+                <p>Elevate your taskbar and start menu aesthetics using Windhawk. Install the "Windows 11 Taskbar Styler" and "Windows 11 Start Menu Styler" mods. Explore themes like "TaskbarXX" and "TranslucentStartMenu" for a truly modern, airy feel.</p>
+            </div>
+
+            <div class="key-info-item">
+                <h3>3. Desktop Widgets with Rainmeter</h3>
+                <p>Install Rainmeter and dive into its vast ecosystem of skins. We recommend the "Mond Rainmeter Theme" as a starting point. Customize widgets for essential information:</p>
+                <ul>
+                    <li>Clock & Calendar: Always know the time and date at a glance.</li>
+                    <li>System Monitoring: Keep an eye on your PC's performance.</li>
+                    <li>Weather: Stay updated on forecasts.</li>
+                    <li>Notes: Jot down quick thoughts and reminders.</li>
+                </ul>
+                <p>Customize widget text color (e.g., to black for contrast), scale, and position to perfectly match your workflow.</p>
+            </div>
+
+            <div class="key-info-item">
+                <h3>4. Animated Wallpapers with Lively</h3>
+                <p>Make your desktop dynamic with Lively Wallpaper. Apply captivating animated wallpapers, such as the "Rain" theme, to add depth and visual interest.</p>
+            </div>
+        </section>
+
+        <section id="key-terminology">
+            <h2>Key Terms to Know</h2>
+            <div class="key-info-grid">
+                <div class="key-info-item"><h3>Windhawk</h3><p>A platform for Windows modifications (mods).</p></div>
+                <div class="key-info-item"><h3>Mods</h3><p>User-created enhancements for applications like Windhawk.</p></div>
+                <div class="key-info-item"><h3>Rainmeter</h3><p>Desktop customization application for widgets and skins.</p></div>
+                <div class="key-info-item"><h3>Skins</h3><p>The visual elements and widgets created in Rainmeter.</p></div>
+                <div class="key-info-item"><h3>Widgets</h3><p>Small, functional applications displayed on the desktop.</p></div>
+                <div class="key-info-item"><h3>Translucent</h3><p>Partially transparent, allowing background elements to show through.</p></div>
+                <div class="key-info-item"><h3>Dark Mode</h3><p>A color scheme using dark backgrounds and light text.</p></div>
+            </div>
+        </section>
+
+        <section id="so-what">
+            <h2>The "So What?" - Your Enhanced Workflow</h2>
+            <p>By implementing these customizations, you're not just making your Windows 11 desktop look better; you're crafting a more efficient and enjoyable computing environment. Gain quicker access to vital information, personalize your workspace to reflect your style, and enjoy a modern, aesthetically pleasing interface that makes your daily tasks a pleasure.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 QuerTech Articles. All rights reserved.</p>
+        <p>Visit us for more tech insights: <a href="https://quertech-articles.vercel.app" target="_blank">quertech-articles.vercel.app</a></p>
+    </footer>
+
+    <!-- Floating Theme Toggle Button -->
+    <div class="theme-toggle-container">
+        <button id="themeToggleBtn" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 18v1m9-10h-1m-15 0H3M17.707 4.293a1 1 0 00-1.414 1.414l1.414 1.414a1 1 0 001.414-1.414l-1.414-1.414zM7.293 16.707a1 1 0 00-1.414 1.414l1.414 1.414a1 1 0 001.414-1.414l-1.414-1.414zm10.607-10.607a1 1 0 00-1.414 1.414l1.414 1.414a1 1 0 001.414-1.414l-1.414-1.414zM7.293 7.293a1 1 0 00-1.414 1.414l1.414 1.414a1 1 0 001.414-1.414l-1.414-1.414zM12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        // --- JavaScript for Interactivity and Animations ---
+
+        // 1. Background Orb Generation and Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const numOrbs = 8; // Number of orbs to create
+            const orbContainer = document.getElementById('background-orbs');
+
+            for (let i = 0; i < numOrbs; i++) {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                // Randomize position, size, and animation delay
+                const size = Math.random() * 300 + 100; // Orb size between 100px and 400px
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.top = `${Math.random() * 100}%`;
+                orb.style.left = `${Math.random() * 100}%`;
+
+                // Adjust animation duration and delay for variety
+                const animationDuration = Math.random() * 10 + 10; // 10 to 20 seconds
+                const animationDelay = Math.random() * 5; // 0 to 5 seconds delay
+                orb.style.animation = `float ${animationDuration}s ease-in-out infinite`;
+                orb.style.animationDelay = `-${animationDelay}s`; // Start animation mid-way for variety
+
+                // Randomize initial position slightly to avoid all starting at 0,0
+                const initialTranslateX = (Math.random() - 0.5) * 200;
+                const initialTranslateY = (Math.random() - 0.5) * 200;
+                orb.style.transform = `translate(${initialTranslateX}px, ${initialTranslateY}px) scale(${Math.random() * 0.5 + 0.5})`; // Slightly random scale
+
+                orbContainer.appendChild(orb);
+            }
+        });
+
+        // 2. Theme Toggle Functionality
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const body = document.body;
+        const sunIcon = `<svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 18v1m9-10h-1m-15 0H3M17.707 4.293a1 1 0 00-1.414 1.414l1.414 1.414a1 1 0 001.414-1.414l-1.414-1.414zM7.293 16.707a1 1 0 00-1.414 1.414l1.414 1.414a1 1 0 001.414-1.414l-1.414-1.414zm10.607-10.607a1 1 0 00-1.414 1.414l1.414 1.414a1 1 0 001.414-1.414l-1.414-1.414zM7.293 7.293a1 1 0 00-1.414 1.414l1.414 1.414a1 1 0 001.414-1.414l-1.414-1.414zM12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>`;
+        const moonIcon = `<svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 12.21a1 1 0 00-.211 1.352l2.568 4.63a1 1 0 01-1.024 1.322h-3.974a1 1 0 01-.97-1.188l.97-4.459c.074-3.425-2.526-6.378-5.95-6.378a6.5 6.5 0 00-4.648 1.854 6.5 6.5 0 00-1.785-2.654l-1.414-1.414a1 1 0 001.414-1.414l1.414 1.414zm-3.354 4.21a4 4 0 11-8 0z"></path></svg>`;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+            themeToggleBtn.innerHTML = savedTheme === 'dark-theme' ? moonIcon : sunIcon;
+        } else {
+            // Default to dark theme for the glassmorphic aesthetic
+            body.classList.add('dark-theme');
+            themeToggleBtn.innerHTML = moonIcon;
+        }
+
+
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+
+            if (body.classList.contains('dark-theme')) {
+                themeToggleBtn.innerHTML = moonIcon;
+                localStorage.setItem('theme', 'dark-theme');
+            } else {
+                themeToggleBtn.innerHTML = sunIcon;
+                localStorage.setItem('theme', 'light-theme');
+            }
+        });
+
+        // Simple subtle animation on key info items and tool cards on load
+        const sections = document.querySelectorAll('section');
+        sections.forEach((section, index) => {
+            const animatedElements = section.querySelectorAll('.tool-card, .key-info-item');
+            animatedElements.forEach((el, elIndex) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = `opacity 0.5s ease-out ${index * 0.1 + elIndex * 0.05}s, transform 0.5s ease-out ${index * 0.1 + elIndex * 0.05}s`;
+
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 50); // Small delay to trigger transition
+            });
+        });
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="AI Fails Freelance Tasks: See Why & What's Next">
+    <meta name="description" content="Tired of poor AI results for freelance work? Discover why current AI fails up to 97.5% of complex tasks & how humans remain essential. Get the real insights!">
+    <meta name="keywords" content="AI freelance task success rate, AI limitations for professional work, best AI tools for freelancers 2024, AI in creative freelance jobs, AI coding agent failure rates, future of AI in remote work, human vs AI in freelance services, AI for content generation critique, AI's inability to understand context, AI augmenting human capabilities, Remote Labor Index AI study, Alibaba SWE-CI benchmark AI, Jevons paradox AI job market, AI oversight for freelance projects">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="AI Fails Freelance Tasks: See Why & What's Next">
+    <meta property="og:description" content="Tired of poor AI results for freelance work? Discover why current AI fails up to 97.5% of complex tasks & how humans remain essential. Get the real insights!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:image" content="URL_TO_A_REPRESENTATIVE_IMAGE"> <!-- Consider adding a relevant image for social sharing -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Fails Freelance Tasks: See Why & What's Next">
+    <meta name="twitter:description" content="Tired of poor AI results for freelance work? Discover why current AI fails up to 97.5% of complex tasks & how humans remain essential. Get the real insights!">
+    <meta name="twitter:image" content="URL_TO_A_REPRESENTATIVE_IMAGE"> <!-- Consider adding a relevant image for social sharing -->
+    <title>AI Fails Freelance Tasks: See Why & What's Next</title>
+    <link rel="canonical" href="https://quertech-articles.vercel.app">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;700&display=swap">
+    <style>
+        /* Global Styles & Glassmorphic Base */
+        :root {
+            --indigo: #6366f1;
+            --pink: #ec4899;
+            --slate: #09172a;
+            --white-transparent: rgba(255, 255, 255, 0.05);
+            --card-bg: rgba(25, 33, 56, 0.5); /* Slightly darker than slate for card backgrounds */
+            --border-color: rgba(99, 102, 241, 0.3);
+            --hover-border-color: var(--indigo);
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --gradient-header-start: linear-gradient(45deg, var(--indigo), var(--pink));
+            --gradient-header-end: linear-gradient(45deg, var(--pink), var(--indigo));
+            --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            --glass-backdrop-filter: blur(10px);
+            --animation-duration: 0.6s;
+            --card-lift-height: 15px;
+            --font-display: 'SF Pro Display', sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: var(--font-display);
+            background-color: var(--slate);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Ambient Background Orbs */
+        .background-orbs-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0) 70%);
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: moveOrb var(--animation-duration) ease-in-out infinite alternate;
+        }
+
+        @keyframes moveOrb {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translate(20vw, 20vh) scale(1.2);
+                opacity: 0.5;
+            }
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header Section */
+        .header {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            backdrop-filter: var(--glass-backdrop-filter);
+            -webkit-backdrop-filter: var(--glass-backdrop-filter);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem); /* Fluid scaling */
+            margin-bottom: 10px;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: var(--gradient-header-start);
+            animation: gradient-shift var(--animation-duration) ease infinite alternate;
+        }
+
+        .header p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-image: var(--gradient-header-start);
+            }
+            100% {
+                background-image: var(--gradient-header-end);
+            }
+        }
+
+        /* Content Sections */
+        .content-section {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .content-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 20px;
+            background: var(--gradient-header-start);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .content-section p {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        /* Article Cards */
+        .article-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: var(--glass-backdrop-filter);
+            -webkit-backdrop-filter: var(--glass-backdrop-filter);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+            transition: transform var(--animation-duration) ease, box-shadow var(--animation-duration) ease, border-color var(--animation-duration) ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer; /* Indicate clickable */
+        }
+
+        .article-card:hover {
+            transform: translateY(-var(--card-lift-height));
+            box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.45);
+            border-color: var(--hover-border-color);
+        }
+
+        .card-icon-container {
+            width: 60px;
+            height: 60px;
+            background: var(--indigo);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden; /* For geometric pattern containment */
+        }
+
+        /* Geometric Patterns for Icons */
+        .card-icon-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--white-transparent) 0px,
+                var(--white-transparent) 5px,
+                transparent 5px,
+                transparent 10px
+            );
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            z-index: 1;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover .card-icon {
+            transform: scale(1.1);
+        }
+
+        .card-title {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 10px;
+            color: var(--indigo); /* Using indigo for titles for contrast */
+            font-weight: 700;
+        }
+
+        .card-description {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-secondary);
+        }
+
+        /* Key Arguments Section */
+        .key-arguments {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .argument-item {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px;
+            backdrop-filter: var(--glass-backdrop-filter);
+            -webkit-backdrop-filter: var(--glass-backdrop-filter);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+            transition: transform var(--animation-duration) ease, box-shadow var(--animation-duration) ease, border-color var(--animation-duration) ease;
+        }
+
+        .argument-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px 0 rgba(0, 0, 0, 0.4);
+            border-color: var(--hover-border-color);
+        }
+
+        .argument-item strong {
+            color: var(--pink); /* Highlight strong points */
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .argument-item p {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-secondary);
+        }
+
+        /* Actionable Insights Section */
+        .actionable-insights {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 40px;
+        }
+
+        .actionable-insights h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            background: var(--gradient-header-start);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .insight-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .insight-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: var(--glass-backdrop-filter);
+            -webkit-backdrop-filter: var(--glass-backdrop-filter);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+            transition: transform var(--animation-duration) ease, box-shadow var(--animation-duration) ease, border-color var(--animation-duration) ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .insight-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.4);
+            border-color: var(--hover-border-color);
+        }
+
+        .insight-icon {
+            color: var(--pink);
+            font-size: 1.5rem;
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+
+        .insight-text {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-secondary);
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: var(--indigo);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.5);
+            cursor: pointer;
+            z-index: 100;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: 2px solid var(--white-transparent);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: var(--pink);
+            box-shadow: 0 15px 25px rgba(236, 72, 153, 0.6);
+        }
+
+        .theme-toggle i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto; /* Pushes footer to the bottom */
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background-color: rgba(9, 23, 42, 0.3); /* Slightly transparent dark */
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer a {
+            color: var(--indigo);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--pink);
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+            .content-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .key-arguments {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ensure at least 300px width for arguments */
+            }
+            .insight-list {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .content-section {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Background Orbs -->
+    <div class="background-orbs-container">
+        <div class="orb" style="top: 10%; left: 15%; width: 250px; height: 250px; animation-delay: 0s;"></div>
+        <div class="orb" style="top: 60%; left: 70%; width: 300px; height: 300px; animation-delay: 2s;"></div>
+        <div class="orb" style="top: 30%; left: 50%; width: 180px; height: 180px; animation-delay: 4s; background: radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(236, 72, 153, 0) 70%);"></div>
+    </div>
+
+    <header class="header">
+        <h1>AI Fails Freelance Tasks: The Reality</h1>
+        <p>An analytical breakdown of AI's current limitations in professional freelance work and its future trajectory.</p>
+    </header>
+
+    <main class="main-content">
+        <section class="content-section">
+            <h2>The Current AI Landscape for Freelancing</h2>
+            <p>
+                The promise of AI revolutionizing freelance work is potent, yet current analyses reveal a stark reality. Despite rapid advancements, AI models exhibit significant limitations in executing complex, nuanced freelance tasks. Studies show that failure rates can be alarmingly high, underscoring the critical role of human professionals. While AI excels at straightforward, context-free operations, its ability to handle intricate problem-solving, sustained reasoning, and deep contextual understanding remains limited, preventing widespread automation of high-value freelance services.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>Key Findings & AI's Shortcomings</h2>
+            <div class="key-arguments">
+                <div class="argument-item">
+                    <p><strong>Low Success Rates:</strong> A major study across 240 freelance tasks found leading AI systems only completed 2.5% of projects to a professional client-acceptable standard.</p>
+                </div>
+                <div class="argument-item">
+                    <p><strong>Contextual Vacuum:</strong> AI struggles with multi-step projects requiring sustained reasoning, tool integration, and nuanced understanding beyond simple data retrieval or basic content generation.</p>
+                </div>
+                <div class="argument-item">
+                    <p><strong>"Childish" Outputs:</strong> AI often produces outputs lacking human-level judgment and contextual awareness, leading to a significant gap between client requirements and AI-generated work quality.</p>
+                </div>
+                <div class="argument-item">
+                    <p><strong>Technical Glitches:</strong> Failures include incomplete outputs, corrupted files, poor quality relative to professional standards, and inconsistencies in design or format.</p>
+                </div>
+                <div class="argument-item">
+                    <p><strong>Coding Agent Brittleness:</strong> In long-term coding maintenance, 75% of AI models broke previously working code, highlighting a critical lack of robustness.</p>
+                </div>
+                <div class="argument-item">
+                    <p><strong>Jevons Paradox Potential:</strong> Increased AI efficiency may drive demand for AI-assisted services, potentially creating new roles for humans to manage and oversee AI outputs.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>The Essential Human Element</h2>
+            <p>
+                The research consistently points towards AI serving as a powerful augmentation tool rather than a complete replacement for human freelancers. The inherent limitations in AI's context window and judgment capabilities necessitate human intervention. Skills such as critical thinking, complex problem-solving, creativity, and adaptive contextual understanding are becoming more valuable than ever. The future of freelance work is not one of automation, but of intelligent collaboration, where human oversight ensures quality, navigates complexity, and drives innovation.
+            </p>
+        </section>
+
+        <section class="actionable-insights">
+            <h2>Actionable Insights</h2>
+            <ul class="insight-list">
+                <li class="insight-item">
+                    <i class="fas fa-lightbulb insight-icon"></i>
+                    <p class="insight-text">View AI as a co-pilot to boost productivity, not a substitute for your expertise.</p>
+                </li>
+                <li class="insight-item">
+                    <i class="fas fa-brain insight-icon"></i>
+                    <p class="insight-text">Cultivate higher-order skills: critical thinking, creativity, and complex problem-solving.</p>
+                </li>
+                <li class="insight-item">
+                    <i class="fas fa-exclamation-triangle insight-icon"></i>
+                    <p class="insight-text">Understand AI's limitations, especially in tasks requiring deep context and nuanced judgment.</p>
+                </li>
+                <li class="insight-item">
+                    <i class="fas fa-tools insight-icon"></i>
+                    <p class="insight-text">Leverage AI for repetitive or context-free tasks to free up your capacity for strategic work.</p>
+                </li>
+                <li class="insight-item">
+                    <i class="fas fa-handshake insight-icon"></i>
+                    <p class="insight-text">Embrace a collaborative future: integrate AI tools while maintaining crucial human oversight.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 QuerTech Articles. All rights reserved. <a href="https://quertech-articles.vercel.app">Visit our homepage</a>.</p>
+    </footer>
+
+    <!-- Floating Theme Toggle (using Font Awesome for icons) -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i> <!-- Default to sun if dark mode is active -->
+    </div>
+
+    <script>
+        // Font Awesome icons for toggle
+        // In a production environment, you'd link Font Awesome via CDN in <head>
+        // For a single file, we'll simulate it here or rely on it being linked externally if possible.
+        // For demonstration, assume Font Awesome is linked externally or use SVGs.
+        // If you need to embed it, you would include the Font Awesome CSS and font files in the <head> or use inline SVGs.
+        // For this example, we'll use Font Awesome classes and assume it's available.
+        // If it's not, you'd replace <i class="fas fa-moon"></i> with an SVG or custom icon.
+        // Example: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="..." fill="white"/></svg>
+
+
+        // --- JS for Interactive Elements ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const headerH1 = document.querySelector('.header h1');
+            const headerP = document.querySelector('.header p');
+            const cardIcons = document.querySelectorAll('.card-icon');
+            const insightIcons = document.querySelectorAll('.insight-icon');
+            const toggleIcon = themeToggle.querySelector('i');
+
+            // Function to apply dark mode styles
+            const applyDarkMode = () => {
+                body.style.setProperty('--slate', '#09172a'); // Original dark
+                body.style.setProperty('--text-primary', '#e0e0e0');
+                body.style.setProperty('--text-secondary', '#a0a0a0');
+                body.style.setProperty('--card-bg', 'rgba(25, 33, 56, 0.5)');
+                body.style.setProperty('--border-color', 'rgba(99, 102, 241, 0.3)');
+                body.style.setProperty('--hover-border-color', 'var(--indigo)');
+                body.style.setProperty('--card-shadow', '0 8px 32px 0 rgba(0, 0, 0, 0.37)');
+                body.style.setProperty('--glass-backdrop-filter', 'blur(10px)');
+                headerH1.style.backgroundImage = `linear-gradient(45deg, var(--indigo), var(--pink))`;
+                toggleIcon.classList.remove('fa-sun');
+                toggleIcon.classList.add('fa-moon');
+            };
+
+            // Function to apply light mode styles (optional, but good for completeness)
+            const applyLightMode = () => {
+                // Define your light mode colors here
+                body.style.setProperty('--slate', '#f0f4f8'); // Example light background
+                body.style.setProperty('--text-primary', '#333');
+                body.style.setProperty('--text-secondary', '#555');
+                body.style.setProperty('--card-bg', 'rgba(255, 255, 255, 0.7)');
+                body.style.setProperty('--border-color', 'rgba(100, 100, 100, 0.15)');
+                body.style.setProperty('--hover-border-color', 'var(--indigo)'); // Keep accent color
+                body.style.setProperty('--card-shadow', '0 4px 15px 0 rgba(0, 0, 0, 0.1)');
+                body.style.setProperty('--glass-backdrop-filter', 'blur(15px)');
+                headerH1.style.backgroundImage = `linear-gradient(45deg, var(--indigo), var(--pink))`; // Or change gradient for light mode
+                toggleIcon.classList.remove('fa-moon');
+                toggleIcon.classList.add('fa-sun');
+            };
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                applyLightMode();
+            } else {
+                applyDarkMode(); // Default to dark mode
+            }
+
+            // Toggle theme on click
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = body.style.getPropertyValue('--slate');
+                if (currentTheme === '#09172a') { // Currently dark mode
+                    applyLightMode();
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    applyDarkMode();
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            // Add hover effect for cards
+            const cards = document.querySelectorAll('.article-card, .argument-item, .insight-item');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px)'; // Adjusted lift for consistency
+                    card.style.boxShadow = '0 15px 40px 0 rgba(0, 0, 0, 0.45)'; // More pronounced shadow
+                    card.style.borderColor = 'var(--hover-border-color)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = 'var(--card-shadow)'; // Reset to original shadow
+                    card.style.borderColor = 'var(--border-color)'; // Reset to original border
+                });
+            });
+
+            // Animate icons on hover
+            cardIcons.forEach(icon => {
+                const card = icon.closest('.article-card');
+                card.addEventListener('mouseenter', () => {
+                    icon.style.transform = 'scale(1.1)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    icon.style.transform = 'scale(1)';
+                });
+            });
+
+            insightIcons.forEach(icon => {
+                const insightItem = icon.closest('.insight-item');
+                insightItem.addEventListener('mouseenter', () => {
+                    icon.style.transform = 'scale(1.1)';
+                });
+                insightItem.addEventListener('mouseleave', () => {
+                    icon.style.transform = 'scale(1)';
+                });
+            });
+
+            // Add ambient orb animations (optional: can be controlled via CSS if simpler)
+            const orbs = document.querySelectorAll('.orb');
+            orbs.forEach((orb, index) => {
+                const animationDuration = 10 + Math.random() * 5; // Random duration between 10 and 15 seconds
+                const delay = Math.random() * 3; // Random delay between 0 and 3 seconds
+                orb.style.animation = `moveOrb ${animationDuration}s infinite alternate ease-in-out`;
+                orb.style.animationDelay = `${delay}s`;
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

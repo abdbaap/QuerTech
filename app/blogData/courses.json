@@ -1,5 +1,47 @@
 [
   {
+    "blog_title": "Design ESSN",
+    "link": "/designessn",
+    "description": "Master graphic design fundamentals like balance, unity, contrast, and variety with real-world examples. Elevate your designs from functional to impactful.",
+    "tags": [
+      "Graphic Design",
+      "Design Principles",
+      "Balance",
+      "Unity",
+      "Contrast",
+      "Variety",
+      "Visual Hierarchy"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Design Pro Video",
+    "link": "/designprovideo",
+    "description": "Master video design! Learn essential principles like hierarchy, alignment, contrast, and consistency to make your content engaging and professional. Boost viewer attention and elevate your video editing skills.",
+    "tags": [
+      "Video Design",
+      "Video Editing",
+      "Design Principles",
+      "Content Creation",
+      "Visual Hierarchy"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Video Mastery",
+    "link": "/videomastery",
+    "description": "Unlock your video editing potential! Learn the essential design fundamentals, master editing software like Premiere Pro & After Effects, and build a killer portfolio to stand out.",
+    "tags": [
+      "Video Editing",
+      "Design Fundamentals",
+      "Motion Graphics",
+      "VFX",
+      "Portfolio Building",
+      "Freelance"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
     "blog_title": "RAG Architect",
     "link": "RAG Master",
     "description": "Master RAG with this no-fluff deep dive for developers. Explore core concepts, debunk myths, and implement 10 advanced RAG patterns—like Agentic & Graph RAG—to build robust, accurate enterprise AI applications and eliminate LLM hallucinations.",

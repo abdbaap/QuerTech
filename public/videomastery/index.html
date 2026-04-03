@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Master Video Editing: Design First!">
+    <meta name="description" content="Tired of weak video results? Unlock success! Learn essential design, master Premiere Pro/Resolve & After Effects, and build a stunning portfolio. Start your editing journey today!">
+    <meta name="keywords" content="how to become a video editor, video editing for beginners roadmap, learn video editing design principles, best video editing software for freelancers, adobe premiere pro vs davinci resolve for beginners, adobe after effects for motion graphics tutorial, building a video editing portfolio, freelance video editing career guide, video editing stages of learning, AI tools for video editing workflow">
+    <meta name="author" content="QuerTech Articles">
+    <meta property="og:title" content="Master Video Editing: Design First!">
+    <meta property="og:description" content="Unlock your video editing potential! Learn essential design, master industry-standard software, and build a portfolio that gets noticed.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/og-image.png"> <!-- Replace with actual OG image path -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Master Video Editing: Design First!">
+    <meta name="twitter:description" content="Tired of weak video results? Unlock success! Learn essential design, master Premiere Pro/Resolve & After Effects, and build a stunning portfolio.">
+    <meta name="twitter:image" content="https://quertech-articles.vercel.app/twitter-image.png"> <!-- Replace with actual Twitter image path -->
+
+    <title>Master Video Editing: Design First!</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='10' fill='%236366f1'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='white'>VE</text></svg>" type="image/svg+xml">
+
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-dark: #09172a;
+            --color-slate-mid: #1e293b;
+            --color-slate-light: #334155;
+            --color-white: #ffffff;
+            --color-gray-light: #94a3b8;
+
+            --font-primary: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            --font-secondary: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; /* Same for simplicity in this example */
+
+            --gradient-header: linear-gradient(90deg, var(--color-pink) 0%, var(--color-indigo) 100%);
+            --gradient-badge: linear-gradient(45deg, var(--color-indigo) 0%, var(--color-pink) 100%);
+
+            --card-background: rgba(255, 255, 255, 0.05);
+            --card-border: 1px solid rgba(255, 255, 255, 0.1);
+            --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --card-hover-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.5);
+
+            --transition-standard: all 0.3s ease-out;
+        }
+
+        /* --- Animations: Ambient Orbs --- */
+        @keyframes orb-animation-1 {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            50% { transform: translate(20px, -30px) scale(1.2); opacity: 0.8; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+        }
+        @keyframes orb-animation-2 {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+            50% { transform: translate(-25px, 20px) scale(1.1); opacity: 0.9; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+        }
+        @keyframes orb-animation-3 {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            50% { transform: translate(30px, 10px) scale(0.9); opacity: 0.7; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+        }
+
+        /* --- Font Fluid Scaling --- */
+        h1, h2, h3, p, a, li {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--color-gray-light);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 4rem); /* Fluid scaling for H1 */
+            font-weight: 700;
+            color: var(--color-white);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 6vw, 2.5rem);
+            font-weight: 600;
+            color: var(--color-white);
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 600;
+            color: var(--color-white);
+        }
+
+        p {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: var(--color-gray-light);
+        }
+
+        a {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            text-decoration: none;
+            color: var(--color-indigo);
+            transition: color var(--transition-standard), transform var(--transition-standard);
+        }
+
+        a:hover {
+            color: var(--color-pink);
+            transform: translateY(-2px);
+        }
+
+        ul, ol {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: var(--color-gray-light);
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        /* --- General Structure & Layout --- */
+        body {
+            margin: 0;
+            background-color: var(--color-slate-dark);
+            color: var(--color-gray-light);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            font-family: var(--font-primary);
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            z-index: 0;
+            pointer-events: none; /* Orbs should not interfere with clicks */
+        }
+
+        .orb.one {
+            background: radial-gradient(circle, var(--color-indigo), rgba(99, 102, 241, 0) 70%);
+            width: 250px;
+            height: 250px;
+            top: 10%;
+            left: -5%;
+            animation: orb-animation-1 15s infinite alternate;
+        }
+
+        .orb.two {
+            background: radial-gradient(circle, var(--color-pink), rgba(236, 72, 153, 0) 70%);
+            width: 300px;
+            height: 300px;
+            bottom: 15%;
+            right: -10%;
+            animation: orb-animation-2 18s infinite alternate;
+        }
+
+        .orb.three {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 70%);
+            width: 200px;
+            height: 200px;
+            top: 40%;
+            left: 30%;
+            animation: orb-animation-3 20s infinite alternate;
+        }
+
+        .content-wrapper {
+            flex-grow: 1; /* Allows content to push footer down */
+            padding: 4rem 1rem; /* Generous padding */
+            position: relative; /* For z-index stacking with orbs */
+            z-index: 1;
+            max-width: 1200px; /* Max width for content */
+            margin: 0 auto; /* Center content */
+            width: 100%;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        /* --- Header --- */
+        header {
+            background: var(--gradient-header);
+            padding: 3rem 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 2; /* Above orbs */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%); /* Subtle mask for gradient effect */
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        }
+
+        header h1 {
+            margin: 0;
+            background: var(--gradient-header);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block; /* Ensures gradient is applied correctly */
+        }
+
+        .tagline {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* --- Main Content Sections --- */
+        .section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background-color: var(--card-background);
+            border: var(--card-border);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform var(--transition-standard), box-shadow var(--transition-standard);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .section h2 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--color-slate-light);
+            padding-bottom: 1rem;
+        }
+
+        /* --- Key Arguments/Steps Section --- */
+        .argument-list .argument-item {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .argument-list .argument-item .icon-container {
+            flex-shrink: 0; /* Prevent icon from shrinking */
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-badge);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--color-white);
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            transition: transform var(--transition-standard);
+        }
+
+        .argument-list .argument-item:hover .icon-container {
+            transform: scale(1.1);
+        }
+
+        .argument-list .argument-item .content {
+            flex-grow: 1; /* Allow text content to take remaining space */
+        }
+
+        .argument-list .argument-item h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--color-white);
+            background: var(--gradient-header);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .argument-list .argument-item p {
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
+            color: var(--color-gray-light);
+        }
+
+        /* --- Software & Stages Cards --- */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-background);
+            border: var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform var(--transition-standard), box-shadow var(--transition-standard), border-color var(--transition-standard);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes content to top, leaves space at bottom */
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--card-hover-shadow);
+            border-color: var(--color-indigo);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--color-white);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem; /* Space for pseudo-element */
+            position: relative;
+        }
+
+        .card li::before {
+            content: '•';
+            color: var(--color-pink);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .card .software-logo { /* Placeholder for generated logos */
+            width: 100%;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: var(--color-gray-light);
+            font-size: 1.2rem;
+            overflow: hidden; /* Ensure content fits */
+        }
+
+        .card .software-logo.premiere { background-image: linear-gradient(to right, #0052FF, #0052FF); }
+        .card .software-logo.davinci { background-image: linear-gradient(to right, #5E185B, #5E185B); }
+        .card .software-logo.aftereffects { background-image: linear-gradient(to right, #00FFFF, #00FFFF); }
+        .card .software-logo.fusion { background-image: linear-gradient(to right, #4385F5, #4385F5); }
+
+        /* --- Portfolio Section --- */
+        .portfolio-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            background: var(--card-background);
+            border: var(--card-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform var(--transition-standard), box-shadow var(--transition-standard);
+            text-align: center;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .portfolio-item .rank-badge {
+            display: inline-block;
+            background: var(--gradient-badge);
+            color: var(--color-white);
+            font-weight: bold;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(236, 72, 153, 0.5);
+        }
+
+        .portfolio-item h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--color-white);
+            font-size: 1.1rem;
+        }
+
+        .portfolio-item p {
+            font-size: 0.9rem;
+            color: var(--color-gray-light);
+        }
+
+        /* --- Freelance & AI Sections --- */
+        .platform-card, .ai-tool-card {
+            background-color: var(--card-background);
+            border: var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform var(--transition-standard), box-shadow var(--transition-standard);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .platform-card:hover, .ai-tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .platform-card .icon-container, .ai-tool-card .icon-container {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-badge);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--color-white);
+            font-size: 1.8rem;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .platform-card .content, .ai-tool-card .content {
+            flex-grow: 1;
+        }
+
+        .platform-card h3, .ai-tool-card h3 {
+            margin-top: 0;
+            color: var(--color-white);
+            margin-bottom: 0.5rem;
+            background: var(--gradient-header);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .platform-card p, .ai-tool-card p {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--color-gray-light);
+        }
+
+        .platform-card a, .ai-tool-card a {
+            color: var(--color-indigo);
+            font-weight: 500;
+        }
+        .platform-card a:hover, .ai-tool-card a:hover {
+            color: var(--color-pink);
+            text-decoration: underline;
+        }
+
+        /* --- Floating Theme Toggle --- */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 10; /* High z-index to stay on top */
+            background-color: var(--color-indigo);
+            color: var(--color-white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 25px rgba(99, 102, 241, 0.5);
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border: 2px solid var(--color-white);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-5px) scale(1.1);
+            background-color: var(--color-pink);
+            box-shadow: 0 10px 40px rgba(236, 72, 153, 0.7);
+        }
+
+        .theme-toggle i { /* Assuming Font Awesome or similar */
+            font-size: 1.8rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--color-slate-mid);
+            color: var(--color-gray-light);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: auto; /* Push footer to the bottom */
+            position: relative;
+            z-index: 2; /* Above orbs */
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--color-white);
+            text-decoration: underline;
+        }
+        footer a:hover {
+            color: var(--color-pink);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 3rem 1rem;
+            }
+
+            header {
+                padding: 2rem 1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .argument-list .argument-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .argument-list .argument-item .icon-container {
+                margin-bottom: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .cards-container, .portfolio-section {
+                grid-template-columns: 1fr; /* Stack cards on smaller screens */
+            }
+
+            .card, .portfolio-item, .platform-card, .ai-tool-card {
+                padding: 1.5rem;
+            }
+
+            .theme-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .theme-toggle i {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* --- Dark Mode Toggle Functionality (Optional, JS will handle) --- */
+        .dark-mode {
+            --color-slate-dark: #050a11;
+            --color-slate-mid: #121a25;
+            --color-slate-light: #2d3748;
+            --color-gray-light: #a0aec0;
+            --card-background: rgba(255, 255, 255, 0.03);
+            --card-border: 1px solid rgba(255, 255, 255, 0.08);
+            --card-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.4);
+            --card-hover-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Ambient Background Orbs -->
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+
+    <header>
+        <div class="content-wrapper">
+            <h1>Master Video Editing: Design First!</h1>
+            <p class="tagline">Your Roadmap to Creative Excellence</p>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+
+        <section class="section">
+            <h2>Executive Summary</h2>
+            <p>Becoming a successful video editor hinges on prioritizing design fundamentals and adopting a strategic learning path. While mastering editing software is essential, understanding core design principles accounts for the majority of a video's quality. This roadmap guides aspiring editors through gradual software mastery, from essential cutting and assembly to advanced motion graphics and VFX, paving the way for career growth and distinction in the competitive freelance market.</p>
+        </section>
+
+        <section class="section">
+            <h2>Key Arguments & Facts</h2>
+            <div class="argument-list">
+                <div class="argument-item">
+                    <div class="icon-container">1</div>
+                    <div class="content">
+                        <h3>Design is Paramount</h3>
+                        <p>Approximately 80% of a video's perceived quality stems from its design, not solely the editing tools. Prioritize learning design fundamentals before diving deep into software.</p>
+                    </div>
+                </div>
+                <div class="argument-item">
+                    <div class="icon-container">2</div>
+                    <div class="content">
+                        <h3>Essential Software</h3>
+                        <p>For cutting and assembly, choose either <strong>Adobe Premiere Pro</strong> or the free alternative, <strong>DaVinci Resolve</strong>. For motion design, animation, and VFX, focus on <strong>Adobe After Effects</strong> or <strong>Fusion</strong> (built into DaVinci Resolve).</p>
+                    </div>
+                </div>
+                <div class="argument-item">
+                    <div class="icon-container">3</div>
+                    <div class="content">
+                        <h3>Three Stages of Editing</h3>
+                        <p>Master your craft incrementally:</p>
+                        <ul>
+                            <li><strong>Beginner:</strong> Focus on software interface, tools, timelines, and shortcuts. Understand how the software works.</li>
+                            <li><strong>Intermediate:</strong> Learn music-based editing, basic animations (scale, position, rotation), sound design (whooshes, ambiance), basic color grading (correction, matching, LUTs), and pacing to evoke emotion.</li>
+                            <li><strong>Advanced:</strong> Dive into complex motion design (graph editor, path animations), VFX, compositing (masking, tracking, keyframing, rotoscoping), and explore text-based editing tools.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="argument-item">
+                    <div class="icon-container">4</div>
+                    <div class="content">
+                        <h3>Portfolio Essentials</h3>
+                        <p>Curate a portfolio of 5-7 of your absolute <strong>best</strong> works. Quality over quantity is key. Showcase your strongest edits with variety, but maintain a consistent style and high quality across all pieces.</p>
+                    </div>
+                </div>
+                <div class="argument-item">
+                    <div class="icon-container">5</div>
+                    <div class="content">
+                        <h3>Beyond Freelance Platforms</h3>
+                        <p>While useful for starting, over-reliance on freelance platforms can make you indistinguishable. Build a personal brand on platforms like Instagram, YouTube, LinkedIn, and Twitter to attract higher-paying, long-term clients.</p>
+                    </div>
+                </div>
+                <div class="argument-item">
+                    <div class="icon-container">6</div>
+                    <div class="content">
+                        <h3>AI in Video Editing</h3>
+                        <p>Generative AI tools (like Freepik Spaces, Veo 3.1, Higgsfield, MidJourney) can assist with visuals, motion shots, and transitions. However, human editors remain indispensable for artistic direction, nuanced storytelling, and complex editing workflows.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Essential Software Tools</h2>
+            <div class="cards-container">
+                <div class="card" onclick="window.open('https://www.adobe.com/products/premiere.html', '_blank')">
+                    <div class="software-logo premiere">Premiere Pro</div>
+                    <h3>Adobe Premiere Pro</h3>
+                    <ul>
+                        <li>Industry-standard editing</li>
+                        <li>Intuitive timeline</li>
+                        <li>Robust toolset</li>
+                        <li>Integration with Adobe Suite</li>
+                    </ul>
+                </div>
+                <div class="card" onclick="window.open('https://www.blackmagicdesign.com/products/davinciresolve/', '_blank')">
+                    <div class="software-logo davinci">DaVinci Resolve</div>
+                    <h3>DaVinci Resolve</h3>
+                    <ul>
+                        <li>Powerful free alternative</li>
+                        <li>Exceptional color grading</li>
+                        <li>Integrated Fusion VFX</li>
+                        <li>Cross-platform</li>
+                    </ul>
+                </div>
+                <div class="card" onclick="window.open('https://www.adobe.com/products/aftereffects.html', '_blank')">
+                    <div class="software-logo aftereffects">After Effects</div>
+                    <h3>Adobe After Effects</h3>
+                    <ul>
+                        <li>Leading motion graphics</li>
+                        <li>Advanced animation</li>
+                        <li>Visual effects creation</li>
+                        <li>Keyframing & Graph Editor</li>
+                    </ul>
+                </div>
+                <div class="card" onclick="window.open('https://www.blackmagicdesign.com/products/fusion/', '_blank')">
+                    <div class="software-logo fusion">Fusion</div>
+                    <h3>Fusion (DaVinci Resolve)</h3>
+                    <ul>
+                        <li>Node-based compositing</li>
+                        <li>Powerful 3D workspace</li>
+                        <li>Real-time performance</li>
+                        <li>Integrated within Resolve</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Your Video Editing Portfolio</h2>
+            <p>Your portfolio is your most powerful marketing tool. Focus on showcasing your absolute best, demonstrating your unique style and technical skill. Aim for quality over quantity.</p>
+            <div class="portfolio-section">
+                <div class="portfolio-item">
+                    <div class="rank-badge">Top Tier</div>
+                    <h4>Showcase Your Best Edit</h4>
+                    <p>A single, polished masterpiece is worth more than ten mediocre ones.</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="rank-badge">Variety</div>
+                    <h4>Demonstrate Range</h4>
+                    <p>Include different types of projects to show versatility.</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="rank-badge">Consistency</div>
+                    <h4>Maintain Quality</h4>
+                    <p>Ensure every piece reflects your highest standard.</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="rank-badge">Clarity</div>
+                    <h4>Highlight Your Role</h4>
+                    <p>Specify your contributions if it was a collaborative project.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Building Your Freelance Career</h2>
+            <p>Don't let your skills get lost on generic platforms. Build a strong personal brand and attract clients who value your expertise.</p>
+            <div class="platform-card" onclick="window.open('https://www.instagram.com/', '_blank')">
+                <div class="icon-container"><i class="fab fa-instagram"></i></div>
+                <div class="content">
+                    <h3>Instagram</h3>
+                    <p>Visually showcase your best clips and reel highlights. Use relevant hashtags.</p>
+                </div>
+            </div>
+            <div class="platform-card" onclick="window.open('https://www.youtube.com/', '_blank')">
+                <div class="icon-container"><i class="fab fa-youtube"></i></div>
+                <div class="content">
+                    <h3>YouTube</h3>
+                    <p>Host your full portfolio pieces and create tutorials or behind-the-scenes content.</p>
+                </div>
+            </div>
+            <div class="platform-card" onclick="window.open('https://www.linkedin.com/', '_blank')">
+                <div class="icon-container"><i class="fab fa-linkedin"></i></div>
+                <div class="content">
+                    <h3>LinkedIn</h3>
+                    <p>Network professionally, share industry insights, and connect with potential clients and collaborators.</p>
+                </div>
+            </div>
+            <div class="platform-card" onclick="window.open('https://www.twitter.com/', '_blank')">
+                <div class="icon-container"><i class="fab fa-twitter"></i></div>
+                <div class="content">
+                    <h3>Twitter</h3>
+                    <p>Engage in industry conversations, share quick tips, and promote your work.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Embrace AI Tools Wisely</h2>
+            <p>AI is revolutionizing video editing. Integrate these tools to enhance creativity and efficiency, but always maintain human oversight.</p>
+            <div class="ai-tool-card" onclick="window.open('https://www.freepik.com/ai', '_blank')">
+                <div class="icon-container">AI</div>
+                <div class="content">
+                    <h3>Freepik Spaces AI</h3>
+                    <p>Generate visuals and design assets powered by AI.</p>
+                </div>
+            </div>
+            <div class="ai-tool-card" onclick="window.open('https://veo.do/', '_blank')">
+                <div class="icon-container">AI</div>
+                <div class="content">
+                    <h3>Veo 3.1</h3>
+                    <p>Create dynamic motion shots and unique video transitions.</p>
+                </div>
+            </div>
+            <div class="ai-tool-card" onclick="window.open('https://www.higgsfield.com/', '_blank')">
+                <div class="icon-container">AI</div>
+                <div class="content">
+                    <h3>Higgsfield</h3>
+                    <p>AI-powered video generation and editing assistance.</p>
+                </div>
+            </div>
+            <div class="ai-tool-card" onclick="window.open('https://www.midjourney.com/', '_blank')">
+                <div class="icon-container">AI</div>
+                <div class="content">
+                    <h3>MidJourney</h3>
+                    <p>Generate stunning AI art and visual concepts for inspiration or assets.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Floating Theme Toggle Button -->
+    <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Dark Mode">
+        <i id="theme-icon" class="fas fa-moon"></i> <!-- Font Awesome icons -->
+    </button>
+
+    <footer>
+        <div class="content-wrapper">
+            <p>&copy; 2023 QuerTech Articles. All rights reserved. | Designed with <span style="color: var(--color-pink);">♥</span> by QuerTech</p>
+            <p><a href="https://quertech-articles.vercel.app" target="_blank" rel="noopener noreferrer">Visit our main site</a></p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('theme-toggle-btn');
+            const themeIcon = document.getElementById('theme-icon');
+            const body = document.body;
+            const darkModeClass = 'dark-mode';
+
+            // Function to apply theme (dark or light)
+            const applyTheme = (isDark) => {
+                if (isDark) {
+                    body.classList.add(darkModeClass);
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    themeToggleBtn.style.boxShadow = '0 10px 40px rgba(236, 72, 153, 0.7)'; // Pinkish glow for dark mode
+                    themeToggleBtn.style.backgroundColor = '#ec4899'; // Pink
+                    themeToggleBtn.style.borderColor = 'var(--color-indigo)';
+                } else {
+                    body.classList.remove(darkModeClass);
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    themeToggleBtn.style.boxShadow = '0 5px 25px rgba(99, 102, 241, 0.5)'; // Indigo glow for light mode
+                    themeToggleBtn.style.backgroundColor = '#6366f1'; // Indigo
+                    themeToggleBtn.style.borderColor = 'var(--color-white)';
+                }
+            };
+
+            // Check for saved theme preference in localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                applyTheme(true);
+            } else if (savedTheme === 'light') {
+                applyTheme(false);
+            } else {
+                // Default to system preference or light mode if no preference saved
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    applyTheme(true);
+                } else {
+                    applyTheme(false); // Default to light mode
+                }
+            }
+
+            // Event listener for the theme toggle button
+            themeToggleBtn.addEventListener('click', () => {
+                const isCurrentlyDark = body.classList.contains(darkModeClass);
+                if (isCurrentlyDark) {
+                    applyTheme(false);
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    applyTheme(true);
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+
+            // Optional: Add subtle animations for interactive elements if needed.
+            // For example, a slight scale-up on card hover is handled by CSS.
+            // More complex animations could be added here if required.
+
+            // Tooltip for the theme toggle button
+            themeToggleBtn.addEventListener('mouseover', () => {
+                themeToggleBtn.setAttribute('title', body.classList.contains(darkModeClass) ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

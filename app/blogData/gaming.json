@@ -1,5 +1,34 @@
 [
   {
+    "blog_title": "2026 Games Ignite",
+    "link": "/2026gamesignite",
+    "description": "Uncover the 10 most electrifying games of 2026! From massive sequels like GTA VI to hidden indie gems like Silksong, get ready for groundbreaking adventures and epic stories that will redefine gaming.",
+    "tags": [
+      "2026 Games",
+      "Upcoming Games",
+      "Gaming Preview",
+      "GTA VI",
+      "Hollow Knight Silksong",
+      "Fable",
+      "Metroid Prime 4",
+      "The Outer Worlds 2"
+    ],
+    "color": "bg-red-600 shadow-red-400"
+  },
+  {
+    "blog_title": "Top PC Games",
+    "link": "/top16pc",
+    "description": "Discover the ultimate ranking of the top PC games from 2016. This expert list showcases the best titles across genres, from indie gems like Stardew Valley to action-packed blockbusters like DOOM. Find your next obsession!",
+    "tags": [
+      "PC Games",
+      "2016 Games",
+      "Top Games",
+      "Gaming",
+      "Best PC Games"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
     "blog_title": "Host Mine",
     "link": "/hostmine",
     "description": "Build your own Minecraft realm! Learn to host a performant server on your PC with PaperMC and let friends join using playit.gg. Perfect for custom worlds and endless adventures.",

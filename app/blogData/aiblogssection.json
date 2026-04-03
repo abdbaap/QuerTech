@@ -1,5 +1,32 @@
 [
   {
+    "blog_title": "AI Now",
+    "link": "/ainow",
+    "description": "Don't get left behind! Learn how to use AI to stay competitive and drive growth in your business and personal life. Discover practical AI tools and strategies to adapt and thrive.",
+    "tags": [
+      "AI Adoption",
+      "Future of Work",
+      "AI Strategy",
+      "Business Growth",
+      "AI Tools"
+    ],
+    "color": "bg-red-600 shadow-red-400"
+  },
+  {
+    "blog_title": "AI Video Scale",
+    "link": "/aivideoscale",
+    "description": "Unlock unlimited free short-form video creation for YouTube Shorts & Reels. Learn the full AI workflow to mass-produce engaging content without costs.",
+    "tags": [
+      "AI Video",
+      "Shorts",
+      "Reels",
+      "Content Creation",
+      "AI Workflow",
+      "Free Tools"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
     "blog_title": "AI Model",
     "link": "/aimodel",
     "description": "Create stunning AI influencers from a single photo and video! Learn how to use tools like Lovart.ai and KIE.AI to generate realistic digital twins for social media and more. Step-by-step guide with free options.",

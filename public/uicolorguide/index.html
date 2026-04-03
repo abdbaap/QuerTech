@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Master UI Colors: HSL vs. OKLCH Secrets Revealed!">
+    <meta name="description" content="Tired of clashing UI colors? Unlock stunning designs with HSL & OKLCH. Learn to pick perfect shades, build cohesive palettes, and boost user experience. Watch now!">
+    <meta name="keywords" content="UI color selection guide, Learn UI colors, Best UI color tools, HSL vs OKLCH for UI, UI color models explained, Effective UI color palettes, Dark mode UI colors, Light mode UI colors, UI color shading techniques, Semantic UI colors, UI design color system, How to pick good colors for UI design, What is the best color model for UI, Difference between HSL and OKLCH in design, Create a harmonious UI color palette, Tips for UI color shading and contrast, Using semantic colors in user interfaces, Designing UI colors for dark and light modes, Best color palette generator for UI, UI color selection demystified">
+    <meta name="author" content="QuerTech Articles">
+    <link rel="canonical" href="https://quertech-articles.vercel.app">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Master UI Colors: HSL vs. OKLCH Secrets Revealed!">
+    <meta name="twitter:description" content="Tired of clashing UI colors? Unlock stunning designs with HSL & OKLCH. Learn to pick perfect shades, build cohesive palettes, and boost user experience. Watch now!">
+    <meta property="og:title" content="Master UI Colors: HSL vs. OKLCH Secrets Revealed!">
+    <meta property="og:description" content="Tired of clashing UI colors? Unlock stunning designs with HSL & OKLCH. Learn to pick perfect shades, build cohesive palettes, and boost user experience. Watch now!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/og-image.png"> <!-- Placeholder for an actual OG image -->
+    <title>Master UI Colors: HSL vs. OKLCH Secrets Revealed!</title>
+
+    <style>
+        /* Font Imports (using system fonts as primary for performance, with fallbacks) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        /* Define custom CSS Variables for theme and palette */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-900: #09172a; /* Dark background */
+            --color-slate-800: #1e293b;
+            --color-slate-700: #334155;
+            --color-slate-600: #475569;
+            --color-slate-500: #64748b;
+            --color-slate-300: #94a3b8;
+            --color-slate-200: #e2e8f0;
+            --color-slate-100: #f8fafc; /* Lightest text/element */
+            --color-white: #ffffff;
+            --color-black: #000000;
+
+            --font-primary: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-heading: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+            --gradient-header: linear-gradient(90deg, var(--color-pink) 0%, var(--color-indigo) 100%);
+            --gradient-badge: linear-gradient(135deg, var(--color-pink) 0%, var(--color-indigo) 100%);
+
+            --shadow-elevation-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-elevation-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-elevation-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+            /* Animations */
+            --animation-duration-fast: 0.2s;
+            --animation-duration-medium: 0.3s;
+            --animation-duration-slow: 0.5s;
+            --animation-timing-ease: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Base Styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px; /* Base font size */
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            background-color: var(--color-slate-900);
+            color: var(--color-slate-200);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative; /* For background orbs */
+            transition: background-color var(--animation-duration-medium) ease, color var(--animation-duration-medium) ease;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75em;
+            color: var(--color-slate-100);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem); /* Fluid scaling for headings */
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        h3 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+        }
+
+        p {
+            margin-bottom: 1em;
+            font-size: clamp(1rem, 2.5vw, 1.125rem); /* Fluid scaling for paragraphs */
+        }
+
+        a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            transition: color var(--animation-duration-fast) var(--animation-timing-ease);
+        }
+
+        a:hover {
+            color: var(--color-pink);
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        /* Container for content */
+        .container {
+            width: 100%;
+            max-width: 1200px; /* Max width for large screens */
+            margin: 0 auto;
+            padding: 0 1.5rem; /* Horizontal padding */
+        }
+
+        /* Header */
+        .site-header {
+            padding: 2rem 1.5rem;
+            background-color: rgba(9, 23, 42, 0.8); /* Semi-transparent dark background */
+            backdrop-filter: blur(10px) saturate(150%);
+            -webkit-backdrop-filter: blur(10px) saturate(150%); /* For Safari */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            background-image: var(--gradient-header);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0;
+        }
+
+        .site-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .site-nav a {
+            color: var(--color-slate-200);
+            font-weight: 500;
+            transition: color var(--animation-duration-fast) var(--animation-timing-ease), transform var(--animation-duration-fast) var(--animation-timing-ease);
+        }
+
+        .site-nav a:hover {
+            color: var(--color-pink);
+            transform: translateY(-2px);
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1010;
+            background-color: var(--color-indigo);
+            color: var(--color-slate-100);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-elevation-md);
+            transition: background-color var(--animation-duration-medium) var(--animation-timing-ease), transform var(--animation-duration-medium) var(--animation-timing-ease), box-shadow var(--animation-duration-medium) var(--animation-timing-ease);
+            outline: none; /* Remove default outline */
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--color-pink);
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: var(--shadow-elevation-lg);
+        }
+
+        .theme-toggle i { /* For icon if using Font Awesome or similar */
+            font-size: 1.5rem;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1; /* Allows main content to take up available space */
+            padding: 4rem 1.5rem;
+            position: relative;
+            z-index: 10; /* Ensure content is above background orbs */
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Article/Content Card Styling */
+        .content-card {
+            background-color: rgba(255, 255, 255, 0.05); /* Subtle glass effect */
+            backdrop-filter: blur(8px) saturate(180%);
+            -webkit-backdrop-filter: blur(8px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform var(--animation-duration-medium) var(--animation-timing-ease), box-shadow var(--animation-duration-medium) var(--animation-timing-ease), border-color var(--animation-duration-medium) var(--animation-timing-ease);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Push footer to bottom if card heights vary */
+            height: 100%; /* Ensure cards fill their grid/flex container */
+        }
+
+        .content-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-elevation-lg);
+            border-color: var(--color-pink); /* Border color transition */
+        }
+
+        .card-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 0.5rem;
+            color: var(--color-slate-100);
+        }
+
+        .card-meta {
+            font-size: 0.9rem;
+            color: var(--color-slate-500);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-content p {
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
+            color: var(--color-slate-300);
+        }
+
+        .card-footer {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* For responsiveness */
+            gap: 1rem;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .card-tag {
+            background-color: rgba(99, 102, 241, 0.2); /* Subtle indigo background */
+            color: var(--color-indigo);
+            padding: 0.3rem 0.7rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            transition: background-color var(--animation-duration-fast) ease, color var(--animation-duration-fast) ease;
+        }
+
+        .content-card:hover .card-tag {
+            background-color: var(--color-indigo);
+            color: var(--color-slate-100);
+        }
+
+        /* Geometric Pattern Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 80px;
+            height: 30px;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            color: var(--color-slate-100);
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: background-color var(--animation-duration-fast) ease;
+        }
+
+        .badge::before { /* Geometric pattern */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.05) 0px,
+                rgba(255, 255, 255, 0.05) 5px,
+                transparent 5px,
+                transparent 10px
+            );
+            mix-blend-mode: overlay;
+            z-index: -1;
+            opacity: 0.7;
+            border-radius: inherit; /* Inherit border radius */
+        }
+
+        /* Specific badge types (can be extended) */
+        .badge-tech {
+            background-image: var(--gradient-badge);
+        }
+
+        /* Tool showcase section */
+        .tool-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(6px) saturate(150%);
+            -webkit-backdrop-filter: blur(6px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform var(--animation-duration-medium) var(--animation-timing-ease), box-shadow var(--animation-duration-medium) var(--animation-timing-ease);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-elevation-md);
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--color-indigo);
+        }
+
+        .tool-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--color-slate-100);
+        }
+
+        .tool-description {
+            font-size: 0.95rem;
+            color: var(--color-slate-400);
+        }
+
+        /* Call to Action Button */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-indigo);
+            color: var(--color-white);
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color var(--animation-duration-fast) var(--animation-timing-ease), transform var(--animation-duration-fast) var(--animation-timing-ease), box-shadow var(--animation-duration-fast) var(--animation-timing-ease);
+            border: none; /* Remove default button border */
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-pink);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-elevation-md);
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--color-slate-800);
+            color: var(--color-slate-400);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            margin-top: auto; /* Push footer to the bottom */
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .site-footer a {
+            color: var(--color-indigo);
+        }
+
+        .site-footer a:hover {
+            color: var(--color-pink);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            html {
+                font-size: 15px; /* Slightly smaller base font for smaller screens */
+            }
+
+            .site-header {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+
+            .site-title {
+                margin-bottom: 1rem;
+            }
+
+            .site-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .main-content {
+                padding: 3rem 1rem;
+            }
+
+            .section {
+                margin-bottom: 3rem;
+            }
+
+            .content-card {
+                padding: 1.5rem;
+            }
+
+            .tool-showcase {
+                grid-template-columns: 1fr; /* Single column on small screens */
+            }
+
+            .theme-toggle {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* Glassmorphic Background Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0; /* Behind all content */
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0) 50%);
+            filter: blur(80px);
+            opacity: 0.7;
+            animation: float var(--animation-duration-slow) infinite alternate ease-in-out;
+            transform: translate(-50%, -50%); /* Center the origin */
+        }
+
+        .orb.pink {
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(236, 72, 153, 0) 50%);
+        }
+
+        .orb.indigo {
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0) 50%);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+            }
+            50% {
+                transform: translateY(-50px) translateX(50px) scale(1.1);
+            }
+            100% {
+                transform: translateY(50px) translateX(-50px) scale(0.9);
+            }
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: var(--color-slate-900);
+            color: var(--color-slate-200);
+        }
+
+        body.dark-mode .site-header {
+            background-color: rgba(9, 23, 42, 0.8);
+        }
+
+        body.dark-mode .site-nav a {
+            color: var(--color-slate-200);
+        }
+
+        body.dark-mode .site-nav a:hover {
+            color: var(--color-pink);
+        }
+
+        body.dark-mode .content-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .card-title {
+            color: var(--color-slate-100);
+        }
+
+        body.dark-mode .card-meta {
+            color: var(--color-slate-500);
+        }
+
+        body.dark-mode .card-content p {
+            color: var(--color-slate-300);
+        }
+
+        body.dark-mode .card-tag {
+            background-color: rgba(99, 102, 241, 0.2);
+            color: var(--color-indigo);
+        }
+
+        body.dark-mode .theme-toggle {
+            background-color: var(--color-indigo);
+            color: var(--color-slate-100);
+        }
+
+        body.dark-mode .theme-toggle:hover {
+            background-color: var(--color-pink);
+        }
+
+        body.dark-mode .tool-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-mode .tool-name {
+            color: var(--color-slate-100);
+        }
+
+        body.dark-mode .tool-description {
+            color: var(--color-slate-400);
+        }
+
+        /* Light Mode Styles (Optional, but good for contrast) */
+        body.light-mode {
+            background-color: var(--color-slate-100);
+            color: var(--color-slate-900);
+        }
+
+        body.light-mode .site-header {
+            background-color: rgba(248, 250, 252, 0.9); /* Lighter header */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .site-title {
+            background-image: var(--gradient-header); /* Keep gradient for branding */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        body.light-mode .site-nav a {
+            color: var(--color-slate-700);
+        }
+
+        body.light-mode .site-nav a:hover {
+            color: var(--color-pink);
+        }
+
+        body.light-mode .content-card {
+            background-color: rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .card-title {
+            color: var(--color-slate-900);
+        }
+
+        body.light-mode .card-meta {
+            color: var(--color-slate-600);
+        }
+
+        body.light-mode .card-content p {
+            color: var(--color-slate-700);
+        }
+
+        body.light-mode .card-tag {
+            background-color: rgba(99, 102, 241, 0.1);
+            color: var(--color-indigo);
+        }
+
+        body.light-mode .theme-toggle {
+            background-color: var(--color-indigo);
+            color: var(--color-white);
+        }
+
+        body.light-mode .theme-toggle:hover {
+            background-color: var(--color-pink);
+        }
+
+        body.light-mode .tool-card {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .tool-name {
+            color: var(--color-slate-900);
+        }
+
+        body.light-mode .tool-description {
+            color: var(--color-slate-600);
+        }
+
+        body.light-mode .background-orbs .orb {
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(99, 102, 241, 0) 50%);
+        }
+        body.light-mode .background-orbs .orb.pink {
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, rgba(236, 72, 153, 0) 50%);
+        }
+
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <div class="background-orbs">
+        <div class="orb" style="width: 400px; height: 400px; top: 20%; left: 10%;"></div>
+        <div class="orb pink" style="width: 300px; height: 300px; top: 60%; left: 70%;"></div>
+        <div class="orb indigo" style="width: 500px; height: 500px; top: 80%; left: 30%;"></div>
+    </div>
+
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">QuerTech Articles</h1>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="https://quertech-articles.vercel.app">Home</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#concepts">Concepts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="section" id="hero">
+            <div class="container">
+                <div style="text-align: center; padding: 4rem 0;">
+                    <h2 class="section-title">Demystifying UI Color Selection</h2>
+                    <p style="font-size: clamp(1.1rem, 3vw, 1.3rem); color: var(--color-slate-300);">Master the art of choosing effective UI colors using modern color models and practical strategies.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="concepts">
+            <div class="container">
+                <h3 class="section-title">Key Concepts Explained</h3>
+                <div class="tool-showcase"> <!-- Reusing tool-showcase for concept cards -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h4 class="card-title">Color Models: HSL vs. OKLCH</h4>
+                            <p class="card-meta">Understanding the fundamentals of color representation.</p>
+                        </div>
+                        <div class="card-content">
+                            <p>Discover the differences between HSL (Hue, Saturation, Lightness) and OKLCH (Perceptually Uniform Color Space). Learn why OKLCH offers superior control and consistency for UI design, especially when creating harmonious color scales and avoiding perceived lightness shifts.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="card-tag">#ColorModels</span>
+                                <span class="card-tag">#HSL</span>
+                                <span class="card-tag">#OKLCH</span>
+                            </div>
+                            <a href="#tools" class="cta-button" style="background-color: var(--color-pink);">Explore Tools</a>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h4 class="card-title">Effective Color Shading</h4>
+                            <p class="card-meta">Creating depth and hierarchy with variations.</p>
+                        </div>
+                        <div class="card-content">
+                            <p>Learn to generate a range of shades from a base color by manipulating lightness in color models. This is crucial for defining distinct UI elements like backgrounds, text, borders, and interactive states, ensuring visual clarity and a polished look.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="card-tag">#ColorShading</span>
+                                <span class="card-tag">#UIHierarchy</span>
+                            </div>
+                             <a href="#tools" class="cta-button" style="background-color: var(--color-pink);">Explore Tools</a>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h4 class="card-title">Semantic Colors & UX</h4>
+                            <p class="card-meta">Using color to communicate meaning and intent.</p>
+                        </div>
+                        <div class="card-content">
+                            <p>Understand the power of semantic colors (e.g., red for danger, green for success) in guiding user actions and providing feedback. Effective use of these colors significantly enhances usability and the overall user experience.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="card-tag">#SemanticColors</span>
+                                <span class="card-tag">#UX</span>
+                                <span class="card-tag">#Feedback</span>
+                            </div>
+                             <a href="#tools" class="cta-button" style="background-color: var(--color-pink);">Explore Tools</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="tools">
+            <div class="container">
+                <h3 class="section-title">Practical Tools & Resources</h3>
+                <div class="tool-showcase">
+                    <div class="tool-card">
+                        <i class="fas fa-palette tool-icon"></i> <!-- Placeholder for icon -->
+                        <h4 class="tool-name">UI Color Palette Generator</h4>
+                        <p class="tool-description">Leverage interactive tools to generate and preview harmonious color palettes in both dark and light modes.</p>
+                        <a href="https://ui-colors.com/" target="_blank" rel="noopener noreferrer" class="cta-button" style="margin-top: 1.5rem; background-color: var(--color-indigo);">Try It Now</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <i class="fas fa-code tool-icon"></i> <!-- Placeholder for icon -->
+                        <h4 class="tool-name">OKLCH Color Calculator</h4>
+                        <p class="tool-description">Experiment with OKLCH values for precise color control and predictable results in your designs.</p>
+                        <a href="https://oklch.com/" target="_blank" rel="noopener noreferrer" class="cta-button" style="margin-top: 1.5rem; background-color: var(--color-indigo);">Calculate Colors</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <i class="fas fa-chart-line tool-icon"></i> <!-- Placeholder for icon -->
+                        <h4 class="tool-name">Color Theory Fundamentals</h4>
+                        <p class="tool-description">Deepen your understanding of color psychology and principles for impactful UI design.</p>
+                        <a href="https://www.interaction-design.org/literature/topics/color-theory" target="_blank" rel="noopener noreferrer" class="cta-button" style="margin-top: 1.5rem; background-color: var(--color-indigo);">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 QuerTech Articles. All rights reserved.</p>
+            <p>Learn more about <a href="https://quertech-articles.vercel.app">UI/UX Design</a> and development.</p>
+        </div>
+    </footer>
+
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+        <i class="fas fa-moon"></i> <!-- Default to moon icon -->
+    </button>
+
+    <!-- Font Awesome for icons (consider self-hosting for better performance if possible) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script>
+        // --- Vanilla JavaScript for Interactivity ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const themeIcon = themeToggle.querySelector('i');
+
+            // --- Theme Toggle Functionality ---
+            const currentTheme = localStorage.getItem('theme') || 'dark'; // Default to dark
+            body.classList.add(currentTheme + '-mode');
+            updateThemeIcon(currentTheme);
+
+            themeToggle.addEventListener('click', () => {
+                if (body.classList.contains('dark-mode')) {
+                    body.classList.remove('dark-mode');
+                    body.classList.add('light-mode');
+                    localStorage.setItem('theme', 'light');
+                    updateThemeIcon('light');
+                } else {
+                    body.classList.remove('light-mode');
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                    updateThemeIcon('dark');
+                }
+            });
+
+            function updateThemeIcon(theme) {
+                if (theme === 'dark') {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                } else {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            }
+
+            // --- Background Orb Animation ---
+            // Orb positions and sizes are set inline in HTML for simplicity in a single file.
+            // The animation keyframes are defined in CSS.
+
+            // --- Smooth Scrolling for Anchor Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//designessn">Design ESSN</a><a href="//aicodewins">AI Code Wins</a><a href="//2026gamesignite">2026 Games Ignite</a><a href="//designprovideo">Design Pro Video</a><a href="//claudechat">Claude Chat</a><a href="//cmdsecrets">CMD Secrets</a><a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

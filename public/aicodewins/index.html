@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="AI-Powered Coding Projects: Learn, Build, and Innovate">
+    <meta name="description" content="Explore a curated collection of AI-driven coding projects, from API integrations and NLP assistants to game development and predictive modeling. Learn practical AI concepts through hands-on projects.">
+    <meta name="keywords" content="AI projects, coding, programming, machine learning, data science, NLP, API integration, game development, Discord bot, sentiment analysis, web scraping, Kaggle, Spotify API, prompt engineering, generative AI">
+    <meta name="author" content="Quertech Articles">
+    <link rel="canonical" href="https://quertech-articles.vercel.app">
+    <meta property="og:title" content="AI-Powered Coding Projects: Learn, Build, and Innovate">
+    <meta property="og:description" content="Explore a curated collection of AI-driven coding projects, from API integrations and NLP assistants to game development and predictive modeling. Learn practical AI concepts through hands-on projects.">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/og-image.png"> <!-- Placeholder for actual OG image -->
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI-Powered Coding Projects: Learn, Build, and Innovate">
+    <meta name="twitter:description" content="Explore a curated collection of AI-driven coding projects, from API integrations and NLP assistants to game development and predictive modeling. Learn practical AI concepts through hands-on projects.">
+    <meta name="twitter:image" content="https://quertech-articles.vercel.app/twitter-image.png"> <!-- Placeholder for actual Twitter image -->
+    <title>AI-Powered Coding Projects: Learn, Build, and Innovate</title>
+    <style>
+        /* Global Styles & Reset */
+        :root {
+            --primary-indigo: #6366f1;
+            --primary-pink: #ec4899;
+            --primary-dark-slate: #09172a;
+            --background-color: var(--primary-dark-slate);
+            --card-background: rgba(255, 255, 255, 0.08);
+            --border-color-default: rgba(255, 255, 255, 0.2);
+            --text-color-primary: #e5e7eb; /* Light gray for primary text */
+            --text-color-secondary: #9ca3af; /* Slightly dimmer gray for secondary text */
+            --gradient-text: linear-gradient(90deg, var(--primary-indigo), var(--primary-pink));
+            --shadow-deep: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            --shadow-hover: 0 15px 30px -5px rgba(99, 102, 241, 0.3), 0 10px 10px -5px rgba(236, 72, 153, 0.2);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px; /* Base font size */
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'SF Pro Display', 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color-primary);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Ambient Background Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none; /* Allow interaction with elements behind */
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0) 50%),
+                        radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.3) 0%, rgba(236, 72, 153, 0) 50%);
+            filter: blur(100px);
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0.6; }
+            50% { transform: translate(20px, -20px) rotate(180deg); opacity: 0.3; }
+            100% { transform: translate(0, 0) rotate(360deg); opacity: 0.6; }
+        }
+
+        /* Container and Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            flex: 1; /* Allows content to grow and push footer down */
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(9, 23, 42, 0.7); /* Slightly transparent dark slate */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color-default);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 700;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-3px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-color-secondary);
+            text-decoration: none;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            font-weight: 500;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-indigo);
+            border-bottom: 2px solid var(--primary-indigo);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden; /* To contain any floating elements if added */
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: var(--text-color-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Project Showcase Section */
+        .project-showcase {
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-background);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color-default);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes content to the top, footer to the bottom */
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-indigo);
+        }
+
+        .project-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: var(--gradient-text);
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-icon {
+            transform: scale(1.1);
+        }
+
+        /* Geometric Patterns for Icons (Example) */
+        .project-icon.spotify::before {
+            content: '🎵'; /* Simple emoji for now, can be replaced with SVG or CSS shapes */
+            color: white;
+        }
+        .project-icon.ai-meeting::before {
+            content: '💬';
+            color: white;
+        }
+        .project-icon.cli::before {
+            content: '💻';
+            color: white;
+        }
+        .project-icon.pdf::before {
+            content: '📄';
+            color: white;
+        }
+        .project-icon.stock::before {
+            content: '📈';
+            color: white;
+        }
+        .project-icon.wordle::before {
+            content: '🔠';
+            color: white;
+        }
+        .project-icon.amazon::before {
+            content: '🛒';
+            color: white;
+        }
+        .project-icon.discord::before {
+            content: '🤖';
+            color: white;
+        }
+        .project-icon.kaggle::before {
+            content: '📊';
+            color: white;
+        }
+        .project-icon.game::before {
+            content: '🎮';
+            color: white;
+        }
+        .project-icon.focus::before {
+            content: '🧘';
+            color: white;
+        }
+        .project-icon.time-capsule::before {
+            content: '⏳';
+            color: white;
+        }
+        .project-icon.image-classification::before {
+            content: '🖼️';
+            color: white;
+        }
+
+        .project-title {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: 600;
+            color: var(--text-color-primary);
+            margin-bottom: 8px;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .project-subtitle {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-color-secondary);
+            font-weight: 300;
+        }
+
+        .project-description {
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            color: var(--text-color-secondary);
+            flex-grow: 1; /* Takes up available space to push footer down */
+            margin-bottom: 20px;
+        }
+
+        .project-card-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: auto; /* Pushes footer to the bottom */
+        }
+
+        .project-link {
+            background: var(--gradient-text);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block; /* To allow transform */
+        }
+
+        .project-card:hover .project-link {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(99, 102, 241, 0.3), 0 5px 8px rgba(236, 72, 153, 0.2);
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-indigo);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+            z-index: 101;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: var(--primary-pink);
+        }
+
+        .theme-toggle::before {
+            content: '💡'; /* Placeholder for light/dark mode icon */
+            font-size: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(9, 23, 42, 0.8); /* Slightly transparent dark slate */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: auto; /* Pushes footer to the bottom */
+            border-top: 1px solid var(--border-color-default);
+            font-size: 0.9rem;
+            color: var(--text-color-secondary);
+        }
+
+        footer a {
+            color: var(--primary-indigo);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--primary-pink);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero h1 {
+                font-size: clamp(2rem, 6vw, 3.5rem);
+            }
+
+            .hero p {
+                font-size: clamp(1rem, 2.5vw, 1.2rem);
+            }
+
+            .project-showcase {
+                grid-template-columns: 1fr;
+                padding: 40px 0;
+            }
+
+            .project-card {
+                padding: 25px;
+            }
+
+            .theme-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .theme-toggle::before {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px; /* Smaller base for very small screens */
+            }
+
+            .logo {
+                font-size: clamp(1.3rem, 4vw, 1.7rem);
+            }
+
+            nav a {
+                font-size: clamp(0.9rem, 2vw, 1rem);
+            }
+
+            .hero h1 {
+                font-size: clamp(1.8rem, 5vw, 3rem);
+            }
+
+            .project-title {
+                font-size: clamp(1.1rem, 3vw, 1.3rem);
+            }
+
+            .project-description {
+                font-size: clamp(0.9rem, 2vw, 1rem);
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <div class="background-orbs">
+        <!-- Orbs will be dynamically generated by JS -->
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="#home" class="logo">AI Projects Hub</a>
+            <nav>
+                <ul>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#concepts">Concepts</a></li>
+                    <li><a href="#learn">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Unleash the Power of AI in Your Code</h1>
+                <p>Explore a curated collection of engaging AI-powered coding projects designed to teach practical skills, inspire innovation, and demonstrate the versatility of artificial intelligence.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="project-showcase container">
+            <!-- Project Cards will be dynamically generated or listed here -->
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/spotify-wrapped', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon spotify"></div>
+                    <div>
+                        <div class="project-title">Spotify Wrapped-Inspired</div>
+                        <div class="project-subtitle">API Integration & Data Viz</div>
+                    </div>
+                </div>
+                <p class="project-description">Fetch and visualize your top songs and artists using the Spotify API. A fantastic introduction to API consumption and data presentation.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/spotify-wrapped" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/ai-meeting-assistant', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon ai-meeting"></div>
+                    <div>
+                        <div class="project-title">AI Meeting Assistant</div>
+                        <div class="project-subtitle">NLP & Prompt Engineering</div>
+                    </div>
+                </div>
+                <p class="project-description">Generate professional responses to meeting inquiries using powerful AI models. Learn the art of prompt engineering for practical applications.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/ai-meeting-assistant" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/cli-development', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon cli"></div>
+                    <div>
+                        <div class="project-title">Command-Line Interface (CLI)</div>
+                        <div class="project-subtitle">OS Concepts & Shell Dev</div>
+                    </div>
+                </div>
+                <p class="project-description">Build your own custom shell, understanding command execution and core operating system principles. A deep dive into foundational software engineering.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/cli-development" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/pdf-to-image', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon pdf"></div>
+                    <div>
+                        <div class="project-title">PDF to Image Converter</div>
+                        <div class="project-subtitle">Image Generation & UI</div>
+                    </div>
+                </div>
+                <p class="project-description">Process PDFs, convert pages to images using AI, and build a front-end to display them side-by-side. A practical application of image processing and UI design.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/pdf-to-image" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/sentiment-stock-prediction', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon stock"></div>
+                    <div>
+                        <div class="project-title">Sentiment Stock Predictor</div>
+                        <div class="project-subtitle">Data Scraping & Prediction</div>
+                    </div>
+                </div>
+                <p class="project-description">Analyze Reddit sentiment to forecast stock market trends. Combines web scraping, NLP, and predictive modeling for financial insights.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/sentiment-stock-prediction" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/wordle-clone', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon wordle"></div>
+                    <div>
+                        <div class="project-title">Wordle Clone</div>
+                        <div class="project-subtitle">Game Logic & UI</div>
+                    </div>
+                </div>
+                <p class="project-description">Recreate the popular word-guessing game. Focuses on game mechanics, state management, and user interaction design.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/wordle-clone" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/amazon-recommendations', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon amazon"></div>
+                    <div>
+                        <div class="project-title">Amazon Recommendation Engine</div>
+                        <div class="project-subtitle">Web Scraping & Summarization</div>
+                    </div>
+                </div>
+                <p class="project-description">Scrape Amazon reviews to generate concise summaries and personalized recommendations. A practical demonstration of data analysis and AI summarization.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/amazon-recommendations" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/discord-bot', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon discord"></div>
+                    <div>
+                        <div class="project-title">Discord Bot Development</div>
+                        <div class="project-subtitle">API Integration & Chatbots</div>
+                    </div>
+                </div>
+                <p class="project-description">Build a functional Discord bot capable of processing commands, interacting with users, and integrating with external APIs.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/discord-bot" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/kaggle-inspired', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon kaggle"></div>
+                    <div>
+                        <div class="project-title">Kaggle-Inspired Projects</div>
+                        <div class="project-subtitle">Data Analysis & ML</div>
+                    </div>
+                </div>
+                <p class="project-description">Discover and implement projects using diverse datasets from Kaggle. An excellent way to hone data analysis and machine learning skills.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/kaggle-inspired" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/game-development', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon game"></div>
+                    <div>
+                        <div class="project-title">Game Development</div>
+                        <div class="project-subtitle">Creative Coding</div>
+                    </div>
+                </div>
+                <p class="project-description">Build games in your preferred language, showcasing the flexibility of game development and reinforcing foundational programming skills.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/game-development" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/focus-friend', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon focus"></div>
+                    <div>
+                        <div class="project-title">Focus Friend / Phone Locker</div>
+                        <div class="project-subtitle">Productivity & Gamification</div>
+                    </div>
+                </div>
+                <p class="project-description">Develop apps to combat phone addiction, promoting focused work sessions and self-improvement through technology.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/focus-friend" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/time-capsule', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon time-capsule"></div>
+                    <div>
+                        <div class="project-title">Time Capsule Project</div>
+                        <div class="project-subtitle">Data Storage & Generative AI</div>
+                    </div>
+                </div>
+                <p class="project-description">Store memories in a database and create AI-generated videos from them. Explores data persistence and the creative potential of generative AI.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/time-capsule" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://quertech-articles.vercel.app/project/image-classification', '_blank')">
+                <div class="project-card-header">
+                    <div class="project-icon image-classification"></div>
+                    <div>
+                        <div class="project-title">Image Classification Model</div>
+                        <div class="project-subtitle">AI Model Deployment</div>
+                    </div>
+                </div>
+                <p class="project-description">Build and deploy an AI model for image recognition, specifically classifying common subjects like cats and dogs.</p>
+                <div class="project-card-footer">
+                    <a href="https://quertech-articles.vercel.app/project/image-classification" class="project-link" target="_blank">Explore</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placeholder for Concepts and Learn sections -->
+        <section id="concepts" class="container" style="padding: 60px 0; text-align: center;">
+            <h2 style="font-size: clamp(2rem, 6vw, 3rem); margin-bottom: 30px; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent;">Key AI Concepts</h2>
+            <p style="font-size: clamp(1.1rem, 3vw, 1.4rem); color: var(--text-color-secondary); max-width: 700px; margin: 0 auto;">Understand the underlying principles powering these projects: API Integration, Natural Language Processing (NLP), Prompt Engineering, Data Visualization, Web Scraping, Predictive Modeling, Generative AI, and more. Each project serves as a practical lesson.</p>
+        </section>
+
+        <section id="learn" class="container" style="padding: 60px 0; text-align: center;">
+            <h2 style="font-size: clamp(2rem, 6vw, 3rem); margin-bottom: 30px; background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent;">Learn by Doing</h2>
+            <p style="font-size: clamp(1.1rem, 3vw, 1.4rem); color: var(--text-color-secondary); max-width: 700px; margin: 0 auto;">The best way to learn AI and programming is through hands-on projects. Dive into these examples, experiment, and build your own innovative solutions. Your projects are your portfolio!</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Quertech Articles. All rights reserved. <a href="https://quertech-articles.vercel.app">Visit our main site</a>.</p>
+        </div>
+    </footer>
+
+    <button class="theme-toggle" aria-label="Toggle Theme"></button>
+
+    <script>
+        // JavaScript for interactivity and animations
+
+        // 1. Ambient Background Orbs
+        function createOrbs() {
+            const orbsContainer = document.querySelector('.background-orbs');
+            const numberOfOrbs = 5; // Adjust the number of orbs
+
+            for (let i = 0; i < numberOfOrbs; i++) {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                // Randomize position, size, and animation delay
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const size = Math.random() * 200 + 100; // between 100px and 300px
+                const animationDelay = Math.random() * 5; // between 0s and 5s
+
+                orb.style.left = `${posX}%`;
+                orb.style.top = `${posY}%`;
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.animationDelay = `${animationDelay}s`;
+
+                // Randomize color distribution for a more dynamic look
+                const colorDistribution = Math.random();
+                if (colorDistribution < 0.5) {
+                    orb.style.background = `radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0) 50%), radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.3) 0%, rgba(236, 72, 153, 0) 50%)`;
+                } else {
+                    orb.style.background = `radial-gradient(circle at 70% 70%, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0) 50%), radial-gradient(circle at 30% 30%, rgba(236, 72, 153, 0.3) 0%, rgba(236, 72, 153, 0) 50%)`;
+                }
+
+                orbsContainer.appendChild(orb);
+            }
+        }
+
+        // 2. Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 3. Floating Theme Toggle (Placeholder Functionality)
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            // In a real application, this would toggle between light/dark themes
+            // For this single-file demo, we'll just log to the console.
+            console.log('Theme toggle clicked!');
+            alert('Theme switching functionality would be implemented here!');
+        });
+
+        // Initialize orbs on page load
+        window.addEventListener('load', createOrbs);
+
+        // Add a subtle animation to project icons on hover (using CSS is preferred, but JS can add dynamic effects if needed)
+        // For this example, the hover effects are primarily handled by CSS for performance.
+        // If more complex animations were needed, JS would be used here.
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//2026gamesignite">2026 Games Ignite</a><a href="//designprovideo">Design Pro Video</a><a href="//claudechat">Claude Chat</a><a href="//cmdsecrets">CMD Secrets</a><a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

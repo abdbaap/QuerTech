@@ -115,6 +115,9 @@ const [urlListInCaseOfError, setUrlListInCaseOfError] = useState([])
           console.log("Successfully processed:", cleanSlug);
         }
       }
+      await setTimeout(() => {
+        console.warn("Waiting 30 seconds before next item...");
+      }, 30000);
     } catch (err) {
       console.error("CRITICAL ERROR on loop index", i, err);
       setUrlListInCaseOfError([...urlListInCaseOfError,item.url])

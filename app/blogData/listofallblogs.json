@@ -1,5 +1,337 @@
 [
   {
+    "blog_title": "UI Colors Guide",
+    "link": "/uicolorguide",
+    "description": "Master UI colors! Learn to pick effective colors with HSL and OKLCH models for stunning, user-friendly interfaces. Unlock your design potential.",
+    "tags": [
+      "UI Colors",
+      "Color Models",
+      "HSL",
+      "OKLCH",
+      "UI Design",
+      "Color Theory"
+    ],
+    "color": "bg-blue-600 shadow-blue-400"
+  },
+  {
+    "blog_title": "Design ESSN",
+    "link": "/designessn",
+    "description": "Master graphic design fundamentals like balance, unity, contrast, and variety with real-world examples. Elevate your designs from functional to impactful.",
+    "tags": [
+      "Graphic Design",
+      "Design Principles",
+      "Balance",
+      "Unity",
+      "Contrast",
+      "Variety",
+      "Visual Hierarchy"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "AI Code Wins",
+    "link": "/aicodewins",
+    "description": "Unlock 13+ AI coding projects! Learn data analysis, NLP, game dev & more. Build your portfolio with practical AI applications.",
+    "tags": [
+      "AI Coding",
+      "Programming Projects",
+      "Learn AI",
+      "NLP",
+      "Data Analysis",
+      "Game Development"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
+    "blog_title": "2026 Games Ignite",
+    "link": "/2026gamesignite",
+    "description": "Uncover the 10 most electrifying games of 2026! From massive sequels like GTA VI to hidden indie gems like Silksong, get ready for groundbreaking adventures and epic stories that will redefine gaming.",
+    "tags": [
+      "2026 Games",
+      "Upcoming Games",
+      "Gaming Preview",
+      "GTA VI",
+      "Hollow Knight Silksong",
+      "Fable",
+      "Metroid Prime 4",
+      "The Outer Worlds 2"
+    ],
+    "color": "bg-red-600 shadow-red-400"
+  },
+  {
+    "blog_title": "Design Pro Video",
+    "link": "/designprovideo",
+    "description": "Master video design! Learn essential principles like hierarchy, alignment, contrast, and consistency to make your content engaging and professional. Boost viewer attention and elevate your video editing skills.",
+    "tags": [
+      "Video Design",
+      "Video Editing",
+      "Design Principles",
+      "Content Creation",
+      "Visual Hierarchy"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Claude Chat",
+    "link": "/claudechat",
+    "description": "Control your code with your phone! Learn how to set up Claude Channels to use Telegram or Discord to send commands and get results from your Claude code sessions. Boost your workflow!",
+    "tags": [
+      "Claude AI",
+      "Coding",
+      "Telegram",
+      "Discord",
+      "Developer Tools",
+      "Remote Work"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "CMD Secrets",
+    "link": "/cmdsecrets",
+    "description": "Unlock Windows Command Prompt power! Learn essential network troubleshooting and system analysis commands like ipconfig, netsh, sfc, and DISM to fix issues and boost performance.",
+    "tags": [
+      "Windows Command Prompt",
+      "Network Troubleshooting",
+      "System Analysis",
+      "CMD",
+      "Tech Tips"
+    ],
+    "color": "bg-pink-700 shadow-pink-400"
+  },
+  {
+    "blog_title": "AI Now",
+    "link": "/ainow",
+    "description": "Don't get left behind! Learn how to use AI to stay competitive and drive growth in your business and personal life. Discover practical AI tools and strategies to adapt and thrive.",
+    "tags": [
+      "AI Adoption",
+      "Future of Work",
+      "AI Strategy",
+      "Business Growth",
+      "AI Tools"
+    ],
+    "color": "bg-red-600 shadow-red-400"
+  },
+  {
+    "blog_title": "Video Mastery",
+    "link": "/videomastery",
+    "description": "Unlock your video editing potential! Learn the essential design fundamentals, master editing software like Premiere Pro & After Effects, and build a killer portfolio to stand out.",
+    "tags": [
+      "Video Editing",
+      "Design Fundamentals",
+      "Motion Graphics",
+      "VFX",
+      "Portfolio Building",
+      "Freelance"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Code Truths",
+    "link": "/codetruths",
+    "description": "Stop \"vibe coding\"! AI generates code fast, but understanding systems makes you a better developer. Learn why deep knowledge beats AI shortcuts for bug-free code and career growth.",
+    "tags": [
+      "AI Coding",
+      "Vibe Coding",
+      "Developer Skills",
+      "Code Debugging",
+      "System Design"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Harness Lust",
+    "link": "/harnesslust",
+    "description": "Transform desire into power. Discover how to redirect 'lust' for ambition and achieve peak self-mastery and success.",
+    "tags": [
+      "Desire",
+      "Ambition",
+      "Self-Mastery",
+      "Personal Growth",
+      "Success",
+      "Motivation"
+    ],
+    "color": "bg-pink-700 shadow-pink-400"
+  },
+  {
+    "blog_title": "Top PC Games",
+    "link": "/top16pc",
+    "description": "Discover the ultimate ranking of the top PC games from 2016. This expert list showcases the best titles across genres, from indie gems like Stardew Valley to action-packed blockbusters like DOOM. Find your next obsession!",
+    "tags": [
+      "PC Games",
+      "2016 Games",
+      "Top Games",
+      "Gaming",
+      "Best PC Games"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Claude Offline",
+    "link": "/claudeoffline",
+    "description": "Unlock Claude Code for free, local, and unlimited AI-assisted coding. Follow 5 steps to install Ollama, download models, and build apps offline.",
+    "tags": [
+      "Claude Code",
+      "AI Coding",
+      "Offline AI",
+      "Ollama",
+      "Local AI",
+      "Free Coding"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
+    "blog_title": "Own Your Truth",
+    "link": "/ownyourtruth",
+    "description": "Break free from limits! This guide reveals how radical self-honesty and intense introspection can unlock your true potential. Discover powerful techniques like self-confinement and mirror rituals to confront yourself and rebuild.",
+    "tags": [
+      "Self Improvement",
+      "Personal Growth",
+      "Mindset",
+      "Introspection",
+      "Authenticity"
+    ],
+    "color": "bg-red-600 shadow-red-400"
+  },
+  {
+    "blog_title": "YPP Payouts",
+    "link": "/ypppayouts",
+    "description": "Unlock YouTube Partner Program earnings! This guide demystifies the 4-step setup and monthly payment cycle, clarifying analytics vs. actual payouts.",
+    "tags": [
+      "YouTube Partner Program",
+      "YPP",
+      "YouTube Payments",
+      "AdSense",
+      "Creator Earnings"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "RAM Boost",
+    "link": "/ramboost",
+    "description": "Unlock peak system performance by clearing cached RAM with Microsoft's Sysinternals RAMMap. Learn to reclaim gigabytes of memory for a noticeably snappier experience.",
+    "tags": [
+      "RAMMap",
+      "Sysinternals",
+      "Free RAM",
+      "System Performance",
+      "Windows Memory"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Gamer Vision",
+    "link": "/gamervision",
+    "description": "Unlock stunning PC game graphics! Learn about ray tracing, DLSS, FSR, HDR, and more. Boost performance & visuals to dominate your games.",
+    "tags": [
+      "PC Gaming",
+      "Graphics Settings",
+      "Ray Tracing",
+      "DLSS",
+      "FSR",
+      "HDR",
+      "Game Optimization"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Server Hacks",
+    "link": "/serverhacks",
+    "description": "Turn an old laptop into a powerful home server! Learn to install Ubuntu Server, host Jellyfin for media streaming, and even run your own Minecraft server. Perfect for tech enthusiasts and budget-friendly projects.",
+    "tags": [
+      "Ubuntu Server",
+      "Home Server",
+      "Jellyfin",
+      "Minecraft Server",
+      "Laptop Repurpose",
+      "Tech Tutorial"
+    ],
+    "color": "bg-cyan-700 shadow-cyan-400"
+  },
+  {
+    "blog_title": "Win11 Makeover",
+    "link": "/win11makeover",
+    "description": "Transform your Windows 11 desktop! Learn to apply dark mode, a translucent taskbar, and custom widgets using tools like Windhawk and Rainmeter for a sleek, personalized look.",
+    "tags": [
+      "Windows 11",
+      "Desktop Customization",
+      "Dark Mode",
+      "Widgets",
+      "Rainmeter",
+      "Windhawk",
+      "Translucent Taskbar"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Learn Faster",
+    "link": "/learnfaster",
+    "description": "Unlock your brain's potential! Discover the '3C Protocol' for deep learning, ditch rote memorization, and master any subject with science-backed strategies. Boost retention and achieve true understanding.",
+    "tags": [
+      "Learning",
+      "Study Hacks",
+      "Memory",
+      "Cognitive Science",
+      "Productivity"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "AI Limits",
+    "link": "/AILimits",
+    "description": "Explore the surprising limitations of AI in freelance tasks. Discover why AI fails 97.5% of the time in complex jobs and what this means for the future of work.",
+    "tags": [
+      "AI",
+      "Freelance",
+      "Future of Work",
+      "Automation",
+      "Limitations"
+    ],
+    "color": "bg-blue-800 shadow-blue-400"
+  },
+  {
+    "blog_title": "AI Video Scale",
+    "link": "/aivideoscale",
+    "description": "Unlock unlimited free short-form video creation for YouTube Shorts & Reels. Learn the full AI workflow to mass-produce engaging content without costs.",
+    "tags": [
+      "AI Video",
+      "Shorts",
+      "Reels",
+      "Content Creation",
+      "AI Workflow",
+      "Free Tools"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
+    "blog_title": "AI Career Path",
+    "link": "/aicareer",
+    "description": "Your 6-month blueprint to becoming an AI engineer. Master practical skills, build real projects, and deploy AI applications. Demystify the AI ecosystem and land your dream role.",
+    "tags": [
+      "AI Engineer",
+      "Career Roadmap",
+      "AI Skills",
+      "LLMs",
+      "Project-Based Learning",
+      "Prompt Engineering",
+      "Deployment",
+      "MLOps"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Claude Motion",
+    "link": "/claudemotion",
+    "description": "Learn to create stunning animated motion graphics for YouTube and social media using Claude Code, Node.js, and VS Code. Generate professional animations with simple AI prompts.",
+    "tags": [
+      "Claude Code",
+      "Motion Graphics",
+      "AI Animation",
+      "YouTube Videos",
+      "VS Code"
+    ],
+    "color": "bg-green-700 shadow-green-400"
+  },
+  {
     "blog_title": "TradeMaster",
     "link": "/trademaster",
     "description": "Unlock your trading potential with our 90-day roadmap. Learn to master one strategy, eliminate distractions, and build the discipline for consistent profits.",

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>Windows CMD Network & System Power Tools</title>
+    <meta name="description" content="Tired of network glitches? Unlock PC power! Master essential Windows CMD commands for lightning-fast network fixes, system checks & performance boosts.">
+    <meta name="keywords" content="Windows command prompt network troubleshooting, CMD commands for IP configuration, How to fix network issues with CMD, Windows DNS troubleshooting commands, Use ipconfig command for network diagnostics, Powercfg battery report CMD, SFC scannow for system file repair, DISM command for Windows image repair, Netstat command explained, Tracert command for network path, Command line tools for system analysis, Windows firewall commands CMD, Manage network connections with CMD, CMD commands for laptop battery health, Troubleshoot Wi-Fi with Windows CMD, Windows Command Prompt for IT pros, System integrity check CMD">
+    <meta name="author" content="QuerTech Articles">
+    <meta property="og:title" content="Windows CMD Network & System Power Tools">
+    <meta property="og:description" content="Tired of network glitches? Unlock PC power! Master essential Windows CMD commands for lightning-fast network fixes, system checks & performance boosts.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Windows CMD Network & System Power Tools">
+    <meta name="twitter:description" content="Tired of network glitches? Unlock PC power! Master essential Windows CMD commands for lightning-fast network fixes, system checks & performance boosts.">
+    <!-- End SEO Meta Tags -->
+
+    <link rel="canonical" href="https://quertech-articles.vercel.app">
+
+    <style>
+        /*
+        Full-Stack Developer & UI/UX Designer: [Your Name/Alias - for context, though not explicitly requested in output]
+        Project: Single-File Web Solution - Windows CMD Command Guide
+        Date: 2023-10-27
+
+        Design Philosophy:
+        - Glassmorphic UI/UX with a dark theme.
+        - High-contrast palette: Indigo (#6366f1), Pink (#ec4899), Slate (#09172a).
+        - Animated ambient background orbs for depth and modernity.
+        - Typography: SF Pro Display (or system-default sans-serif fallback), fluid scaling with clamp.
+        - Bold gradient-masked header for visual hierarchy.
+        - Interactive elements: 3D card lifting, border-color transitions on hover.
+        - Floating theme toggle (conceptual implementation for single-file).
+        - Imagery: CSS-generated geometric patterns and rank badges instead of static photos.
+        - Mobile-first, responsive design.
+        - Premium, professional, and fast-loading.
+        */
+
+        /* Global Variables and Mixins (Conceptual) */
+        :root {
+            --primary-color: #6366f1; /* Indigo */
+            --secondary-color: #ec4899; /* Pink */
+            --background-dark: #09172a; /* Slate */
+            --background-light: #1f2937; /* Darker Slate for elements */
+            --text-primary: #e5e7eb; /* Light Gray */
+            --text-secondary: #9ca3af; /* Medium Gray */
+            --accent-color: #d1d5db; /* Lighter Accent */
+
+            --glass-blur: 10px;
+            --glass-border-radius: 12px;
+            --glass-opacity: 0.7;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --card-hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            --transition-fast: 0.3s ease;
+            --transition-medium: 0.5s ease;
+        }
+
+        /* Font Import - Fallback to system fonts for broader compatibility */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); /* Using Inter as a modern sans-serif alternative to SF Pro */
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-dark);
+            color: var(--text-primary);
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative; /* For background orbs */
+        }
+
+        /* Animated Background Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            background: radial-gradient(circle, #2e3440, var(--background-dark));
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(99, 102, 241, 0) 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 15s ease-in-out infinite alternate;
+            opacity: 0.6;
+        }
+
+        .orb-1 { top: 10%; left: 15%; width: 200px; height: 200px; animation-duration: 20s; background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(236, 72, 153, 0) 70%); }
+        .orb-2 { top: 40%; left: 60%; width: 250px; height: 250px; animation-duration: 18s; animation-delay: -5s; background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(99, 102, 241, 0) 70%); }
+        .orb-3 { top: 70%; left: 30%; width: 180px; height: 180px; animation-duration: 22s; animation-delay: -10s; background: radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, rgba(236, 72, 153, 0) 70%); }
+        .orb-4 { top: 20%; left: 80%; width: 220px; height: 220px; animation-duration: 19s; animation-delay: -2s; background: radial-gradient(circle, rgba(99, 102, 241, 0.14) 0%, rgba(99, 102, 241, 0) 70%); }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-50px) translateX(30px); }
+            100% { transform: translateY(50px) translateX(-30px); }
+        }
+
+        /* Header Section */
+        .header-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800; /* Boldness for gradient effect */
+            letter-spacing: -0.02em;
+        }
+
+        header {
+            position: relative; /* Ensure header is above background */
+            z-index: 1;
+            padding: 2rem 1rem;
+            text-align: center;
+            background: rgba(9, 23, 42, 0.5); /* Slightly transparent dark slate for header */
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        header h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem); /* Fluid scaling */
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        header p {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            letter-spacing: 0.01em;
+        }
+
+        /* Main Content Area */
+        main {
+            flex: 1; /* Allow main content to grow and fill space */
+            position: relative; /* Ensure main content is above background */
+            z-index: 1;
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--accent-color);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        /* Card Container for Commands */
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Command Card Styling */
+        .command-card {
+            background: rgba(255, 255, 255, var(--glass-opacity));
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--glass-border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* For future content */
+            position: relative; /* For badge positioning */
+            overflow: hidden; /* To contain the gradient mask on hover */
+        }
+
+        .command-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-hover-shadow);
+            border-color: var(--primary-color); /* Border color transition */
+        }
+
+        .command-card:hover .command-title {
+            /* Gradient mask on hover for title */
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .command-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary); /* Default color */
+            transition: all var(--transition-fast);
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .command-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1; /* Allows description to take available space */
+        }
+
+        .command-usage {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-family: 'Courier New', Courier, monospace;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 0.4rem 0.6rem;
+            border-radius: 4px;
+            margin-top: auto; /* Push to bottom */
+            display: inline-block; /* To fit content */
+            white-space: nowrap; /* Prevent wrapping for command itself */
+            overflow-x: auto; /* Allow scrolling if too long */
+        }
+
+        /* Geometric Pattern/Rank Badge (Conceptual) */
+        .command-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(99, 102, 241, 0.1),
+                rgba(99, 102, 241, 0.1) 5px,
+                rgba(236, 72, 153, 0.1) 5px,
+                rgba(236, 72, 153, 0.1) 10px
+            );
+            opacity: 0.8;
+            border-radius: 4px;
+            z-index: 1;
+        }
+
+        /* Floating Theme Toggle (Conceptual) */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--background-dark);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+            transition: transform var(--transition-fast), background-color var(--transition-fast);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background-color: var(--secondary-color);
+        }
+
+        /* Icon Placeholder for Theme Toggle */
+        .theme-toggle::before {
+            content: '☀️'; /* Placeholder for light mode */
+            font-size: 1.5rem;
+        }
+        .theme-toggle.dark-mode::before {
+            content: '🌙'; /* Placeholder for dark mode */
+        }
+
+        /* Footer Styling */
+        footer {
+            position: relative; /* Ensure footer is above background */
+            z-index: 1;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: auto; /* Push to bottom if content is short */
+            background: rgba(9, 23, 42, 0.5);
+            border-top: 1px solid rgba(236, 72, 153, 0.2);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 1rem;
+            }
+            main {
+                padding: 1.5rem 1rem;
+            }
+            .commands-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+            .command-card {
+                padding: 1.2rem;
+            }
+            .command-title {
+                font-size: 1.2rem;
+            }
+            .theme-toggle {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+            .theme-toggle::before {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: clamp(2rem, 10vw, 3rem);
+            }
+            header p {
+                font-size: clamp(0.9rem, 4vw, 1.2rem);
+            }
+            .section-title {
+                font-size: clamp(1.5rem, 8vw, 2rem);
+            }
+            .command-card::before {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+    </div>
+
+    <header>
+        <h1 class="header-gradient">Windows CMD Power Tools</h1>
+        <p>Master Essential Network Troubleshooting & System Analysis Commands</p>
+    </header>
+
+    <main>
+        <h2 class="section-title">Unlock Your PC's Potential</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">
+            Demystify your Windows system and network with these powerful Command Prompt utilities. Designed for quick diagnostics and deep insights.
+        </p>
+
+        <div class="commands-grid">
+            <!-- IP Configuration & DNS -->
+            <div class="command-card" onclick="copyToClipboard('ipconfig /all')">
+                <h3 class="command-title">IP Configuration Details</h3>
+                <p class="command-description">Display comprehensive IP settings for all network adapters, including MAC address, IP/IPv6, subnet, gateway, and DNS servers.</p>
+                <span class="command-usage">ipconfig /all</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('ipconfig /all | findstr dns')">
+                <h3 class="command-title">Filter DNS Servers</h3>
+                <p class="command-description">Quickly extract only DNS server information from the detailed IP configuration output.</p>
+                <span class="command-usage">ipconfig /all | findstr dns</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('ipconfig /release && ipconfig /renew')">
+                <h3 class="command-title">Release & Renew IP</h3>
+                <p class="command-description">Refresh your IP address from the DHCP server to resolve common connectivity issues.</p>
+                <span class="command-usage">ipconfig /release & ipconfig /renew</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('ipconfig /displaydns')">
+                <h3 class="command-title">Display DNS Cache</h3>
+                <p class="command-description">View the contents of your local DNS resolver cache, showing domain-to-IP mappings.</p>
+                <span class="command-usage">ipconfig /displaydns</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('ipconfig /displaydns | clip')">
+                <h3 class="command-title">Copy DNS Cache</h3>
+                <p class="command-description">Copy the DNS cache contents directly to your clipboard for analysis in other applications.</p>
+                <span class="command-usage">ipconfig /displaydns | clip</span>
+            </div>
+
+            <!-- Network Hardware & Connectivity -->
+            <div class="command-card" onclick="copyToClipboard('getmac /v')">
+                <h3 class="command-title">Get MAC Addresses</h3>
+                <p class="command-description">Retrieve the physical (MAC) addresses for all network adapters on your system.</p>
+                <span class="command-usage">getmac /v</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('ping -t google.com')">
+                <h3 class="command-title">Continuous Ping</h3>
+                <p class="command-description">Monitor network connectivity to a target host continuously until interrupted (Ctrl+C).</p>
+                <span class="command-usage">ping -t &lt;hostname/IP&gt;</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('tracert google.com')">
+                <h3 class="command-title">Trace Route</h3>
+                <p class="command-description">Map the network path and latency to a destination, showing each hop your packets take.</p>
+                <span class="command-usage">tracert &lt;hostname/IP&gt;</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('tracert -d google.com')">
+                <h3 class="command-title">Trace Route (No DNS)</h3>
+                <p class="command-description">Perform a traceroute without resolving IP addresses to hostnames for faster results.</p>
+                <span class="command-usage">tracert -d &lt;hostname/IP&gt;</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('netstat')">
+                <h3 class="command-title">Active Connections</h3>
+                <p class="command-description">View currently active network connections and listening ports on your system.</p>
+                <span class="command-usage">netstat</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('netstat -af')">
+                <h3 class="command-title">All Connections & PIDs</h3>
+                <p class="command-description">Display all active connections and listening ports, including their associated Process IDs (PIDs).</p>
+                <span class="command-usage">netstat -af</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('netstat -e')">
+                <h3 class="command-title">Interface Statistics</h3>
+                <p class="command-description">Show detailed network interface statistics, such as bytes and packets sent/received.</p>
+                <span class="command-usage">netstat -e</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('route print')">
+                <h3 class="command-title">Print Routing Table</h3>
+                <p class="command-description">Display your system's IP routing table, crucial for understanding network traffic flow.</p>
+                <span class="command-usage">route print</span>
+            </div>
+
+            <!-- Advanced Network & Firewall -->
+            <div class="command-card" onclick="copyToClipboard('netsh wlan show wlanreport')">
+                <h3 class="command-title">WLAN Report</h3>
+                <p class="command-description">Generate a detailed wireless network report (wlan-report.html) for in-depth Wi-Fi troubleshooting.</p>
+                <span class="command-usage">netsh wlan show wlanreport</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('netsh interface ip show interface')">
+                <h3 class="command-title">Show Interfaces</h3>
+                <p class="command-description">List all network interfaces and their administrative/operational status.</p>
+                <span class="command-usage">netsh interface ip show interface</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('netsh interface ip show address')">
+                <h3 class="command-title">Show IP Addresses</h3>
+                <p class="command-description">Display IP address configurations for all network interfaces.</p>
+                <span class="command-usage">netsh interface ip show address</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('netsh interface ip show dnsservers')">
+                <h3 class="command-title">Show DNS Servers</h3>
+                <p class="command-description">List the DNS servers configured for each network interface.</p>
+                <span class="command-usage">netsh interface ip show dnsservers</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('netsh advfirewall set allprofiles state off')">
+                <h3 class="command-title">Disable Firewall</h3>
+                <p class="command-description">Temporarily disable the Windows Defender Firewall for all network profiles (use with caution!).</p>
+                <span class="command-usage">netsh advfirewall set allprofiles state off</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('netsh advfirewall set allprofiles state on')">
+                <h3 class="command-title">Enable Firewall</h3>
+                <p class="command-description">Re-enable the Windows Defender Firewall for all network profiles.</p>
+                <span class="command-usage">netsh advfirewall set allprofiles state on</span>
+            </div>
+
+            <!-- System Integrity & Performance -->
+            <div class="command-card" onclick="copyToClipboard('powercfg /energy')">
+                <h3 class="command-title">Energy Report</h3>
+                <p class="command-description">Generate a 60-second system energy efficiency report (energy-report.html) to identify power issues.</p>
+                <span class="command-usage">powercfg /energy</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('powercfg /batteryreport')">
+                <h3 class="command-title">Battery Report</h3>
+                <p class="command-description">Create a detailed battery life usage report (battery-report.html) for laptops.</p>
+                <span class="command-usage">powercfg /batteryreport</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('sfc /scannow')">
+                <h3 class="command-title">System File Checker</h3>
+                <p class="command-description">Scan and repair corrupted Windows system files, ensuring OS integrity.</p>
+                <span class="command-usage">sfc /scannow</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('DISM /Online /Cleanup-Image /CheckHealth')">
+                <h3 class="command-title">DISM Check Health</h3>
+                <p class="command-description">Quickly check the Windows Component Store for corruption without making repairs.</p>
+                <span class="command-usage">DISM /Online /Cleanup-Image /CheckHealth</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('DISM /Online /Cleanup-Image /ScanHealth')">
+                <h3 class="command-title">DISM Scan Health</h3>
+                <p class="command-description">Perform a more thorough scan of the Component Store for any corruption issues.</p>
+                <span class="command-usage">DISM /Online /Cleanup-Image /ScanHealth</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('DISM /Online /Cleanup-Image /RestoreHealth')">
+                <h3 class="command-title">DISM Restore Health</h3>
+                <p class="command-description">Attempt to repair any corruption found in the Component Store.</p>
+                <span class="command-usage">DISM /Online /Cleanup-Image /RestoreHealth</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('tasklist | findstr script')">
+                <h3 class="command-title">Find Script Processes</h3>
+                <p class="command-description">List running processes and filter for those containing 'script' (e.g., wscript.exe).</p>
+                <span class="command-usage">tasklist | findstr script</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('taskkill /f /pid <PID>')">
+                <h3 class="command-title">Kill Process by PID</h3>
+                <p class="command-description">Forcefully terminate a running process using its Process ID (PID).</p>
+                <span class="command-usage">taskkill /f /pid &lt;PID&gt;</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('assoc')">
+                <h3 class="command-title">File Associations</h3>
+                <p class="command-description">Display current file extension associations with their default programs.</p>
+                <span class="command-usage">assoc</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('assoc .mp4=VLC.mp4')">
+                <h3 class="command-title">Re-associate File Type</h3>
+                <p class="command-description">Example: Change the default program for .mp4 files to VLC.</p>
+                <span class="command-usage">assoc .mp4=VLC.mp4</span>
+            </div>
+            <div class="command-card" onclick="copyToClipboard('shutdown /r /fw /f /t 0')">
+                <h3 class="command-title">Restart to UEFI/BIOS</h3>
+                <p class="command-description">Forcefully restart the computer and boot directly into the UEFI firmware settings (BIOS).</p>
+                <span class="command-usage">shutdown /r /fw /f /t 0</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 QuerTech Articles. All rights reserved.</p>
+        <p>
+            "Unlock your PC's potential" with powerful <a href="https://quertech-articles.vercel.app">Windows CMD</a> commands.
+            <br>
+            Tags: #WindowsCMD #CommandPrompt #NetworkTroubleshooting #SystemAdmin #TechTips #PCMaintenance #WindowsHacks #ITSupport #CommandLine #PowerUser
+        </p>
+    </footer>
+
+    <!-- Floating Theme Toggle Button (Conceptual JS for actual functionality) -->
+    <div class="theme-toggle" id="themeToggle"></div>
+
+    <script>
+        // --- JavaScript for Interactivity and Functionality ---
+
+        // Function to copy command to clipboard and provide user feedback
+        function copyToClipboard(command) {
+            navigator.clipboard.writeText(command).then(() => {
+                // Create a temporary notification element
+                const notification = document.createElement('div');
+                notification.style.position = 'fixed';
+                notification.style.bottom = '70px'; /* Position above the theme toggle */
+                notification.style.left = '50%';
+                notification.style.transform = 'translateX(-50%)';
+                notification.style.backgroundColor = 'rgba(99, 102, 241, 0.9)';
+                notification.style.color = 'white';
+                notification.style.padding = '10px 20px';
+                notification.style.borderRadius = '5px';
+                notification.style.zIndex = '1000';
+                notification.style.opacity = '0';
+                notification.style.transition = 'opacity 0.5s ease';
+                notification.textContent = `Copied: ${command}`;
+
+                document.body.appendChild(notification);
+
+                // Fade in
+                setTimeout(() => {
+                    notification.style.opacity = '1';
+                }, 10);
+
+                // Fade out and remove after a delay
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.addEventListener('transitionend', () => {
+                        notification.remove();
+                    });
+                }, 2000); // Show for 2 seconds
+
+            }).catch(err => {
+                console.error('Failed to copy command: ', err);
+                alert('Could not copy command. Please copy it manually.');
+            });
+        }
+
+        // Conceptual Theme Toggle (No actual theme change in single file, just visual feedback)
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            // In a real application, this would toggle CSS variables or classes
+            // For this example, we'll just add a class to simulate a change
+            themeToggle.classList.toggle('dark-mode');
+            console.log('Theme toggle clicked (conceptual).');
+            // You might also want to animate the orbs or change their colors here.
+        });
+
+        // --- Dynamic Orb Generation (Optional, for more varied backgrounds) ---
+        // For a truly dynamic and perhaps more visually engaging background,
+        // you could generate a few more orbs with random positions and sizes on load.
+        // This example uses a fixed set for simplicity and performance.
+
+        // On page load, ensure smooth transitions are applied correctly.
+        document.addEventListener('DOMContentLoaded', () => {
+            // Any initial setup can go here.
+            // For example, if you wanted to dynamically set orb positions:
+            // const orbsContainer = document.querySelector('.background-orbs');
+            // for (let i = 0; i < 4; i++) { // Assuming you want 4 orbs
+            //     const orb = document.createElement('div');
+            //     orb.classList.add('orb', `orb-${i+1}`);
+            //     const size = Math.random() * 150 + 100; // Orb size between 100px and 250px
+            //     orb.style.width = `${size}px`;
+            //     orb.style.height = `${size}px`;
+            //     orb.style.top = `${Math.random() * 80}%`;
+            //     orb.style.left = `${Math.random() * 80}%`;
+            //     const animationDuration = Math.random() * 10 + 15; // Animation duration between 15s and 25s
+            //     orb.style.animationDuration = `${animationDuration}s`;
+            //     const animationDelay = Math.random() * -10; // Negative delay to stagger animation start
+            //     orb.style.animationDelay = `${animationDelay}s`;
+            //     const colorIndex = Math.floor(Math.random() * 2); // 0 for indigo, 1 for pink
+            //     const colors = ['#6366f1', '#ec4899'];
+            //     orb.style.background = `radial-gradient(circle, rgba(${colors[colorIndex]=='#6366f1' ? '99, 102, 241' : '236, 72, 153'}, 0.2) 0%, rgba(0,0,0,0) 70%)`;
+            //     orbsContainer.appendChild(orb);
+            // }
+            // Note: The fixed orb setup is more predictable for this single-file example.
+        });
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

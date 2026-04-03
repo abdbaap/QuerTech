@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free RAM: Boost PC Speed Instantly! | RAMMap Tutorial</title>
+    <meta name="description" content="Tired of a slow PC? Discover RAMMap! This free tool frees up gigabytes of cached RAM for a snappier system. Learn how to reclaim your PC's power.">
+    <meta name="keywords" content="how to free up ram windows 10, increase ram speed windows 11, reduce ram usage pc, sysinternals rammap tutorial, clear standby list ram, fix slow computer memory, boost system performance ram, download rammap tool, understand ram usage, optimize windows memory">
+    <meta name="author" content="QuerTech Articles">
+    <meta property="og:title" content="Free RAM: Boost PC Speed Instantly! | RAMMap Tutorial">
+    <meta property="og:description" content="Tired of a slow PC? Discover RAMMap! This free tool frees up gigabytes of cached RAM for a snappier system. Learn how to reclaim your PC's power.">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free RAM: Boost PC Speed Instantly! | RAMMap Tutorial">
+    <meta name="twitter:description" content="Tired of a slow PC? Discover RAMMap! This free tool frees up gigabytes of cached RAM for a snappier system. Learn how to reclaim your PC's power.">
+    <meta name="twitter:url" content="https://quertech-articles.vercel.app">
+    <link rel="canonical" href="https://quertech-articles.vercel.app">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>" type="image/svg+xml">
+
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate: #09172a;
+            --color-slate-darker: #050e1a;
+            --color-white-translucent: rgba(255, 255, 255, 0.08);
+            --color-white-hover: rgba(255, 255, 255, 0.15);
+            --color-border-hover: rgba(99, 102, 241, 0.7);
+            --font-primary: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --transition-standard: all 0.3s ease-in-out;
+            --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            --backdrop-filter: blur(8px);
+            --border-radius-card: 12px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-slate-darker);
+            color: #e0e0e0;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
+        }
+
+        main {
+            flex: 1; /* Allows main content to take up available space */
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+        }
+
+        a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            transition: var(--transition-standard);
+        }
+
+        a:hover {
+            color: var(--color-pink);
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- Gradient Header --- */
+        .gradient-header {
+            background: linear-gradient(135deg, var(--color-indigo) 0%, var(--color-pink) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block; /* Necessary for background-clip to work */
+            margin-bottom: 1.5rem;
+            font-size: clamp(2rem, 6vw, 3.5rem); /* Fluid scaling */
+            font-weight: 900; /* Boldest weight for maximum impact */
+            line-height: 1.1;
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+        /* --- Fluid Typography --- */
+        h1 { font-size: clamp(1.8rem, 5vw, 3rem); }
+        h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.2rem, 3vw, 2rem); }
+        p, li, a, span { font-size: clamp(0.95rem, 2vw, 1.1rem); }
+
+
+        /* --- Glassmorphic UI Elements --- */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: var(--backdrop-filter);
+            -webkit-backdrop-filter: var(--backdrop-filter);
+            border-radius: var(--border-radius-card);
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform var(--transition-standard), box-shadow var(--transition-standard), border-color var(--transition-standard);
+            position: relative;
+            overflow: hidden; /* Ensure animations/effects stay within bounds */
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02); /* 3D card lifting */
+            box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.5);
+            border-color: var(--color-border-hover);
+        }
+
+        /* --- Geometric Patterns & Rank Badges --- */
+        .pattern-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            overflow: hidden; /* For gradient masking */
+            border: 1px solid transparent; /* Initial transparent border */
+        }
+
+        .pattern-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--color-indigo), var(--color-pink));
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .pattern-badge span {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Example for specific tool cards */
+        .tool-card {
+            position: relative;
+            padding-top: 2rem; /* Space for badge */
+        }
+        .tool-card .pattern-badge {
+            top: 15px;
+            right: 15px;
+        }
+
+        /* --- Ambient Background Orbs --- */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none; /* Allows interaction with elements behind */
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0) 70%),
+                        radial-gradient(circle at center, rgba(236, 72, 153, 0.4) 0%, rgba(236, 72, 153, 0) 70%);
+            opacity: 0; /* Start hidden, animated by JS */
+            animation: float ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-50px) scale(1.1); }
+        }
+
+        /* --- Floating Theme Toggle --- */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--color-indigo);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-card);
+            transition: transform var(--transition-standard), background-color var(--transition-standard);
+            z-index: 1000;
+            backdrop-filter: var(--backdrop-filter);
+            -webkit-backdrop-filter: var(--backdrop-filter);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-5px) scale(1.1);
+            background-color: var(--color-pink);
+        }
+
+        .theme-toggle svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        /* --- Header Section --- */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 1rem;
+            background: var(--color-slate); /* Darker base for header */
+            border-bottom: 1px solid var(--color-white-translucent);
+        }
+
+        header .site-title {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header .site-description {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            color: #aaa;
+        }
+
+        /* --- Content Layout --- */
+        .content-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .main-content {
+            grid-column: 1 / -1; /* Full width for main article */
+        }
+
+        .article-title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--color-indigo) 0%, var(--color-pink) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .article-meta {
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-meta span {
+            margin: 0 10px;
+        }
+
+        .article-content h2, .article-content h3 {
+            margin-top: 2rem;
+            color: var(--color-indigo);
+        }
+
+        .article-content ul, .article-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        /* --- Specific Tool Example --- */
+        .tool-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tool-card {
+            background: var(--color-white-translucent); /* Slightly different for distinction */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .tool-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.5);
+            border-color: var(--color-border-hover);
+        }
+
+        .tool-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-pink);
+        }
+        .tool-card p {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        .tool-card .pattern-badge {
+            top: 12px;
+            right: 12px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+            background: var(--color-slate-darker);
+            border-top: 1px solid var(--color-white-translucent);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #aaa;
+            font-weight: 500;
+        }
+        footer a:hover {
+            color: var(--color-indigo);
+        }
+
+
+        /* --- Responsive Adjustments --- */
+        @media (min-width: 768px) {
+            .content-container {
+                grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+            }
+            .main-content {
+                grid-column: 1 / -1; /* Still full width for the main article */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            main {
+                padding: 3rem 2rem;
+            }
+            .content-container {
+                grid-template-columns: 2fr 1fr; /* Main content wider than sidebar if implemented */
+            }
+            .main-content {
+                grid-column: 1 / 2; /* Main content in the first column */
+            }
+            /* If a sidebar were to be added */
+            /* .sidebar {
+                grid-column: 2 / 3;
+            } */
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <div class="background-orbs">
+        <!-- Orbs will be dynamically generated and animated by JavaScript -->
+    </div>
+
+    <header>
+        <h1 class="site-title">QuerTech Articles</h1>
+        <p class="site-description">Unlocking PC Performance & Tech Insights</p>
+    </header>
+
+    <main>
+        <article class="content-container">
+            <section class="main-content">
+                <h1 class="article-title">Content Analysis: Freeing Up RAM with RAMMap</h1>
+                <div class="article-meta">
+                    <span>Posted: October 26, 2023</span> |
+                    <span>Category: PC Performance</span> |
+                    <span>Tags: RAM Optimization, Sysinternals, Windows Tips</span>
+                </div>
+
+                <div class="article-content">
+                    <p>Is your system feeling sluggish, even when you're not running many applications? Often, this is due to RAM being occupied by cached memory, which Windows uses to speed up future access to files. While beneficial, excessive caching can starve active processes. This guide demonstrates how to leverage Microsoft's free Sysinternals tool, RAMMap, to analyze and effectively free up this cached RAM, leading to a noticeably snappier system.</p>
+
+                    <h2 class="gradient-header" style="font-size: clamp(1.5rem, 4vw, 2.5rem); text-align: left; margin-top: 2rem;">The Problem: Cached Memory Hogging Resources</h2>
+                    <p>Modern operating systems, including Windows 10 and 11, are designed to utilize available RAM efficiently. A significant portion of this RAM can be allocated to the "Standby List," which holds data from recently accessed files and processes that might be needed again soon. While this improves performance for repeated tasks, it can consume gigabytes of RAM that could otherwise be used by your active applications. If you've ever checked your Task Manager and seen "Cached" memory taking up a huge chunk of your RAM, this is what we're referring to.</p>
+
+                    <div class="glass-card tool-card">
+                        <div class="pattern-badge">
+                            <span>Tool</span>
+                        </div>
+                        <h4>Microsoft Sysinternals RAMMap</h4>
+                        <p>A powerful, free utility for analyzing and managing physical memory usage on Windows.</p>
+                        <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/rammap" target="_blank" rel="noopener noreferrer">Download Now</a>
+                    </div>
+
+                    <h2 class="gradient-header" style="font-size: clamp(1.5rem, 4vw, 2.5rem); text-align: left; margin-top: 2rem;">The Solution: RAMMap for Granular Control</h2>
+                    <p>Microsoft's Sysinternals suite offers a treasure trove of advanced system utilities, and RAMMap is a standout for memory management. It provides a detailed, visual breakdown of how your system's physical memory is being used, categorizing it into types such as:</p>
+                    <ul>
+                        <li>Process Private</li>
+                        <li>Mapped File</li>
+                        <li>Shareable</li>
+                        <li>Page Table</li>
+                        <li>Paged Pool</li>
+                        <li>Non-Paged Pool</li>
+                        <li>And importantly, <strong>Standby Lists</strong></li>
+                    </ul>
+                    <p>By understanding these categories, you can pinpoint exactly where your RAM is going. The real power lies in RAMMap's ability to clear specific memory types. For freeing up cached RAM, the primary target is the 'Standby List'.</p>
+
+                    <h3 style="margin-top: 2rem; color: var(--color-pink);">How to Free Up Cached RAM with RAMMap</h3>
+                    <ol>
+                        <li><strong>Download and Run RAMMap:</strong> Obtain RAMMap from the official Microsoft Sysinternals website. It's a portable executable, meaning no installation is required. Run it with administrator privileges for full access.</li>
+                        <li><strong>Analyze Memory Usage:</strong> Upon launching, you'll see a comprehensive view of your RAM. Look for the "Standby List" section. On systems with high cached memory, this value can often be several gigabytes.</li>
+                        <li><strong>Clear the Standby List:</strong> Navigate to the "Empty" menu in RAMMap. Select "Empty Standby List." This action will safely release the cached data held in the standby lists, making that memory available for your active applications.</li>
+                    </ol>
+                    <p>In our analysis, clearing the standby list dramatically reduced the "Cached" memory from over 9 GB to a mere 482 MB, instantly freeing up gigabytes of usable RAM. The impact on system responsiveness can be immediate and profound, making your computer feel significantly faster and more fluid.</p>
+
+                    <h2 class="gradient-header" style="font-size: clamp(1.5rem, 4vw, 2.5rem); text-align: left; margin-top: 2rem;">Actionable Insights: When and How to Use RAMMap</h2>
+                    <p>Don't just use RAMMap randomly. Here's how to integrate it into your system maintenance routine:</p>
+                    <div class="tool-section">
+                        <div class="glass-card tool-card">
+                            <div class="pattern-badge">
+                                <span>Diagnose</span>
+                            </div>
+                            <h4>Diagnose Sluggishness</h4>
+                            <p>If your PC feels slow, first check Task Manager's Performance tab. If RAM is consistently high, download and run RAMMap for a deeper dive into memory allocation. Identify if the Standby List is the culprit.</p>
+                        </div>
+                        <div class="glass-card tool-card">
+                            <div class="pattern-badge">
+                                <span>Reclaim</span>
+                            </div>
+                            <h4>Reclaim Performance</h4>
+                            <p>When RAMMap reveals substantial cached memory (e.g., 5GB+), and your system is lagging, use "Empty Standby List." This is your quick fix for immediate performance improvement.</p>
+                        </div>
+                        <div class="glass-card tool-card">
+                            <div class="pattern-badge">
+                                <span>Optimize</span>
+                            </div>
+                            <h4>Proactive Maintenance</h4>
+                            <p>Periodically monitor RAM usage. Before launching memory-intensive tasks or if you notice high cached memory, preemptively clear the standby list to ensure optimal performance and a smoother user experience.</p>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 2rem;">By mastering RAMMap, you gain a powerful tool to keep your Windows system running at its best, ensuring that your hardware's potential is fully realized, especially on systems where every megabyte of RAM counts.</p>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 QuerTech Articles. All rights reserved. | Visit us at <a href="https://quertech-articles.vercel.app" target="_blank" rel="noopener noreferrer">quertech-articles.vercel.app</a></p>
+    </footer>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-14h2v3h-2zM7 7h2v2H7zm3 7h2v2h-2zm7-3h2v2h-2zM3.5 12c0-1.1.9-2 2-2s2 .9 2 2-2 .9-2 2-2-.9-2-2zm15 0c0-1.1.9-2 2-2s2 .9 2 2-2 .9-2 2-2-.9-2-2zM12 17h2v3h-2zm-5-2h2v2H7zm0-5h2v2H7z"/>
+        </svg>
+    </button>
+
+    <script>
+        // --- Ambient Background Orbs ---
+        const orbsContainer = document.querySelector('.background-orbs');
+        const numOrbs = 15; // Number of orbs to create
+
+        function createOrb() {
+            const orb = document.createElement('div');
+            orb.classList.add('orb');
+
+            const size = Math.random() * 150 + 50; // Orb size between 50px and 200px
+            orb.style.width = `${size}px`;
+            orb.style.height = `${size}px`;
+
+            const xPos = Math.random() * 100; // Horizontal position as percentage
+            const yPos = Math.random() * 100; // Vertical position as percentage
+            orb.style.left = `${xPos}vw`;
+            orb.style.top = `${yPos}vh`;
+
+            const animationDuration = Math.random() * 5 + 5; // Animation duration between 5s and 10s
+            orb.style.animationDuration = `${animationDuration}s`;
+
+            const animationDelay = Math.random() * 5; // Animation delay between 0s and 5s
+            orb.style.animationDelay = `-${animationDelay}s`; // Negative delay for staggered start
+
+            const opacity = Math.random() * 0.3 + 0.1; // Opacity between 0.1 and 0.4
+            orb.style.opacity = opacity;
+
+            // Randomize the gradient colors for each orb slightly
+            const hue1 = Math.random() * 360;
+            const hue2 = (hue1 + 60) % 360; // Offset for a complementary color
+            orb.style.background = `
+                radial-gradient(circle at center, hsl(${hue1}, 70%, 60%, 0.4) 0%, hsla(${hue1}, 70%, 60%, 0) 70%),
+                radial-gradient(circle at center, hsl(${hue2}, 80%, 70%, 0.4) 0%, hsla(${hue2}, 80%, 70%, 0) 70%)
+            `;
+
+            orbsContainer.appendChild(orb);
+        }
+
+        for (let i = 0; i < numOrbs; i++) {
+            createOrb();
+        }
+
+        // --- Theme Toggle (Dark Mode Simulation) ---
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const root = document.documentElement;
+        let isDarkMode = false;
+
+        // Function to apply dark mode styles
+        function applyDarkMode() {
+            root.style.setProperty('--color-slate-darker', '#050e1a'); // Deepest dark for background
+            root.style.setProperty('--color-slate', '#09172a'); // Darker slate for header/footer
+            root.style.setProperty('--color-white-translucent', 'rgba(255, 255, 255, 0.08)');
+            root.style.setProperty('--color-white-hover', 'rgba(255, 255, 255, 0.15)');
+            root.style.setProperty('--color-border-hover', 'rgba(99, 102, 241, 0.7)');
+            body.style.backgroundColor = 'var(--color-slate-darker)';
+            body.style.color = '#e0e0e0'; // Light text for dark mode
+            // Update header background
+            const header = document.querySelector('header');
+            if (header) header.style.background = 'var(--color-slate)';
+            // Update footer background
+            const footer = document.querySelector('footer');
+            if (footer) footer.style.background = 'var(--color-slate-darker)';
+
+            // Update orb colors to be more subtle in dark mode
+            document.querySelectorAll('.orb').forEach(orb => {
+                const hue1 = Math.random() * 360;
+                const hue2 = (hue1 + 60) % 360;
+                orb.style.background = `
+                    radial-gradient(circle at center, hsl(${hue1}, 60%, 50%, 0.3) 0%, hsla(${hue1}, 60%, 50%, 0) 70%),
+                    radial-gradient(circle at center, hsl(${hue2}, 70%, 60%, 0.3) 0%, hsla(${hue2}, 70%, 60%, 0) 70%)
+                `;
+            });
+
+            // Update toggle icon to sun (for light mode)
+            themeToggle.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.5C14.98 17.5 17.5 14.98 17.5 12S14.98 6.5 12 6.5 6.5 8.98 6.5 12 8.98 17.5 12 17.5zm0-2.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 5.5 12 5.5 16.5 7.51 16.5 10 14.49 15.5 12 15.5zm3.37-1.06c-.49-.44-1.18-.44-1.66 0-.49.44-.49 1.18 0 1.62.49.44 1.18.44 1.66 0 .49-.44.49-1.18 0-1.62zM12 20c-.13 0-.27-.01-.4-.04l2.67-2.67c.21.11.44.17.67.17 2.49 0 4.5-2.01 4.5-4.5s-2.01-4.5-4.5-4.5c-.23 0-.46.06-.67.17l-2.67-2.67c.14-.23.22-.48.22-.75 0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5c0 .27.08.52.22.75l2.67 2.67C12.27 17.99 12.13 18 12 18z"/>
+                </svg>
+            `;
+        }
+
+        // Function to apply light mode styles (default)
+        function applyLightMode() {
+            root.style.setProperty('--color-slate-darker', '#f8fafc'); // Light background
+            root.style.setProperty('--color-slate', '#f1f5f9'); // Light slate for header/footer
+            root.style.setProperty('--color-white-translucent', 'rgba(0, 0, 0, 0.05)'); // Subtle dark for transparency
+            root.style.setProperty('--color-white-hover', 'rgba(0, 0, 0, 0.1)');
+            root.style.setProperty('--color-border-hover', 'rgba(99, 102, 241, 0.5)');
+            body.style.backgroundColor = 'var(--color-slate-darker)';
+            body.style.color = '#333'; // Dark text for light mode
+            // Update header background
+            const header = document.querySelector('header');
+            if (header) header.style.background = 'var(--color-slate)';
+            // Update footer background
+            const footer = document.querySelector('footer');
+            if (footer) footer.style.background = 'var(--color-slate-darker)';
+
+            // Update orb colors for a lighter feel
+            document.querySelectorAll('.orb').forEach(orb => {
+                const hue1 = Math.random() * 360;
+                const hue2 = (hue1 + 60) % 360;
+                orb.style.background = `
+                    radial-gradient(circle at center, hsl(${hue1}, 70%, 80%, 0.4) 0%, hsla(${hue1}, 70%, 80%, 0) 70%),
+                    radial-gradient(circle at center, hsl(${hue2}, 80%, 90%, 0.4) 0%, hsla(${hue2}, 80%, 90%, 0) 70%)
+                `;
+            });
+
+            // Update toggle icon to moon (for dark mode)
+            themeToggle.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-14h2v3h-2zM7 7h2v2H7zm3 7h2v2h-2zm7-3h2v2h-2zM3.5 12c0-1.1.9-2 2-2s2 .9 2 2-2 .9-2 2-2-.9-2-2zm15 0c0-1.1.9-2 2-2s2 .9 2 2-2 .9-2 2-2-.9-2-2zM12 17h2v3h-2zm-5-2h2v2H7zm0-5h2v2H7z"/>
+                </svg>
+            `;
+        }
+
+        // Initial check for system preference or local storage (optional)
+        // For simplicity, we'll start with light mode and allow toggling.
+        applyLightMode();
+
+        themeToggle.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                applyDarkMode();
+            } else {
+                applyLightMode();
+            }
+        });
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

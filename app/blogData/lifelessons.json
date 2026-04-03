@@ -1,5 +1,32 @@
 [
   {
+    "blog_title": "Harness Lust",
+    "link": "/harnesslust",
+    "description": "Transform desire into power. Discover how to redirect 'lust' for ambition and achieve peak self-mastery and success.",
+    "tags": [
+      "Desire",
+      "Ambition",
+      "Self-Mastery",
+      "Personal Growth",
+      "Success",
+      "Motivation"
+    ],
+    "color": "bg-pink-700 shadow-pink-400"
+  },
+  {
+    "blog_title": "Own Your Truth",
+    "link": "/ownyourtruth",
+    "description": "Break free from limits! This guide reveals how radical self-honesty and intense introspection can unlock your true potential. Discover powerful techniques like self-confinement and mirror rituals to confront yourself and rebuild.",
+    "tags": [
+      "Self Improvement",
+      "Personal Growth",
+      "Mindset",
+      "Introspection",
+      "Authenticity"
+    ],
+    "color": "bg-red-600 shadow-red-400"
+  },
+  {
     "blog_title": "Code Hour",
     "link": "/codehour",
     "description": "Unlock your coding potential in just 60 minutes a day! Discover the proven strategy to actively build, debug, and master programming skills faster than passive learning.",

@@ -1,5 +1,101 @@
 [
   {
+    "blog_title": "Claude Chat",
+    "link": "/claudechat",
+    "description": "Control your code with your phone! Learn how to set up Claude Channels to use Telegram or Discord to send commands and get results from your Claude code sessions. Boost your workflow!",
+    "tags": [
+      "Claude AI",
+      "Coding",
+      "Telegram",
+      "Discord",
+      "Developer Tools",
+      "Remote Work"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "CMD Secrets",
+    "link": "/cmdsecrets",
+    "description": "Unlock Windows Command Prompt power! Learn essential network troubleshooting and system analysis commands like ipconfig, netsh, sfc, and DISM to fix issues and boost performance.",
+    "tags": [
+      "Windows Command Prompt",
+      "Network Troubleshooting",
+      "System Analysis",
+      "CMD",
+      "Tech Tips"
+    ],
+    "color": "bg-pink-700 shadow-pink-400"
+  },
+  {
+    "blog_title": "YPP Payouts",
+    "link": "/ypppayouts",
+    "description": "Unlock YouTube Partner Program earnings! This guide demystifies the 4-step setup and monthly payment cycle, clarifying analytics vs. actual payouts.",
+    "tags": [
+      "YouTube Partner Program",
+      "YPP",
+      "YouTube Payments",
+      "AdSense",
+      "Creator Earnings"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "RAM Boost",
+    "link": "/ramboost",
+    "description": "Unlock peak system performance by clearing cached RAM with Microsoft's Sysinternals RAMMap. Learn to reclaim gigabytes of memory for a noticeably snappier experience.",
+    "tags": [
+      "RAMMap",
+      "Sysinternals",
+      "Free RAM",
+      "System Performance",
+      "Windows Memory"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Gamer Vision",
+    "link": "/gamervision",
+    "description": "Unlock stunning PC game graphics! Learn about ray tracing, DLSS, FSR, HDR, and more. Boost performance & visuals to dominate your games.",
+    "tags": [
+      "PC Gaming",
+      "Graphics Settings",
+      "Ray Tracing",
+      "DLSS",
+      "FSR",
+      "HDR",
+      "Game Optimization"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Win11 Makeover",
+    "link": "/win11makeover",
+    "description": "Transform your Windows 11 desktop! Learn to apply dark mode, a translucent taskbar, and custom widgets using tools like Windhawk and Rainmeter for a sleek, personalized look.",
+    "tags": [
+      "Windows 11",
+      "Desktop Customization",
+      "Dark Mode",
+      "Widgets",
+      "Rainmeter",
+      "Windhawk",
+      "Translucent Taskbar"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Claude Motion",
+    "link": "/claudemotion",
+    "description": "Learn to create stunning animated motion graphics for YouTube and social media using Claude Code, Node.js, and VS Code. Generate professional animations with simple AI prompts.",
+    "tags": [
+      "Claude Code",
+      "Motion Graphics",
+      "AI Animation",
+      "YouTube Videos",
+      "VS Code"
+    ],
+    "color": "bg-green-700 shadow-green-400"
+  },
+  {
     "blog_title": "TradeMaster",
     "link": "/trademaster",
     "description": "Unlock your trading potential with our 90-day roadmap. Learn to master one strategy, eliminate distractions, and build the discipline for consistent profits.",

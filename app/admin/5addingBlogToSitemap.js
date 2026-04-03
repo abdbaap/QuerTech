@@ -6,7 +6,7 @@ export async function addingBlogToSitemap(domain) {
     let sitemapContent=await fs.readFile(sitemapUrl,"utf-8")
 
     const date = new Date().toISOString().split('T')[0];
-    const fixedDomain=domain.replace(/\s/g,"%20").replace(" ","%20")
+    const fixedDomain=domain.replace(/\s/g,"%20").replace(" ","%20").replace("/","")
     const newSitemapEntry = `<url>
     <loc>https://quertech-articles.vercel.app/${fixedDomain}</loc>
     <lastmod>${date}</lastmod>

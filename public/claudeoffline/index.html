@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Unlock Claude Code Offline! Free AI Coding">
+    <meta name="description" content="Tired of AI coding limits? Master Claude Code locally, offline, & FREE with Ollama. Build apps without subscriptions. Your step-by-step guide to unlimited AI power!">
+    <meta name="keywords" content="Claude Code offline setup, Use Claude Code locally, Free AI coding assistant, Ollama for AI models, Claude Code unlimited use, Download Claude Code free, Local AI coding guide, AI code generation offline, Build apps with Claude Code, Claude Code installation steps, Best free AI coding tool, Offline Claude Code tutorial, Run AI models locally, Claude Code CLI setup, qwen3.5 AI model download, Unlimited AI coding, Code with AI offline, Claude Code for developers, Ollama AI model list, Claude Code workspace">
+    <title>Unlock Claude Code Offline! Free AI Coding</title>
+    <link rel="canonical" href="https://quertech-articles.vercel.app">
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --color-primary-indigo: #6366f1; /* Indigo */
+            --color-accent-pink: #ec4899; /* Pink */
+            --color-background-dark: #09172a; /* Slate */
+            --color-text-light: #e2e8f0; /* Light Gray */
+            --color-text-subtle: #94a3b8; /* Subtle Gray */
+            --color-card-background: rgba(255, 255, 255, 0.05);
+            --color-card-border: rgba(255, 255, 255, 0.1);
+            --font-family-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --transition-smooth: all 0.3s ease-in-out;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family-display);
+            background-color: var(--color-background-dark);
+            color: var(--color-text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem); /* Fluid scaling for hero title */
+            background: linear-gradient(90deg, var(--color-primary-indigo) 0%, var(--color-accent-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback */
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            margin-bottom: 1.5rem;
+            color: var(--color-text-light);
+        }
+
+        h3 {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+            color: var(--color-primary-indigo);
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            margin-bottom: 1rem;
+            color: var(--color-text-subtle);
+        }
+
+        a {
+            color: var(--color-primary-indigo);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        a:hover {
+            color: var(--color-accent-pink);
+            text-decoration: underline;
+        }
+
+        /* --- Layout & Structure --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        main {
+            flex-grow: 1;
+            padding-top: 6rem; /* Space for fixed header */
+            padding-bottom: 4rem;
+        }
+
+        /* --- Components --- */
+
+        /* Ambient Background Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.3) 0%, rgba(0, 0, 0, 0) 60%);
+            animation: float ease-in-out infinite alternate;
+            filter: blur(100px);
+            opacity: 0.7;
+        }
+
+        .orb:nth-child(1) { width: 300px; height: 300px; top: -100px; left: -100px; animation-duration: 8s; }
+        .orb:nth-child(2) { width: 250px; height: 250px; bottom: 50px; right: 50px; animation-duration: 10s; background: radial-gradient(circle at center, rgba(236, 72, 153, 0.3) 0%, rgba(0, 0, 0, 0) 60%); animation-delay: -4s; }
+        .orb:nth-child(3) { width: 200px; height: 200px; top: 200px; left: 30%; animation-duration: 9s; background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0) 60%); animation-delay: -2s; }
+
+        /* Header */
+        header {
+            background-color: rgba(17, 24, 39, 0.8); /* Slightly transparent dark background for readability */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text-light);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--color-primary-indigo);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--color-text-light);
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-primary-indigo);
+            transition: var(--transition-smooth);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            margin-top: 2rem; /* Adjust for header */
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--color-text-subtle);
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary-indigo);
+            color: var(--color-text-light);
+            border-color: var(--color-primary-indigo);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-accent-pink);
+            border-color: var(--color-accent-pink);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-text-light);
+            border-color: var(--color-text-light);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--color-primary-indigo);
+            color: var(--color-primary-indigo);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Key Takeaways Section */
+        .key-takeaways .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .takeaway-card {
+            background-color: var(--color-card-background);
+            border: 1px solid var(--color-card-border);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align content to the left */
+        }
+
+        .takeaway-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border-color: var(--color-primary-indigo);
+        }
+
+        .takeaway-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary-indigo);
+        }
+
+        .takeaway-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--color-text-light);
+        }
+
+        .takeaway-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: var(--color-text-subtle);
+        }
+
+        /* Installation Steps Section */
+        .installation-steps {
+            background-color: rgba(255, 255, 255, 0.03); /* Subtle darker background for contrast */
+            padding: 5rem 0;
+        }
+
+        .installation-steps .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .step-description h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary-indigo), var(--color-accent-pink));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--color-text-light);
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: 1.1rem;
+            color: var(--color-text-subtle);
+        }
+
+        .code-block-container {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        .code-block-container pre {
+            font-family: "SF Mono", Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: var(--color-text-light);
+            margin: 0;
+        }
+
+        .code-block-container code {
+            display: block;
+        }
+
+        /* Model Selection Section */
+        .model-selection .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .model-card {
+            background-color: var(--color-card-background);
+            border: 1px solid var(--color-card-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            width: 300px;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .model-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border-color: var(--color-primary-indigo);
+        }
+
+        .model-card .badge {
+            font-size: 0.8rem;
+            background-color: var(--color-primary-indigo);
+            color: var(--color-text-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .model-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-light);
+        }
+
+        .model-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-subtle);
+        }
+
+        /* Actionable Insights Section */
+        .actionable-insights .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .insight-item {
+            background-color: var(--color-card-background);
+            border: 1px solid var(--color-card-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .insight-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--color-accent-pink);
+        }
+
+        .insight-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--color-primary-indigo);
+        }
+
+        .insight-item p {
+            font-size: 0.95rem;
+            color: var(--color-text-subtle);
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background-color: var(--color-primary-indigo);
+            color: var(--color-text-light);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.5);
+            z-index: 1001;
+            transition: var(--transition-smooth);
+            border: 2px solid var(--color-primary-indigo);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background-color: var(--color-accent-pink);
+            border-color: var(--color-accent-pink);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(17, 24, 39, 0.8);
+            color: var(--color-text-subtle);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: auto; /* Pushes footer to the bottom */
+        }
+
+        footer a {
+            color: var(--color-primary-indigo);
+        }
+
+        footer a:hover {
+            color: var(--color-accent-pink);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .hero h1 {
+                font-size: clamp(2rem, 6vw, 3.5rem);
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .installation-steps .container,
+            .key-takeaways .container,
+            .actionable-insights .container {
+                grid-template-columns: 1fr;
+            }
+
+            .installation-steps .container {
+                gap: 2rem;
+            }
+
+            .model-card {
+                width: 80%; /* Adjust for better mobile card display */
+                max-width: 300px;
+            }
+
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* --- Animations --- */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            100% {
+                transform: translateY(-30px);
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <div class="background-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">Claude Code <span>Offline</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#setup">Setup</a></li>
+                    <li><a href="#models">Models</a></li>
+                    <li><a href="#insights">Insights</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="overview">
+            <div class="container">
+                <h1>Unlock Claude Code: Local, <br> Offline & Unlimited</h1>
+                <p>
+                    Tired of AI coding limits and subscriptions? This guide shows you how to set up and use Claude Code locally, offline, and completely free with Ollama. Master unlimited AI power for your development projects.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#setup" class="btn btn-primary">Get Started Now</a>
+                    <a href="#insights" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section key-takeaways" id="overview">
+            <div class="container">
+                <h2>Key Takeaways</h2>
+                <div class="takeaway-card">
+                    <div class="icon">🚀</div>
+                    <h3>Objective</h3>
+                    <p>Enable free, offline, and unlimited use of Claude Code, bypassing subscription limitations.</p>
+                </div>
+                <div class="takeaway-card">
+                    <div class="icon">💾</div>
+                    <h3>Core Tool</h3>
+                    <p>Ollama is used to host powerful open-source AI models locally on your machine.</p>
+                </div>
+                <div class="takeaway-card">
+                    <div class="icon">⚙️</div>
+                    <h3>Process</h3>
+                    <p>A straightforward 5-step installation and configuration process.</p>
+                </div>
+                <div class="takeaway-card">
+                    <div class="icon">💡</div>
+                    <h3>Practicality</h3>
+                    <p>Demonstrates real-world app building with Claude Code, highlighting its coding assistance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section installation-steps" id="setup">
+            <div class="container">
+                <div class="step-description">
+                    <h2>Your 5-Step Path to <br> Unlimited AI Coding</h2>
+                    <p>Follow this simple guide to get Claude Code running locally on your machine, ready to assist your development without any limits.</p>
+                </div>
+                <div>
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <p class="step-text"><strong>Install Ollama:</strong> Download and install Ollama to host AI models locally.</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <p class="step-text"><strong>Download a Model:</strong> Choose and download an AI model (e.g., <code>qwen3.5-9b</code>).</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <p class="step-text"><strong>Install Claude Code CLI:</strong> Get the command-line interface for Claude Code.</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <p class="step-text"><strong>Configure the Bridge:</strong> Set up the connection between Claude Code and your local Ollama instance.</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">5</div>
+                        <p class="step-text"><strong>Test & Build:</strong> Start coding and building applications with your new AI assistant.</p>
+                    </div>
+
+                    <p class="mt-4"><strong>Example Commands:</strong></p>
+                    <div class="code-block-container">
+                        <pre><code># To run a model
+ollama run qwen3.5
+
+# To select a specific model configuration
+ollama run qwen3.5 --config</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section model-selection" id="models">
+            <div class="container">
+                <h2>Choose Your AI Model</h2>
+                <p>Ollama's library hosts a variety of models. Select one that fits your performance and size needs.</p>
+                <div class="model-card">
+                    <div class="badge">Recommended</div>
+                    <h3>Qwen3.5-9b</h3>
+                    <p>A balanced model offering good performance and size for most tasks.</p>
+                </div>
+                <div class="model-card">
+                    <h3>Qwen3.5-7b</h3>
+                    <p>A lighter option for faster responses or systems with fewer resources.</p>
+                </div>
+                <div class="model-card">
+                    <h3>Qwen3.5</h3>
+                    <p>The base model, potentially with more variations available.</p>
+                </div>
+                <div class="model-card">
+                    <h3>More Models Available</h3>
+                    <p>Explore the full Ollama library for other powerful AI models.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section actionable-insights" id="insights">
+            <div class="container">
+                <h2>Actionable Insights</h2>
+                <div class="insight-item">
+                    <h4>Unlimited, Free Coding</h4>
+                    <p>Replace costly AI coding subscriptions with this free, local, and unlimited solution using Ollama and Claude Code.</p>
+                </div>
+                <div class="insight-item">
+                    <h4>Clear Setup Path</h4>
+                    <p>Follow specific commands like <code>ollama run qwen3.5 --config</code> for a guided and successful installation.</p>
+                </div>
+                <div class="insight-item">
+                    <h4>Practical Application</h4>
+                    <p>See Claude Code in action by building a functional To-Do list app, demonstrating its real-time coding assistance.</p>
+                </div>
+                <div class="insight-item">
+                    <h4>Fine-tune AI Memory</h4>
+                    <p>Adjust the "Context Length" setting in Claude's preferences to optimize the AI's memory and response generation.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023-2024 QuerTech Articles. All rights reserved. | <a href="https://quertech-articles.vercel.app" target="_blank">Visit our homepage</a></p>
+        </div>
+    </footer>
+
+    <button class="theme-toggle" aria-label="Toggle Theme">
+        <!-- Icon for theme toggle - you can replace with SVG or Font Awesome -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M11.64,2.43a.75.75 0 00-1.28 0L8.44 5.36a2.25 2.25 0 01-1.74.84H4.12a2.25 2.25 0 00-2.25 2.25v2.54a2.25 2.25 0 01-.66 1.59l-2.58 2.58a.75.75 0 000 1.06l2.58 2.58a2.25 2.25 0 01.66 1.59v2.54a2.25 2.25 0 002.25 2.25h2.54a2.25 2.25 0 011.59.66l2.58 2.58a.75.75 0 001.06 0l2.58-2.58a2.25 2.25 0 011.59-.66h2.54a2.25 2.25 0 002.25-2.25v-2.54a2.25 2.25 0 01.66-1.59l2.58-2.58a.75.75 0 000-1.06l-2.58-2.58a2.25 2.25 0 01-.66-1.59v-2.54a2.25 2.25 0 00-2.25-2.25h-2.54a2.25 2.25 0 01-1.59-.66l-2.58-2.58zM12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9z"></path>
+        </svg>
+    </button>
+
+    <script>
+        // --- JavaScript for Interactivity ---
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Theme Toggle Functionality
+        const themeToggleBtn = document.querySelector('.theme-toggle');
+        const body = document.body;
+        const orbs = document.querySelectorAll('.orb');
+        const primaryIndigo = getComputedStyle(document.documentElement).getPropertyValue('--color-primary-indigo').trim();
+        const accentPink = getComputedStyle(document.documentElement).getPropertyValue('--color-accent-pink').trim();
+        const backgroundDark = getComputedStyle(document.documentElement).getPropertyValue('--color-background-dark').trim();
+        const textLight = getComputedStyle(document.documentElement).getPropertyValue('--color-text-light').trim();
+        const textSubtle = getComputedStyle(document.documentElement).getPropertyValue('--color-text-subtle').trim();
+        const cardBackground = getComputedStyle(document.documentElement).getPropertyValue('--color-card-background').trim();
+        const cardBorder = getComputedStyle(document.documentElement).getPropertyValue('--color-card-border').trim();
+
+        let isDarkMode = true; // Assume dark mode is the default
+
+        // Function to apply dark mode styles
+        const applyDarkMode = () => {
+            body.style.backgroundColor = backgroundDark;
+            body.style.color = textLight;
+            themeToggleBtn.style.backgroundColor = primaryIndigo;
+            themeToggleBtn.style.borderColor = primaryIndigo;
+            themeToggleBtn.style.boxShadow = `0 5px 20px rgba(99, 102, 241, 0.5)`;
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.style.color = textLight;
+            });
+
+            document.querySelectorAll('.hero h1').forEach(h1 => {
+                h1.style.webkitTextFillColor = 'transparent';
+                h1.style.color = 'transparent'; // Fallback
+            });
+
+            document.querySelectorAll('.hero p').forEach(p => {
+                p.style.color = textSubtle;
+            });
+
+            document.querySelectorAll('.btn-secondary').forEach(btn => {
+                btn.style.color = textLight;
+                btn.style.borderColor = textLight;
+            });
+
+            document.querySelectorAll('.takeaway-card, .model-card, .insight-item').forEach(card => {
+                card.style.backgroundColor = cardBackground;
+                card.style.borderColor = cardBorder;
+            });
+
+            document.querySelectorAll('.takeaway-card h3, .model-card h3, .insight-item h4').forEach(title => {
+                title.style.color = textLight;
+            });
+
+            document.querySelectorAll('.takeaway-card p, .model-card p, .insight-item p').forEach(text => {
+                text.style.color = textSubtle;
+            });
+
+            document.querySelectorAll('.step-item p').forEach(text => {
+                text.style.color = textSubtle;
+            });
+
+            // Update orb gradients for dark mode
+            orbs[0].style.background = `radial-gradient(circle at center, rgba(99, 102, 241, 0.3) 0%, rgba(0, 0, 0, 0) 60%)`;
+            orbs[1].style.background = `radial-gradient(circle at center, rgba(236, 72, 153, 0.3) 0%, rgba(0, 0, 0, 0) 60%)`;
+            orbs[2].style.background = `radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0) 60%)`;
+        };
+
+        // Function to apply light mode styles (optional, but good for accessibility)
+        const applyLightMode = () => {
+            body.style.backgroundColor = '#ffffff'; // Example light background
+            body.style.color = '#333333';         // Example dark text
+            themeToggleBtn.style.backgroundColor = accentPink;
+            themeToggleBtn.style.borderColor = accentPink;
+            themeToggleBtn.style.boxShadow = `0 5px 20px rgba(236, 72, 153, 0.5)`;
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.style.color = '#555555';
+            });
+
+            document.querySelectorAll('.hero h1').forEach(h1 => {
+                h1.style.webkitTextFillColor = 'transparent'; // Keep gradient for hero title
+                h1.style.color = 'transparent'; // Fallback
+            });
+
+            document.querySelectorAll('.hero p').forEach(p => {
+                p.style.color = '#666666';
+            });
+
+            document.querySelectorAll('.btn-secondary').forEach(btn => {
+                btn.style.color = '#333333';
+                btn.style.borderColor = '#333333';
+            });
+
+            document.querySelectorAll('.takeaway-card, .model-card, .insight-item').forEach(card => {
+                card.style.backgroundColor = 'rgba(240, 240, 240, 0.8)'; // Light card background
+                card.style.borderColor = 'rgba(200, 200, 200, 0.5)';     // Light card border
+            });
+
+            document.querySelectorAll('.takeaway-card h3, .model-card h3, .insight-item h4').forEach(title => {
+                title.style.color = accentPink;
+            });
+
+            document.querySelectorAll('.takeaway-card p, .model-card p, .insight-item p').forEach(text => {
+                text.style.color = '#555555';
+            });
+
+            document.querySelectorAll('.step-item p').forEach(text => {
+                text.style.color = '#555555';
+            });
+
+            // Update orb gradients for light mode
+            orbs[0].style.background = `radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, rgba(255, 255, 255, 0) 60%)`;
+            orbs[1].style.background = `radial-gradient(circle at center, rgba(236, 72, 153, 0.1) 0%, rgba(255, 255, 255, 0) 60%)`;
+            orbs[2].style.background = `radial-gradient(circle at center, rgba(150, 150, 150, 0.05) 0%, rgba(255, 255, 255, 0) 60%)`;
+        };
+
+        themeToggleBtn.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                applyDarkMode();
+            } else {
+                applyLightMode();
+            }
+            // Update aria-label for accessibility
+            themeToggleBtn.setAttribute('aria-label', isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+        });
+
+        // Initialize based on system preference or default to dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            isDarkMode = false;
+            applyLightMode();
+            themeToggleBtn.setAttribute('aria-label', 'Switch to Dark Mode');
+        } else {
+            applyDarkMode();
+            themeToggleBtn.setAttribute('aria-label', 'Switch to Light Mode');
+        }
+
+
+        // Add subtle hover effects for cards and buttons (visual feedback)
+        document.querySelectorAll('.takeaway-card, .model-card, .insight-item').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)'; // Lift effect
+                card.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.4)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)'; // Reset position
+                card.style.boxShadow = 'none';
+            });
+        });
+
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.transform = 'translateY(-3px)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Generates and places background orbs with random positions and sizes
+        function createOrbs() {
+            const container = document.querySelector('.background-orbs');
+            const orbCount = 5; // Increase for more density
+            for (let i = 0; i < orbCount; i++) {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                const size = Math.random() * 250 + 100; // Orb size between 100px and 350px
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+
+                // Random position
+                const posX = Math.random() * 120 - 10; // -10% to 110% to cover edges
+                const posY = Math.random() * 120 - 10;
+                orb.style.left = `${posX}%`;
+                orb.style.top = `${posY}%`;
+
+                // Random animation duration
+                const duration = Math.random() * 5 + 5; // Animation between 5s and 10s
+                orb.style.animationDuration = `${duration}s`;
+
+                // Random animation delay for staggered movement
+                const delay = Math.random() * -8; // Negative delay to start mid-animation
+                orb.style.animationDelay = `${delay}s`;
+
+                // Random color variation
+                const colorType = Math.floor(Math.random() * 3);
+                switch (colorType) {
+                    case 0: // Indigo
+                        orb.style.background = `radial-gradient(circle at center, rgba(99, 102, 241, ${Math.random() * 0.2 + 0.2}) 0%, rgba(0, 0, 0, 0) 60%)`;
+                        break;
+                    case 1: // Pink
+                        orb.style.background = `radial-gradient(circle at center, rgba(236, 72, 153, ${Math.random() * 0.2 + 0.2}) 0%, rgba(0, 0, 0, 0) 60%)`;
+                        break;
+                    case 2: // Subtle White/Gray
+                        orb.style.background = `radial-gradient(circle at center, rgba(255, 255, 255, ${Math.random() * 0.1 + 0.1}) 0%, rgba(0, 0, 0, 0) 60%)`;
+                        break;
+                }
+
+                container.appendChild(orb);
+            }
+        }
+
+        // Initial orb creation
+        createOrbs();
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

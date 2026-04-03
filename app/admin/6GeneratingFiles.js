@@ -9,7 +9,7 @@ export async function GeneratingFies(TitleFolder,code,category) {
         // console.log('titleFolder', titleFolder)
 
         // FIX 4: Remove any leading slashes the AI might have added to the link (e.g., "/wordoraaiavatars")
-        const cleanSlug = TitleFolder.data.link.replace(/^\/+/, "");
+        const cleanSlug = TitleFolder.data.link.replace(/^\/+/, "").replace("/", "");
 
         // FIX 5: The correct way to build the path, create the folder, and write the file
         const folderPath = path.join(process.cwd(), "public", cleanSlug);
