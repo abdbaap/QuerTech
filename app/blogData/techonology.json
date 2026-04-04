@@ -1,5 +1,60 @@
 [
   {
+    "blog_title": "Gemini Visions",
+    "link": "/geminivisions",
+    "description": "Unlock stunning AI images and videos with Google Gemini. Learn expert prompt engineering for ultra-realistic 3D renders, dynamic scenes, and more. Perfect for creators needing custom visuals fast.",
+    "tags": [
+      "AI Video",
+      "AI Images",
+      "Google Gemini",
+      "Prompt Engineering",
+      "Visual Content"
+    ],
+    "color": "bg-blue-600 shadow-blue-400"
+  },
+  {
+    "blog_title": "Algorithm Secrets",
+    "link": "/algosecrets",
+    "description": "Unlock viral growth! Learn how social media algorithms work and how to hack your content's 'fit score' for maximum reach. Discover strategies to boost engagement with sharp opinions and polarizing topics.",
+    "tags": [
+      "Social Media Algorithms",
+      "Content Strategy",
+      "Engagement",
+      "Viral Growth",
+      "Creator Tips"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
+    "blog_title": "Design Trends",
+    "link": "/designtrends",
+    "description": "Discover the latest UX/UI design trends including mascots, 3D, AI design tools, and glass effects. Learn how to create engaging and outcome-oriented designs that stand out.",
+    "tags": [
+      "UX Design",
+      "UI Design",
+      "Design Trends",
+      "AI in Design",
+      "3D Design",
+      "Mascots"
+    ],
+    "color": "bg-cyan-700 shadow-cyan-400"
+  },
+  {
+    "blog_title": "Android Hacks",
+    "link": "/androidhacks",
+    "description": "Unlock your Android's true potential! Discover 10+ FREE apps that boost productivity, customize your phone, and streamline tasks. From AI writing assistants to car audio upgrades and better file management, these tools will transform your daily mobile experience.",
+    "tags": [
+      "Android Apps",
+      "Productivity",
+      "Customization",
+      "Tech Review",
+      "FOSS",
+      "AI",
+      "Android Auto"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
     "blog_title": "Claude Chat",
     "link": "/claudechat",
     "description": "Control your code with your phone! Learn how to set up Claude Channels to use Telegram or Discord to send commands and get results from your Claude code sessions. Boost your workflow!",

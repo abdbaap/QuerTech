@@ -1,5 +1,89 @@
 [
   {
+    "blog_title": "Design Flaws",
+    "link": "/designflaws",
+    "description": "Discover how 'intelligent imperfection' in design creates dynamic, expressive, and memorable results, moving beyond sterile perfection. Learn to balance intentionality with controlled disruption for deeper audience resonance.",
+    "tags": [
+      "Design",
+      "Intelligent Imperfection",
+      "Human Design",
+      "Creativity",
+      "Expression"
+    ],
+    "color": "bg-blue-800 shadow-blue-400"
+  },
+  {
+    "blog_title": "Design Gear",
+    "link": "/designgear",
+    "description": "Discover the essential hardware, software, and resources graphic designers use daily. Plus, get actionable advice for aspiring creatives to kickstart their journey.",
+    "tags": [
+      "Graphic Design",
+      "Design Tools",
+      "Software",
+      "Hardware",
+      "Tips",
+      "Advice",
+      "Beginner",
+      "MacBook",
+      "Adobe",
+      "Figma",
+      "Procreate"
+    ],
+    "color": "bg-red-600 shadow-red-400"
+  },
+  {
+    "blog_title": "Tax Hacks",
+    "link": "/taxhacks",
+    "description": "Master legal tax savings in India! Discover powerful strategies using tax slabs, NPS, and exemptions to slash your tax burden. Your ultimate guide to smart financial planning.",
+    "tags": [
+      "Tax Savings India",
+      "Tax Planning",
+      "NPS",
+      "LTCG",
+      "Tax Rebate"
+    ],
+    "color": "bg-green-700 shadow-green-400"
+  },
+  {
+    "blog_title": "Spartan Gains",
+    "link": "/spartangains",
+    "description": "Unlock superior muscle growth using ancient Spartan training secrets. Discover 6 powerful, functional exercises to build a formidable physique with less joint damage.",
+    "tags": [
+      "Spartan Training",
+      "Muscle Building",
+      "Functional Fitness",
+      "Bodyweight Exercises",
+      "Compound Movements"
+    ],
+    "color": "bg-red-700 shadow-red-400"
+  },
+  {
+    "blog_title": "AI UX Shift",
+    "link": "/aiuxshift",
+    "description": "Stop chasing AI tools! Discover how UX designers can thrive in 2026 by focusing on user intent and leveraging AI as a strategic partner for flawless final execution.",
+    "tags": [
+      "AI UX",
+      "Future of Design",
+      "Intent-Based Design",
+      "UX Strategy",
+      "AI Designer"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Speak fluent",
+    "link": "/speakfluent",
+    "description": "Discover the revolutionary 'Invisible Immersion' method to achieve English fluency in just 2 years. Learn how integrating English into your daily life, replacing entertainment, and practicing constant narration can rewire your brain for natural speaking.",
+    "tags": [
+      "English Fluency",
+      "Language Learning",
+      "Invisible Immersion",
+      "Speak English",
+      "Practice"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
     "blog_title": "UI Colors Guide",
     "link": "/uicolorguide",
     "description": "Master UI colors! Learn to pick effective colors with HSL and OKLCH models for stunning, user-friendly interfaces. Unlock your design potential.",

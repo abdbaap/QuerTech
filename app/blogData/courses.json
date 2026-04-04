@@ -1,5 +1,36 @@
 [
   {
+    "blog_title": "Build AI Tools",
+    "link": "/buildaitools",
+    "description": "Unlock AI agent power! Learn to build your own Model Context Protocol server with Next.js and Supabase for a todo app. Master tools, context, and secure AI actions with Descope.",
+    "tags": [
+      "AI Agents",
+      "MCP Server",
+      "Next.js",
+      "Supabase",
+      "Descope",
+      "AI Tools",
+      "Dev Tutorial"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Design Mastery",
+    "link": "/designmastery",
+    "description": "Unlock top-tier website design! Learn essential principles for clarity, simplicity, and user experience. Discover how to build intuitive, impactful interfaces with practical tips on minimalism, Gestalt principles, and design systems.",
+    "tags": [
+      "Web Design",
+      "Design Principles",
+      "User Experience",
+      "Minimalism",
+      "Gestalt",
+      "Design Systems",
+      "Clarity",
+      "Website Building"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
     "blog_title": "Design ESSN",
     "link": "/designessn",
     "description": "Master graphic design fundamentals like balance, unity, contrast, and variety with real-world examples. Elevate your designs from functional to impactful.",

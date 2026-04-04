@@ -1,5 +1,175 @@
 [
   {
+    "blog_title": "Gemini Visions",
+    "link": "/geminivisions",
+    "description": "Unlock stunning AI images and videos with Google Gemini. Learn expert prompt engineering for ultra-realistic 3D renders, dynamic scenes, and more. Perfect for creators needing custom visuals fast.",
+    "tags": [
+      "AI Video",
+      "AI Images",
+      "Google Gemini",
+      "Prompt Engineering",
+      "Visual Content"
+    ],
+    "color": "bg-blue-600 shadow-blue-400"
+  },
+  {
+    "blog_title": "Algorithm Secrets",
+    "link": "/algosecrets",
+    "description": "Unlock viral growth! Learn how social media algorithms work and how to hack your content's 'fit score' for maximum reach. Discover strategies to boost engagement with sharp opinions and polarizing topics.",
+    "tags": [
+      "Social Media Algorithms",
+      "Content Strategy",
+      "Engagement",
+      "Viral Growth",
+      "Creator Tips"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
+    "blog_title": "Build AI Tools",
+    "link": "/buildaitools",
+    "description": "Unlock AI agent power! Learn to build your own Model Context Protocol server with Next.js and Supabase for a todo app. Master tools, context, and secure AI actions with Descope.",
+    "tags": [
+      "AI Agents",
+      "MCP Server",
+      "Next.js",
+      "Supabase",
+      "Descope",
+      "AI Tools",
+      "Dev Tutorial"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Design Flaws",
+    "link": "/designflaws",
+    "description": "Discover how 'intelligent imperfection' in design creates dynamic, expressive, and memorable results, moving beyond sterile perfection. Learn to balance intentionality with controlled disruption for deeper audience resonance.",
+    "tags": [
+      "Design",
+      "Intelligent Imperfection",
+      "Human Design",
+      "Creativity",
+      "Expression"
+    ],
+    "color": "bg-blue-800 shadow-blue-400"
+  },
+  {
+    "blog_title": "Design Mastery",
+    "link": "/designmastery",
+    "description": "Unlock top-tier website design! Learn essential principles for clarity, simplicity, and user experience. Discover how to build intuitive, impactful interfaces with practical tips on minimalism, Gestalt principles, and design systems.",
+    "tags": [
+      "Web Design",
+      "Design Principles",
+      "User Experience",
+      "Minimalism",
+      "Gestalt",
+      "Design Systems",
+      "Clarity",
+      "Website Building"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Design Trends",
+    "link": "/designtrends",
+    "description": "Discover the latest UX/UI design trends including mascots, 3D, AI design tools, and glass effects. Learn how to create engaging and outcome-oriented designs that stand out.",
+    "tags": [
+      "UX Design",
+      "UI Design",
+      "Design Trends",
+      "AI in Design",
+      "3D Design",
+      "Mascots"
+    ],
+    "color": "bg-cyan-700 shadow-cyan-400"
+  },
+  {
+    "blog_title": "Design Gear",
+    "link": "/designgear",
+    "description": "Discover the essential hardware, software, and resources graphic designers use daily. Plus, get actionable advice for aspiring creatives to kickstart their journey.",
+    "tags": [
+      "Graphic Design",
+      "Design Tools",
+      "Software",
+      "Hardware",
+      "Tips",
+      "Advice",
+      "Beginner",
+      "MacBook",
+      "Adobe",
+      "Figma",
+      "Procreate"
+    ],
+    "color": "bg-red-600 shadow-red-400"
+  },
+  {
+    "blog_title": "Tax Hacks",
+    "link": "/taxhacks",
+    "description": "Master legal tax savings in India! Discover powerful strategies using tax slabs, NPS, and exemptions to slash your tax burden. Your ultimate guide to smart financial planning.",
+    "tags": [
+      "Tax Savings India",
+      "Tax Planning",
+      "NPS",
+      "LTCG",
+      "Tax Rebate"
+    ],
+    "color": "bg-green-700 shadow-green-400"
+  },
+  {
+    "blog_title": "Android Hacks",
+    "link": "/androidhacks",
+    "description": "Unlock your Android's true potential! Discover 10+ FREE apps that boost productivity, customize your phone, and streamline tasks. From AI writing assistants to car audio upgrades and better file management, these tools will transform your daily mobile experience.",
+    "tags": [
+      "Android Apps",
+      "Productivity",
+      "Customization",
+      "Tech Review",
+      "FOSS",
+      "AI",
+      "Android Auto"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Spartan Gains",
+    "link": "/spartangains",
+    "description": "Unlock superior muscle growth using ancient Spartan training secrets. Discover 6 powerful, functional exercises to build a formidable physique with less joint damage.",
+    "tags": [
+      "Spartan Training",
+      "Muscle Building",
+      "Functional Fitness",
+      "Bodyweight Exercises",
+      "Compound Movements"
+    ],
+    "color": "bg-red-700 shadow-red-400"
+  },
+  {
+    "blog_title": "AI UX Shift",
+    "link": "/aiuxshift",
+    "description": "Stop chasing AI tools! Discover how UX designers can thrive in 2026 by focusing on user intent and leveraging AI as a strategic partner for flawless final execution.",
+    "tags": [
+      "AI UX",
+      "Future of Design",
+      "Intent-Based Design",
+      "UX Strategy",
+      "AI Designer"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Speak fluent",
+    "link": "/speakfluent",
+    "description": "Discover the revolutionary 'Invisible Immersion' method to achieve English fluency in just 2 years. Learn how integrating English into your daily life, replacing entertainment, and practicing constant narration can rewire your brain for natural speaking.",
+    "tags": [
+      "English Fluency",
+      "Language Learning",
+      "Invisible Immersion",
+      "Speak English",
+      "Practice"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
     "blog_title": "UI Colors Guide",
     "link": "/uicolorguide",
     "description": "Master UI colors! Learn to pick effective colors with HSL and OKLCH models for stunning, user-friendly interfaces. Unlock your design potential.",

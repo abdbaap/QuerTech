@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Save Taxes Legally! India Tax Hacks">
+    <meta name="description" content="Tired of high taxes? Unlock smart Indian tax-saving strategies! Discover legal ways to slash your tax bill using NPS, rebates, and property gains. Watch now!">
+    <meta name="keywords" content="Indian tax saving tips, Legal tax reduction India, Save tax in India, Income tax calculator India, New tax regime India, NPS tax benefits India, Long term capital gains tax India, Tax rebate Section 87A, Tax on gifts India, Tax planning India, Best tax saving schemes India, How to reduce income tax legally in India, Which tax regime is better new or old India, NPS contribution tax benefit for salaried, Tax exemption on selling property India, Understanding tax slabs for FY 2023-24 India, Tax on money received as gift from parents India, Strategies to save tax on salary income India, Tax benefits for senior citizens NPS India, When is a gift taxable in India?, Best ways to save capital gains tax India">
+    <meta name="author" content="Quertech">
+    <meta property="og:title" content="Save Taxes Legally! India Tax Hacks">
+    <meta property="og:description" content="Tired of high taxes? Unlock smart Indian tax-saving strategies! Discover legal ways to slash your tax bill using NPS, rebates, and property gains. Watch now!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/images/og-image.png"> <!-- Replace with your actual OG image URL -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Save Taxes Legally! India Tax Hacks">
+    <meta name="twitter:description" content="Tired of high taxes? Unlock smart Indian tax-saving strategies! Discover legal ways to slash your tax bill using NPS, rebates, and property gains. Watch now!">
+    <meta name="twitter:image" content="https://quertech-articles.vercel.app/images/twitter-image.png"> <!-- Replace with your actual Twitter image URL -->
+
+    <title>Save Taxes Legally! India Tax Hacks</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>💰</text></svg>" type="image/x-icon">
+
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --primary-indigo: #6366f1;
+            --primary-pink: #ec4899;
+            --background-dark: #09172a;
+            --text-light: #e2e8f0;
+            --text-muted: #94a3b8;
+            --card-background: rgba(15, 23, 42, 0.7); /* Darker slate with transparency for glassmorphism */
+            --card-border-hover: rgba(99, 102, 241, 0.6);
+            --gradient-text: linear-gradient(to right, var(--primary-indigo), var(--primary-pink));
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Fluid Typography using clamp */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2;
+            margin-bottom: 0.8em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 600;
+        }
+
+        p {
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: var(--primary-indigo);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-pink);
+        }
+
+        /* --- Background Animation --- */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0) 70%),
+                        radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, rgba(236, 72, 153, 0) 70%);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.7;
+            animation: moveOrb 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveOrb {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(10vw, 10vh) scale(1.2);
+            }
+            100% {
+                transform: translate(-10vw, -10vh) scale(0.9);
+            }
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: var(--card-background);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-pink);
+        }
+
+        /* --- Main Content Area --- */
+        main {
+            flex-grow: 1;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden; /* To contain the gradient mask */
+        }
+
+        .hero-section h1 {
+            margin-bottom: 1rem;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800; /* Bolder for emphasis */
+            letter-spacing: -0.5px;
+        }
+
+        .hero-section p {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- Content Cards & Layout --- */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-background);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            overflow: hidden; /* To contain generated patterns */
+            position: relative; /* For pattern positioning */
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+            border-color: var(--card-border-hover);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8em;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            flex-grow: 1; /* Allows description to take available space */
+        }
+
+        .card-footer {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: right;
+            font-weight: 500;
+        }
+
+        /* --- Geometric Patterns (CSS Generated Imagery) --- */
+        .pattern-1 { /* For NPS */
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(99, 102, 241, 0.05) 0px,
+                rgba(99, 102, 241, 0.05) 5px,
+                rgba(236, 72, 153, 0.05) 5px,
+                rgba(236, 72, 153, 0.05) 10px
+            );
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .pattern-2 { /* For Property */
+            background: repeating-conic-gradient(
+                from 0deg,
+                rgba(99, 102, 241, 0.04) 0%,
+                rgba(99, 102, 241, 0.04) 10%,
+                rgba(236, 72, 153, 0.04) 10%,
+                rgba(236, 72, 153, 0.04) 20%
+            );
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .pattern-3 { /* For Gifts */
+            background: repeating-linear-gradient(
+                135deg,
+                rgba(99, 102, 241, 0.03) 0px,
+                rgba(99, 102, 241, 0.03) 2px,
+                rgba(236, 72, 153, 0.03) 2px,
+                rgba(236, 72, 153, 0.03) 4px
+            );
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .card-content {
+            position: relative; /* To ensure content is above patterns */
+            z-index: 1;
+        }
+
+        /* --- Section Specific Styles --- */
+        .tax-slabs, .nps-details, .gift-tax, .ltcg-info {
+            margin-bottom: 4rem;
+            background: var(--card-background);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .tax-slabs h2, .nps-details h2, .gift-tax h2, .ltcg-info h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slab-table, .deduction-list, .gift-list, .ltcg-list {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px; /* Spacing between rows */
+        }
+
+        .slab-table th, .slab-table td,
+        .deduction-list th, .deduction-list td,
+        .gift-list th, .gift-list td,
+        .ltcg-list th, .ltcg-list td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+        }
+
+        .slab-table thead th,
+        .deduction-list thead th,
+        .gift-list thead th,
+        .ltcg-list thead th {
+            background-color: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .slab-table tbody td,
+        .deduction-list tbody td,
+        .gift-list tbody td,
+        .ltcg-list tbody td {
+            background-color: var(--card-background);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .slab-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .slab-table td:nth-child(1),
+        .deduction-list td:nth-child(1),
+        .gift-list td:nth-child(1),
+        .ltcg-list td:nth-child(1) {
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .slab-table td:nth-child(2),
+        .deduction-list td:nth-child(2),
+        .gift-list td:nth-child(2),
+        .ltcg-list td:nth-child(2) {
+            font-weight: 500;
+        }
+
+        .slab-table td:nth-child(2), .slab-table th:nth-child(2) { /* Tax Rate Column */
+            background: linear-gradient(to right, rgba(99,102,241, 0.1), rgba(236,72,153, 0.1));
+            color: var(--primary-pink);
+        }
+
+        .slab-table td:nth-child(2) {
+            font-weight: bold;
+        }
+
+        /* --- Actionable Insights Section --- */
+        .action-insights {
+            background: var(--card-background);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            margin-top: 4rem;
+        }
+
+        .action-insights h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .insights-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .insights-list li {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .insights-list li:hover {
+            background-color: rgba(99, 102, 241, 0.1);
+            transform: scale(1.02);
+        }
+
+        .insights-list li::before {
+            content: '💡'; /* Lightbulb emoji as a visual cue */
+            font-size: 1.5rem;
+            color: var(--primary-indigo);
+        }
+
+        .insights-list li span {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* --- Theme Toggle --- */
+        .theme-toggle-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 101;
+            cursor: pointer;
+            background: var(--card-background);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--shadow-lg);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .theme-toggle-container:hover {
+            background: rgba(99, 102, 241, 0.2);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle-container i {
+            font-size: 28px;
+            color: var(--primary-indigo);
+            transition: transform 0.3s ease;
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: auto; /* Pushes footer to the bottom */
+            background: var(--card-background);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        footer a {
+            color: var(--primary-indigo);
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: var(--primary-pink);
+        }
+
+        /* --- Responsiveness --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            main {
+                padding: 3rem 1rem;
+            }
+
+            .hero-section {
+                padding: 3rem 0;
+                margin-bottom: 3rem;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            h2 {
+                font-size: clamp(1.75rem, 6vw, 2.5rem);
+            }
+
+            .content-grid, .insights-list {
+                grid-template-columns: 1fr;
+            }
+
+            .card, .tax-slabs, .nps-details, .gift-tax, .ltcg-info, .action-insights {
+                padding: 1.5rem;
+            }
+
+            .card-icon {
+                font-size: 2.5rem;
+            }
+
+            .card h3 {
+                font-size: 1.3rem;
+            }
+
+            .slab-table th, .slab-table td,
+            .deduction-list th, .deduction-list td,
+            .gift-list th, .gift-list td,
+            .ltcg-list th, .ltcg-list td {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .theme-toggle-container {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .theme-toggle-container i {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .hero-section h1 {
+                font-size: clamp(1.8rem, 10vw, 2.5rem);
+            }
+
+            .hero-section p {
+                font-size: clamp(1rem, 4vw, 1.1rem);
+            }
+
+            .card, .tax-slabs, .nps-details, .gift-tax, .ltcg-info, .action-insights {
+                padding: 1rem;
+            }
+
+            .theme-toggle-container {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <div class="background-container">
+        <div class="orb" style="top: 10%; left: 5%; width: 200px; height: 200px; animation-duration: 25s;"></div>
+        <div class="orb" style="bottom: 15%; right: 8%; width: 150px; height: 150px; animation-duration: 18s; animation-delay: -5s;"></div>
+        <div class="orb" style="top: 40%; left: 50%; width: 250px; height: 250px; animation-duration: 22s; animation-delay: -10s;"></div>
+        <div class="orb" style="bottom: 5%; left: 30%; width: 180px; height: 180px; animation-duration: 28s;"></div>
+    </div>
+
+    <header>
+        <div class="logo" onclick="window.location.href='https://quertech-articles.vercel.app';">TaxWise India</div>
+        <nav>
+            <ul>
+                <li><a href="#strategies">Strategies</a></li>
+                <li><a href="#details">Details</a></li>
+                <li><a href="#insights">Insights</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Legally Save Taxes in India</h1>
+            <p>Demystify Indian tax laws and unlock significant savings with practical, legal strategies. Your guide to smart tax planning.</p>
+        </section>
+
+        <section id="strategies" class="content-grid">
+            <div class="card" onclick="scrollToSection('#tax-slabs-section')">
+                <div class="pattern-1"></div>
+                <div class="card-content">
+                    <span class="card-icon">⚖️</span>
+                    <h3>Tax Slabs & Rebates</h3>
+                    <p>Understand the new tax regime slabs, standard deductions, and the crucial Section 87A rebate to minimize your liability.</p>
+                    <div class="card-footer">New Regime Focus</div>
+                </div>
+            </div>
+            <div class="card" onclick="scrollToSection('#nps-section')">
+                <div class="pattern-2"></div>
+                <div class="card-content">
+                    <span class="card-icon">📈</span>
+                    <h3>National Pension Scheme (NPS)</h3>
+                    <p>Leverage NPS for retirement savings with tax benefits on both employee and employer contributions (Tier-1).</p>
+                    <div class="card-footer">Retirement Planning</div>
+                </div>
+            </div>
+            <div class="card" onclick="scrollToSection('#gift-tax-section')">
+                <div class="pattern-3"></div>
+                <div class="card-content">
+                    <span class="card-icon">🎁</span>
+                    <h3>Tax on Gifts</h3>
+                    <p>Navigate the rules around gifts – know what's taxable, what's exempt, and common scenarios from non-relatives.</p>
+                    <div class="card-footer">Gift Tax Rules</div>
+                </div>
+            </div>
+            <div class="card" onclick="scrollToSection('#ltcg-section')">
+                <div class="pattern-1"></div>
+                <div class="card-content">
+                    <span class="card-icon">🏠</span>
+                    <h3>Long-Term Capital Gains (LTCG)</h3>
+                    <p>Discover how to achieve 0% tax on property sales and understand LTCG on other assets.</p>
+                    <div class="card-footer">Asset Management</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="details">
+            <div id="tax-slabs-section" class="tax-slabs">
+                <h2>New Tax Regime Slabs & Rebate</h2>
+                <p>Understanding your tax bracket is the first step to effective tax planning. Here's a breakdown of the new tax regime's slabs and the significant rebate available.</p>
+                <table class="slab-table">
+                    <thead>
+                        <tr>
+                            <th>Income Range (INR)</th>
+                            <th>Tax Rate (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0 - 3,00,000</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>3,00,001 - 6,00,000</td>
+                            <td>5%</td>
+                        </tr>
+                        <tr>
+                            <td>6,00,001 - 9,00,000</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td>9,00,001 - 12,00,000</td>
+                            <td>15%</td>
+                        </tr>
+                        <tr>
+                            <td>12,00,001 - 15,00,000</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>Above 15,00,000</td>
+                            <td>30%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-4"><strong>Standard Deduction:</strong> An annual deduction of ₹50,000 is available for salaried individuals.</p>
+                <p><strong>Tax Rebate (Section 87A):</strong> If your taxable income is up to ₹7,00,000, you are eligible for a full tax rebate, meaning you pay ₹0 tax. This is a significant benefit for lower to middle-income groups.</p>
+                <p><strong>Example:</strong> If your salary is ₹12,75,000, after a ₹50,000 standard deduction, your taxable income becomes ₹12,25,000. With applicable slabs and the rebate, your final tax could be significantly reduced.</p>
+            </div>
+
+            <div id="nps-section" class="nps-details">
+                <h2>National Pension Scheme (NPS) Benefits</h2>
+                <p>NPS is a government-backed retirement savings plan offering substantial tax advantages. It's an excellent tool for long-term financial security and tax reduction.</p>
+                <table class="deduction-list">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Tax Benefit Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Employee Contribution</strong></td>
+                            <td>Up to ₹1.5 Lakhs under Section 80CCD(1).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Employer Contribution</strong></td>
+                            <td>Up to ₹50,000 under Section 80CCD(2) (over and above the ₹1.5 Lakh limit). This benefit is only for salaried individuals.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tier-1 Account</strong></td>
+                            <td>The primary retirement account. Contributions eligible for the above tax benefits. Has withdrawal restrictions.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tier-2 Account</strong></td>
+                            <td>Optional account. Contributions do not offer tax benefits but offer flexibility in withdrawals.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Senior Citizens</strong></td>
+                            <td>Contributions by individuals aged 60+ also qualify for tax benefits.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="gift-tax-section" class="gift-tax">
+                <h2>Tax on Gifts in India</h2>
+                <p>Gifts are a common part of life, but understanding their tax implications is vital to avoid unexpected liabilities.</p>
+                <table class="gift-list">
+                    <thead>
+                        <tr>
+                            <th>Type of Gift</th>
+                            <th>Taxability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Gifts from Specified Relatives</strong></td>
+                            <td>Fully exempt, irrespective of amount. Relatives include spouse, siblings, parents, children, grandparents, etc.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gifts on Marriage Occasion</strong></td>
+                            <td>Fully exempt for the individual getting married.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gifts Received by Will or Inheritance</strong></td>
+                            <td>Fully exempt.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aggregate Gifts from Non-Relatives (Excluding above)</strong></td>
+                            <td>Taxable if the aggregate value exceeds ₹50,000 in a financial year. This includes cash, property, etc.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Property below Stamp Duty Value</strong></td>
+                            <td>The difference between stamp duty value and actual consideration is taxed as gift if it exceeds ₹50,000.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-4"><strong>Important Note:</strong> Always ensure gifts are properly documented.</p>
+            </div>
+
+            <div id="ltcg-section" class="ltcg-info">
+                <h2>Long-Term Capital Gains (LTCG) Tax Strategies</h2>
+                <p>Maximize your returns and minimize tax on asset sales with strategic planning.</p>
+                <table class="ltcg-list">
+                    <thead>
+                        <tr>
+                            <th>Asset Type</th>
+                            <th>Holding Period</th>
+                            <th>Tax Benefit/Treatment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Residential Property</strong></td>
+                            <td>> 24 months</td>
+                            <td><strong>0% Tax on Gains:</strong> Reinvest net sale proceeds into another residential property in India within specified timelines (1 year before to 2 years after sale, or construct within 3 years). Capped at ₹10 crore from AY 2024-25. Can buy a second house if LTCG <= ₹2 crore (once in lifetime).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Listed Equity Shares / Units of Equity Oriented MF</strong></td>
+                            <td>> 12 months</td>
+                            <td>Taxed at 10% on gains exceeding ₹1 Lakh per financial year.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Other Assets (Gold, Real Estate other than residential, Debt MFs, etc.)</strong></td>
+                            <td>> 24 months</td>
+                            <td>Taxed as per income tax slabs.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-4"><strong>Key Takeaway:</strong> Planning your sale and reinvestment strategically is crucial for significant LTCG tax savings on property.</p>
+            </div>
+        </section>
+
+        <section id="insights" class="action-insights">
+            <h2>Actionable Tax-Saving Insights</h2>
+            <ul class="insights-list">
+                <li>
+                    <span>Understand your tax regime (New vs. Old) and choose the one that best suits your deductions.</span>
+                </li>
+                <li>
+                    <span>Consider NPS for retirement; both employee & employer contributions offer tax benefits.</span>
+                </li>
+                <li>
+                    <span>Strategically reinvest property sale proceeds to claim LTCG tax exemptions.</span>
+                </li>
+                <li>
+                    <span>Be aware of gift tax rules, especially when receiving gifts from non-relatives.</span>
+                </li>
+                <li>
+                    <span>File your tax returns accurately and on time, even if no tax is due.</span>
+                </li>
+                <li>
+                    <span>Avoid tax evasion; it's a criminal offense with severe penalties.</span>
+                </li>
+                <li>
+                    <span>Explore all available deductions and exemptions to legally minimize your tax outflow.</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 TaxWise India. All rights reserved. | Built with ❤️ by Quertech | Visit <a href="https://quertech-articles.vercel.app" target="_blank">Quertech Articles</a></p>
+    </footer>
+
+    <div class="theme-toggle-container" id="themeToggle">
+        <i class="fas fa-moon"></i> <!-- Font Awesome Icon - assuming you'd link it in a real scenario -->
+    </div>
+
+    <script>
+        // --- JavaScript Functionality ---
+
+        // Smooth Scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start' // Scrolls to the top of the element
+                    });
+                }
+            });
+        });
+
+        // Function to scroll to a specific section
+        function scrollToSection(sectionId) {
+            const section = document.querySelector(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // --- Theme Toggle ---
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const moonIcon = themeToggle.querySelector('.fas.fa-moon');
+
+        // Function to toggle theme
+        function toggleTheme() {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                moonIcon.classList.remove('fa-moon');
+                moonIcon.classList.add('fa-sun');
+                // You can store the preference in localStorage if needed
+                // localStorage.setItem('theme', 'dark');
+            } else {
+                moonIcon.classList.remove('fa-sun');
+                moonIcon.classList.add('fa-moon');
+                // localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Event listener for theme toggle
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Optional: Initialize theme from localStorage on page load
+        // const savedTheme = localStorage.getItem('theme');
+        // if (savedTheme === 'dark') {
+        //     body.classList.add('dark-mode');
+        //     moonIcon.classList.remove('fa-moon');
+        //     moonIcon.classList.add('fa-sun');
+        // }
+
+        // --- Orb Animation Adjustments (Optional) ---
+        // Add more orbs or adjust their styles/animations for a richer background
+        // This is a basic implementation. For more complex animations, consider libraries.
+
+        // --- Initial Setup ---
+        // Ensure Font Awesome is included if you plan to use its icons.
+        // In a single file, you'd typically inline the SVG or use a data URI.
+        // For this example, I've used placeholder `<i>` tags.
+        // If not using Font Awesome, replace the `<i>` tag with an SVG icon.
+        // Example: <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9IiM2MzY2ZjEiIHN0cm9rZS13aWR0aD0iMiI+PHBhdGggZD0iTTI5IDE2YzAtNy43LTEuMy0xNC42LTQtMjAuNDYtNC43LTIuMjItOS44LTQuNTQtOS44LTQuNTQtMS4yLTAuNi0yLjItMS4xLTQuNC0xLjFIMTljMC0xLTMuNy0zLTYuOC0zLTEuMSAwLTEuOC4yLTEuOC4yLTIuOCAwLTUuNiAwLTguNSAxLjEtMTAuOCAzLjMtMTMuNSAzLjItMTMuNSAzLjEtMTQuMyA1LjgtMTcuMSA2LjEtMTQuNC4yLTguMiA2LjEtMTMuIDEzLjMtMTYuNyAzLjEtMS43IDUuNS0yLjcgOC44LTIuNyA3LjggMCAxNC42IDEuMyAyMC40IDQgNC43IDIuMiA5LjggNC41IDkuOCA0LjUgMS4yLjYgMi4yIDEuMSA0LjQgMS4xSDI5eiBNMTYgMjQuOGMtMy41IDAtNi41LTEuMy04LjktMy43LTEuMy0xLjMtMi40LTIuOS0zLjUtNC41LTEuMSAxLjYtMi41IDMuMi0zLjcgNC44LTAuOSAxLjEtMS44IDIuMS0yLjcgMy4xLTEuNiAxLjUtMy41IDIuNS01LjYgMi41LTEuNyAwLTMuMy0wLjktNC44LTEuOC0xLjYtMS0zLjItMS44LTQuOS0yLjUtMS43LTEuMi0zLjctMi4zLTUuNS0zLjMgMi0wLjcgNC4yLTMgNi4yLTMuMSAxLjktMC4xIDMuNy0wLjIgNS41LTAuMmMyLjIgMCA0LjMgMC44IDYuMSAqLjIgMi4yIDEuNyAzLjMgMi44IDQuOSAzLjEgMS41IDAuOCAyLjUgMS41IDMuNSAxLjgtMS4xIDEuNi0yLjUgMi41LTQuMiA yMTYuNSAzLjEgMTYuOCA0LjIgMTYuOCA0LjIgMTYuOCA0LjIgMTcuMiA1LjcgMTkuNSA2LjEgNi40IDYuOSAxMC4xIDEwLjggMTQuMSA5LjUgNC4xLTEuMiA3LjUtMi4yIDEwLjctMy4zLTEuNy0yLjMtMy43LTQuMy01LjgtNi41LTIuMS0yLjEtNC40LTMuNy02LjctNS4yLTEuMi0wLjgtMi41LTEuNC00LTEuN2MxLTEuMSAyLjEtMS45IDMuNC0yLjcgMi40LTAuOCA0LjgtMC45IDcuMy0wLjkgMjAuMyAwIDMxLjQgNC42IDMxLjQgMjEuOSA0LjUgMC44LTUuNyA0LjgtOC43IDkuNnptMTYuNy00LjljLTIuNC0xLjMtNC45LTIuNy03LjQtNC4xLTEuMy0uNy0yLjctMS40LTMuOS0yLjItMS40LTEuNC0yLjctMi44LTMuOC00LjMtMS4xLTEuNS0yLjEtMy4xLTMuMS00LjgtMS0xLjY0LTEuOC0zLjMtMi40LTUuMS0wLjYtMS44LTAuOS0zLjctMC45LTYuMSA5LjUtMS40IDE1LjItMS45IDE3LjgtMi41IDEuMy0wLjMgMi42LTAuNSAzLjktMC41IDEuMyAwIDIuNiAwLjIgMy44IDAuNSAxLjMgMC4zIDIuNiAwLjcgMy44IDEuMiAxLjEgMC41IDIuMyAwLjkgMy41IDEuMiAwLjUgMC4xIDAuOSAwLjIgMS4zIDAuMiAwLjggMCAxLjctMCAyLjYtMC41IDEuNC0wLjggMi44LTAuNyA0LjItMC45IDEuNi0wLjMgMy4zLTAuMyA0LjktMC4zIDIuMiAwIDEuNyAxLjMgNC40IDEuOC0wLjggMC40LTEuNiAwLjgtMi40IDEuM3oiLz48L3N2Zz4=" alt="Moon Icon"> -->
+    
+    <!-- Add this script tag in your HTML's <head> or before the closing <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//androidhacks">Android Hacks</a><a href="//spartangains">Spartan Gains</a><a href="//aiuxshift">AI UX Shift</a><a href="//speakfluent">Speak fluent</a><a href="//uicolorguide">UI Colors Guide</a><a href="//designessn">Design ESSN</a><a href="//aicodewins">AI Code Wins</a><a href="//2026gamesignite">2026 Games Ignite</a><a href="//designprovideo">Design Pro Video</a><a href="//claudechat">Claude Chat</a><a href="//cmdsecrets">CMD Secrets</a><a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body> if you want to use Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
+    <!-- Replace 'your-font-awesome-kit-code' with your actual Font Awesome kit code or use CDN -->
+    <!-- Example using CDN (less recommended for single file performance but easier): -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" crossorigin="anonymous"></script> -->
+

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Provided Meta Tags -->
+    <meta name="title" content="UX/UI Design Trends: 3D, AI & Mascots Unleashed!">
+    <meta name="description" content="Tired of boring UX/UI? Discover cutting-edge trends like 3D worlds, AI design partners, mascot branding, and glass effects. Transform your designs for massive engagement!">
+    <meta name="keywords" content="Emerging UX UI design trends 2024, Best new UI design concepts, Dynamic UI design elements, 3D environment design for web, Animated illustration UI trends, AI design tools for UX designers, Mascot branding in user experience, Liquid gradient UI backgrounds, Physical object integration in web design, Glass effect UI design trends, Outcome-oriented UX design strategies, Creative workflow optimization tools, Human taste in AI design, Designer-led UI tool development, Cross-platform UI glass effect">
+    <meta name="author" content="QuerTech Articles">
+    <meta property="og:title" content="UX/UI Design Trends: 3D, AI & Mascots Unleashed!">
+    <meta property="og:description" content="Tired of boring UX/UI? Discover cutting-edge trends like 3D worlds, AI design partners, mascot branding, and glass effects. Transform your designs for massive engagement!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/images/og-image.jpg"> <!-- Placeholder, replace with actual image -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UX/UI Design Trends: 3D, AI & Mascots Unleashed!">
+    <meta name="twitter:description" content="Tired of boring UX/UI? Discover cutting-edge trends like 3D worlds, AI design partners, mascot branding, and glass effects. Transform your designs for massive engagement!">
+    <meta name="twitter:site" content="@quertech"> <!-- Placeholder, replace with actual Twitter handle -->
+    <meta name="twitter:creator" content="@quertech"> <!-- Placeholder, replace with actual Twitter handle -->
+    <!-- End Provided Meta Tags -->
+
+    <title>UX/UI Design Trends: 3D, AI & Mascots Unleashed!</title>
+
+    <!-- Google Fonts: For 'SF Pro Display' we'll use a system font fallback.
+         For a true SF Pro Display, one might need to license and serve it.
+         Here we'll rely on system fonts for broad compatibility and performance.
+         If needed, alternative free sans-serif fonts can be added here like:
+         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> -->
+
+    <style>
+        /* ----- Global Styles & Variables ----- */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-dark: #09172a;
+            --color-slate-light: #1e293b;
+            --color-white: #ffffff;
+            --color-gray-light: #a0aec0;
+
+            --font-primary: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; /* SF Pro Display fallback */
+            --font-secondary: var(--font-primary); /* For consistency, can be changed if needed */
+
+            --transition-fast: .3s ease-in-out;
+            --transition-smooth: .5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow-glass: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+            --border-glass: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ----- Body & Base Styles ----- */
+        body {
+            margin: 0;
+            font-family: var(--font-primary);
+            background-color: var(--color-slate-dark);
+            color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-size: 16px; /* Base font size for rem calculation */
+        }
+
+        /* ----- Typography ----- */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0.75em;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem); /* Fluid scaling for H1 */
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+        }
+
+        p {
+            font-size: clamp(1rem, 1.5vw, 1.125rem);
+            margin-bottom: 1.5em;
+            color: var(--color-gray-light);
+        }
+
+        a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        a:hover {
+            color: var(--color-pink);
+            text-decoration: underline;
+        }
+
+        strong {
+            color: var(--color-white);
+        }
+
+        /* ----- Gradient Masking for Headers ----- */
+        .gradient-mask-header {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(
+                to right,
+                var(--color-indigo) 0%,
+                var(--color-pink) 100%
+            );
+            display: inline-block; /* Necessary for background-clip to work */
+        }
+
+        /* ----- Layout & Structure ----- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+            position: relative;
+            z-index: 1; /* Ensure content is above background orbs */
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .hero-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Hide overflow from background effects */
+        }
+
+        .content-section {
+            background-color: rgba(9, 23, 42, 0.7); /* Slightly transparent dark slate */
+            border-radius: 12px;
+            box-shadow: var(--shadow-glass);
+            backdrop-filter: blur(15px) saturate(150%);
+            -webkit-backdrop-filter: blur(15px) saturate(150%);
+            border: var(--border-glass);
+            margin: 2rem 0;
+        }
+
+        .content-section .container {
+            padding: 3rem 2rem;
+        }
+
+        /* ----- Header & Navigation ----- */
+        header {
+            background-color: rgba(9, 23, 42, 0.5);
+            backdrop-filter: blur(10px) saturate(150%);
+            -webkit-backdrop-filter: blur(10px) saturate(150%);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: var(--border-glass);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-white);
+            letter-spacing: -0.5px;
+            cursor: pointer;
+            transition: transform var(--transition-fast);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--color-white);
+            font-weight: 500;
+            transition: color var(--transition-fast);
+        }
+
+        nav ul li a:hover {
+            color: var(--color-pink);
+        }
+
+        /* ----- Mobile Navigation Toggle (Hamburger Menu) ----- */
+        .menu-toggle {
+            display: none; /* Hidden by default on desktop */
+            cursor: pointer;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            border: var(--border-glass);
+            transition: background-color var(--transition-fast);
+        }
+
+        .menu-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--color-white);
+            margin: 5px auto;
+            border-radius: 3px;
+            transition: transform var(--transition-smooth);
+        }
+
+        /* ----- Theme Toggle (Floating Button) ----- */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 101; /* Above other elements */
+            background-color: var(--color-indigo);
+            color: var(--color-white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            cursor: pointer;
+            transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+            border: 2px solid var(--color-indigo); /* Initial border */
+            opacity: 0.9;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+            background-color: var(--color-pink);
+            border-color: var(--color-pink);
+            opacity: 1;
+        }
+
+        .theme-toggle i {
+            font-size: 1.5rem;
+        }
+
+        /* ----- Dynamic Background Orbs ----- */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0) 70%),
+                        radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, rgba(236, 72, 153, 0) 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0; /* Start invisible, JS will animate */
+            animation: float 15s ease-in-out infinite alternate;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translateY(-50px) translateX(50px) scale(1.2);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(50px) translateX(-50px) scale(0.9);
+                opacity: 0.3;
+            }
+        }
+
+        /* ----- Content Cards & Elements ----- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.05); /* Subtle glass effect */
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-glass);
+            backdrop-filter: blur(10px) saturate(150%);
+            -webkit-backdrop-filter: blur(10px) saturate(150%);
+            border: var(--border-glass);
+            transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes content to fill space */
+            min-height: 250px; /* Ensure cards have a minimum height */
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card h3 {
+            margin-bottom: 0.5em;
+            font-size: 1.5rem;
+            color: var(--color-white);
+        }
+
+        .card p {
+            flex-grow: 1; /* Allows paragraph to take available space */
+            margin-bottom: 1.5em;
+            color: var(--color-gray-light);
+            font-size: 0.95rem;
+        }
+
+        .card .icon-placeholder {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--color-indigo);
+            opacity: 0.8;
+        }
+
+        /* Example of CSS-generated rank badge */
+        .rank-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--color-pink);
+            color: var(--color-white);
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 10px rgba(236, 72, 153, 0.4);
+        }
+
+        /* ----- Geometric Patterns (Example for imagery strategy) ----- */
+        .geometric-pattern {
+            width: 100%;
+            height: 150px; /* Example height */
+            background-image: repeating-linear-gradient(
+                45deg,
+                rgba(99, 102, 241, 0.1) 0px,
+                rgba(99, 102, 241, 0.1) 10px,
+                rgba(236, 72, 153, 0.1) 10px,
+                rgba(236, 72, 153, 0.1) 20px
+            );
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        /* ----- Footer ----- */
+        footer {
+            background-color: rgba(9, 23, 42, 0.5);
+            backdrop-filter: blur(10px) saturate(150%);
+            -webkit-backdrop-filter: blur(10px) saturate(150%);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: auto; /* Pushes footer to the bottom */
+            border-top: var(--border-glass);
+            font-size: 0.9rem;
+            color: var(--color-gray-light);
+        }
+
+        footer a {
+            color: var(--color-indigo);
+        }
+
+        footer a:hover {
+            color: var(--color-pink);
+        }
+
+        /* ----- Responsive Design ----- */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            h2 {
+                font-size: clamp(1.75rem, 6vw, 2.5rem);
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .hero-section {
+                min-height: 60vh;
+            }
+
+            /* Hamburger Menu Styles */
+            nav ul {
+                display: none; /* Hide desktop nav */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(9, 23, 42, 0.95);
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                padding: 1rem 0;
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;
+                box-shadow: var(--shadow-glass);
+            }
+
+            nav ul.active {
+                display: flex; /* Show mobile nav when active */
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+                text-align: center;
+                padding: 0.75rem 0;
+            }
+
+            .menu-toggle {
+                display: block; /* Show hamburger on mobile */
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-toggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .theme-toggle {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 45px;
+                height: 45px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr; /* Stack cards on small screens */
+            }
+
+            .card {
+                min-height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            h1 {
+                font-size: clamp(1.8rem, 10vw, 2.5rem);
+            }
+
+            .theme-toggle {
+                bottom: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Background Orbs -->
+    <div class="background-orbs">
+        <!-- Orbs will be generated and animated by JavaScript -->
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">UX Trends Insight</div>
+            <nav>
+                <ul>
+                    <li><a href="#trends">Trends</a></li>
+                    <li><a href="#insights">Insights</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Explore the <span class="gradient-mask-header">Future of UX/UI</span> Design</h1>
+            <p>Discover the latest breakthroughs in 3D environments, AI integration, mascot branding, and immersive glassmorphic effects.</p>
+        </div>
+    </section>
+
+    <!-- Key Trends Section -->
+    <section id="trends" class="content-section">
+        <div class="container">
+            <h2>Key Trends & Insights</h2>
+            <p>The UX/UI design landscape is rapidly evolving, moving beyond traditional static visuals to incorporate dynamic elements across all operating systems. This signifies a move towards more engaging, personalized, and outcome-oriented design strategies.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="icon-placeholder">✨</div>
+                    <h3>Mascot Era</h3>
+                    <p>Companies leverage mascots for brand identity and user engagement, creating memorable and relatable experiences.</p>
+                    <div class="rank-badge">Trend</div>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">🌌</div>
+                    <h3>Shaders & Backgrounds</h3>
+                    <p>Dynamic, pseudo-3D effects and liquid gradients add depth and visual interest without heavy assets.</p>
+                    <div class="rank-badge">Visual</div>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">📷</div>
+                    <h3>Physical Objects Integration</h3>
+                    <p>Websites incorporate realistic depictions of physical objects for tangible realism and "creative clutter."</p>
+                    <div class="rank-badge">Aesthetic</div>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">💡</div>
+                    <h3>2D + 3D Environments</h3>
+                    <p>Merging 2D illustrations with 3D elements creates immersive and engaging user experiences.</p>
+                    <div class="rank-badge">Experience</div>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">🤖</div>
+                    <h3>AI Creative Partners</h3>
+                    <p>AI-powered agents streamline design processes, acting as coworkers with "taste" and efficiency.</p>
+                    <div class="rank-badge">Innovation</div>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">🎯</div>
+                    <h3>Outcome-Oriented Design</h3>
+                    <p>Emphasis on functional user experiences and solving user problems over purely aesthetic considerations.</p>
+                    <div class="rank-badge">Strategy</div>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">🧠</div>
+                    <h3>"Taste" as a Differentiator</h3>
+                    <p>Cultivating curation and judgment in design remains a key human skill, separating designers from AI.</p>
+                    <div class="rank-badge">Skill</div>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">🛠️</div>
+                    <h3>Designer-Led Tools</h3>
+                    <p>Design tools are increasingly developed by designers, solving real-world problems with AI assistance.</p>
+                    <div class="rank-badge">Development</div>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">💎</div>
+                    <h3>Glass Across All OS</h3>
+                    <p>A pervasive trend of sleek, modern glass-like visual effects across various operating systems.</p>
+                    <div class="rank-badge">UI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Actionable Insights Section -->
+    <section id="insights" class="content-section">
+        <div class="container">
+            <h2>Actionable Insights for Designers</h2>
+            <p>Embrace dynamic design, leverage AI as a creative partner, and focus on user outcomes to stay ahead in the evolving UX/UI landscape.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="icon-placeholder">🚀</div>
+                    <h3>Embrace Dynamic Design</h3>
+                    <p>Integrate animated illustrations, shaders, and 3D elements for engaging user experiences.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">🤝</div>
+                    <h3>Leverage AI as Partner</h3>
+                    <p>Utilize AI tools for asset generation, feedback, and task automation, enhancing efficiency and creativity.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">✅</div>
+                    <h3>Focus on User Outcomes</h3>
+                    <p>Prioritize designs that solve user problems and deliver tangible results.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">🎨</div>
+                    <h3>Cultivate "Taste"</h3>
+                    <p>Develop a discerning eye for design quality, balancing aesthetics with functionality.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-placeholder">📈</div>
+                    <h3>Stay Ahead of Trends</h3>
+                    <p>Keep abreast of emerging trends like integrated 3D, AI-driven design, and cross-platform visual consistency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section (Conceptual) -->
+    <section id="tools" class="content-section">
+        <div class="container">
+            <h2>Emerging Design Tools</h2>
+            <p>The future of design tools is here, powered by AI and built by designers for designers. Explore how these innovations are optimizing creative workflows.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="geometric-pattern"></div>
+                    <h3>AI Design Agents</h3>
+                    <p>Tools that read layers, modify designs, and offer creative suggestions, acting as a true design coworker.</p>
+                    <div class="rank-badge">AI</div>
+                </div>
+                <div class="card">
+                    <div class="geometric-pattern"></div>
+                    <h3>Workflow Optimizers</h3>
+                    <p>Solutions designed to streamline the entire design process, from ideation to implementation.</p>
+                    <div class="rank-badge">Workflow</div>
+                </div>
+                <div class="card">
+                    <div class="geometric-pattern"></div>
+                    <h3>Cross-Platform Builders</h3>
+                    <p>Platforms enabling consistent, glass-like UI elements across web, mobile, and desktop applications.</p>
+                    <div class="rank-badge">Platform</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="content-section">
+        <div class="container">
+            <h2>About This Insight</h2>
+            <p>This analysis delves into the rapidly evolving world of UX/UI design. The speaker adopts an enthusiastic and informative tone to highlight trends that are shaping the future of digital interfaces, from immersive 3D environments to the intelligent integration of AI.</p>
+            <p>We aim to provide a high-level overview for designers and stakeholders looking to understand and implement the most impactful UX/UI strategies. For more on tech and design, visit <a href="https://quertech-articles.vercel.app" target="_blank">QuerTech Articles</a>.</p>
+        </div>
+    </section>
+
+    <!-- Floating Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle Theme">
+        <i class="fas fa-moon"></i> <!-- Font Awesome icon for moon -->
+    </button>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 QuerTech Articles. All rights reserved.</p>
+            <p>Crafted with <span style="color: var(--color-pink);">♥</span> and <span style="color: var(--color-indigo);">✨</span> for a premium user experience.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Background Orb Animation ---
+            const backgroundOrbsContainer = document.querySelector('.background-orbs');
+            const numberOfOrbs = 10; // Adjust for desired density
+
+            function createOrb() {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                // Random size
+                const size = Math.random() * 200 + 100; // Between 100px and 300px
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+
+                // Random initial position
+                const posY = Math.random() * 100;
+                const posX = Math.random() * 100;
+                orb.style.top = `${posY}vh`;
+                orb.style.left = `${posX}vw`;
+
+                // Random animation delay and duration
+                orb.style.animationDuration = `${Math.random() * 10 + 15}s`; // 15s to 25s
+                orb.style.animationDelay = `${Math.random() * -10}s`; // Start with a delay
+
+                backgroundOrbsContainer.appendChild(orb);
+            }
+
+            for (let i = 0; i < numberOfOrbs; i++) {
+                createOrb();
+            }
+
+            // --- Mobile Navigation Toggle ---
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navUl = document.querySelector('nav ul');
+
+            if (menuToggle && navUl) {
+                menuToggle.addEventListener('click', () => {
+                    navUl.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close mobile menu when a link is clicked
+                navUl.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navUl.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    });
+                });
+            }
+
+            // --- Theme Toggle Functionality ---
+            const themeToggleBtn = document.querySelector('.theme-toggle');
+            const moonIcon = themeToggleBtn.querySelector('i.fa-moon');
+            const sunIcon = document.createElement('i'); // Create sun icon
+            sunIcon.classList.add('fas', 'fa-sun');
+            sunIcon.style.display = 'none'; // Hide sun by default
+            themeToggleBtn.appendChild(sunIcon);
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+            } else {
+                // Default to light or system preference if not dark
+                document.body.classList.remove('dark-theme');
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+
+                if (document.body.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark');
+                    moonIcon.style.display = 'none';
+                    sunIcon.style.display = 'block';
+                } else {
+                    localStorage.removeItem('theme'); // Or set to 'light' if you have a light theme class
+                    moonIcon.style.display = 'block';
+                    sunIcon.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <!-- Font Awesome for Icons (can be loaded from CDN) -->
+    <!-- IMPORTANT: For this to work, you need to include Font Awesome's CSS.
+         For a truly single-file solution, you could embed the font files or use inline SVG.
+         For simplicity, we'll assume a CDN is acceptable for icons, or you'd replace this with inline SVGs.
+         If you need a truly self-contained file without external resources, you'd omit the Font Awesome CDN and embed SVGs.
+         For this example, I'll use a CDN link for icons.
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//designgear">Design Gear</a><a href="//taxhacks">Tax Hacks</a><a href="//androidhacks">Android Hacks</a><a href="//spartangains">Spartan Gains</a><a href="//aiuxshift">AI UX Shift</a><a href="//speakfluent">Speak fluent</a><a href="//uicolorguide">UI Colors Guide</a><a href="//designessn">Design ESSN</a><a href="//aicodewins">AI Code Wins</a><a href="//2026gamesignite">2026 Games Ignite</a><a href="//designprovideo">Design Pro Video</a><a href="//claudechat">Claude Chat</a><a href="//cmdsecrets">CMD Secrets</a><a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

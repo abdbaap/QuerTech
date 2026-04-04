@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Design Perfection? Try Intelligent Imperfection!</title>
+    <meta name="description" content="Tired of sterile, "perfect" designs? Discover how "intelligent imperfection" adds dynamism, personality, and emotional depth. Unlock expressive, memorable results your audience will love.">
+    <meta name="keywords" content="intelligent imperfection design, dynamic design principles, expressive design strategy, human vs AI design, designing with imperfection, achieving design personality, breaking design symmetry, creative design disruption, design inspiration intentionality, visual storytelling imperfection, engaging design outcomes, designer mindset shift, designing for emotional resonance, creative control in design, design balance structure expression, AI design limitations, originality in graphic design, graphic design tips for engagement, designing beyond algorithms, modern design trends imperfection">
+    <meta name="author" content="QuerTech">
+    <meta property="og:title" content="Design Perfection? Try Intelligent Imperfection!">
+    <meta property="og:description" content="Tired of sterile, "perfect" designs? Discover how "intelligent imperfection" adds dynamism, personality, and emotional depth. Unlock expressive, memorable results your audience will love.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/og-image.png"> <!-- Placeholder for your OG image -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Design Perfection? Try Intelligent Imperfection!">
+    <meta name="twitter:description" content="Tired of sterile, "perfect" designs? Discover how "intelligent imperfection" adds dynamism, personality, and emotional depth. Unlock expressive, memorable results your audience will love.">
+    <meta name="twitter:image" content="https://quertech-articles.vercel.app/twitter-image.png"> <!-- Placeholder for your Twitter image -->
+    <!-- End SEO Meta Tags -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Variables */
+        :root {
+            --primary-color-indigo: #6366f1;
+            --primary-color-pink: #ec4899;
+            --background-color-dark: #09172a;
+            --text-color-light: #e2e8f0;
+            --text-color-muted: #94a3b8;
+            --card-background: rgba(255, 255, 255, 0.08);
+            --card-border-hover: rgba(99, 102, 241, 0.8);
+            --accent-color: #f8fafc;
+            --orb-color-1: rgba(99, 102, 241, 0.3);
+            --orb-color-2: rgba(236, 72, 153, 0.3);
+            --orb-color-3: rgba(56, 189, 248, 0.2);
+        }
+
+        /* Global Reset & Base Styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: var(--background-color-dark);
+            color: var(--text-color-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background-image: linear-gradient(to right, var(--primary-color-indigo), var(--primary-color-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block; /* Crucial for background-clip to work on text */
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--primary-color-indigo);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            color: var(--text-color-light);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            margin-bottom: 1rem;
+            color: var(--text-color-muted);
+        }
+
+        a {
+            color: var(--primary-color-indigo);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color-pink);
+            text-decoration: underline;
+        }
+
+        strong {
+            color: var(--text-color-light);
+            font-weight: 700;
+        }
+
+        /* Layout & Structure */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0 40px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        section {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Glassmorphic UI */
+        .glass-card {
+            background: var(--card-background);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+            border-color: var(--card-border-hover);
+        }
+
+        /* Specific Component Styling */
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            max-width: 700px;
+            color: var(--text-color-muted);
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-color-light);
+            background: linear-gradient(to right, var(--primary-color-indigo), var(--primary-color-pink));
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+            opacity: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4), 0 5px 15px rgba(236, 72, 153, 0.3);
+        }
+
+        /* Article Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .article-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 350px; /* Ensure cards have a minimum height */
+        }
+
+        .article-card .glass-card {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Allow card to grow to fill space */
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 15px;
+            background-color: rgba(255, 255, 255, 0.05); /* Placeholder background */
+        }
+
+        .article-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-content h3 {
+            margin-top: 0;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 10px;
+            color: var(--text-color-light);
+        }
+
+        .article-content p {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-color-muted);
+            flex-grow: 1; /* Allow description to take available space */
+        }
+
+        .article-footer {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-color-muted);
+        }
+
+        .article-footer a {
+            font-weight: 700;
+            color: var(--primary-color-indigo);
+            text-decoration: none;
+        }
+
+        .article-footer a:hover {
+            color: var(--primary-color-pink);
+            text-decoration: underline;
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            background: var(--card-background);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Background Animations */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--orb-color-1), rgba(99, 102, 241, 0) 70%), radial-gradient(circle, var(--orb-color-2), rgba(236, 72, 153, 0) 70%), radial-gradient(circle, var(--orb-color-3), rgba(56, 189, 248, 0) 70%);
+            animation: moveOrb 20s ease-in-out infinite alternate;
+            opacity: 0.7;
+            filter: blur(100px);
+        }
+
+        @keyframes moveOrb {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(300px, 200px) scale(1.5);
+            }
+        }
+
+        /* Geometric Patterns (CSS Generated) */
+        .geometric-pattern {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.1;
+            filter: blur(5px);
+        }
+
+        .pattern-1 {
+            width: 300px;
+            height: 300px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--primary-color-indigo) 0,
+                var(--primary-color-indigo) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            top: 50px;
+            left: -50px;
+            transform: rotate(-15deg);
+        }
+
+        .pattern-2 {
+            width: 250px;
+            height: 250px;
+            background: repeating-radial-gradient(
+                circle,
+                var(--primary-color-pink) 0,
+                var(--primary-color-pink) 5px,
+                transparent 5px,
+                transparent 15px
+            );
+            bottom: 100px;
+            right: -70px;
+            transform: rotate(20deg);
+        }
+
+        /* Rank Badges */
+        .rank-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-left: 10px;
+            color: var(--background-color-dark);
+        }
+
+        .rank-badge.ai-driven {
+            background-color: var(--primary-color-indigo);
+        }
+
+        .rank-badge.human-centric {
+            background-color: var(--primary-color-pink);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 30px 0;
+            }
+
+            header {
+                padding: 40px 0 30px 0;
+            }
+
+            .hero {
+                padding: 60px 0 40px 0;
+                min-height: 50vh;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            h2 {
+                font-size: clamp(1.5rem, 5vw, 2.2rem);
+            }
+
+            h3 {
+                font-size: clamp(1.2rem, 4vw, 1.6rem);
+            }
+
+            p {
+                font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: clamp(1.8rem, 10vw, 2.5rem);
+            }
+
+            h2 {
+                font-size: clamp(1.3rem, 6vw, 1.8rem);
+            }
+
+            .cta-button {
+                padding: 12px 28px;
+                font-size: 1rem;
+            }
+
+            .article-card img {
+                height: 160px;
+            }
+
+            .article-content h3 {
+                font-size: clamp(1.1rem, 4vw, 1.3rem);
+            }
+        }
+
+        /* Specific Page Content Layout */
+        .tools-section .articles-grid {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .tools-section .article-card {
+            flex: 1 1 300px; /* Grow, shrink, basis */
+            max-width: 380px; /* Limit width of cards */
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <div class="background-orbs">
+        <!-- Orbs will be dynamically positioned by JS -->
+    </div>
+    <div class="geometric-pattern pattern-1"></div>
+    <div class="geometric-pattern pattern-2"></div>
+
+    <header>
+        <div class="container">
+            <h1>Design Perfection? Try Intelligent Imperfection!</h1>
+            <p>Discover how embracing "intelligent imperfection" can lead to dynamic, expressive, and emotionally resonant designs that captivate your audience.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <p>Tired of sterile, "perfect" designs? Explore the power of controlled disruption to create unique and memorable experiences.</p>
+                <a href="#key-arguments" class="cta-button">Explore the Concept</a>
+            </div>
+        </section>
+
+        <section id="key-arguments">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Key Arguments & Insights</h2>
+                </div>
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <div class="glass-card">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzA0IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwNCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0yNjAgNTJMMjYwIDE0OEw0NCAxNDhMNDQgNTJMMjYwIDUyWiIgc3Ryb2tlPSIjNjM2NmYxIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNNjIgMTQ0LjY4MDZIODEuOTYxNkwxMTEuNDM1IDgwLjI4MjNMNzAuNDg1MyA0MS4zMTQ5TDYyIDE0NC42ODA2WiIgc3Ryb2tlPSIjZWE0ODk5IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTU4LjgzMjA2IDQxLjMxNDlMMTMyLjA5NDQ0IDgwLjI4MjNMMTczLjYxNTA2IDExOS4yNDk3NEwxODguOTI1MjcgODEuMjQ5NzRMMTk1LjEzNDg4IDQxLjMxNDlMMTU4LjgzMjA2IDQxLjMxNDlaIiBzdHJva2U9IiNlYTRmZjgiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0yMTYuNzUyMjggODAuMjgyM0wyMTYuNzUyMjggMTExLjY3NzJMMjUwLjA0NjQxIDExMS42NzkyTDI1MC4wNDY0MSA4MC4yODIzTDIxNi43NTIyOCA4MC4yODIzWiIgc3Ryb2tlPSIjM2Q4NWYwIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4=" alt="AI vs Human Design">
+                            <div class="article-content">
+                                <h3>AI vs. Human Design: Perfection vs. Personality</h3>
+                                <p>AI strives for algorithmic perfection, while humans leverage "imperfection" to inject emotion, personality, and originality, leading to more memorable and conceptually strong designs.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="rank-badge ai-driven">AI-Driven</span>
+                                <span class="rank-badge human-centric">Human-Centric</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="glass-card">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzA0IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwNCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0yOSA5Mkw3My41IDIxLjk2NzRMMTUzIDQ5LjUyNDZMMTA4LjUgMTIyLjQ1NzRMMjkgOTJIMjlaIiBzdHJva2U9IiM2MzY2ZjEiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xMTcuNSAxNTIuMDIzOUwxNjIuMDMxOCAxMjQuNzQxOUwxMjUuNzg1OCA5Ni45NTAxTDExNy41IDE1Mi4wMjM5WiIgc3Ryb2tlPSIjZWE0ODk5IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTk1LjI4OTkxIDE2OC42NzI4TDMyIDkzLjgyMTA4TDgxLjY5MzAzIDQ5LjUyNDYxTDE3My45OTUxNyAxMjIuNDU3MzhMMTk1LjI4OTkxIDE2OC42NzI4WiIgc3Ryb2tlPSIjZWE0ZmY4IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMjM1LjU3NDY0IDE4MS4xMTUwNyAyODguMzAwMDggMTA1LjM1MDIyIDI1Ni41NDkzOSAzMi42NjkzNUwyMzAuNjI3MTcgMTAwLjM1MDIyTDIzNS41NzQ2NCAxODEuMTE1MDdaIiBzdHJva2U9IiMzZDg1ZjAiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg==" alt="Intelligent Imperfection">
+                            <div class="article-content">
+                                <h3>The Power of "Intelligent Imperfection"</h3>
+                                <p>This concept balances core consistency (typography, spacing) with controlled variations and "imperfections" to create dynamism and visual interest.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="rank-badge ai-driven">Dynamic Elements</span>
+                                <span class="rank-badge human-centric">Intentional Variation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="glass-card">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzA0IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwNCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMy40NjM5IDE1Mi4xMjc1TDI2LjQ1NDQgNTYuMzM0OTJMNzYuOTc3NDkgOTQuMDk2NzRMNDkuNzE3NDUgMTY3LjYwNTdMMTMuNDYzOSAxNTIuMTI3NVoiIHN0cm9rZT0iIzYzNjZmMSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTcwLjMxMzUgMjcuNzQ5OUwzMC4zMTM1IDEzMkw4MC4zMTM1IDE2My40NjM5TDEyMC4zMTM1IDEzMkw3MC4zMTM1IDI3LjQ5OTdaIiBzdHJva2U9IiNlYTRmYTk5IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTY5LjU2MzUgMjcuNzQ5OUwxMjkuNTYzNSAxMzJMMTgwLjMxMzUgMTY2LjAwMDA0TDIyMC4zMTM1IDEzMkwxNjkuNTYzNSAyNy43NDk5WiIgc3Ryb2tlPSIjZWE0ZmY4IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTkxLjY3MjggMTA1LjYzMzlMMjI5LjQyNjUgMjAuMDcxNTNMmTAuNTAzNTMgMTEzLjY3MjhMMTY0LjQ0MzUuMDMxMzVMMTUwLjc0NyAxMzcuNTE3NEwxOTEuNjcyOCAxMDUuNjMzOVoiIHN0cm9rZT0iIzNkODVmMCIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+"/>
+                            <div class="article-content">
+                                <h3>Examples: Triple J, FAC3Type, Elseworlds</h3>
+                                <p>Real-world projects demonstrate controlled chaos—consistent foundations with varied compositions, pushed typography, and cohesive tones across diverse visuals.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="rank-badge ai-driven">Campaigns</span>
+                                <span class="rank-badge human-centric">Typography</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="glass-card">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzA0IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwNCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02OC41MDY0IDU1LjkwNDQxTDE3Ny41NTQxIDk4LjY4MTlMMTA0LjAwNCAxNDkuNzUxN0w2OC41MDY0IDU1LjkwNDQxWiIgc3Ryb2tlPSIjNjM2NmYxIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTM1LjAwMDkgODUuNTI1NzhMMTA4LjcxOTkgMTE3LjY2OTJMMTM2LjMyOTcgMTU1LjM0ODdMMTcyLjUzMjIgMTE3LjY2OTJMMTM1LjAwMDkgODUuNTI1NzhWiIgc3Ryb2tlPSIjZWE0ODk5IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTk1LjE3MDggNDAuNDIzMTlMMjA0LjkxNTEgNzIuNjY2NTNMMjI4LjE3MDEgNzIuNjY2NTNMMjM3LjkyNTM5IDEzOC4xNjc5TDY4LjcwMDgzIDE0OS43NTE3TDY4LjcxMDA4IDk4LjY4MTlMMTU4LjA0MDQgNTcuMDAwMDZMMjAyLjk2MDMxIDgwLjI4MjNMMTcxLjQ3NjUgMzcuMjM4ODRMMTk1LjE3MDggNDAuNDIzMTlaIiBzdHJva2U9IiNlYTRmZjhjIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4=" alt="Begin Framework">
+                            <div class="article-content">
+                                <h3>The "Begin" Framework: Expression, Structure, Behavior</h3>
+                                <p>Design starts with an idea, approached through lenses of human expression, systemic structure, and user behavior to guide the creative process.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="rank-badge ai-driven">Framework</span>
+                                <span class="rank-badge human-centric">User Focus</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="glass-card">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzA0IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwNCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02OC40OTk2IDU1LjkwNDQxTDE3Ny41NDczIDk4LjY4MTlMMTA0LjAwMDEgMTQ5Ljc1MTdMNjguNDk5NiA1NS45MDQ0MVoiIHN0cm9rZT0iIzYzNjZmMSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTEzNS4wMDA5IDg1LjUyNTc4TDEwOC43MTk5IDExNy42NjkzTDEzNi4zMjk3IDE1NS4zNDg3TDE3Mi41MzIyIDExNy42NjkzTDEzNS4wMDA5IDg1LjUyNTc4WiIgc3Ryb2tlPSIjZWE0ODk5IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTk1LjE3MDggNDAuNDIzMTlMMjA0LjkxNTEgNzIuNjY2NTNMMjI4LjE3MDEgNzIuNjY2NTNMMjM3LjkyNTM5IDEzOC4xNjc5TDY4LjcwMDgzIDE0OS43NTE3TDY4LjcxMDA4IDk4LjY4MTlMMTU4LjA0MDQgNTcuMDAwMDZMMjAyLjk2MDMxIDgwLjI4MjNMMTcxLjQ3NjUgMzcuMjM4ODRMMTk1LjE3MDggNDAuNDIzMTlaIiBzdHJva2U9IiNlYTRmZjhjIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4=" alt="Break Symmetry">
+                            <div class="article-content">
+                                <h3>Break Symmetry for Engaging Work</h3>
+                                <p>Challenge rigid symmetry by overlapping and intersecting elements unconventionally, creating visual intrigue while maintaining overall cohesion.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="rank-badge ai-driven">Visual Intrigue</span>
+                                <span class="rank-badge human-centric">Composition</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="glass-card">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzA0IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwNCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xNDEuMjQzMyAzOS45NjIxTDExOS43NDczIDY5LjgyMzE3TDIxMy4zMTc2IDExMC43ODk4TDIxOC44NjY0IDY4LjIzMjQyTDE0MS4yNDMzIDM5Ljk2MjEWiIgc3Ryb2tlPSIjNjM2NmYxIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNNDQuMDM4MyA5Ny4yNzUxOEwxMzcuMjg2MiAxMzguMjMxMjRMMTA5LjY4NDUgMTc0LjAwNjJMNzMuMjg2MiAxMzguMjMxMjRMNy43MjQ2NDQgMTUwLjYxNjIyTDQ0LjAzODMgOTcuMjc1MThaIiBzdHJva2U9IiNlYTRmZTk5IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTU2LjcxMjQgMjAuMDA2NzFMMTkwLjEyMTUgNTUuMjgwMTJMMTI5LjI1NTIgOTIuNzIxNTRMMTkyLjA3MjEgMTE2LjAwNjdMMTcwLjIxMjcgOTUuMjgwMTJMMTkwLjEyMTUgNTUuMjgwMTJMMTU2LjcxMjQgMjAuMDA2NzFaIiBzdHJva2U9IiNlYTRmZjhjIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4=" alt="Nostalgia">
+                            <div class="article-content">
+                                <h3>Nostalgia & Familiarity: Pokémon & Oreo</h3>
+                                <p>Leveraging pixel art and recognizable characters taps into nostalgia, creating engaging and relatable experiences, like the "OREO Doomsday Vault" with unique cookie designs.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="rank-badge ai-driven">Nostalgia</span>
+                                <span class="rank-badge human-centric">Engagement</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tools-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Actionable Insights</h2>
+                </div>
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <div class="glass-card">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzA0IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwNCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik03My44MDQ1IDU1LjkwNDQxTDE4Mi44NTIxIDk4LjY4MTlMMTA5LjMwNDIgMTQ5Ljc1MTdMNzMuODA0NSA1NS45MDQ0MVoiIHN0cm9rZT0iIzYzNjZmMSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTE0MS4wMDA5IDg1LjUyNTc4TDE1OC4yMTk5IDExNy42NjkzTDE0MS45Mjk3IDE1NS4zNDg3TDEwNS41MzIyIDExNy42NjkzTDE0MS4wMDA5IDg1LjUyNTc4WiIgc3Ryb2tlPSIjZWE0ODk5IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTk1LjE3MDggNDAuNDIzMTlMMjA0LjkxNTEgNzIuNjY2NTNMMjI4LjE3MDEgNzIuNjY2NTNMMjM3LjkyNTM5IDEzOC4xNjc5TDY4LjcwMDgzIDE0OS43NTE3TDY4LjcxMDA4IDk4LjY4MTlMMTU4LjA0MDQgNTcuMDAwMDZMMjAyLjk2MDMxIDgwLjI4MjNMMTcxLjQ3NjUgMzcuMjM4ODRMMTk1LjE3MDggNDAuNDIzMTlaIiBzdHJva2U9IiNlYTRmZjhjIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4=" alt="Controlled Imperfection">
+                            <div class="article-content">
+                                <h3>Embrace Controlled Imperfection</h3>
+                                <p>Strategically inject deliberate imperfections to add personality, emotional depth, and dynamism, moving beyond sterile perfection.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="rank-badge ai-driven">Actionable Insight</span>
+                                <span class="rank-badge human-centric">Design Strategy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="glass-card">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzA0IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwNCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik03My44MDQ1IDU1LjkwNDQxTDE4Mi44NTIxIDk4LjY4MTlMMTA5LjMwNDIgMTQ5Ljc1MTdMNzMuODA0NSA1NS45MDQ0MVoiIHN0cm9rZT0iIzYzNjZmMSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTE0MS4wMDA5IDg1LjUyNTc4TDE1OC4yMTk5IDExNy42NjkzTDE0MS45Mjk3IDE1NS4zNDg3TDEwNS41MzIyIDExNy42NjkzTDE0MS4wMDA5IDg1LjUyNTc4WiIgc3Ryb2tlPSIjZWE0ODk5IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTk1LjE3MDggNDAuNDIzMTlMMjA0LjkxNTEgNzIuNjY2NTNMMjI4LjE3MDEgNzIuNjY2NTNMMjM3LjkyNTM5IDEzOC4xNjc5TDY4LjcwMDgzIDE0OS43NTE3TDY4LjcxMDA4IDk4LjY4MTlMMTU4LjA0MDQgNTcuMDAwMDZMMjAyLjk2MDMxIDgwLjI4MjNMMTcxLjQ3NjUgMzcuMjM4ODRMMTk1LjE3MDggNDAuNDIzMTlaIiBzdHJva2U9IiNlYTRmZjhjIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4=" alt="Balance Structure and Expression">
+                            <div class="article-content">
+                                <h3>Balance Structure and Expression</h3>
+                                <p>Combine a solid underlying system with elements that allow for creative expression and human-like variability for a robust design.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="rank-badge ai-driven">Actionable Insight</span>
+                                <span class="rank-badge human-centric">Design Balance</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="glass-card">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzA0IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwNCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik03My44MDQ1IDU1LjkwNDQxTDE4Mi44NTIxIDk4LjY4MTlMMTA5LjMwNDIgMTQ5Ljc1MTdMNzMuODA0NSA1NS45MDQ0MVoiIHN0cm9rZT0iIzYzNjZmMSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTE0MS4wMDA5IDg1LjUyNTc4TDE1OC4yMTk5IDExNy42NjkzTDE0MS45Mjk3IDE1NS4zNDg3TDEwNS41MzIyIDExNy42NjkzTDE0MS4wMDA5IDg1LjUyNTc4WiIgc3Ryb2tlPSIjZWE0ODk5IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTk1LjE3MDggNDAuNDIzMTlMMjA0LjkxNTEgNzIuNjY2NTNMMjI4LjE3MDEgNzIuNjY2NTNMMjM3LjkyNTM5IDEzOC4xNjc5TDY4LjcwMDgzIDE0OS43NTE3TDY4LjcxMDA4IDk4LjY4MTlMMTU4LjA0MDQgNTcuMDAwMDZMMjAyLjk2MDMxIDg0LjI4MjNMMTcxLjQ3NjUgMzcuMjM4ODRMMTk1LjE3MDggNDAuNDIzMTlaIiBzdHJva2U9IiNlYTRmZjhjIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4=" alt="Analyze Behavior">
+                            <div class="article-content">
+                                <h3>Analyze Behavior</h3>
+                                <p>Focus on how users interact with and experience the design; its effectiveness lies in engagement, not just visual appearance.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="rank-badge ai-driven">Actionable Insight</span>
+                                <span class="rank-badge human-centric">User Experience</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="glass-card">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzA0IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwNCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik03My44MDQ1IDU1LjkwNDQxTDE4Mi44NTIxIDk4LjY4MTlMMTA5LjMwNDIgMTQ5Ljc1MTdMNzMuODA0NSA1NS45MDQ0MVoiIHN0cm9rZT0iIzYzNjZmMSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTE0MS4wMDA5IDg1LjUyNTc4TDE1OC4yMTk5IDExNy42NjkzTDE0MS45Mjk3IDE1NS4zNDg3TDEwNS41MzIyIDExNy42NjkzTDE0MS4wMDA5IDg1LjUyNTc4WiIgc3Ryb2tlPSIjZWE0ODk5IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTk1LjE3MDggNDAuNDIzMTlMMjA0LjkxNTEgNzIuNjY2NTNMMjI4LjE3MDEgNzIuNjY2NTNMMjM3LjkyNTM5IDEzOC4xNjc5TDY4LjcwMDgzIDE0OS43NTE3TDY4LjcxMDA4IDk4LjY4MTlMMTU4LjA0MDQgNTcuMDAwMDZMMjAyLjk2MDMxIDgwLjI4MjNMMTcxLjQ3NjUgMzcuMjM4ODRMMTk1LjE3MDggNDAuNDIzMTlaIiBzdHJva2U9IiNlYTRmZjhjIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4=" alt="Intent">
+                            <div class="article-content">
+                                <h3>Focus on Intent</h3>
+                                <p>Ensure all "imperfections" feel intentional and contribute to the overall message and aesthetic, rather than appearing careless.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="rank-badge ai-driven">Actionable Insight</span>
+                                <span class="rank-badge human-centric">Design Intent</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p>&copy; 2023 QuerTech. All rights reserved. <a href="https://quertech-articles.vercel.app" target="_blank" rel="noopener noreferrer">Learn More</a></p>
+        </div>
+    </footer>
+
+    <button class="theme-toggle" aria-label="Toggle Theme">
+        <span id="theme-icon">☀️</span>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Background Orbs Animation ---
+            const orbsContainer = document.querySelector('.background-orbs');
+            const numberOfOrbs = 5; // Adjust the number of orbs
+
+            function createOrb() {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                const size = Math.random() * 400 + 100; // Random size between 100px and 500px
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+
+                const positionX = Math.random() * 100;
+                const positionY = Math.random() * 100;
+                orb.style.left = `${positionX}vw`;
+                orb.style.top = `${positionY}vh`;
+
+                // Randomize animation duration and delay for more dynamic movement
+                const animationDuration = Math.random() * 10 + 20; // 20s to 30s
+                const animationDelay = Math.random() * 5; // 0s to 5s delay
+                orb.style.animationDuration = `${animationDuration}s`;
+                orb.style.animationDelay = `${animationDelay}s`;
+
+                // Randomize the animation target for varied movement paths
+                const targetX = Math.random() * 300 - 150; // -150px to 150px
+                const targetY = Math.random() * 300 - 150; // -150px to 150px
+                orb.style.setProperty('--orb-target-x', `${targetX}px`);
+                orb.style.setProperty('--orb-target-y', `${targetY}px`);
+
+                // Apply a random color variant
+                const colorVariants = [
+                    '--primary-color-indigo',
+                    '--primary-color-pink',
+                    '--primary-color-indigo', // More indigo
+                    '--primary-color-pink',   // More pink
+                    'rgba(56, 189, 248, 0.3)' // Sky blue variant
+                ];
+                const randomColorVar = colorVariants[Math.floor(Math.random() * colorVariants.length)];
+                orb.style.background = `radial-gradient(circle, var(${randomColorVar}), rgba(0,0,0,0) 70%)`;
+
+                orbsContainer.appendChild(orb);
+            }
+
+            for (let i = 0; i < numberOfOrbs; i++) {
+                createOrb();
+            }
+
+            // Adjust orb animation to use CSS variables for transform
+            const styleSheet = document.styleSheets[0];
+            const keyframesRule = Array.from(styleSheet.cssRules).find(rule => rule.name === 'moveOrb');
+
+            if (keyframesRule) {
+                keyframesRule.appendRule(`
+                    0% {
+                        transform: translate(0, 0) scale(1);
+                    }
+                    100% {
+                        transform: translate(var(--orb-target-x, 300px), var(--orb-target-y, 200px)) scale(1.5);
+                    }
+                `);
+            }
+
+
+            // --- Theme Toggle Functionality ---
+            const themeToggle = document.querySelector('.theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const body = document.body;
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.style.backgroundColor = 'var(--background-color-dark)';
+                body.style.color = 'var(--text-color-light)';
+                themeIcon.textContent = '🌙';
+            } else {
+                // Default to light mode if no preference or if saved is not 'dark'
+                // For this design, we are always dark theme, so this is a fallback.
+                // If you had a light theme, you'd apply those styles here.
+                themeIcon.textContent = '☀️'; // Assuming default is light for icon
+            }
+
+            themeToggle.addEventListener('click', () => {
+                // In this specific design, we are always in dark mode.
+                // This toggle is illustrative and could be expanded for a full theme switcher.
+                // For now, let's just cycle through icons or simulate a change.
+                if (themeIcon.textContent === '☀️') {
+                    // Simulate switching to dark mode (though it's already default)
+                    body.style.backgroundColor = 'var(--background-color-dark)';
+                    body.style.color = 'var(--text-color-light)';
+                    themeIcon.textContent = '🌙';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    // Simulate switching to light mode (if implemented)
+                    // For now, it will just toggle back to sun icon.
+                    themeIcon.textContent = '☀️';
+                    // Apply light theme styles here if implemented
+                    // localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // --- Interactive Hover Effects (Simulated for this single file) ---
+            // The CSS already handles the primary hover effects (transform, box-shadow, border-color)
+            // for .glass-card and .cta-button. No additional JS is strictly needed for those.
+            // For more complex 3D effects, a JS library might be beneficial, but for this
+            // context, the CSS-driven effects are sufficient and performant.
+        });
+    </script>
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//designmastery">Design Mastery</a><a href="//designtrends">Design Trends</a><a href="//designgear">Design Gear</a><a href="//taxhacks">Tax Hacks</a><a href="//androidhacks">Android Hacks</a><a href="//spartangains">Spartan Gains</a><a href="//aiuxshift">AI UX Shift</a><a href="//speakfluent">Speak fluent</a><a href="//uicolorguide">UI Colors Guide</a><a href="//designessn">Design ESSN</a><a href="//aicodewins">AI Code Wins</a><a href="//2026gamesignite">2026 Games Ignite</a><a href="//designprovideo">Design Pro Video</a><a href="//claudechat">Claude Chat</a><a href="//cmdsecrets">CMD Secrets</a><a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```
