@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags for SEO -->
+    <title>CSS Popovers: Smart Positioning, Zero JS!</title>
+    <meta name="description" content="Tired of clunky popovers? Discover new CSS `anchor()` & `@position-try` for self-adjusting UI. Effortless, JavaScript-free positioning for amazing user experiences!">
+    <meta name="keywords" content="css popover positioning no javascript, modern css anchor function tutorial, css @position-try examples, dynamic popover styling with css, best css for tooltips and dropdowns, css anchor element positioning explained, create self-adjusting popovers css, css popover positioning without libraries, css position-try fallbacks explained, advanced css ui development techniques">
+    <meta name="author" content="QuerTech Articles">
+    <meta property="og:title" content="CSS Popovers: Smart Positioning, Zero JS!">
+    <meta property="og:description" content="Tired of clunky popovers? Discover new CSS `anchor()` & `@position-try` for self-adjusting UI. Effortless, JavaScript-free positioning for amazing user experiences!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app/modern-css-positioning-popovers">
+    <!-- Placeholder for Open Graph Image -->
+    <meta property="og:image" content="[URL_TO_YOUR_OG_IMAGE]">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CSS Popovers: Smart Positioning, Zero JS!">
+    <meta name="twitter:description" content="Tired of clunky popovers? Discover new CSS `anchor()` & `@position-try` for self-adjusting UI. Effortless, JavaScript-free positioning for amazing user experiences!">
+    <!-- Placeholder for Twitter Image -->
+    <meta name="twitter:image" content="[URL_TO_YOUR_TWITTER_IMAGE]">
+    <link rel="canonical" href="https://quertech-articles.vercel.app/modern-css-positioning-popovers">
+    <meta name="theme-color" content="#6366f1"> <!-- Primary Indigo -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=SF+Pro+Display:wght@700&display=swap">
+    <style>
+        /* Variables for Color Palette */
+        :root {
+            --color-primary-indigo: #6366f1;
+            --color-accent-pink: #ec4899;
+            --color-background-dark: #09172a;
+            --color-text-light: #e2e8f0;
+            --color-text-muted: #94a3b8;
+            --color-border-hover: #a5b4fc; /* Lighter shade of indigo for hover */
+            --color-background-card: rgba(255, 255, 255, 0.05);
+            --color-gradient-start: var(--color-primary-indigo);
+            --color-gradient-end: var(--color-accent-pink);
+        }
+
+        /* Global Styles & Reset */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--color-background-dark);
+            color: var(--color-text-light);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.8em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem); /* Fluid scaling */
+            letter-spacing: -0.02em;
+            background: linear-gradient(90deg, var(--color-gradient-start), var(--color-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            color: var(--color-text-light);
+            margin-top: 1.5em;
+        }
+
+        h3 {
+            font-size: clamp(1.3rem, 2.5vw, 2rem);
+            color: var(--color-text-light);
+            margin-top: 1.2em;
+        }
+
+        p {
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            color: var(--color-text-muted);
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: var(--color-primary-indigo);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: var(--color-accent-pink);
+            text-decoration: underline;
+        }
+
+        strong {
+            color: var(--color-text-light);
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1; /* Allows content to push footer down */
+        }
+
+        /* Header */
+        .site-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+        }
+
+        /* Main Content Area */
+        .content-section {
+            margin-bottom: 60px;
+        }
+
+        /* Visual Elements - Geometric Patterns & Rank Badges */
+        .geometric-pattern {
+            width: 80px;
+            height: 80px;
+            background-color: var(--color-primary-indigo);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            margin: 10px;
+            opacity: 0.7;
+            position: absolute;
+            filter: blur(15px) brightness(1.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .pattern-1 {
+            background-color: var(--color-primary-indigo);
+            top: 10%; left: 5%;
+            animation-delay: -2s;
+        }
+
+        .pattern-2 {
+            background-color: var(--color-accent-pink);
+            top: 30%; left: 80%;
+            width: 60px; height: 60px;
+            animation-delay: -4s;
+        }
+
+        .pattern-3 {
+            background-color: var(--color-text-light);
+            opacity: 0.5;
+            top: 70%; left: 40%;
+            width: 100px; height: 100px;
+            animation-delay: -3s;
+        }
+
+        .rank-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 50px;
+            margin-left: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--color-text-light);
+        }
+
+        /* Popover Elements */
+        .popover-trigger {
+            display: inline-block;
+            cursor: pointer;
+            padding: 8px 15px;
+            background-color: var(--color-background-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition */
+            position: relative; /* For z-index stacking if needed */
+            z-index: 10;
+        }
+
+        .popover-trigger:hover,
+        .popover-trigger:focus {
+            transform: translateY(-3px) scale(1.02); /* 3D card lifting effect */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-color: var(--color-border-hover);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .popover-content {
+            background-color: var(--color-background-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px) saturate(150%);
+            -webkit-backdrop-filter: blur(10px) saturate(150%);
+            z-index: 1000; /* Ensure it's above other elements */
+            opacity: 0; /* Hidden by default */
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            min-width: 200px;
+            position: fixed; /* Crucial for popover positioning */
+        }
+
+        .popover-content.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Popover Anchor Definitions */
+        .anchor-element {
+            display: inline-block; /* To make it behave like a block but flow inline */
+            border-bottom: 1px dashed var(--color-text-muted);
+            cursor: help; /* Indicate it's interactive or informative */
+            --anchor-name: "my-anchor"; /* Custom property for anchor name */
+        }
+
+        /* Popover Positioning via CSS */
+        /* Example: Positioning for a popover triggered by .anchor-element */
+        .popover-element[popover] {
+            /* Default styling for any popover element */
+            position: absolute; /* Changed from fixed to absolute for anchor positioning */
+            background-color: var(--color-background-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px) saturate(150%);
+            -webkit-backdrop-filter: blur(10px) saturate(150%);
+            z-index: 1000;
+            max-width: 300px; /* Prevent popovers from becoming too wide */
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Smooth entry/exit */
+        }
+
+        /* Specific anchor positioning */
+        .popover-element.positioned-below-right {
+            top: anchor(bottom);
+            left: anchor(right);
+            transform: translate(0, 5px); /* Small offset below */
+        }
+
+        .popover-element.positioned-above-left {
+            bottom: anchor(top);
+            right: anchor(left);
+            transform: translate(0, -5px); /* Small offset above */
+        }
+
+        /* @position-try for fallback positioning */
+        @position-try --below-right-fallback {
+            inset: unset; /* Reset inset */
+            top: anchor(bottom);
+            left: anchor(left); /* Fallback to align left edge */
+            transform: translate(0, 5px);
+        }
+
+        @position-try --above-left-fallback {
+            inset: unset;
+            bottom: anchor(top);
+            right: anchor(left); /* Fallback to align left edge */
+            transform: translate(0, -5px);
+        }
+
+        /* Applying fallbacks to the popover element */
+        .popover-element[popover] {
+            position-try-fallbacks: --below-right-fallback, --above-left-fallback, center center; /* Chain multiple fallbacks */
+        }
+
+        /* Specific positioning for .anchor-element-2 (demonstrates anchor-name) */
+        #anchor-2-trigger {
+            --anchor-name: "my-anchor-2";
+            border-bottom: 1px dashed var(--color-accent-pink);
+        }
+        /* The popover linked to #anchor-2-trigger will use anchor(my-anchor-2) */
+        /* In this single file, we'll use JS to link it, but conceptually: */
+        /* .popover-content-for-anchor-2[popover] { top: anchor(my-anchor-2 bottom); } */
+
+
+        /* Tooltip specific styling using popover */
+        .tooltip-trigger {
+            cursor: help;
+            border-bottom: 1px dotted var(--color-text-muted);
+            --anchor-name: "tooltip-anchor";
+        }
+
+        .tooltip-trigger:hover {
+            border-bottom-color: var(--color-accent-pink);
+        }
+
+        .tooltip-content[popover] {
+            background-color: rgba(30, 41, 59, 0.8); /* Slightly more opaque dark background */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            max-width: 250px;
+            text-align: center;
+            position-try-fallbacks: --below-right-fallback, --above-left-fallback, --below-left-fallback, --above-right-fallback; /* Add more fallbacks for tooltips */
+        }
+
+        /* Tooltip positioning directly below anchor */
+        .tooltip-content.positioned-below[popover] {
+            top: anchor(bottom);
+            left: anchor(center);
+            transform: translate(-50%, 8px); /* Centered horizontally, offset below */
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1001; /* Above popovers */
+            background-color: var(--color-primary-indigo);
+            color: var(--color-text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: 2px solid var(--color-background-dark); /* Subtle border to lift it */
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--color-accent-pink);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle::before {
+            content: '💡'; /* Or a sun/moon icon */
+            font-size: 1.8rem;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: auto; /* Pushes footer to the bottom */
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        .site-footer a {
+            color: var(--color-text-muted);
+        }
+
+        .site-footer a:hover {
+            color: var(--color-text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 5vw, 3rem);
+            }
+
+            h2 {
+                font-size: clamp(1.5rem, 3vw, 2.2rem);
+            }
+
+            h3 {
+                font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+            }
+
+            p {
+                font-size: clamp(0.95rem, 1.4vw, 1rem);
+            }
+
+            .popover-trigger {
+                padding: 6px 12px;
+            }
+
+            .popover-content,
+            .tooltip-content[popover] {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+                min-width: 180px;
+            }
+
+            .theme-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .theme-toggle::before {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes pulsate {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+            }
+            70% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+            }
+        }
+
+        /* Applying pulsate animation to toggle for visual appeal */
+        .theme-toggle {
+            animation: pulsate 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <header class="site-header">
+        <h1>CSS Popovers: Smart Positioning, Zero JS!</h1>
+        <p>Unlock the power of modern CSS for dynamic, self-adjusting UI elements.</p>
+    </header>
+
+    <main class="container">
+        <!-- Ambient Background Orbs -->
+        <div class="geometric-pattern pattern-1"></div>
+        <div class="geometric-pattern pattern-2"></div>
+        <div class="geometric-pattern pattern-3"></div>
+
+        <section class="content-section">
+            <h2>Introduction: The Popover Positioning Problem</h2>
+            <p>Traditionally, creating interactive popovers, tooltips, or dropdowns that intelligently position themselves without overlapping critical content or going off-screen has been a JavaScript-heavy endeavor. This often leads to complex code, performance overhead, and maintenance challenges. Fortunately, modern CSS is introducing powerful features to tackle this head-on, enabling sophisticated UI positioning with declarative rules.</p>
+
+            <h2>New CSS Positioning Capabilities</h2>
+            <p>CSS is evolving beyond static layouts. With the introduction of new properties and functions, we can now define precise relationships between elements for positioning purposes, entirely within CSS. This revolutionizes how we build dynamic interfaces, particularly for elements like popovers that need to adapt to their environment.</p>
+
+            <h2>Key Technologies: `popover`, `anchor-name`, `anchor()`, `position-area`, and `@position-try`</h2>
+
+            <h3>The `popover` Attribute and its Cousins</h3>
+            <p>The native HTML <code>popover</code> attribute, used in conjunction with <code>popovertarget</code> (on the trigger element), provides the fundamental mechanism for creating popover elements. This allows for built-in ARIA support and basic show/hide functionality without JavaScript.</p>
+
+            <p>Let's explore how we can leverage this with advanced positioning:</p>
+
+            <h3>Defining Anchors: `anchor-name`</h3>
+            <p>To position an element relative to another, the target element must be designated as an "anchor." This is achieved using the <code>anchor-name</code> CSS property, which assigns a unique name to an element. The syntax is typically a custom property, like <code>--anchor-name: "my-anchor";</code>. This name can then be referenced by other elements.</p>
+
+            <div class="content-section">
+                <h4>Example 1: Basic Anchor Positioning</h4>
+                <p>Here, we define an anchor and a popover that attempts to position itself relative to it.</p>
+                <p>
+                    Hover over <span class="popover-trigger anchor-element" id="anchor-1-trigger" popovertarget="popover-1">this text</span> to see the popover.
+                </p>
+                <div id="popover-1" class="popover-content" popover>
+                    This is a simple popover positioned relative to its trigger using basic anchor positioning.
+                </div>
+
+                <p><strong>CSS Logic:</strong> The popover's <code>top</code> and <code>left</code> properties are now dictated by the anchor's position. For instance, <code>top: anchor(bottom);</code> attempts to place the popover's top edge at the anchor's bottom edge.</p>
+            </div>
+
+            <div class="content-section">
+                <h4>Example 2: Using Named Anchors and `position-area`</h4>
+                <p>We can assign specific names to anchors and specify which part of the anchor we want to align with, and which part of the popover. This example uses a named anchor and a more specific positioning approach.</p>
+                <p>
+                    Try this <span class="popover-trigger anchor-element" id="anchor-2-trigger">other anchor</span> with a named anchor.
+                </p>
+                <div id="popover-2" class="popover-content" popover>
+                    This popover uses a named anchor and `anchor()` for precise positioning.
+                </div>
+                 <p><strong>CSS Logic:</strong> We assign <code>--anchor-name: "my-anchor-2";</code> to the trigger. The popover can then use <code>top: anchor("my-anchor-2" bottom);</code> and <code>left: anchor("my-anchor-2" left);</code> to align its top-left corner with the anchor's bottom-left corner.</p>
+            </div>
+
+            <h3>Handling Constraints: `@position-try` and `position-try-fallbacks`</h3>
+            <p>The most ingenious part is handling scenarios where the primary positioning fails to fit within the viewport. The <code>@position-try</code> at-rule allows you to define a set of fallback positioning strategies. The <code>position-try-fallbacks</code> property on the popover element then lists these strategies in order of preference.</p>
+
+            <div class="content-section">
+                <h4>Example 3: Fallback Positioning with `@position-try`</h4>
+                <p>This example demonstrates a popover that tries to position itself below right, but falls back if it hits viewport edges.</p>
+                <p>
+                    Click this <span class="popover-trigger" id="anchor-3-trigger" popovertarget="popover-3">constrained element</span>.
+                </p>
+                <div id="popover-3" class="popover-content" popover>
+                    This popover uses @position-try to find the best spot. It tries below right, then below left, then above left.
+                </div>
+                <p><strong>CSS Logic:</strong> We define <code>@position-try --below-right-fallback</code> and <code>@position-try --above-left-fallback</code>. The <code>.popover-element[popover]</code> applies <code>position-try-fallbacks: --below-right-fallback, --above-left-fallback, center center;</code> to ensure it always finds a place to display.</p>
+            </div>
+
+            <div class="content-section">
+                <h4>Example 4: Tooltips with Advanced Fallbacks</h4>
+                <p>Tooltips are a common use case. Here's a tooltip that intelligently positions itself, prioritizing the space below.</p>
+                <p>
+                    Hover over <span class="tooltip-trigger" popovertarget="tooltip-1">this text for a tooltip</span> to see it in action.
+                </p>
+                <div id="tooltip-1" class="tooltip-content" popover>
+                    This is a tooltip that intelligently positions itself using CSS anchor positioning and fallbacks.
+                </div>
+                <p><strong>CSS Logic:</strong> The <code>.tooltip-content[popover]</code> is styled to be positioned below the anchor using <code>anchor(bottom)</code> and <code>anchor(center)</code> for horizontal centering. Its <code>position-try-fallbacks</code> property ensures it will try other positions if needed.</p>
+            </div>
+
+            <h2>Actionable Insights: The "So What?"</h2>
+            <ul>
+                <li><strong>Enhanced UI Development:</strong> Build more sophisticated and user-friendly interfaces for dropdowns, tooltips, and modals with significantly less JavaScript.</li>
+                <li><strong>Improved User Experience:</strong> Popovers will now intelligently adjust to stay within the viewport, preventing content cutoff and ensuring better accessibility.</li>
+                <li><strong>Future-Proofing:</strong> Embrace these emerging CSS features to stay ahead in modern web development, creating more resilient and dynamic applications.</li>
+            </ul>
+
+            <h2>Browser Support and Graceful Degradation</h2>
+            <p>It's crucial to note that while these features are powerful, their browser support is still evolving. Always check the latest compatibility data (e.g., on Can I Use) before deploying them in production. For older browsers or environments where these features aren't supported, implement graceful degradation strategies, such as providing alternative UI elements or falling back to JavaScript-based solutions.</p>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2023 QuerTech Articles. All rights reserved. Visit us at <a href="https://quertech-articles.vercel.app" target="_blank">quertech-articles.vercel.app</a></p>
+    </footer>
+
+    <!-- Floating Theme Toggle -->
+    <div class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark/Light Mode"></div>
+
+    <script>
+        // Script for interactivity and popover management
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Theme Toggle Functionality ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const storedTheme = localStorage.getItem('theme');
+
+            // Apply stored theme on load
+            if (storedTheme) {
+                body.classList.add(storedTheme);
+                if (storedTheme === 'dark-theme') {
+                    themeToggle.style.setProperty('content', "'🌙'"); // Moon for dark mode
+                } else {
+                    themeToggle.style.setProperty('content', "'💡'"); // Light bulb for light mode
+                }
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                body.classList.toggle('light-theme'); // Assuming you might have a light theme class
+
+                const isDarkMode = body.classList.contains('dark-theme');
+                localStorage.setItem('theme', isDarkMode ? 'dark-theme' : 'light-theme');
+
+                // Update toggle icon dynamically
+                if (isDarkMode) {
+                    themeToggle.style.setProperty('content', "'🌙'");
+                } else {
+                    themeToggle.style.setProperty('content', "'💡'");
+                }
+            });
+
+            // --- Popover Management (using native popover attribute where possible, and JS for fallback/linking) ---
+
+            // For elements using the native popover attribute and popovertarget
+            // The browser handles the basic show/hide. We mainly need to ensure
+            // the CSS for positioning and appearance is correctly applied.
+
+            // If you need more advanced control or to ensure compatibility,
+            // you might implement a manual show/hide logic here.
+            // For this example, we're relying on the native popover attribute
+            // and the CSS `@position-try` and `anchor()` which are browser-handled.
+
+            // Example of manual linking if `popovertarget` wasn't sufficient or for older browsers:
+            const popoverTriggers = document.querySelectorAll('.popover-trigger, .tooltip-trigger');
+
+            popoverTriggers.forEach(trigger => {
+                const targetId = trigger.getAttribute('popovertarget');
+                if (targetId) {
+                    const popover = document.getElementById(targetId);
+                    if (popover) {
+                        // Ensure popover is initially hidden and styled
+                        popover.style.display = 'none'; // Initially hide
+
+                        trigger.addEventListener('click', (event) => {
+                            event.preventDefault(); // Prevent default link behavior
+                            const isOpen = popover.style.display === 'block';
+
+                            // Close all other visible popovers first (optional, but good UX)
+                            document.querySelectorAll('.popover-content[popover][open], .tooltip-content[popover][open]').forEach(otherPopover => {
+                                if (otherPopover !== popover) {
+                                    otherPopover.hidePopover();
+                                }
+                            });
+
+                            if (isOpen) {
+                                popover.hidePopover();
+                            } else {
+                                popover.showPopover();
+                                // Ensure the popover is positioned correctly upon showing
+                                // The CSS anchor() and @position-try should handle this automatically
+                                // but we can add a small delay or force a recalculation if needed.
+                                setTimeout(() => {
+                                    // The browser's native popover handling + CSS should manage positioning.
+                                    // If you encountered issues, you might manually trigger a reflow here
+                                    // or ensure the popover element has the necessary CSS positioning rules.
+                                }, 10); // Small delay
+                            }
+                        });
+
+                        // Close popover if clicking outside of it
+                        document.addEventListener('click', (event) => {
+                            if (popover.open && !trigger.contains(event.target) && !popover.contains(event.target)) {
+                                popover.hidePopover();
+                            }
+                        });
+                    }
+                }
+            });
+
+            // Ensure popovers are styled correctly on load and when shown
+            document.querySelectorAll('[popover]').forEach(popoverElement => {
+                popoverElement.addEventListener('toggle', (event) => {
+                    if (event.newState === 'open') {
+                        popoverElement.classList.add('visible'); // Add a class for JS-controlled visibility if needed
+                        // CSS should handle positioning via anchor() and @position-try
+                    } else {
+                        popoverElement.classList.remove('visible');
+                    }
+                });
+            });
+
+            // --- Dynamic Anchor Name Linking (if `popovertarget` isn't directly linking) ---
+            // This part is more for demonstration if you were to manually link triggers to popovers
+            // and their anchor names. Since `popovertarget` handles this, and CSS `anchor()`
+            // can reference elements directly by ID or via custom properties, this might not be strictly necessary.
+
+            // Example: Manually setting anchor names if not using CSS custom properties directly on elements
+            const anchor1 = document.getElementById('anchor-1-trigger');
+            if (anchor1 && !anchor1.style.getPropertyValue('--anchor-name')) {
+                 anchor1.style.setProperty('--anchor-name', '"my-anchor-1"');
+            }
+             const anchor2 = document.getElementById('anchor-2-trigger');
+            if (anchor2 && !anchor2.style.getPropertyValue('--anchor-name')) {
+                 anchor2.style.setProperty('--anchor-name', '"my-anchor-2"');
+            }
+            const anchor3 = document.getElementById('anchor-3-trigger');
+             if (anchor3 && !anchor3.style.getPropertyValue('--anchor-name')) {
+                 anchor3.style.setProperty('--anchor-name', '"my-anchor-3"');
+            }
+
+            // Ensure popovers are linked to the correct anchor conceptually,
+            // which CSS anchor() does by referencing the anchor element's ID or its --anchor-name.
+            // The HTML structure and CSS rules are designed to work together.
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//csslayout">CSS Layout Mastery</a><a href="//cssatrt">CSS Attr Type</a><a href="//csspos">CSS Pos</a><a href="//cssevolution">CSS Evolve</a><a href="//scrollfx">Scroll FX</a><a href="//cssflow">CSS Flow</a><a href="//stopscroll">Stop Scroll</a><a href="//geminivisions">Gemini Visions</a><a href="//algosecrets">Algorithm Secrets</a><a href="//buildaitools">Build AI Tools</a><a href="//designflaws">Design Flaws</a><a href="//designmastery">Design Mastery</a><a href="//designtrends">Design Trends</a><a href="//designgear">Design Gear</a><a href="//taxhacks">Tax Hacks</a><a href="//androidhacks">Android Hacks</a><a href="//spartangains">Spartan Gains</a><a href="//aiuxshift">AI UX Shift</a><a href="//speakfluent">Speak fluent</a><a href="//uicolorguide">UI Colors Guide</a><a href="//designessn">Design ESSN</a><a href="//aicodewins">AI Code Wins</a><a href="//2026gamesignite">2026 Games Ignite</a><a href="//designprovideo">Design Pro Video</a><a href="//claudechat">Claude Chat</a><a href="//cmdsecrets">CMD Secrets</a><a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

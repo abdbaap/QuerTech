@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags for SEO -->
+    <title>10 NEW CSS Features You NEED Now!</title>
+    <meta name="description" content="Tired of CSS limitations? Discover 10 powerful new CSS features like `offset-path`, `squircle` corners & `if()` functions. Build dynamic UIs with LESS JavaScript!">
+    <meta name="keywords" content="new css features 2023, advanced css techniques, css animation tricks, css for responsive design, reduce javascript with css, custom css shapes, css corner radius, css offset path, css conditional styling, css container queries scroll state, css sibling index, css text box trim, best css tools, css layout hacks, modern css workflow, css squircle shape, css clip path generator, css functions explained, CSS, WebDevelopment, FrontendDevelopment, CSS3, Coding, Developer, Programming, TechTips, UIUX, JavaScript, CSSFeatures, CSSAnimation, ResponsiveDesign, ModernCSS, CSSShapes, CSSFunctions, WebDesign, CodingTutorial, DeveloperTips, Squircle, OffsetPath, ContainerQueries">
+    <meta property="og:title" content="10 NEW CSS Features You NEED Now!">
+    <meta property="og:description" content="Tired of CSS limitations? Discover 10 powerful new CSS features like `offset-path`, `squircle` corners & `if()` functions. Build dynamic UIs with LESS JavaScript!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/og-image.png"> <!-- Placeholder for actual OG image -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="10 NEW CSS Features You NEED Now!">
+    <meta name="twitter:description" content="Tired of CSS limitations? Discover 10 powerful new CSS features like `offset-path`, `squircle` corners & `if()` functions. Build dynamic UIs with LESS JavaScript!">
+    <meta name="twitter:image" content="https://quertech-articles.vercel.app/twitter-image.png"> <!-- Placeholder for actual Twitter image -->
+    <link rel="canonical" href="https://quertech-articles.vercel.app">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%236366f1'/><circle cx='50' cy='50' r='20' fill='%23ec4899'/></svg>" type="image/svg+xml">
+    <!-- End Meta Tags -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Design System & Global Styles */
+        :root {
+            --primary-color: #6366f1; /* Indigo */
+            --secondary-color: #ec4899; /* Pink */
+            --background-dark: #09172a; /* Slate */
+            --background-darker: #050d18; /* Deeper Slate */
+            --text-light: #e2e8f0; /* Off-white for readability */
+            --text-muted: #94a3b8; /* Slate Gray for secondary text */
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --gradient-text: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            --border-radius-smooth: 1rem;
+            --transition-fast: 0.2s ease-in-out;
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+            --sf-pro-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        /* Fluid Typography using clamp() */
+        h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
+            line-height: 1.3;
+        }
+        h3 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            line-height: 1.4;
+        }
+        p, li, .feature-details, .tooltip-text {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            line-height: 1.6;
+        }
+
+        /* Core Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--sf-pro-display);
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+            position: relative; /* For z-index positioning */
+            z-index: 2; /* Above background */
+        }
+
+        /* Header with Gradient Mask */
+        .hero-header {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Main Content Area */
+        .content-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-radius: var(--border-radius-smooth);
+            border: 1px solid var(--card-border);
+            padding: 1.5rem;
+            transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02); /* 3D Card Lift */
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color); /* Border Color Transition */
+        }
+
+        .feature-card__icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.5rem;
+            background: var(--primary-color);
+            color: var(--background-dark);
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+            transition: background var(--transition-fast);
+        }
+
+        .feature-card:hover .feature-card__icon {
+            background: var(--secondary-color);
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.5);
+        }
+
+        .feature-card__title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-light);
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-details {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            flex-grow: 1; /* Allows description to take available space */
+        }
+
+        .feature-code {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.85rem;
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 0.8rem;
+            border-radius: 0.3rem;
+            overflow-x: auto;
+            white-space: pre-wrap; /* Respect line breaks */
+            word-break: break-all; /* Prevent overflow */
+            margin-top: auto; /* Pushes to the bottom */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* Visual Reinforcement - CSS Generated Patterns/Badges */
+        .feature-card:nth-child(1) .feature-card__icon::before { content: '✨'; } /* Placeholder for Squircle */
+        .feature-card:nth-child(2) .feature-card__icon::before { content: '🔗'; } /* Placeholder for Clip-Path */
+        .feature-card:nth-child(3) .feature-card__icon::before { content: '📐'; } /* Placeholder for Stretch */
+        .feature-card:nth-child(4) .feature-card__icon::before { content: '✂️'; } /* Placeholder for Text-Trim */
+        .feature-card:nth-child(5) .feature-card__icon::before { content: '🔢'; } /* Placeholder for Sibling-Index */
+        .feature-card:nth-child(6) .feature-card__icon::before { content: '🌀'; } /* Placeholder for Scroll-State */
+        .feature-card:nth-child(7) .feature-card__icon::before { content: '⚙️'; } /* Placeholder for @function */
+        .feature-card:nth-child(8) .feature-card__icon::before { content: '🤔'; } /* Placeholder for if() */
+        .feature-card:nth-child(9) .feature-card__icon::before { content: '📊'; } /* Placeholder for Responsive Value Function */
+        .feature-card:nth-child(10) .feature-card__icon::before { content: '🚀'; } /* Placeholder for General Advancement */
+
+        /* Example of a CSS generated geometric pattern for visual accent */
+        .feature-card:nth-child(even) {
+            background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.2) 0%, transparent 50%),
+                        var(--card-bg);
+        }
+        .feature-card:nth-child(odd) {
+            background: radial-gradient(circle at 60% 40%, rgba(236, 72, 153, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 60%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+                        var(--card-bg);
+        }
+
+
+        /* Ambient Background Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden; /* Crucial for containing the orbs */
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0) 50%);
+            filter: blur(100px);
+            opacity: 0.7;
+            animation: moveOrb linear infinite alternate;
+        }
+
+        .orb:nth-child(1) {
+            width: 250px;
+            height: 250px;
+            top: -100px;
+            left: -100px;
+            animation-duration: 15s;
+            animation-delay: -5s;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0) 60%);
+        }
+        .orb:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            bottom: -150px;
+            right: -150px;
+            animation-duration: 18s;
+            animation-delay: -8s;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(236, 72, 153, 0) 60%);
+        }
+        .orb:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            top: 30%;
+            left: 40%;
+            animation-duration: 12s;
+            animation-delay: -3s;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
+        }
+
+        @keyframes moveOrb {
+            from { transform: translate(0, 0) rotate(0deg); }
+            to { transform: translate(20vw, 15vh) rotate(360deg); }
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: var(--background-dark);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+            cursor: pointer;
+            z-index: 100;
+            transition: transform var(--transition-smooth), background-color var(--transition-fast), box-shadow var(--transition-fast);
+            animation: pulse 2s infinite;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-5px) scale(1.1);
+            background-color: var(--secondary-color);
+            box-shadow: 0 12px 30px rgba(236, 72, 153, 0.7);
+        }
+
+        .theme-toggle i {
+            font-size: 1.5rem;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 12px 35px rgba(99, 102, 241, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5); }
+        }
+
+        /* Tooltip Styles */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted var(--text-muted);
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 220px;
+            background-color: var(--background-darker);
+            color: var(--text-light);
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position above the element */
+            left: 50%;
+            margin-left: -110px; /* Center the tooltip */
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .tooltip .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--card-border) transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--background-darker);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 3rem 0.5rem;
+            }
+
+            .content-section {
+                grid-template-columns: 1fr; /* Stack cards on smaller screens */
+            }
+
+            .feature-card {
+                margin-bottom: 1.5rem; /* Add space between stacked cards */
+            }
+
+            .theme-toggle {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 50px;
+                height: 50px;
+            }
+            .theme-toggle i {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-header {
+                margin-bottom: 2rem;
+            }
+            .feature-card {
+                padding: 1rem;
+            }
+            .tooltip .tooltip-text {
+                width: 180px;
+                left: 50%;
+                margin-left: -90px;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Ambient Background Orbs -->
+    <div class="background-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1 class="hero-header">10 Revolutionary CSS Features</h1>
+            <p class="text-muted" style="text-align: center; margin-bottom: 4rem;">Explore the cutting edge of CSS that redefines web development. Build dynamic, interactive, and visually stunning interfaces with unprecedented power and efficiency.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="content-section">
+            <!-- Feature 1: corner-shape -->
+            <div class="feature-card" onclick="highlightFeature(this)">
+                <div class="feature-card__icon"></div>
+                <h3 class="feature-card__title">Custom Corner Shapes</h3>
+                <p class="feature-details">Beyond `border-radius`, `corner-shape` offers `squircle`, `bevel`, `notch`, and `mixed` for unique element contours.</p>
+                <pre class="feature-code"><code>corner-shape: squircle;</code></pre>
+            </div>
+
+            <!-- Feature 2: clip-path with shape() -->
+            <div class="feature-card" onclick="highlightFeature(this)">
+                <div class="feature-card__icon"></div>
+                <h3 class="feature-card__title">Advanced Clip-Path</h3>
+                <p class="feature-details">Define complex geometric clipping paths using SVG-like syntax within CSS's `clip-path`, enabling intricate shapes.</p>
+                <pre class="feature-code"><code>clip-path: polygon(evenodd, 50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);</code></pre>
+            </div>
+
+            <!-- Feature 3: width: stretch; height: stretch; -->
+            <div class="feature-card" onclick="highlightFeature(this)">
+                <div class="feature-card__icon"></div>
+                <h3 class="feature-card__title">True Element Stretch</h3>
+                <p class="feature-details">`width: stretch; height: stretch;` provides a genuine 100% fill of its container, respecting margins and padding.</p>
+                <pre class="feature-code"><code>width: stretch; height: stretch;</code></pre>
+            </div>
+
+            <!-- Feature 4: text-box-trim -->
+            <div class="feature-card" onclick="highlightFeature(this)">
+                <div class="feature-card__icon"></div>
+                <h3 class="feature-card__title">Precise Text Trimming</h3>
+                <p class="feature-details">`text-box-trim` and its variants (`trim-start`, `trim-end`, `trim-both`) control whitespace around text for pixel-perfect alignment.</p>
+                <pre class="feature-code"><code>text-box-trim: trim-both cap text;</code></pre>
+            </div>
+
+            <!-- Feature 5: sibling-index() -->
+            <div class="feature-card" onclick="highlightFeature(this)">
+                <div class="feature-card__icon"></div>
+                <h3 class="feature-card__title">Sibling Index Function</h3>
+                <p class="feature-details">The `sibling-index()` function returns an element's 1-indexed position among its siblings, enabling dynamic styling based on order.</p>
+                <pre class="feature-code"><code>width: calc(sibling-index() * 50px);</code></pre>
+            </div>
+
+            <!-- Feature 6: container type: scroll-state -->
+            <div class="feature-card" onclick="highlightFeature(this)">
+                <div class="feature-card__icon"></div>
+                <h3 class="feature-card__title">Scroll State Queries</h3>
+                <p class="feature-details">Style elements based on a container's scroll state (`stuck`, `snapped`) using `@container (scroll-state: ...)` without JavaScript.</p>
+                <pre class="feature-code"><code>@container (scroll-state: stuck) { ... }</code></pre>
+            </div>
+
+            <!-- Feature 7: @function -->
+            <div class="feature-card" onclick="highlightFeature(this)">
+                <div class="feature-card__icon"></div>
+                <h3 class="feature-card__title">Custom CSS Functions</h3>
+                <p class="feature-details">Define reusable CSS logic with `@function` to generate dynamic values and simplify complex calculations.</p>
+                <pre class="feature-code"><code>@function alpha($color, $opacity) { ... }</code></pre>
+            </div>
+
+            <!-- Feature 8: if() -->
+            <div class="feature-card" onclick="highlightFeature(this)">
+                <div class="feature-card__icon"></div>
+                <h3 class="feature-card__title">Conditional Styling (if())</h3>
+                <p class="feature-details">The `if()` function enables conditional styling based on custom properties, media queries, or feature support.</p>
+                <pre class="feature-code"><code>if(supports('display: grid'), ..., ...)</code></pre>
+            </div>
+
+            <!-- Feature 9: Responsive Value Function -->
+            <div class="feature-card" onclick="highlightFeature(this)">
+                <div class="feature-card__icon"></div>
+                <h3 class="feature-card__title">Responsive Values</h3>
+                <p class="feature-details">Create custom functions that adapt values across different breakpoints, simplifying responsive design.</p>
+                <pre class="feature-code"><code>font-size: narrow-wide(16px, 24px);</code></pre>
+            </div>
+
+            <!-- Feature 10: General Advancement -->
+            <div class="feature-card" onclick="highlightFeature(this)">
+                <div class="feature-card__icon"></div>
+                <h3 class="feature-card__title">CSS Power Unleashed</h3>
+                <p class="feature-details">These advancements empower developers to achieve complex UIs and interactions previously requiring JavaScript, boosting performance.</p>
+                <pre class="feature-code"><code>Explore. Innovate. Build.</code></pre>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-palette"></i> <!-- Font Awesome icon for palette -->
+    </div>
+
+    <!-- Font Awesome CDN (for the palette icon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        // DOM Elements
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const root = document.documentElement;
+        const featureCards = document.querySelectorAll('.feature-card');
+
+        // Theme Toggling Logic
+        let isDarkMode = true; // Start with dark mode
+
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                root.style.setProperty('--background-dark', '#09172a');
+                root.style.setProperty('--background-darker', '#050d18');
+                root.style.setProperty('--text-light', '#e2e8f0');
+                root.style.setProperty('--text-muted', '#94a3b8');
+                root.style.setProperty('--card-bg', 'rgba(255, 255, 255, 0.05)');
+                root.style.setProperty('--card-border', 'rgba(255, 255, 255, 0.1)');
+                themeToggle.style.backgroundColor = 'var(--primary-color)';
+                themeToggle.style.boxShadow = '0 8px 25px rgba(99, 102, 241, 0.5)';
+                themeToggle.querySelector('i').className = 'fas fa-palette'; // Show palette icon
+            } else {
+                // Light mode (optional, but good for contrast)
+                root.style.setProperty('--background-dark', '#f8fafc'); // Light Gray
+                root.style.setProperty('--background-darker', '#e2e8f0'); // Lighter Gray
+                root.style.setProperty('--text-light', '#0f172a'); // Dark text
+                root.style.setProperty('--text-muted', '#64748b'); // Muted text
+                root.style.setProperty('--card-bg', 'rgba(0, 0, 0, 0.03)');
+                root.style.setProperty('--card-border', 'rgba(0, 0, 0, 0.1)');
+                themeToggle.style.backgroundColor = 'var(--secondary-color)';
+                themeToggle.style.boxShadow = '0 8px 25px rgba(236, 72, 153, 0.5)';
+                themeToggle.querySelector('i').className = 'fas fa-moon'; // Show moon icon
+            }
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // Feature Card Interaction - Subtle Glow on Hover
+        function highlightFeature(cardElement) {
+            // Optional: Implement more sophisticated interactions if needed,
+            // like a temporary glow or subtle animation on click.
+            // For now, the CSS hover effects are primary.
+
+            // Example: Adding a temporary class for a visual cue on click
+            cardElement.classList.add('clicked');
+            setTimeout(() => {
+                cardElement.classList.remove('clicked');
+            }, 500);
+        }
+
+        // Initialize theme based on OS preference or default to dark
+        // This could be expanded for more sophisticated theme management
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            // If OS prefers light mode, toggle theme once to apply light styles
+            // isDarkMode = true; // Reset for correct initial toggle
+            // toggleTheme();
+        }
+
+        // Initialize the orb animations with slightly randomized delays
+        const orbs = document.querySelectorAll('.orb');
+        orbs.forEach((orb, index) => {
+            const duration = parseFloat(getComputedStyle(orb).animationDuration) * 1000;
+            const delay = Math.random() * duration * -1; // Negative delay for starting mid-animation
+            orb.style.animationDelay = `${delay}ms`;
+        });
+
+        // Ensure header gradient is applied correctly on load
+        const heroHeader = document.querySelector('.hero-header');
+        if (heroHeader) {
+            heroHeader.style.background = 'linear-gradient(90deg, #6366f1, #ec4899)';
+            heroHeader.style.webkitBackgroundClip = 'text';
+            heroHeader.style.backgroundClip = 'text';
+            heroHeader.style.webkitTextFillColor = 'transparent';
+            heroHeader.style.color = 'transparent';
+        }
+
+        // Initialize feature card icons with correct content and styling
+        const featureIcons = document.querySelectorAll('.feature-card__icon');
+        const iconContent = ['✨', '🔗', '📐', '✂️', '🔢', '🌀', '⚙️', '🤔', '📊', '🚀'];
+        featureIcons.forEach((icon, index) => {
+            if (index < iconContent.length) {
+                icon.textContent = iconContent[index];
+                // Apply specific icon styling if needed, e.g., to match feature card color scheme
+                if (index % 2 === 0) {
+                    icon.style.backgroundColor = 'var(--primary-color)';
+                    icon.style.boxShadow = '0 4px 15px rgba(99, 102, 241, 0.5)';
+                } else {
+                    icon.style.backgroundColor = 'var(--secondary-color)';
+                    icon.style.boxShadow = '0 4px 15px rgba(236, 72, 153, 0.5)';
+                }
+            }
+        });
+
+        // Add tooltip functionality for code snippets (example for 'corner-shape')
+        // In a real-world scenario, you might want to add tooltips to all code blocks or specific elements.
+        const cornerShapeCard = document.querySelector('.feature-card:nth-of-type(1)');
+        if (cornerShapeCard) {
+            const tooltipSpan = document.createElement('span');
+            tooltipSpan.className = 'tooltip';
+            tooltipSpan.innerHTML = `
+                <span class="tooltip-text">
+                    Supports values like: squircle, round, bevel, notch, mixed.
+                </span>
+            `;
+            // Find the feature-details paragraph within this card and append the tooltip
+            const detailsPara = cornerShapeCard.querySelector('.feature-details');
+            if (detailsPara) {
+                detailsPara.innerHTML += `
+                    <span class="tooltip">
+                        (<span class="tooltip-text">Supports values like: squircle, round, bevel, notch, mixed.</span>
+                        <code>corner-shape</code>)
+                    </span>
+                `;
+                // Re-apply tooltip styles if dynamic
+                const newTooltip = cornerShapeCard.querySelector('.tooltip .tooltip-text');
+                if (newTooltip) {
+                    newTooltip.style.visibility = 'hidden'; // Ensure it's hidden initially
+                }
+            }
+        }
+
+         // Enhance the feature-card hover effect for a more 3D feel
+        featureCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / (rect.height / 2) * 5; // Max rotation 5 degrees
+                const rotateY = (centerX - x) / (rect.width / 2) * 5; // Max rotation 5 degrees
+
+                card.style.transform = `translateY(-10px) scale(1.02) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                card.style.boxShadow = `0 20px 40px rgba(0,0,0,0.4), ${rotateX * 2}px ${rotateY * 2}px 20px rgba(255,255,255,0.1)`; // Subtle highlight
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)'; // Maintain lift on leave
+                card.style.boxShadow = '0 20px 30px rgba(0, 0, 0, 0.3), 0 0 0 rgba(255,255,255,0)'; // Reset subtle highlight
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//stopscroll">Stop Scroll</a><a href="//geminivisions">Gemini Visions</a><a href="//algosecrets">Algorithm Secrets</a><a href="//buildaitools">Build AI Tools</a><a href="//designflaws">Design Flaws</a><a href="//designmastery">Design Mastery</a><a href="//designtrends">Design Trends</a><a href="//designgear">Design Gear</a><a href="//taxhacks">Tax Hacks</a><a href="//androidhacks">Android Hacks</a><a href="//spartangains">Spartan Gains</a><a href="//aiuxshift">AI UX Shift</a><a href="//speakfluent">Speak fluent</a><a href="//uicolorguide">UI Colors Guide</a><a href="//designessn">Design ESSN</a><a href="//aicodewins">AI Code Wins</a><a href="//2026gamesignite">2026 Games Ignite</a><a href="//designprovideo">Design Pro Video</a><a href="//claudechat">Claude Chat</a><a href="//cmdsecrets">CMD Secrets</a><a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

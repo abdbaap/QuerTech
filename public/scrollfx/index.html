@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Scroll Animations: CSS Magic Revealed!">
+    <meta name="description" content="Tired of static pages? Master stunning scroll-triggered animations with HTML & CSS! Reveal images, fade-in elements, & create smooth horizontal scrolling. Boost engagement & impress users!">
+    <meta name="keywords" content="scroll triggered animations html css, css scroll animation tutorial, html css image reveal animation, horizontal scrolling animation css, scroll based animation guide, dynamic web page animations, interactive web design techniques, css view timeline animation, staggered fade up animation css, auto blur effect css animation, web animation tutorial, frontend development tips, user experience design, creative web design, css keyframes animation, web development tricks, modern web design, #ScrollAnimation, #CSSAnimations, #HTMLCSS, #WebDesign, #FrontendDev, #WebDev, #InteractiveDesign, #AnimationTutorial, #ScrollTrigger">
+    <meta name="author" content="QuerTech Articles">
+    <meta property="og:title" content="Scroll Animations: CSS Magic Revealed!">
+    <meta property="og:description" content="Tired of static pages? Master stunning scroll-triggered animations with HTML & CSS! Reveal images, fade-in elements, & create smooth horizontal scrolling. Boost engagement & impress users!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Scroll Animations: CSS Magic Revealed!">
+    <meta name="twitter:description" content="Tired of static pages? Master stunning scroll-triggered animations with HTML & CSS! Reveal images, fade-in elements, & create smooth horizontal scrolling. Boost engagement & impress users!">
+    <title>Scroll Animations: CSS Magic Revealed!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=SF+Pro+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --primary-indigo: #6366f1; /* Indigo */
+            --primary-pink: #ec4899; /* Pink */
+            --background-dark: #09172a; /* Slate */
+            --text-light: #e2e8f0; /* Light Gray */
+            --text-muted: #94a3b8; /* Muted Gray */
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border-highlight: rgba(99, 102, 241, 0.5);
+            --border-hover: rgba(236, 72, 153, 0.7);
+            --gradient-text: linear-gradient(90deg, var(--primary-pink) 0%, var(--primary-indigo) 100%);
+            --font-display: 'SF Pro Display', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition-smooth: all 0.3s ease-in-out;
+            --card-lift: 0 15px 30px rgba(0, 0, 0, 0.2);
+            --card-shadow-small: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px; /* Base font size for rem calculation */
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            overflow-x: hidden; /* Prevent horizontal scrollbar from body */
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        a {
+            color: var(--primary-indigo);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        a:hover {
+            color: var(--primary-pink);
+            text-decoration: underline;
+        }
+
+        /* --- Layout & Structure --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        .section {
+            padding: 6rem 0;
+            position: relative; /* For background elements */
+        }
+
+        .section--hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Ensure background orbs stay within bounds */
+        }
+
+        .section--content {
+            position: relative; /* Ensure content is above background */
+            z-index: 2;
+        }
+
+        /* --- Glassmorphic UI --- */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow-small);
+            transition: var(--transition-smooth), box-shadow 0.4s ease-out;
+            margin-bottom: 2rem;
+            cursor: default; /* Default cursor for non-interactive cards */
+        }
+
+        .card.interactive {
+            cursor: pointer;
+        }
+
+        .card:hover {
+            box-shadow: var(--card-lift);
+            border-color: var(--border-hover);
+            transform: translateY(-5px);
+        }
+
+        .card--highlight {
+            border-left: 5px solid var(--primary-indigo);
+        }
+
+        /* --- Background Animation Orbs --- */
+        .background-orbs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0; /* Behind content */
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(99, 102, 241, 0) 70%);
+            filter: blur(80px);
+            animation: float 10s ease-in-out infinite alternate;
+        }
+
+        .orb:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: -10%;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, rgba(236, 72, 153, 0) 70%);
+            animation-delay: -3s;
+        }
+
+        .orb:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            top: 60%;
+            right: -15%;
+            animation-delay: -6s;
+        }
+
+        .orb:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            top: 30%;
+            left: 40%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+            animation-delay: -9s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+            }
+            100% {
+                transform: translateY(100px) translateX(50px) scale(1.1);
+            }
+        }
+
+        /* --- Specific Content Elements --- */
+        .tool-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-highlight);
+            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.08);
+        }
+
+        /* Geometric Patterns as Icons - Example */
+        .tool-icon::before {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 50%;
+            background: var(--gradient-text);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Diamond */
+            opacity: 0.7;
+            animation: subtle-pulse 4s infinite ease-in-out alternate;
+        }
+
+        .tool-card:nth-child(2) .tool-icon::before {
+            clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 25% 100%); /* Trapezoid */
+        }
+        .tool-card:nth-child(3) .tool-icon::before {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%); /* Reversed Trapezoid */
+        }
+        .tool-card:nth-child(4) .tool-icon::before {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%) rotate(45deg); /* Rotated Diamond */
+        }
+
+
+        @keyframes subtle-pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            100% { transform: scale(1.1); opacity: 0.9; }
+        }
+
+        .rank-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary-pink);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: var(--card-shadow-small);
+            animation: subtle-glow 3s infinite ease-in-out alternate;
+        }
+
+        @keyframes subtle-glow {
+            0% { box-shadow: 0 0 5px rgba(236, 72, 153, 0.5); }
+            100% { box-shadow: 0 0 15px rgba(236, 72, 153, 0.8); }
+        }
+
+        /* --- Animation Container & Items --- */
+        .animation-section {
+            padding: 10vh 0; /* More vertical space for animations */
+        }
+
+        .animation-item {
+            opacity: 0; /* Hidden by default */
+            transform: translateY(50px) scale(0.95); /* Slight initial transform */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform; /* Performance hint */
+        }
+
+        .animation-item.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Specific Animations using animation-timeline (modern CSS) */
+        .autoShow {
+            animation: fadeInSlideUp linear forwards;
+            animation-timeline: view(); /* Tied to element's entry into viewport */
+            animation-range: entry 20% cover 60%; /* Start 20% in, end when 60% visible */
+        }
+
+        @keyframes fadeInSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .imageReveal {
+            animation: imageRevealAnim linear forwards;
+            animation-timeline: view();
+            animation-range: entry 30% cover 80%;
+        }
+
+        @keyframes imageRevealAnim {
+            from {
+                filter: saturate(0%) brightness(0.8) blur(15px) contrast(50%);
+                transform: scale(0.9);
+            }
+            to {
+                filter: saturate(100%) brightness(1) blur(0px) contrast(100%);
+                transform: scale(1);
+            }
+        }
+
+        .fadeUp {
+            animation: fadeUpAnim linear forwards;
+            animation-timeline: view();
+            animation-range: entry 10% cover 50%;
+        }
+
+        @keyframes fadeUpAnim {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .autoBlur {
+            animation: autoBlurAnim linear forwards;
+            animation-timeline: view();
+            animation-range: entry 50% cover 50%; /* Animates when element is exactly halfway in view */
+        }
+
+        @keyframes autoBlurAnim {
+            0% { filter: blur(20px); opacity: 0.8; }
+            35% { filter: blur(0px); opacity: 1; }
+            45% { filter: blur(0px); opacity: 1; } /* Hold sharp for a bit */
+            70% { filter: blur(20px); opacity: 0.8; }
+            100% { filter: blur(0px); opacity: 1; } /* End sharp */
+        }
+
+        /* Staggered Fade-up */
+        .staggered-items .fadeUp {
+            /* Individual ranges handled by JS to ensure smooth stagger */
+        }
+
+        /* Horizontal Scrolling */
+        .horizontal-scroll-wrapper {
+            display: flex; /* Use flex for item alignment within the scrollable area */
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-indigo) rgba(0, 0, 0, 0.5);
+            padding-bottom: 1rem; /* Space for potential scrollbar styling */
+            margin: 4rem 0;
+        }
+
+        .horizontal-scroll-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .horizontal-scroll-wrapper::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+
+        .horizontal-scroll-wrapper::-webkit-scrollbar-thumb {
+            background-color: var(--primary-indigo);
+            border-radius: 10px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+        .horizontal-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+            background-color: var(--primary-pink);
+        }
+
+        .horizontal-scroll-item {
+            flex: 0 0 calc(33.333% - 2rem); /* Example: 3 items per row on large screens */
+            scroll-snap-align: start;
+            margin-right: 2rem;
+            min-width: 300px; /* Ensure items don't get too small */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative; /* For rank badges */
+        }
+
+        .horizontal-scroll-item:last-child {
+            margin-right: 0;
+        }
+
+        @media (max-width: 992px) {
+            .horizontal-scroll-item {
+                flex: 0 0 calc(50% - 2rem); /* 2 items per row */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .horizontal-scroll-item {
+                flex: 0 0 calc(100% - 2rem); /* 1 item per row */
+            }
+            .section {
+                padding: 4rem 0;
+            }
+        }
+
+        /* --- Floating Theme Toggle --- */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000; /* Ensure it's on top */
+            background-color: var(--primary-indigo);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--card-lift);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 2px solid var(--primary-pink);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) translateY(-3px);
+            background-color: var(--primary-pink);
+        }
+
+        .theme-toggle i {
+            font-size: 1.5rem;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: clamp(2rem, 8vw, 3.5rem);
+            }
+            h2 {
+                font-size: clamp(1.8rem, 6vw, 2.8rem);
+            }
+            .section {
+                padding: 4rem 0;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Background Animation Orbs -->
+    <div class="background-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <header class="section section--hero">
+        <div class="container">
+            <h1 class="autoShow">Master Scroll-Triggered Animations</h1>
+            <p class="autoShow" style="animation-delay: 0.2s;">Unlock dynamic and engaging web experiences with pure HTML & CSS.</p>
+        </div>
+    </header>
+
+    <main class="container section section--content">
+        <section id="introduction">
+            <h2>Elevate Your Web Design with Dynamic Scrolling</h2>
+            <p>Static web pages are a thing of the past. Discover how to transform your content into an interactive journey by leveraging the power of scroll-triggered animations. This guide will walk you through essential techniques—from simple fades to sophisticated image reveals and horizontal layouts—all achievable with modern HTML and CSS.</p>
+        </section>
+
+        <section id="scroll-based-animation" class="animation-section">
+            <h2>Scroll-Based Animation</h2>
+            <p>This technique allows elements to animate into view as the user scrolls, creating a natural flow and highlighting content. We'll use the powerful `animation-timeline: view()` property for seamless integration.</p>
+            <div class="card autoShow" style="animation-range: entry 20% cover 60%;">
+                <h3>Fade In & Slide Up</h3>
+                <p>Elements animated with the `autoShow` class will gracefully appear with a subtle upward movement as they enter the viewport.</p>
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDE2MCAxMDAiIGZpbGz0PSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxwYXRoIGQ9Ik0wIDc1TDI1IDU1TDUwIDc1TDI1IDEyNUw0MC43IDExMy40TDUwIDE0M0wxMDAgMTExLjZMMTUwIDE0M0wxMjUgMTIzLjRMUNWIDg3LjUsMjUuMSA3NS4xIDU1LjQgNTguOEMwIDQxIDAgMTAwIDU5IDEwMCIgZmlsbD0iI0Y0NTNBNSIvPgo8L3N2Zz4=" alt="Abstract shape representing animation" style="width: 80px; height: 50px; margin-top: 1rem; opacity: 0.6;">
+            </div>
+        </section>
+
+        <section id="image-reveal-animation" class="animation-section">
+            <h2>Image Reveal Animation</h2>
+            <p>Make your images pop with a dynamic reveal effect. This animation starts with a blurred, desaturated, and scaled-down image that sharpens and expands as it enters the viewport.</p>
+            <div class="card imageReveal" style="animation-range: entry 30% cover 80%; aspect-ratio: 16/9; background: var(--card-bg); border: none; overflow: hidden; display: flex; justify-content: center; align-items: center; padding: 0;">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik01ODMgMjY1LjgwNEM1ODMgMjg1LjUwOCA1NjcuMjg1IDMwMCA1NDcuMDQyIDMwMkg1My45NTgjQzMzLjcwNyAzMDAgMTkgMjg1LjUwOCAxOSAyNjUuODA2VjEzNC4xOTRDMTkgMTE0LjQ5MiAzMy43MDcgMTAwIDUzLjk1OCAxMDBINjAwVjI2NS44MDZabS04OC40MzEtMTY1LjgwNkM0OTQuNTY5IDEwMCA0NzkuNzIxIDEwMCA0NjIuOTY0IDEwMkg1My45NTdDMzMuNzA3IDEwMCAxOS42OTQgMTE0LjQ5MiAxOS42OTQgMTM0LjE5NFYyNjUuODA2QzE5LjY5NCAyODUuNTA4IDMzLjcwNyAzMDAgNTMuOTU4IDMwMGg0OTYuMDM4QzUyNi4yOTMgMzAwIDU0MS4yMDcgMjg1LjUwOCA1NDEuMjA3IDI2NS44MDZWMTE0LjQ5MkM1NDEuMjA3IDEwMC40OTIgNTI2LjI5MyA4NS4xOTQgNDk1LjIzNiA4NS4xOTRaIiBmaWxsPSIjRTNFM0UzIi8+CjxwYXRoIGQ9Ik0zODQuOTk5IDE1MGwtNzUuMDAyIDc1bDAtNzV6IiBzdHJva2U9IiNFMEU0RTUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0zNDAuMDQgMTk0LjkyNUwzMDcuNSA3NWwyNS40OTggMTE5LjkyNXoiIGZpbGw9IiM5NUE5QkQiLz4KPHBhdGggZD0iTTMyMC43NTQgMjA3Ljc1TDMyOC41IDIzNS43NWwxNS41LTE1LjUweiIgZmlsbD0iI0I0QjJCMCIvPgo8cGF0aCBkPSJNMzQwLjAzNyAxNTMuMjVMMzQ4LjMwNyAxNzAuNzVMMzU1Ljk2MyAxNjEuNTc1IiBzdHJva2U9IiNFMEU0RkUiIHN0cm9rZS13aWR0aD0iMS41Ii8+CjxwYXRoIGQ9Ik0yODguNzU0IDIwNy43NUwyOTYuNSAyMzUuNzVsMTUuNS0xNS41IiBmaWxsPSIjQjRCNEQ0Ii8+CjxwYXRoIGQ9Ik0zMDcuNSAyMjAuMjVMMzE1LjIzMSAyMzcuNzVMMzIxLjAwNiAyMjguNTE4IiBzdHJva2U9IiNFMEYwRkUiIHN0cm9rZS13aWR0aD0iMS41Ii8+CjxwYXRoIGQ9Ik0yNTkuNTAxIDE5NS45MzhM AleksandarLTAuMjM1IDIzNS43NWwxNS43NjktMTE5LjkyNXoiIGZpbGw9IiNCNkJFQUYiLz4KPHBhdGggZD0iTTI0My43MzYgMjE5LjQyM0wyNTEuNDY2IDIzNy43NWwxNS41LTE1LjV6IiBmaWxsPSIjQzhEQkQwIi8+CjxwYXRoIGQ9Ik0yMjcuOTY4IDIyMC43NUwyMzUuNzM4IDIzNy43NWwxNS41LTE1LjV6IiBmaWxsPSIjQkZFQUZGIi8+Cjwvc3ZnPg==" alt="Placeholder for image reveal animation" style="width: 90%; max-width: 400px; border-radius: 8px; object-fit: cover;">
+            </div>
+        </section>
+
+        <section id="fade-up-animation" class="animation-section">
+            <h2>Fade-up & Staggered Animations</h2>
+            <p>Create a sense of order and guide the user's eye with elements that fade and lift into place. This is particularly effective for lists or timelines, where a staggered effect can significantly improve readability.</p>
+            <div class="card fadeUp" style="animation-range: entry 10% cover 50%;">
+                <h3>Individual Item Fade-Up</h3>
+                <p>Each element with the `fadeUp` class will animate independently as it enters the viewport.</p>
+            </div>
+            <div class="staggered-items">
+                <div class="card fadeUp" style="animation-range: entry 20% cover 40%;">
+                    <h4>First Step</h4>
+                    <p>This is the initial action or component.</p>
+                </div>
+                <div class="card fadeUp" style="animation-range: entry 30% cover 50%;">
+                    <h4>Second Step</h4>
+                    <p>This follows the first step, smoothly appearing.</p>
+                </div>
+                <div class="card fadeUp" style="animation-range: entry 40% cover 60%;">
+                    <h4>Third Step</h4>
+                    <p>The final stage of our sequence.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="auto-blur-animation" class="animation-section">
+            <h2>Auto Blur Animation</h2>
+            <p>Add subtle depth and focus shifts with an auto-blur effect. This animation sharpens elements as they become central in the viewport and slightly blurs them as they enter or leave, creating a dynamic focus.</p>
+            <div class="card autoBlur" style="animation-range: entry 50% cover 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; aspect-ratio: 16/9; background: var(--card-bg); border: none;">
+                <h3>Dynamic Focus Blur</h3>
+                <p>Observe the text and background sharpen and blur based on its visibility.</p>
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0yMDAgNjAuMDAxOTY3NjQ1NDEyMTc3Yy0zMy4xNjE3NDMyOTQ1MjIxOTktMTAuODE0OTQ0MjYyMTg4Mzc3IC02OS42MzA0OTE2MjIxNzAxMiAtNDAuNjY4NjY0MjUxMzgyMzgzbC00MS4yOTUxOTIzOTMyMTEyIDQyLjI4Mzk5Mjg1NDUyNzIzMmwtNDEuMjAwMjQ0NTk3NjAxOTQgNDIuMjU1NDY0Njg1NjA5NzhjLTIxLjU0OTQ2OTMwMjA0Nzc1IDIzLjEwMjkxMzMzMzY5NTQyMiAtNTMuNjY0MzMyNDk4MDQwNDk0IC0yNi4yOTIzOTk0NjE3NjY3OCAtNDEuMTU4NjQ1MzAwODg5MjVsLTQxLjIyMTU4NjM2NTY0MDQ5Yy0yNS4wNjE4NzI3MjE3MTI0NSAtMTYuMjcyNzMxOTQ5OTE5MTU4IC0yNy42MDQyNzk1NzQ3NDQ4MTcgLTI1LjQ2ODEzNjA4Mzk2Mzc4bDU4LjcwMjcwNTQwNDgzNjQwOCAtMTI2LjAyNDA1MDAyMDI1NDRjMjQuOTM5OTgzNjc5NjcyMTc2IC0zNy45NzYzMTgwNzE1OTU4OTcgOTcuNjM5MjY0MzUyNjcyMTI1IC00NS4zNTQ0NTYxNjM1MjY3MWwxNjMuMTQ1MTcwOTk2OTE2NjYgMTAyLjYwOTc1OTcwNTc5MTg1Yy0yMi42NTc3MjA1MTI3Mjc0NTMgLTM5LjU1Njg3ODk4MjIyMTQ1IDIzLjUwMzQ4MzUyMDcyMzExIDI2LjgzMzA3NjA4MjIyNDY2NmM1NC4xMDM2OTI2NTk3NjIzMzQgNDUuMDAyMDMzNDQ5MzU3MTkgNjEuNzM1OTYzMzIwMTU4Njg1IDExMC4xMjM5NzY4MDYyMTA2N3oiIGZpbGw9IiNEQUVBRUEiLz4KPHBhdGggZD0iTTMwNy40OTkgMjEyLjU1TDMyNS41IDE4OC43NTVMMzQzLjUwMSAyMTIuNTVMMzI1LjUwMSAyMzYuMzR6IiBmaWxsPSIjQ0NFRkZGIi8+CjxwYXRoIGQ9Ik0zMTUuMDAxIDIwMC4zNzVMMzI1LjUwMSAxOTIuMjQ5TDMyNS41IDIyNC45OTkiIGZpbGw9IiNGRkZGRkYiLz4KPHBhdGggZD0iTTMyNS41IDE5Mi4yNUwzMzUuNDk5IDIwMC4zNzVMMzI1LjUwMSAyMjQuOTk5IiBmaWxsPSIjRkZGRkZGIi8+CjxwYXRoIGQ9Ik0zMjUuNTAxIDE5Mi4yNUwzMjUuNTAxIDE4MC43NTA0OTk5OTk5OTk5NWwxMS4wMDM0OTk5OTk5OTk5OTIgMTAuNTA1NDk5OTk5OTk5OTk1TDE2LjUxMjUgMjEyLjU1IiBzdHJva2U9IiNFRkYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTMxNC40OTkgMTc1LjI1TDMxNC40OTkgMTc2LjI1TDMyNS41IDE3NS4yNUwyMjUuNSAxNzUuMjUiIHN0cm9rZT0iI0VERiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KPC9zdmc+Cg==" alt="Abstract graphic for blur animation" style="width: 70%; max-width: 250px; margin-top: 1rem; border-radius: 8px;">
+            </div>
+        </section>
+
+        <section id="horizontal-scrolling-animation" class="animation-section">
+            <h2>Horizontal Scrolling Animation</h2>
+            <p>Introduce unique navigation and content presentation with horizontal scrolling. This creates a linear, story-like flow, perfect for showcasing lists of tools, projects, or step-by-step guides.</p>
+            <div class="horizontal-scroll-wrapper">
+                <div class="horizontal-scroll-item card interactive">
+                    <div class="tool-icon">
+                        <div class="rank-badge">#1</div>
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-1-13h2v6h-2v-6zm0 7h2v2h-2v-2z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3>Scroll-Triggered</h3>
+                    <p>The foundational concept for all these animations.</p>
+                </div>
+                <div class="horizontal-scroll-item card interactive">
+                    <div class="tool-icon">
+                        <div class="rank-badge">#2</div>
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6h2v-6zm0 7h-2v2h2v-2z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3>Image Reveal</h3>
+                    <p>Make your images captivating.</p>
+                </div>
+                <div class="horizontal-scroll-item card interactive">
+                    <div class="tool-icon">
+                        <div class="rank-badge">#3</div>
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-3-7h6v-4h-6v4z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3>Fade-Up Effects</h3>
+                    <p>Smoothly introduce content sections.</p>
+                </div>
+                <div class="horizontal-scroll-item card interactive">
+                    <div class="tool-icon">
+                        <div class="rank-badge">#4</div>
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-4-10v8h10v-8H8z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3>Auto Blur</h3>
+                    <p>Add visual depth with focus shifts.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container section--content" style="text-align: center; padding-top: 3rem; padding-bottom: 3rem;">
+            <p>&copy; 2023 QuerTech Articles. All rights reserved.</p>
+            <p><a href="https://quertech-articles.vercel.app">Visit QuerTech Articles</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating Theme Toggle (Example - No actual theme switching logic here) -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i> <!-- Placeholder for an icon -->
+    </button>
+
+    <script>
+        // --- Vanilla JavaScript for Interactivity ---
+
+        // --- Smooth Scroll for Anchor Links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // --- Intersection Observer for Visibility Animations (Fallback/Alternative) ---
+        // Modern CSS `animation-timeline: view()` is preferred, but Intersection Observer
+        // can be used for broader compatibility or more complex visibility logic.
+
+        const animatableElements = document.querySelectorAll('.animation-item, .autoShow, .imageReveal, .fadeUp, .autoBlur');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // If using CSS animation-timeline, this 'visible' class might not be strictly needed
+                    // but it's good for demonstration and fallback.
+                    // For CSS `animation-timeline`, the browser handles playback based on viewport.
+
+                    // For specific element-based animations like staggered items,
+                    // we might want to trigger individual animations here.
+                    // The CSS `animation-range` on elements within `.staggered-items` will handle this.
+                } else {
+                    // Optionally remove 'visible' class when element scrolls out of view
+                    // to replay animations on re-entry if desired.
+                    // entry.target.classList.remove('visible');
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when at least 10% of the element is visible
+        });
+
+        animatableElements.forEach(el => {
+            // For elements that use `animation-timeline: view()`, we still want to
+            // observe them to ensure they are added to the DOM and can be animated.
+            // The `visible` class might not be strictly needed for `view()` but
+            // helps conceptually.
+            observer.observe(el);
+        });
+
+        // --- Interactive Card Hover Effect ---
+        const interactiveCards = document.querySelectorAll('.card.interactive');
+        interactiveCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 10; // Max 10 degree tilt
+                const rotateY = (centerX - x) / 10; // Max 10 degree tilt
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+                card.style.boxShadow = `var(--card-lift), 0 0 20px rgba(99, 102, 241, 0.3)`; // Add glow on hover
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+                card.style.boxShadow = 'var(--card-shadow-small)'; // Revert to default shadow
+            });
+        });
+
+        // --- Floating Theme Toggle (Placeholder Functionality) ---
+        const themeToggleButton = document.getElementById('themeToggle');
+        if (themeToggleButton) {
+            themeToggleButton.addEventListener('click', () => {
+                // In a real application, this would toggle between light/dark themes.
+                // For this single file, we'll just log an action.
+                console.log('Theme toggle clicked!');
+                // Example: Toggle an icon
+                const icon = themeToggleButton.querySelector('i');
+                if (icon.classList.contains('fa-moon')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                    document.body.classList.add('light-theme'); // Example class
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                    document.body.classList.remove('light-theme');
+                }
+            });
+        }
+
+        // Add Font Awesome CDN for icons if needed (though this example uses a placeholder)
+        // <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//cssflow">CSS Flow</a><a href="//stopscroll">Stop Scroll</a><a href="//geminivisions">Gemini Visions</a><a href="//algosecrets">Algorithm Secrets</a><a href="//buildaitools">Build AI Tools</a><a href="//designflaws">Design Flaws</a><a href="//designmastery">Design Mastery</a><a href="//designtrends">Design Trends</a><a href="//designgear">Design Gear</a><a href="//taxhacks">Tax Hacks</a><a href="//androidhacks">Android Hacks</a><a href="//spartangains">Spartan Gains</a><a href="//aiuxshift">AI UX Shift</a><a href="//speakfluent">Speak fluent</a><a href="//uicolorguide">UI Colors Guide</a><a href="//designessn">Design ESSN</a><a href="//aicodewins">AI Code Wins</a><a href="//2026gamesignite">2026 Games Ignite</a><a href="//designprovideo">Design Pro Video</a><a href="//claudechat">Claude Chat</a><a href="//cmdsecrets">CMD Secrets</a><a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags for SEO Optimization -->
+    <meta name="title" content="Secure APIs: Master Authentication Methods">
+    <meta name="description" content="Tired of clunky logins & weak API security? Unlock seamless, robust authentication. Discover JWT, OAuth, OIDC & evolve your apps for ultimate protection & user ease.">
+    <meta name="keywords" content="API authentication methods, Web application authentication, JWT authentication explained, OAuth 2.0 authorization, OpenID Connect tutorial, Secure user authentication, Token-based authentication, Evolving authentication systems, API security best practices, Single Sign-On (SSO) explained, What are the different API authentication methods?, How to secure web application logins, Understanding JWT tokens for APIs, Using OAuth for delegated authorization, OpenID Connect vs OAuth 2.0, Benefits of token-based authentication for scalability, Simple explanation of API keys, Session management in web apps, How to implement SSO for multiple applications, Best authentication protocols for modern apps">
+    <meta name="author" content="QuerTech Articles">
+    <meta property="og:title" content="Secure APIs: Master Authentication Methods">
+    <meta property="og:description" content="Tired of clunky logins & weak API security? Unlock seamless, robust authentication. Discover JWT, OAuth, OIDC & evolve your apps for ultimate protection & user ease.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:image" content="URL_TO_YOUR_OG_IMAGE"> <!-- Replace with actual image URL -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Secure APIs: Master Authentication Methods">
+    <meta name="twitter:description" content="Tired of clunky logins & weak API security? Unlock seamless, robust authentication. Discover JWT, OAuth, OIDC & evolve your apps for ultimate protection & user ease.">
+    <meta name="twitter:image" content="URL_TO_YOUR_TWITTER_IMAGE"> <!-- Replace with actual image URL -->
+
+    <title>Secure APIs: Master Authentication Methods</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=SF+Pro+Display:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* -- Global Variables -- */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-dark: #09172a;
+            --color-slate-medium: #1e293b;
+            --color-slate-light: #334155;
+            --color-white-translucent: rgba(255, 255, 255, 0.1);
+            --color-gradient-text: linear-gradient(to right, var(--color-pink), var(--color-indigo));
+
+            --font-primary: 'SF Pro Display', sans-serif;
+            --font-secondary: 'Inter', sans-serif;
+
+            --spacing-unit: 1rem;
+            --border-radius-card: 12px;
+            --shadow-card-hover: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --shadow-card-ambient: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+            --duration-short: 0.3s;
+            --duration-medium: 0.5s;
+            --duration-long: 1s;
+        }
+
+        /* -- CSS Reset & Base Styles -- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            background-color: var(--color-slate-dark);
+            color: var(--color-white-translucent);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative; /* For background orbs positioning */
+        }
+
+        /* -- Background Animation -- */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0) 70%),
+                        radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(236, 72, 153, 0) 70%);
+            filter: blur(100px);
+            animation: float var(--duration-long) ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+            100% { transform: translateY(0) scale(1); }
+        }
+
+        /* -- Typography -- */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            color: #fff; /* Initially white for gradient mask */
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: clamp(1.1, 0.1vw + 1, 1.2); /* Fluid scaling */
+            background: var(--color-gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block; /* To ensure background clip works */
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: clamp(1.2, 0.1vw + 1, 1.3);
+            margin-top: calc(var(--spacing-unit) * 2);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            line-height: clamp(1.3, 0.1vw + 1, 1.4);
+            margin-top: var(--spacing-unit);
+        }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-unit);
+            color: var(--color-slate-light); /* Slightly muted for readability */
+        }
+
+        a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            transition: color var(--duration-short) ease;
+        }
+
+        a:hover {
+            color: var(--color-pink);
+            text-decoration: underline;
+        }
+
+        /* -- Layout & Structure -- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 2);
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+            background-color: rgba(9, 23, 42, 0.8); /* Semi-transparent dark slate */
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: var(--font-primary);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            background: var(--color-gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: var(--spacing-unit);
+        }
+
+        nav a {
+            color: var(--color-slate-light);
+            font-weight: 700;
+            padding: calc(var(--spacing-unit) / 2) var(--spacing-unit);
+            border-radius: var(--border-radius-card);
+            transition: background-color var(--duration-short) ease, color var(--duration-short) ease;
+        }
+
+        nav a:hover {
+            background-color: var(--color-white-translucent);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 6) var(--spacing-unit);
+            position: relative;
+            overflow: hidden; /* Ensures orbs stay within bounds */
+        }
+
+        .hero-section h1 {
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .hero-section p {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--color-slate-light);
+        }
+
+        main {
+            flex-grow: 1; /* Allows main content to take available space */
+            padding: calc(var(--spacing-unit) * 4) 0;
+        }
+
+        .content-section {
+            padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+        }
+
+        .content-section h2 {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-card);
+            padding: calc(var(--spacing-unit) * 2);
+            box-shadow: var(--shadow-card-ambient);
+            transition: transform var(--duration-short) ease, box-shadow var(--duration-short) ease, border-color var(--duration-short) ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* To contain potential animations within the card */
+            position: relative; /* For rank badge positioning */
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* 3D card lifting effect */
+            box-shadow: var(--shadow-card-hover);
+            border-color: var(--color-indigo);
+        }
+
+        .card-rank-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--color-gradient-text);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Push footer to bottom if content varies */
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+            background: var(--color-gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card h3 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-top: 0;
+            margin-bottom: var(--spacing-unit);
+            color: #fff;
+        }
+
+        .card p {
+            font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+            color: var(--color-slate-light);
+            flex-grow: 1; /* Allow description to take available space */
+        }
+
+        .card-footer {
+            margin-top: calc(var(--spacing-unit) * 1.5);
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--color-slate-light);
+        }
+
+        .card-footer a {
+            color: var(--color-indigo);
+            font-weight: 700;
+        }
+
+        .card-footer a:hover {
+            color: var(--color-pink);
+        }
+
+        /* -- Geometric Patterns (Placeholder) -- */
+        .card-icon::before,
+        .card-icon::after {
+            content: '';
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.05);
+            filter: blur(5px);
+            opacity: 0.5;
+            z-index: -1; /* Behind text */
+        }
+
+        /* Example: Basic Geometric Pattern */
+        .card-icon.basic-auth::before {
+            width: 80px;
+            height: 80px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            background-color: rgba(99, 102, 241, 0.2);
+        }
+
+        .card-icon.digest-auth::after {
+            width: 100px;
+            height: 100px;
+            top: 40%;
+            left: 60%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            background-color: rgba(236, 72, 153, 0.2);
+        }
+
+        /* More patterns would be added per card for distinctiveness */
+        .card-icon.jwt::before {
+            width: 90px;
+            height: 90px;
+            top: 30%;
+            left: 30%;
+            transform: translate(-50%, -50%) skewX(15deg);
+            background-color: rgba(99, 102, 241, 0.15);
+        }
+
+        .card-icon.oauth::after {
+            width: 110px;
+            height: 110px;
+            top: 60%;
+            left: 70%;
+            transform: translate(-50%, -50%) rotate(30deg);
+            background-color: rgba(236, 72, 153, 0.15);
+        }
+
+        .card-icon.oidc::before {
+            width: 100px;
+            height: 100px;
+            top: 70%;
+            left: 20%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            background-color: rgba(99, 102, 241, 0.2);
+        }
+
+        .card-icon.sso::after {
+            width: 120px;
+            height: 120px;
+            top: 45%;
+            left: 55%;
+            transform: translate(-50%, -50%) skewY(10deg);
+            background-color: rgba(236, 72, 153, 0.2);
+        }
+
+
+        /* -- Floating Theme Toggle (Example - Functional Toggle via JS) -- */
+        .theme-toggle {
+            position: fixed;
+            bottom: var(--spacing-unit);
+            right: var(--spacing-unit);
+            z-index: 1001;
+            background-color: var(--color-indigo);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.5);
+            transition: background-color var(--duration-short) ease, transform var(--duration-short) ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--color-pink);
+            transform: scale(1.1);
+        }
+
+        /* -- Footer -- */
+        footer {
+            background-color: var(--color-slate-medium);
+            color: var(--color-slate-light);
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+            margin-top: auto; /* Push to bottom */
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer a {
+            color: var(--color-indigo);
+            font-weight: 700;
+        }
+
+        footer a:hover {
+            color: var(--color-pink);
+        }
+
+        /* -- Responsive Design -- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: var(--spacing-unit);
+            }
+
+            .logo {
+                margin-bottom: var(--spacing-unit);
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: calc(var(--spacing-unit) / 2);
+            }
+
+            nav a {
+                padding: calc(var(--spacing-unit) / 4) var(--spacing-unit);
+            }
+
+            .hero-section {
+                padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+            }
+
+            .content-section {
+                padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: calc(var(--spacing-unit) * 1.5);
+            }
+
+            .card-icon {
+                font-size: 2.5rem;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+
+            h2 {
+                font-size: clamp(1.8rem, 5vw, 2.5rem);
+            }
+
+            p {
+                font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+
+            .hero-section h1 {
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
+            }
+
+            .card-rank-badge {
+                padding: 4px 12px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Background Animation Orbs -->
+    <div class="background-orbs">
+        <!-- Orbs will be dynamically generated by JavaScript -->
+    </div>
+
+    <header>
+        <div class="logo">QuerTech Articles</div>
+        <nav>
+            <ul>
+                <li><a href="https://quertech-articles.vercel.app" aria-label="Home">Home</a></li>
+                <li><a href="#content-section" aria-label="Topics">Topics</a></li>
+                <li><a href="#about" aria-label="About">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>Secure APIs: Master Authentication Methods</h1>
+            <p>Unlock seamless, robust authentication. Discover JWT, OAuth, OIDC & evolve your apps for ultimate protection & user ease.</p>
+        </div>
+    </section>
+
+    <main id="content-section">
+        <section class="content-section">
+            <div class="container">
+                <h2>Evolution of Authentication Methods</h2>
+                <div class="card-grid">
+                    <!-- Basic Authentication -->
+                    <div class="card">
+                        <div class="card-rank-badge">#1</div>
+                        <div class="card-icon basic-auth">🔑</div>
+                        <div class="card-content">
+                            <h3>Basic Authentication</h3>
+                            <p>The simplest method, sending username and password encoded in Base64 with every request. Easy but insecure, as credentials can be intercepted.</p>
+                            <div class="card-footer">Learn about <a href="#basic-auth-details">API keys</a></div>
+                        </div>
+                    </div>
+
+                    <!-- Digest Authentication -->
+                    <div class="card">
+                        <div class="card-rank-badge">#2</div>
+                        <div class="card-icon digest-auth">🛡️</div>
+                        <div class="card-content">
+                            <h3>Digest Authentication</h3>
+                            <p>Improves on Basic Auth by sending a hashed response to a server challenge. Prevents direct credential exposure but is more complex and less common now.</p>
+                            <div class="card-footer">Explore <a href="#digest-auth-details">session management</a></div>
+                        </div>
+                    </div>
+
+                    <!-- Session Authentication -->
+                    <div class="card">
+                        <div class="card-rank-badge">#3</div>
+                        <div class="card-icon session-auth">🍪</div>
+                        <div class="card-content">
+                            <h3>Session Authentication</h3>
+                            <p>Uses a session ID (often in cookies) after login. Allows server-side state management but can be difficult to scale across multiple servers.</p>
+                            <div class="card-footer">Discover <a href="#session-auth-details">JWT benefits</a></div>
+                        </div>
+                    </div>
+
+                    <!-- API Keys -->
+                    <div class="card">
+                        <div class="card-rank-badge">#4</div>
+                        <div class="card-icon api-keys">🏷️</div>
+                        <div class="card-content">
+                            <h3>API Keys</h3>
+                            <p>Unique identifiers for applications to authenticate and authorize API access. Primarily identifies the application, not the individual user.</p>
+                            <div class="card-footer">Understand <a href="#api-keys-details">bearer tokens</a></div>
+                        </div>
+                    </div>
+
+                    <!-- Bearer Tokens (JWTs) -->
+                    <div class="card">
+                        <div class="card-rank-badge">#5</div>
+                        <div class="card-icon jwt">✨</div>
+                        <div class="card-content">
+                            <h3>Bearer Tokens (JWTs)</h3>
+                            <p>Stateless tokens containing user info and signature. Facilitates scalability as the server doesn't need to store session state. Access tokens are short-lived.</p>
+                            <div class="card-footer">Learn more about <a href="#jwt-details">token-based auth</a></div>
+                        </div>
+                    </div>
+
+                    <!-- OAuth 2.0 -->
+                    <div class="card">
+                        <div class="card-rank-badge">#6</div>
+                        <div class="card-icon oauth">🤝</div>
+                        <div class="card-content">
+                            <h3>OAuth 2.0</h3>
+                            <p>A framework for delegated authorization. Allows apps to access resources on behalf of a user without sharing credentials. Focuses on *what* an app can do.</p>
+                            <div class="card-footer">Explore <a href="#oauth-details">OIDC</a></div>
+                        </div>
+                    </div>
+
+                    <!-- OpenID Connect (OIDC) -->
+                    <div class="card">
+                        <div class="card-rank-badge">#7</div>
+                        <div class="card-icon oidc">🆔</div>
+                        <div class="card-content">
+                            <h3>OpenID Connect (OIDC)</h3>
+                            <p>Built on OAuth 2.0, OIDC adds an identity layer. Provides a standard way to verify user identity via an ID Token containing profile information.</p>
+                            <div class="card-footer">See <a href="#oidc-details">SSO in action</a></div>
+                        </div>
+                    </div>
+
+                    <!-- Single Sign-On (SSO) -->
+                    <div class="card">
+                        <div class="card-rank-badge">#8</div>
+                        <div class="card-icon sso">🚀</div>
+                        <div class="card-content">
+                            <h3>Single Sign-On (SSO)</h3>
+                            <p>A user experience allowing one login for multiple applications. Not a protocol itself, but a result of implementing protocols like OIDC or SAML.</p>
+                            <div class="card-footer">Achieve <a href="#sso-details">seamless logins</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="about">
+            <div class="container">
+                <h2>About This Topic</h2>
+                <p>Authentication is the bedrock of digital security, ensuring that only legitimate users and applications can access sensitive data and functionalities. This video dives deep into the historical progression and modern landscape of authentication methods, from the foundational, albeit less secure, Basic Authentication to the sophisticated, scalable, and user-centric protocols like JWT, OAuth 2.0, and OpenID Connect.</p>
+                <p>Understanding these distinctions is not just academic; it's crucial for developers building secure, performant, and user-friendly web applications and APIs. We'll break down the core concepts, explore the pros and cons of each method, and provide actionable insights to help you choose the right authentication strategy for your projects. Whether you're a seasoned developer or just starting, this guide will equip you with the knowledge to implement robust security measures and enhance user experiences.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 QuerTech Articles. All rights reserved.</p>
+            <p>Built with 💙 by the QuerTech team. <a href="https://quertech-articles.vercel.app">Visit our homepage.</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon" style="display: none;">🌙</span>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // -- Background Orb Generation --
+            const backgroundOrbsContainer = document.querySelector('.background-orbs');
+            const numberOfOrbs = 5; // Adjust for desired density
+            const colors = [
+                { r: 99, g: 102, b: 241, alpha: 0.3 }, // Indigo
+                { r: 236, g: 72, b: 153, alpha: 0.3 }  // Pink
+            ];
+
+            for (let i = 0; i < numberOfOrbs; i++) {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                // Random size
+                const size = Math.random() * 300 + 100; // 100px to 400px
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                orb.style.left = `${posX}%`;
+                orb.style.top = `${posY}%`;
+
+                // Randomize animation duration and delay
+                const duration = Math.random() * 2 + 3; // 3s to 5s
+                orb.style.animationDuration = `${duration}s`;
+                const delay = Math.random() * 2; // 0s to 2s
+                orb.style.animationDelay = `-${delay}s`; // Negative delay to start mid-animation
+
+                // Randomize color and blur
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                orb.style.background = `radial-gradient(circle, rgba(${randomColor.r}, ${randomColor.g}, ${randomColor.b}, ${randomColor.alpha}) 0%, rgba(${randomColor.r}, ${randomColor.g}, ${randomColor.b}, 0) 70%)`;
+                orb.style.filter = `blur(${Math.random() * 50 + 80}px)`; // Blur between 80px and 130px
+
+                backgroundOrbsContainer.appendChild(orb);
+            }
+
+            // -- Theme Toggle Functionality --
+            const themeToggle = document.querySelector('.theme-toggle');
+            const sunIcon = themeToggle.querySelector('.icon-sun');
+            const moonIcon = themeToggle.querySelector('.icon-moon');
+            const body = document.body;
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    body.style.backgroundColor = '#09172a'; // Slate Dark
+                    body.style.color = 'rgba(255, 255, 255, 0.8)'; // Lightened translucent white
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'inline';
+                    // Update orb colors for dark theme if needed
+                    document.querySelectorAll('.orb').forEach(orb => {
+                        // This is a simplified approach; for dynamic theme changes of orbs,
+                        // you'd need to re-apply their background styles or use CSS variables.
+                    });
+                } else {
+                    body.style.backgroundColor = '#f0f4f8'; // Light background
+                    body.style.color = '#334155'; // Slate Light for text
+                    sunIcon.style.display = 'inline';
+                    moonIcon.style.display = 'none';
+                    // Update orb colors for light theme if needed
+                }
+            };
+
+            // Check localStorage for saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            } else {
+                applyTheme('dark'); // Default to dark theme
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = body.style.backgroundColor === '#09172a' ? 'dark' : 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+
+            // -- Smooth Scrolling for Anchor Links --
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // -- Placeholder for Geometric Patterns (if they were more complex CSS) --
+            // In this case, they are inline styles in the HTML, but for more complex
+            // dynamic patterns, you'd manipulate CSS classes or styles here.
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//csspopovers">CSS Popovers</a><a href="//csslayout">CSS Layout Mastery</a><a href="//cssatrt">CSS Attr Type</a><a href="//csspos">CSS Pos</a><a href="//cssevolution">CSS Evolve</a><a href="//scrollfx">Scroll FX</a><a href="//cssflow">CSS Flow</a><a href="//stopscroll">Stop Scroll</a><a href="//geminivisions">Gemini Visions</a><a href="//algosecrets">Algorithm Secrets</a><a href="//buildaitools">Build AI Tools</a><a href="//designflaws">Design Flaws</a><a href="//designmastery">Design Mastery</a><a href="//designtrends">Design Trends</a><a href="//designgear">Design Gear</a><a href="//taxhacks">Tax Hacks</a><a href="//androidhacks">Android Hacks</a><a href="//spartangains">Spartan Gains</a><a href="//aiuxshift">AI UX Shift</a><a href="//speakfluent">Speak fluent</a><a href="//uicolorguide">UI Colors Guide</a><a href="//designessn">Design ESSN</a><a href="//aicodewins">AI Code Wins</a><a href="//2026gamesignite">2026 Games Ignite</a><a href="//designprovideo">Design Pro Video</a><a href="//claudechat">Claude Chat</a><a href="//cmdsecrets">CMD Secrets</a><a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

@@ -1,5 +1,175 @@
 [
   {
+    "blog_title": "CSS Scale",
+    "link": "/cssscale",
+    "description": "Master responsive design with CSS min(), max(), and clamp(). Learn to create fluid layouts and typography that adapt seamlessly across all devices, moving beyond traditional media queries for smarter scaling.",
+    "tags": [
+      "CSS",
+      "Responsive Design",
+      "min()",
+      "max()",
+      "clamp()",
+      "Web Development",
+      "Front-end"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Pixel Glitch",
+    "link": "/pixelglitch",
+    "description": "Learn to build a dynamic noisy pixel shader effect with HTML, CSS, and JavaScript using Three.js. Perfect for creating glitch-like, pixelated visuals and interactive web animations triggered by scrolling.",
+    "tags": [
+      "Three.js",
+      "Shaders",
+      "WebGL",
+      "Pixel Effect",
+      "Scroll Animation",
+      "Web Development",
+      "JavaScript",
+      "CSS",
+      "HTML"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Proxy, Balance, Gateway",
+    "link": "/proxies",
+    "description": "Unravel the differences between Reverse Proxies, Load Balancers, and API Gateways. Master your network architecture and choose the right tool for scalability and API management.",
+    "tags": [
+      "Reverse Proxy",
+      "Load Balancer",
+      "API Gateway",
+      "Network Architecture",
+      "Microservices",
+      "Scalability",
+      "Tech Explained"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Auth Evolved",
+    "link": "/authevolution",
+    "description": "Unlock secure APIs! Discover how authentication evolved from basic logins to modern JWT, OAuth, and OpenID Connect for seamless, protected web apps. Essential knowledge for developers.",
+    "tags": [
+      "Authentication",
+      "API Security",
+      "JWT",
+      "OAuth",
+      "OpenID Connect",
+      "Web Security"
+    ],
+    "color": "bg-blue-800 shadow-blue-400"
+  },
+  {
+    "blog_title": "CSS Popovers",
+    "link": "/csspopovers",
+    "description": "Discover the power of CSS anchor positioning and @position-try for creating dynamic, self-adjusting popovers. Learn how to build smarter UIs without JavaScript and enhance user experience by keeping popovers in view.",
+    "tags": [
+      "CSS",
+      "Positioning",
+      "Popovers",
+      "Anchor Positioning",
+      "Web Development",
+      "Frontend"
+    ],
+    "color": "bg-indigo-600 shadow-indigo-400"
+  },
+  {
+    "blog_title": "CSS Layout Mastery",
+    "link": "/csslayout",
+    "description": "Unlock powerful web design! Discover the optimal use cases for CSS Flexbox and Grid. Learn to build responsive, efficient layouts and avoid common developer pitfalls. Master page structure and component alignment for superior web development.",
+    "tags": [
+      "CSS Grid",
+      "CSS Flexbox",
+      "Web Design",
+      "Layouts",
+      "Responsive Design",
+      "CSS Best Practices"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "CSS Attr Type",
+    "link": "/cssatrt",
+    "description": "Unlock dynamic styling! Discover how the enhanced CSS `attr()` function with type support lets you control CSS properties with HTML data attributes, no JavaScript needed. Build more interactive and data-driven designs.",
+    "tags": [
+      "CSS",
+      "attr() function",
+      "data attributes",
+      "dynamic styling",
+      "frontend development",
+      "CSS enhancements",
+      "web design"
+    ],
+    "color": "bg-cyan-700 shadow-cyan-400"
+  },
+  {
+    "blog_title": "CSS Pos",
+    "link": "/csspos",
+    "description": "Master CSS positioning! Learn static, relative, absolute, fixed, and sticky to precisely control your web layouts. Essential for dynamic designs and improved user experience.",
+    "tags": [
+      "CSS",
+      "Positioning",
+      "Web Development",
+      "Frontend",
+      "Layout"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "CSS Evolve",
+    "link": "/cssevolution",
+    "description": "Discover 7 powerful CSS updates that simplify styling and boost web design. Learn about new layout controls, typed variables, advanced animations, and more!",
+    "tags": [
+      "CSS",
+      "Web Development",
+      "Frontend",
+      "Styling",
+      "New Features",
+      "Web Design"
+    ],
+    "color": "bg-purple-700 shadow-purple-400"
+  },
+  {
+    "blog_title": "Scroll FX",
+    "link": "/scrollfx",
+    "description": "Master scroll animations! Learn to reveal images, create horizontal scrolling, and add dynamic fade-up effects using only HTML and CSS. Elevate your web design with these powerful techniques.",
+    "tags": [
+      "Scroll Animations",
+      "CSS Animations",
+      "HTML Animations",
+      "Web Design",
+      "Interactive Web"
+    ],
+    "color": "bg-blue-800 shadow-blue-400"
+  },
+  {
+    "blog_title": "CSS Flow",
+    "link": "/cssflow",
+    "description": "Discover 10 game-changing CSS features like advanced border-radius, offset-path animations, and conditional styling. Elevate your web design and ditch JavaScript for complex effects!",
+    "tags": [
+      "CSS",
+      "Web Development",
+      "Frontend",
+      "Design",
+      "Animations"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Stop Scroll",
+    "link": "/stopscroll",
+    "description": "Tired of endless scrolling? Discover 15 actionable hobbies that build skills, boost confidence, and transform your life. Ditch passive consumption and start creating!",
+    "tags": [
+      "Hobbies",
+      "Skill Building",
+      "Personal Development",
+      "Productivity",
+      "Mindset Shift"
+    ],
+    "color": "bg-red-700 shadow-red-400"
+  },
+  {
     "blog_title": "Gemini Visions",
     "link": "/geminivisions",
     "description": "Unlock stunning AI images and videos with Google Gemini. Learn expert prompt engineering for ultra-realistic 3D renders, dynamic scenes, and more. Perfect for creators needing custom visuals fast.",

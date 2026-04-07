@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Title -->
+    <title>Noisy Pixel Shader FX: 3D Web Effects Tutorial</title>
+    <!-- Meta Description -->
+    <meta name="description" content="Tired of static web visuals? Master the dynamic Noisy Pixel Shader using Three.js. This tutorial reveals how to create stunning glitch effects with HTML, CSS & JS. Boost engagement NOW!">
+    <!-- SEO Keywords -->
+    <meta name="keywords" content="three.js noisy pixel shader tutorial, html css javascript webgl effects, create glitch effect javascript, web animation scroll trigger shader, dynamic pixelated visual effect, custom 3d web graphics tutorial, interactive web page animations, gsap scroll trigger effects, web development shader effects, canvas texture generation javascript">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quertech-articles.vercel.app">
+    <meta property="og:title" content="Noisy Pixel Shader FX: 3D Web Effects Tutorial">
+    <meta property="og:description" content="Tired of static web visuals? Master the dynamic Noisy Pixel Shader using Three.js. This tutorial reveals how to create stunning glitch effects with HTML, CSS & JS. Boost engagement NOW!">
+    <meta property="og:image" content="https://quertech-articles.vercel.app/og-image.png"> <!-- Placeholder for a relevant image -->
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://quertech-articles.vercel.app">
+    <meta property="twitter:title" content="Noisy Pixel Shader FX: 3D Web Effects Tutorial">
+    <meta property="twitter:description" content="Tired of static web visuals? Master the dynamic Noisy Pixel Shader using Three.js. This tutorial reveals how to create stunning glitch effects with HTML, CSS & JS. Boost engagement NOW!">
+    <meta property="twitter:image" content="https://quertech-articles.vercel.app/twitter-image.png"> <!-- Placeholder for a relevant image -->
+    <!-- Favicon (Placeholder) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%236366f1'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='white'>QX</text></svg>" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%236366f1'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='white'>QX</text></svg>">
+
+    <style>
+        /* Google Fonts: Importations for a professional sans-serif stack */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+        /* --- Core Variables & Globals --- */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-900: #09172a; /* Dark background */
+            --color-slate-800: #1e293b; /* Slightly lighter slate for cards */
+            --color-slate-700: #334155; /* Accent slate */
+            --color-white-transparent: rgba(255, 255, 255, 0.35);
+            --color-gradient-text: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+
+            --font-primary: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            --font-mono: 'Roboto Mono', monospace; /* For technical details/code snippets if any */
+
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --shadow-depth: 0px 10px 30px rgba(0, 0, 0, 0.5);
+            --card-hover-shadow: 0px 20px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        /* --- Ambient Background Orbs --- */
+        .ambient-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: var(--color-slate-900);
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.7;
+            animation: orb-move infinite alternate ease-in-out;
+        }
+
+        .orb-1 { background-color: var(--color-indigo); width: 300px; height: 300px; top: -150px; left: -150px; animation-duration: 10s; }
+        .orb-2 { background-color: var(--color-pink); width: 250px; height: 250px; bottom: -125px; right: -125px; animation-duration: 12s; animation-delay: -3s; }
+        .orb-3 { background-color: var(--color-indigo); width: 200px; height: 200px; top: 30%; left: 40%; animation-duration: 8s; animation-delay: -6s; }
+
+        @keyframes orb-move {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.2); }
+        }
+
+        /* --- Body & General Styles --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-primary);
+            color: #e2e8f0; /* Light text on dark background */
+            background-color: var(--color-slate-900);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            min-height: 100vh; /* Ensure body covers full viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); /* Safari */
+            background-color: rgba(9, 23, 42, 0.6); /* Semi-transparent dark slate */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-depth);
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 700;
+            background: var(--color-gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: calc(var(--spacing-unit) * 1.5);
+        }
+
+        nav a {
+            color: #cbd5e1; /* Lighter grey for nav links */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-pink);
+            transform: translateY(-2px);
+        }
+
+        /* --- Main Content Area --- */
+        main {
+            flex-grow: 1; /* Allows main to take up available space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+            position: relative;
+            z-index: 10; /* Ensure content is above background */
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: calc(var(--spacing-unit) * 6);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            background: var(--color-gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            margin-bottom: var(--spacing-unit);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: #94a3b8; /* Slightly muted subtitle color */
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            font-weight: 400;
+        }
+
+        /* --- WebGL Container --- */
+        #webgl-container {
+            width: 100%;
+            max-width: 800px; /* Limit size for desktop view */
+            aspect-ratio: 16 / 9; /* Maintain a widescreen aspect ratio */
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.6);
+            margin-top: calc(var(--spacing-unit) * 4);
+        }
+
+        #webgl-container canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* --- Tool/Article Cards --- */
+        .tools-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+            width: 100%;
+            max-width: 1200px;
+            margin: calc(var(--spacing-unit) * 4) auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .tool-card {
+            background-color: rgba(255, 255, 255, 0.05); /* Subtle glass effect */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: calc(var(--spacing-unit) * 2);
+            text-align: left;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.4s ease;
+            cursor: pointer;
+            box-shadow: var(--shadow-depth);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-hover-shadow);
+            border-color: var(--color-indigo);
+        }
+
+        .tool-card .rank-badge {
+            display: inline-block;
+            background: var(--color-gradient-text);
+            color: white;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: var(--spacing-unit);
+            box-shadow: 0 2px 10px rgba(236, 72, 153, 0.4);
+        }
+
+        .tool-card h3 {
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            margin-top: 0;
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            background: var(--color-gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        .tool-card p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #a0aec0; /* Muted paragraph text */
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .tool-card .tech-stack {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--color-indigo);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* --- Geometric Pattern Placeholder --- */
+        .geometric-pattern {
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(99, 102, 241, 0.1) 0px,
+                rgba(99, 102, 241, 0.1) 10px,
+                rgba(236, 72, 153, 0.1) 10px,
+                rgba(236, 72, 153, 0.1) 20px
+            );
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none; /* So it doesn't interfere with clicks */
+            opacity: 0.3;
+        }
+
+        /* --- Floating Theme Toggle (Placeholder for functionality) --- */
+        .theme-toggle {
+            position: fixed;
+            bottom: var(--spacing-unit) * 2;
+            right: var(--spacing-unit) * 2;
+            z-index: 1001;
+            background-color: var(--color-slate-800);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #cbd5e1;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--color-indigo);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+            margin-top: auto; /* Push to bottom */
+            background-color: rgba(9, 23, 42, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        footer a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--color-pink);
+        }
+
+        /* --- Scroll-based Animations (General) --- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            header {
+                padding: var(--spacing-unit) var(--spacing-unit);
+            }
+            nav ul {
+                gap: var(--spacing-unit);
+            }
+            .hero-title {
+                font-size: clamp(2rem, 8vw, 3.5rem);
+            }
+            .hero-subtitle {
+                font-size: clamp(1rem, 3vw, 1.2rem);
+            }
+            .tools-section {
+                grid-template-columns: 1fr; /* Single column on small screens */
+                padding: 0 var(--spacing-unit);
+            }
+            .tool-card {
+                margin-bottom: var(--spacing-unit);
+            }
+            .theme-toggle {
+                bottom: var(--spacing-unit);
+                right: var(--spacing-unit);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            nav {
+                display: none; /* Hide nav on very small screens, consider a hamburger menu */
+            }
+            .hero-title {
+                font-size: clamp(1.8rem, 8vw, 2.8rem);
+            }
+            .hero-subtitle {
+                font-size: clamp(0.9rem, 3vw, 1.1rem);
+            }
+        }
+
+        /* --- Three.js Shaders --- */
+        /* These are defined inline in JS for this single-file solution */
+
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Ambient Background Orbs -->
+    <div class="ambient-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <header>
+        <div class="logo">QX</div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#tools">Tutorials</a></li>
+                <li><a href="https://quertech-articles.vercel.app" target="_blank" rel="noopener noreferrer">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <h1 class="hero-title">Noisy Pixel Shader FX</h1>
+            <p class="hero-subtitle">
+                Master dynamic 3D web effects with Three.js. Learn to create stunning, glitch-like pixelated visuals using HTML, CSS, and JavaScript.
+            </p>
+        </section>
+
+        <!-- WebGL Container for the shader effect -->
+        <div id="webgl-container"></div>
+
+        <section id="tools" class="tools-section">
+            <article class="tool-card animate-on-scroll">
+                <span class="rank-badge">#1</span>
+                <h3>Noisy Pixel Shader</h3>
+                <p>Explore the core technique of creating the pixelated shader effect with dynamic textures and scroll-triggered animations.</p>
+                <div class="tech-stack">Three.js, GSAP, ScrollTrigger</div>
+                <div class="geometric-pattern"></div>
+            </article>
+
+            <article class="tool-card animate-on-scroll">
+                <span class="rank-badge">#2</span>
+                <h3>Dynamic Texture Generation</h3>
+                <p>Discover how to generate character textures on the fly using HTML Canvas for unique, lightweight visual assets.</p>
+                <div class="tech-stack">HTML Canvas, JavaScript</div>
+                <div class="geometric-pattern"></div>
+            </article>
+
+            <article class="tool-card animate-on-scroll">
+                <span class="rank-badge">#3</span>
+                <h3>Scroll-Based Animations</h3>
+                <p>Implement interactive animations that respond to user scrolling, creating an engaging and fluid user experience.</p>
+                <div class="tech-stack">GSAP, ScrollTrigger</div>
+                <div class="geometric-pattern"></div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023-2024 QX Articles. Crafted with <span style="color: var(--color-pink);">♥</span>. Visit our <a href="https://quertech-articles.vercel.app" target="_blank" rel="noopener noreferrer">Blog</a> for more.</p>
+    </footer>
+
+    <!-- Floating Theme Toggle (Placeholder) -->
+    <div class="theme-toggle" title="Toggle Theme (Not Implemented)">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/>
+        </svg>
+    </div>
+
+    <!-- JavaScript for Three.js, GSAP, and ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+
+    <script>
+        // --- Vanilla JavaScript for Interactivity & WebGL ---
+
+        // --- Ambient Orbs Animation Control ---
+        const orbs = document.querySelectorAll('.orb');
+        const orbAnimationDurations = [10, 12, 8]; // seconds
+        const orbAnimationDelays = [0, -3, -6]; // seconds
+
+        orbs.forEach((orb, index) => {
+            const duration = orbAnimationDurations[index] || 10;
+            const delay = orbAnimationDelays[index] || 0;
+            orb.style.animationDuration = `${duration}s`;
+            orb.style.animationDelay = `${delay}s`;
+        });
+
+        // --- Scroll Animation Observer ---
+        const observerOptions = {
+            root: null, // relative to document viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // --- Three.js WebGL Shader Implementation ---
+
+        // Function to create the character texture
+        const makeCharsTexture = (loader, resolve, reject) => {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=_+[]{}|;:\'",.<>?/~`';
+            const fontSize = 32; // Pixel size of each character
+            const padding = 5; // Padding around characters
+
+            canvas.width = (fontSize + padding) * 16; // Approximate width based on characters per row
+            canvas.height = (fontSize + padding) * 5; // Approximate height based on characters per column
+
+            context.font = `${fontSize}px ${'Roboto Mono'}, monospace`;
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillStyle = '#ffffff'; // Base color
+
+            let x = padding / 2 + fontSize / 2;
+            let y = padding / 2 + fontSize / 2;
+            let charCount = 0;
+
+            for (let i = 0; i < characters.length; i++) {
+                const char = characters[i];
+                context.save();
+                context.globalAlpha = 0.35; // Semi-transparent white
+                context.fillText(char, x, y);
+                context.restore();
+
+                charCount++;
+                x += fontSize + padding;
+                if (x + fontSize / 2 + padding / 2 > canvas.width) {
+                    x = padding / 2 + fontSize / 2;
+                    y += fontSize + padding;
+                }
+            }
+
+            // Create Three.js texture
+            const texture = new THREE.Texture(canvas);
+            texture.needsUpdate = true;
+            texture.minFilter = THREE.LinearFilter;
+            texture.magFilter = THREE.LinearFilter;
+            texture.flipY = false; // Ensure correct orientation
+
+            resolve({ texture, charCount, canvasSize: { width: canvas.width, height: canvas.height } });
+        };
+
+        // Function to create an orthographic camera
+        const getOrthoCamera = (width, height) => {
+            const aspectRatio = width / height;
+            const frustumSize = 2; // Adjust as needed for scene scale
+            const camera = new THREE.OrthographicCamera(
+                -frustumSize * aspectRatio / 2,
+                frustumSize * aspectRatio / 2,
+                frustumSize / 2,
+                -frustumSize / 2,
+                0.1,
+                1000
+            );
+            camera.position.z = 5;
+            return camera;
+        };
+
+        // Vertex and Fragment Shaders
+        const vertexShaderBase = `
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `;
+
+        const fragmentShaderBase = `
+            varying vec2 vUv;
+            uniform sampler2D tTexture;
+            uniform vec2 uImageSize; // Size of the original texture (characters)
+            uniform vec2 uPlaneSize; // Size of the plane geometry
+
+            void main() {
+                // Scale UV coordinates to match the texture's aspect ratio relative to the plane
+                vec2 scaledUv = uv * (uPlaneSize / uImageSize);
+
+                // Offset UVs to center the texture if aspect ratios don't match perfectly
+                vec2 offset = (uv - scaledUv) / 2.0;
+
+                vec4 texColor = texture2D(tTexture, uv + offset); // Use adjusted UVs
+
+                // Simple alpha blending for the base layer
+                gl_FragColor = texColor;
+            }
+        `;
+
+        const vertexShaderCover = `
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `;
+
+        const fragmentShaderCover = `
+            varying vec2 vUv;
+            uniform sampler2D tTexture; // Character texture
+            uniform float uProgress;    // Animation progress (0 to 1)
+            uniform float uPixelSize;   // Size of the pixelated effect
+            uniform vec2 uPlaneSize;    // Size of the plane geometry
+            uniform vec3 uChars[128];   // Array of character colors/properties (simplified)
+            uniform int uCharCount;     // Number of characters in texture
+
+            // Function to get a pixel color from the texture
+            vec4 getPixelColor(vec2 uv) {
+                // Map UV to sample from the character texture
+                // This part requires careful mapping from character grid to UV
+                // For simplicity, we'll treat the whole texture as a grid of pixels for now
+                return texture2D(tTexture, uv);
+            }
+
+            void main() {
+                // Pixelation effect
+                vec2 pixelatedUv = floor(vUv / uPixelSize) * uPixelSize;
+
+                // Sample color from the pixelated UV
+                vec4 pixelColor = getPixelColor(pixelatedUv);
+
+                // Glitch/Noise effect - can be enhanced with time-based noise or other uniforms
+                float noise = fract(sin(dot(pixelatedUv.xy, vec2(12.9898, 78.233))) * 43758.5453);
+
+                // Apply noise to color channels (simplified glitch)
+                vec3 noisyColor = pixelColor.rgb;
+                if (noise > 0.95) { // Apply glitch probability
+                    noisyColor.r = mix(noisyColor.r, pixelColor.b, noise);
+                    noisyColor.g = mix(noisyColor.g, pixelColor.r, noise);
+                    noisyColor.b = mix(noisyColor.b, pixelColor.g, noise);
+                }
+
+                // Progress-based masking for the reveal effect
+                float revealMask = smoothstep(uProgress - 0.1, uProgress + 0.1, pixelatedUv.x); // Simple left-to-right reveal based on pixelated UV
+
+                // Applying the reveal and noise to the final fragment color
+                gl_FragColor = vec4(noisyColor, pixelColor.a);
+
+                // Fade out based on progress to create the reveal
+                // A more sophisticated mask could be used here.
+                // For now, let's use progress to control overall alpha for a dissolve effect.
+                gl_FragColor.a *= smoothstep(uProgress - 0.1, uProgress, vUv.x); // Dissolve from left to right
+                gl_FragColor.a *= smoothstep(uProgress - 0.1, uProgress, 1.0 - vUv.x); // Dissolve from right to left for a center reveal
+                gl_FragColor.a *= pixelColor.a; // Respect original alpha
+                gl_FragColor.a *= smoothstep(0.0, 1.0, uProgress); // Ensure it only appears after progress starts
+
+                // Limit the pixel size for the effect
+                if (uPixelSize > 0.1) {
+                     // Sample a more consolidated pixel
+                     gl_FragColor.rgb *= 0.8; // Dim slightly due to larger pixel
+                }
+
+                // A more direct approach for the cover material could be:
+                // if (vUv.x < uProgress) { // Simple left-to-right wipe
+                //     gl_FragColor = vec4(noisyColor, pixelColor.a);
+                // } else {
+                //     discard; // Or make transparent
+                // }
+                // The smoothstep approach is more visually pleasing.
+            }
+        `;
+
+
+        const initWebGL = () => {
+            const webglContainer = document.getElementById('webgl-container');
+            if (!webglContainer) return;
+
+            const scene = new THREE.Scene();
+            // Use alpha: true for transparent background if needed, but here we use a solid color
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(webglContainer.offsetWidth, webglContainer.offsetHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setClearColor(0x09172a, 0); // Transparent background matches CSS
+            webglContainer.appendChild(renderer.domElement);
+
+            const camera = getOrthoCamera(webglContainer.offsetWidth, webglContainer.offsetHeight);
+            scene.add(camera); // Orthographic cameras don't need to be added to scene
+
+            const planeGeometry = new THREE.PlaneGeometry(1, 1, 1, 1); // Plane will be scaled by camera
+
+            let baseMaterial, coverMaterial, baseMesh, coverMesh;
+            let characterTexture, charCount, canvasSize;
+
+            // Promise to handle texture loading
+            const texturePromise = new Promise((resolve, reject) => {
+                const loader = new THREE.TextureLoader();
+                // No actual image path needed if generating from canvas
+                makeCharsTexture(loader, resolve, reject);
+            });
+
+            texturePromise.then(({ texture, count, size }) => {
+                characterTexture = texture;
+                charCount = count;
+                canvasSize = size;
+
+                // Ensure the plane geometry matches the aspect ratio of the container
+                const containerAspectRatio = webglContainer.offsetWidth / webglContainer.offsetHeight;
+                const planeAspectRatio = planeGeometry.parameters.width / planeGeometry.parameters.height;
+
+                let scaleX = 1, scaleY = 1;
+                if (containerAspectRatio > planeAspectRatio) {
+                    scaleY = containerAspectRatio / planeAspectRatio;
+                } else {
+                    scaleX = planeAspectRatio / containerAspectRatio;
+                }
+                planeGeometry.scale(scaleX, scaleY, 1);
+
+
+                // Setup materials with uniforms
+                const imageSize = new THREE.Vector2(canvasSize.width, canvasSize.height);
+                const planeSize = new THREE.Vector2(planeGeometry.parameters.width, planeGeometry.parameters.height); // Scaled plane size
+
+                baseMaterial = new THREE.ShaderMaterial({
+                    vertexShader: vertexShaderBase,
+                    fragmentShader: fragmentShaderBase,
+                    uniforms: {
+                        tTexture: { value: characterTexture },
+                        uImageSize: { value: imageSize },
+                        uPlaneSize: { value: planeSize }
+                    },
+                    transparent: false // Base layer is not transparent
+                });
+
+                coverMaterial = new THREE.ShaderMaterial({
+                    vertexShader: vertexShaderCover,
+                    fragmentShader: fragmentShaderCover,
+                    uniforms: {
+                        tTexture: { value: characterTexture },
+                        uProgress: { value: 0.0 },
+                        uPixelSize: { value: 0.02 }, // Adjust pixelation amount
+                        uPlaneSize: { value: planeSize },
+                        uChars: { value: [] }, // Placeholder, not used directly in this simple shader
+                        uCharCount: { value: charCount }
+                    },
+                    transparent: true // Cover layer needs transparency
+                });
+
+                // Create meshes
+                baseMesh = new THREE.Mesh(planeGeometry, baseMaterial);
+                coverMesh = new THREE.Mesh(planeGeometry.clone(), coverMaterial); // Clone geometry for cover
+
+                scene.add(baseMesh);
+                scene.add(coverMesh);
+
+                // Initial animation for cover material
+                gsap.to(coverMaterial.uniforms.uProgress, {
+                    value: 1.0,
+                    duration: 2,
+                    ease: "power2.inOut",
+                    delay: 0.5 // Slight delay to see the base texture first
+                });
+
+                // ScrollTrigger setup
+                ScrollTrigger.create({
+                    trigger: "#webgl-container",
+                    start: "top 60%", // When the top of the container hits 60% of the viewport
+                    end: "bottom 30%", // When the bottom of the container hits 30% of the viewport
+                    scrub: 1, // Smooth scrubbing
+                    onUpdate: (self) => {
+                        // Update uProgress based on scroll progress
+                        // self.progress goes from 0 to 1 as the trigger scrolls into view
+                        coverMaterial.uniforms.uProgress.value = self.progress;
+                    },
+                    // Optional: Add markers for debugging
+                    // markers: true
+                });
+
+                // Initial render
+                animate();
+            }).catch(error => {
+                console.error("Error loading character texture:", error);
+            });
+
+            // Animation loop
+            const animate = () => {
+                requestAnimationFrame(animate);
+                renderer.render(scene, camera);
+            };
+
+            // Handle window resizing
+            const onWindowResize = () => {
+                const width = webglContainer.offsetWidth;
+                const height = webglContainer.offsetHeight;
+                renderer.setSize(width, height);
+                renderer.setPixelRatio(window.devicePixelRatio);
+
+                const aspectRatio = width / height;
+                const frustumSize = 2;
+                camera.left = -frustumSize * aspectRatio / 2;
+                camera.right = frustumSize * aspectRatio / 2;
+                camera.top = frustumSize / 2;
+                camera.bottom = -frustumSize / 2;
+                camera.updateProjectionMatrix();
+
+                 // Re-scale plane geometry if needed
+                if (planeGeometry && canvasSize) {
+                    const planeAspectRatio = planeGeometry.parameters.width / planeGeometry.parameters.height;
+                    let scaleX = 1, scaleY = 1;
+                    if (aspectRatio > planeAspectRatio) {
+                        scaleY = aspectRatio / planeAspectRatio;
+                    } else {
+                        scaleX = planeAspectRatio / aspectRatio;
+                    }
+                    planeGeometry.scale(scaleX, scaleY, 1); // Apply scale to existing geometry
+
+                    // Update uniforms if they exist
+                    if (baseMaterial && baseMaterial.uniforms.uPlaneSize) {
+                        baseMaterial.uniforms.uPlaneSize.value.set(planeGeometry.parameters.width, planeGeometry.parameters.height);
+                    }
+                    if (coverMaterial && coverMaterial.uniforms.uPlaneSize) {
+                        coverMaterial.uniforms.uPlaneSize.value.set(planeGeometry.parameters.width, planeGeometry.parameters.height);
+                    }
+                }
+            };
+
+            window.addEventListener('resize', onWindowResize);
+            onWindowResize(); // Initial call to set size and aspect ratio
+        };
+
+        // Initialize WebGL when the DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initWebGL);
+        } else {
+            initWebGL();
+        }
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//proxies">Proxy, Balance, Gateway</a><a href="//authevolution">Auth Evolved</a><a href="//csspopovers">CSS Popovers</a><a href="//csslayout">CSS Layout Mastery</a><a href="//cssatrt">CSS Attr Type</a><a href="//csspos">CSS Pos</a><a href="//cssevolution">CSS Evolve</a><a href="//scrollfx">Scroll FX</a><a href="//cssflow">CSS Flow</a><a href="//stopscroll">Stop Scroll</a><a href="//geminivisions">Gemini Visions</a><a href="//algosecrets">Algorithm Secrets</a><a href="//buildaitools">Build AI Tools</a><a href="//designflaws">Design Flaws</a><a href="//designmastery">Design Mastery</a><a href="//designtrends">Design Trends</a><a href="//designgear">Design Gear</a><a href="//taxhacks">Tax Hacks</a><a href="//androidhacks">Android Hacks</a><a href="//spartangains">Spartan Gains</a><a href="//aiuxshift">AI UX Shift</a><a href="//speakfluent">Speak fluent</a><a href="//uicolorguide">UI Colors Guide</a><a href="//designessn">Design ESSN</a><a href="//aicodewins">AI Code Wins</a><a href="//2026gamesignite">2026 Games Ignite</a><a href="//designprovideo">Design Pro Video</a><a href="//claudechat">Claude Chat</a><a href="//cmdsecrets">CMD Secrets</a><a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

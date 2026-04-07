@@ -1,5 +1,18 @@
 [
   {
+    "blog_title": "Stop Scroll",
+    "link": "/stopscroll",
+    "description": "Tired of endless scrolling? Discover 15 actionable hobbies that build skills, boost confidence, and transform your life. Ditch passive consumption and start creating!",
+    "tags": [
+      "Hobbies",
+      "Skill Building",
+      "Personal Development",
+      "Productivity",
+      "Mindset Shift"
+    ],
+    "color": "bg-red-700 shadow-red-400"
+  },
+  {
     "blog_title": "Design Flaws",
     "link": "/designflaws",
     "description": "Discover how 'intelligent imperfection' in design creates dynamic, expressive, and memorable results, moving beyond sterile perfection. Learn to balance intentionality with controlled disruption for deeper audience resonance.",
