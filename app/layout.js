@@ -15,16 +15,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta name="google-adsense-account" content="ca-pub-6836466532865002"/>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6836466532865002"
+        <meta name="google-adsense-account" content="ca-pub-4804171023580782"/>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4804171023580782"
      crossorigin="anonymous"></script>
     <link rel="canonical" href="https://quertech-articles.vercel.app" />
-        <meta name="google-site-verification" content="MIDLOYFbs4SS5EOC6oQcQd2CU6R4U0gxy70ESi1oLew" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6836466532865002"
+    <meta name="google-site-verification" content="VJFDYJcj6pv2WocqJcMEK8A1pCuM3EJMfV38Agpexug" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4804171023580782"
      crossorigin="anonymous"></script>
        <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6836466532865002"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4804171023580782"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
