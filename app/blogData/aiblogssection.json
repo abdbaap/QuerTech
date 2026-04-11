@@ -1,7 +1,7 @@
 [
   {
     "blog_title": "AI Now",
-    "link": "/ainow",
+    "link": "ainow",
     "description": "Don't get left behind! Learn how to use AI to stay competitive and drive growth in your business and personal life. Discover practical AI tools and strategies to adapt and thrive.",
     "tags": [
       "AI Adoption",
@@ -14,7 +14,7 @@
   },
   {
     "blog_title": "AI Video Scale",
-    "link": "/aivideoscale",
+    "link": "aivideoscale",
     "description": "Unlock unlimited free short-form video creation for YouTube Shorts & Reels. Learn the full AI workflow to mass-produce engaging content without costs.",
     "tags": [
       "AI Video",
@@ -28,7 +28,7 @@
   },
   {
     "blog_title": "AI Model",
-    "link": "/aimodel",
+    "link": "aimodel",
     "description": "Create stunning AI influencers from a single photo and video! Learn how to use tools like Lovart.ai and KIE.AI to generate realistic digital twins for social media and more. Step-by-step guide with free options.",
     "tags": [
       "AI Influencers",
@@ -103,7 +103,7 @@
   },
   {
     "blog_title": "Wordora Free AI (All-in-One)",
-    "link": "/wordorafreeai",
+    "link": "wordorafreeai",
     "description": "The ultimate AI 'everything' hub. I’ve mixed the best free tools from every category—text, image, and data—into one massive list. If you need a quick AI tool for anything, start here.",
     "tags": [
       "Best AI Tools",
@@ -116,7 +116,7 @@
   },
   {
     "blog_title": "Wordora AI Code Free",
-    "link": "/wordoraaicodefree",
+    "link": "wordoraaicodefree",
     "description": "Stop struggling with bugs! I've found the best 30 AI coding tools like Cursor and Windsurf that literally write code for you. Perfect for 'Vibe Coding' and building apps without deep syntax knowledge.",
     "tags": [
       "AI Coding",
@@ -129,7 +129,7 @@
   },
   {
     "blog_title": "Wordora AI Models",
-    "link": "/wordoraaimodelfree",
+    "link": "wordoraaimodelfree",
     "description": "Confused about which AI model to use? I compare the top 30 LLMs like Gemini 2.0 and Llama 4. Find out which one is the smartest for reasoning, math, or creative writing in seconds.",
     "tags": [
       "AI Models",
@@ -142,7 +142,7 @@
   },
   {
     "blog_title": "Wordora AI Image Free",
-    "link": "/wordoraaiimagefree",
+    "link": "wordoraaiimagefree",
     "description": "Create insane aesthetic art for free. I’ve tested 30 tools like Midjourney and DALL-E 3 that turn your wildest ideas into high-res visuals. Perfect for social media and creative school projects.",
     "tags": [
       "AI Image Generator",
@@ -155,7 +155,7 @@
   },
   {
     "blog_title": "Wordora AI Video Free",
-    "link": "/wordoraaivideofree",
+    "link": "wordoraaivideofree",
     "description": "Text-to-video is the new meta. Check out the top 30 free tools like Sora and Runway to make viral clips and cinematic videos without an editor. High-quality AI video generation for everyone.",
     "tags": [
       "AI Video",
@@ -168,7 +168,7 @@
   },
   {
     "blog_title": "Wordora AI PPT",
-    "link": "/wordoraaipptfree",
+    "link": "wordoraaipptfree",
     "description": "Generate entire presentation decks in one click. I’ve picked 30 AI tools like Gamma that handle the design and content for you. It’s a total life-saver for class assignments and group projects.",
     "tags": [
       "AI PPT",
@@ -181,7 +181,7 @@
   },
   {
     "blog_title": "Wordora AI Text",
-    "link": "/wordoraaitextfree",
+    "link": "wordoraaitextfree",
     "description": "Write better, faster. I’ve listed 30 AI text tools for summarizing long papers and writing SEO-friendly blogs. Beat writer's block instantly and get your essays done in half the time.",
     "tags": [
       "AI Writing",
@@ -194,7 +194,7 @@
   },
   {
     "blog_title": "Wordora AI Design",
-    "link": "/wordoraaidesignfree",
+    "link": "wordoraaidesignfree",
     "description": "Pro-level design without the learning curve. These 30 AI tools handle logos, UI, and graphics automatically. It's the future of Generative UI and digital branding for your personal projects.",
     "tags": [
       "AI Design",
@@ -207,7 +207,7 @@
   },
   {
     "blog_title": "Wordora AI Data",
-    "link": "/wordoraaidatafree",
+    "link": "wordoraaidatafree",
     "description": "Master data analysis without the headache. These top 30 AI tools turn messy numbers into clean charts and insights using the latest RAG technology. Perfect for research and smart decision-making.",
     "tags": [
       "AI Data",
@@ -220,7 +220,7 @@
   },
   {
     "blog_title": "Wordora AI Avatars",
-    "link": "/wordoraaiavatars",
+    "link": "wordoraaiavatars",
     "description": "Make your own digital twin! I found the best 30 AI avatar and talking head tools like HeyGen. Great for making YouTube videos or cool profile pics that actually look like you.",
     "tags": [
       "AI Avatars",

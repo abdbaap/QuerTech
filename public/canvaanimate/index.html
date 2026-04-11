@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate Graphics with Canva AI: Easy Video!</title>
+    <meta name="description" content="Tired of static designs? Unlock Canva's AI "Image to Video" magic! Turn any graphic into a dynamic animation in seconds. Perfect for social media & presentations. Get started now!">
+    <meta name="keywords" content="Canva AI animation, Image to Video Canva, Animate graphics Canva, Easy Canva video tutorial, AI graphic animation, Canva stickman animation, Create animated videos Canva, Best Canva AI tools, Quick graphic animation, Dynamic visuals Canva, Canva design hacks, Turn image to video AI, Canva magic studio tips, How to animate in Canva">
+    <meta name="author" content="QuerTech Articles">
+    <link rel="canonical" href="https://articlesstack.pages.dev">
+
+    <style>
+        /* Global Styles & Variables */
+        :root {
+            --primary-color: #6366f1; /* Indigo */
+            --secondary-color: #ec4899; /* Pink */
+            --background-color: #09172a; /* Slate */
+            --text-color: #e2e8f0; /* Light Slate Gray */
+            --accent-color: #facc15; /* Yellow for contrast */
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --hover-glow-color: rgba(99, 102, 241, 0.4);
+            --gradient-mask-color: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+
+            --font-family-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --font-family-body: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+            --spacing-unit: 1rem;
+        }
+
+        /* Basic Reset & Typography */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family-body);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-family-display);
+            font-weight: 700;
+            margin-bottom: calc(var(--spacing-unit) * 0.75);
+            color: var(--text-color);
+        }
+
+        p {
+            margin-bottom: var(--spacing-unit);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+        }
+
+        /* Header */
+        .site-header {
+            background-color: rgba(9, 23, 42, 0.8); /* Slightly transparent dark slate */
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-unit) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            background: var(--gradient-mask-color);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .site-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .site-nav li {
+            margin-left: calc(var(--spacing-unit) * 2);
+        }
+
+        .site-nav a {
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .site-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .site-nav a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .site-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 6) var(--spacing-unit);
+            position: relative;
+            overflow: hidden;
+            background-color: var(--background-color);
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(9,23,42,0.8) 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+            line-height: 1.1;
+            background: var(--gradient-mask-color);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            color: var(--text-color);
+            opacity: 0.9;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient-mask-color);
+            color: white;
+            padding: calc(var(--spacing-unit) * 1.2) calc(var(--spacing-unit) * 2.5);
+            border-radius: 50px;
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            font-weight: 700;
+            transition: all 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5), 0 0 20px var(--secondary-color);
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+        }
+
+        /* Animated Background Orbs */
+        .background-orbs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0;
+            animation: float 15s infinite ease-in-out, fade 10s infinite ease-in-out;
+            mix-blend-mode: screen; /* For a more luminous effect */
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(5vw, 10vh) scale(1.2); }
+            50% { transform: translate(-5vw, -10vh) scale(0.9); }
+            75% { transform: translate(5vw, -10vh) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        @keyframes fade {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Content Section - Blog Posts */
+        .content-section {
+            padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            background: var(--gradient-mask-color);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border: 1px solid var(--card-border);
+            border-radius: calc(var(--spacing-unit) * 1.5);
+            padding: calc(var(--spacing-unit) * 2);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 20px var(--hover-glow-color);
+            border-color: var(--primary-color);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .rank-badge {
+            background: var(--gradient-mask-color);
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 15px;
+            margin-right: var(--spacing-unit);
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+        }
+
+        .card-title {
+            font-size: clamp(1.4rem, 5vw, 1.8rem);
+            color: var(--text-color);
+            margin-bottom: 0;
+            background: var(--gradient-mask-color);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .card-content {
+            flex-grow: 1;
+            margin-top: var(--spacing-unit);
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            color: rgba(226, 232, 240, 0.8);
+        }
+
+        .card-footer {
+            margin-top: calc(var(--spacing-unit) * 1.5);
+            font-size: 0.9rem;
+            color: rgba(226, 232, 240, 0.7);
+            text-align: right;
+        }
+
+        /* Geometric Pattern Placeholder */
+        .geometric-pattern {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-color);
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,0 100,50 50,100 0,50" fill="white"/></svg>') center center / contain no-repeat;
+            opacity: 0.7;
+            margin-left: auto; /* To align it to the right within its container if needed */
+            margin-bottom: var(--spacing-unit);
+        }
+
+        /* Specific Card Content (Example for Stickman) */
+        .blog-card.stickman {
+            border-left: 4px solid var(--primary-color);
+        }
+        .blog-card.stickman .rank-badge {
+            background: var(--primary-color);
+        }
+        .blog-card.stickman .geometric-pattern {
+            background-color: var(--secondary-color);
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 80L50 20L80 80H20z M40 50L60 50L60 70L40 70z" fill="white"/></svg>') center center / contain no-repeat;
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: calc(var(--spacing-unit) * 2);
+            right: calc(var(--spacing-unit) * 2);
+            background: var(--gradient-mask-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent; /* For border transition */
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.6), 0 0 25px var(--secondary-color);
+        }
+
+        .theme-toggle i {
+            font-size: 1.8rem;
+        }
+
+        /* Dark Mode Toggle Styles */
+        body.dark-mode {
+            --background-color: #09172a;
+            --text-color: #e2e8f0;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --hover-glow-color: rgba(99, 102, 241, 0.4);
+        }
+
+        body.light-mode {
+            --background-color: #f0f4f8; /* Light background */
+            --text-color: #1e293b; /* Dark text */
+            --card-bg: rgba(255, 255, 255, 0.9); /* Slightly transparent white card */
+            --card-border: rgba(0, 0, 0, 0.1);
+            --hover-glow-color: rgba(236, 72, 153, 0.4); /* Pink glow for light mode */
+            --gradient-mask-color: linear-gradient(45deg, #ec4899, #6366f1); /* Reversed gradient for light mode */
+        }
+
+        body.light-mode .site-header {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .site-title {
+            -webkit-text-fill-color: transparent; /* Inherit gradient */
+        }
+
+        body.light-mode .site-nav a {
+            color: var(--text-color);
+        }
+
+        body.light-mode .site-nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        body.light-mode .hero-subtitle {
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        body.light-mode .card-bg {
+            background: rgba(255, 255, 255, 0.9); /* Lighter card background */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .blog-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 0 20px var(--hover-glow-color);
+            border-color: var(--secondary-color);
+        }
+
+        body.light-mode .theme-toggle {
+            background: var(--gradient-mask-color);
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+        }
+        body.light-mode .theme-toggle:hover {
+             box-shadow: 0 10px 25px rgba(236, 72, 153, 0.6), 0 0 25px var(--primary-color);
+        }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .site-header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .site-title {
+                margin-bottom: var(--spacing-unit);
+            }
+
+            .site-nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .site-nav li {
+                margin-left: 0;
+                margin-bottom: var(--spacing-unit);
+            }
+
+            .hero {
+                padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 7vw, 3.5rem);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1rem, 3vw, 1.5rem);
+            }
+
+            .cta-button {
+                padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 2);
+                font-size: clamp(1rem, 3vw, 1.2rem);
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-card {
+                padding: calc(var(--spacing-unit) * 1.5);
+            }
+
+            .theme-toggle {
+                bottom: var(--spacing-unit);
+                right: var(--spacing-unit);
+                width: 50px;
+                height: 50px;
+            }
+
+            .theme-toggle i {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Gradient Mask for Header Text */
+        .gradient-mask-header {
+            background: var(--gradient-mask-color);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+    </style>
+    <!-- You'd typically link to a font file, but for a single file, we'll use system fonts and fallbacks. -->
+    <!-- For SF Pro Display, you could include Google Fonts link if preferred: -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;700;900&display=swap" rel="stylesheet"> -->
+    <!-- For this self-contained example, we rely on native OS fonts. -->
+
+    <!-- Font Awesome for the toggle icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://articlesstack.pages.dev" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Animated Background Orbs -->
+    <div class="background-orbs"></div>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="site-title">QuerTech AI Insights</div>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#articles">Articles</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Animate Graphics with Canva AI: Easy Video!</h1>
+            <p class="hero-subtitle">
+                Unlock Canva's "Image to Video" magic and transform static graphics into dynamic animations in seconds. Perfect for social media, presentations, and more.
+            </p>
+            <a href="#articles" class="cta-button">Explore Tutorials</a>
+        </div>
+    </section>
+
+    <section id="articles" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Featured Tutorials</h2>
+            <div class="card-grid">
+                <!-- Example Blog Card: Stickman Animation -->
+                <div class="blog-card stickman">
+                    <div class="card-header">
+                        <div class="rank-badge">#1</div>
+                        <h3 class="card-title">Stickman Finds Gold: Canva AI Video Magic</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Discover how to animate a simple stickman graphic using Canva's powerful AI "Image to Video" feature. A step-by-step guide for quick, dynamic results.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>AI Animation</span> | <span>Canva Hacks</span>
+                    </div>
+                </div>
+
+                <!-- Placeholder for other potential cards -->
+                <div class="blog-card">
+                    <div class="card-header">
+                        <div class="rank-badge">#2</div>
+                        <h3 class="card-title">Geometric Patterns: AI-Driven Visuals</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Learn to generate unique geometric patterns with AI in Canva. Enhance your designs with custom-made, tech-forward visual elements.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>AI Art</span> | <span>Design Elements</span>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="card-header">
+                        <div class="rank-badge">#3</div>
+                        <h3 class="card-title">Boosting Engagement: Dynamic Social Media Graphics</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Leverage AI tools in Canva to create eye-catching animated graphics for social media. Boost engagement with minimal effort.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>Content Creation</span> | <span>Social Media</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script>
+        // Vanilla JavaScript for Interactivity and Animations
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Animated Background Orbs ---
+            const backgroundOrbsContainer = document.querySelector('.background-orbs');
+            const numOrbs = 10; // Number of orbs to generate
+
+            for (let i = 0; i < numOrbs; i++) {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                // Randomize size, position, and animation delay
+                const size = Math.random() * 150 + 50; // 50px to 200px
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.left = `${Math.random() * 100}%`;
+                orb.style.top = `${Math.random() * 100}%`;
+                orb.style.animationDelay = `${Math.random() * -15}s`; // Negative for varied start times
+                orb.style.animationDuration = `${Math.random() * 5 + 10}s`; // 10s to 15s
+
+                // Assign a color for variety if desired, or stick to radial gradient
+                const colors = ['#6366f1', '#ec4899', '#facc15']; // Indigo, Pink, Yellow
+                orb.style.background = `radial-gradient(circle, ${colors[Math.floor(Math.random() * colors.length)]}30 0%, rgba(255,255,255,0) 70%)`;
+
+                backgroundOrbsContainer.appendChild(orb);
+            }
+
+            // --- Theme Toggle Functionality ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const themeIcon = themeToggle.querySelector('i');
+
+            // Check for existing theme preference in localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+                if (savedTheme === 'dark-mode') {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            } else {
+                // Default to dark mode if no preference saved
+                body.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                body.classList.toggle('light-mode');
+
+                const isDarkMode = body.classList.contains('dark-mode');
+                localStorage.setItem('theme', isDarkMode ? 'dark-mode' : 'light-mode');
+
+                if (isDarkMode) {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                } else {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            });
+
+            // --- Smooth Scrolling for Navigation Links ---
+            document.querySelectorAll('.site-nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // --- Add Hover Effect Classes (Optional - can be managed via CSS hover) ---
+            // For more complex JS-driven hover effects, you could add/remove classes here.
+            // However, the current CSS `:hover` is sufficient for the described effects.
+
+            // --- Initial Animation for Cards (Optional: subtle fade-in) ---
+            const blogCards = document.querySelectorAll('.blog-card');
+            blogCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100); // Stagger the animation
+            });
+        });
+    </script>
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//cssrules">CSS Rules</a><a href="//cssscale">CSS Scale</a><a href="//pixelglitch">Pixel Glitch</a><a href="//proxies">Proxy, Balance, Gateway</a><a href="//authevolution">Auth Evolved</a><a href="//csspopovers">CSS Popovers</a><a href="//csslayout">CSS Layout Mastery</a><a href="//cssatrt">CSS Attr Type</a><a href="//csspos">CSS Pos</a><a href="//cssevolution">CSS Evolve</a><a href="//scrollfx">Scroll FX</a><a href="//cssflow">CSS Flow</a><a href="//stopscroll">Stop Scroll</a><a href="//geminivisions">Gemini Visions</a><a href="//algosecrets">Algorithm Secrets</a><a href="//buildaitools">Build AI Tools</a><a href="//designflaws">Design Flaws</a><a href="//designmastery">Design Mastery</a><a href="//designtrends">Design Trends</a><a href="//designgear">Design Gear</a><a href="//taxhacks">Tax Hacks</a><a href="//androidhacks">Android Hacks</a><a href="//spartangains">Spartan Gains</a><a href="//aiuxshift">AI UX Shift</a><a href="//speakfluent">Speak fluent</a><a href="//uicolorguide">UI Colors Guide</a><a href="//designessn">Design ESSN</a><a href="//aicodewins">AI Code Wins</a><a href="//2026gamesignite">2026 Games Ignite</a><a href="//designprovideo">Design Pro Video</a><a href="//claudechat">Claude Chat</a><a href="//cmdsecrets">CMD Secrets</a><a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

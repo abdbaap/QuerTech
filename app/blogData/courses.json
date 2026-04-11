@@ -1,5 +1,57 @@
 [
   {
+    "blog_title": "CSS Funcs",
+    "link": "/cssfuncs",
+    "description": "Unlock dynamic CSS styling with custom functions! Learn how to create reusable, responsive styles directly in CSS, making your stylesheets cleaner and more powerful.",
+    "tags": [
+      "CSS",
+      "Custom Functions",
+      "Responsive Design",
+      "Dynamic Styling",
+      "CSS Variables"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "AI Stack Unlocked",
+    "link": "/aistackunlocked",
+    "description": "Discover the 5 core components powering modern AI agents: Embeddings, Vector DBs, Orchestration, RAG, and MCP. Learn how they enable AI to interact with data and tools for smarter, context-aware responses.",
+    "tags": [
+      "AI Agents",
+      "Embeddings",
+      "Vector Databases",
+      "RAG",
+      "AI Stack"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Canva Animate",
+    "link": "/canvaanimate",
+    "description": "Instantly animate static graphics in Canva! This video shows how to use their AI 'Image to Video' feature to turn simple prompts into dynamic clips for your designs. Perfect for quick animations.",
+    "tags": [
+      "Canva AI",
+      "Image to Video",
+      "Graphic Animation",
+      "AI Video",
+      "Canva Tutorial"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "CSS Rules",
+    "link": "/cssrules",
+    "description": "Unlock potent new CSS features that demolish JavaScript needs for sleek UI! Discover anchor(), animation-timeline, @scope, and more for cleaner, faster code. Future-proof your web dev!",
+    "tags": [
+      "CSS",
+      "JavaScript",
+      "Web Development",
+      "UI Design",
+      "Performance"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
     "blog_title": "CSS Scale",
     "link": "/cssscale",
     "description": "Master responsive design with CSS min(), max(), and clamp(). Learn to create fluid layouts and typography that adapt seamlessly across all devices, moving beyond traditional media queries for smarter scaling.",

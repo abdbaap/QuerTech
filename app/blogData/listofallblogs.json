@@ -1,7 +1,115 @@
 [
   {
+    "blog_title": "Code Clean",
+    "link": "codeclean",
+    "color": "bg-cyan-700 shadow-cyan-400",
+    "description": "Master clean code! Learn to banish deep nesting & duplication using inversion & extraction. Make your code readable, maintainable, and bug-free. Boost productivity now!",
+    "tags": [
+      "Clean Code",
+      "Code Readability",
+      "Maintainable Code",
+      "Programming Best Practices",
+      "Refactoring"
+    ]
+  },
+  {
+    "blog_title": "AWS DevSkills",
+    "link": "awdevskills",
+    "color": "bg-blue-600 shadow-blue-400",
+    "description": "Unlock high-paying tech jobs! Discover why AWS and DevOps skills are exploding by 2025. Learn essential CI/CD, Docker, and Kubernetes. Get certified and fast-track your career.",
+    "tags": [
+      "AWS",
+      "DevOps",
+      "Cloud Computing",
+      "Career",
+      "Skills",
+      "Certifications",
+      "CI/CD",
+      "Docker",
+      "Kubernetes"
+    ]
+  },
+  {
+    "blog_title": "Backend MASTERY",
+    "link": "backend-mastery",
+    "color": "bg-red-700 shadow-red-400",
+    "description": "Unlock the secrets of robust backend development. Learn 10 essential concepts like ACID, Caching, and Load Balancing to build scalable, secure, and lightning-fast applications.",
+    "tags": [
+      "Backend Development",
+      "API",
+      "Databases",
+      "Scalability",
+      "System Design"
+    ]
+  },
+  {
+    "blog_title": "Motion Text",
+    "link": "motiontext",
+    "color": "bg-cyan-600 shadow-cyan-400",
+    "description": "Master CapCut's motion typography and sound design to create dynamic, engaging video sequences that captivate your audience. Learn to layer text, sync audio, and use advanced features for professional results.",
+    "tags": [
+      "Motion Typography",
+      "CapCut Tutorial",
+      "Video Editing",
+      "Sound Design",
+      "Text Animation"
+    ]
+  },
+  {
+    "blog_title": "CSS Funcs",
+    "link": "cssfuncs",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Unlock dynamic CSS styling with custom functions! Learn how to create reusable, responsive styles directly in CSS, making your stylesheets cleaner and more powerful.",
+    "tags": [
+      "CSS",
+      "Custom Functions",
+      "Responsive Design",
+      "Dynamic Styling",
+      "CSS Variables"
+    ]
+  },
+  {
+    "blog_title": "AI Stack Unlocked",
+    "link": "aistackunlocked",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Discover the 5 core components powering modern AI agents: Embeddings, Vector DBs, Orchestration, RAG, and MCP. Learn how they enable AI to interact with data and tools for smarter, context-aware responses.",
+    "tags": [
+      "AI Agents",
+      "Embeddings",
+      "Vector Databases",
+      "RAG",
+      "AI Stack"
+    ]
+  },
+  {
+    "blog_title": "Canva Animate",
+    "link": "canvaanimate",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Instantly animate static graphics in Canva! This video shows how to use their AI 'Image to Video' feature to turn simple prompts into dynamic clips for your designs. Perfect for quick animations.",
+    "tags": [
+      "Canva AI",
+      "Image to Video",
+      "Graphic Animation",
+      "AI Video",
+      "Canva Tutorial"
+    ]
+  },
+  {
+    "blog_title": "CSS Rules",
+    "link": "cssrules",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Unlock potent new CSS features that demolish JavaScript needs for sleek UI! Discover anchor(), animation-timeline, @scope, and more for cleaner, faster code. Future-proof your web dev!",
+    "tags": [
+      "CSS",
+      "JavaScript",
+      "Web Development",
+      "UI Design",
+      "Performance"
+    ]
+  },
+  {
     "blog_title": "CSS Scale",
-    "link": "/cssscale",
+    "link": "cssscale",
     "description": "Master responsive design with CSS min(), max(), and clamp(). Learn to create fluid layouts and typography that adapt seamlessly across all devices, moving beyond traditional media queries for smarter scaling.",
     "tags": [
       "CSS",
@@ -16,7 +124,7 @@
   },
   {
     "blog_title": "Pixel Glitch",
-    "link": "/pixelglitch",
+    "link": "pixelglitch",
     "description": "Learn to build a dynamic noisy pixel shader effect with HTML, CSS, and JavaScript using Three.js. Perfect for creating glitch-like, pixelated visuals and interactive web animations triggered by scrolling.",
     "tags": [
       "Three.js",
@@ -33,7 +141,7 @@
   },
   {
     "blog_title": "Proxy, Balance, Gateway",
-    "link": "/proxies",
+    "link": "proxies",
     "description": "Unravel the differences between Reverse Proxies, Load Balancers, and API Gateways. Master your network architecture and choose the right tool for scalability and API management.",
     "tags": [
       "Reverse Proxy",
@@ -48,7 +156,7 @@
   },
   {
     "blog_title": "Auth Evolved",
-    "link": "/authevolution",
+    "link": "authevolution",
     "description": "Unlock secure APIs! Discover how authentication evolved from basic logins to modern JWT, OAuth, and OpenID Connect for seamless, protected web apps. Essential knowledge for developers.",
     "tags": [
       "Authentication",
@@ -62,7 +170,7 @@
   },
   {
     "blog_title": "CSS Popovers",
-    "link": "/csspopovers",
+    "link": "csspopovers",
     "description": "Discover the power of CSS anchor positioning and @position-try for creating dynamic, self-adjusting popovers. Learn how to build smarter UIs without JavaScript and enhance user experience by keeping popovers in view.",
     "tags": [
       "CSS",
@@ -76,7 +184,7 @@
   },
   {
     "blog_title": "CSS Layout Mastery",
-    "link": "/csslayout",
+    "link": "csslayout",
     "description": "Unlock powerful web design! Discover the optimal use cases for CSS Flexbox and Grid. Learn to build responsive, efficient layouts and avoid common developer pitfalls. Master page structure and component alignment for superior web development.",
     "tags": [
       "CSS Grid",
@@ -90,7 +198,7 @@
   },
   {
     "blog_title": "CSS Attr Type",
-    "link": "/cssatrt",
+    "link": "cssatrt",
     "description": "Unlock dynamic styling! Discover how the enhanced CSS `attr()` function with type support lets you control CSS properties with HTML data attributes, no JavaScript needed. Build more interactive and data-driven designs.",
     "tags": [
       "CSS",
@@ -105,7 +213,7 @@
   },
   {
     "blog_title": "CSS Pos",
-    "link": "/csspos",
+    "link": "csspos",
     "description": "Master CSS positioning! Learn static, relative, absolute, fixed, and sticky to precisely control your web layouts. Essential for dynamic designs and improved user experience.",
     "tags": [
       "CSS",
@@ -118,7 +226,7 @@
   },
   {
     "blog_title": "CSS Evolve",
-    "link": "/cssevolution",
+    "link": "cssevolution",
     "description": "Discover 7 powerful CSS updates that simplify styling and boost web design. Learn about new layout controls, typed variables, advanced animations, and more!",
     "tags": [
       "CSS",
@@ -132,7 +240,7 @@
   },
   {
     "blog_title": "Scroll FX",
-    "link": "/scrollfx",
+    "link": "scrollfx",
     "description": "Master scroll animations! Learn to reveal images, create horizontal scrolling, and add dynamic fade-up effects using only HTML and CSS. Elevate your web design with these powerful techniques.",
     "tags": [
       "Scroll Animations",
@@ -145,7 +253,7 @@
   },
   {
     "blog_title": "CSS Flow",
-    "link": "/cssflow",
+    "link": "cssflow",
     "description": "Discover 10 game-changing CSS features like advanced border-radius, offset-path animations, and conditional styling. Elevate your web design and ditch JavaScript for complex effects!",
     "tags": [
       "CSS",
@@ -158,7 +266,7 @@
   },
   {
     "blog_title": "Stop Scroll",
-    "link": "/stopscroll",
+    "link": "stopscroll",
     "description": "Tired of endless scrolling? Discover 15 actionable hobbies that build skills, boost confidence, and transform your life. Ditch passive consumption and start creating!",
     "tags": [
       "Hobbies",
@@ -171,7 +279,7 @@
   },
   {
     "blog_title": "Gemini Visions",
-    "link": "/geminivisions",
+    "link": "geminivisions",
     "description": "Unlock stunning AI images and videos with Google Gemini. Learn expert prompt engineering for ultra-realistic 3D renders, dynamic scenes, and more. Perfect for creators needing custom visuals fast.",
     "tags": [
       "AI Video",
@@ -184,7 +292,7 @@
   },
   {
     "blog_title": "Algorithm Secrets",
-    "link": "/algosecrets",
+    "link": "algosecrets",
     "description": "Unlock viral growth! Learn how social media algorithms work and how to hack your content's 'fit score' for maximum reach. Discover strategies to boost engagement with sharp opinions and polarizing topics.",
     "tags": [
       "Social Media Algorithms",
@@ -197,7 +305,7 @@
   },
   {
     "blog_title": "Build AI Tools",
-    "link": "/buildaitools",
+    "link": "buildaitools",
     "description": "Unlock AI agent power! Learn to build your own Model Context Protocol server with Next.js and Supabase for a todo app. Master tools, context, and secure AI actions with Descope.",
     "tags": [
       "AI Agents",
@@ -212,7 +320,7 @@
   },
   {
     "blog_title": "Design Flaws",
-    "link": "/designflaws",
+    "link": "designflaws",
     "description": "Discover how 'intelligent imperfection' in design creates dynamic, expressive, and memorable results, moving beyond sterile perfection. Learn to balance intentionality with controlled disruption for deeper audience resonance.",
     "tags": [
       "Design",
@@ -225,7 +333,7 @@
   },
   {
     "blog_title": "Design Mastery",
-    "link": "/designmastery",
+    "link": "designmastery",
     "description": "Unlock top-tier website design! Learn essential principles for clarity, simplicity, and user experience. Discover how to build intuitive, impactful interfaces with practical tips on minimalism, Gestalt principles, and design systems.",
     "tags": [
       "Web Design",
@@ -241,7 +349,7 @@
   },
   {
     "blog_title": "Design Trends",
-    "link": "/designtrends",
+    "link": "designtrends",
     "description": "Discover the latest UX/UI design trends including mascots, 3D, AI design tools, and glass effects. Learn how to create engaging and outcome-oriented designs that stand out.",
     "tags": [
       "UX Design",
@@ -255,7 +363,7 @@
   },
   {
     "blog_title": "Design Gear",
-    "link": "/designgear",
+    "link": "designgear",
     "description": "Discover the essential hardware, software, and resources graphic designers use daily. Plus, get actionable advice for aspiring creatives to kickstart their journey.",
     "tags": [
       "Graphic Design",
@@ -274,7 +382,7 @@
   },
   {
     "blog_title": "Tax Hacks",
-    "link": "/taxhacks",
+    "link": "taxhacks",
     "description": "Master legal tax savings in India! Discover powerful strategies using tax slabs, NPS, and exemptions to slash your tax burden. Your ultimate guide to smart financial planning.",
     "tags": [
       "Tax Savings India",
@@ -287,7 +395,7 @@
   },
   {
     "blog_title": "Android Hacks",
-    "link": "/androidhacks",
+    "link": "androidhacks",
     "description": "Unlock your Android's true potential! Discover 10+ FREE apps that boost productivity, customize your phone, and streamline tasks. From AI writing assistants to car audio upgrades and better file management, these tools will transform your daily mobile experience.",
     "tags": [
       "Android Apps",
@@ -302,7 +410,7 @@
   },
   {
     "blog_title": "Spartan Gains",
-    "link": "/spartangains",
+    "link": "spartangains",
     "description": "Unlock superior muscle growth using ancient Spartan training secrets. Discover 6 powerful, functional exercises to build a formidable physique with less joint damage.",
     "tags": [
       "Spartan Training",
@@ -315,7 +423,7 @@
   },
   {
     "blog_title": "AI UX Shift",
-    "link": "/aiuxshift",
+    "link": "aiuxshift",
     "description": "Stop chasing AI tools! Discover how UX designers can thrive in 2026 by focusing on user intent and leveraging AI as a strategic partner for flawless final execution.",
     "tags": [
       "AI UX",
@@ -328,7 +436,7 @@
   },
   {
     "blog_title": "Speak fluent",
-    "link": "/speakfluent",
+    "link": "speakfluent",
     "description": "Discover the revolutionary 'Invisible Immersion' method to achieve English fluency in just 2 years. Learn how integrating English into your daily life, replacing entertainment, and practicing constant narration can rewire your brain for natural speaking.",
     "tags": [
       "English Fluency",
@@ -341,7 +449,7 @@
   },
   {
     "blog_title": "UI Colors Guide",
-    "link": "/uicolorguide",
+    "link": "uicolorguide",
     "description": "Master UI colors! Learn to pick effective colors with HSL and OKLCH models for stunning, user-friendly interfaces. Unlock your design potential.",
     "tags": [
       "UI Colors",
@@ -355,7 +463,7 @@
   },
   {
     "blog_title": "Design ESSN",
-    "link": "/designessn",
+    "link": "designessn",
     "description": "Master graphic design fundamentals like balance, unity, contrast, and variety with real-world examples. Elevate your designs from functional to impactful.",
     "tags": [
       "Graphic Design",
@@ -370,7 +478,7 @@
   },
   {
     "blog_title": "AI Code Wins",
-    "link": "/aicodewins",
+    "link": "aicodewins",
     "description": "Unlock 13+ AI coding projects! Learn data analysis, NLP, game dev & more. Build your portfolio with practical AI applications.",
     "tags": [
       "AI Coding",
@@ -384,7 +492,7 @@
   },
   {
     "blog_title": "2026 Games Ignite",
-    "link": "/2026gamesignite",
+    "link": "2026gamesignite",
     "description": "Uncover the 10 most electrifying games of 2026! From massive sequels like GTA VI to hidden indie gems like Silksong, get ready for groundbreaking adventures and epic stories that will redefine gaming.",
     "tags": [
       "2026 Games",
@@ -400,7 +508,7 @@
   },
   {
     "blog_title": "Design Pro Video",
-    "link": "/designprovideo",
+    "link": "designprovideo",
     "description": "Master video design! Learn essential principles like hierarchy, alignment, contrast, and consistency to make your content engaging and professional. Boost viewer attention and elevate your video editing skills.",
     "tags": [
       "Video Design",
@@ -413,7 +521,7 @@
   },
   {
     "blog_title": "Claude Chat",
-    "link": "/claudechat",
+    "link": "claudechat",
     "description": "Control your code with your phone! Learn how to set up Claude Channels to use Telegram or Discord to send commands and get results from your Claude code sessions. Boost your workflow!",
     "tags": [
       "Claude AI",
@@ -427,7 +535,7 @@
   },
   {
     "blog_title": "CMD Secrets",
-    "link": "/cmdsecrets",
+    "link": "cmdsecrets",
     "description": "Unlock Windows Command Prompt power! Learn essential network troubleshooting and system analysis commands like ipconfig, netsh, sfc, and DISM to fix issues and boost performance.",
     "tags": [
       "Windows Command Prompt",
@@ -440,7 +548,7 @@
   },
   {
     "blog_title": "AI Now",
-    "link": "/ainow",
+    "link": "ainow",
     "description": "Don't get left behind! Learn how to use AI to stay competitive and drive growth in your business and personal life. Discover practical AI tools and strategies to adapt and thrive.",
     "tags": [
       "AI Adoption",
@@ -453,7 +561,7 @@
   },
   {
     "blog_title": "Video Mastery",
-    "link": "/videomastery",
+    "link": "videomastery",
     "description": "Unlock your video editing potential! Learn the essential design fundamentals, master editing software like Premiere Pro & After Effects, and build a killer portfolio to stand out.",
     "tags": [
       "Video Editing",
@@ -467,7 +575,7 @@
   },
   {
     "blog_title": "Code Truths",
-    "link": "/codetruths",
+    "link": "codetruths",
     "description": "Stop \"vibe coding\"! AI generates code fast, but understanding systems makes you a better developer. Learn why deep knowledge beats AI shortcuts for bug-free code and career growth.",
     "tags": [
       "AI Coding",
@@ -480,7 +588,7 @@
   },
   {
     "blog_title": "Harness Lust",
-    "link": "/harnesslust",
+    "link": "harnesslust",
     "description": "Transform desire into power. Discover how to redirect 'lust' for ambition and achieve peak self-mastery and success.",
     "tags": [
       "Desire",
@@ -494,7 +602,7 @@
   },
   {
     "blog_title": "Top PC Games",
-    "link": "/top16pc",
+    "link": "top16pc",
     "description": "Discover the ultimate ranking of the top PC games from 2016. This expert list showcases the best titles across genres, from indie gems like Stardew Valley to action-packed blockbusters like DOOM. Find your next obsession!",
     "tags": [
       "PC Games",
@@ -507,7 +615,7 @@
   },
   {
     "blog_title": "Claude Offline",
-    "link": "/claudeoffline",
+    "link": "claudeoffline",
     "description": "Unlock Claude Code for free, local, and unlimited AI-assisted coding. Follow 5 steps to install Ollama, download models, and build apps offline.",
     "tags": [
       "Claude Code",
@@ -521,7 +629,7 @@
   },
   {
     "blog_title": "Own Your Truth",
-    "link": "/ownyourtruth",
+    "link": "ownyourtruth",
     "description": "Break free from limits! This guide reveals how radical self-honesty and intense introspection can unlock your true potential. Discover powerful techniques like self-confinement and mirror rituals to confront yourself and rebuild.",
     "tags": [
       "Self Improvement",
@@ -534,7 +642,7 @@
   },
   {
     "blog_title": "YPP Payouts",
-    "link": "/ypppayouts",
+    "link": "ypppayouts",
     "description": "Unlock YouTube Partner Program earnings! This guide demystifies the 4-step setup and monthly payment cycle, clarifying analytics vs. actual payouts.",
     "tags": [
       "YouTube Partner Program",
@@ -547,7 +655,7 @@
   },
   {
     "blog_title": "RAM Boost",
-    "link": "/ramboost",
+    "link": "ramboost",
     "description": "Unlock peak system performance by clearing cached RAM with Microsoft's Sysinternals RAMMap. Learn to reclaim gigabytes of memory for a noticeably snappier experience.",
     "tags": [
       "RAMMap",
@@ -560,7 +668,7 @@
   },
   {
     "blog_title": "Gamer Vision",
-    "link": "/gamervision",
+    "link": "gamervision",
     "description": "Unlock stunning PC game graphics! Learn about ray tracing, DLSS, FSR, HDR, and more. Boost performance & visuals to dominate your games.",
     "tags": [
       "PC Gaming",
@@ -575,7 +683,7 @@
   },
   {
     "blog_title": "Server Hacks",
-    "link": "/serverhacks",
+    "link": "serverhacks",
     "description": "Turn an old laptop into a powerful home server! Learn to install Ubuntu Server, host Jellyfin for media streaming, and even run your own Minecraft server. Perfect for tech enthusiasts and budget-friendly projects.",
     "tags": [
       "Ubuntu Server",
@@ -589,7 +697,7 @@
   },
   {
     "blog_title": "Win11 Makeover",
-    "link": "/win11makeover",
+    "link": "win11makeover",
     "description": "Transform your Windows 11 desktop! Learn to apply dark mode, a translucent taskbar, and custom widgets using tools like Windhawk and Rainmeter for a sleek, personalized look.",
     "tags": [
       "Windows 11",
@@ -604,7 +712,7 @@
   },
   {
     "blog_title": "Learn Faster",
-    "link": "/learnfaster",
+    "link": "learnfaster",
     "description": "Unlock your brain's potential! Discover the '3C Protocol' for deep learning, ditch rote memorization, and master any subject with science-backed strategies. Boost retention and achieve true understanding.",
     "tags": [
       "Learning",
@@ -617,7 +725,7 @@
   },
   {
     "blog_title": "AI Limits",
-    "link": "/AILimits",
+    "link": "AILimits",
     "description": "Explore the surprising limitations of AI in freelance tasks. Discover why AI fails 97.5% of the time in complex jobs and what this means for the future of work.",
     "tags": [
       "AI",
@@ -630,7 +738,7 @@
   },
   {
     "blog_title": "AI Video Scale",
-    "link": "/aivideoscale",
+    "link": "aivideoscale",
     "description": "Unlock unlimited free short-form video creation for YouTube Shorts & Reels. Learn the full AI workflow to mass-produce engaging content without costs.",
     "tags": [
       "AI Video",
@@ -644,7 +752,7 @@
   },
   {
     "blog_title": "AI Career Path",
-    "link": "/aicareer",
+    "link": "aicareer",
     "description": "Your 6-month blueprint to becoming an AI engineer. Master practical skills, build real projects, and deploy AI applications. Demystify the AI ecosystem and land your dream role.",
     "tags": [
       "AI Engineer",
@@ -660,7 +768,7 @@
   },
   {
     "blog_title": "Claude Motion",
-    "link": "/claudemotion",
+    "link": "claudemotion",
     "description": "Learn to create stunning animated motion graphics for YouTube and social media using Claude Code, Node.js, and VS Code. Generate professional animations with simple AI prompts.",
     "tags": [
       "Claude Code",
@@ -673,7 +781,7 @@
   },
   {
     "blog_title": "TradeMaster",
-    "link": "/trademaster",
+    "link": "trademaster",
     "description": "Unlock your trading potential with our 90-day roadmap. Learn to master one strategy, eliminate distractions, and build the discipline for consistent profits.",
     "tags": [
       "Trading",
@@ -686,7 +794,7 @@
   },
   {
     "blog_title": "Code Hour",
-    "link": "/codehour",
+    "link": "codehour",
     "description": "Unlock your coding potential in just 60 minutes a day! Discover the proven strategy to actively build, debug, and master programming skills faster than passive learning.",
     "tags": [
       "Coding",
@@ -700,7 +808,7 @@
   },
   {
     "blog_title": "Sora Shut",
-    "link": "/sorashut",
+    "link": "sorashut",
     "description": "OpenAI's Sora is gone. Discover why high compute costs, fierce AI competition, and investor doubts forced its closure, revealing the tough economic reality for AI giants and the potential for market shifts.",
     "tags": [
       "Sora",
@@ -715,7 +823,7 @@
   },
   {
     "blog_title": "Host Mine",
-    "link": "/hostmine",
+    "link": "hostmine",
     "description": "Build your own Minecraft realm! Learn to host a performant server on your PC with PaperMC and let friends join using playit.gg. Perfect for custom worlds and endless adventures.",
     "tags": [
       "Minecraft Server",
@@ -728,7 +836,7 @@
   },
   {
     "blog_title": "Earn Now",
-    "link": "/earnnown",
+    "link": "earnnown",
     "description": "Learn how to monetize your images, wallpapers, and videos using the Monetag advertising platform. This tutorial guides you through the sign-up process and leveraging 'Direct Links' to generate revenue from your digital assets.",
     "tags": [
       "Monetize Images",
@@ -742,7 +850,7 @@
   },
   {
     "blog_title": "iPhone Hacks",
-    "link": "/iphonehacks",
+    "link": "iphonehacks",
     "description": "Unlock your iPhone's full potential! Discover 14 essential apps to boost productivity, enhance well-being, and simplify your life, from smart note-taking to AI-powered insights.",
     "tags": [
       "iPhone Apps",
@@ -755,7 +863,7 @@
   },
   {
     "blog_title": "Sleep Hack",
-    "link": "/sleephack",
+    "link": "sleephack",
     "description": "Unlock peak performance with science-backed strategies for truly restorative sleep. Learn to optimize your sleep cycles for enhanced focus, energy, and well-being by understanding deep and REM sleep, mastering wind-down routines, and leveraging morning light.",
     "tags": [
       "Sleep Science",
@@ -770,7 +878,7 @@
   },
   {
     "blog_title": "Gen Z Debt",
-    "link": "/genzdebt",
+    "link": "genzdebt",
     "description": "Gen Z in India faces mounting debt from lifestyle spending, job instability, and BNPL schemes. Discover the financial challenges and learn smart money management strategies to build wealth.",
     "tags": [
       "Gen Z",
@@ -785,7 +893,7 @@
   },
   {
     "blog_title": "Cloud Pro",
-    "link": "/cloudpro",
+    "link": "cloudpro",
     "description": "Demystifying the Cloud Engineer role: Learn day-to-day tasks, salary insights, and career growth opportunities in designing, building, and managing scalable cloud infrastructure. Understand key challenges like 'ClickOps Debt' and the impact of AI, and discover essential skills for success.",
     "tags": [
       "Cloud Engineer",
@@ -801,7 +909,7 @@
   },
   {
     "blog_title": "Glow Up",
-    "link": "/glow-up",
+    "link": "glow-up",
     "description": "Unlock radiant skin! Discover 7 common habits destroying your complexion and learn simple, effective steps for a healthier, glowing face. Transform your skin with science-backed advice.",
     "tags": [
       "Skincare Mistakes",
@@ -814,7 +922,7 @@
   },
   {
     "blog_title": "Achieve Goals",
-    "link": "/achievegoals",
+    "link": "achievegoals",
     "description": "Learn the powerful 3-step framework used by successful individuals to guarantee goal achievement. Discover how to define precise targets, overcome obstacles with proactive solutions, and anchor actions into your daily routine for unstoppable progress.",
     "tags": [
       "Goal Achievement",
@@ -827,7 +935,7 @@
   },
   {
     "blog_title": "Wealth First",
-    "link": "/wealthfirst",
+    "link": "wealthfirst",
     "description": "Stop bad money habits and achieve financial freedom! Discover 8 wealth-killing mistakes and learn the 'pay yourself first' secret to budgeting, saving, and investing for a richer future.",
     "tags": [
       "Financial Freedom",
@@ -843,7 +951,7 @@
   },
   {
     "blog_title": "AI Career",
-    "link": "/aicareer",
+    "link": "aicareer",
     "description": "Launch your AI engineering career! Learn essential skills in LLMs, RAG, Agents, and LLMOps. Build your portfolio and land a high-paying job.",
     "tags": [
       "AI Engineer",
@@ -857,7 +965,7 @@
   },
   {
     "blog_title": "2 Min Boost",
-    "link": "/2minboost",
+    "link": "2minboost",
     "description": "Discover how to beat procrastination and build habits with the powerful 2-minute rule, adapted from productivity giants like David Allen and James Clear. Start small, gain momentum, and transform your workflow.",
     "tags": [
       "Productivity",
@@ -871,7 +979,7 @@
   },
   {
     "blog_title": "Mind Hack",
-    "link": "/mindhack",
+    "link": "mindhack",
     "description": "Reclaim your brain from dopamine addiction. Learn how to break free from bad habits and master self-control with this 7-day detox system. Stop feeling weak, start living powerfully.",
     "tags": [
       "Mind Control",
@@ -884,7 +992,7 @@
   },
   {
     "blog_title": "AI Model",
-    "link": "/aimodel",
+    "link": "aimodel",
     "description": "Create stunning AI influencers from a single photo and video! Learn how to use tools like Lovart.ai and KIE.AI to generate realistic digital twins for social media and more. Step-by-step guide with free options.",
     "tags": [
       "AI Influencers",
@@ -898,7 +1006,7 @@
   },
   {
     "blog_title": "Master Grit",
-    "link": "/mastergrit",
+    "link": "mastergrit",
     "description": "Reclaim control from destructive urges. Discover a 5-step plan to build ironclad discipline, conquer temptation, and redirect your attention for ultimate self-mastery.",
     "tags": [
       "Self-Discipline",
@@ -911,7 +1019,7 @@
   },
   {
     "blog_title": "Trade Gold",
-    "link": "/tradegold",
+    "link": "tradegold",
     "description": "Unlock profitable trades! Discover real-time strategies for Gold, TCS, and Nifty. Learn to identify winning entries, manage risk, and profit from market moves.",
     "tags": [
       "Trading Strategies",

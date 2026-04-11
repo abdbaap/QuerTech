@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Direct link to your sitemap
-Sitemap: https://quertech-articles.vercel.app/sitemap.xml
+Sitemap: https://articlesstack.pages.dev/sitemap.xml

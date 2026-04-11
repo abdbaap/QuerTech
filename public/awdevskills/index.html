@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags for SEO Optimization -->
+    <title>AWS & DevOps: Skyrocket Your Tech Career!</title>
+    <meta name="description" content="Tired of slow career growth? Master AWS & DevOps! Unlock high-paying cloud jobs & become a sought-after pro. Discover crucial skills & top training.">
+    <meta name="keywords" content="AWS DevOps career opportunities 2025, best cloud computing skills for job growth, how to get AWS certification for career, DevOps essential skills and tools, learn AWS for cloud engineer jobs, Kubernetes and Docker for DevOps beginners, Simplilearn AWS Cloud Architect Masters Program benefits, high paying tech jobs cloud computing, AWS market share and future demand, CI/CD pipeline development training">
+    <meta name="author" content="Your Name/Company Name">
+    <meta property="og:title" content="AWS & DevOps: Skyrocket Your Tech Career!">
+    <meta property="og:description" content="Tired of slow career growth? Master AWS & DevOps! Unlock high-paying cloud jobs & become a sought-after pro. Discover crucial skills & top training.">
+    <meta property="og:image" content="https://articlesstack.pages.dev/path/to/your/og-image.jpg"> <!-- Replace with a relevant image -->
+    <meta property="og:url" content="https://articlesstack.pages.dev">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AWS & DevOps: Skyrocket Your Tech Career!">
+    <meta name="twitter:description" content="Tired of slow career growth? Master AWS & DevOps! Unlock high-paying cloud jobs & become a sought-after pro. Discover crucial skills & top training.">
+    <meta name="twitter:image" content="https://articlesstack.pages.dev/path/to/your/twitter-image.jpg"> <!-- Replace with a relevant image -->
+    <link rel="canonical" href="https://articlesstack.pages.dev">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%236366f1'/><circle cx='50' cy='50' r='30' fill='%23ec4899'/><circle cx='50' cy='50' r='20' fill='%2309172a'/></svg>" type="image/svg+xml">
+    <!-- End Meta Tags -->
+
+    <style>
+        /* Basic Reset & Global Styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary-indigo: #6366f1;
+            --primary-pink: #ec4899;
+            --dark-slate: #09172a;
+            --text-light: #e0e7ff;
+            --text-muted: #94a3b8;
+            --background-dark: #0f172a;
+            --background-glass: rgba(15, 23, 42, 0.6);
+            --border-gradient-start: var(--primary-indigo);
+            --border-gradient-end: var(--primary-pink);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2;
+            margin-bottom: 0.75em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background-image: linear-gradient(90deg, var(--primary-indigo), var(--primary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--primary-indigo);
+        }
+
+        h3 {
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+            font-weight: 700;
+            color: var(--primary-pink);
+        }
+
+        p {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            margin-bottom: 1.25em;
+        }
+
+        a {
+            color: var(--primary-indigo);
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--primary-pink);
+            transform: translateY(-2px);
+        }
+
+        /* Layout & Structure */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        main {
+            flex-grow: 1; /* Allow main content to take available space */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--background-glass);
+            backdrop-filter: blur(15px) saturate(200%);
+            -webkit-backdrop-filter: blur(15px) saturate(200%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-indigo), var(--primary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary-indigo), var(--primary-pink));
+            color: var(--text-light);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-image 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.5);
+            background-image: linear-gradient(90deg, var(--primary-pink), var(--primary-indigo));
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 4rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .content-section > div {
+            background-color: var(--background-glass);
+            backdrop-filter: blur(15px) saturate(200%);
+            -webkit-backdrop-filter: blur(15px) saturate(200%);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .content-section > div:hover,
+        .content-section > div:focus-within {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border-image: linear-gradient(to right, var(--primary-indigo), var(--primary-pink)) 1;
+            border-width: 2px;
+            border-style: solid;
+            border-image-slice: 1;
+        }
+
+        .content-section h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+        }
+
+        .content-section p {
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1; /* Push button to bottom */
+        }
+
+        .content-section .badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .content-section .badge.indigo {
+            background-color: rgba(99, 102, 241, 0.2);
+            color: var(--primary-indigo);
+        }
+
+        .content-section .badge.pink {
+            background-color: rgba(236, 72, 153, 0.2);
+            color: var(--primary-pink);
+        }
+
+        .content-section .badge.dark {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+        }
+
+        .content-section .cta-link {
+            display: inline-block;
+            margin-top: auto; /* Push to bottom */
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            background: linear-gradient(90deg, var(--primary-indigo), var(--primary-pink));
+            color: var(--text-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .content-section .cta-link:hover,
+        .content-section .cta-link:focus {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1001;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-indigo), var(--primary-pink));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-image 0.3s ease;
+            border: 2px solid transparent; /* For border image transition */
+        }
+
+        .theme-toggle:hover,
+        .theme-toggle:focus {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5);
+            background-image: linear-gradient(135deg, var(--primary-pink), var(--primary-indigo));
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 50%;
+            background: inherit; /* Inherit gradient for border */
+            background-clip: padding-box; /* Clip background to padding box */
+            border: solid 2px transparent;
+            border-image: linear-gradient(to right, var(--primary-indigo), var(--primary-pink)) 1;
+            z-index: -1; /* Behind the main element */
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .theme-toggle:hover::before,
+        .theme-toggle:focus::before {
+            opacity: 1;
+        }
+
+
+        .theme-toggle i {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover i,
+        .theme-toggle:focus i {
+            transform: scale(1.1);
+        }
+
+        /* Ambient Orbs Background */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0) 70%);
+            opacity: 0;
+            animation: float 15s ease-in-out infinite alternate;
+        }
+
+        .orb:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: -100px;
+            left: -100px;
+            animation-delay: -5s;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.3), rgba(236, 72, 153, 0) 70%);
+        }
+
+        .orb:nth-child(2) {
+            width: 250px;
+            height: 250px;
+            bottom: -150px;
+            right: -150px;
+            animation-delay: -10s;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2), rgba(99, 102, 241, 0) 70%);
+        }
+
+        .orb:nth-child(3) {
+            width: 180px;
+            height: 180px;
+            top: 30%;
+            left: 40%;
+            animation-delay: -2s;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.35), rgba(236, 72, 153, 0) 70%);
+        }
+
+        .orb:nth-child(4) {
+            width: 150px;
+            height: 150px;
+            bottom: 10%;
+            left: 20%;
+            animation-delay: -7s;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.25), rgba(99, 102, 241, 0) 70%);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translate(50px, -100px) scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: auto; /* Push footer to the bottom */
+            background-color: var(--background-glass);
+            backdrop-filter: blur(15px) saturate(200%);
+            -webkit-backdrop-filter: blur(15px) saturate(200%);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--text-muted);
+        }
+
+        footer a:hover {
+            color: var(--primary-pink);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 1.5rem 0;
+            }
+
+            header {
+                padding: 1rem 0;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .content-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .theme-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .theme-toggle i {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .hero p {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+            }
+
+            .cta-button {
+                padding: 0.7rem 1.8rem;
+                font-size: clamp(0.95rem, 3vw, 1.05rem);
+            }
+
+            .content-section {
+                padding: 2rem 0;
+            }
+
+            .content-section > div {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://articlesstack.pages.dev" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <div class="background-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="site-title">Tech Career Navigator</div>
+            <nav>
+                <ul>
+                    <li><a href="#skills">Key Skills</a></li>
+                    <li><a href="#opportunities">Career Paths</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>AWS & DevOps: Skyrocket Your Tech Career!</h1>
+                <p>The tech landscape is evolving rapidly. Master in-demand AWS and DevOps skills to unlock high-paying jobs and secure your future in cloud computing.</p>
+                <a href="#resources" class="cta-button">Start Learning Now</a>
+            </div>
+        </section>
+
+        <section id="skills" class="content-section">
+            <div class="container">
+                <h2>DevOps Essentials & Cloud Skills</h2>
+                <p>DevOps is the future of efficient software development. Learn how to streamline processes, improve collaboration, and accelerate code delivery with practices like CI/CD.</p>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <span class="badge indigo">Tools</span>
+                        <h3>CI/CD Pipelines</h3>
+                        <p>Automate your build, test, and deployment processes for faster, more reliable releases.</p>
+                    </div>
+                    <div class="skill-card">
+                        <span class="badge pink">Concepts</span>
+                        <h3>Containerization</h3>
+                        <p>Leverage Docker to package applications and their dependencies, ensuring consistency across environments.</p>
+                    </div>
+                    <div class="skill-card">
+                        <span class="badge dark">Orchestration</span>
+                        <h3>Kubernetes</h3>
+                        <p>Manage and scale containerized applications efficiently, a critical skill for modern cloud deployments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="opportunities" class="content-section">
+            <div class="container">
+                <h2>Your High-Growth Career Awaits</h2>
+                <p>The global cloud market is booming, with AWS leading the charge. Acquire these skills to access lucrative roles and stay ahead of the curve.</p>
+                <div class="opportunity-cards">
+                    <div class="opportunity-card">
+                        <span class="badge indigo">AWS Dominance</span>
+                        <h3>AWS Market Share</h3>
+                        <p>With a 33% market share, AWS expertise is highly sought after, opening doors to numerous opportunities.</p>
+                    </div>
+                    <div class="opportunity-card">
+                        <span class="badge pink">Job Roles</span>
+                        <h3>In-Demand Careers</h3>
+                        <p>Become a Cloud Engineer, Solutions Architect, or DevOps Engineer with roles projected for significant growth.</p>
+                    </div>
+                    <div class="opportunity-card">
+                        <span class="badge dark">Salary Potential</span>
+                        <h3>High-Paying Roles</h3>
+                        <p>Invest in your skills and unlock career paths with competitive salaries, driven by the 13.9% CAGR of cloud-related technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="content-section">
+            <div class="container">
+                <h2>Upskill with Top Training & Certifications</h2>
+                <p>Formal training and certifications are key to validating your expertise and boosting employability. Explore structured learning paths and hands-on experience.</p>
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <span class="badge indigo">Certification Focus</span>
+                        <h3>AWS Certifications</h3>
+                        <p>Validate your AWS knowledge with credentials like the AWS Certified Solutions Architect – Associate.</p>
+                        <a href="#" class="cta-link">Learn More About Certs</a>
+                    </div>
+                    <div class="resource-card">
+                        <span class="badge pink">Structured Learning</span>
+                        <h3>Masters Programs</h3>
+                        <p>Comprehensive programs like Simplilearn's AWS Cloud Architect Masters Program offer in-depth training.</p>
+                        <a href="https://www.simplilearn.com/aws-cloud-architect-masters-program-training-course?utm_source=articlesstack.pages.dev&utm_medium=referral&utm_campaign=aws-devops-blog" class="cta-link" target="_blank">Explore Programs</a>
+                    </div>
+                    <div class="resource-card">
+                        <span class="badge dark">Hands-on Practice</span>
+                        <h3>Free Tier & Tutorials</h3>
+                        <p>Gain practical experience with AWS Free Tier and free online tutorials to build your skills.</p>
+                        <a href="https://aws.amazon.com/free/" class="cta-link" target="_blank">Get Started with AWS Free Tier</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tech Career Navigator. All rights reserved. <br> Visit us at <a href="https://articlesstack.pages.dev">articlesstack.pages.dev</a></p>
+        </div>
+    </footer>
+
+    <button class="theme-toggle" aria-label="Toggle Theme">
+        <i class="icon fas fa-sun"></i> <!-- Font Awesome icons used for demonstration -->
+    </button>
+
+    <script>
+        // --- JavaScript for Interactivity and Animations ---
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Theme Toggle Functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const sunIcon = document.querySelector('.theme-toggle .fa-sun');
+        const moonIcon = document.querySelector('.theme-toggle .fa-moon'); // Assuming you might have a moon icon
+
+        // Initial check for saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            if (sunIcon) sunIcon.style.display = 'none';
+            if (moonIcon) moonIcon.style.display = 'block';
+        } else {
+            document.body.classList.remove('dark-theme');
+            if (sunIcon) sunIcon.style.display = 'block';
+            if (moonIcon) moonIcon.style.display = 'none';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+
+            // Update icon
+            if (sunIcon && moonIcon) {
+                const isDark = document.body.classList.contains('dark-theme');
+                sunIcon.style.display = isDark ? 'none' : 'block';
+                moonIcon.style.display = isDark ? 'block' : 'none';
+            }
+
+            // Save theme preference
+            const currentTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+        });
+
+        // Add Font Awesome icons (you would link this in your HTML <head> for a real project,
+        // but for a single file, we can simulate by adding it via JS if needed or assume it's linked.)
+        // For this example, we'll assume Font Awesome is linked in the head via a CDN or local file.
+        // If not, you would need to inject the CSS for these icons here.
+        // Example of how to add Font Awesome if it wasn't linked:
+        /*
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css';
+        document.head.appendChild(link);
+        */
+
+        // Hover effects for cards (more subtle transitions handled by CSS, JS for dynamic effects if needed)
+        const cards = document.querySelectorAll('.content-section > div, .skill-card, .opportunity-card, .resource-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const deltaX = x - centerX;
+                const deltaY = y - centerY;
+
+                // For a subtle 3D card lifting effect, primarily CSS is used for `transform: translateY`.
+                // JS can enhance this by slightly tilting the card based on mouse position, but it can be complex.
+                // The current CSS `transform: translateY(-8px)` on hover is the primary driver.
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // Resetting transformations and styles handled by CSS.
+            });
+        });
+
+        // Initial animation for background orbs
+        const orbs = document.querySelectorAll('.orb');
+        orbs.forEach((orb, index) => {
+            // Using CSS animations 'float' with 'animation-delay' for staggered effect.
+            // JS can be used to dynamically position orbs for more complex animations.
+            // For this example, CSS handles the primary animation.
+            // We can add an initial fade-in for the orbs.
+            orb.style.animation = `float 15s ease-in-out infinite alternate ${orb.style.animationDelay || '0s'}, fadeIn 1s ease-out forwards ${index * 0.2}s`;
+        });
+
+        // Keyframe for fadeIn animation
+        const styleSheet = document.styleSheets[0]; // Assuming this is the main stylesheet
+        styleSheet.insertRule(`
+            @keyframes fadeIn {
+                from { opacity: 0; transform: scale(0.8); }
+                to { opacity: 1; transform: scale(1); }
+            }
+        `, styleSheet.cssRules.length);
+
+        // Add a simple class for dark theme if needed for further CSS customization
+        // This is primarily handled by toggling 'dark-theme' class on body for now.
+
+        // To make the theme toggle have a moon icon, you'd typically need to include Font Awesome
+        // and have both `fa-sun` and `fa-moon` classes available.
+        // For this single-file solution, we'll assume the user has Font Awesome linked.
+        // If not, you'd need to dynamically add the Font Awesome CSS.
+        // Let's ensure the icons are handled correctly for the toggle.
+        const initialIcon = themeToggle.querySelector('.fas');
+        if (initialIcon) {
+            initialIcon.classList.add('fa-sun'); // Assume it starts as sun
+            // You'd then toggle between fa-sun and fa-moon based on the body class.
+        }
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/backend-mastery">Backend MASTERY</a><a href="/motiontext">Motion Text</a><a href="/cssfuncs">CSS Funcs</a><a href="/aistackunlocked">AI Stack Unlocked</a><a href="/canvaanimate">Canva Animate</a><a href="/cssrules">CSS Rules</a><a href="/cssscale">CSS Scale</a><a href="/pixelglitch">Pixel Glitch</a><a href="/proxies">Proxy, Balance, Gateway</a><a href="/authevolution">Auth Evolved</a><a href="/csspopovers">CSS Popovers</a><a href="/csslayout">CSS Layout Mastery</a><a href="/cssatrt">CSS Attr Type</a><a href="/csspos">CSS Pos</a><a href="/cssevolution">CSS Evolve</a><a href="/scrollfx">Scroll FX</a><a href="/cssflow">CSS Flow</a><a href="/stopscroll">Stop Scroll</a><a href="/geminivisions">Gemini Visions</a><a href="/algosecrets">Algorithm Secrets</a><a href="/buildaitools">Build AI Tools</a><a href="/designflaws">Design Flaws</a><a href="/designmastery">Design Mastery</a><a href="/designtrends">Design Trends</a><a href="/designgear">Design Gear</a><a href="/taxhacks">Tax Hacks</a><a href="/androidhacks">Android Hacks</a><a href="/spartangains">Spartan Gains</a><a href="/aiuxshift">AI UX Shift</a><a href="/speakfluent">Speak fluent</a><a href="/uicolorguide">UI Colors Guide</a><a href="/designessn">Design ESSN</a><a href="/aicodewins">AI Code Wins</a><a href="/2026gamesignite">2026 Games Ignite</a><a href="/designprovideo">Design Pro Video</a><a href="/claudechat">Claude Chat</a><a href="/cmdsecrets">CMD Secrets</a><a href="/ainow">AI Now</a><a href="/videomastery">Video Mastery</a><a href="/codetruths">Code Truths</a><a href="/harnesslust">Harness Lust</a><a href="/top16pc">Top PC Games</a><a href="/claudeoffline">Claude Offline</a><a href="/ownyourtruth">Own Your Truth</a><a href="/ypppayouts">YPP Payouts</a><a href="/ramboost">RAM Boost</a><a href="/gamervision">Gamer Vision</a><a href="/serverhacks">Server Hacks</a><a href="/win11makeover">Win11 Makeover</a><a href="/learnfaster">Learn Faster</a><a href="/AILimits">AI Limits</a><a href="/aivideoscale">AI Video Scale</a><a href="/aicareer">AI Career Path</a><a href="/claudemotion">Claude Motion</a><a href="/trademaster">TradeMaster</a><a href="/codehour">Code Hour</a><a href="/sorashut">Sora Shut</a><a href="/hostmine">Host Mine</a><a href="/earnnown">Earn Now</a><a href="/iphonehacks">iPhone Hacks</a><a href="/sleephack">Sleep Hack</a><a href="/genzdebt">Gen Z Debt</a><a href="/cloudpro">Cloud Pro</a><a href="/glow-up">Glow Up</a><a href="/achievegoals">Achieve Goals</a><a href="/wealthfirst">Wealth First</a><a href="/aicareer">AI Career</a><a href="/2minboost">2 Min Boost</a><a href="/mindhack">Mind Hack</a><a href="/aimodel">AI Model</a><a href="/mastergrit">Master Grit</a><a href="/tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

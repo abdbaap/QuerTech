@@ -2,6 +2,7 @@
 import fs from "fs/promises"
 import path from "path";
 import { addingBlogToSitemap } from "./5addingBlogToSitemap";
+import { title } from "process";
 
 export async function GeneratingFies(TitleFolder,code,category) {
   try {
@@ -23,7 +24,11 @@ export async function GeneratingFies(TitleFolder,code,category) {
          const listOfAllBlogsPath=path.join(process.cwd(),"app/blogData/listofallblogs.json")
          const ListOfAllBlogs=await fs.readFile(listOfAllBlogsPath,"utf-8")
          const previousListOfBlogs=JSON.parse(ListOfAllBlogs)
-         previousListOfBlogs.unshift(TitleFolder.data)
+         previousListOfBlogs.unshift({blog_title:TitleFolder.data.blog_title
+          ,link:cleanSlug
+          ,color:TitleFolder.data.color,
+          description:TitleFolder.data.description,
+          tags:TitleFolder.data.tags})
          await fs.writeFile(listOfAllBlogsPath, JSON.stringify(previousListOfBlogs, null, 2), "utf-8");
          const fileContent=await fs.readFile(BlogsData,"utf-8")
        

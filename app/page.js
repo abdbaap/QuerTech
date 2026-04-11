@@ -16,7 +16,7 @@ export default function Home() {
     <div className="flex flex-col  justify-center overflow-x-hidden gap-32 items-center w-screen">
       <Herosection/>
    <Aiblogssection/>
-   <CoursesBlog/>
+   <CoursesBlog  />
    <LifeLessonsBlog/>
    <MotivationBlog/>
    <GamingBlog/>

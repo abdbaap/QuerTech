@@ -12,7 +12,7 @@ export async function POST(req) {
         body:JSON.stringify({
             host:"quertech-articles.vercel.app",
             key:process.env.INDEXNOWKEY,
-            keyLocation:`https://quertech-articles.vercel.app/${process.env.INDEXNOWKEY}.txt`,
+            keyLocation:`https://articlesstack.pages.dev/${process.env.INDEXNOWKEY}.txt`,
             urlList:urlList
                 })
     })

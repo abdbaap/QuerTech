@@ -1,7 +1,50 @@
 [
   {
+    "blog_title": "Code Clean",
+    "link": "/codeclean",
+    "description": "Master clean code! Learn to banish deep nesting & duplication using inversion & extraction. Make your code readable, maintainable, and bug-free. Boost productivity now!",
+    "tags": [
+      "Clean Code",
+      "Code Readability",
+      "Maintainable Code",
+      "Programming Best Practices",
+      "Refactoring"
+    ],
+    "color": "bg-cyan-700 shadow-cyan-400"
+  },
+  {
+    "blog_title": "AWS DevSkills",
+    "link": "/awdevskills",
+    "description": "Unlock high-paying tech jobs! Discover why AWS and DevOps skills are exploding by 2025. Learn essential CI/CD, Docker, and Kubernetes. Get certified and fast-track your career.",
+    "tags": [
+      "AWS",
+      "DevOps",
+      "Cloud Computing",
+      "Career",
+      "Skills",
+      "Certifications",
+      "CI/CD",
+      "Docker",
+      "Kubernetes"
+    ],
+    "color": "bg-blue-600 shadow-blue-400"
+  },
+  {
+    "blog_title": "Motion Text",
+    "link": "/motiontext",
+    "description": "Master CapCut's motion typography and sound design to create dynamic, engaging video sequences that captivate your audience. Learn to layer text, sync audio, and use advanced features for professional results.",
+    "tags": [
+      "Motion Typography",
+      "CapCut Tutorial",
+      "Video Editing",
+      "Sound Design",
+      "Text Animation"
+    ],
+    "color": "bg-cyan-600 shadow-cyan-400"
+  },
+  {
     "blog_title": "Stop Scroll",
-    "link": "/stopscroll",
+    "link": "stopscroll",
     "description": "Tired of endless scrolling? Discover 15 actionable hobbies that build skills, boost confidence, and transform your life. Ditch passive consumption and start creating!",
     "tags": [
       "Hobbies",
@@ -14,7 +57,7 @@
   },
   {
     "blog_title": "Design Flaws",
-    "link": "/designflaws",
+    "link": "designflaws",
     "description": "Discover how 'intelligent imperfection' in design creates dynamic, expressive, and memorable results, moving beyond sterile perfection. Learn to balance intentionality with controlled disruption for deeper audience resonance.",
     "tags": [
       "Design",
@@ -27,7 +70,7 @@
   },
   {
     "blog_title": "Design Gear",
-    "link": "/designgear",
+    "link": "designgear",
     "description": "Discover the essential hardware, software, and resources graphic designers use daily. Plus, get actionable advice for aspiring creatives to kickstart their journey.",
     "tags": [
       "Graphic Design",
@@ -46,7 +89,7 @@
   },
   {
     "blog_title": "Tax Hacks",
-    "link": "/taxhacks",
+    "link": "taxhacks",
     "description": "Master legal tax savings in India! Discover powerful strategies using tax slabs, NPS, and exemptions to slash your tax burden. Your ultimate guide to smart financial planning.",
     "tags": [
       "Tax Savings India",
@@ -59,7 +102,7 @@
   },
   {
     "blog_title": "Spartan Gains",
-    "link": "/spartangains",
+    "link": "spartangains",
     "description": "Unlock superior muscle growth using ancient Spartan training secrets. Discover 6 powerful, functional exercises to build a formidable physique with less joint damage.",
     "tags": [
       "Spartan Training",
@@ -72,7 +115,7 @@
   },
   {
     "blog_title": "AI UX Shift",
-    "link": "/aiuxshift",
+    "link": "aiuxshift",
     "description": "Stop chasing AI tools! Discover how UX designers can thrive in 2026 by focusing on user intent and leveraging AI as a strategic partner for flawless final execution.",
     "tags": [
       "AI UX",
@@ -85,7 +128,7 @@
   },
   {
     "blog_title": "Speak fluent",
-    "link": "/speakfluent",
+    "link": "speakfluent",
     "description": "Discover the revolutionary 'Invisible Immersion' method to achieve English fluency in just 2 years. Learn how integrating English into your daily life, replacing entertainment, and practicing constant narration can rewire your brain for natural speaking.",
     "tags": [
       "English Fluency",
@@ -98,7 +141,7 @@
   },
   {
     "blog_title": "UI Colors Guide",
-    "link": "/uicolorguide",
+    "link": "uicolorguide",
     "description": "Master UI colors! Learn to pick effective colors with HSL and OKLCH models for stunning, user-friendly interfaces. Unlock your design potential.",
     "tags": [
       "UI Colors",
@@ -112,7 +155,7 @@
   },
   {
     "blog_title": "AI Code Wins",
-    "link": "/aicodewins",
+    "link": "aicodewins",
     "description": "Unlock 13+ AI coding projects! Learn data analysis, NLP, game dev & more. Build your portfolio with practical AI applications.",
     "tags": [
       "AI Coding",
@@ -126,7 +169,7 @@
   },
   {
     "blog_title": "Code Truths",
-    "link": "/codetruths",
+    "link": "codetruths",
     "description": "Stop \"vibe coding\"! AI generates code fast, but understanding systems makes you a better developer. Learn why deep knowledge beats AI shortcuts for bug-free code and career growth.",
     "tags": [
       "AI Coding",
@@ -139,7 +182,7 @@
   },
   {
     "blog_title": "Claude Offline",
-    "link": "/claudeoffline",
+    "link": "claudeoffline",
     "description": "Unlock Claude Code for free, local, and unlimited AI-assisted coding. Follow 5 steps to install Ollama, download models, and build apps offline.",
     "tags": [
       "Claude Code",
@@ -153,7 +196,7 @@
   },
   {
     "blog_title": "Server Hacks",
-    "link": "/serverhacks",
+    "link": "serverhacks",
     "description": "Turn an old laptop into a powerful home server! Learn to install Ubuntu Server, host Jellyfin for media streaming, and even run your own Minecraft server. Perfect for tech enthusiasts and budget-friendly projects.",
     "tags": [
       "Ubuntu Server",
@@ -167,7 +210,7 @@
   },
   {
     "blog_title": "Learn Faster",
-    "link": "/learnfaster",
+    "link": "learnfaster",
     "description": "Unlock your brain's potential! Discover the '3C Protocol' for deep learning, ditch rote memorization, and master any subject with science-backed strategies. Boost retention and achieve true understanding.",
     "tags": [
       "Learning",
@@ -180,7 +223,7 @@
   },
   {
     "blog_title": "AI Limits",
-    "link": "/AILimits",
+    "link": "AILimits",
     "description": "Explore the surprising limitations of AI in freelance tasks. Discover why AI fails 97.5% of the time in complex jobs and what this means for the future of work.",
     "tags": [
       "AI",
@@ -193,7 +236,7 @@
   },
   {
     "blog_title": "AI Career Path",
-    "link": "/aicareer",
+    "link": "aicareer",
     "description": "Your 6-month blueprint to becoming an AI engineer. Master practical skills, build real projects, and deploy AI applications. Demystify the AI ecosystem and land your dream role.",
     "tags": [
       "AI Engineer",
@@ -209,7 +252,7 @@
   },
   {
     "blog_title": "Sleep Hack",
-    "link": "/sleephack",
+    "link": "sleephack",
     "description": "Unlock peak performance with science-backed strategies for truly restorative sleep. Learn to optimize your sleep cycles for enhanced focus, energy, and well-being by understanding deep and REM sleep, mastering wind-down routines, and leveraging morning light.",
     "tags": [
       "Sleep Science",
@@ -224,7 +267,7 @@
   },
   {
     "blog_title": "Glow Up",
-    "link": "/glow-up",
+    "link": "glow-up",
     "description": "Unlock radiant skin! Discover 7 common habits destroying your complexion and learn simple, effective steps for a healthier, glowing face. Transform your skin with science-backed advice.",
     "tags": [
       "Skincare Mistakes",
@@ -237,7 +280,7 @@
   },
   {
     "blog_title": "Achieve Goals",
-    "link": "/achievegoals",
+    "link": "achievegoals",
     "description": "Learn the powerful 3-step framework used by successful individuals to guarantee goal achievement. Discover how to define precise targets, overcome obstacles with proactive solutions, and anchor actions into your daily routine for unstoppable progress.",
     "tags": [
       "Goal Achievement",
@@ -250,7 +293,7 @@
   },
   {
     "blog_title": "Wealth First",
-    "link": "/wealthfirst",
+    "link": "wealthfirst",
     "description": "Stop bad money habits and achieve financial freedom! Discover 8 wealth-killing mistakes and learn the 'pay yourself first' secret to budgeting, saving, and investing for a richer future.",
     "tags": [
       "Financial Freedom",
@@ -266,7 +309,7 @@
   },
   {
     "blog_title": "AI Career",
-    "link": "/aicareer",
+    "link": "aicareer",
     "description": "Launch your AI engineering career! Learn essential skills in LLMs, RAG, Agents, and LLMOps. Build your portfolio and land a high-paying job.",
     "tags": [
       "AI Engineer",
@@ -280,7 +323,7 @@
   },
   {
     "blog_title": "2 Min Boost",
-    "link": "/2minboost",
+    "link": "2minboost",
     "description": "Discover how to beat procrastination and build habits with the powerful 2-minute rule, adapted from productivity giants like David Allen and James Clear. Start small, gain momentum, and transform your workflow.",
     "tags": [
       "Productivity",

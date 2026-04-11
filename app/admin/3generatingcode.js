@@ -15,13 +15,13 @@ try{
 
 
 
-    const prompt=`Act as an expert Full-Stack Developer and UI/UX Designer to generate a complete, high-performance, single-file web solution incorporating HTML, CSS, and JS for given summary, meta tags, and design summary. First, integrate the provided meta tags exactly into the <head> section for SEO optimization. Then, interpret the design summary to build a precise visual layout using modern CSS (Flexbox/Grid), specific color palettes, and typography that matches the requested aesthetic. Translate the content from the  summary into a clean, structured HTML5 architecture that is fully responsive and mobile-first. Include all necessary interactivity and animations within a <script> tag using vanilla JavaScript to ensure the file remains self-contained and fast-loading. Ensure the code is well-commented, professional, and reflects a "premium" user experience that bridges the gap between the content's purpose and the user's design preferences for given summary, meta tags, and design summary. the design summary is ${design} the summary of topic is ${summary} and metatagssummary is ${metaTags} also my website homepage link is https://quertech-articles.vercel.app make sure the design is responsive for all the devices`
+    const prompt=`Act as an expert Full-Stack Developer and UI/UX Designer to generate a complete, high-performance, single-file web solution incorporating HTML, CSS, and JS for given summary, meta tags, and design summary. First, integrate the provided meta tags exactly into the <head> section for SEO optimization. Then, interpret the design summary to build a precise visual layout using modern CSS (Flexbox/Grid), specific color palettes, and typography that matches the requested aesthetic. Translate the content from the  summary into a clean, structured HTML5 architecture that is fully responsive and mobile-first. Include all necessary interactivity and animations within a <script> tag using vanilla JavaScript to ensure the file remains self-contained and fast-loading. Ensure the code is well-commented, professional, and reflects a "premium" user experience that bridges the gap between the content's purpose and the user's design preferences for given summary, meta tags, and design summary. the design summary is ${design} the summary of topic is ${summary} and metatagssummary is ${metaTags} also my website homepage link is https://articlesstack.pages.dev make sure the design is responsive for all the devices`
 
     const result= await modelForGeneratingCode.generateContent(prompt)
     const code =await result.response.text()
     const fixedCode=await code.split("<!DOCTYPE html>")[1]
    const Navbar=`<navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
-  <a href="https://quertech-articles.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+  <a href="https://articlesstack.pages.dev" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
     QuerTech
   </a>
 </navbar>`

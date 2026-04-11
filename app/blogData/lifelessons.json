@@ -1,7 +1,7 @@
 [
   {
     "blog_title": "Harness Lust",
-    "link": "/harnesslust",
+    "link": "harnesslust",
     "description": "Transform desire into power. Discover how to redirect 'lust' for ambition and achieve peak self-mastery and success.",
     "tags": [
       "Desire",
@@ -15,7 +15,7 @@
   },
   {
     "blog_title": "Own Your Truth",
-    "link": "/ownyourtruth",
+    "link": "ownyourtruth",
     "description": "Break free from limits! This guide reveals how radical self-honesty and intense introspection can unlock your true potential. Discover powerful techniques like self-confinement and mirror rituals to confront yourself and rebuild.",
     "tags": [
       "Self Improvement",
@@ -28,7 +28,7 @@
   },
   {
     "blog_title": "Code Hour",
-    "link": "/codehour",
+    "link": "codehour",
     "description": "Unlock your coding potential in just 60 minutes a day! Discover the proven strategy to actively build, debug, and master programming skills faster than passive learning.",
     "tags": [
       "Coding",
@@ -42,7 +42,7 @@
   },
   {
     "blog_title": "Gen Z Debt",
-    "link": "/genzdebt",
+    "link": "genzdebt",
     "description": "Gen Z in India faces mounting debt from lifestyle spending, job instability, and BNPL schemes. Discover the financial challenges and learn smart money management strategies to build wealth.",
     "tags": [
       "Gen Z",
@@ -57,7 +57,7 @@
   },
   {
     "blog_title": "Mind Hack",
-    "link": "/mindhack",
+    "link": "mindhack",
     "description": "Reclaim your brain from dopamine addiction. Learn how to break free from bad habits and master self-control with this 7-day detox system. Stop feeling weak, start living powerfully.",
     "tags": [
       "Mind Control",
@@ -70,7 +70,7 @@
   },
   {
     "blog_title": "Master Grit",
-    "link": "/mastergrit",
+    "link": "mastergrit",
     "description": "Reclaim control from destructive urges. Discover a 5-step plan to build ironclad discipline, conquer temptation, and redirect your attention for ultimate self-mastery.",
     "tags": [
       "Self-Discipline",

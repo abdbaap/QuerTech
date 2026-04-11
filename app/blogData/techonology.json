@@ -1,7 +1,20 @@
 [
   {
+    "blog_title": "Backend MASTERY",
+    "link": "/backend-mastery",
+    "description": "Unlock the secrets of robust backend development. Learn 10 essential concepts like ACID, Caching, and Load Balancing to build scalable, secure, and lightning-fast applications.",
+    "tags": [
+      "Backend Development",
+      "API",
+      "Databases",
+      "Scalability",
+      "System Design"
+    ],
+    "color": "bg-red-700 shadow-red-400"
+  },
+  {
     "blog_title": "Gemini Visions",
-    "link": "/geminivisions",
+    "link": "geminivisions",
     "description": "Unlock stunning AI images and videos with Google Gemini. Learn expert prompt engineering for ultra-realistic 3D renders, dynamic scenes, and more. Perfect for creators needing custom visuals fast.",
     "tags": [
       "AI Video",
@@ -14,7 +27,7 @@
   },
   {
     "blog_title": "Algorithm Secrets",
-    "link": "/algosecrets",
+    "link": "algosecrets",
     "description": "Unlock viral growth! Learn how social media algorithms work and how to hack your content's 'fit score' for maximum reach. Discover strategies to boost engagement with sharp opinions and polarizing topics.",
     "tags": [
       "Social Media Algorithms",
@@ -27,7 +40,7 @@
   },
   {
     "blog_title": "Design Trends",
-    "link": "/designtrends",
+    "link": "designtrends",
     "description": "Discover the latest UX/UI design trends including mascots, 3D, AI design tools, and glass effects. Learn how to create engaging and outcome-oriented designs that stand out.",
     "tags": [
       "UX Design",
@@ -41,7 +54,7 @@
   },
   {
     "blog_title": "Android Hacks",
-    "link": "/androidhacks",
+    "link": "androidhacks",
     "description": "Unlock your Android's true potential! Discover 10+ FREE apps that boost productivity, customize your phone, and streamline tasks. From AI writing assistants to car audio upgrades and better file management, these tools will transform your daily mobile experience.",
     "tags": [
       "Android Apps",
@@ -56,7 +69,7 @@
   },
   {
     "blog_title": "Claude Chat",
-    "link": "/claudechat",
+    "link": "claudechat",
     "description": "Control your code with your phone! Learn how to set up Claude Channels to use Telegram or Discord to send commands and get results from your Claude code sessions. Boost your workflow!",
     "tags": [
       "Claude AI",
@@ -70,7 +83,7 @@
   },
   {
     "blog_title": "CMD Secrets",
-    "link": "/cmdsecrets",
+    "link": "cmdsecrets",
     "description": "Unlock Windows Command Prompt power! Learn essential network troubleshooting and system analysis commands like ipconfig, netsh, sfc, and DISM to fix issues and boost performance.",
     "tags": [
       "Windows Command Prompt",
@@ -83,7 +96,7 @@
   },
   {
     "blog_title": "YPP Payouts",
-    "link": "/ypppayouts",
+    "link": "ypppayouts",
     "description": "Unlock YouTube Partner Program earnings! This guide demystifies the 4-step setup and monthly payment cycle, clarifying analytics vs. actual payouts.",
     "tags": [
       "YouTube Partner Program",
@@ -96,7 +109,7 @@
   },
   {
     "blog_title": "RAM Boost",
-    "link": "/ramboost",
+    "link": "ramboost",
     "description": "Unlock peak system performance by clearing cached RAM with Microsoft's Sysinternals RAMMap. Learn to reclaim gigabytes of memory for a noticeably snappier experience.",
     "tags": [
       "RAMMap",
@@ -109,7 +122,7 @@
   },
   {
     "blog_title": "Gamer Vision",
-    "link": "/gamervision",
+    "link": "gamervision",
     "description": "Unlock stunning PC game graphics! Learn about ray tracing, DLSS, FSR, HDR, and more. Boost performance & visuals to dominate your games.",
     "tags": [
       "PC Gaming",
@@ -124,7 +137,7 @@
   },
   {
     "blog_title": "Win11 Makeover",
-    "link": "/win11makeover",
+    "link": "win11makeover",
     "description": "Transform your Windows 11 desktop! Learn to apply dark mode, a translucent taskbar, and custom widgets using tools like Windhawk and Rainmeter for a sleek, personalized look.",
     "tags": [
       "Windows 11",
@@ -139,7 +152,7 @@
   },
   {
     "blog_title": "Claude Motion",
-    "link": "/claudemotion",
+    "link": "claudemotion",
     "description": "Learn to create stunning animated motion graphics for YouTube and social media using Claude Code, Node.js, and VS Code. Generate professional animations with simple AI prompts.",
     "tags": [
       "Claude Code",
@@ -152,7 +165,7 @@
   },
   {
     "blog_title": "TradeMaster",
-    "link": "/trademaster",
+    "link": "trademaster",
     "description": "Unlock your trading potential with our 90-day roadmap. Learn to master one strategy, eliminate distractions, and build the discipline for consistent profits.",
     "tags": [
       "Trading",
@@ -165,7 +178,7 @@
   },
   {
     "blog_title": "Sora Shut",
-    "link": "/sorashut",
+    "link": "sorashut",
     "description": "OpenAI's Sora is gone. Discover why high compute costs, fierce AI competition, and investor doubts forced its closure, revealing the tough economic reality for AI giants and the potential for market shifts.",
     "tags": [
       "Sora",
@@ -180,7 +193,7 @@
   },
   {
     "blog_title": "Earn Now",
-    "link": "/earnnown",
+    "link": "earnnown",
     "description": "Learn how to monetize your images, wallpapers, and videos using the Monetag advertising platform. This tutorial guides you through the sign-up process and leveraging 'Direct Links' to generate revenue from your digital assets.",
     "tags": [
       "Monetize Images",
@@ -194,7 +207,7 @@
   },
   {
     "blog_title": "iPhone Hacks",
-    "link": "/iphonehacks",
+    "link": "iphonehacks",
     "description": "Unlock your iPhone's full potential! Discover 14 essential apps to boost productivity, enhance well-being, and simplify your life, from smart note-taking to AI-powered insights.",
     "tags": [
       "iPhone Apps",
@@ -207,7 +220,7 @@
   },
   {
     "blog_title": "Cloud Pro",
-    "link": "/cloudpro",
+    "link": "cloudpro",
     "description": "Demystifying the Cloud Engineer role: Learn day-to-day tasks, salary insights, and career growth opportunities in designing, building, and managing scalable cloud infrastructure. Understand key challenges like 'ClickOps Debt' and the impact of AI, and discover essential skills for success.",
     "tags": [
       "Cloud Engineer",
@@ -223,7 +236,7 @@
   },
   {
     "blog_title": "Trade Gold",
-    "link": "/tradegold",
+    "link": "tradegold",
     "description": "Unlock profitable trades! Discover real-time strategies for Gold, TCS, and Nifty. Learn to identify winning entries, manage risk, and profit from market moves.",
     "tags": [
       "Trading Strategies",

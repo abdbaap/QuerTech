@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="AI Stack Explained: Unlock Smarter Agents">
+    <meta name="description" content="Tired of generic AI? Discover the 5 core components powering intelligent agents & tool interaction. Learn Embeddings, Vector DBs, RAG & more for expert results.">
+    <link rel="canonical" href="https://articlesstack.pages.dev">
+    <meta property="og:title" content="AI Stack Explained: Unlock Smarter Agents">
+    <meta property="og:description" content="Tired of generic AI? Discover the 5 core components powering intelligent agents & tool interaction. Learn Embeddings, Vector DBs, RAG & more for expert results.">
+    <meta property="og:url" content="https://articlesstack.pages.dev">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Stack Explained: Unlock Smarter Agents">
+    <meta name="twitter:description" content="Tired of generic AI? Discover the 5 core components powering intelligent agents & tool interaction. Learn Embeddings, Vector DBs, RAG & more for expert results.">
+    <title>AI Stack Explained: Unlock Smarter Agents</title>
+    <style>
+        /* Core Styles: Color Palette, Typography, Globals */
+        :root {
+            --color-primary-indigo: #6366f1;
+            --color-primary-pink: #ec4899;
+            --color-background-dark: #09172a;
+            --color-text-light: #e5e7eb;
+            --color-text-subtle: #9ca3af;
+            --color-accent-hover: rgba(99, 102, 241, 0.2);
+            --color-border-hover: var(--color-primary-indigo);
+            --color-gradient-start: var(--color-primary-indigo);
+            --color-gradient-end: var(--color-primary-pink);
+
+            --font-family-primary: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --font-weight-bold: 700;
+            --font-weight-semibold: 600;
+            --font-weight-regular: 400;
+        }
+
+        /* Fluid Typography */
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.1;
+        }
+        h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+        }
+        h3 {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            line-height: 1.3;
+        }
+        p, li, span {
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            line-height: 1.6;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: var(--font-family-primary);
+            background-color: var(--color-background-dark);
+            color: var(--color-text-light);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--color-primary-indigo);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--color-primary-pink);
+        }
+
+        /* Layout and Grid */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+            position: relative; /* For z-index stacking with background */
+            z-index: 2;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(90deg, var(--color-gradient-start), var(--color-gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 60px;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary-indigo), var(--color-primary-pink));
+            border-radius: 2px;
+        }
+
+        /* Card Styling - For AI Components */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05); /* Glassmorphism effect */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); /* Safari support */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes content down if needed */
+            position: relative; /* For badge positioning */
+            overflow: hidden; /* Ensures no overflow from inner elements */
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02); /* 3D lift effect */
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--color-border-hover);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-weight: var(--font-weight-semibold);
+            background: linear-gradient(90deg, var(--color-primary-indigo), var(--color-primary-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--color-text-subtle);
+            font-size: 0.95rem; /* Slightly smaller for readability within cards */
+            margin-bottom: 20px;
+        }
+
+        /* Geometric Pattern Badges */
+        .rank-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            font-size: 1.2rem;
+            color: var(--color-text-light);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        .rank-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 70%);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        /* Specific Badge Colors and Patterns */
+        .card:nth-child(1) .rank-badge { background-color: var(--color-primary-indigo); }
+        .card:nth-child(2) .rank-badge { background-color: var(--color-primary-pink); }
+        .card:nth-child(3) .rank-badge { background-color: #10b981; /* Green for Embeddings */ }
+        .card:nth-child(4) .rank-badge { background-color: #f59e0b; /* Amber for Vector DBs */ }
+        .card:nth-child(5) .rank-badge { background-color: #a855f7; /* Purple for Orchestration */ }
+        .card:nth-child(6) .rank-badge { background-color: #06b6d4; /* Cyan for RAG */ }
+        .card:nth-child(7) .rank-badge { background-color: #ef4444; /* Red for MCP */ }
+
+        /* CSS Generated Geometric Patterns */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.08; /* Subtle pattern */
+            pointer-events: none; /* Allows interaction with card */
+            z-index: 0;
+        }
+        .card:nth-child(1)::after { /* Example: Hexagons for Embeddings */
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0l10 5.77v11.54L10 20 0 17.31V5.77L10 0z' fill='%236366f1'/%3E%3C/svg%3E");
+        }
+        .card:nth-child(2)::after { /* Example: Triangles for Vector DBs */
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0L0 17.32h20L10 0z' fill='%23ec4899'/%3E%3C/svg%3E");
+        }
+        .card:nth-child(3)::after { /* Example: Squares for Orchestration */
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0z' fill='%2310b981'/%3E%3C/svg%3E");
+        }
+        .card:nth-child(4)::after { /* Example: Dots for RAG */
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23f59e0b'/%3E%3C/svg%3E");
+        }
+        .card:nth-child(5)::after { /* Example: Lines for MCP */
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v2H0zM0 6h20v2H0zM0 12h20v2H0zM0 18h20v2H0z' fill='%23a855f7'/%3E%3C/svg%3E");
+        }
+         .card:nth-child(6)::after { /* Example: Diagonal lines for RAG */
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l20 20M0 20L20 0' stroke='%2306b6d4' stroke-width='1'/%3E%3C/svg%3E");
+        }
+        .card:nth-child(7)::after { /* Example: Circles and lines for MCP */
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='2' fill='%23ef4444'/%3E%3Ccircle cx='15' cy='5' r='2' fill='%23ef4444'/%3E%3Ccircle cx='10' cy='15' r='2' fill='%23ef4444'/%3E%3Cpath d='M10 0v5m0 10v5M0 10h5m10 0h5' stroke='%23ef4444' stroke-width='1'/%3E%3C/svg%3E");
+        }
+
+
+        /* Explanation Section */
+        .explanation p, .explanation ul {
+            margin-bottom: 25px;
+        }
+        .explanation ul {
+            list-style: disc;
+            padding-left: 30px;
+        }
+        .explanation li {
+            margin-bottom: 10px;
+        }
+        .explanation a {
+            font-weight: var(--font-weight-semibold);
+        }
+
+        /* Call to Action */
+        .cta {
+            text-align: center;
+            margin-top: 60px;
+        }
+        .cta p {
+            font-size: 1.2rem;
+            color: var(--color-text-subtle);
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(90deg, var(--color-primary-indigo), var(--color-primary-pink));
+            color: var(--color-text-light);
+            font-weight: var(--font-weight-bold);
+            font-size: 1.1rem;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary-indigo), var(--color-primary-pink));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+            z-index: 1000; /* Ensure it's above other content */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .theme-toggle:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+        .theme-toggle i {
+            font-size: 1.8rem;
+            color: var(--color-text-light);
+            transition: transform 0.3s ease;
+        }
+
+        /* Floating Orb Background Animation */
+        .orb-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Behind content */
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.1) 70%);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0;
+            animation: float 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translate(50px, 100px) scale(1.2);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(-50px, -100px) scale(0.9);
+                opacity: 0.5;
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px 0;
+            }
+            .main-header {
+                margin-bottom: 30px;
+            }
+            section {
+                margin-bottom: 40px;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr; /* Stack cards on smaller screens */
+            }
+            .card {
+                padding: 25px;
+            }
+            .rank-badge {
+                width: 40px;
+                height: 40px;
+                top: 15px;
+                right: 15px;
+                font-size: 1rem;
+            }
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .theme-toggle i {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <!-- Font Import for SF Pro Display (Fallback/Modern approach using system fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Icon Font for Theme Toggle (e.g., Font Awesome - requires external CDN or local file) -->
+    <!-- For a single file solution, we'll use inline SVGs or a minimal JS-based icon library if possible,
+         but for simplicity and common practice, a CDN is usually preferred for icons.
+         Here we'll use a placeholder and explain how to integrate icons. -->
+    <!-- Example Font Awesome CDN (for demonstration purposes, remove if not needed or use local): -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://articlesstack.pages.dev" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Floating Orb Background Animation -->
+    <div class="orb-background"></div>
+
+    <header>
+        <h1 class="main-header">The Core AI System Stack Unveiled</h1>
+    </header>
+
+    <main class="container">
+        <section class="introduction">
+            <p>Modern AI systems are becoming increasingly sophisticated, capable of not only processing information but also interacting with the world. This transformation is powered by a robust stack of interconnected components. This article breaks down the five crucial pillars that enable AI agents to understand, reason, and act with external data and tools.</p>
+        </section>
+
+        <section class="components-overview">
+            <h2>The 5 Pillars of AI Agent Intelligence</h2>
+            <div class="cards-grid">
+                <div class="card" data-component="embeddings">
+                    <div class="rank-badge">1</div>
+                    <h3>Embeddings</h3>
+                    <p>Converting data (text, images, audio, code) into numerical vectors that capture semantic meaning. This allows AI to understand relationships and compare diverse data types.</p>
+                </div>
+                <div class="card" data-component="vector-databases">
+                    <div class="rank-badge">2</div>
+                    <h3>Vector Databases</h3>
+                    <p>Specialized databases for storing and efficiently querying embeddings. They act as an AI's long-term memory, enabling semantic search for relevant context.</p>
+                </div>
+                <div class="card" data-component="agent-orchestration">
+                    <div class="rank-badge">3</div>
+                    <h3>Agent Orchestration</h3>
+                    <p>The art of coordinating multiple specialized AI agents. These agents collaborate, plan, and execute complex tasks, ensuring efficient workflow management.</p>
+                </div>
+                <div class="card" data-component="rag">
+                    <div class="rank-badge">4</div>
+                    <h3>Retrieval-Augmented Generation (RAG)</h3>
+                    <p>A powerful technique combining data retrieval with generative models. RAG grounds LLM responses in factual, up-to-date information, reducing hallucinations.</p>
+                </div>
+                <div class="card" data-component="mcp">
+                    <div class="rank-badge">5</div>
+                    <h3>Model Context Protocol (MCP)</h3>
+                    <p>An emerging standard for secure and consistent discovery and use of tools and data sources by AI agents, promoting interoperability.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="explanation">
+            <h2>Deeper Dive into the AI Stack</h2>
+            <p>Understanding how these components work together is key to leveraging AI effectively. Let's explore each element in more detail:</p>
+
+            <h3>Embeddings: The Language of AI Understanding</h3>
+            <p>At the heart of modern AI's ability to grasp meaning is the concept of <strong>Embeddings</strong>. Instead of treating words or pixels as discrete units, AI models convert them into dense numerical vectors in a high-dimensional space. Data points with similar semantic meanings will reside closer to each other in this space. For instance, the phrases "Project Report Generation" and "Team Performance Summary" might yield similar embedding vectors, indicating their conceptual relatedness.</p>
+
+            <h3>Vector Databases: Intelligent Long-Term Memory</h3>
+            <p>Storing and retrieving this vast amount of embedding data requires specialized infrastructure. <strong>Vector Databases</strong>, such as Pinecone, Weaviate, and Milvus, are designed for efficient similarity searches. When an AI needs to recall information, it queries the vector database using an embedding, which then returns the most semantically similar data points. This provides AI systems with context-aware memory, crucial for nuanced responses and decision-making.</p>
+
+            <h3>Agent Orchestration: The Conductor of Intelligence</h3>
+            <p>Complex AI tasks often require more than a single agent. <strong>Agent Orchestration</strong> involves managing a team of specialized AI agents, each potentially optimized for a specific function—planning, research, writing, verification, or tool interaction. These agents communicate and collaborate, creating a sophisticated workflow that can tackle intricate problems with greater efficiency and accuracy than a monolithic AI model.</p>
+
+            <h3>Retrieval-Augmented Generation (RAG): Enhancing Accuracy and Relevance</h3>
+            <p>A significant challenge with generative AI is the potential for "hallucinations" or generating factually incorrect information. <strong>Retrieval-Augmented Generation (RAG)</strong> addresses this by integrating a retrieval mechanism with a generative language model. Before generating a response, the RAG system first retrieves relevant context from external data sources (often via a vector database). This retrieved information then informs the LLM, leading to outputs that are more grounded, accurate, and up-to-date.</p>
+
+            <h3>Model Context Protocol (MCP): The Interoperability Standard</h3>
+            <p>As AI agents interact with an ever-growing ecosystem of tools and data sources, a standardized way of communication is vital. The <strong>Model Context Protocol (MCP)</strong> is an emerging standard aiming to facilitate this. It defines how AI agents can discover, understand, and securely utilize various tools, whether they are self-hosted or cloud-based. MCP promotes interoperability, making AI systems more flexible and adaptable.</p>
+        </section>
+
+        <section class="actionable-insights">
+            <h2>Actionable Insights for AI Implementation</h2>
+            <ul>
+                <li><strong>Leverage Embeddings for Semantic Understanding:</strong> Transform your data into embeddings to enable AI to grasp meaning beyond keywords, facilitating deeper insights and more relevant searches.</li>
+                <li><strong>Utilize Vector Databases for Enhanced Memory:</strong> Implement vector databases to provide your AI systems with efficient access to vast contextual information, crucial for accurate and relevant outputs.</li>
+                <li><strong>Embrace Agent Orchestration for Complex Tasks:</strong> Design AI solutions with multiple specialized agents that can collaborate to tackle sophisticated workflows.</li>
+                <li><strong>Implement RAG for Factual and Up-to-Date Responses:</strong> Integrate RAG to ground AI responses in real data, significantly reducing hallucinations and improving content accuracy.</li>
+                <li><strong>Adopt MCP for Interoperability:</strong> For custom or self-hosted models, consider MCP to ensure seamless integration and broad accessibility across diverse tools and data sources.</li>
+            </ul>
+            <p>When building or deploying AI systems, always prioritize <strong>Resilience, Ownership, and Security</strong> to ensure robust, controllable, and protected solutions.</p>
+        </section>
+
+        <section class="cta">
+            <p>Ready to harness the power of these AI components?</p>
+            <a href="https://articlesstack.pages.dev" class="cta-button" aria-label="Visit QuerTech Articles">Explore More AI Insights</a>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer content can be added here if needed, keeping it minimal for a single file -->
+    </footer>
+
+    <!-- Floating Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+        <i class="fas fa-moon"></i> <!-- Placeholder for icon -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Floating Orb Background Animation ---
+            const orbBackground = document.querySelector('.orb-background');
+            const numberOfOrbs = 5; // Adjust the number of orbs for density
+
+            for (let i = 0; i < numberOfOrbs; i++) {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                // Randomize position, size, and animation delay
+                orb.style.left = `${Math.random() * 100}%`;
+                orb.style.top = `${Math.random() * 100}%`;
+                const size = Math.random() * 300 + 100; // Orb size between 100px and 400px
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.animationDelay = `${Math.random() * -10}s`; // Negative delay for varied start
+
+                // Randomize gradient colors slightly for variety
+                const color1 = `rgba(${Math.floor(Math.random() * 50 + 99)}, ${Math.floor(Math.random() * 50 + 102)}, ${Math.floor(Math.random() * 50 + 241)}, ${Math.random() * 0.2 + 0.1})`;
+                const color2 = `rgba(${Math.floor(Math.random() * 50 + 236)}, ${Math.floor(Math.random() * 50 + 48)}, ${Math.floor(Math.random() * 50 + 99)}, ${Math.random() * 0.1 + 0.05})`;
+                orb.style.background = `radial-gradient(circle, ${color1}, ${color2} 70%)`;
+
+                orbBackground.appendChild(orb);
+            }
+
+            // --- Theme Toggle Functionality ---
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('i');
+            const body = document.body;
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+                if (savedTheme === 'dark-theme') {
+                    themeIcon.classList.replace('fa-sun', 'fa-moon'); // Assuming Font Awesome icons
+                } else {
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                }
+            } else {
+                // Default to dark theme if no preference saved
+                body.classList.add('dark-theme');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                if (body.classList.contains('dark-theme')) {
+                    body.classList.remove('dark-theme');
+                    body.classList.add('light-theme'); // Add a light theme class if desired
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                    localStorage.setItem('theme', 'light-theme');
+                } else {
+                    body.classList.remove('light-theme');
+                    body.classList.add('dark-theme');
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                    localStorage.setItem('theme', 'dark-theme');
+                }
+            });
+
+            // --- Interactive Effects on Cards ---
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left; // x position within the element.
+                    const y = e.clientY - rect.top; // y position within the element.
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = (y - centerY) / (rect.height / 2) * 10; // Max 10 degrees tilt
+                    const rotateY = (centerX - x) / (rect.width / 2) * 10; // Max 10 degrees tilt
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    // Reset transform on mouse leave, but keep the hover effect if defined in CSS
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+                });
+
+                // Adding a slight border color transition on hover via CSS is generally better for performance.
+                // If additional JS-based animation is required, it would be here.
+            });
+
+            // --- Smooth Scrolling for Anchor Links (if any) ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="//canvaanimate">Canva Animate</a><a href="//cssrules">CSS Rules</a><a href="//cssscale">CSS Scale</a><a href="//pixelglitch">Pixel Glitch</a><a href="//proxies">Proxy, Balance, Gateway</a><a href="//authevolution">Auth Evolved</a><a href="//csspopovers">CSS Popovers</a><a href="//csslayout">CSS Layout Mastery</a><a href="//cssatrt">CSS Attr Type</a><a href="//csspos">CSS Pos</a><a href="//cssevolution">CSS Evolve</a><a href="//scrollfx">Scroll FX</a><a href="//cssflow">CSS Flow</a><a href="//stopscroll">Stop Scroll</a><a href="//geminivisions">Gemini Visions</a><a href="//algosecrets">Algorithm Secrets</a><a href="//buildaitools">Build AI Tools</a><a href="//designflaws">Design Flaws</a><a href="//designmastery">Design Mastery</a><a href="//designtrends">Design Trends</a><a href="//designgear">Design Gear</a><a href="//taxhacks">Tax Hacks</a><a href="//androidhacks">Android Hacks</a><a href="//spartangains">Spartan Gains</a><a href="//aiuxshift">AI UX Shift</a><a href="//speakfluent">Speak fluent</a><a href="//uicolorguide">UI Colors Guide</a><a href="//designessn">Design ESSN</a><a href="//aicodewins">AI Code Wins</a><a href="//2026gamesignite">2026 Games Ignite</a><a href="//designprovideo">Design Pro Video</a><a href="//claudechat">Claude Chat</a><a href="//cmdsecrets">CMD Secrets</a><a href="//ainow">AI Now</a><a href="//videomastery">Video Mastery</a><a href="//codetruths">Code Truths</a><a href="//harnesslust">Harness Lust</a><a href="//top16pc">Top PC Games</a><a href="//claudeoffline">Claude Offline</a><a href="//ownyourtruth">Own Your Truth</a><a href="//ypppayouts">YPP Payouts</a><a href="//ramboost">RAM Boost</a><a href="//gamervision">Gamer Vision</a><a href="//serverhacks">Server Hacks</a><a href="//win11makeover">Win11 Makeover</a><a href="//learnfaster">Learn Faster</a><a href="//AILimits">AI Limits</a><a href="//aivideoscale">AI Video Scale</a><a href="//aicareer">AI Career Path</a><a href="//claudemotion">Claude Motion</a><a href="//trademaster">TradeMaster</a><a href="//codehour">Code Hour</a><a href="//sorashut">Sora Shut</a><a href="//hostmine">Host Mine</a><a href="//earnnown">Earn Now</a><a href="//iphonehacks">iPhone Hacks</a><a href="//sleephack">Sleep Hack</a><a href="//genzdebt">Gen Z Debt</a><a href="//cloudpro">Cloud Pro</a><a href="//glow-up">Glow Up</a><a href="//achievegoals">Achieve Goals</a><a href="//wealthfirst">Wealth First</a><a href="//aicareer">AI Career</a><a href="//2minboost">2 Min Boost</a><a href="//mindhack">Mind Hack</a><a href="//aimodel">AI Model</a><a href="//mastergrit">Master Grit</a><a href="//tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

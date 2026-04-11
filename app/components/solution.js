@@ -8,8 +8,8 @@ export default function SolutionsBlog() {
         <h1 className="text-4xl font-bold">Stuck In Some Problems</h1>
         <div className="flex noscrollbar overflow-x-auto w-full max-h-100vh snap-center snap-x snap-mandatory px-10 xl:px-8 items-center gap-16 ">
 {SolutionBlogs.map((item,index) => { return(
-    <Link target='_blank' href={`https://quertech-articles.vercel.app/${item.link}/index.html`} key={index} className="flex hover:tracking-wider transition-all duration-500 flex-col bg-gray-950 text-white justify-center xl:w-80 w-75 min-h-120 shrink-0 rounded-xl items-center p-8 gap-2">
-        <Image src="/solution.webp" width={40} height={40} alt={item.tags}></Image>
+    <Link target='_blank' href={`https://articlesstack.pages.dev/${item.link}/index.html`} key={index} className="flex hover:tracking-wider transition-all duration-500 flex-col bg-gray-950 text-white justify-center xl:w-80 w-75 min-h-120 shrink-0 rounded-xl items-center p-8 gap-2">
+        <Image loading="lazy" src="/solution.webp" width={40} height={40} alt={item.tags}></Image>
         <h1 className="text-xl font-bold">{item.blog_title}</h1>
         <h2 className="text">{item.description}</h2>
     </Link>

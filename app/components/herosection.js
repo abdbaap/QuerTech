@@ -42,7 +42,7 @@ const Pixelify_sans = Pixelify_Sans({
 });
 export default function Herosection() {
   return (
-    <div id="https://quertech-articles.vercel.app/" className="herosection text-white w-full gap-32 bg-black justify-center items-center flex flex-col text-center xl:p-16 py-32 p-2">
+    <div id="https://articlesstack.pages.dev/" className="herosection text-white w-full gap-32 bg-black justify-center items-center flex flex-col text-center xl:p-16 py-32 p-2">
       <h1 className="text-6xl text-transparent bg-clip-text bg-linear-to-r from-orange-500 via-pink-500 to-purple-600 animate-gradient font-bold capitalize space-y-1 overflow-hidden ">
         <span> Easy Tips and Life Hacks to Help You Stay Ahead in </span>{" "}
         <span className={`${Pixelify_sans.className}`}> Tech</span>
@@ -56,7 +56,7 @@ export default function Herosection() {
               key={i}
               className={`flex  card border-2 border-gray-900 mx-16 -my-12 z-0  flex-col w-60 h-80  shadow-2xs hover:shadow-2xl justify-center items-center  p-16 rounded-xl ${item.color}`}
             >
-              <Image
+              <Image loading="lazy"
                 src={item.img}
                 width={80}
                 height={80}
