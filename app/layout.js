@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
         <meta name="google-adsense-account" content="ca-pub-4804171023580782"/>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4804171023580782"
      crossorigin="anonymous"></script>
+       <script src="https://quge5.com/88/tag.min.js" data-zone="228625" async data-cfasync="false"></script>
     <link rel="canonical" href="https://articlesstack.pages.dev" />
        <meta name="google-site-verification" content="7GU0yZN31fEJZ6ejGBoKIWqkDuVLHyuFJHA485bWWE4" />
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4804171023580782"
