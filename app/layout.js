@@ -15,6 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+    <meta name="monetag" content="818a149133551c7c42aaf1e1294321aa"/>
         <meta name="google-adsense-account" content="ca-pub-4804171023580782"/>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4804171023580782"
      crossorigin="anonymous"></script>
