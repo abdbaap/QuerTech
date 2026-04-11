@@ -1,4 +1,6 @@
 // app/api/publish/route.ts
+export const runtime = 'edge';
+
 import { NextResponse } from 'next/server';
 import { publishToQueue } from '@/app/utils/rabbitmq';
 
