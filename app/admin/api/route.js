@@ -3,10 +3,10 @@ export const dynamic = 'force-dynamic'; // Add this line
 import { google } from 'googleapis';
 import { NextResponse } from "next/server";
 
-
+const privateKey = process.env.private_key.replace(/\\n/g, '\n');
  const jwtClient=new google.auth.JWT({
     email:process.env.client_email,
-    key:process.env.private_key,
+    key:privateKey,
     scopes: ['https://www.googleapis.com/auth/indexing']
  }
     )
