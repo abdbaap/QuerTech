@@ -649,4 +649,34 @@
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
+<url>
+    <loc>https://techvridha.vercel.app/tsmaster/index.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://techvridha.vercel.app/tsrefine/index.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://techvridha.vercel.app/typemaster/index.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://techvridha.vercel.app/linuxcore/index.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+<url>
+    <loc>https://techvridha.vercel.app/linuxpowerkeys/index.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
 </urlset>

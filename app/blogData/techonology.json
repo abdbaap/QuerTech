@@ -1,5 +1,40 @@
 [
   {
+    "blog_title": "Linux PowerKeys",
+    "link": "/linuxpowerkeys",
+    "description": "Unlock Linux speed! Master essential terminal shortcuts and tricks for lightning-fast navigation, command recall, and process management. Boost your workflow today.",
+    "tags": [
+      "Linux",
+      "Terminal",
+      "Shortcuts",
+      "CLI",
+      "Unix",
+      "Commands",
+      "Hacks"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Linux Core",
+    "link": "/linuxcore",
+    "description": "Unlock Linux mastery! This video demystifies core concepts and essential commands for programmers and sysadmins. Learn about the kernel, user space, permissions, and vital tools like grep and chmod. Crucial for anyone on Linux servers or developing software. Dive into the OS powering the digital world.",
+    "tags": [
+      "Linux",
+      "Core Concepts",
+      "Commands",
+      "Programming",
+      "Sysadmin",
+      "Kernel",
+      "User Space",
+      "Permissions",
+      "grep",
+      "chmod",
+      "FOSS",
+      "GNU"
+    ],
+    "color": "bg-lime-700 shadow-lime-400"
+  },
+  {
     "blog_title": "Cloud Native Explained",
     "link": "/cloudnative",
     "description": "Unlock Scalability and Agility: Master Cloud Native design with microservices, containers, and DevOps. Learn the core pillars and benefits for modern app development.",

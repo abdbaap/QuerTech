@@ -1,5 +1,45 @@
 [
   {
+    "blog_title": "Type Master",
+    "link": "/typemaster",
+    "description": "Unlock TypeScript's power! Learn how to use Partial, Pick, Omit, Required, Readonly, and literal types to build robust, maintainable code.",
+    "tags": [
+      "TypeScript",
+      "Utility Types",
+      "Programming",
+      "Code Quality",
+      "Web Development"
+    ],
+    "color": "bg-blue-800 shadow-blue-400"
+  },
+  {
+    "blog_title": "TS Refine",
+    "link": "/tsrefine",
+    "description": "Master TypeScript's advanced features like literal types and discriminated unions to build safer, more predictable code. Learn to prevent errors and enhance your applications with practical examples.",
+    "tags": [
+      "TypeScript",
+      "Type Safety",
+      "Discriminated Unions",
+      "Literal Types",
+      "Mapped Types",
+      "Coding Best Practices"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "TS Master",
+    "link": "/tsmaster",
+    "description": "Unlock robust TypeScript code! Learn to distinguish React.ReactNode vs. JSX.Element, leverage the 'using' keyword for cleaner tests, and master type aliasing and inference for safer, more predictable code.",
+    "tags": [
+      "TypeScript",
+      "React",
+      "Programming",
+      "Coding",
+      "Software Development"
+    ],
+    "color": "bg-blue-800 shadow-blue-500"
+  },
+  {
     "blog_title": "React Render",
     "link": "/reactrender",
     "description": "Understand the core of React: rendering. Learn how components transform into UI through React elements, the Virtual DOM, and efficient reconciliation. Master dynamic UIs.",

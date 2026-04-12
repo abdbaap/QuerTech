@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>TypeScript Utility Types: Master `Partial`, `Pick`, `Omit`</title>
+    <meta name="description" content="Tired of messy TypeScript types? Unlock `Partial`, `Pick`, `Omit`, `Required`, and `Readonly` to build robust, maintainable code. Boost your development!">
+    <meta name="keywords" content="typescript utility types explained, how to use Partial in typescript, typescript pick vs omit explained, make typescript properties optional, typescript readonly type example, literal types with as const typescript, typescript index signatures tutorial, typescript code maintainability, improve typescript type safety, best typescript utility type practices, dynamic keys typescript object type, typescript optional vs required types">
+    <meta name="author" content="TechVridha">
+    <meta property="og:title" content="TypeScript Utility Types: Master `Partial`, `Pick`, `Omit`">
+    <meta property="og:description" content="Tired of messy TypeScript types? Unlock `Partial`, `Pick`, `Omit`, `Required`, and `Readonly` to build robust, maintainable code. Boost your development!">
+    <meta property="og:image" content="https://techvridha.vercel.app/images/og-image.jpg"> <!-- Replace with your actual OG image URL -->
+    <meta property="og:url" content="https://techvridha.vercel.app/blog/typescript-utility-types"> <!-- Replace with your actual blog post URL -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TypeScript Utility Types: Master `Partial`, `Pick`, `Omit`">
+    <meta name="twitter:description" content="Tired of messy TypeScript types? Unlock `Partial`, `Pick`, `Omit`, `Required`, and `Readonly` to build robust, maintainable code. Boost your development!">
+    <meta name="twitter:image" content="https://techvridha.vercel.app/images/twitter-image.jpg"> <!-- Replace with your actual Twitter image URL -->
+    <link rel="canonical" href="https://techvridha.vercel.app/blog/typescript-utility-types"> <!-- Replace with your actual canonical URL -->
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%236366f1'/><text x='50' y='50' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='white'>TV</text></svg>" type="image/svg+xml">
+
+    <style>
+        /* Global Styles & Variables */
+        :root {
+            --primary-indigo: #6366f1;
+            --accent-pink: #ec4899;
+            --background-slate: #09172a;
+            --text-light: #e2e8f0;
+            --text-muted: #94a3b8;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --gradient-header: linear-gradient(45deg, var(--primary-indigo), var(--accent-pink));
+
+            --font-primary: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --font-secondary: var(--font-primary);
+
+            --transition-smooth: all 0.3s ease-in-out;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--background-slate);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Animation - Ambient Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0) 70%),
+                        radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, rgba(236, 72, 153, 0) 70%);
+            filter: blur(100px);
+            animation: moveOrb 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveOrb {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+            50% { transform: translate(10%, 20%) scale(1.2); opacity: 0.9; }
+            100% { transform: translate(-10%, -20%) scale(0.8); opacity: 0.6; }
+        }
+
+        /* Container & Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        main {
+            flex-grow: 1; /* Allows main content to push footer down */
+            padding: 60px 0;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(9, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            background: var(--gradient-header);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: var(--transition-smooth);
+        }
+
+        .logo:hover {
+            opacity: 0.9;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            transition: var(--transition-smooth);
+        }
+
+        nav a:hover {
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden; /* To contain the gradient mask */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-header);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 100%); /* Creates a dynamic wave-like shape */
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+            line-height: 1.2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-header);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block; /* Ensures each word can be on a new line if needed */
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            background: var(--gradient-header);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Cards - Tools */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px var(--shadow-color);
+        }
+
+        /* Geometric Patterns as Images */
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(236, 72, 153, 0.1),
+                rgba(236, 72, 153, 0.1) 5px,
+                transparent 5px,
+                transparent 10px
+            ),
+            repeating-linear-gradient(
+                -45deg,
+                rgba(99, 102, 241, 0.1),
+                rgba(99, 102, 241, 0.1) 5px,
+                transparent 5px,
+                transparent 10px
+            );
+            pointer-events: none; /* Don't interfere with clicks */
+        }
+
+        .tool-card h3 {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: var(--gradient-header);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tool-card p {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tool-card .rank-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tool-card .rank-badge.partial { background-color: rgba(99, 102, 241, 0.2); color: var(--primary-indigo); border: 1px solid var(--primary-indigo); }
+        .tool-card .rank-badge.pick { background-color: rgba(236, 72, 153, 0.2); color: var(--accent-pink); border: 1px solid var(--accent-pink); }
+        .tool-card .rank-badge.omit { background-color: rgba(14, 164, 140, 0.2); color: #10b981; border: 1px solid #10b981; } /* Added for Omit */
+        .tool-card .rank-badge.required { background-color: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid #f59e0b; } /* Added for Required */
+        .tool-card .rank-badge.readonly { background-color: rgba(168, 85, 247, 0.2); color: #a855f7; border: 1px solid #a855f7; } /* Added for Readonly */
+        .tool-card .rank-badge.literal { background-color: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid #38bdf8; } /* Added for Literal */
+
+
+        /* Specific Utility Type Sections */
+        .utility-section {
+            margin-bottom: 60px;
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .utility-section:hover {
+            box-shadow: 0 15px 40px var(--shadow-color);
+        }
+
+        .utility-section h3 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: var(--gradient-header);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .utility-section p, .utility-section li {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .utility-section code {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.95em;
+            color: #f8fafc; /* Lighter text for code */
+            white-space: pre-wrap; /* Handle long code examples */
+        }
+
+        .utility-section pre {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        .utility-section pre code {
+            background: none;
+            padding: 0;
+            color: #f8fafc;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1100;
+            background-color: var(--primary-indigo);
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px var(--shadow-color);
+            transition: var(--transition-smooth);
+            border: 2px solid var(--primary-indigo);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto; /* Pushes footer to the bottom */
+            background-color: rgba(9, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--card-border);
+        }
+
+        footer a {
+            color: var(--primary-indigo);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: var(--accent-pink);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: clamp(2rem, 8vw, 3.5rem);
+            }
+
+            .hero p {
+                font-size: clamp(1rem, 4vw, 1.3rem);
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tool-card, .utility-section {
+                padding: 25px;
+            }
+
+            .theme-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+            }
+
+            .hero h1 {
+                font-size: clamp(1.8rem, 10vw, 3rem);
+            }
+
+            .content-section h2 {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+            }
+
+            .tool-card h3, .utility-section h3 {
+                font-size: clamp(1.3rem, 4vw, 1.6rem);
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://techvridha.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Background Animation Orbs -->
+    <div class="background-orbs">
+        <div class="orb" style="width: 200px; height: 200px; top: 10%; left: 5%;"></div>
+        <div class="orb" style="width: 300px; height: 300px; bottom: 15%; right: 10%; animation-delay: -5s;"></div>
+        <div class="orb" style="width: 150px; height: 150px; top: 40%; left: 40%; animation-delay: -10s;"></div>
+        <div class="orb" style="width: 250px; height: 250px; bottom: 5%; left: 25%; animation-delay: -15s;"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="https://techvridha.vercel.app" class="logo" aria-label="TechVridha Home">TechVridha</a>
+            <nav>
+                <ul>
+                    <li><a href="#tools">TypeScript Utilities</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                    <li><a href="#learn-more">More</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Mastering <span>TypeScript Utility Types</span></h1>
+                <p>Enhance your code's robustness and maintainability with practical applications of <code>Partial</code>, <code>Pick</code>, <code>Omit</code>, <code>Required</code>, <code>Readonly</code>, and literal types.</p>
+            </div>
+        </section>
+
+        <section id="tools" class="content-section">
+            <div class="container">
+                <h2>Key TypeScript Utility Types</h2>
+                <div class="tools-grid">
+                    <div class="tool-card" onclick="scrollToSection('partial')">
+                        <h3><code>Partial&lt;T&gt;</code></h3>
+                        <p>Makes all properties of a type optional.</p>
+                        <span class="rank-badge partial">Optional</span>
+                    </div>
+                    <div class="tool-card" onclick="scrollToSection('pick')">
+                        <h3><code>Pick&lt;T, K&gt;</code></h3>
+                        <p>Creates a new type by selecting a subset of properties.</p>
+                        <span class="rank-badge pick">Subset</span>
+                    </div>
+                    <div class="tool-card" onclick="scrollToSection('omit')">
+                        <h3><code>Omit&lt;T, K&gt;</code></h3>
+                        <p>Constructs a type with properties from <code>T</code> except for specified ones.</p>
+                        <span class="rank-badge omit">Exclude</span>
+                    </div>
+                    <div class="tool-card" onclick="scrollToSection('required')">
+                        <h3><code>Required&lt;T&gt;</code></h3>
+                        <p>Makes all properties of a type required.</p>
+                        <span class="rank-badge required">Required</span>
+                    </div>
+                    <div class="tool-card" onclick="scrollToSection('readonly')">
+                        <h3><code>Readonly&lt;T&gt;</code></h3>
+                        <p>Makes all properties of a type immutable.</p>
+                        <span class="rank-badge readonly">Immutable</span>
+                    </div>
+                    <div class="tool-card" onclick="scrollToSection('literal')">
+                        <h3>Literal Types</h3>
+                        <p>Use <code>as const</code> for specific, exact type inference.</p>
+                        <span class="rank-badge literal">Precise</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="content-section">
+            <div class="container">
+                <h2>Practical Examples & Usage</h2>
+
+                <div id="partial" class="utility-section">
+                    <h3><code>Partial&lt;T&gt;</code>: Making Properties Optional</h3>
+                    <p>Useful for update operations or forms where not all fields are mandatory.</p>
+                    <pre><code>
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+type PartialUser = Partial&lt;User&gt;;
+// PartialUser is equivalent to:
+// {
+//   id?: number | undefined;
+//   name?: string | undefined;
+//   email?: string | undefined;
+// }
+
+const updateUser = (id: number, data: PartialUser) => {
+  // ... update user logic
+  console.log(`Updating user ${id} with data:`, data);
+};
+
+updateUser(1, { name: "Alice" });
+updateUser(2, { email: "bob@example.com" });
+                    </code></pre>
+                </div>
+
+                <div id="pick" class="utility-section">
+                    <h3><code>Pick&lt;T, K&gt;</code>: Selecting Specific Properties</h3>
+                    <p>Ideal for creating DTOs (Data Transfer Objects) or views with limited data.</p>
+                    <pre><code>
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  stock: number;
+}
+
+type ProductSummary = Pick&lt;Product, "id" | "name" | "price"&gt;;
+// ProductSummary is equivalent to:
+// {
+//   id: string;
+//   name: string;
+//   price: number;
+// }
+
+const displayProductSummary = (product: ProductSummary) => {
+  console.log(`Product: ${product.name} (ID: ${product.id}) - $${product.price}`);
+};
+
+const myProduct: Product = { id: "p123", name: "Gadget", price: 99.99, description: "A cool gadget", stock: 50 };
+displayProductSummary(myProduct);
+                    </code></pre>
+                </div>
+
+                <div id="omit" class="utility-section">
+                    <h3><code>Omit&lt;T, K&gt;</code>: Excluding Specific Properties</h3>
+                    <p>Useful when you want most of the original type but need to remove sensitive or irrelevant fields.</p>
+                    <pre><code>
+interface SensitiveData {
+  id: number;
+  name: string;
+  passwordHash: string; // Sensitive data
+  email: string;
+}
+
+type PublicUserData = Omit&lt;SensitiveData, "passwordHash"&gt;;
+// PublicUserData is equivalent to:
+// {
+//   id: number;
+//   name: string;
+//   email: string;
+// }
+
+const displayUserInfo = (user: PublicUserData) => {
+  console.log(`User: ${user.name} (ID: ${user.id})`);
+};
+
+const adminUser: SensitiveData = { id: 1, name: "Admin", passwordHash: "...", email: "admin@company.com" };
+displayUserInfo(adminUser);
+                    </code></pre>
+                </div>
+
+                <div id="required" class="utility-section">
+                    <h3><code>Required&lt;T&gt;</code>: Making All Properties Required</h3>
+                    <p>Reverses the effect of <code>Partial</code>, ensuring all properties are present.</p>
+                    <pre><code>
+interface Config {
+  theme?: string;
+  fontSize?: number;
+}
+
+type CompleteConfig = Required&lt;Config&gt;;
+// CompleteConfig is equivalent to:
+// {
+//   theme: string;
+//   fontSize: number;
+// }
+
+// This would cause a TypeScript error:
+// const incomplete: CompleteConfig = {};
+
+const defaultConfig: CompleteConfig = { theme: "dark", fontSize: 16 };
+console.log("Default Configuration:", defaultConfig);
+                    </code></pre>
+                </div>
+
+                <div id="readonly" class="utility-section">
+                    <h3><code>Readonly&lt;T&gt;</code>: Enforcing Immutability</h3>
+                    <p>Protects data from accidental modifications, enhancing predictability.</p>
+                    <pre><code>
+interface Point {
+  x: number;
+  y: number;
+}
+
+type ImmutablePoint = Readonly&lt;Point&gt;;
+// ImmutablePoint is equivalent to:
+// {
+//   readonly x: number;
+//   readonly y: number;
+// }
+
+const p: ImmutablePoint = { x: 10, y: 20 };
+// This would cause a TypeScript error:
+// p.x = 30;
+
+// For arrays:
+const amounts: ReadonlyArray&lt;number&gt; = [10, 20, 30];
+// This would cause a TypeScript error:
+// amounts.push(40);
+                    </code></pre>
+                </div>
+
+                <div id="literal" class="utility-section">
+                    <h3>Literal Types with <code>as const</code></h3>
+                    <p>Infers the most specific possible type, preventing accidental widening.</p>
+                    <pre><code>
+// Without 'as const', COLORS.red would be 'string'
+const COLORS = {
+  red: "RED",
+  blue: "BLUE",
+  green: "GREEN"
+};
+type ColorKey = keyof typeof COLORS; // "red" | "blue" | "green"
+let userColor: ColorKey = "red"; // OK
+// let invalidColor: ColorKey = "yellow"; // Error!
+
+// With 'as const', COLORS.red is typed as "RED"
+const EXACT_COLORS = {
+  red: "RED",
+  blue: "BLUE",
+  green: "GREEN"
+} as const;
+
+// The type of EXACT_COLORS is inferred as:
+// {
+//   readonly red: "RED";
+//   readonly blue: "BLUE";
+//   readonly green: "GREEN";
+// }
+type ExactColorValue = typeof EXACT_COLORS[keyof typeof EXACT_COLORS]; // "RED" | "BLUE" | "GREEN"
+
+let favColor: ExactColorValue = "BLUE"; // OK
+// let wrongCaseColor: ExactColorValue = "Red"; // Error!
+// let anotherColor: ExactColorValue = "yellow"; // Error!
+
+// Index Signature Example with Literal Types
+type InvoiceStatus = "Draft" | "Pending" | "Paid" | "Cancelled";
+interface InvoiceStatusByID {
+  [id: string]: InvoiceStatus;
+}
+
+const invoiceStatuses: InvoiceStatusByID = {
+  "inv-101": "Draft",
+  "inv-102": "Paid",
+  // "inv-103": "Archived" // Error! "Archived" is not a valid InvoiceStatus
+};
+console.log("Invoice Status:", invoiceStatuses["inv-101"]);
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="learn-more" class="content-section">
+            <div class="container">
+                <h2>Why Master TypeScript Utility Types?</h2>
+                <p>Mastering these utility types significantly enhances code quality by:</p>
+                <ul>
+                    <li><strong>Reducing Redundancy:</strong> Create variations of existing types without redefining them.</li>
+                    <li><strong>Improving Type Safety:</strong> Catch potential errors at compile time, leading to more predictable code.</li>
+                    <li><strong>Enhancing Maintainability:</strong> Well-typed code is easier to understand, refactor, and debug.</li>
+                    <li><strong>Boosting Development Speed:</strong> Focus on logic rather than type boilerplate.</li>
+                </ul>
+                <p>Incorporate these powerful tools into your TypeScript workflow to build more robust, scalable, and maintainable applications.</p>
+                <p>Explore more at <a href="https://techvridha.vercel.app" target="_blank" rel="noopener noreferrer">TechVridha</a>.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 TechVridha. All rights reserved. | Built with &lt;3 and TypeScript.</p>
+        </div>
+    </footer>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const themeIcon = themeToggle.querySelector('svg');
+
+            // Function to set theme based on stored preference or system preference
+            const setTheme = (theme) => {
+                if (theme === 'dark') {
+                    body.classList.add('dark-theme');
+                    themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>'; // Moon icon
+                } else {
+                    body.classList.remove('dark-theme');
+                    themeIcon.innerHTML = '<path d="M12 3v1m0 18v1M4.21 4.21l1.42 1.42m13.22 13.22l1.42 1.42M21 12h-1M3 12h-1M12 19v1M12 3v1M4.93 4.93l1.42 1.42M17.64 17.64l1.42 1.42M17.66 6.34l-1.42 1.42M6.34 17.66l-1.42-1.42"></path>'; // Sun icon
+                }
+                localStorage.setItem('preferredTheme', theme);
+            };
+
+            // Load theme from localStorage or use system preference
+            const storedTheme = localStorage.getItem('preferredTheme');
+            if (storedTheme) {
+                setTheme(storedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setTheme('dark');
+            } else {
+                setTheme('light'); // Default to light if not specified and system prefers light
+            }
+
+            // Toggle theme on click
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+            });
+
+            // --- Smooth Scrolling for Anchor Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // --- Scroll to Section for Tool Cards ---
+            window.scrollToSection = (sectionId) => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            };
+
+            // --- Dynamic Orb Animation ---
+            const orbs = document.querySelectorAll('.orb');
+            orbs.forEach((orb, index) => {
+                const size = Math.random() * 150 + 100; // Random size between 100px and 250px
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                const animationDuration = Math.random() * 10 + 15; // Random duration between 15s and 25s
+                const delay = Math.random() * -20; // Random delay for varied animation start
+
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.top = `${top}%`;
+                orb.style.left = `${left}%`;
+                orb.style.animationDuration = `${animationDuration}s`;
+                orb.style.animationDelay = `${delay}s`;
+                orb.style.opacity = (Math.random() * 0.3 + 0.4).toString(); // Opacity between 0.4 and 0.7
+
+                // Varying gradient and blur for orbs
+                const color1 = Math.random() > 0.5 ? 'rgba(99, 102, 241, 0.3)' : 'rgba(236, 72, 153, 0.3)';
+                const color2 = Math.random() > 0.5 ? 'rgba(236, 72, 153, 0)' : 'rgba(99, 102, 241, 0)';
+                const blurRadius = Math.random() * 50 + 80; // Blur between 80px and 130px
+
+                orb.style.background = `radial-gradient(circle, ${color1} 0%, ${color2} 70%)`;
+                orb.style.filter = `blur(${blurRadius}px)`;
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/tsrefine">TS Refine</a><a href="/tsmaster">TS Master</a><a href="/reactrender">React Render</a><a href="/reactsolid">React SOLID</a><a href="/reactkeys">React Keys</a><a href="/reactcore">React Core</a><a href="/htmlpower">HTML Power Ups</a><a href="/jsmaster">JS Master</a><a href="/jscore">JS Core</a><a href="/purecssscroll">Pure CSS Scroll</a><a href="/cloudnative">Cloud Native Explained</a><a href="/codeclean">Code Clean</a><a href="/awdevskills">AWS DevSkills</a><a href="/backend-mastery">Backend MASTERY</a><a href="/motiontext">Motion Text</a><a href="/cssfuncs">CSS Funcs</a><a href="/aistackunlocked">AI Stack Unlocked</a><a href="/canvaanimate">Canva Animate</a><a href="/cssrules">CSS Rules</a><a href="/cssscale">CSS Scale</a><a href="/pixelglitch">Pixel Glitch</a><a href="/proxies">Proxy, Balance, Gateway</a><a href="/authevolution">Auth Evolved</a><a href="/csspopovers">CSS Popovers</a><a href="/csslayout">CSS Layout Mastery</a><a href="/cssatrt">CSS Attr Type</a><a href="/csspos">CSS Pos</a><a href="/cssevolution">CSS Evolve</a><a href="/scrollfx">Scroll FX</a><a href="/cssflow">CSS Flow</a><a href="/stopscroll">Stop Scroll</a><a href="/geminivisions">Gemini Visions</a><a href="/algosecrets">Algorithm Secrets</a><a href="/buildaitools">Build AI Tools</a><a href="/designflaws">Design Flaws</a><a href="/designmastery">Design Mastery</a><a href="/designtrends">Design Trends</a><a href="/designgear">Design Gear</a><a href="/taxhacks">Tax Hacks</a><a href="/androidhacks">Android Hacks</a><a href="/spartangains">Spartan Gains</a><a href="/aiuxshift">AI UX Shift</a><a href="/speakfluent">Speak fluent</a><a href="/uicolorguide">UI Colors Guide</a><a href="/designessn">Design ESSN</a><a href="/aicodewins">AI Code Wins</a><a href="/2026gamesignite">2026 Games Ignite</a><a href="/designprovideo">Design Pro Video</a><a href="/claudechat">Claude Chat</a><a href="/cmdsecrets">CMD Secrets</a><a href="/ainow">AI Now</a><a href="/videomastery">Video Mastery</a><a href="/codetruths">Code Truths</a><a href="/harnesslust">Harness Lust</a><a href="/top16pc">Top PC Games</a><a href="/claudeoffline">Claude Offline</a><a href="/ownyourtruth">Own Your Truth</a><a href="/ypppayouts">YPP Payouts</a><a href="/ramboost">RAM Boost</a><a href="/gamervision">Gamer Vision</a><a href="/serverhacks">Server Hacks</a><a href="/win11makeover">Win11 Makeover</a><a href="/learnfaster">Learn Faster</a><a href="/AILimits">AI Limits</a><a href="/aivideoscale">AI Video Scale</a><a href="/aicareer">AI Career Path</a><a href="/claudemotion">Claude Motion</a><a href="/trademaster">TradeMaster</a><a href="/codehour">Code Hour</a><a href="/sorashut">Sora Shut</a><a href="/hostmine">Host Mine</a><a href="/earnnown">Earn Now</a><a href="/iphonehacks">iPhone Hacks</a><a href="/sleephack">Sleep Hack</a><a href="/genzdebt">Gen Z Debt</a><a href="/cloudpro">Cloud Pro</a><a href="/glow-up">Glow Up</a><a href="/achievegoals">Achieve Goals</a><a href="/wealthfirst">Wealth First</a><a href="/aicareer">AI Career</a><a href="/2minboost">2 Min Boost</a><a href="/mindhack">Mind Hack</a><a href="/aimodel">AI Model</a><a href="/mastergrit">Master Grit</a><a href="/tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

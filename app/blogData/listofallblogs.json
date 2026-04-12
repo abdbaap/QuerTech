@@ -1,5 +1,80 @@
 [
   {
+    "blog_title": "Linux PowerKeys",
+    "link": "linuxpowerkeys",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Unlock Linux speed! Master essential terminal shortcuts and tricks for lightning-fast navigation, command recall, and process management. Boost your workflow today.",
+    "tags": [
+      "Linux",
+      "Terminal",
+      "Shortcuts",
+      "CLI",
+      "Unix",
+      "Commands",
+      "Hacks"
+    ]
+  },
+  {
+    "blog_title": "Linux Core",
+    "link": "linuxcore",
+    "color": "bg-lime-700 shadow-lime-400",
+    "description": "Unlock Linux mastery! This video demystifies core concepts and essential commands for programmers and sysadmins. Learn about the kernel, user space, permissions, and vital tools like grep and chmod. Crucial for anyone on Linux servers or developing software. Dive into the OS powering the digital world.",
+    "tags": [
+      "Linux",
+      "Core Concepts",
+      "Commands",
+      "Programming",
+      "Sysadmin",
+      "Kernel",
+      "User Space",
+      "Permissions",
+      "grep",
+      "chmod",
+      "FOSS",
+      "GNU"
+    ]
+  },
+  {
+    "blog_title": "Type Master",
+    "link": "typemaster",
+    "color": "bg-blue-800 shadow-blue-400",
+    "description": "Unlock TypeScript's power! Learn how to use Partial, Pick, Omit, Required, Readonly, and literal types to build robust, maintainable code.",
+    "tags": [
+      "TypeScript",
+      "Utility Types",
+      "Programming",
+      "Code Quality",
+      "Web Development"
+    ]
+  },
+  {
+    "blog_title": "TS Refine",
+    "link": "tsrefine",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Master TypeScript's advanced features like literal types and discriminated unions to build safer, more predictable code. Learn to prevent errors and enhance your applications with practical examples.",
+    "tags": [
+      "TypeScript",
+      "Type Safety",
+      "Discriminated Unions",
+      "Literal Types",
+      "Mapped Types",
+      "Coding Best Practices"
+    ]
+  },
+  {
+    "blog_title": "TS Master",
+    "link": "tsmaster",
+    "color": "bg-blue-800 shadow-blue-500",
+    "description": "Unlock robust TypeScript code! Learn to distinguish React.ReactNode vs. JSX.Element, leverage the 'using' keyword for cleaner tests, and master type aliasing and inference for safer, more predictable code.",
+    "tags": [
+      "TypeScript",
+      "React",
+      "Programming",
+      "Coding",
+      "Software Development"
+    ]
+  },
+  {
     "blog_title": "React Render",
     "link": "reactrender",
     "color": "bg-blue-700 shadow-blue-400",

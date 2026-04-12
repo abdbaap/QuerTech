@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags for SEO Optimization -->
+    <title>Unlock Powerful TypeScript: Master React, Mocks & Types</title>
+    <meta name="description" content="Tired of messy React code and unreliable tests? Discover essential TypeScript secrets to write robust, maintainable code. Learn to distinguish ReactNode vs. JSX.Element, simplify mocks with using, and master type inference for predictable results.">
+    <meta name="keywords" content="TypeScript, React, JSX, ReactNode, JSX.Element, using keyword, Type Aliases, const type parameters, Type Inference, ElementRef, useRef, Robust Code, Maintainable Code, Testing, Mocking, State Management, Programming, JavaScript, Web Development, Software Engineering, React Hooks, TypeScript Tips, TypeScript Tutorial, Code Quality, Developer Productivity, Best Practices">
+    <meta property="og:title" content="Unlock Powerful TypeScript: Master React, Mocks & Types">
+    <meta property="og:description" content="Tired of messy React code and unreliable tests? Discover essential TypeScript secrets to write robust, maintainable code. Learn to distinguish ReactNode vs. JSX.Element, simplify mocks with using, and master type inference for predictable results.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techvridha.vercel.app"> <!-- Placeholder, ideally the actual page URL -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Unlock Powerful TypeScript: Master React, Mocks & Types">
+    <meta name="twitter:description" content="Tired of messy React code and unreliable tests? Discover essential TypeScript secrets to write robust, maintainable code. Learn to distinguish ReactNode vs. JSX.Element, simplify mocks with using, and master type inference for predictable results.">
+    <meta name="twitter:site" content="@YourTwitterHandle"> <!-- Replace with your Twitter handle -->
+    <meta name="twitter:creator" content="@YourTwitterHandle"> <!-- Replace with your Twitter handle -->
+    <link rel="canonical" href="https://techvridha.vercel.app"> <!-- Placeholder, ideally the actual page URL -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='50' fill='white'>TS</text></svg>" type="image/svg+xml">
+
+    <style>
+        /* Font Import (fallback to system fonts) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Plus+Jakarta+Sans:wght@700&display=swap');
+
+        /* Global Styles */
+        :root {
+            --primary-indigo: #6366f1;
+            --accent-pink: #ec4899;
+            --background-slate: #09172a;
+            --text-gray-light: #e2e8f0;
+            --text-gray-dark: #94a3b8;
+            --card-background: rgba(255, 255, 255, 0.05);
+            --border-color-default: rgba(255, 255, 255, 0.1);
+            --border-color-hover: var(--primary-indigo);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+
+            --font-primary: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            --font-heading: 'Plus Jakarta Sans', var(--font-primary);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--background-slate);
+            color: var(--text-gray-light);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Ambient Background Orbs */
+        #background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden; /* Hide orbs that go out of bounds */
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0) 70%),
+                        radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(236, 72, 153, 0) 70%);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.7;
+            animation: float 20s ease-in-out infinite alternate;
+            transform-origin: center center;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+            }
+            100% {
+                transform: translateY(calc(var(--vh, 1vh) * 50)) translateX(calc(var(--vw, 1vw) * 50)) scale(1.5);
+            }
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 2; /* Ensure header is above background */
+            background: rgba(9, 23, 42, 0.7); /* Slight overlay for readability */
+            backdrop-filter: blur(10px);
+        }
+
+        .gradient-mask-header {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 4rem); /* Fluid scaling */
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-indigo), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-gray-dark);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Area */
+        main {
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            z-index: 1; /* Ensure main content is above background */
+        }
+
+        /* Section Titles */
+        h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--primary-indigo);
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, var(--primary-indigo), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Article/Content Blocks */
+        .content-block {
+            background: var(--card-background);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color-default);
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 5px 20px var(--shadow-color);
+        }
+
+        .content-block h3 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            color: var(--accent-pink);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-indigo);
+            padding-bottom: 0.5rem;
+            display: inline-block; /* For border to only cover text width */
+        }
+
+        .content-block p,
+        .content-block ul {
+            margin-bottom: 1.5rem;
+            color: var(--text-gray-light);
+        }
+
+        .content-block ul {
+            list-style: disc inside;
+            padding-left: 1.5rem;
+        }
+
+        .content-block li {
+            margin-bottom: 0.75rem;
+        }
+
+        .content-block code {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            color: var(--accent-pink);
+            font-size: 0.9em;
+        }
+
+        .content-block pre code {
+            display: block;
+            padding: 1em;
+            overflow-x: auto;
+            white-space: pre-wrap; /* Wrap long lines */
+            word-wrap: break-word;
+        }
+
+        /* Specific Techniques Section */
+        .technique-card {
+            background: var(--card-background);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color-default);
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 5px 20px var(--shadow-color);
+            position: relative;
+            overflow: hidden; /* For gradient border effect */
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .technique-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px var(--shadow-color);
+            border-color: var(--border-color-hover);
+        }
+
+        .technique-card::before { /* Gradient border effect */
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border-radius: 12px;
+            background: linear-gradient(45deg, var(--primary-indigo), var(--accent-pink), var(--primary-indigo));
+            background-size: 200% 200%;
+            animation: gradient-border 4s ease infinite;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        @keyframes gradient-border {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .technique-card h4 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: var(--text-gray-light);
+            margin-bottom: 1rem;
+            flex-grow: 1; /* Allow title to take available space */
+        }
+
+        .technique-card p {
+            font-size: 0.95em;
+            color: var(--text-gray-dark);
+        }
+
+        /* Geometric Patterns for Visual Identity */
+        .pattern-badge {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            margin: 0 auto 1rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Specific Patterns for Techniques */
+        .pattern-react-node {
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(236, 72, 153, 0.3),
+                rgba(236, 72, 153, 0.3) 10px,
+                rgba(236, 72, 153, 0.1) 10px,
+                rgba(236, 72, 153, 0.1) 20px
+            );
+            border-color: var(--accent-pink);
+        }
+
+        .pattern-jsx-element {
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(99, 102, 241, 0.3),
+                rgba(99, 102, 241, 0.3) 10px,
+                rgba(99, 102, 241, 0.1) 10px,
+                rgba(99, 102, 241, 0.1) 20px
+            );
+            border-color: var(--primary-indigo);
+        }
+
+        .pattern-using-keyword {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 70%);
+            background-color: rgba(236, 72, 153, 0.1);
+            border-color: var(--accent-pink);
+        }
+
+        .pattern-type-aliases {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.2) 100%);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .pattern-const-params {
+            background: repeating-radial-gradient(
+                circle,
+                rgba(99, 102, 241, 0.1) 0%,
+                rgba(99, 102, 241, 0.1) 10px,
+                rgba(99, 102, 241, 0.05) 10px,
+                rgba(99, 102, 241, 0.05) 20px
+            );
+            border-color: var(--primary-indigo);
+        }
+
+        .pattern-elementref {
+            background: repeating-linear-gradient(
+                to right,
+                rgba(236, 72, 153, 0.1) 0%,
+                rgba(236, 72, 153, 0.1) 50%,
+                rgba(99, 102, 241, 0.1) 50%,
+                rgba(99, 102, 241, 0.1) 100%
+            );
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Theme Toggle Button */
+        #theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100; /* Ensure it's on top */
+            width: 56px;
+            height: 56px;
+            background: var(--card-background);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            border: 1px solid var(--border-color-default);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px var(--shadow-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        #theme-toggle:hover {
+            transform: translateY(-4px) scale(1.05);
+            border-color: var(--primary-indigo);
+            box-shadow: 0 12px 30px var(--shadow-color);
+        }
+
+        #theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-gray-light);
+            transition: fill 0.3s ease-in-out;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            header {
+                padding: 3rem 2rem;
+            }
+
+            main {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://techvridha.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Ambient Background Orbs -->
+    <div id="background-orbs"></div>
+
+    <!-- Header -->
+    <header>
+        <h1 class="gradient-mask-header">TypeScript Mastery for Robust Code</h1>
+        <p>Demystifying advanced TypeScript features to write predictable, maintainable, and safer code, especially within the React ecosystem.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2>Key Concepts Explained</h2>
+            <div class="container">
+
+                <!-- React.ReactNode vs. JSX.Element -->
+                <div class="technique-card" data-technique="ReactNodeVsJSX">
+                    <div class="pattern-badge pattern-react-node">R</div>
+                    <h4>`React.ReactNode` vs. `JSX.Element`</h4>
+                    <p>Understanding what can be rendered in React: `React.ReactNode` is broad, while `JSX.Element` is specific.</p>
+                </div>
+
+                <!-- JavaScript's `using` Keyword for Mocking -->
+                <div class="technique-card" data-technique="UsingKeyword">
+                    <div class="pattern-badge pattern-using-keyword">U</div>
+                    <h4>`using` Keyword for Test Mocks</h4>
+                    <p>Automate mock disposal in tests for cleaner setup and cleanup, eliminating manual `beforeEach`/`afterEach`.</p>
+                </div>
+
+                <!-- Type Aliases for State -->
+                <div class="technique-card" data-technique="TypeAliases">
+                    <div class="pattern-badge pattern-type-aliases">A</div>
+                    <h4>Type Aliases for State Clarity</h4>
+                    <p>Simplify complex type declarations and prevent unintended widening with clear `type` aliases.</p>
+                </div>
+
+                <!-- Type Inference with `typeof` and Array Indexing -->
+                <div class="technique-card" data-technique="TypeInference">
+                    <div class="pattern-badge pattern-const-params">I</div>
+                    <h4>Precise Type Inference</h4>
+                    <p>Leverage `typeof` and array indexing for accurate type inference, especially with arrays and union types.</p>
+                </div>
+
+                <!-- `ElementRef` in React `useRef` -->
+                <div class="technique-card" data-technique="ElementRef">
+                    <div class="pattern-badge pattern-elementref">E</div>
+                    <h4>`ElementRef` for `useRef` Safety</h4>
+                    <p>Ensure type safety when referencing DOM elements, like `<audio>`, using `ElementRef`.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>Actionable Insights & Code Snippets</h2>
+
+            <div class="content-block">
+                <h3>`React.ReactNode` vs. `JSX.Element`</h3>
+                <p>
+                    When defining component props or function return types that can accept various renderable types (strings, numbers, elements, fragments), prefer <code>React.ReactNode</code> for its flexibility. <code>JSX.Element</code> is more restrictive and specifically refers to a JSX expression.
+                </p>
+                <pre><code>// Prefer React.ReactNode for flexibility
+function MyComponent({ children }: { children: React.ReactNode }) {
+  return &lt;div&gt;{children}&lt;/div&gt;;
+}
+
+// JSX.Element is more specific
+function SpecificComponent({ element }: { element: JSX.Element }) {
+  return &lt;div&gt;{element}&lt;/div&gt;;
+}</code></pre>
+            </div>
+
+            <div class="content-block">
+                <h3>`using` Keyword for Cleaner Test Mocks</h3>
+                <p>
+                    The JavaScript <code>using</code> keyword automates the disposal of resources when they go out of scope. In testing, this is invaluable for automatically cleaning up mocks, simplifying test setup and reducing errors from missed cleanup.
+                </p>
+                <pre><code>// Example in a testing context (conceptually)
+// Assume 'mockServer' has a dispose method
+let mockServer;
+try {
+  mockServer = await createMockServer();
+  using mock = mockServer; // Automatically calls mockServer.dispose() when exiting scope
+
+  // Your tests here...
+} catch (error) {
+  console.error("Test failed:", error);
+}
+// mockServer.dispose() is automatically called here if it was successfully created.</code></pre>
+            </div>
+
+            <div class="content-block">
+                <h3>Type Aliases & `const` Parameters for Strict Typing</h3>
+                <p>
+                    Use <code>type</code> aliases to define clear, reusable types, especially for states in finite state machines (FSMs). Employ <code>const</code> type parameters with generics for stricter type inference, preventing unwanted type widening.
+                </p>
+                <pre><code>// Type Alias for State
+type TState = 'idle' | 'loading' | 'success' | 'error';
+
+// Type Alias to prevent inference widening
+type NoInfer&lt;T&gt; = T extends never ? never : T;
+
+// Function using const type parameter for precise inference
+function createFSM&lt;
+  const TStates extends Record&lt;string, string&gt;,
+  TInitialState extends keyof TStates
+&gt;(states: TStates, initial: TInitialState) {
+  // ... FSM logic
+  type State = TStates[keyof TStates];
+  type CurrentState = TStates[TInitialState];
+  return { states, initialState: initial as CurrentState };
+}
+
+// Example Usage
+const appStates = { idle: 'idle', loading: 'loading' };
+const fsm = createFSM(appStates, 'idle'); // 'idle' is precisely typed
+// const fsmWithError = createFSM(appStates, 'error'); // This would be a type error</code></pre>
+            </div>
+
+            <div class="content-block">
+                <h3>Accurate DOM Referencing with `ElementRef`</h3>
+                <p>
+                    When using <code>useRef</code> in React to reference specific DOM elements (like an <code>&lt;audio&gt;</code> tag), using <code>ElementRef&lt;"audio"&gt;</code> provides precise type safety, ensuring you're working with the correct DOM API.
+                </p>
+                <pre><code>import React, { useRef, ElementRef } from 'react';
+
+function AudioPlayer() {
+  // Correctly types the ref for an <audio> element
+  const audioRef = useRef&lt;ElementRef&lt;"audio"&gt;&gt;(null);
+
+  const playAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play(); // Type-safe access to audio element methods
+    }
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;audio ref={audioRef} src="background.mp3" /&gt;
+      &lt;button onClick={playAudio}&gt;Play Audio&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Floating Theme Toggle Button -->
+    <button id="theme-toggle" aria-label="Toggle Dark Mode">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <script>
+        // --- Vanilla JavaScript for Interactivity ---
+
+        // Set viewport height for dynamic animations
+        function setViewportHeight() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+            const vw = window.innerWidth * 0.01;
+            document.documentElement.style.setProperty('--vw', `${vw}px`);
+        }
+        window.addEventListener('resize', setViewportHeight);
+        setViewportHeight(); // Initial set
+
+        // Create Animated Background Orbs
+        function createOrbs() {
+            const orbsContainer = document.getElementById('background-orbs');
+            if (!orbsContainer) return;
+
+            const numberOfOrbs = 5;
+            const viewportHeight = window.innerHeight;
+            const viewportWidth = window.innerWidth;
+
+            for (let i = 0; i < numberOfOrbs; i++) {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                // Random positioning and sizing
+                const size = Math.random() * 300 + 100; // 100px to 400px
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+
+                // Ensure orbs are not entirely off-screen initially but have movement potential
+                const top = Math.random() * (viewportHeight * 1.2) - (size / 2);
+                const left = Math.random() * (viewportWidth * 1.2) - (size / 2);
+                orb.style.top = `${top}px`;
+                orb.style.left = `${left}px`;
+
+                // Animate float duration and delay
+                const animationDuration = Math.random() * 10 + 15; // 15s to 25s
+                const animationDelay = Math.random() * 5; // 0s to 5s
+                orb.style.animationDuration = `${animationDuration}s`;
+                orb.style.animationDelay = `${animationDelay}s`;
+
+                // Randomize animation direction variation
+                orb.style.animationName = `float`; // Use the defined animation
+
+                orbsContainer.appendChild(orb);
+            }
+        }
+        createOrbs();
+
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 1v4M12 21v4M4.22 4.22l3.18 3.18M19.78 19.78l-3.18-3.18M12 8v4M12 16v4M4 12H1M21 12H18"></path>
+            </svg>
+        `;
+        const moonIcon = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        `;
+
+        function applyTheme(theme) {
+            document.body.dataset.theme = theme;
+            if (theme === 'dark') {
+                themeToggle.innerHTML = sunIcon;
+            } else {
+                themeToggle.innerHTML = moonIcon;
+            }
+        }
+
+        // Check for saved theme or default to dark
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else {
+            applyTheme('dark'); // Default to dark
+            localStorage.setItem('theme', 'dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.body.dataset.theme;
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Interactive Hover Effects for Technique Cards
+        const techniqueCards = document.querySelectorAll('.technique-card');
+        techniqueCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const tiltX = (x - centerX) / centerX * 10; // Max 10 degree tilt
+                const tiltY = (centerY - y) / centerY * 10; // Max 10 degree tilt
+
+                card.style.transform = `perspective(1000px) rotateY(${tiltX}deg) rotateX(${tiltY}deg) translateY(-8px) scale(1.02)`;
+                card.style.boxShadow = `0 12px 30px var(--shadow-color), ${tiltX * 1}px ${tiltY * 1}px 15px rgba(0,0,0,0.2)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0) scale(1)';
+                card.style.boxShadow = '0 5px 20px var(--shadow-color)';
+            });
+        });
+    </script>
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/reactrender">React Render</a><a href="/reactsolid">React SOLID</a><a href="/reactkeys">React Keys</a><a href="/reactcore">React Core</a><a href="/htmlpower">HTML Power Ups</a><a href="/jsmaster">JS Master</a><a href="/jscore">JS Core</a><a href="/purecssscroll">Pure CSS Scroll</a><a href="/cloudnative">Cloud Native Explained</a><a href="/codeclean">Code Clean</a><a href="/awdevskills">AWS DevSkills</a><a href="/backend-mastery">Backend MASTERY</a><a href="/motiontext">Motion Text</a><a href="/cssfuncs">CSS Funcs</a><a href="/aistackunlocked">AI Stack Unlocked</a><a href="/canvaanimate">Canva Animate</a><a href="/cssrules">CSS Rules</a><a href="/cssscale">CSS Scale</a><a href="/pixelglitch">Pixel Glitch</a><a href="/proxies">Proxy, Balance, Gateway</a><a href="/authevolution">Auth Evolved</a><a href="/csspopovers">CSS Popovers</a><a href="/csslayout">CSS Layout Mastery</a><a href="/cssatrt">CSS Attr Type</a><a href="/csspos">CSS Pos</a><a href="/cssevolution">CSS Evolve</a><a href="/scrollfx">Scroll FX</a><a href="/cssflow">CSS Flow</a><a href="/stopscroll">Stop Scroll</a><a href="/geminivisions">Gemini Visions</a><a href="/algosecrets">Algorithm Secrets</a><a href="/buildaitools">Build AI Tools</a><a href="/designflaws">Design Flaws</a><a href="/designmastery">Design Mastery</a><a href="/designtrends">Design Trends</a><a href="/designgear">Design Gear</a><a href="/taxhacks">Tax Hacks</a><a href="/androidhacks">Android Hacks</a><a href="/spartangains">Spartan Gains</a><a href="/aiuxshift">AI UX Shift</a><a href="/speakfluent">Speak fluent</a><a href="/uicolorguide">UI Colors Guide</a><a href="/designessn">Design ESSN</a><a href="/aicodewins">AI Code Wins</a><a href="/2026gamesignite">2026 Games Ignite</a><a href="/designprovideo">Design Pro Video</a><a href="/claudechat">Claude Chat</a><a href="/cmdsecrets">CMD Secrets</a><a href="/ainow">AI Now</a><a href="/videomastery">Video Mastery</a><a href="/codetruths">Code Truths</a><a href="/harnesslust">Harness Lust</a><a href="/top16pc">Top PC Games</a><a href="/claudeoffline">Claude Offline</a><a href="/ownyourtruth">Own Your Truth</a><a href="/ypppayouts">YPP Payouts</a><a href="/ramboost">RAM Boost</a><a href="/gamervision">Gamer Vision</a><a href="/serverhacks">Server Hacks</a><a href="/win11makeover">Win11 Makeover</a><a href="/learnfaster">Learn Faster</a><a href="/AILimits">AI Limits</a><a href="/aivideoscale">AI Video Scale</a><a href="/aicareer">AI Career Path</a><a href="/claudemotion">Claude Motion</a><a href="/trademaster">TradeMaster</a><a href="/codehour">Code Hour</a><a href="/sorashut">Sora Shut</a><a href="/hostmine">Host Mine</a><a href="/earnnown">Earn Now</a><a href="/iphonehacks">iPhone Hacks</a><a href="/sleephack">Sleep Hack</a><a href="/genzdebt">Gen Z Debt</a><a href="/cloudpro">Cloud Pro</a><a href="/glow-up">Glow Up</a><a href="/achievegoals">Achieve Goals</a><a href="/wealthfirst">Wealth First</a><a href="/aicareer">AI Career</a><a href="/2minboost">2 Min Boost</a><a href="/mindhack">Mind Hack</a><a href="/aimodel">AI Model</a><a href="/mastergrit">Master Grit</a><a href="/tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

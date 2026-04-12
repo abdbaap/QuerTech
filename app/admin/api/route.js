@@ -1,33 +1,16 @@
-// Add this line
+// export const runtime = 'edge';
+export const dynamic = 'force-dynamic'; // Add this line
 import { google } from 'googleapis';
-
 import { NextResponse } from "next/server";
 
 
-
-const isLocal = process.env.NODE_ENV === 'development';
-
-    if (isLocal) {
-        try {
-         const key = await import("./client_secret.json", {
-            assert: { type: "json" } // Required in some environments for JSON
-        });
-            const jwtClient=new google.auth.JWT(
-        key.client_email,
-        undefined,
-        key.private_key,
-        ['https://www.googleapis.com/auth/indexing'],
-        undefined
+ const jwtClient=new google.auth.JWT({
+    email:process.env.client_email,
+    key:process.env.private_key,
+    scopes: ['https://www.googleapis.com/auth/indexing']
+ }
     )
-         
-            // 2. ONLY import the library if we are local.
-            // This prevents Cloudflare from crashing during the build/deploy.
-              } catch (error) {
-            console.error("Local RabbitMQ Error:", error);
-            return NextResponse.json({ success: false, error: "Local queue failed" }, { status: 500 });
-        }
-    }
- 
+
 export async function POST(req) {
     const {urlList}=await req.json()
    
@@ -69,10 +52,16 @@ async function notifyGoogle(urlList) {
                 type:'URL_UPDATED',
             }
         })
+        console.log(`--- Google Response for ${url} ---`);
+            console.log("Status Code:", response.status); 
+            console.log("Data:", response.data);
     }
 return {success:true,message:"Url Added SuccessFully To Crawl In Gsc"}
 }
     catch (error) {
    return {success:false,message:error}
   }
-             }
+}
+
+// You can call this somewhere in your code to test:
+// checkUrlStatus("https://quertech-articles.vercel.app/your-article-url");

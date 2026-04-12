@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- High-Conversion Metadata Suite for TypeScript Type Refinement Video -->
+    <title>TypeScript Secrets: Master Types, Boost Safety</title>
+    <meta name="description" content="Tired of messy code & runtime errors? Unlock TypeScript's powerful type refinement! Learn literal types, discriminated unions, and more to write bulletproof, maintainable code. Elevate your development!">
+    <meta name="keywords" content="typescript type widening explained, typescript discriminated unions tutorial, typescript literal types usage, typescript mapped types guide, typescript keyof operator example, typescript optional chaining vs nullish coalescing, typescript record utility type, typescript required partial omit pick, improve typescript code safety, prevent runtime errors typescript, learn advanced typescript features, typescript for predictable code, javascript to typescript migration tips, coding best practices typescript, typescript state management patterns">
+    <meta name="author" content="TechVridha">
+    <meta property="og:title" content="TypeScript Secrets: Master Types, Boost Safety">
+    <meta property="og:description" content="Tired of messy code & runtime errors? Unlock TypeScript's powerful type refinement! Learn literal types, discriminated unions, and more to write bulletproof, maintainable code. Elevate your development!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techvridha.vercel.app"> <!-- Assuming this is your website's canonical URL -->
+    <meta property="og:image" content="https://techvridha.vercel.app/path/to/your/og-image.jpg"> <!-- Replace with actual og:image URL -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TypeScript Secrets: Master Types, Boost Safety">
+    <meta name="twitter:description" content="Tired of messy code & runtime errors? Unlock TypeScript's powerful type refinement! Learn literal types, discriminated unions, and more to write bulletproof, maintainable code. Elevate your development!">
+    <meta name="twitter:site" content="@YourTwitterHandle"> <!-- Replace with your Twitter handle if applicable -->
+    <meta name="twitter:creator" content="@YourTwitterHandle"> <!-- Replace with your Twitter handle if applicable -->
+    <link rel="canonical" href="https://techvridha.vercel.app"> <!-- Replace with the actual URL of this page -->
+    <!-- End High-Conversion Metadata Suite -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-dark: #09172a;
+            --color-slate-900: #0f172a; /* Darker slate for backgrounds */
+            --color-slate-800: #1e293b; /* Slightly lighter slate for cards */
+            --color-slate-700: #334155; /* For secondary text */
+            --color-white-transparent: rgba(255, 255, 255, 0.1);
+            --color-pink-transparent: rgba(236, 72, 153, 0.2);
+            --color-indigo-transparent: rgba(99, 102, 241, 0.2);
+
+            --font-primary: 'SF Pro Display', sans-serif;
+            --font-secondary: 'Inter', sans-serif;
+
+            --gradient-header: linear-gradient(90deg, var(--color-indigo) 0%, var(--color-pink) 100%);
+
+            --animation-duration: 0.3s;
+            --card-border-radius: 12px;
+            --card-padding: 24px;
+            --section-padding: 60px 20px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-slate-900);
+            color: #e2e8f0; /* Light grey for primary text */
+            line-height: 1.7;
+            overflow: hidden; /* To contain background orbs */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Background Orbs --- */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(99, 102, 241, 0.3) 50%, transparent 70%);
+            filter: blur(150px);
+            opacity: 0.7;
+            animation: float 15s ease-in-out infinite alternate;
+            border-radius: 50%;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, -50px) scale(1.2); }
+            100% { transform: translate(-50px, 50px) scale(0.8); }
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw + 1rem, 4rem); /* Fluid scaling */
+            letter-spacing: -0.5px;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: var(--gradient-header);
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw + 1rem, 2.8rem);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        h3 {
+            font-size: clamp(1.4rem, 3vw + 1rem, 2rem);
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        p {
+            font-family: var(--font-secondary);
+            font-size: clamp(1rem, 1.5vw + 0.5rem, 1.1rem);
+            margin-bottom: 1rem;
+            color: var(--color-slate-700);
+        }
+
+        a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            transition: color var(--animation-duration) ease-in-out;
+        }
+
+        a:hover {
+            color: var(--color-pink);
+            text-decoration: underline;
+        }
+
+        /* --- Layout & Structure --- */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative; /* For z-index of content */
+            z-index: 1;
+        }
+
+        section {
+            padding: var(--section-padding);
+            position: relative;
+        }
+
+        /* --- Header --- */
+        header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--color-white-transparent);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-header);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden; /* For potential overflow of content */
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw + 0.5rem, 1.3rem);
+            max-width: 700px;
+            color: var(--color-slate-700);
+            margin-top: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            margin-top: 2rem;
+            font-family: var(--font-primary);
+            font-weight: 700;
+            font-size: 1rem;
+            color: #ffffff;
+            background: var(--color-indigo);
+            border-radius: 8px;
+            transition: all var(--animation-duration) ease-in-out, transform 0.2s ease-out;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--color-pink);
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* --- Content Section (Cards) --- */
+        .content-section {
+            background-color: var(--color-slate-800);
+            border-radius: 16px;
+            margin: 40px 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: var(--card-border-radius);
+            padding: var(--card-padding);
+            border: 1px solid var(--color-white-transparent);
+            transition: transform var(--animation-duration) ease-out, box-shadow var(--animation-duration) ease-out, border-color var(--animation-duration) ease-in-out;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+            border-color: var(--color-indigo); /* Border color transition */
+        }
+
+        .card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-indigo);
+            transition: color var(--animation-duration) ease-in-out;
+        }
+
+        .card:hover .icon {
+            color: var(--color-pink);
+        }
+
+        .card h4 {
+            font-size: 1.2rem;
+            font-family: var(--font-primary);
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .card p {
+            font-family: var(--font-secondary);
+            font-size: 0.95rem;
+            color: var(--color-slate-700);
+        }
+
+        /* --- Geometric Patterns for Images --- */
+        .geometric-pattern {
+            width: 100%;
+            height: 150px;
+            background-image: repeating-linear-gradient(45deg, var(--color-pink-transparent) 0px, var(--color-pink-transparent) 5px, transparent 5px, transparent 10px),
+                              repeating-linear-gradient(-45deg, var(--color-indigo-transparent) 0px, var(--color-indigo-transparent) 5px, transparent 5px, transparent 10px);
+            border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .geometric-pattern::before {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            background: rgba(255, 255, 255, 0.05);
+            filter: blur(10px);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .rank-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--color-indigo);
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 5px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        /* --- Callouts/Code Examples (Stylized) --- */
+        .callout {
+            background: var(--color-slate-800);
+            border-left: 5px solid var(--color-indigo);
+            border-radius: 5px;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-family: var(--font-secondary);
+            font-size: 0.9rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: border-color var(--animation-duration) ease-in-out;
+        }
+        .callout:hover {
+            border-left-color: var(--color-pink);
+        }
+
+        .callout code {
+            font-family: 'SF Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; /* A more code-like font */
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: var(--color-pink); /* Highlight code snippets */
+            font-size: 0.85rem;
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- Floating Theme Toggle --- */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            background: var(--color-pink);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.5);
+            transition: background-color var(--animation-duration) ease, transform 0.2s ease-out, box-shadow var(--animation-duration) ease;
+            border: none;
+        }
+
+        .theme-toggle:hover {
+            background: var(--color-indigo);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.6);
+            transform: translateY(-4px) scale(1.1);
+        }
+
+        .theme-toggle i { /* Assuming you'll use an icon font like Font Awesome */
+            font-size: 24px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: auto; /* Pushes footer to the bottom */
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid var(--color-white-transparent);
+            font-family: var(--font-secondary);
+            font-size: 0.9rem;
+            color: var(--color-slate-700);
+        }
+
+        footer a {
+            color: var(--color-indigo);
+        }
+        footer a:hover {
+            color: var(--color-pink);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 7vw + 1rem, 3rem);
+            }
+
+            h2 {
+                font-size: clamp(1.6rem, 5vw + 1rem, 2.4rem);
+            }
+
+            h3 {
+                font-size: clamp(1.3rem, 4vw + 1rem, 1.8rem);
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr; /* Stack cards on smaller screens */
+            }
+
+            .card {
+                --card-padding: 20px;
+            }
+
+            .theme-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+            .theme-toggle i {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: clamp(1.8rem, 8vw + 1rem, 2.5rem);
+            }
+            .logo {
+                font-size: 1.5rem;
+            }
+            header .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+            .cta-button {
+                font-size: 0.9rem;
+                padding: 10px 25px;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://techvridha.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Background Orbs -->
+    <div class="background-orbs">
+        <div class="orb" style="width: 300px; height: 300px; top: -100px; left: -150px;"></div>
+        <div class="orb" style="width: 400px; height: 400px; bottom: -150px; right: -200px;"></div>
+        <div class="orb" style="width: 250px; height: 250px; top: 30%; left: 50%;"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">TechVridha</div>
+            <!-- Navigation could be added here if needed -->
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>TypeScript Secrets: <br> Master Types, Boost Safety</h1>
+            <p>
+                Tired of messy code and runtime errors? Unlock TypeScript's powerful type refinement features to write bulletproof, predictable, and maintainable applications.
+            </p>
+            <button id="watch-video-btn" class="cta-button">Watch the Video</button>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Unlock TypeScript's Power</h2>
+            <div class="content-grid">
+
+                <div class="card">
+                    <div class="geometric-pattern">
+                        <div class="rank-badge">#1</div>
+                    </div>
+                    <h4>Literal Types</h4>
+                    <p>Restrict variables to exact values for maximum type safety. (e.g., <code>"GET" | "POST"</code>)</p>
+                </div>
+
+                <div class="card">
+                    <div class="geometric-pattern">
+                        <div class="rank-badge">#2</div>
+                    </div>
+                    <h4>Discriminated Unions</h4>
+                    <p>Handle different states of data with clarity and type safety. (e.g., <code>ApiState</code>)</p>
+                </div>
+
+                <div class="card">
+                    <div class="geometric-pattern">
+                        <div class="rank-badge">#3</div>
+                    </div>
+                    <h4>Mapped & Utility Types</h4>
+                    <p>Transform and derive types effortlessly. (<code>Required</code>, <code>Partial</code>, <code>Pick</code>, <code>Omit</code>)</p>
+                </div>
+
+                <div class="card">
+                    <div class="geometric-pattern">
+                        <div class="rank-badge">#4</div>
+                    </div>
+                    <h4>`keyof` Operator</h4>
+                    <p>Create robust type-safe lookups using keys from a type.</p>
+                </div>
+
+                <div class="card">
+                    <div class="geometric-pattern">
+                        <div class="rank-badge">#5</div>
+                    </div>
+                    <h4>Optional Chaining & Nullish Coalescing</h4>
+                    <p>Safely access nested properties and provide defaults. (<code>?.</code> and <code>??</code>)</p>
+                </div>
+
+                <div class="card">
+                    <div class="geometric-pattern">
+                        <div class="rank-badge">#6</div>
+                    </div>
+                    <h4>`Record<Keys, Type>`</h4>
+                    <p>Define object types with specific keys and a uniform value type.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Actionable Insights for Your Code</h2>
+            <div class="callout">
+                <p><strong>Embrace Literal Types:</strong> Use them for HTTP methods, status codes, or fixed enums to catch bugs at compile time.</p>
+            </div>
+            <div class="callout">
+                <p><strong>Leverage Discriminated Unions:</strong> Perfect for state management (loading, error, success) or complex data structures.</p>
+            </div>
+            <div class="callout">
+                <p><strong>Use <code>?.</code> and <code>??</code>:</strong> Implement these to navigate deeply nested or potentially undefined data, preventing runtime crashes.</p>
+            </div>
+            <div class="callout">
+                <p><strong>Master Mapped/Utility Types:</strong> Reduce boilerplate with <code>Required</code>, <code>Partial</code>, <code>Omit</code>, <code>Pick</code> for reusable type definitions.</p>
+            </div>
+            <div class="callout">
+                <p><strong>Type Your APIs:</strong> Define union types for API endpoints and versions to ensure predictable interactions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Theme Toggle Button -->
+    <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+        <i class="fas fa-moon"></i> <!-- Font Awesome Icon for Moon (default for dark theme) -->
+    </button>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 TechVridha. All rights reserved. | Visit us at <a href="https://techvridha.vercel.app" target="_blank">techvridha.vercel.app</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Vanilla JavaScript for Interactivity ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scroll to video when button is clicked
+            const watchVideoBtn = document.getElementById('watch-video-btn');
+            if (watchVideoBtn) {
+                watchVideoBtn.addEventListener('click', () => {
+                    // You'll likely want to replace this with actual video embed logic
+                    // For now, we'll scroll to a hypothetical video section or open a modal
+                    alert("Video would play here! \n(Replace this alert with your video player logic)");
+
+                    // Example: Smooth scroll to an element with id="video-player"
+                    // const videoSection = document.getElementById('video-player');
+                    // if (videoSection) {
+                    //     videoSection.scrollIntoView({ behavior: 'smooth' });
+                    // }
+                });
+            }
+
+            // Theme Toggle Functionality
+            const themeToggleBtn = document.getElementById('theme-toggle-btn');
+            const sunIcon = '<i class="fas fa-sun"></i>'; // Font Awesome Icon for Sun
+            const moonIcon = '<i class="fas fa-moon"></i>'; // Font Awesome Icon for Moon
+
+            // Check for saved theme preference or set default to dark
+            const savedTheme = localStorage.getItem('theme');
+            let isDarkMode = savedTheme ? savedTheme === 'dark' : true; // Default to dark
+
+            function applyTheme(isDark) {
+                document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease'; // Smooth transition for body colors
+                if (isDark) {
+                    document.body.style.backgroundColor = '#09172a'; // Dark slate
+                    document.body.style.color = '#e2e8f0'; // Light grey text
+                    themeToggleBtn.innerHTML = sunIcon;
+                    themeToggleBtn.style.backgroundColor = '#ec4899'; // Pink
+                    themeToggleBtn.style.boxShadow = '0 10px 25px rgba(236, 72, 153, 0.6)';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.body.style.backgroundColor = '#f0f2f5'; // Light background
+                    document.body.style.color = '#1a202c'; // Dark text
+                    themeToggleBtn.innerHTML = moonIcon;
+                    themeToggleBtn.style.backgroundColor = '#6366f1'; // Indigo
+                    themeToggleBtn.style.boxShadow = '0 10px 25px rgba(99, 102, 241, 0.6)';
+                    localStorage.setItem('theme', 'light');
+                }
+                // Optionally apply theme to other elements if needed
+                document.querySelectorAll('.card, .content-section, footer, header').forEach(el => {
+                    if (isDark) {
+                        el.style.backgroundColor = el.classList.contains('content-section') ? '#1e293b' : 'rgba(255, 255, 255, 0.05)';
+                        el.style.borderColor = 'var(--color-white-transparent)';
+                        if (el.classList.contains('callout')) {
+                            el.style.backgroundColor = '#1e293b';
+                        }
+                    } else {
+                        el.style.backgroundColor = el.classList.contains('content-section') ? '#ffffff' : 'rgba(0, 0, 0, 0.03)';
+                        el.style.borderColor = 'rgba(0, 0, 0, 0.1)';
+                        if (el.classList.contains('callout')) {
+                            el.style.backgroundColor = '#ffffff';
+                            el.style.borderLeftColor = '#6366f1';
+                        }
+                    }
+                });
+                document.querySelectorAll('h2, h3, h4').forEach(el => {
+                    el.style.color = isDark ? '#ffffff' : '#1a202c';
+                });
+                 document.querySelectorAll('p').forEach(el => {
+                    el.style.color = isDark ? '#778899' : '#4a5568'; // Lighter slate text for dark, standard for light
+                });
+            }
+
+            // Initialize theme on load
+            applyTheme(isDarkMode);
+
+            themeToggleBtn.addEventListener('click', () => {
+                isDarkMode = !isDarkMode;
+                applyTheme(isDarkMode);
+            });
+
+            // Add Font Awesome if not already included (for icons)
+            // This is a good practice if you're relying on external icon fonts.
+            // For a truly single-file solution without external dependencies,
+            // you might use SVG icons or simple text characters.
+            if (!document.querySelector('link[href*="fontawesome.com"]')) {
+                const fontAwesomeLink = document.createElement('link');
+                fontAwesomeLink.rel = 'stylesheet';
+                fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'; // Use a CDN for simplicity
+                document.head.appendChild(fontAwesomeLink);
+            }
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/tsmaster">TS Master</a><a href="/reactrender">React Render</a><a href="/reactsolid">React SOLID</a><a href="/reactkeys">React Keys</a><a href="/reactcore">React Core</a><a href="/htmlpower">HTML Power Ups</a><a href="/jsmaster">JS Master</a><a href="/jscore">JS Core</a><a href="/purecssscroll">Pure CSS Scroll</a><a href="/cloudnative">Cloud Native Explained</a><a href="/codeclean">Code Clean</a><a href="/awdevskills">AWS DevSkills</a><a href="/backend-mastery">Backend MASTERY</a><a href="/motiontext">Motion Text</a><a href="/cssfuncs">CSS Funcs</a><a href="/aistackunlocked">AI Stack Unlocked</a><a href="/canvaanimate">Canva Animate</a><a href="/cssrules">CSS Rules</a><a href="/cssscale">CSS Scale</a><a href="/pixelglitch">Pixel Glitch</a><a href="/proxies">Proxy, Balance, Gateway</a><a href="/authevolution">Auth Evolved</a><a href="/csspopovers">CSS Popovers</a><a href="/csslayout">CSS Layout Mastery</a><a href="/cssatrt">CSS Attr Type</a><a href="/csspos">CSS Pos</a><a href="/cssevolution">CSS Evolve</a><a href="/scrollfx">Scroll FX</a><a href="/cssflow">CSS Flow</a><a href="/stopscroll">Stop Scroll</a><a href="/geminivisions">Gemini Visions</a><a href="/algosecrets">Algorithm Secrets</a><a href="/buildaitools">Build AI Tools</a><a href="/designflaws">Design Flaws</a><a href="/designmastery">Design Mastery</a><a href="/designtrends">Design Trends</a><a href="/designgear">Design Gear</a><a href="/taxhacks">Tax Hacks</a><a href="/androidhacks">Android Hacks</a><a href="/spartangains">Spartan Gains</a><a href="/aiuxshift">AI UX Shift</a><a href="/speakfluent">Speak fluent</a><a href="/uicolorguide">UI Colors Guide</a><a href="/designessn">Design ESSN</a><a href="/aicodewins">AI Code Wins</a><a href="/2026gamesignite">2026 Games Ignite</a><a href="/designprovideo">Design Pro Video</a><a href="/claudechat">Claude Chat</a><a href="/cmdsecrets">CMD Secrets</a><a href="/ainow">AI Now</a><a href="/videomastery">Video Mastery</a><a href="/codetruths">Code Truths</a><a href="/harnesslust">Harness Lust</a><a href="/top16pc">Top PC Games</a><a href="/claudeoffline">Claude Offline</a><a href="/ownyourtruth">Own Your Truth</a><a href="/ypppayouts">YPP Payouts</a><a href="/ramboost">RAM Boost</a><a href="/gamervision">Gamer Vision</a><a href="/serverhacks">Server Hacks</a><a href="/win11makeover">Win11 Makeover</a><a href="/learnfaster">Learn Faster</a><a href="/AILimits">AI Limits</a><a href="/aivideoscale">AI Video Scale</a><a href="/aicareer">AI Career Path</a><a href="/claudemotion">Claude Motion</a><a href="/trademaster">TradeMaster</a><a href="/codehour">Code Hour</a><a href="/sorashut">Sora Shut</a><a href="/hostmine">Host Mine</a><a href="/earnnown">Earn Now</a><a href="/iphonehacks">iPhone Hacks</a><a href="/sleephack">Sleep Hack</a><a href="/genzdebt">Gen Z Debt</a><a href="/cloudpro">Cloud Pro</a><a href="/glow-up">Glow Up</a><a href="/achievegoals">Achieve Goals</a><a href="/wealthfirst">Wealth First</a><a href="/aicareer">AI Career</a><a href="/2minboost">2 Min Boost</a><a href="/mindhack">Mind Hack</a><a href="/aimodel">AI Model</a><a href="/mastergrit">Master Grit</a><a href="/tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```
+
+### **Explanation of Implementation:**
+
+1.  **HTML Structure:**
+    *   **Semantic HTML5:** Uses `<header>`, `<section>`, `<footer>` for proper structure.
+    *   **Container:** A `.container` class is used to center content and limit its width, with `position: relative` for z-indexing.
+    *   **Responsive Grid:** `display: grid` with `grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))` creates a responsive grid that stacks cards on smaller screens.
+    *   **Hero Section:** Designed with flexbox for centering content and a fluid `clamp()` for heading sizes to match the design.
+    *   **Cards:** Each card uses flexbox internally to manage its content.
+    *   **Callouts:** Styled using a `.callout` class with a distinct left border for emphasis.
+
+2.  **CSS Styling (Glassmorphic & Modern):**
+    *   **Variables:** Extensive use of CSS variables (`:root`) for colors, fonts, and spacing, making it easy to maintain and tweak the theme.
+    *   **Color Palette:** Precisely implemented the `indigo (#6366f1)`, `pink (#ec4899)`, and `slate (#09172a)` palette, with lighter shades for backgrounds and text.
+    *   **Glassmorphism:** Achieved using `background: rgba(255, 255, 255, 0.05)` (or `0.03` for cards) combined with `backdrop-filter: blur(10px);` and `-webkit-backdrop-filter: blur(10px);`.
+    *   **Typography:**
+        *   `SF Pro Display` and `Inter` are imported from Google Fonts.
+        *   `clamp()` is used for fluid font scaling on headings (`h1`, `h2`, `h3`) to ensure optimal readability across devices.
+        *   A gradient-masked header (`h1`) is implemented using `background-image` and `-webkit-background-clip: text; -webkit-text-fill-color: transparent;`.
+    *   **Hover Effects:**
+        *   Cards have `transform: translateY(-8px) scale(1.02)` for a 3D lifting effect.
+        *   Border color transitions (`border-color var(--animation-duration) ease-in-out;`) are applied to cards on hover.
+        *   Buttons have subtle lift and scale on hover.
+    *   **Background Orbs:** Implemented using `position: fixed` and a `radial-gradient` with `filter: blur()` and an animation (`float`).
+    *   **Geometric Patterns:** CSS repeating-linear-gradients create the abstract geometric backgrounds for card "images." A pulsing animation is added with `::before` pseudo-element.
+    *   **Rank Badges:** Absolutely positioned within the `geometric-pattern` container.
+    *   **Sticky Header:** Uses `position: sticky` for a fixed header that stays in view as the user scrolls.
+    *   **Responsive Design:** Media queries are used for a mobile-first approach, adjusting layouts, font sizes, and spacing for tablets and desktops.
+
+3.  **JavaScript Interactivity:**
+    *   **Single `<script>` Tag:** All JavaScript is contained within a single `<script>` block at the end of the `
