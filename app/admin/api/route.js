@@ -9,8 +9,10 @@ const isLocal = process.env.NODE_ENV === 'development';
 
     if (isLocal) {
         try {
-         import * as key from "./client_secret.json"
-         const jwtClient=new google.auth.JWT(
+         const key = await import("./client_secret.json", {
+            assert: { type: "json" } // Required in some environments for JSON
+        });
+            const jwtClient=new google.auth.JWT(
         key.client_email,
         undefined,
         key.private_key,
