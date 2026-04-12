@@ -18,7 +18,7 @@ export async function POST(req) {
         method:"POST",
         headers:{"Content-Type":"application/json ; charset=utf-8"},
         body:JSON.stringify({
-            host:"quertech-articles.vercel.app",
+            host:"techvridha.vercel.app",
             key:process.env.INDEXNOWKEY,
             keyLocation:`https://techvridha.vercel.app/${process.env.INDEXNOWKEY}.txt`,
             urlList:urlList
