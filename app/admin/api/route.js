@@ -8,7 +8,7 @@ import * as key from "./client_secret.json"
         undefined,
         key.private_key,
         ['https://www.googleapis.com/auth/indexing'],
-        undefined
+        undefined,)
     
          
             // 2. ONLY import the library if we are local.
