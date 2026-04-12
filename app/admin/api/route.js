@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+// export const runtime = 'edge';
 export const dynamic = 'force-dynamic'; // Add this line
 import { google } from 'googleapis';
 import * as key from "./client_secret.json"
@@ -24,7 +24,7 @@ export async function POST(req) {
         body:JSON.stringify({
             host:"quertech-articles.vercel.app",
             key:process.env.INDEXNOWKEY,
-            keyLocation:`https://articlesstack.pages.dev/${process.env.INDEXNOWKEY}.txt`,
+            keyLocation:`https://techvridha.vercel.app/${process.env.INDEXNOWKEY}.txt`,
             urlList:urlList
                 })
     })

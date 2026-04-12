@@ -8,7 +8,7 @@ export async function addingBlogToSitemap(domain) {
     const date = new Date().toISOString().split('T')[0];
     const fixedDomain=domain.replace(/\s/g,"%20").replace(" ","%20").replace("/","")
     const newSitemapEntry = `<url>
-    <loc>https://articlesstack.pages.dev/${fixedDomain}</loc>
+    <loc>https://techvridha.vercel.app/${fixedDomain}</loc>
     <lastmod>${date}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>

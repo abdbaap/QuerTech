@@ -81,7 +81,7 @@ const [urlListInCaseOfError, setUrlListInCaseOfError] = useState([])
         
         const cleanSlug = TitleFolder.data.link.replace(/\//g, "");
         const finalSlug = cleanSlug.replace(/^\/+/, "");
-        const finalUrl = `https://articlesstack.pages.dev/${finalSlug}/index.html`;
+        const finalUrl = `https://techvridha.vercel.app/${finalSlug}/index.html`;
 
         // --- UPDATE UI SAFELY ---
         
@@ -168,13 +168,13 @@ return urlListForBlogGeneration
           setResult({
             code:code?.FinalCode,
             message:output.message,
-            slug:`https://articlesstack.pages.dev/${cleanSlug}/index.html`,
+            slug:`https://techvridha.vercel.app/${cleanSlug}/index.html`,
             success:true
           })
               if(output.success){
                 const isUrlInList=await urlList.find(result.slug)
                  if(!isUrlInList){
-                seturlList([...urlList,`https://articlesstack.pages.dev/${cleanSlug}/index.html`])
+                seturlList([...urlList,`https://techvridha.vercel.app/${cleanSlug}/index.html`])
                  }
               }
         }
@@ -285,7 +285,7 @@ return urlListForBlogGeneration
     <div className="bg-black text-white">
       <h1 className="text-xl font-bold">Add Urls For Indexing</h1>
       {ListOFAllBlogs.map((item,e) => { 
-      if(!urlList.includes(`https://articlesstack.pages.dev/${item.link}/index.html` ))  return  <div key={e}  onClick={()=>seturlList([...urlList,`https://articlesstack.pages.dev/${item.link}/index.html`])} className="bg-white text-black rounded-xl font-bold">{item.link}</div>
+      if(!urlList.includes(`https://techvridha.vercel.app/${item.link}/index.html` ))  return  <div key={e}  onClick={()=>seturlList([...urlList,`https://techvridha.vercel.app/${item.link}/index.html`])} className="bg-white text-black rounded-xl font-bold">{item.link}</div>
        })}
     </div>
     

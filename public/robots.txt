@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Direct link to your sitemap
-Sitemap: https://articlesstack.pages.dev/sitemap.xml
+Sitemap: https://techvridha.vercel.app/sitemap.xml
