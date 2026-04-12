@@ -1,20 +1,33 @@
-// export const runtime = 'edge';
-export const dynamic = 'force-dynamic'; // Add this line
+// Add this line
 import { google } from 'googleapis';
-import * as key from "./client_secret.json"
+
 import { NextResponse } from "next/server";
 
 
 
+const isLocal = process.env.NODE_ENV === 'development';
 
- const jwtClient=new google.auth.JWT(
+    if (isLocal) {
+        try {
+         const key = await import("./client_secret.json", {
+            assert: { type: "json" } // Required in some environments for JSON
+        });
+            const jwtClient=new google.auth.JWT(
         key.client_email,
         undefined,
         key.private_key,
         ['https://www.googleapis.com/auth/indexing'],
         undefined
     )
-
+         
+            // 2. ONLY import the library if we are local.
+            // This prevents Cloudflare from crashing during the build/deploy.
+              } catch (error) {
+            console.error("Local RabbitMQ Error:", error);
+            return NextResponse.json({ success: false, error: "Local queue failed" }, { status: 500 });
+        }
+    }
+ 
 export async function POST(req) {
     const {urlList}=await req.json()
    
@@ -62,4 +75,4 @@ return {success:true,message:"Url Added SuccessFully To Crawl In Gsc"}
     catch (error) {
    return {success:false,message:error}
   }
-}
+             }
