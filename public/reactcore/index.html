@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="React Fundamentals: Build Dynamic Apps Fast!">
+    <meta name="description" content="Tired of React confusion? Master core concepts like Components, JSX, State, and Hooks. Build dynamic, high-performance web apps with our clear, step-by-step guide. Unlock your coding potential!">
+    <meta name="keywords" content="learn react fundamentals video, react js essential concepts explained, how to use react components, understanding react props and state, react hooks tutorial for beginners, building dynamic web applications with react, react jsx syntax guide, react rendering explained simply, react state management hooks, react event handling tutorial, best practices for react development, react component reusability, javascript framework react basics, react vs html for ui development, react context api explained">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="React Fundamentals: Build Dynamic Apps Fast!">
+    <meta property="og:description" content="Tired of React confusion? Master core concepts like Components, JSX, State, and Hooks. Build dynamic, high-performance web apps with our clear, step-by-step guide. Unlock your coding potential!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://articlesstack.pages.dev">
+    <meta property="og:image" content="https://articlesstack.pages.dev/og-image.png"> <!-- Placeholder for a relevant Open Graph image -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="React Fundamentals: Build Dynamic Apps Fast!">
+    <meta name="twitter:description" content="Tired of React confusion? Master core concepts like Components, JSX, State, and Hooks. Build dynamic, high-performance web apps with our clear, step-by-step guide. Unlock your coding potential!">
+    <meta name="twitter:image" content="https://articlesstack.pages.dev/twitter-image.png"> <!-- Placeholder for a relevant Twitter card image -->
+    <title>React Fundamentals: Build Dynamic Apps Fast!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=SF+Pro+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-dark: #09172a;
+            --color-slate-mid: #1e293b;
+            --color-slate-light: #334155;
+            --color-white-transparent: rgba(255, 255, 255, 0.1);
+            --color-white-hover: rgba(255, 255, 255, 0.2);
+            --font-family-display: 'SF Pro Display', sans-serif;
+            --font-family-body: 'Inter', sans-serif;
+            --border-radius-card: 12px;
+            --transition-smooth: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-body);
+            background-color: var(--color-slate-dark);
+            color: #e2e8f0; /* Lighter slate for text */
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* --- Background Animation --- */
+        .background-orb {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0) 70%),
+                        radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(236, 72, 153, 0) 70%);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.7;
+            animation: float 15s ease-in-out infinite alternate;
+        }
+
+        .orb1 { width: 300px; height: 300px; top: -50px; left: -50px; animation-duration: 18s; }
+        .orb2 { width: 400px; height: 400px; top: 200px; right: -100px; animation-duration: 16s; animation-delay: -5s; }
+        .orb3 { width: 250px; height: 250px; bottom: -100px; left: 30%; animation-duration: 14s; animation-delay: -8s; }
+        .orb4 { width: 350px; height: 350px; bottom: 100px; right: 10%; animation-duration: 17s; animation-delay: -2s; }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) scale(1); }
+            50% { transform: translateY(-50px) translateX(30px) scale(1.1); }
+            100% { transform: translateY(50px) translateX(-30px) scale(0.9); }
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            padding: 20px 5%;
+            background: rgba(9, 23, 42, 0.7); /* Dark slate with transparency */
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-bottom: 1px solid var(--color-white-transparent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-family: var(--font-family-display);
+            font-size: clamp(1.5rem, 4vw, 2rem); /* Fluid scaling */
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            margin-left: 25px;
+            transition: var(--transition-smooth);
+            padding: 5px 10px;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--color-white-hover);
+            color: #fff;
+        }
+
+        /* --- Main Content Area --- */
+        .main-content {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        /* --- Title Section --- */
+        .title-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title-section h1 {
+            font-family: var(--font-family-display);
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .title-section p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: #cbd5e1; /* Lighter gray for subtitle */
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Card Section (Tools/Concepts) --- */
+        .card-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--color-white-transparent);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--border-radius-card);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth), transform 0.4s ease-out;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .card .rank-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--color-pink);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 8px;
+            z-index: 2;
+        }
+
+        .card .geometric-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 30px 30px;
+            opacity: 0.1;
+            z-index: 1;
+            pointer-events: none; /* Ensure it doesn't interfere with clicks */
+            background-image: repeating-linear-gradient(
+                45deg,
+                var(--color-indigo) 1px,
+                var(--color-indigo) 2px,
+                transparent 2px,
+                transparent 5px
+            );
+        }
+
+        .card h3 {
+            font-family: var(--font-family-display);
+            font-size: clamp(1.3rem, 5vw, 1.8rem);
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            flex-grow: 1; /* Allows paragraph to take available space */
+        }
+
+        .card .learn-more {
+            font-weight: bold;
+            color: var(--color-pink);
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .card:hover .learn-more {
+            color: var(--color-indigo);
+            transform: translateX(5px);
+        }
+
+        /* --- Key Concepts Section --- */
+        .key-concepts-section {
+            margin-top: 60px;
+        }
+
+        .key-concepts-section h2 {
+            font-family: var(--font-family-display);
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .concept-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .concept-item {
+            background: var(--color-slate-mid);
+            padding: 20px;
+            border-radius: var(--border-radius-card);
+            transition: var(--transition-smooth);
+            border: 1px solid var(--color-white-transparent);
+            cursor: pointer;
+        }
+
+        .concept-item:hover {
+            transform: scale(1.03);
+            background: rgba(30, 41, 59, 0.8); /* Slightly lighter slate */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-color: var(--color-white-hover);
+        }
+
+        .concept-item strong {
+            font-family: var(--font-family-display);
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
+            color: var(--color-indigo);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .concept-item span {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #cbd5e1;
+        }
+
+        /* --- Theme Toggle --- */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1001;
+            background-color: var(--color-pink);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.5);
+            transition: var(--transition-smooth), background-color 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            outline: none; /* Remove default outline */
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--color-indigo);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 40px 5%;
+            margin-top: 60px;
+            background: rgba(9, 23, 42, 0.7);
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-top: 1px solid var(--color-white-transparent);
+            font-size: 0.9rem;
+            color: #a0aec0;
+        }
+
+        .footer a {
+            color: var(--color-pink);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (min-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr 2fr; /* Two columns for larger screens */
+            }
+
+            .title-section {
+                grid-column: 1 / -1; /* Span across both columns */
+                text-align: left;
+            }
+
+            .title-section h1,
+            .title-section p {
+                margin: 0 auto; /* Center if needed, but usually left-aligned in this layout */
+            }
+
+            .card-section {
+                grid-column: 2 / -1; /* Place cards in the second column */
+            }
+
+            .key-concepts-section {
+                grid-column: 1 / -1; /* Span across both columns */
+            }
+        }
+
+        @media (max-width: 767px) {
+            .header {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .logo {
+                margin-bottom: 10px;
+            }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-links a {
+                margin: 5px 10px;
+            }
+            .main-content {
+                padding: 40px 5%;
+            }
+            .title-section h1 {
+                font-size: clamp(2rem, 7vw, 3rem);
+            }
+            .card-section {
+                grid-template-columns: 1fr;
+            }
+            .concept-list {
+                grid-template-columns: 1fr;
+            }
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://articlesstack.pages.dev" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <div class="background-orb">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+        <div class="orb orb4"></div>
+    </div>
+
+    <header class="header">
+        <div class="logo" onclick="window.location.href='https://articlesstack.pages.dev';">ArticlesStack</div>
+        <nav class="nav-links">
+            <a href="#intro">Intro</a>
+            <a href="#concepts">Concepts</a>
+            <a href="#tools">Tools</a>
+            <a href="#summary">Summary</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section id="intro" class="title-section">
+            <h1>React Fundamentals: Build Dynamic Apps Fast!</h1>
+            <p>Tired of React confusion? Master core concepts like Components, JSX, State, and Hooks. Build dynamic, high-performance web apps with our clear, step-by-step guide. Unlock your coding potential!</p>
+        </section>
+
+        <section id="tools" class="card-section">
+            <article class="card">
+                <div class="rank-badge">#1</div>
+                <div class="geometric-pattern"></div>
+                <h3>Components</h3>
+                <p>The fundamental building blocks of React. Think of them as reusable, independent pieces of your UI, like buttons, forms, or entire pages.</p>
+                <a href="#component-details" class="learn-more">Learn More &rarr;</a>
+            </article>
+            <article class="card">
+                <div class="rank-badge">#2</div>
+                <div class="geometric-pattern"></div>
+                <h3>JSX</h3>
+                <p>A syntax extension for JavaScript that looks like HTML. It allows you to write UI structures declaratively within your JavaScript code.</p>
+                <a href="#jsx-details" class="learn-more">Learn More &rarr;</a>
+            </article>
+            <article class="card">
+                <div class="rank-badge">#3</div>
+                <div class="geometric-pattern"></div>
+                <h3>Props</h3>
+                <p>Short for 'properties', props are how you pass data down from a parent component to a child component, making them configurable.</p>
+                <a href="#props-details" class="learn-more">Learn More &rarr;</a>
+            </article>
+            <article class="card">
+                <div class="rank-badge">#4</div>
+                <div class="geometric-pattern"></div>
+                <h3>State</h3>
+                <p>Represents data that can change over time within a component. When state updates, React automatically re-renders the component.</p>
+                <a href="#state-details" class="learn-more">Learn More &rarr;</a>
+            </article>
+            <article class="card">
+                <div class="rank-badge">#5</div>
+                <div class="geometric-pattern"></div>
+                <h3>Hooks</h3>
+                <p>Functions that let you "hook into" React state and lifecycle features from functional components. Key ones: `useState`, `useEffect`, `useRef`.</p>
+                <a href="#hooks-details" class="learn-more">Learn More &rarr;</a>
+            </article>
+            <article class="card">
+                <div class="rank-badge">#6</div>
+                <div class="geometric-pattern"></div>
+                <h3>Rendering</h3>
+                <p>React efficiently updates the UI by using a Virtual DOM, comparing changes, and reconciling them with the actual DOM.</p>
+                <a href="#rendering-details" class="learn-more">Learn More &rarr;</a>
+            </article>
+        </section>
+
+        <section id="concepts" class="key-concepts-section">
+            <h2>Core React Concepts Explained</h2>
+            <ul class="concept-list">
+                <li class="concept-item">
+                    <strong>Components:</strong> Reusable UI pieces. JS functions returning JSX.
+                </li>
+                <li class="concept-item">
+                    <strong>JSX:</strong> HTML-like syntax in JS. Use `className` not `class`.
+                </li>
+                <li class="concept-item">
+                    <strong>Props:</strong> Pass data from parent to child. Custom attributes.
+                </li>
+                <li class="concept-item">
+                    <strong>"Children" Prop:</strong> Pass JSX structures as children.
+                </li>
+                <li class="concept-item">
+                    <strong>Keys:</strong> Unique identifiers for list items, crucial for performance.
+                </li>
+                <li class="concept-item">
+                    <strong>Rendering:</strong> Virtual DOM diffing & reconciliation.
+                </li>
+                <li class="concept-item">
+                    <strong>Event Handling:</strong> `onClick`, `onChange`, etc. for user interactions.
+                </li>
+                <li class="concept-item">
+                    <strong>`useState`:</strong> Manage local component state.
+                </li>
+                <li class="concept-item">
+                    <strong>`useEffect`:</strong> Handle side effects (fetching, DOM manipulation).
+                </li>
+                <li class="concept-item">
+                    <strong>`useRef`:</strong> Access DOM elements or persist mutable values.
+                </li>
+                <li class="concept-item">
+                    <strong>Controlled Components:</strong> Forms managed by React state.
+                </li>
+                <li class="concept-item">
+                    <strong>Purity:</strong> Components should be predictable; same input, same output.
+                </li>
+                <li class="concept-item">
+                    <strong>Strict Mode:</strong> Catches potential problems during development.
+                </li>
+                <li class="concept-item">
+                    <strong>Portals:</strong> Render components outside their parent DOM node.
+                </li>
+                <li class="concept-item">
+                    <strong>Suspense:</strong> Handle async operations with fallback UIs.
+                </li>
+            </ul>
+        </section>
+
+        <section id="summary" class="title-section">
+            <h2>Executive Summary</h2>
+            <p>React is a powerful JavaScript library for building dynamic user interfaces with a component-based architecture. Mastering JSX, props, state management (via `useState`), and hooks (`useEffect`, `useRef`) is key to creating efficient, interactive, and high-performance web applications. Understanding React's rendering process, event handling, and advanced features like Portals and Suspense further enhances development capabilities and user experience.</p>
+        </section>
+    </main>
+
+    <button class="theme-toggle" aria-label="Toggle Theme">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.947v16.106c0 .786.894 1.25 1.652 1.027l6.572-3.319a1.752 1.752 0 001.027-1.652V3.947c0-.786-.894-1.25-1.652-1.027L10.247 3.947zM11.25 7.5v1.5m0 3.75v1.5m0 3.75v1.5" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+    </button>
+
+    <footer class="footer">
+        <p>&copy; 2023 ArticlesStack. All rights reserved. | Powered by <a href="https://articlesstack.pages.dev">ArticlesStack</a>.</p>
+    </footer>
+
+    <script>
+        // --- Vanilla JavaScript Interactivity ---
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav-links a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Theme Toggle Functionality
+        const themeToggleBtn = document.querySelector('.theme-toggle');
+        const body = document.body;
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+        function applyTheme(isDark) {
+            if (isDark) {
+                body.classList.add('dark-mode');
+                themeToggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.383l-.995 1.263m-1.503 4.238a9.873 9.873 0 00-1.338-1.338M5.25 7.5l.995-1.263m-1.338-4.238A9.873 9.873 0 003 7.5m3.75 9.75h1.5m-1.5 3h1.5m-1.5 3h1.5M9.75 15h.75v.75h-.75v-.75zM6 15h.75v.75H6v-.75zm.75 3h-.75v.75h.75v-.75zm0 3h-.75v.75h.75v-.75z" /><path d="M21 12.795a7.5 7.5 0 01-14.012 5.353c.156.187.32.354.504.504A7.5 7.5 0 0021 12.795z"/></svg>';
+            } else {
+                body.classList.remove('dark-mode');
+                themeToggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.947v16.106c0 .786.894 1.25 1.652 1.027l6.572-3.319a1.752 1.752 0 001.027-1.652V3.947c0-.786-.894-1.25-1.652-1.027L10.247 3.947zM11.25 7.5v1.5m0 3.75v1.5m0 3.75v1.5" /><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>';
+            }
+        }
+
+        // Apply initial theme from localStorage
+        applyTheme(isDarkMode);
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const newMode = !body.classList.contains('dark-mode');
+            applyTheme(newMode);
+            localStorage.setItem('darkMode', newMode);
+        });
+
+        // Add custom CSS for dark mode if the user prefers it (optional but good for accessibility)
+        // This example only uses the JS toggle, but you could pre-apply based on OS preference.
+        // For this single-file solution, it's better to rely on localStorage.
+
+        // Add subtle hover effect for cards (this is mostly CSS, but can be enhanced with JS)
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const moveX = (x - centerX) / centerX;
+                const moveY = (y - centerY) / centerY;
+
+                // Subtle tilt effect
+                card.style.transform = `translateY(-10px) scale(1.03) perspective(1000px) rotateY(${moveX * 5}deg) rotateX(${moveY * -5}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // Reset to the default hover state (which is defined in CSS)
+                card.style.transform = 'translateY(-10px) scale(1.03)'; // Keep the slightly lifted effect
+            });
+        });
+
+        // Initial setup for cards to have the hover effect applied on load
+        cards.forEach(card => {
+            // Trigger a mousemove event at the center to apply initial positioning if needed
+            const rect = card.getBoundingClientRect();
+            const centerEvent = new MouseEvent('mousemove', {
+                clientX: rect.left + rect.width / 2,
+                clientY: rect.top + rect.height / 2,
+                bubbles: true,
+                cancelable: true
+            });
+            card.dispatchEvent(centerEvent);
+        });
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/htmlpower">HTML Power Ups</a><a href="/jsmaster">JS Master</a><a href="/jscore">JS Core</a><a href="/purecssscroll">Pure CSS Scroll</a><a href="/cloudnative">Cloud Native Explained</a><a href="/codeclean">Code Clean</a><a href="/awdevskills">AWS DevSkills</a><a href="/backend-mastery">Backend MASTERY</a><a href="/motiontext">Motion Text</a><a href="/cssfuncs">CSS Funcs</a><a href="/aistackunlocked">AI Stack Unlocked</a><a href="/canvaanimate">Canva Animate</a><a href="/cssrules">CSS Rules</a><a href="/cssscale">CSS Scale</a><a href="/pixelglitch">Pixel Glitch</a><a href="/proxies">Proxy, Balance, Gateway</a><a href="/authevolution">Auth Evolved</a><a href="/csspopovers">CSS Popovers</a><a href="/csslayout">CSS Layout Mastery</a><a href="/cssatrt">CSS Attr Type</a><a href="/csspos">CSS Pos</a><a href="/cssevolution">CSS Evolve</a><a href="/scrollfx">Scroll FX</a><a href="/cssflow">CSS Flow</a><a href="/stopscroll">Stop Scroll</a><a href="/geminivisions">Gemini Visions</a><a href="/algosecrets">Algorithm Secrets</a><a href="/buildaitools">Build AI Tools</a><a href="/designflaws">Design Flaws</a><a href="/designmastery">Design Mastery</a><a href="/designtrends">Design Trends</a><a href="/designgear">Design Gear</a><a href="/taxhacks">Tax Hacks</a><a href="/androidhacks">Android Hacks</a><a href="/spartangains">Spartan Gains</a><a href="/aiuxshift">AI UX Shift</a><a href="/speakfluent">Speak fluent</a><a href="/uicolorguide">UI Colors Guide</a><a href="/designessn">Design ESSN</a><a href="/aicodewins">AI Code Wins</a><a href="/2026gamesignite">2026 Games Ignite</a><a href="/designprovideo">Design Pro Video</a><a href="/claudechat">Claude Chat</a><a href="/cmdsecrets">CMD Secrets</a><a href="/ainow">AI Now</a><a href="/videomastery">Video Mastery</a><a href="/codetruths">Code Truths</a><a href="/harnesslust">Harness Lust</a><a href="/top16pc">Top PC Games</a><a href="/claudeoffline">Claude Offline</a><a href="/ownyourtruth">Own Your Truth</a><a href="/ypppayouts">YPP Payouts</a><a href="/ramboost">RAM Boost</a><a href="/gamervision">Gamer Vision</a><a href="/serverhacks">Server Hacks</a><a href="/win11makeover">Win11 Makeover</a><a href="/learnfaster">Learn Faster</a><a href="/AILimits">AI Limits</a><a href="/aivideoscale">AI Video Scale</a><a href="/aicareer">AI Career Path</a><a href="/claudemotion">Claude Motion</a><a href="/trademaster">TradeMaster</a><a href="/codehour">Code Hour</a><a href="/sorashut">Sora Shut</a><a href="/hostmine">Host Mine</a><a href="/earnnown">Earn Now</a><a href="/iphonehacks">iPhone Hacks</a><a href="/sleephack">Sleep Hack</a><a href="/genzdebt">Gen Z Debt</a><a href="/cloudpro">Cloud Pro</a><a href="/glow-up">Glow Up</a><a href="/achievegoals">Achieve Goals</a><a href="/wealthfirst">Wealth First</a><a href="/aicareer">AI Career</a><a href="/2minboost">2 Min Boost</a><a href="/mindhack">Mind Hack</a><a href="/aimodel">AI Model</a><a href="/mastergrit">Master Grit</a><a href="/tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

@@ -1,5 +1,20 @@
 [
   {
+    "blog_title": "Cloud Native Explained",
+    "link": "/cloudnative",
+    "description": "Unlock Scalability and Agility: Master Cloud Native design with microservices, containers, and DevOps. Learn the core pillars and benefits for modern app development.",
+    "tags": [
+      "Cloud Native",
+      "System Design",
+      "Microservices",
+      "Containers",
+      "DevOps",
+      "Kubernetes",
+      "Application Architecture"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
     "blog_title": "Backend MASTERY",
     "link": "/backend-mastery",
     "description": "Unlock the secrets of robust backend development. Learn 10 essential concepts like ACID, Caching, and Load Balancing to build scalable, secure, and lightning-fast applications.",

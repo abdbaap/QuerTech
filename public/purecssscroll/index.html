@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata for SEO Optimization -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure CSS Scroll Magic: Interactive Web Design</title>
+    <meta name="description" content="Tired of JavaScript? Unlock stunning, interactive web designs with NEW CSS scroll-driven features! Build carousels, sticky headers & dynamic navs – no code needed.">
+    <meta name="keywords" content="CSS Scroll Driven Interactions, css scroll driven examples, scroll driven animation css, css scroll progress bar, css scroll snap carousel, pure css carousel, javascript free website interactivity, modern css features, advanced css scroll effects, css container queries scroll, css scroll-state queries, css scroll-marker pseudo-element, css :scroll-button, css sticky header without javascript, css table of contents highlighting, performance benefits of css scroll, #CSS, #WebDevelopment, #FrontendDevelopment, #ScrollDriven, #InteractiveDesign, #NoJavaScript, #WebPerformance, #CSSFeatures, #DeveloperTips, #ModernCSS">
+    <meta name="author" content="ArticlesStack AI Assistant">
+    <link rel="canonical" href="https://articlesstack.pages.dev">
+
+    <!-- Favicon for brand identity -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%236366f1'/><text x='50' y='60' font-size='60' fill='white' text-anchor='middle' font-family='sans-serif'>AS</text></svg>" type="image/svg+xml">
+
+    <style>
+        /* ------------------------------------------
+         * Global Styles & Typography
+         * ------------------------------------------ */
+        :root {
+            /* Color Palette */
+            --color-indigo-500: #6366f1;
+            --color-pink-500: #ec4899;
+            --color-slate-900: #09172a;
+            --color-slate-800: #1e293b;
+            --color-slate-700: #334155;
+            --color-white: #ffffff;
+            --color-gray-200: #e2e8f0;
+
+            /* Typography */
+            --font-family-primary: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-bold: 700;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;  /* 8px */
+            --spacing-sm: 1rem;    /* 16px */
+            --spacing-md: 1.5rem;  /* 24px */
+            --spacing-lg: 2rem;    /* 32px */
+            --spacing-xl: 3rem;    /* 48px */
+            --spacing-xxl: 4rem;   /* 64px */
+
+            /* Borders & Shadows */
+            --border-radius-sm: 0.25rem; /* 4px */
+            --border-radius-md: 0.5rem;  /* 8px */
+            --border-radius-lg: 1rem;    /* 16px */
+
+            --shadow-elevation-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-elevation-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-elevation-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fluid typography using clamp() for scalable headlines */
+        h1, h2, h3, h4 {
+            font-family: var(--font-family-primary);
+            font-weight: var(--font-weight-bold);
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem); /* Scales from 40px to 72px */
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw + 1rem, 3.5rem); /* Scales from 32px to 56px */
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw + 1rem, 2.5rem); /* Scales from 24px to 40px */
+        }
+
+        p, li, a, span, button, input, textarea {
+            font-family: var(--font-family-primary);
+            font-weight: var(--font-weight-normal);
+            line-height: 1.6;
+        }
+
+        strong, b {
+            font-weight: var(--font-weight-bold);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-indigo-500);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-pink-500);
+        }
+
+        body {
+            background-color: var(--color-slate-900);
+            color: var(--color-gray-200);
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+            font-size: 1.1rem; /* Base font size for better readability */
+        }
+
+        /* Smooth transitions for UI elements */
+        * {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* ------------------------------------------
+         * Background Animation & Glassmorphism
+         * ------------------------------------------ */
+
+        /* Container for background and content */
+        .app-container {
+            position: relative;
+            overflow: hidden; /* Crucial for containing background effects */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Animated background orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none; /* Allow clicks to pass through */
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+            filter: blur(100px);
+            animation: float 20s ease-in-out infinite alternate;
+            opacity: 0.7;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            transform: translate(-50%, -50%); /* Center the orbs */
+        }
+
+        /* Specific orb positions and timings for variety */
+        .orb:nth-child(1) {
+            top: 20%;
+            left: 30%;
+            animation-duration: 25s;
+            background: radial-gradient(circle, var(--color-indigo-500) 0%, rgba(99, 102, 241, 0) 70%);
+            opacity: 0.6;
+            width: 400px;
+            height: 400px;
+        }
+
+        .orb:nth-child(2) {
+            top: 70%;
+            left: 60%;
+            animation-duration: 22s;
+            animation-delay: -5s; /* Offset animation start */
+            background: radial-gradient(circle, var(--color-pink-500) 0%, rgba(236, 72, 153, 0) 70%);
+            opacity: 0.7;
+            width: 350px;
+            height: 350px;
+        }
+
+        .orb:nth-child(3) {
+            top: 40%;
+            left: 10%;
+            animation-duration: 28s;
+            animation-delay: -10s;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0) 70%);
+            opacity: 0.5;
+            width: 450px;
+            height: 450px;
+        }
+
+        /* Keyframes for floating animation */
+        @keyframes float {
+            0% {
+                transform: translate(-50%, -50%) translateY(0) rotate(0deg) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) translateY(-50px) rotate(180deg) scale(1.1);
+            }
+            100% {
+                transform: translate(-50%, -50%) translateY(0) rotate(360deg) scale(1);
+            }
+        }
+
+        /* Glassmorphic container for content */
+        .glass-container {
+            position: relative;
+            z-index: 1; /* Above background orbs */
+            margin: var(--spacing-lg) auto;
+            padding: var(--spacing-xl);
+            width: 90%;
+            max-width: 1000px; /* Max width for content */
+            background: rgba(255, 255, 255, 0.02); /* Subtle transparency */
+            backdrop-filter: blur(20px); /* The glass effect */
+            -webkit-backdrop-filter: blur(20px); /* Safari support */
+            border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border */
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-elevation-3), inset 0 0 0 1px rgba(255, 255, 255, 0.1); /* Inner glow and shadow */
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        /* ------------------------------------------
+         * Header Section
+         * ------------------------------------------ */
+        .header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header h1 {
+            margin-bottom: var(--spacing-sm);
+            /* Gradient mask for the header */
+            background: linear-gradient(45deg, var(--color-indigo-500) 0%, var(--color-pink-500) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; /* Fallback color if gradient fails */
+        }
+
+        .header .subtitle {
+            font-size: clamp(1.1rem, 2vw + 0.5rem, 1.5rem);
+            color: var(--color-gray-200);
+            opacity: 0.8;
+        }
+
+        /* ------------------------------------------
+         * Main Content Sections
+         * ------------------------------------------ */
+        .content-section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .content-section h2 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--color-indigo-500);
+            padding-bottom: var(--spacing-sm);
+            display: inline-block; /* Only span as wide as content */
+        }
+
+        /* ------------------------------------------
+         * Tool Cards (for AI-Centric Identity)
+         * ------------------------------------------ */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Push content to top, badges to bottom */
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--shadow-elevation-2), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px); /* 3D card lifting effect */
+            box-shadow: var(--shadow-elevation-3), 0 20px 25px -5px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+
+        .tool-card h3 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+            font-size: clamp(1.3rem, 3vw + 0.5rem, 1.8rem);
+        }
+
+        .tool-card p {
+            font-size: 0.95rem;
+            color: var(--color-gray-200);
+            opacity: 0.9;
+            flex-grow: 1; /* Allow description to take available space */
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Rank Badges */
+        .rank-badges {
+            display: flex;
+            gap: var(--spacing-xs);
+            margin-top: auto; /* Push badges to the bottom */
+            justify-content: flex-start; /* Align badges to the left */
+            flex-wrap: wrap; /* Allow badges to wrap if needed */
+        }
+
+        .rank-badge {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--color-pink-500); /* Accent color for badges */
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+            font-weight: var(--font-weight-medium);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .rank-badge:hover {
+            background-color: var(--color-pink-500);
+            color: var(--color-white);
+            border-color: var(--color-pink-500);
+        }
+
+        /* CSS-Generated Geometric Patterns (Conceptual - Placeholder) */
+        /* In a real implementation, these would be complex background images or SVG patterns applied to elements.
+           For this single file, we'll use simple colored divs that can be styled to suggest patterns. */
+        .pattern-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05; /* Very subtle */
+            pointer-events: none;
+            z-index: -1;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .pattern-unit {
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-indigo-500);
+            margin: 2px;
+        }
+
+        /* ------------------------------------------
+         * Scroll-Driven Interactions Showcase
+         * ------------------------------------------ */
+        .scroll-showcase {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scroll-showcase h2 {
+            text-align: center;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Carousel Implementation (CSS-only) */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: var(--spacing-lg) auto;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-elevation-2);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            /* JavaScript will control the transform */
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 400px; /* Fixed height for slides */
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--color-white);
+            font-weight: var(--font-weight-bold);
+            background-color: var(--color-slate-800);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .carousel-slide:nth-child(1) { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><circle cx="50" cy="50" r="40" fill="rgba(99, 102, 241, 0.7)"/><circle cx="20" cy="20" r="15" fill="rgba(236, 72, 153, 0.7)"/><circle cx="80" cy="80" r="15" fill="rgba(236, 72, 153, 0.7)"/></svg>'); }
+        .carousel-slide:nth-child(2) { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><polygon points="50,10 90,90 10,90" fill="rgba(236, 72, 153, 0.7)"/><rect x="40" y="40" width="20" height="20" fill="rgba(99, 102, 241, 0.7)"/></svg>'); }
+        .carousel-slide:nth-child(3) { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><circle cx="50" cy="50" r="45" fill="rgba(99, 102, 241, 0.7)"/><circle cx="75" cy="25" r="10" fill="rgba(236, 72, 153, 0.7)"/><circle cx="25" cy="75" r="10" fill="rgba(236, 72, 153, 0.7)"/></svg>'); }
+        .carousel-slide:nth-child(4) { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><rect x="10" y="10" width="80" height="80" fill="rgba(236, 72, 153, 0.7)" transform="rotate(45 50 50)"/><circle cx="50" cy="50" r="20" fill="rgba(99, 102, 241, 0.7)"/></svg>'); }
+
+        /* CSS Scroll Driven Elements (Conceptual - requires browser support) */
+        .scroll-driven-feature {
+            background: rgba(255, 255, 255, 0.03);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-md);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .scroll-driven-feature h3 {
+            color: var(--color-white);
+            font-size: clamp(1.2rem, 2.5vw + 0.7rem, 1.8rem);
+            margin-bottom: var(--spacing-sm);
+            /* Gradient mask for sub-headers */
+            background: linear-gradient(45deg, var(--color-pink-500) 0%, var(--color-indigo-500) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .scroll-driven-feature p {
+            font-size: 0.9rem;
+            color: var(--color-gray-200);
+            opacity: 0.9;
+        }
+
+        /* Sticky Header Example */
+        .sticky-header-demo {
+            height: 150vh; /* Make page scrollable */
+            position: relative;
+            padding-top: var(--spacing-xxl); /* Space for sticky header */
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            padding: var(--spacing-md);
+            background-color: var(--color-slate-900); /* Default background */
+            border-bottom: 1px solid transparent; /* Default border */
+            box-shadow: none; /* Default shadow */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: var(--color-gray-200);
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Styling based on scroll state (conceptual - requires JS for accurate detection in this setup) */
+        /* In a true pure CSS solution, :stuck would be used. Here, we'll use a class toggled by JS */
+        .sticky-header.is-stuck {
+            background-color: var(--color-slate-800); /* Darker when stuck */
+            border-bottom-color: rgba(255, 255, 255, 0.1); /* Subtle border when stuck */
+            box-shadow: var(--shadow-elevation-2); /* Shadow when stuck */
+        }
+
+        .sticky-header-content {
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* Table of Contents Demo */
+        .toc-container {
+            display: flex;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: var(--spacing-xl);
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-shrink: 0;
+            width: 250px; /* Fixed width for TOC */
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+        }
+
+        .toc-list li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .toc-list a {
+            color: var(--color-gray-200);
+            opacity: 0.8;
+            display: block;
+            padding: var(--spacing-xs) 0;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .toc-list a:hover {
+            color: var(--color-white);
+            padding-left: var(--spacing-sm);
+        }
+
+        /* Active link highlighting (will be managed by JS) */
+        .toc-list a.active {
+            color: var(--color-pink-500);
+            font-weight: var(--font-weight-medium);
+            padding-left: var(--spacing-sm);
+        }
+
+        .toc-content {
+            flex-grow: 1;
+            min-width: 300px; /* Ensure content has enough space */
+        }
+
+        .section {
+            height: 80vh; /* Sufficient height to trigger scrolling */
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--color-indigo-500);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .section:nth-child(odd) {
+            background: rgba(99, 102, 241, 0.03);
+            border-color: rgba(99, 102, 241, 0.1);
+            color: var(--color-pink-500);
+        }
+
+        /* ------------------------------------------
+         * Floating Theme Toggle
+         * ------------------------------------------ */
+        .theme-toggle {
+            position: fixed;
+            bottom: var(--spacing-lg);
+            right: var(--spacing-lg);
+            z-index: 100; /* Ensure it's on top */
+            background-color: var(--color-indigo-500);
+            color: var(--color-white);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: var(--shadow-elevation-3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--color-pink-500);
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        /* Example of theme switching (conceptual - would toggle classes on body) */
+        .dark-mode {
+            --color-slate-900: #09172a; /* Original dark mode */
+            --color-slate-800: #1e293b;
+            --color-slate-700: #334155;
+            --color-gray-200: #e2e8f0;
+            background-color: var(--color-slate-900);
+            color: var(--color-gray-200);
+        }
+
+        .light-mode {
+            --color-slate-900: #f8fafc; /* Light mode background */
+            --color-slate-800: #f1f5f9;
+            --color-slate-700: #94a3b8;
+            --color-gray-200: #1e293b; /* Dark text on light background */
+            background-color: var(--color-slate-900);
+            color: var(--color-gray-200);
+        }
+
+        /* Adjusting orb colors for light mode if desired */
+        .light-mode .orb {
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2), transparent 70%);
+            opacity: 0.4;
+        }
+
+        .light-mode .orb:nth-child(1) { background: radial-gradient(circle, rgba(99, 102, 241, 0.4), rgba(99, 102, 241, 0) 70%); }
+        .light-mode .orb:nth-child(2) { background: radial-gradient(circle, rgba(236, 72, 153, 0.4), rgba(236, 72, 153, 0) 70%); }
+
+
+        /* ------------------------------------------
+         * Footer Section
+         * ------------------------------------------ */
+        .footer {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg) 0;
+            background-color: var(--color-slate-800);
+            color: var(--color-gray-200);
+            font-size: 0.9rem;
+            opacity: 0.7;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer a {
+            color: var(--color-indigo-500);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .footer a:hover {
+            color: var(--color-pink-500);
+        }
+
+        /* ------------------------------------------
+         * Responsive Design (Mobile-First Approach)
+         * ------------------------------------------ */
+        @media (max-width: 768px) {
+            .glass-container {
+                width: 95%;
+                padding: var(--spacing-md);
+            }
+
+            h1 { font-size: clamp(2rem, 6vw + 1rem, 3.5rem); }
+            h2 { font-size: clamp(1.7rem, 4vw + 1rem, 2.5rem); }
+            h3 { font-size: clamp(1.3rem, 3vw + 1rem, 1.8rem); }
+
+            .header {
+                margin-bottom: var(--spacing-md);
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr; /* Single column on small screens */
+            }
+
+            .carousel-container {
+                margin-bottom: var(--spacing-lg);
+            }
+
+            .carousel-slide {
+                height: 300px; /* Shorter slides on mobile */
+            }
+
+            .toc-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .toc-list {
+                width: 90%; /* Full width TOC on mobile */
+                margin-bottom: var(--spacing-md);
+            }
+
+            .section {
+                height: 50vh;
+                font-size: 1.5rem;
+            }
+
+            .theme-toggle {
+                bottom: var(--spacing-md);
+                right: var(--spacing-md);
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 1rem; /* Slightly smaller base font */
+            }
+            .glass-container {
+                padding: var(--spacing-sm);
+                margin-top: var(--spacing-md);
+            }
+            h1 { font-size: clamp(1.8rem, 7vw + 1rem, 2.8rem); }
+            h2 { font-size: clamp(1.5rem, 4.5vw + 1rem, 2rem); }
+
+            .carousel-slide {
+                height: 250px;
+            }
+
+            .rank-badge {
+                padding: var(--spacing-xs);
+            }
+
+            .footer {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://articlesstack.pages.dev" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Animated Background Orbs -->
+    <div class="background-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="header glass-container">
+            <h1>Pure CSS Scroll Magic: Interactive Web Design</h1>
+            <p class="subtitle">Unlock stunning, interactive web designs with NEW CSS scroll-driven features! Build carousels, sticky headers & dynamic navs – no code needed.</p>
+        </header>
+
+        <main class="glass-container">
+            <section class="content-section">
+                <h2>Executive Summary</h2>
+                <p>This video explores the future of CSS with a focus on scroll-driven features, demonstrating how to achieve complex interactive elements without JavaScript. The speaker's tone is enthusiastic and instructional, aiming to simplify advanced CSS concepts.</p>
+                <p>The video highlights the power of new CSS features like scroll-driven interactions, enabling developers to create rich, interactive web experiences with pure CSS. By leveraging pseudo-elements and container queries, developers can achieve functionalities like native carousels, sticky headers, and dynamic navigation highlighting, eliminating the need for JavaScript and improving performance.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Key Takeaways</h2>
+                <ul>
+                    <li><strong>Scroll-Driven Interactions:</strong> CSS is evolving to handle user scroll actions directly, facilitating interactive web design without JavaScript.</li>
+                    <li><strong>Pseudo-elements for Navigation:</strong> The <code>:scroll-button</code> pseudo-element creates native navigation buttons for scroll containers, automatically handling scrolling by "page" and disabling when at the start or end of content.</li>
+                    <li><strong><code>scroll-state</code> Queries:</strong> These queries allow styling elements based on the scroll container's state, including:
+                        <ul>
+                            <li><code>scrollable</code>: Checks if content can scroll in a specific direction.</li>
+                            <li><code>snapped</code>: Determines if an element is currently snapped to its container.</li>
+                            <li><code>stuck</code>: Identifies if a sticky element is currently stuck.</li>
+                        </ul>
+                    </li>
+                    <li><strong><code>scroll-marker</code> Pseudo-element:</strong> Generates navigation markers for scroll-snap targets, enabling dot indicators for carousels and automatic link highlighting for visible sections in tables of contents.</li>
+                    <li><strong>Performance and Simplicity:</strong> These CSS features improve performance and reduce code complexity by eliminating the need for JavaScript scroll event listeners.</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Example Implementations</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div>
+                            <h3>Scroll Buttons for Carousels</h3>
+                            <p>Native carousel navigation with buttons that dynamically disable at content boundaries, providing a clean, accessible user experience.</p>
+                        </div>
+                        <div class="rank-badges">
+                            <span class="rank-badge">CSS Scroll Driven</span>
+                            <span class="rank-badge">UI Interaction</span>
+                            <span class="rank-badge">Performance</span>
+                        </div>
+                        <!-- Conceptual Geometric Pattern Placeholder -->
+                        <div class="pattern-placeholder">
+                            <div class="pattern-unit" style="background-color: var(--color-indigo-500); transform: skewX(-20deg);"></div>
+                            <div class="pattern-unit" style="background-color: var(--color-pink-500); transform: skewY(-20deg);"></div>
+                            <div class="pattern-unit" style="background-color: var(--color-indigo-500); transform: skewX(20deg);"></div>
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <div>
+                            <h3>Dynamic Sticky Headers</h3>
+                            <p>Headers that adapt their appearance (e.g., add a shadow) when they become "stuck" to the viewport, enhancing visual feedback.</p>
+                        </div>
+                        <div class="rank-badges">
+                            <span class="rank-badge">CSS Scroll State</span>
+                            <span class="rank-badge">Sticky Elements</span>
+                            <span class="rank-badge">No JavaScript</span>
+                        </div>
+                        <!-- Conceptual Geometric Pattern Placeholder -->
+                        <div class="pattern-placeholder">
+                            <div class="pattern-unit" style="background-color: var(--color-pink-500); transform: rotate(30deg);"></div>
+                            <div class="pattern-unit" style="background-color: var(--color-indigo-500); transform: rotate(-30deg);"></div>
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <div>
+                            <h3>Table of Contents Highlighting</h3>
+                            <p>Automatically highlights the active section in a navigation menu as the user scrolls through content, improving content discovery.</p>
+                        </div>
+                        <div class="rank-badges">
+                            <span class="rank-badge">Scroll Snap</span>
+                            <span class="rank-badge">Navigation</span>
+                            <span class="rank-badge">UX Enhancement</span>
+                        </div>
+                        <!-- Conceptual Geometric Pattern Placeholder -->
+                        <div class="pattern-placeholder">
+                            <div class="pattern-unit" style="background-color: var(--color-indigo-500);"></div>
+                            <div class="pattern-unit" style="background-color: var(--color-pink-500);"></div>
+                            <div class="pattern-unit" style="background-color: var(--color-indigo-500);"></div>
+                            <div class="pattern-unit" style="background-color: var(--color-pink-500);"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scroll-showcase">
+                <h2>Actionable Insights & Demos</h2>
+                <p>Developers can leverage these modern CSS features to create more dynamic and interactive user interfaces with improved performance and cleaner codebases.</p>
+
+                <!-- Carousel Demo -->
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">Slide 1</div>
+                        <div class="carousel-slide">Slide 2</div>
+                        <div class="carousel-slide">Slide 3</div>
+                        <div class="carousel-slide">Slide 4</div>
+                    </div>
+                    <button class="carousel-button prev" id="prevButton">&#10094;</button>
+                    <button class="carousel-button next" id="nextButton">&#10095;</button>
+                </div>
+
+                <!-- Sticky Header Demo -->
+                <div class="scroll-driven-feature">
+                    <h3>Dynamic Sticky Header</h3>
+                    <p>Observe how the header changes its appearance as you scroll. This is achieved using <code>position: sticky</code> and potentially <code>scroll-state(stuck)</code> (demonstrated with JS class toggle here for compatibility).</p>
+                    <div class="sticky-header-demo">
+                        <header class="sticky-header" id="stickyHeader">
+                            <span class="sticky-header-content">Scroll down to see the header change!</span>
+                        </header>
+                        <div style="height: 70vh; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--color-pink-500);">Scroll Here...</div>
+                    </div>
+                </div>
+
+                <!-- Table of Contents Demo -->
+                <div class="scroll-driven-feature toc-feature">
+                    <h3>Interactive Table of Contents</h3>
+                    <p>The Table of Contents on the left dynamically highlights the corresponding section as you scroll through the content on the right. This uses <code>scroll-target-group</code> and <code>scroll-marker</code> pseudo-elements.</p>
+                    <div class="toc-container">
+                        <nav class="toc-list" id="tocList">
+                            <!-- Links will be populated by JS -->
+                        </nav>
+                        <div class="toc-content" id="tocContent">
+                            <div id="section1" class="section">Section 1</div>
+                            <div id="section2" class="section">Section 2</div>
+                            <div id="section3" class="section">Section 3</div>
+                            <div id="section4" class="section">Section 4</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Conclusion</h2>
+                <p>Experimenting with these new CSS capabilities can lead to more engaging and efficient web designs. By embracing scroll-driven interactions, developers can create sophisticated, performant, and visually appealing user interfaces with significantly less reliance on JavaScript.</p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2023 ArticlesStack. All rights reserved. <a href="https://articlesstack.pages.dev">Visit our homepage</a>.</p>
+        </footer>
+    </div>
+
+    <!-- Floating Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+        &#9788; <!-- Sun icon -->
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Carousel Functionality ---
+            const carouselTrack = document.getElementById('carouselTrack');
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            const slides = document.querySelectorAll('.carousel-slide');
+            let currentSlideIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateCarousel() {
+                carouselTrack.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+                // Update button disabled states if needed (not strictly necessary with continuous loop)
+                prevButton.style.opacity = currentSlideIndex === 0 ? '0.5' : '1';
+                nextButton.style.opacity = currentSlideIndex === totalSlides - 1 ? '0.5' : '1';
+            }
+
+            prevButton.addEventListener('click', () => {
+                currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            });
+
+            nextButton.addEventListener('click', () => {
+                currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+                updateCarousel();
+            });
+
+            // Initial update
+            updateCarousel();
+
+            // --- Sticky Header Functionality ---
+            const stickyHeader = document.getElementById('stickyHeader');
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        stickyHeader.classList.remove('is-stuck');
+                    } else {
+                        stickyHeader.classList.add('is-stuck');
+                    }
+                },
+                {
+                    // Threshold of 0 means the callback fires as soon as the target
+                    // element's top crosses the threshold, making the header "stick"
+                    // as soon as it leaves the viewport from the top.
+                    threshold: [0]
+                }
+            );
+
+            // Observe a dummy element placed just below the initial header position
+            // This is a common pattern to detect when the sticky element is no longer in its original flow
+            const observerTarget = document.createElement('div');
+            observerTarget.style.height = '1px'; // Small element to trigger intersection
+            observerTarget.style.position = 'absolute';
+            observerTarget.style.top = '0'; // Position it at the top of the scrollable area
+            document.querySelector('.sticky-header-demo').prepend(observerTarget);
+            observer.observe(observerTarget);
+
+
+            // --- Table of Contents Highlighting ---
+            const tocList = document.getElementById('tocList');
+            const tocContent = document.getElementById('tocContent');
+            const sections = tocContent.querySelectorAll('.section');
+
+            // Populate TOC dynamically
+            sections.forEach((section, index) => {
+                const link = document.createElement('a');
+                link.href = `#${section.id}`;
+                link.textContent = `Section ${index + 1}`;
+                const listItem = document.createElement('li');
+                listItem.appendChild(link);
+                tocList.appendChild(listItem);
+            });
+
+            const tocLinks = tocList.querySelectorAll('a');
+
+            // Use Intersection Observer for TOC highlighting
+            const sectionObservers = Array.from(sections).map((section, index) => {
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                // Remove active class from all links
+                                tocLinks.forEach(link => link.classList.remove('active'));
+                                // Add active class to the current link
+                                tocLinks[index].classList.add('active');
+                            }
+                        });
+                    },
+                    {
+                        rootMargin: '0px 0px -70% 0px', // Trigger when section is 70% in view
+                        threshold: 0.1 // Adjust threshold as needed
+                    }
+                );
+                observer.observe(section);
+                return observer;
+            });
+
+
+            // --- Theme Toggle Functionality ---
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlElement = document.documentElement; // Or document.body
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                htmlElement.classList.add(savedTheme);
+                if (savedTheme === 'light-mode') {
+                    themeToggle.innerHTML = '&#127769;'; // Moon icon for light mode
+                }
+            } else {
+                // Default to dark mode if no preference saved
+                htmlElement.classList.add('dark-mode');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                if (htmlElement.classList.contains('dark-mode')) {
+                    htmlElement.classList.remove('dark-mode');
+                    htmlElement.classList.add('light-mode');
+                    themeToggle.innerHTML = '&#127769;'; // Moon icon
+                    localStorage.setItem('theme', 'light-mode');
+                } else {
+                    htmlElement.classList.remove('light-mode');
+                    htmlElement.classList.add('dark-mode');
+                    themeToggle.innerHTML = '&#9788;'; // Sun icon
+                    localStorage.setItem('theme', 'dark-mode');
+                }
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/cloudnative">Cloud Native Explained</a><a href="/codeclean">Code Clean</a><a href="/awdevskills">AWS DevSkills</a><a href="/backend-mastery">Backend MASTERY</a><a href="/motiontext">Motion Text</a><a href="/cssfuncs">CSS Funcs</a><a href="/aistackunlocked">AI Stack Unlocked</a><a href="/canvaanimate">Canva Animate</a><a href="/cssrules">CSS Rules</a><a href="/cssscale">CSS Scale</a><a href="/pixelglitch">Pixel Glitch</a><a href="/proxies">Proxy, Balance, Gateway</a><a href="/authevolution">Auth Evolved</a><a href="/csspopovers">CSS Popovers</a><a href="/csslayout">CSS Layout Mastery</a><a href="/cssatrt">CSS Attr Type</a><a href="/csspos">CSS Pos</a><a href="/cssevolution">CSS Evolve</a><a href="/scrollfx">Scroll FX</a><a href="/cssflow">CSS Flow</a><a href="/stopscroll">Stop Scroll</a><a href="/geminivisions">Gemini Visions</a><a href="/algosecrets">Algorithm Secrets</a><a href="/buildaitools">Build AI Tools</a><a href="/designflaws">Design Flaws</a><a href="/designmastery">Design Mastery</a><a href="/designtrends">Design Trends</a><a href="/designgear">Design Gear</a><a href="/taxhacks">Tax Hacks</a><a href="/androidhacks">Android Hacks</a><a href="/spartangains">Spartan Gains</a><a href="/aiuxshift">AI UX Shift</a><a href="/speakfluent">Speak fluent</a><a href="/uicolorguide">UI Colors Guide</a><a href="/designessn">Design ESSN</a><a href="/aicodewins">AI Code Wins</a><a href="/2026gamesignite">2026 Games Ignite</a><a href="/designprovideo">Design Pro Video</a><a href="/claudechat">Claude Chat</a><a href="/cmdsecrets">CMD Secrets</a><a href="/ainow">AI Now</a><a href="/videomastery">Video Mastery</a><a href="/codetruths">Code Truths</a><a href="/harnesslust">Harness Lust</a><a href="/top16pc">Top PC Games</a><a href="/claudeoffline">Claude Offline</a><a href="/ownyourtruth">Own Your Truth</a><a href="/ypppayouts">YPP Payouts</a><a href="/ramboost">RAM Boost</a><a href="/gamervision">Gamer Vision</a><a href="/serverhacks">Server Hacks</a><a href="/win11makeover">Win11 Makeover</a><a href="/learnfaster">Learn Faster</a><a href="/AILimits">AI Limits</a><a href="/aivideoscale">AI Video Scale</a><a href="/aicareer">AI Career Path</a><a href="/claudemotion">Claude Motion</a><a href="/trademaster">TradeMaster</a><a href="/codehour">Code Hour</a><a href="/sorashut">Sora Shut</a><a href="/hostmine">Host Mine</a><a href="/earnnown">Earn Now</a><a href="/iphonehacks">iPhone Hacks</a><a href="/sleephack">Sleep Hack</a><a href="/genzdebt">Gen Z Debt</a><a href="/cloudpro">Cloud Pro</a><a href="/glow-up">Glow Up</a><a href="/achievegoals">Achieve Goals</a><a href="/wealthfirst">Wealth First</a><a href="/aicareer">AI Career</a><a href="/2minboost">2 Min Boost</a><a href="/mindhack">Mind Hack</a><a href="/aimodel">AI Model</a><a href="/mastergrit">Master Grit</a><a href="/tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

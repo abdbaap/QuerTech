@@ -4,8 +4,9 @@ export const dynamic = 'force-dynamic';
 
 import { NextResponse } from 'next/server';
 
-export async function POST() {
+export async function POST(request,response) {
     const data = await request.json();
+    
 
     // 1. Check if we are running locally or in production
     const isLocal = process.env.NODE_ENV === 'development';
@@ -16,7 +17,7 @@ export async function POST() {
             // This prevents Cloudflare from crashing during the build/deploy.
             const { publishToQueue } = await import('@/app/utils/rabbitmq');
             
-            await publishToQueue("blog.generated", data);
+            await publishToQueue("blog.generated", {url:data.url,summary:data.summary});
             return NextResponse.json({ success: true, message: "Queued locally" });
         } catch (error) {
             console.error("Local RabbitMQ Error:", error);

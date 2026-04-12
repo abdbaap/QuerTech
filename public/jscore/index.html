@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags for SEO Optimization -->
+    <meta name="title" content="JavaScript Explained: Master Core Concepts Fast">
+    <meta name="description" content="Tired of confusing JavaScript? Unlock its secrets with this easy guide. From history to async, master dynamic web dev & build amazing apps. Get started now!">
+    <meta name="keywords" content="learn javascript for beginners, javascript basics explained simply, understand javascript core concepts, javascript web development tutorial, javascript history and evolution, javascript runtime environments explained, javascript variable declaration let const, javascript data types explained, javascript scope and hoisting tutorial, javascript functions first class citizens, javascript closures easy explanation, javascript this keyword tutorial, javascript async programming promises async await, javascript data structures array set map, javascript object oriented programming classes, javascript prototype chain explained, javascript modules import export, javascript package manager npm yarn, javascript build tools vite webpack, javascript dom manipulation tutorial, javascript event handling for beginners, typescript vs javascript for beginners, javascript for full stack development, best way to learn javascript">
+    <meta name="author" content="ArticlesStack">
+    <meta property="og:title" content="JavaScript Explained: Master Core Concepts Fast">
+    <meta property="og:description" content="Tired of confusing JavaScript? Unlock its secrets with this easy guide. From history to async, master dynamic web dev & build amazing apps. Get started now!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://articlesstack.pages.dev">
+    <meta property="og:image" content="https://articlesstack.pages.dev/og-image.jpg"> <!-- Placeholder: Replace with actual image -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JavaScript Explained: Master Core Concepts Fast">
+    <meta name="twitter:description" content="Tired of confusing JavaScript? Unlock its secrets with this easy guide. From history to async, master dynamic web dev & build amazing apps. Get started now!">
+    <meta name="twitter:image" content="https://articlesstack.pages.dev/twitter-image.jpg"> <!-- Placeholder: Replace with actual image -->
+    <meta name="robots" content="index, follow">
+    <!-- End Meta Tags -->
+
+    <title>JavaScript Explained: Master Core Concepts Fast</title>
+
+    <style>
+        /* Font Imports (using system fonts as primary, fallback for broad compatibility) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); /* Example: Inter for general text */
+
+        /* Global Styles & Reset */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-dark: #09172a;
+            --color-slate-medium: #1e293b;
+            --color-slate-light: #f8fafc;
+            --color-accent-hover: #8b5cf6; /* A slightly lighter, brighter indigo for hover */
+            --color-pink-hover: #f472b6; /* A slightly lighter pink for hover */
+            --gradient-header: linear-gradient(45deg, var(--color-pink), var(--color-indigo));
+
+            --font-primary: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --font-secondary: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+            --base-spacing: 1rem;
+            --container-max-width: 1200px;
+            --card-border-radius: 12px;
+            --transition-speed-fast: 0.2s;
+            --transition-speed-medium: 0.3s;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-slate-dark);
+            color: var(--color-slate-light);
+            line-height: 1.7;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            margin-bottom: var(--base-spacing);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw + 1rem, 3.5rem); /* Fluid scaling for H1 */
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4.5vw + 0.8rem, 3rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 4vw + 0.6rem, 2.5rem);
+        }
+
+        p {
+            font-size: clamp(1rem, 1.5vw + 0.2rem, 1.15rem);
+            margin-bottom: var(--base-spacing);
+        }
+
+        a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            transition: color var(--transition-speed-fast) ease-in-out, border-color var(--transition-speed-fast) ease-in-out;
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--color-accent-hover);
+            text-decoration: underline;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: calc(var(--base-spacing) * 2) var(--base-spacing);
+        }
+
+        /* Layout - Grid for main content */
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--base-spacing) * 2);
+            margin-top: calc(var(--base-spacing) * 4);
+        }
+
+        /* Glassmorphism Background Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none; /* Ensure orbs don't interfere with interactions */
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(236, 72, 153, 0.1) 50%, rgba(9, 23, 42, 0) 70%);
+            filter: blur(80px);
+            animation: float 15s ease-in-out infinite alternate;
+            opacity: 0; /* Start hidden, JS will reveal and animate */
+            transform: translate(-50%, -50%);
+        }
+
+        /* Orb Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg) scale(1.1);
+            }
+            100% {
+                transform: translateY(20px) rotate(360deg) scale(1);
+            }
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: calc(var(--base-spacing) * 4) var(--base-spacing);
+            background: var(--gradient-header);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            position: relative;
+            overflow: hidden; /* Ensure gradient doesn't spill */
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-header);
+            z-index: -1;
+            opacity: 0.8;
+            filter: blur(20px);
+        }
+
+        .header h1 {
+            margin-bottom: 0;
+            font-weight: 900; /* Extra bold for emphasis */
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.3), 0 0 40px rgba(236, 72, 153, 0.2);
+        }
+
+        /* Article/Card Styling */
+        .card {
+            background: rgba(255, 255, 255, 0.05); /* Subtle transparency */
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--card-border-radius);
+            padding: calc(var(--base-spacing) * 2);
+            transition: transform var(--transition-speed-medium) ease-out, box-shadow var(--transition-speed-medium) ease-out, border-color var(--transition-speed-medium) ease-in-out;
+            position: relative;
+            overflow: hidden; /* For pseudo-elements and hover effects */
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02); /* 3D card lifting effect */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.3); /* Border color transition */
+        }
+
+        /* Geometric Patterns (CSS Generated) */
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: var(--base-spacing);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2); /* Subtle inner shadow */
+        }
+
+        /* Rank Badge */
+        .rank-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--color-indigo);
+            color: var(--color-slate-light);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 5px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Specific CSS for different icons/badges */
+        .card-icon.js-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(236, 72, 153, 0.1),
+                rgba(236, 72, 153, 0.1) 10px,
+                rgba(99, 102, 241, 0.1) 10px,
+                rgba(99, 102, 241, 0.1) 20px
+            );
+            z-index: 0;
+        }
+        .card-icon.js-icon .icon-text {
+            position: relative;
+            z-index: 1;
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: var(--gradient-header);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .card-icon.core-concepts-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(99, 102, 241, 0.1),
+                rgba(99, 102, 241, 0.1) 5px,
+                rgba(236, 72, 153, 0.1) 5px,
+                rgba(236, 72, 153, 0.1) 10px
+            );
+            z-index: 0;
+            animation: pulse-pattern 8s infinite alternate ease-in-out;
+        }
+        .card-icon.core-concepts-icon .icon-text {
+            position: relative;
+            z-index: 1;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--color-pink);
+        }
+
+        @keyframes pulse-pattern {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        .card-icon.runtime-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%);
+            z-index: 0;
+        }
+        .card-icon.runtime-icon .icon-text {
+            position: relative;
+            z-index: 1;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--color-slate-light);
+            text-shadow: 0 0 5px rgba(255,255,255,0.3);
+        }
+
+        /* Card Content Styling */
+        .card-title {
+            font-size: clamp(1.25rem, 3vw + 0.5rem, 1.75rem);
+            margin-bottom: calc(var(--base-spacing) * 0.5);
+            color: var(--color-slate-light);
+            font-weight: 700;
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: rgba(248, 250, 252, 0.8); /* Slightly muted light for descriptions */
+            margin-bottom: var(--base-spacing);
+        }
+
+        /* Call to Action Button */
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--color-indigo);
+            color: var(--color-slate-light);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color var(--transition-speed-fast) ease-in-out, transform var(--transition-speed-fast) ease-in-out, box-shadow var(--transition-speed-fast) ease-in-out;
+            margin-top: var(--base-spacing);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 60%);
+            opacity: 0;
+            transition: opacity var(--transition-speed-fast) ease-in-out;
+            z-index: -1;
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-accent-hover);
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 8px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: var(--base-spacing);
+            right: var(--base-spacing);
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-pink);
+            color: var(--color-slate-light);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.5);
+            transition: background-color var(--transition-speed-fast) ease-in-out, transform var(--transition-speed-fast) ease-in-out, box-shadow var(--transition-speed-fast) ease-in-out;
+            z-index: 1000; /* Ensure it's on top */
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--color-pink-hover);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.7);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: calc(var(--base-spacing) * 3) var(--base-spacing);
+            margin-top: calc(var(--base-spacing) * 4);
+            font-size: 0.9rem;
+            color: rgba(248, 250, 252, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer a {
+            color: rgba(248, 250, 252, 0.8);
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            color: var(--color-slate-light);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--base-spacing) var(--base-spacing);
+            }
+
+            .main-content {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+
+            .header {
+                padding: calc(var(--base-spacing) * 3) var(--base-spacing);
+            }
+
+            .card {
+                padding: calc(var(--base-spacing) * 1.5);
+            }
+
+            .theme-toggle {
+                bottom: calc(var(--base-spacing) * 2);
+                right: calc(var(--base-spacing) * 2);
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 15px; /* Slightly smaller base font for very small screens */
+            }
+            .header h1 {
+                font-size: clamp(1.8rem, 6vw + 0.5rem, 2.8rem);
+            }
+            .card-title {
+                font-size: clamp(1.1rem, 3.5vw + 0.4rem, 1.5rem);
+            }
+            .cta-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://articlesstack.pages.dev" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Animated Background Orbs -->
+    <div class="background-orbs">
+        <!-- Orbs will be dynamically created and styled by JavaScript -->
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <h1>JavaScript Explained: Master Core Concepts Fast</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro-section">
+            <p>Embark on a journey to understand JavaScript, the powerhouse language of the web. This comprehensive guide breaks down its history, essential concepts, and practical applications in an engaging and accessible way.</p>
+        </section>
+
+        <div class="main-content">
+            <!-- Card 1: Core Purpose -->
+            <article class="card">
+                <div class="card-icon js-icon">
+                    <span class="icon-text">JS</span>
+                    <span class="rank-badge">#1</span>
+                </div>
+                <h3 class="card-title">Core Purpose</h3>
+                <p class="card-description">JavaScript brings your web pages to life! It's the engine behind dynamic content, interactive forms, and complex applications across browsers and servers.</p>
+                <a href="#concepts" class="cta-button">Explore Concepts</a>
+            </article>
+
+            <!-- Card 2: History & Evolution -->
+            <article class="card">
+                <div class="card-icon core-concepts-icon">
+                    <span class="icon-text">E</span>
+                    <span class="rank-badge">#2</span>
+                </div>
+                <h3 class="card-title">History & Evolution</h3>
+                <p class="card-description">Born in 1993, JavaScript (ECMAScript) revolutionized the web, evolving from browser-only scripting to a versatile language for almost any platform.</p>
+                <a href="#concepts" class="cta-button">Learn More</a>
+            </article>
+
+            <!-- Card 3: Runtime Environments -->
+            <article class="card">
+                <div class="card-icon runtime-icon">
+                    <span class="icon-text">⚙️</span>
+                    <span class="rank-badge">#3</span>
+                </div>
+                <h3 class="card-title">Runtime Environments</h3>
+                <p class="card-description">From browser V8 engines to server-side Node.js, JavaScript runs virtually everywhere, empowering developers for full-stack creation.</p>
+                <a href="#concepts" class="cta-button">Discover Runtimes</a>
+            </article>
+
+            <!-- Card 4: Key Language Features -->
+            <article class="card">
+                <div class="card-icon js-icon">
+                    <span class="icon-text">💡</span>
+                    <span class="rank-badge">#4</span>
+                </div>
+                <h3 class="card-title">Key Language Features</h3>
+                <p class="card-description">Master essentials like `let`/`const`, data types, scoping, closures, and the `this` keyword for robust code.</p>
+                <a href="#concepts" class="cta-button">Dive Deeper</a>
+            </article>
+
+            <!-- Card 5: Async Programming -->
+            <article class="card">
+                <div class="card-icon core-concepts-icon">
+                    <span class="icon-text">⏳</span>
+                    <span class="rank-badge">#5</span>
+                </div>
+                <h3 class="card-title">Async Programming</h3>
+                <p class="card-description">Tame asynchronous operations with Promises, `async/await`, and `try/catch` for seamless, non-blocking user experiences.</p>
+                <a href="#concepts" class="cta-button">Understand Async</a>
+            </article>
+
+            <!-- Card 6: Ecosystem & Tools -->
+            <article class="card">
+                <div class="card-icon runtime-icon">
+                    <span class="icon-text">📦</span>
+                    <span class="rank-badge">#6</span>
+                </div>
+                <h3 class="card-title">Ecosystem & Tools</h3>
+                <p class="card-description">Leverage powerful tools like npm, yarn, Vite, and Webpack to build, manage, and optimize your JavaScript projects.</p>
+                <a href="#concepts" class="cta-button">Explore Tools</a>
+            </article>
+        </div>
+
+        <!-- Detailed Concepts Section (can be expanded) -->
+        <section id="concepts" style="margin-top: calc(var(--base-spacing) * 4); padding-top: var(--base-spacing);">
+            <h2>Key Concepts & Technical Details</h2>
+            <div class="main-content">
+                <article class="card">
+                    <h3 class="card-title">Script Tag & Console</h3>
+                    <p class="card-description">Embedding code with <code>&lt;script&gt;</code> and debugging with <code>console.log()</code> are fundamental.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card-title">Variables & Data Types</h3>
+                    <p class="card-description">Understand <code>let</code>, <code>const</code>, primitives (string, number, boolean), and objects for efficient data handling.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card-title">Scoping & Hoisting</h3>
+                    <p class="card-description">Grasp <code>global</code>, <code>local</code>, and <code>block</code> scope, and be aware of hoisting for predictable code.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card-title">Functions & Closures</h3>
+                    <p class="card-description">Functions as first-class citizens and powerful closures enable elegant programming patterns.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card-title">The `this` Keyword</h3>
+                    <p class="card-description">Context matters! Learn how <code>this</code> behaves differently based on how functions are called.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card-title">Data Structures</h3>
+                    <p class="card-description">Utilize <code>Array</code>, <code>Set</code>, <code>Map</code>, and more for organized and efficient data management.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card-title">OOP & Prototypes</h3>
+                    <p class="card-description">Build structured applications with classes, constructors, and understand the prototype chain.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card-title">Modules & Packages</h3>
+                    <p class="card-description">Organize code with ES Modules (<code>import</code>/<code>export</code>) and manage dependencies with npm/yarn.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card-title">DOM Manipulation</h3>
+                    <p class="card-description">Dynamically update your web pages using <code>querySelector</code>, <code>addEventListener</code>, and more.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="actionable-insights" style="margin-top: calc(var(--base-spacing) * 4);">
+            <h2>Actionable Insights for Growth</h2>
+            <div class="main-content">
+                <article class="card">
+                    <h3 class="card-title">Web Dev Foundation</h3>
+                    <p class="card-description">JavaScript is non-negotiable for interactive web development. Build your first interactive element today!</p>
+                </article>
+                <article class="card">
+                    <h3 class="card-title">Versatile Skillset</h3>
+                    <p class="card-description">Unlock front-end, back-end, and mobile development roles with JavaScript mastery.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card-title">Modern Practices</h3>
+                    <p class="card-description">Embrace <code>let</code>, <code>const</code>, and modern async patterns for cleaner, more maintainable code.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card-title">Leverage the Ecosystem</h3>
+                    <p class="card-description">Discover the vast npm registry and build tools like Vite to boost your productivity.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card-title">Consider TypeScript</h3>
+                    <p class="card-description">For larger projects, TypeScript adds static typing, enhancing code quality and developer experience.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 ArticlesStack. All rights reserved. Visit us at <a href="https://articlesstack.pages.dev" target="_blank">articlesstack.pages.dev</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+        ☀️ <!-- Placeholder icon, can be changed with JS -->
+    </button>
+
+    <script>
+        // JavaScript for Interactivity and Animations
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Orb Animation Logic ---
+            const numOrbs = 5; // Number of background orbs
+            const orbContainer = document.querySelector('.background-orbs');
+            const colors = ['#6366f1', '#ec4899', 'rgba(255, 255, 255, 0.1)']; // Indigo, Pink, Subtle White
+
+            function createOrb(index) {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                // Randomize size, position, and animation delay
+                const size = Math.random() * 300 + 100; // Orb size between 100px and 400px
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 10 - 5; // Negative delay for staggered start
+
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.top = `${top}%`;
+                orb.style.left = `${left}%`;
+                orb.style.animationDelay = `${delay}s`;
+
+                // Randomize background color for variety
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                orb.style.background = `radial-gradient(circle, ${randomColor} 0%, ${randomColor.replace(')', ', 0.1)')} 50%, rgba(9, 23, 42, 0) 70%)`;
+
+                // Apply a slight positional offset for variety
+                orb.style.transform = `translate(-50%, -50%) scale(${Math.random() * 0.5 + 0.8})`; // Scale between 0.8 and 1.3
+
+                // Fade in animation for orbs
+                orb.style.animation = `float 15s ease-in-out infinite alternate, fadeIn 3s ease-out forwards ${index * 0.2}s`;
+
+                orbContainer.appendChild(orb);
+            }
+
+            for (let i = 0; i < numOrbs; i++) {
+                createOrb(i);
+            }
+
+            // Add a subtle fadeIn animation for orbs
+            const styleSheet = document.styleSheets[0];
+            styleSheet.insertRule(`
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+            `, styleSheet.cssRules.length);
+
+
+            // --- Theme Toggle Logic ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const sunIcon = '☀️';
+            const moonIcon = '🌙';
+
+            // Function to apply theme (e.g., if you had a light theme CSS)
+            function applyTheme(isDark) {
+                if (isDark) {
+                    // Current styles are already dark-themed, but you could add light theme CSS here
+                    body.classList.remove('light-theme');
+                    themeToggle.innerHTML = sunIcon;
+                    themeToggle.style.backgroundColor = '#ec4899'; // Pink
+                    themeToggle.style.boxShadow = '0 5px 15px rgba(236, 72, 153, 0.5)';
+                } else {
+                    body.classList.add('light-theme');
+                    themeToggle.innerHTML = moonIcon;
+                    themeToggle.style.backgroundColor = '#6366f1'; // Indigo
+                    themeToggle.style.boxShadow = '0 5px 15px rgba(99, 102, 241, 0.5)';
+                    // Add light theme specific styles to CSS if needed
+                }
+                // Optional: Save preference to localStorage
+                localStorage.setItem('themePreference', isDark ? 'dark' : 'light');
+            }
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('themePreference');
+            if (savedTheme === 'light') {
+                applyTheme(false);
+            } else {
+                applyTheme(true); // Default to dark theme
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const isCurrentlyDark = !body.classList.contains('light-theme');
+                applyTheme(isCurrentlyDark);
+            });
+
+            // --- Smooth Scrolling for Anchor Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // --- Card Hover Animation - Advanced (Optional: for more subtle effects) ---
+            // The CSS already provides a good hover effect. For more complex JS-driven
+            // effects like subtle parallax or micro-interactions on hover, you'd add them here.
+            // Example: Parallax effect on card elements on hover
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const moveX = (x - centerX) / 20; // Adjust sensitivity
+                    const moveY = (y - centerY) / 20; // Adjust sensitivity
+
+                    // Apply slight rotation or translation for a subtle parallax
+                    // card.style.transform = `translateY(-10px) scale(1.02) perspective(1000px) rotateY(${moveX}deg) rotateX(${-moveY}deg)`;
+                    // Note: The CSS transform for lifting is simpler and often preferred.
+                    // This is just an example of what *could* be done.
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    // Reset transform, relying on CSS transition
+                    // card.style.transform = 'translateY(-10px) scale(1.02)'; // Keep the lifted state if desired
+                });
+            });
+
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/purecssscroll">Pure CSS Scroll</a><a href="/cloudnative">Cloud Native Explained</a><a href="/codeclean">Code Clean</a><a href="/awdevskills">AWS DevSkills</a><a href="/backend-mastery">Backend MASTERY</a><a href="/motiontext">Motion Text</a><a href="/cssfuncs">CSS Funcs</a><a href="/aistackunlocked">AI Stack Unlocked</a><a href="/canvaanimate">Canva Animate</a><a href="/cssrules">CSS Rules</a><a href="/cssscale">CSS Scale</a><a href="/pixelglitch">Pixel Glitch</a><a href="/proxies">Proxy, Balance, Gateway</a><a href="/authevolution">Auth Evolved</a><a href="/csspopovers">CSS Popovers</a><a href="/csslayout">CSS Layout Mastery</a><a href="/cssatrt">CSS Attr Type</a><a href="/csspos">CSS Pos</a><a href="/cssevolution">CSS Evolve</a><a href="/scrollfx">Scroll FX</a><a href="/cssflow">CSS Flow</a><a href="/stopscroll">Stop Scroll</a><a href="/geminivisions">Gemini Visions</a><a href="/algosecrets">Algorithm Secrets</a><a href="/buildaitools">Build AI Tools</a><a href="/designflaws">Design Flaws</a><a href="/designmastery">Design Mastery</a><a href="/designtrends">Design Trends</a><a href="/designgear">Design Gear</a><a href="/taxhacks">Tax Hacks</a><a href="/androidhacks">Android Hacks</a><a href="/spartangains">Spartan Gains</a><a href="/aiuxshift">AI UX Shift</a><a href="/speakfluent">Speak fluent</a><a href="/uicolorguide">UI Colors Guide</a><a href="/designessn">Design ESSN</a><a href="/aicodewins">AI Code Wins</a><a href="/2026gamesignite">2026 Games Ignite</a><a href="/designprovideo">Design Pro Video</a><a href="/claudechat">Claude Chat</a><a href="/cmdsecrets">CMD Secrets</a><a href="/ainow">AI Now</a><a href="/videomastery">Video Mastery</a><a href="/codetruths">Code Truths</a><a href="/harnesslust">Harness Lust</a><a href="/top16pc">Top PC Games</a><a href="/claudeoffline">Claude Offline</a><a href="/ownyourtruth">Own Your Truth</a><a href="/ypppayouts">YPP Payouts</a><a href="/ramboost">RAM Boost</a><a href="/gamervision">Gamer Vision</a><a href="/serverhacks">Server Hacks</a><a href="/win11makeover">Win11 Makeover</a><a href="/learnfaster">Learn Faster</a><a href="/AILimits">AI Limits</a><a href="/aivideoscale">AI Video Scale</a><a href="/aicareer">AI Career Path</a><a href="/claudemotion">Claude Motion</a><a href="/trademaster">TradeMaster</a><a href="/codehour">Code Hour</a><a href="/sorashut">Sora Shut</a><a href="/hostmine">Host Mine</a><a href="/earnnown">Earn Now</a><a href="/iphonehacks">iPhone Hacks</a><a href="/sleephack">Sleep Hack</a><a href="/genzdebt">Gen Z Debt</a><a href="/cloudpro">Cloud Pro</a><a href="/glow-up">Glow Up</a><a href="/achievegoals">Achieve Goals</a><a href="/wealthfirst">Wealth First</a><a href="/aicareer">AI Career</a><a href="/2minboost">2 Min Boost</a><a href="/mindhack">Mind Hack</a><a href="/aimodel">AI Model</a><a href="/mastergrit">Master Grit</a><a href="/tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

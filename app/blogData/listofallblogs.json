@@ -1,5 +1,131 @@
 [
   {
+    "blog_title": "React Render",
+    "link": "reactrender",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Understand the core of React: rendering. Learn how components transform into UI through React elements, the Virtual DOM, and efficient reconciliation. Master dynamic UIs.",
+    "tags": [
+      "React",
+      "Rendering",
+      "Virtual DOM",
+      "Reconciliation",
+      "Components",
+      "UI"
+    ]
+  },
+  {
+    "blog_title": "React SOLID",
+    "link": "reactsolid",
+    "color": "bg-emerald-700 shadow-emerald-400",
+    "description": "Master SOLID principles in React! Learn how to write clean, maintainable, and scalable code with practical examples for each of the five SOLID principles. Elevate your React development.",
+    "tags": [
+      "React",
+      "SOLID Principles",
+      "Clean Code",
+      "Software Design",
+      "JavaScript"
+    ]
+  },
+  {
+    "blog_title": "React Keys",
+    "link": "reactkeys",
+    "color": "bg-blue-600 shadow-blue-400",
+    "description": "Stop React bugs! Learn the crucial `key` prop for dynamic lists. Fix state issues and ensure smooth rendering. Perfect for any React developer.",
+    "tags": [
+      "React",
+      "JavaScript",
+      "Frontend",
+      "Development",
+      "Coding"
+    ]
+  },
+  {
+    "blog_title": "React Core",
+    "link": "reactcore",
+    "color": "bg-blue-800 shadow-blue-400",
+    "description": "Master React's fundamental building blocks! Learn key concepts like JSX, props, state, hooks, and rendering for dynamic web apps. Build better UIs with this essential guide.",
+    "tags": [
+      "React",
+      "JavaScript",
+      "Web Development",
+      "Frontend",
+      "UI Development",
+      "JSX",
+      "Hooks",
+      "State Management"
+    ]
+  },
+  {
+    "blog_title": "HTML Power Ups",
+    "link": "htmlpower",
+    "color": "bg-indigo-700 shadow-indigo-400",
+    "description": "Unlock six powerful, yet overlooked HTML features like <template>, <dialog>, and <picture> to build more efficient, accessible, and performant web apps without extra libraries.",
+    "tags": [
+      "HTML",
+      "Web Development",
+      "Front-End",
+      "Web Design",
+      "Accessibility",
+      "Performance"
+    ]
+  },
+  {
+    "blog_title": "JS Master",
+    "link": "jsmaster",
+    "color": "bg-green-700 shadow-green-400",
+    "description": "Unlock cleaner, more efficient JavaScript! Discover modern debugging tricks like computed properties, console.table, and console.trace. Learn to master performance with console.time and streamline your code with destructuring, template literals, and powerful array methods like reduce, map, and filter. Write asynchronous code like a pro with async/await and Promise.all.",
+    "tags": [
+      "JavaScript",
+      "Debugging",
+      "Coding Practices",
+      "JS Tricks",
+      "Async/Await",
+      "Modern JS"
+    ]
+  },
+  {
+    "blog_title": "JS Core",
+    "link": "jscore",
+    "color": "bg-indigo-700 shadow-indigo-400",
+    "description": "Unlock the power of JavaScript! This comprehensive guide demystifies its history, core concepts, and modern usage patterns, perfect for beginners and intermediate devs.",
+    "tags": [
+      "JavaScript",
+      "Web Development",
+      "Programming",
+      "ECMAScript",
+      "JS Fundamentals"
+    ]
+  },
+  {
+    "blog_title": "Pure CSS Scroll",
+    "link": "purecssscroll",
+    "color": "bg-purple-700 shadow-purple-400",
+    "description": "Unlock advanced web interactivity with pure CSS scroll-driven features. Discover how to create dynamic elements, carousels, and navigation without JavaScript, boosting performance and simplifying your code. Learn about scroll-state queries and scroll-marker pseudo-elements for powerful, efficient web design.",
+    "tags": [
+      "CSS",
+      "Web Development",
+      "Scroll Driven",
+      "JavaScript Alternative",
+      "Performance",
+      "Interactivity"
+    ]
+  },
+  {
+    "blog_title": "Cloud Native Explained",
+    "link": "cloudnative",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Unlock Scalability and Agility: Master Cloud Native design with microservices, containers, and DevOps. Learn the core pillars and benefits for modern app development.",
+    "tags": [
+      "Cloud Native",
+      "System Design",
+      "Microservices",
+      "Containers",
+      "DevOps",
+      "Kubernetes",
+      "Application Architecture"
+    ]
+  },
+  {
     "blog_title": "Code Clean",
     "link": "codeclean",
     "color": "bg-cyan-700 shadow-cyan-400",
