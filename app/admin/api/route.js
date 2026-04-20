@@ -3,10 +3,10 @@ export const dynamic = 'force-dynamic'; // Add this line
 import { google } from 'googleapis';
 import { NextResponse } from "next/server";
 
-
+const privateKey = process.env.private_key.replace(/\\n/g, '\n');
  const jwtClient=new google.auth.JWT({
     email:process.env.client_email,
-    key:process.env.private_key,
+    key:privateKey,
     scopes: ['https://www.googleapis.com/auth/indexing']
  }
     )
@@ -64,4 +64,4 @@ return {success:true,message:"Url Added SuccessFully To Crawl In Gsc"}
 }
 
 // You can call this somewhere in your code to test:
-// checkUrlStatus("https://techvridha.vercel.app/your-article-url");
+// checkUrlStatus("https://quertech-articles.vercel.app/your-article-url");
