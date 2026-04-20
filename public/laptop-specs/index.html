@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose the PERFECT Laptop Specs for YOU!</title>
+    <meta name="description" content="Tired of laptop confusion? Discover the EXACT specs for Productivity, Creativity, or Gaming! Unlock your ideal PC. Find your perfect fit now.">
+    <meta name="keywords" content="how to choose laptop specs for gaming, best laptop specs for video editing, what laptop specs for graphic design, laptop CPU guide for beginners, understanding laptop RAM for productivity, Nvidia vs AMD GPU for laptops, choosing laptop display refresh rate, NVMe SSD vs SATA SSD laptop performance, laptop buying guide 2024 specs, laptop performance tiers explained, best Intel Core i7 laptop features, AMD Ryzen 9 laptop capabilities, how much VRAM do I need for editing, laptop display color accuracy IPS OLED, laptop battery life optimization specs">
+    <meta name="author" content="TechVridha">
+    <meta property="og:title" content="Choose the PERFECT Laptop Specs for YOU!">
+    <meta property="og:description" content="Tired of laptop confusion? Discover the EXACT specs for Productivity, Creativity, or Gaming! Unlock your ideal PC. Find your perfect fit now.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techvridha.vercel.app">
+    <meta property="og:image" content="https://techvridha.vercel.app/og-image.jpg"> <!-- Placeholder: Replace with your actual OG image -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Choose the PERFECT Laptop Specs for YOU!">
+    <meta name="twitter:description" content="Tired of laptop confusion? Discover the EXACT specs for Productivity, Creativity, or Gaming! Unlock your ideal PC. Find your perfect fit now.">
+    <meta name="twitter:image" content="https://techvridha.vercel.app/twitter-image.jpg"> <!-- Placeholder: Replace with your actual Twitter image -->
+    <link rel="canonical" href="https://techvridha.vercel.app">
+
+    <style>
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-dark: #09172a;
+            --color-slate-light: #1e293b;
+            --color-white-muted: #f8fafc;
+            --color-gray-light: #94a3b8;
+            --color-border-hover: #a5b4fc; /* Lighter indigo for hover borders */
+            --color-gradient-start: var(--color-indigo);
+            --color-gradient-end: var(--color-pink);
+
+            --font-sans: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        }
+
+        /* Global Styles & Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-slate-dark);
+            color: var(--color-white-muted);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative; /* For background orbs */
+        }
+
+        /* Ambient Background Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(236, 72, 153, 0.1) 50%, transparent 70%);
+            animation: float 20s ease-in-out infinite alternate;
+            filter: blur(80px); /* Apply blur for soft glow */
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translate(10vw, -10vh) scale(1.5);
+                opacity: 0.4;
+            }
+        }
+
+        /* Gradient Masking for Headers */
+        .gradient-mask {
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.8em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem); /* Fluid scaling */
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        h3 {
+            font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+        }
+
+        p {
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            margin-bottom: 1.5em;
+        }
+
+        strong, b {
+            font-weight: 700;
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        main {
+            padding-top: 80px; /* Adjust based on header height */
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(9, 29, 58, 0.8); /* Slightly transparent slate-dark */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: background-color 0.3s ease;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-white-muted);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--color-indigo);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--color-white-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        nav a:hover {
+            color: var(--color-white-muted);
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 1rem;
+            position: relative;
+            overflow: hidden; /* Ensures orbs don't spill out visually */
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: var(--color-gray-light);
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            color: var(--color-white-muted);
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3), 0 5px 10px rgba(236, 72, 153, 0.3);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 4rem 1rem;
+            position: relative;
+            z-index: 1; /* Ensure content is above background orbs */
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Card Component */
+        .card {
+            background: rgba(255, 255, 255, 0.05); /* Subtle glass effect */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02); /* 3D card lifting */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-border-hover); /* Border color transition */
+        }
+
+        .card .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: var(--color-gray-light);
+            flex-grow: 1; /* Allows description to take available space */
+        }
+
+        /* Geometric Pattern Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .badge.productive {
+            background-color: rgba(99, 102, 241, 0.2); /* Indigo */
+            color: var(--color-indigo);
+            border: 1px solid var(--color-indigo);
+        }
+
+        .badge.creative {
+            background-color: rgba(236, 72, 153, 0.2); /* Pink */
+            color: var(--color-pink);
+            border: 1px solid var(--color-pink);
+        }
+
+        .badge.performance {
+            background-color: rgba(100, 116, 139, 0.2); /* Slate Gray */
+            color: var(--color-gray-light);
+            border: 1px solid var(--color-gray-light);
+        }
+
+        /* Tooltip for Badges (Optional, for more info on hover) */
+        .badge-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .badge-container .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--color-slate-light);
+            color: var(--color-white-muted);
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .badge-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1001;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            color: var(--color-white-muted);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(99, 102, 241, 0.3), 0 4px 8px rgba(236, 72, 153, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            border: none;
+            font-size: 1.5rem; /* For icon */
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 25px rgba(99, 102, 241, 0.4), 0 6px 12px rgba(236, 72, 153, 0.4);
+        }
+
+        /* Specific Content Styling */
+        .tech-spec-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .tech-spec-list li {
+            margin-bottom: 1.2rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            color: var(--color-gray-light);
+        }
+
+        .tech-spec-list li strong {
+            color: var(--color-white-muted);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .user-category {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-left: 4px solid var(--color-indigo); /* Indicator */
+        }
+
+        .user-category h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .user-category ul {
+            list-style: disc;
+            padding-left: 20px;
+            color: var(--color-gray-light);
+        }
+
+        .user-category li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            background-color: var(--color-slate-light);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+            color: var(--color-gray-light);
+        }
+
+        footer a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--color-pink);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            .section-content {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .theme-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+            h2 {
+                font-size: clamp(1.75rem, 6vw, 2.5rem);
+            }
+            .hero {
+                padding: 3rem 1rem;
+            }
+            .section {
+                padding: 3rem 1rem;
+            }
+            .card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://techvridha.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Ambient Background Orbs -->
+    <div class="background-orbs"></div>
+
+    <header>
+        <div class="container">
+            <a href="https://techvridha.vercel.app" class="logo">TechVridha</a>
+            <nav>
+                <ul>
+                    <li><a href="#user-types">User Types</a></li>
+                    <li><a href="#components">Key Components</a></li>
+                    <li><a href="#actionable-insights">Actionable Insights</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="container">
+                <h1 class="gradient-mask">Your Ultimate Laptop Specification Guide</h1>
+                <p>Choosing the right laptop doesn't have to be confusing. We break down the essential specs based on your needs – whether you're a productive professional, a creative artist, or a performance enthusiast.</p>
+                <a href="#user-types" class="cta-button">Find Your Perfect Laptop</a>
+            </div>
+        </section>
+
+        <section class="section" id="user-types">
+            <div class="container">
+                <h2>Who Are You? Understanding User Categories</h2>
+                <div class="section-content">
+                    <div class="card">
+                        <span class="card-icon">💻</span>
+                        <h3>Productive Users</h3>
+                        <p>Focus on daily tasks, coding, documentation, web browsing, and media. Prioritize smooth performance and excellent battery life.</p>
+                        <div class="badge-container">
+                            <span class="badge productive">Productivity</span>
+                            <span class="tooltip-text">For everyday tasks, office work, programming, and general browsing.</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-icon">🎨</span>
+                        <h3>Creative Users</h3>
+                        <p>Engage in UI/UX design, photo/video editing, and graphic design. Require balanced CPU/GPU performance and accurate color displays.</p>
+                        <div class="badge-container">
+                            <span class="badge creative">Creative</span>
+                            <span class="tooltip-text">Ideal for graphic designers, video editors, photographers, and UI/UX professionals.</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-icon">🚀</span>
+                        <h3>Performance-Oriented Users</h3>
+                        <p>Dive into gaming, streaming, AI/ML, 3D software, and VFX. Demand high CPU, GPU, RAM, and fast refresh rates.</p>
+                        <div class="badge-container">
+                            <span class="badge performance">Performance</span>
+                            <span class="tooltip-text">For demanding users like gamers, AI researchers, and 3D animators.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="components">
+            <div class="container">
+                <h2>Key Components Decoded</h2>
+                <div class="section-content">
+                    <div class="card">
+                        <span class="card-icon">🧠</span>
+                        <h3>CPU (Processor)</h3>
+                        <p>The brain of your laptop. Higher numbers (i5/Ryzen 5 vs i3/Ryzen 3) and newer generations offer better performance. Look for 'H' or 'HX' suffixes for high performance.</p>
+                        <ul class="tech-spec-list">
+                            <li><strong>Intel:</strong> i3, i5, i7, i9 (and Ultra 5, 7). Aim for 12th Gen+.</li>
+                            <li><strong>AMD:</strong> Ryzen 3, 5, 7, 9. Series 7000+ recommended.</li>
+                            <li><strong>Suffixes:</strong> U/P (Balanced), H/HX (High Performance).</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-icon">🖼️</span>
+                        <h3>GPU (Graphics Card)</h3>
+                        <p>Crucial for visuals, gaming, and AI. Dedicated GPUs (Nvidia RTX, AMD RX) are essential for demanding tasks. VRAM is key for complex operations.</p>
+                        <ul class="tech-spec-list">
+                            <li><strong>Integrated:</strong> Basic tasks (Intel UHD/Iris Xe, AMD Radeon Vega).</li>
+                            <li><strong>Dedicated:</strong> Gaming, Video Editing, AI (Nvidia GeForce RTX, AMD Radeon RX).</li>
+                            <li><strong>VRAM:</strong> 4GB+ for creative, 8GB+ for demanding tasks.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-icon">📊</span>
+                        <h3>RAM (Memory)</h3>
+                        <p>Multitasking power. 8GB is minimum, 16GB is ideal for most, and 32GB+ is for power users. Faster DDR5 is preferable over DDR4.</p>
+                        <ul class="tech-spec-list">
+                            <li><strong>Productive:</strong> 8GB - 16GB.</li>
+                            <li><strong>Creative/Performance:</strong> 16GB - 32GB+.</li>
+                            <li><strong>Type:</strong> DDR5 > DDR4.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-icon">💡</span>
+                        <h3>Display</h3>
+                        <p>Your visual interface. IPS/OLED offer better colors than TN. Higher resolution, refresh rates (120Hz+ for gaming), and brightness (300+ nits) enhance experience.</p>
+                        <ul class="tech-spec-list">
+                            <li><strong>Panel:</strong> IPS/OLED for color accuracy.</li>
+                            <li><strong>Resolution:</strong> 1080p minimum, 2K/4K for creatives.</li>
+                            <li><strong>Refresh Rate:</strong> 60Hz standard, 120Hz+ for gaming.</li>
+                            <li><strong>Brightness:</strong> 300 nits minimum.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-icon">💾</span>
+                        <h3>Storage</h3>
+                        <p>Speed and capacity. NVMe SSDs are significantly faster than SATA SSDs. Avoid HDDs for your primary drive.</p>
+                        <ul class="tech-spec-list">
+                            <li><strong>Type:</strong> NVMe SSD (Highly Recommended) > SATA SSD > HDD.</li>
+                            <li><strong>Capacity:</strong> 512GB minimum, 1TB+ for heavy users.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-icon">⚡</span>
+                        <h3>NPU (AI Acceleration)</h3>
+                        <p>Emerging component for AI tasks. Laptops with NPUs offer faster and more efficient AI processing, beneficial for specific workloads.</p>
+                        <ul class="tech-spec-list">
+                            <li><strong>Focus:</strong> AI/ML, specific software acceleration.</li>
+                            <li><strong>Benefit:</strong> Improved performance & efficiency for AI tasks.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="actionable-insights">
+            <div class="container">
+                <h2>Actionable Insights: Making Your Choice</h2>
+
+                <div class="user-category">
+                    <h3>For Productive Users:</h3>
+                    <p>Prioritize a balanced CPU (e.g., Intel Core i5/AMD Ryzen 5, 12th Gen+), 8-16GB RAM, and a fast NVMe SSD (512GB+). Good battery life is a bonus.</p>
+                </div>
+
+                <div class="user-category">
+                    <h3>For Creative Users:</h3>
+                    <p>Invest in an IPS/OLED display with excellent color accuracy (100% sRGB), a capable CPU (i5/R5 or higher), 16-32GB RAM, and a dedicated GPU with 4-8GB VRAM. Fast storage is essential.</p>
+                </div>
+
+                <div class="user-category">
+                    <h3>For Performance-Oriented Users:</h3>
+                    <p>Opt for high-end CPUs (i7/R7 or higher, HX series), 16-32GB+ RAM, powerful dedicated GPUs (Nvidia RTX 40-series with high TGP and 8GB+ VRAM), high refresh rate displays (144Hz+), and large NVMe SSDs (1TB+).</p>
+                </div>
+
+                <div class="section-content" style="margin-top: 2rem;">
+                    <div class="card" style="background: rgba(255, 255, 255, 0.03); border: none; box-shadow: none; transform: none; padding: 1rem;">
+                        <h3>General Tips:</h3>
+                        <ul class="tech-spec-list">
+                            <li><strong>Align Specs with Workflow:</strong> Your primary use dictates your priorities.</li>
+                            <li><strong>Understand Model Numbers:</strong> Decipher CPU/GPU naming conventions.</li>
+                            <li><strong>Display & RAM Matter:</strong> Don't underestimate their impact on user experience.</li>
+                            <li><strong>SSD is King:</strong> Always choose SSDs for responsiveness. NVMe for speed.</li>
+                            <li><strong>Check Reviews:</strong> Real-world benchmarks offer the best insights.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> TechVridha. All rights reserved. | Explore more at <a href="https://techvridha.vercel.app" target="_blank">techvridha.vercel.app</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+        ✨
+    </button>
+
+    <script>
+        // --- Ambient Background Orb Generation ---
+        const backgroundOrbsContainer = document.querySelector('.background-orbs');
+
+        function createOrb() {
+            const orb = document.createElement('div');
+            orb.classList.add('orb');
+
+            // Random size
+            const size = Math.random() * 200 + 100; // between 100px and 300px
+            orb.style.width = `${size}px`;
+            orb.style.height = `${size}px`;
+
+            // Random position
+            orb.style.top = `${Math.random() * 100}vh`;
+            orb.style.left = `${Math.random() * 100}vw`;
+
+            // Random animation duration and delay
+            orb.style.animationDuration = `${Math.random() * 10 + 15}s`; // 15s to 25s
+            orb.style.animationDelay = `${Math.random() * 5}s`;
+
+            // Random initial opacity and blur
+            orb.style.opacity = Math.random() * 0.3 + 0.2; // 0.2 to 0.5
+            orb.style.filter = `blur(${Math.random() * 50 + 80}px)`; // 80px to 130px
+
+            // Random gradient colors (slightly varied from main palette)
+            const color1 = `rgba(${Math.floor(Math.random() * 50) + 70}, ${Math.floor(Math.random() * 50) + 70}, ${Math.floor(Math.random() * 50) + 200}, ${Math.random() * 0.4 + 0.2})`;
+            const color2 = `rgba(${Math.floor(Math.random() * 50) + 200}, ${Math.floor(Math.random() * 50) + 40}, ${Math.floor(Math.random() * 50) + 80}, ${Math.random() * 0.3 + 0.1})`;
+            orb.style.background = `radial-gradient(circle, ${color1} 0%, ${color2} 50%, transparent 70%)`;
+
+            backgroundOrbsContainer.appendChild(orb);
+
+            // Remove orb after animation to prevent DOM overload
+            orb.addEventListener('animationend', () => {
+                orb.remove();
+                // Optionally, create a new orb to maintain a consistent number
+                // createOrb();
+            });
+        }
+
+        // Generate a few initial orbs
+        for (let i = 0; i < 5; i++) {
+            createOrb();
+        }
+
+        // Optionally, create new orbs periodically to keep the background dynamic
+        setInterval(() => {
+            if (document.querySelectorAll('.orb').length < 7) { // Keep max 7 orbs visible
+                 createOrb();
+            }
+        }, 5000); // Create a new orb every 5 seconds
+
+
+        // --- Theme Toggle Functionality ---
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Function to apply a theme (currently only one dark theme is defined)
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                body.style.backgroundColor = 'var(--color-slate-dark)';
+                body.style.color = 'var(--color-white-muted)';
+                // Could add more specific element style overrides here if needed for other themes
+            } else {
+                // Default to dark theme if other themes are not implemented
+                body.style.backgroundColor = 'var(--color-slate-dark)';
+                body.style.color = 'var(--color-white-muted)';
+            }
+        }
+
+        // Event listener for theme toggle
+        themeToggle.addEventListener('click', () => {
+            // In this single-file, dark-themed solution, the toggle mainly serves as a visual flourish.
+            // If more themes were added, this logic would toggle between them.
+            // For now, it triggers a subtle animation and potentially saves user preference.
+            alert("Theme toggle is ready! (Currently operates on a single dark theme).");
+
+            // Example of saving preference (if multiple themes were available):
+            // const currentTheme = body.classList.contains('light-theme') ? 'dark' : 'light';
+            // body.classList.toggle('light-theme');
+            // localStorage.setItem('theme', currentTheme);
+            // applyTheme(currentTheme);
+        });
+
+        // --- Update Footer Year ---
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- Smooth Scrolling for Navigation ---
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // Calculate offset for fixed header
+                    const headerOffset = document.querySelector('header').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/jsblitz">JS Blitz</a><a href="/prismadb">Prisma DB Speed</a><a href="/prisma">Prisma MongoDB Secrets</a><a href="/threejsflow">ThreeJS Flow</a><a href="/3dprotips">3D ProTips</a><a href="/prismapower">Prisma Power</a><a href="/linuxpowerkeys">Linux PowerKeys</a><a href="/linuxcore">Linux Core</a><a href="/typemaster">Type Master</a><a href="/tsrefine">TS Refine</a><a href="/tsmaster">TS Master</a><a href="/reactrender">React Render</a><a href="/reactsolid">React SOLID</a><a href="/reactkeys">React Keys</a><a href="/reactcore">React Core</a><a href="/htmlpower">HTML Power Ups</a><a href="/jsmaster">JS Master</a><a href="/jscore">JS Core</a><a href="/purecssscroll">Pure CSS Scroll</a><a href="/cloudnative">Cloud Native Explained</a><a href="/codeclean">Code Clean</a><a href="/awdevskills">AWS DevSkills</a><a href="/backend-mastery">Backend MASTERY</a><a href="/motiontext">Motion Text</a><a href="/cssfuncs">CSS Funcs</a><a href="/aistackunlocked">AI Stack Unlocked</a><a href="/canvaanimate">Canva Animate</a><a href="/cssrules">CSS Rules</a><a href="/cssscale">CSS Scale</a><a href="/pixelglitch">Pixel Glitch</a><a href="/proxies">Proxy, Balance, Gateway</a><a href="/authevolution">Auth Evolved</a><a href="/csspopovers">CSS Popovers</a><a href="/csslayout">CSS Layout Mastery</a><a href="/cssatrt">CSS Attr Type</a><a href="/csspos">CSS Pos</a><a href="/cssevolution">CSS Evolve</a><a href="/scrollfx">Scroll FX</a><a href="/cssflow">CSS Flow</a><a href="/stopscroll">Stop Scroll</a><a href="/geminivisions">Gemini Visions</a><a href="/algosecrets">Algorithm Secrets</a><a href="/buildaitools">Build AI Tools</a><a href="/designflaws">Design Flaws</a><a href="/designmastery">Design Mastery</a><a href="/designtrends">Design Trends</a><a href="/designgear">Design Gear</a><a href="/taxhacks">Tax Hacks</a><a href="/androidhacks">Android Hacks</a><a href="/spartangains">Spartan Gains</a><a href="/aiuxshift">AI UX Shift</a><a href="/speakfluent">Speak fluent</a><a href="/uicolorguide">UI Colors Guide</a><a href="/designessn">Design ESSN</a><a href="/aicodewins">AI Code Wins</a><a href="/2026gamesignite">2026 Games Ignite</a><a href="/designprovideo">Design Pro Video</a><a href="/claudechat">Claude Chat</a><a href="/cmdsecrets">CMD Secrets</a><a href="/ainow">AI Now</a><a href="/videomastery">Video Mastery</a><a href="/codetruths">Code Truths</a><a href="/harnesslust">Harness Lust</a><a href="/top16pc">Top PC Games</a><a href="/claudeoffline">Claude Offline</a><a href="/ownyourtruth">Own Your Truth</a><a href="/ypppayouts">YPP Payouts</a><a href="/ramboost">RAM Boost</a><a href="/gamervision">Gamer Vision</a><a href="/serverhacks">Server Hacks</a><a href="/win11makeover">Win11 Makeover</a><a href="/learnfaster">Learn Faster</a><a href="/AILimits">AI Limits</a><a href="/aivideoscale">AI Video Scale</a><a href="/aicareer">AI Career Path</a><a href="/claudemotion">Claude Motion</a><a href="/trademaster">TradeMaster</a><a href="/codehour">Code Hour</a><a href="/sorashut">Sora Shut</a><a href="/hostmine">Host Mine</a><a href="/earnnown">Earn Now</a><a href="/iphonehacks">iPhone Hacks</a><a href="/sleephack">Sleep Hack</a><a href="/genzdebt">Gen Z Debt</a><a href="/cloudpro">Cloud Pro</a><a href="/glow-up">Glow Up</a><a href="/achievegoals">Achieve Goals</a><a href="/wealthfirst">Wealth First</a><a href="/aicareer">AI Career</a><a href="/2minboost">2 Min Boost</a><a href="/mindhack">Mind Hack</a><a href="/aimodel">AI Model</a><a href="/mastergrit">Master Grit</a><a href="/tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

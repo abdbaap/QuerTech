@@ -1,5 +1,148 @@
 [
   {
+    "blog_title": "Prompt Mastery",
+    "link": "promptmastery",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Unlock GPT-5's full potential! Learn the 7 essential prompt engineering steps to 10x your AI outputs. Master role, task, context, rules, and more for expert results.",
+    "tags": [
+      "Prompt Engineering",
+      "AI Models",
+      "GPT-5",
+      "AI Prompts",
+      "Output Quality"
+    ]
+  },
+  {
+    "blog_title": "Unlock AI Secrets",
+    "link": "unlockai",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Tired of AI giving you bad results? Learn the CRISPE method used by Google and Microsoft to get 3x more productive and achieve 40% better outcomes. Master structured prompting for superior AI performance.",
+    "tags": [
+      "AI Prompting",
+      "CRISPE Method",
+      "AI Productivity",
+      "AI Results",
+      "ChatGPT"
+    ]
+  },
+  {
+    "blog_title": "Win Speed",
+    "link": "winspeed",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Unlock peak Windows 11 performance! Discover hidden power plans, essential cleanup methods, and bloatware removal tricks to make your PC fly. Plus, optimize visual effects and free up RAM for a lightning-fast experience.",
+    "tags": [
+      "Windows 11",
+      "Performance",
+      "Speed Up",
+      "Optimization",
+      "Tech Tips",
+      "Bloatware Removal",
+      "Power Plan",
+      "System Files"
+    ]
+  },
+  {
+    "blog_title": "Laptop Specs",
+    "link": "laptop-specs",
+    "color": "bg-indigo-700 shadow-indigo-400",
+    "description": "Unlocking your perfect laptop! Learn to match CPU, GPU, RAM, and display specs to your needs, whether you're productive, creative, or a performance gamer. Your informed buy starts here.",
+    "tags": [
+      "Laptop Specs",
+      "CPU",
+      "GPU",
+      "RAM",
+      "Display",
+      "Performance",
+      "Creative",
+      "Productive"
+    ]
+  },
+  {
+    "blog_title": "JS Blitz",
+    "link": "jsblitz",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Master JavaScript essentials in just 20 minutes! This crash course covers variables, data types, loops, functions, and DOM manipulation with clear code examples. Perfect for beginners.",
+    "tags": [
+      "JavaScript",
+      "Beginner",
+      "Crash Course",
+      "Programming",
+      "Web Development",
+      "DOM",
+      "Functions"
+    ]
+  },
+  {
+    "blog_title": "Prisma DB Speed",
+    "link": "prismadb",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Master Next.js databases with Prisma! Learn to boost speed, optimize queries, and leverage tools like Studio and Accelerate beyond basic CRUD for faster, robust apps.",
+    "tags": [
+      "Prisma",
+      "Next.js",
+      "Database Management",
+      "ORM",
+      "Performance Optimization",
+      "Prisma Accelerate",
+      "Prisma Studio"
+    ]
+  },
+  {
+    "blog_title": "Prisma MongoDB Secrets",
+    "link": "prisma",
+    "color": "bg-cyan-700 shadow-cyan-400",
+    "description": "Unlock top tips for Prisma ORM with MongoDB! Master replica sets, ObjectId fields, relations, and optimize queries for blazing-fast apps. Essential guide for devs.",
+    "tags": [
+      "Prisma",
+      "MongoDB",
+      "ORM",
+      "Database",
+      "Developer Tips",
+      "Backend"
+    ]
+  },
+  {
+    "blog_title": "ThreeJS Flow",
+    "link": "threejsflow",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Master Three.js! Learn 10 essential tips for stunning 3D web effects, from glow to scroll animations. Elevate your 3D scenes with these expert techniques.",
+    "tags": [
+      "Three.js",
+      "3D Web",
+      "Web Development",
+      "JavaScript",
+      "Graphics"
+    ]
+  },
+  {
+    "blog_title": "3D ProTips",
+    "link": "3dprotips",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Master Three.js with 10 essential tips! Learn to optimize your 3D scenes, from advanced material overrides and HDR environments to efficient mesh management and camera layer controls. Boost your rendering performance and visual fidelity.",
+    "tags": [
+      "Three.js",
+      "3D Graphics",
+      "Web Development",
+      "Game Development",
+      "Rendering Tips"
+    ]
+  },
+  {
+    "blog_title": "Prisma Power",
+    "link": "prismapower",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Unlock Prisma's hidden powers! Go beyond the ORM with Studio, Accelerate for blazing fast queries and connection pooling, and Pulse for real-time database updates. Supercharge your apps!",
+    "tags": [
+      "Prisma",
+      "ORM",
+      "Database Optimization",
+      "Real-time Data",
+      "Prisma Accelerate",
+      "Prisma Pulse",
+      "Prisma Studio"
+    ]
+  },
+  {
     "blog_title": "Linux PowerKeys",
     "link": "linuxpowerkeys",
     "color": "bg-blue-700 shadow-blue-400",

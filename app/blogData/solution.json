@@ -1,5 +1,21 @@
 [
   {
+    "blog_title": "Win Speed",
+    "link": "/winspeed",
+    "description": "Unlock peak Windows 11 performance! Discover hidden power plans, essential cleanup methods, and bloatware removal tricks to make your PC fly. Plus, optimize visual effects and free up RAM for a lightning-fast experience.",
+    "tags": [
+      "Windows 11",
+      "Performance",
+      "Speed Up",
+      "Optimization",
+      "Tech Tips",
+      "Bloatware Removal",
+      "Power Plan",
+      "System Files"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
     "blog_title": "Code Clean",
     "link": "/codeclean",
     "description": "Master clean code! Learn to banish deep nesting & duplication using inversion & extraction. Make your code readable, maintainable, and bug-free. Boost productivity now!",

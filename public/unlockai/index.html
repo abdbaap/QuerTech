@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags for SEO Optimization -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tired of AI garbage? Master structured prompting with CRISPE. Get 3x productivity & 40% better results. Transform AI interactions now!">
+    <meta name="keywords" content="AI Prompting Mastery, best AI prompting techniques, structured AI prompting guide, advanced AI prompting strategies, get better output from AI tools, AI prompting for business, AI prompting for content creation, AI prompting for data analysis, learn effective AI prompting, CRISPE AI prompting method, what is CRISPE prompting, CRISPE framework for AI, how to use CRISPE for AI, CRISPE AI prompt examples, increase AI productivity, maximize AI tool effectiveness, achieve superior AI outcomes, AI results vs. user prompts, AI prompting success rates, #AIPrompting, #GenerativeAI, #AISecrets, #DigitalMarketing, #ProductivityHacks, #TechTips, #BusinessGrowth, #AIMarketing, #AIStrategy, #PromptEngineering, #FutureOfAI, #CRISPEmethod">
+    <meta name="author" content="TechVridha">
+    <meta property="og:title" content="Unlock AI Power: Better Prompts, Superior Results">
+    <meta property="og:description" content="Tired of AI garbage? Master structured prompting with CRISPE. Get 3x productivity & 40% better results. Transform AI interactions now!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techvridha.vercel.app">
+    <meta property="og:image" content="https://techvridha.vercel.app/og-image.jpg"> <!-- Placeholder for an actual OG image -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Unlock AI Power: Better Prompts, Superior Results">
+    <meta name="twitter:description" content="Tired of AI garbage? Master structured prompting with CRISPE. Get 3x productivity & 40% better results. Transform AI interactions now!">
+    <meta name="twitter:image" content="https://techvridha.vercel.app/twitter-image.jpg"> <!-- Placeholder for an actual Twitter image -->
+
+    <title>Unlock AI Power: Better Prompts, Superior Results</title>
+
+    <!-- Google Fonts - SF Pro Display (as a fallback/web-safe alternative, actual SF Pro requires licensing or specific embedding) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Using Inter as a robust sans-serif that closely resembles SF Pro Display -->
+
+    <style>
+        /*
+            =========================================================
+            Variables & Global Styles (Premium Glassmorphic UI)
+            =========================================================
+        */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-900: #09172a; /* Dark background */
+            --color-slate-800: #1e293b; /* Slightly lighter dark for cards */
+            --color-slate-700: #334155; /* For secondary text/borders */
+            --color-white-transparent: rgba(255, 255, 255, 0.08);
+            --color-white-hover: rgba(255, 255, 255, 0.15);
+            --color-border-gradient-start: var(--color-indigo);
+            --color-border-gradient-end: var(--color-pink);
+
+            --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+            --base-spacing: 1rem;
+            --container-max-width: 1200px;
+            --border-radius: 12px;
+            --transition-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        /* Font Fluid Scaling with clamp() */
+        h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; }
+        h2 { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.2; }
+        h3 { font-size: clamp(1.4rem, 3vw, 2.2rem); line-height: 1.3; }
+        p, li, a, span { font-size: clamp(1rem, 2.5vw, 1.15rem); line-height: 1.6; }
+
+        /* Gradient Mask for Header */
+        .gradient-mask-header {
+            background: linear-gradient(to right, var(--color-indigo), var(--color-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block; /* Important for gradient clipping to work */
+            font-weight: 700; /* Boldness for hierarchy */
+        }
+
+        /* General Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: var(--font-family-sans);
+            line-height: 1.5;
+        }
+
+        body {
+            background-color: var(--color-slate-900);
+            color: #e2e8f0; /* Light text for dark theme */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: var(--base-spacing) 0;
+        }
+
+        /*
+            =========================================================
+            Background Animation (Ambient Orbs)
+            =========================================================
+        */
+        .background-orb-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind content */
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0) 70%), radial-gradient(circle, rgba(236,72,153,0.2) 0%, rgba(236,72,153,0) 70%);
+            filter: blur(100px);
+            animation: float 15s ease-in-out infinite alternate;
+            opacity: 0.7;
+        }
+
+        .orb:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 10%;
+            background: radial-gradient(circle, rgba(63, 68, 241, 0.3) 0%, rgba(63, 68, 241, 0) 70%);
+            animation-duration: 18s;
+        }
+        .orb:nth-child(2) {
+            width: 250px;
+            height: 250px;
+            bottom: 5%;
+            right: 15%;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(236, 72, 153, 0) 70%);
+            animation-duration: 16s;
+            animation-delay: -5s;
+        }
+        .orb:nth-child(3) {
+            width: 180px;
+            height: 180px;
+            top: 60%;
+            left: 40%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(99, 102, 241, 0) 70%);
+            animation-duration: 14s;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) scale(1); }
+            50% { transform: translateY(-50px) translateX(30px) scale(1.1); }
+            100% { transform: translateY(50px) translateX(-30px) scale(0.9); }
+        }
+
+        /*
+            =========================================================
+            Header Section
+            =========================================================
+        */
+        header {
+            position: relative; /* Needed for z-index and potential future overlays */
+            padding: var(--base-spacing) 0;
+            text-align: center;
+            background-color: rgba(9, 23, 42, 0.7); /* Semi-transparent dark for depth */
+            backdrop-filter: blur(15px) saturate(1.5);
+            -webkit-backdrop-filter: blur(15px) saturate(1.5);
+            border-bottom: 1px solid var(--color-white-transparent);
+            z-index: 10; /* Ensure header is above background */
+            margin-bottom: calc(var(--base-spacing) * 2);
+        }
+
+        header h1 {
+            margin-bottom: calc(var(--base-spacing) * 0.5);
+            font-weight: 700; /* Boldness for hierarchy */
+        }
+
+        header p {
+            color: #a0aec0; /* Slightly muted text for description */
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /*
+            =========================================================
+            Main Content Section
+            =========================================================
+        */
+        main {
+            flex-grow: 1; /* Allows main to take up available space */
+            padding: var(--base-spacing) 0;
+            position: relative; /* For potential overlays if needed */
+            z-index: 5; /* Ensure content is above background but below header/footer */
+        }
+
+        /*
+            =========================================================
+            Glassmorphic Cards (Tools/Method Sections)
+            =========================================================
+        */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--base-spacing) * 2);
+            margin-top: calc(var(--base-spacing) * 2);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05); /* Subtle glass background */
+            backdrop-filter: blur(20px) saturate(1.8);
+            -webkit-backdrop-filter: blur(20px) saturate(1.8);
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Thin frosted border */
+            border-radius: var(--border-radius);
+            padding: calc(var(--base-spacing) * 2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+            transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s var(--transition-smooth), border-color 0.3s var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Push content to top, action to bottom */
+            position: relative; /* For potential badge placement */
+            overflow: hidden; /* To contain pseudo-elements */
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* 3D card lifting effect */
+            box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        /* Interactive Border Color Transition */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: var(--border-radius);
+            background: linear-gradient(45deg, var(--color-indigo), var(--color-pink), var(--color-indigo));
+            background-size: 400% 400%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s var(--transition-smooth);
+            animation: border-gradient-pulse 3s ease-in-out infinite;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes border-gradient-pulse {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Geometric Patterns / Rank Badges */
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--color-indigo);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.5);
+        }
+
+        .card-badge.pink {
+            background: var(--color-pink);
+            box-shadow: 0 4px 10px rgba(236, 72, 153, 0.5);
+        }
+
+        /* CSS Generated Geometric Patterns as backgrounds for specific sections */
+        .section-geometric-bg {
+            position: relative;
+            padding: calc(var(--base-spacing) * 2) 0;
+            overflow: hidden;
+            margin-bottom: calc(var(--base-spacing) * 2);
+        }
+
+        .section-geometric-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"><path d="M25 0L50 25L25 50L0 25Z" fill="rgba(99, 102, 241, 0.05)"/><path d="M0 0L25 25L0 50L-25 25Z" fill="rgba(236, 72, 153, 0.05)" transform="translate(50,0)"/><path d="M25 0L50 25L25 50L0 25Z" fill="rgba(99, 102, 241, 0.05)" transform="translate(25,25)"/><path d="M0 0L25 25L0 50L-25 25Z" fill="rgba(236, 72, 153, 0.05)" transform="translate(75,25)"/></svg>');
+            background-repeat: repeat;
+            background-size: 100px 100px; /* Adjust size as needed */
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        /* Specific sections can have unique patterns */
+        .section-geometric-bg.problems::before {
+            background-image: url('data:image/svg+xml,<svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L25 25L0 50L-25 25Z" fill="rgba(236, 72, 153, 0.07)"/><path d="M25 0L50 25L25 50L0 25Z" fill="rgba(99, 102, 241, 0.07)" transform="translate(25,0)"/><path d="M0 0L25 25L0 50L-25 25Z" fill="rgba(236, 72, 153, 0.07)" transform="translate(50,25)"/></svg>');
+            background-size: 80px 80px;
+        }
+        .section-geometric-bg.crispe::before {
+            background-image: url('data:image/svg+xml,<svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"><path d="M25 0L50 25L25 50L0 25Z" fill="rgba(99, 102, 241, 0.08)"/><path d="M0 0L25 25L0 50L-25 25Z" fill="rgba(236, 72, 153, 0.08)" transform="translate(25,0)"/></svg>');
+            background-size: 60px 60px;
+        }
+
+        .card h3 {
+            margin-bottom: var(--base-spacing);
+            color: #f8fafc; /* Slightly brighter text for titles */
+        }
+
+        .card p {
+            color: #94a3b8; /* Lighter text for descriptions */
+            flex-grow: 1; /* Ensure paragraphs take available space */
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: var(--base-spacing);
+            color: #94a3b8;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: calc(var(--base-spacing) * 0.5);
+        }
+
+        .card ul li::before {
+            content: '•'; /* Or use a custom SVG/icon */
+            position: absolute;
+            left: 0;
+            color: var(--color-indigo);
+            font-weight: 700;
+            font-size: 1.2rem;
+            top: -2px; /* Adjust vertical alignment */
+        }
+        .card ul.pink-bullets li::before {
+            color: var(--color-pink);
+        }
+
+        .card-action {
+            margin-top: calc(var(--base-spacing) * 1.5);
+            text-align: right;
+        }
+
+        .card-action a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s var(--transition-smooth);
+        }
+
+        .card-action a:hover {
+            color: var(--color-pink);
+            text-decoration: underline;
+        }
+
+        /*
+            =========================================================
+            Specific Section Styling
+            =========================================================
+        */
+        .section-title {
+            text-align: center;
+            margin-bottom: calc(var(--base-spacing) * 2);
+            position: relative;
+            padding-bottom: calc(var(--base-spacing) * 0.5);
+        }
+
+        .section-title h2 {
+            font-weight: 700;
+        }
+
+        /* Styling for the CRISPE breakdown */
+        .crispe-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: calc(var(--base-spacing) * 1.5);
+            margin-top: calc(var(--base-spacing) * 2);
+        }
+
+        .crispe-step {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px) saturate(1.5);
+            -webkit-backdrop-filter: blur(15px) saturate(1.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: calc(var(--base-spacing) * 1.5);
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s var(--transition-smooth);
+        }
+
+        .crispe-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .crispe-step-title {
+            font-weight: 700;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--color-indigo);
+            margin-bottom: var(--base-spacing);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .crispe-step-title.pink {
+            color: var(--color-pink);
+        }
+
+        .crispe-step-title .badge {
+            background: var(--color-white-transparent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .crispe-step-title.pink .badge {
+            background: rgba(236, 72, 153, 0.2);
+        }
+
+
+        .crispe-step ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: var(--base-spacing);
+            color: #a0aec0;
+        }
+
+        .crispe-step ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: calc(var(--base-spacing) * 0.5);
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+        }
+
+        .crispe-step ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-indigo);
+            font-weight: 700;
+            font-size: 1.1rem;
+            top: -2px;
+        }
+        .crispe-step ul.pink-bullets li::before {
+            color: var(--color-pink);
+        }
+
+        /*
+            =========================================================
+            Call to Action (CTA) / Actionable Insights
+            =========================================================
+        */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            padding: calc(var(--base-spacing) * 3) var(--base-spacing);
+            margin-top: calc(var(--base-spacing) * 3);
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .cta-section h2 {
+            color: #f8fafc;
+            margin-bottom: calc(var(--base-spacing) * 1.5);
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: calc(var(--base-spacing) * 2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--color-indigo), var(--color-pink));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px; /* Pill shape */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s var(--transition-smooth);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.5);
+        }
+
+        /*
+            =========================================================
+            Floating Theme Toggle (Placeholder Functionality)
+            =========================================================
+        */
+        .theme-toggle {
+            position: fixed;
+            bottom: var(--base-spacing);
+            right: var(--base-spacing);
+            background: var(--color-indigo);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+            transition: background 0.3s var(--transition-smooth), transform 0.3s var(--transition-smooth);
+            z-index: 100; /* High z-index to be on top */
+        }
+
+        .theme-toggle:hover {
+            background: var(--color-pink);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle i { /* Using Font Awesome for icons */
+            font-size: 1.5rem;
+        }
+
+        /*
+            =========================================================
+            Footer Section
+            =========================================================
+        */
+        footer {
+            background-color: rgba(9, 23, 42, 0.7); /* Semi-transparent dark for depth */
+            backdrop-filter: blur(15px) saturate(1.5);
+            -webkit-backdrop-filter: blur(15px) saturate(1.5);
+            border-top: 1px solid var(--color-white-transparent);
+            padding: var(--base-spacing) 0;
+            text-align: center;
+            margin-top: calc(var(--base-spacing) * 3);
+            color: #94a3b8;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        footer a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.2s var(--transition-smooth);
+        }
+        footer a:hover {
+            color: var(--color-indigo);
+        }
+
+
+        /*
+            =========================================================
+            Responsive Design (Mobile-First Approach)
+            =========================================================
+        */
+
+        /* Default styles are mobile-first */
+
+        /* Small devices (tablets, 600px and up) */
+        @media (min-width: 600px) {
+            :root {
+                --base-spacing: 1.2rem;
+            }
+            .container {
+                width: 85%;
+            }
+            header {
+                padding: calc(var(--base-spacing) * 1.5) 0;
+                margin-bottom: calc(var(--base-spacing) * 2.5);
+            }
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .crispe-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Medium devices (desktops, 900px and up) */
+        @media (min-width: 900px) {
+            :root {
+                --base-spacing: 1.5rem;
+            }
+            .container {
+                width: 80%;
+            }
+            header h1 {
+                font-size: clamp(2.8rem, 5vw, 4.5rem);
+            }
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .crispe-steps {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Revert to auto-fit for potentially wider layout */
+            }
+        }
+
+        /* Large devices (large desktops, 1200px and up) */
+        @media (min-width: 1200px) {
+            .container {
+                width: var(--container-max-width); /* Use max-width directly */
+            }
+            header h1 {
+                font-size: clamp(3rem, 4vw, 5rem);
+            }
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr); /* Explicitly 3 columns for large screens */
+            }
+            .crispe-steps {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Allow more flexibility */
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://techvridha.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Background Animation Orbs -->
+    <div class="background-orb-container">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1 class="gradient-mask-header">Unlock AI Power: Better Prompts, Superior Results</h1>
+            <p>Tired of AI producing "garbage results"? Discover the CRISPE method to transform your AI interactions and achieve up to 3x productivity and 40% better outcomes.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <div class="section-title">
+                <h2>Why Standard Prompts Fail</h2>
+            </div>
+            <div class="section-geometric-bg problems">
+                <div class="card-grid">
+                    <div class="card">
+                        <span class="card-badge">Problem 1</span>
+                        <h3>Vague Expectations</h3>
+                        <p>Most users miss a critical step: providing clear context, role, instructions, specifications, and performance metrics. This leads AI to guess, resulting in generic or irrelevant output.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-badge pink">Problem 2</span>
+                        <h3>Missed Opportunities</h3>
+                        <p>Companies like Microsoft and Google have mastered structured prompting, seeing significant improvements. Without this structure, you're leaving massive AI potential on the table.</p>
+                    </div>
+                    <div class="card">
+                        <span class="card-badge">Problem 3</span>
+                        <h3>90% Ineffectiveness</h3>
+                        <p>The statistic speaks for itself: a staggering 90% of people don't get satisfactory results from AI due to a lack of structured input. It's time to change that.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="section-title">
+                <h2>The CRISPE Method: Your AI Prompting Blueprint</h2>
+            </div>
+            <div class="section-geometric-bg crispe">
+                <div class="crispe-steps">
+                    <div class="crispe-step">
+                        <h3 class="crispe-step-title">
+                            <span class="badge">C</span>
+                            CONTEXT
+                        </h3>
+                        <ul>
+                            <li>Set the stage: provide business/situation info.</li>
+                            <li>State the objective and desired background.</li>
+                            <li>Specify the target audience for output.</li>
+                        </ul>
+                    </div>
+                    <div class="crispe-step">
+                        <h3 class="crispe-step-title pink">
+                            <span class="badge pink">R</span>
+                            ROLE
+                        </h3>
+                        <ul>
+                            <li>Instruct AI to adopt a persona.</li>
+                            <li>Example: "Act as a senior data analyst with 15 years of experience."</li>
+                        </ul>
+                    </div>
+                    <div class="crispe-step">
+                        <h3 class="crispe-step-title">
+                            <span class="badge">I</span>
+                            INSTRUCTION
+                        </h3>
+                        <ul>
+                            <li>Break down the task into clear steps.</li>
+                            <li>Specify desired output format (bullet points, paragraphs, etc.).</li>
+                            <li>Define length requirements and tone of voice.</li>
+                        </ul>
+                    </div>
+                    <div class="crispe-step">
+                        <h3 class="crispe-step-title pink">
+                            <span class="badge pink">S</span>
+                            SPECIFICATION
+                        </h3>
+                        <ul>
+                            <li>Define "how" the task should be performed.</li>
+                            <li>Reiterate format, length, and tone.</li>
+                            <li>Indicate specific elements to include.</li>
+                        </ul>
+                    </div>
+                    <div class="crispe-step">
+                        <h3 class="crispe-step-title">
+                            <span class="badge">P</span>
+                            PERFORMANCE
+                        </h3>
+                        <ul>
+                            <li>Define metrics for success.</li>
+                            <li>State desired outcomes or specific metrics.</li>
+                            <li>Specify what to avoid.</li>
+                            <li>Provide examples or benchmarks.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="section-title">
+                <h2>Real-World Impact & AI Functionality</h2>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <span class="card-badge">Success 1</span>
+                    <h3>Google's 3x Productivity</h3>
+                    <p>Users employing structured prompts saw a "3x more productive" outcome with AI tools, demonstrating the power of precise guidance.</p>
+                </div>
+                <div class="card">
+                    <span class="card-badge pink">Success 2</span>
+                    <h3>Google's 40% Better Results</h3>
+                    <p>Google achieved "40% better results in Gmail" by applying structured prompting principles, highlighting practical, measurable improvements.</p>
+                </div>
+                <div class="card">
+                    <span class="card-badge">AI Insight</span>
+                    <h3>AI as a Pattern Seeker</h3>
+                    <p>AI systems excel at recognizing patterns. A structured prompt acts as a clear "map" or blueprint, guiding the AI precisely where you want it to go.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container cta-section">
+            <h2>Ready to Master Your AI Interactions?</h2>
+            <p>Shift from vague requests to precise, structured prompts using the CRISPE framework. Transform your AI outputs from 'garbage' to groundbreaking insights and measurable results.</p>
+            <a href="https://techvridha.vercel.app/contact" class="cta-button">Start Transforming Your AI Now!</a>
+            <!-- Link updated to reflect your website's structure for a contact/action page -->
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 TechVridha. All rights reserved. | Crafted with <span style="color: var(--color-pink);">♥</span> | <a href="#!">Privacy Policy</a> | <a href="#!">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating Theme Toggle (Placeholder) -->
+    <div class="theme-toggle" id="themeToggle" title="Toggle Theme (Future Feature)">
+        <!-- Font Awesome example, requires Font Awesome CDN inclusion if used -->
+        <!-- <i class="fas fa-moon"></i> -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </div>
+
+    <script>
+        // No complex JavaScript needed for core functionality,
+        // but can be extended for dynamic features.
+
+        // Example: Theme Toggle Placeholder
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                alert('Theme toggle functionality is a future feature!');
+                // In a real implementation, this would toggle CSS variables
+                // to change color themes.
+            });
+        }
+
+        // Smooth scrolling for anchor links (if any were added later)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add subtle animations on scroll for cards (optional enhancement)
+        const cards = document.querySelectorAll('.card, .crispe-step');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        cards.forEach(card => {
+            card.style.opacity = '0'; // Initially hidden
+            card.style.transform = 'translateY(20px)'; // Slight downward push
+            observer.observe(card);
+        });
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/winspeed">Win Speed</a><a href="/laptop-specs">Laptop Specs</a><a href="/jsblitz">JS Blitz</a><a href="/prismadb">Prisma DB Speed</a><a href="/prisma">Prisma MongoDB Secrets</a><a href="/threejsflow">ThreeJS Flow</a><a href="/3dprotips">3D ProTips</a><a href="/prismapower">Prisma Power</a><a href="/linuxpowerkeys">Linux PowerKeys</a><a href="/linuxcore">Linux Core</a><a href="/typemaster">Type Master</a><a href="/tsrefine">TS Refine</a><a href="/tsmaster">TS Master</a><a href="/reactrender">React Render</a><a href="/reactsolid">React SOLID</a><a href="/reactkeys">React Keys</a><a href="/reactcore">React Core</a><a href="/htmlpower">HTML Power Ups</a><a href="/jsmaster">JS Master</a><a href="/jscore">JS Core</a><a href="/purecssscroll">Pure CSS Scroll</a><a href="/cloudnative">Cloud Native Explained</a><a href="/codeclean">Code Clean</a><a href="/awdevskills">AWS DevSkills</a><a href="/backend-mastery">Backend MASTERY</a><a href="/motiontext">Motion Text</a><a href="/cssfuncs">CSS Funcs</a><a href="/aistackunlocked">AI Stack Unlocked</a><a href="/canvaanimate">Canva Animate</a><a href="/cssrules">CSS Rules</a><a href="/cssscale">CSS Scale</a><a href="/pixelglitch">Pixel Glitch</a><a href="/proxies">Proxy, Balance, Gateway</a><a href="/authevolution">Auth Evolved</a><a href="/csspopovers">CSS Popovers</a><a href="/csslayout">CSS Layout Mastery</a><a href="/cssatrt">CSS Attr Type</a><a href="/csspos">CSS Pos</a><a href="/cssevolution">CSS Evolve</a><a href="/scrollfx">Scroll FX</a><a href="/cssflow">CSS Flow</a><a href="/stopscroll">Stop Scroll</a><a href="/geminivisions">Gemini Visions</a><a href="/algosecrets">Algorithm Secrets</a><a href="/buildaitools">Build AI Tools</a><a href="/designflaws">Design Flaws</a><a href="/designmastery">Design Mastery</a><a href="/designtrends">Design Trends</a><a href="/designgear">Design Gear</a><a href="/taxhacks">Tax Hacks</a><a href="/androidhacks">Android Hacks</a><a href="/spartangains">Spartan Gains</a><a href="/aiuxshift">AI UX Shift</a><a href="/speakfluent">Speak fluent</a><a href="/uicolorguide">UI Colors Guide</a><a href="/designessn">Design ESSN</a><a href="/aicodewins">AI Code Wins</a><a href="/2026gamesignite">2026 Games Ignite</a><a href="/designprovideo">Design Pro Video</a><a href="/claudechat">Claude Chat</a><a href="/cmdsecrets">CMD Secrets</a><a href="/ainow">AI Now</a><a href="/videomastery">Video Mastery</a><a href="/codetruths">Code Truths</a><a href="/harnesslust">Harness Lust</a><a href="/top16pc">Top PC Games</a><a href="/claudeoffline">Claude Offline</a><a href="/ownyourtruth">Own Your Truth</a><a href="/ypppayouts">YPP Payouts</a><a href="/ramboost">RAM Boost</a><a href="/gamervision">Gamer Vision</a><a href="/serverhacks">Server Hacks</a><a href="/win11makeover">Win11 Makeover</a><a href="/learnfaster">Learn Faster</a><a href="/AILimits">AI Limits</a><a href="/aivideoscale">AI Video Scale</a><a href="/aicareer">AI Career Path</a><a href="/claudemotion">Claude Motion</a><a href="/trademaster">TradeMaster</a><a href="/codehour">Code Hour</a><a href="/sorashut">Sora Shut</a><a href="/hostmine">Host Mine</a><a href="/earnnown">Earn Now</a><a href="/iphonehacks">iPhone Hacks</a><a href="/sleephack">Sleep Hack</a><a href="/genzdebt">Gen Z Debt</a><a href="/cloudpro">Cloud Pro</a><a href="/glow-up">Glow Up</a><a href="/achievegoals">Achieve Goals</a><a href="/wealthfirst">Wealth First</a><a href="/aicareer">AI Career</a><a href="/2minboost">2 Min Boost</a><a href="/mindhack">Mind Hack</a><a href="/aimodel">AI Model</a><a href="/mastergrit">Master Grit</a><a href="/tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```
+
+### Explanation and Design Choices:
+
+1.  **Single File Integration:** All HTML, CSS, and JavaScript are within a single `.html` file for maximum portability and fast loading.
+2.  **SEO Optimization:**
+    *   **Meta Tags:** All provided meta tags (title, description, keywords, OG, Twitter) are integrated exactly as requested into the `<head>`. The keywords are a combination of your provided long-tail and trending tags.
+    *   **Semantic HTML5:** Uses `header`, `main`, `section`, `footer` for clear structure.
+    *   **Page Title:** Matches the `meta title` for consistency.
+3.  **Glassmorphic UI/UX:**
+    *   **Color Palette:** `var(--color-indigo)`, `var(--color-pink)`, and `var(--color-slate-900)` are defined and used extensively.
+    *   **Background Orbs:** Implemented using `position: fixed`, `z-index: -1`, and CSS animations (`@keyframes float`) to create a dynamic, ambient background. The orbs use radial gradients and blur filters for a soft, ethereal effect.
+    *   **Frosted Glass Effect:** Achieved with `background: rgba(255, 255, 255, 0.05)`, `backdrop-filter: blur(Xpx) saturate(Y)`, and `border: 1px solid rgba(255, 255, 255, 0.1)`. This is applied to the header, cards, and other interactive elements.
+    *   **Typography:**
+        *   Uses Google Fonts' `Inter` (`https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'`) as a close and high-quality sans-serif alternative to SF Pro Display.
+        *   **Fluid Scaling (`clamp()`):** `h1`, `h2`, `h3`, and body text sizes use `clamp()` for dynamic scaling based on viewport width, ensuring readability across devices.
+        *   **Gradient Mask Header:** The main `<h1>` tag uses `-webkit-background-clip: text;` and `background-clip: text;` with a `linear-gradient` to create the requested gradient-masked effect.
+    *   **Interactive Elements:**
+        *   **3D Card Lifting:** `transform: translateY(-10px);` on hover for cards.
+        *   **Border Color Transitions:** The `::before` pseudo-element on cards creates a dynamic gradient border that appears on hover, animated with `border-gradient-pulse`.
+        *   **Floating Theme Toggle:** A fixed-position button with a hover effect, serving as a placeholder for future functionality. Includes a feather icon SVG for a clean look.
+    *   **Geometric Patterns:** Implemented using `background-image` with SVG data URIs for specific sections. These are subtle and designed to add a tech-forward feel without being overpowering.
+    *   **Rank Badges:** Small, absolute-positioned elements (`.card-badge`, `.crispe-step-title .badge`) to visually categorize content.
+4.  **Content Structure & Hierarchy:**
+    *   The content is broken down into logical sections (`<section>`) with clear `<h2>` titles.
+    *   The "Problem" and "CRISPE" sections use distinct geometric background patterns and styling to visually differentiate them.
+    *   The "CRISPE" method steps are presented in a responsive grid for clarity.
+5.  **Responsiveness (Mobile-First):**
+    *   The core styles are designed for small screens.
+    *   Media queries (`@media (min-width: ...)`) gradually adjust layout, spacing, and font sizes for larger screens (tablets, desktops).
+    *   Flexbox and Grid are used for layout, ensuring adaptability. `repeat(auto-fit, minmax(X, 1fr))` is used for cards to automatically adjust column counts.
+6.  **Premium User Experience:**
+    *   **Smooth Transitions:** Consistent use of `transition` properties with `cubic-bezier(0.4, 0.0, 0.2, 1)` for fluid animations.
+    *   **Subtle Interactions:** Hover effects are designed to be engaging without being distracting.
+    *   **Accessibility:** Basic considerations like `scroll-behavior: smooth` and semantic HTML are included. The text contrast is generally good against the dark background.
+    *   **Lightweight:** Avoids external image dependencies (except for fonts) by using CSS for backgrounds and patterns.
+7.  **JavaScript:**
+    *   Kept minimal for a single-file solution focused on performance.
+    *   Includes a placeholder for the theme toggle.
+    *   Adds optional scroll-based fade-in/slide-up animations for cards using `IntersectionObserver` for an enhanced visual experience as the user scrolls.
+    *   Smooth scrolling for any potential internal links.
+
+This solution aims to be visually striking, functionally robust, and highly performant, delivering a premium, on-brand experience for users seeking to improve their AI prompting skills.

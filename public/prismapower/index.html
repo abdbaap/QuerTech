@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags for SEO Optimization -->
+    <title>Prisma Power-Up: Faster, Real-time DB Apps</title>
+    <meta name="description" content="Tired of slow databases & complex real-time? Unlock Prisma's advanced Studio, Accelerate caching, and Pulse CDC for lightning-fast, reactive apps. Go beyond the basics!">
+    <meta name="keywords" content="prisma database optimization, prisma accelerate vs traditional caching, prisma pulse real-time database updates, optimize database queries with prisma, prisma schema organization best practices, prisma connection pooling serverless, change data capture prisma application, prisma orm advanced features explained, speed up prisma database performance, building reactive apps with prisma, prisma studio data exploration tutorial, prisma accelerate query cache, prisma schema folder for large projects, handling database connection limits prisma, prisma accelerate response time optimization">
+    <meta name="author" content="TechVridha">
+    <meta property="og:title" content="Prisma Power-Up: Faster, Real-time DB Apps">
+    <meta property="og:description" content="Unlock Prisma's advanced Studio, Accelerate caching, and Pulse CDC for lightning-fast, reactive apps. Go beyond the basics!">
+    <meta property="og:image" content="https://techvridha.vercel.app/og-image.png"> <!-- Placeholder for your OG image -->
+    <meta property="og:url" content="https://techvridha.vercel.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prisma Power-Up: Faster, Real-time DB Apps">
+    <meta name="twitter:description" content="Unlock Prisma's advanced Studio, Accelerate caching, and Pulse CDC for lightning-fast, reactive apps. Go beyond the basics!">
+    <meta name="twitter:image" content="https://techvridha.vercel.app/twitter-image.png"> <!-- Placeholder for your Twitter image -->
+    <link rel="canonical" href="https://techvridha.vercel.app">
+
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate: #09172a;
+            --color-slate-darker: #070f1f;
+            --color-slate-light: #1f2937;
+            --color-white-translucent: rgba(255, 255, 255, 0.1);
+            --color-white-hover: rgba(255, 255, 255, 0.2);
+
+            --font-primary: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+            --animation-duration-fast: 0.2s;
+            --animation-duration-medium: 0.4s;
+            --animation-duration-slow: 0.6s;
+
+            --border-radius: 12px;
+            --card-padding: 24px;
+            --container-max-width: 1200px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px; /* Base font size */
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-slate-darker);
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            display: grid;
+            grid-template-rows: auto 1fr auto; /* Header, Main, Footer */
+            min-height: 100vh;
+            position: relative; /* For background orbs */
+            overflow: hidden; /* Ensure background elements don't overflow */
+        }
+
+        /* --- Background Orbs Animation --- */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden; /* Crucial to contain orbs */
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0) 70%),
+                        radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(236, 72, 153, 0) 70%);
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0;
+            animation: float var(--animation-duration-slow) infinite ease-in-out alternate;
+            will-change: transform, opacity;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-50px) scale(1.2);
+                opacity: 0.9;
+            }
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem); /* Fluid scaling */
+            background: linear-gradient(90deg, var(--color-indigo) 0%, var(--color-pink) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block; /* To make background clip work */
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3.5vw + 1rem, 3rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 2.5vw + 1rem, 2.2rem);
+        }
+
+        p {
+            font-size: clamp(1rem, 1.5vw + 0.5rem, 1.2rem);
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            transition: color var(--animation-duration-fast) ease;
+        }
+
+        a:hover {
+            color: var(--color-pink);
+        }
+
+        /* --- Layout and Containers --- */
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            position: relative; /* For z-index management with background */
+            z-index: 1; /* Above background orbs */
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--color-slate-light);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(90deg, var(--color-indigo) 0%, var(--color-pink) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color var(--animation-duration-fast) ease;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* --- Main Content Area --- */
+        main {
+            padding: 60px 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden; /* To contain geometric patterns */
+        }
+
+        .hero-section h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .hero-section p {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-size: clamp(1.1rem, 2vw + 0.6rem, 1.3rem);
+            opacity: 0.9;
+        }
+
+        /* --- Geometric Pattern for Hero Section --- */
+        .geometric-patterns {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            z-index: 0; /* Behind content */
+            overflow: hidden; /* Ensure patterns stay within bounds */
+        }
+
+        .geometric-patterns::before,
+        .geometric-patterns::after {
+            content: '';
+            position: absolute;
+            background-repeat: repeat;
+            opacity: 0.6;
+        }
+
+        /* Example: Diagonal Lines */
+        .geometric-patterns::before {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: repeating-linear-gradient(45deg, var(--color-indigo) 2px, transparent 2px, transparent 20px, var(--color-pink) 2px, transparent 2px);
+            filter: blur(80px);
+        }
+
+        /* Example: Dots */
+        .geometric-patterns::after {
+            bottom: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background-image: radial-gradient(circle, var(--color-pink) 2px, transparent 2px);
+            background-size: 20px 20px;
+            filter: blur(30px);
+            animation: pulseDots var(--animation-duration-slow) infinite ease-in-out alternate;
+        }
+
+        @keyframes pulseDots {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-pink));
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all var(--animation-duration-fast) ease-in-out;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+            border: 1px solid transparent; /* For potential border hover effect */
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.6);
+            background: linear-gradient(90deg, var(--color-pink), var(--color-indigo)); /* Gradient flip */
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .button:active {
+            transform: translateY(0);
+            box-shadow: 0 3px 10px rgba(99, 102, 241, 0.3);
+        }
+
+        /* --- Content Sections --- */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-description {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            text-align: center;
+            font-size: clamp(1rem, 1.8vw + 0.5rem, 1.2rem);
+            opacity: 0.85;
+        }
+
+        /* --- Feature Cards (Glassmorphic UI) --- */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            padding: var(--card-padding);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform var(--animation-duration-medium) cubic-bezier(0.25, 0.8, 0.25, 1),
+                        box-shadow var(--animation-duration-medium) cubic-bezier(0.25, 0.8, 0.25, 1),
+                        border-color var(--animation-duration-fast) ease;
+            position: relative;
+            overflow: hidden; /* To contain effects */
+            cursor: pointer; /* Indicate interactivity */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+            border-color: var(--color-indigo);
+        }
+
+        .feature-card:hover .feature-icon::after {
+            transform: scale(1.1);
+            opacity: 0.6;
+        }
+
+        /* Rank Badges */
+        .rank-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(90deg, var(--color-pink), var(--color-indigo));
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .feature-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--animation-duration-fast) ease;
+        }
+
+        .feature-icon::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 10%, transparent 50%);
+            border-radius: 50%;
+            opacity: 0.3;
+            transition: transform var(--animation-duration-fast) ease, opacity var(--animation-duration-fast) ease;
+            z-index: 1;
+        }
+
+        .feature-icon img { /* Placeholder for icon images if needed, otherwise CSS shapes */
+            max-width: 40px;
+            max-height: 40px;
+            z-index: 2; /* Ensure icon is above radial gradient */
+        }
+
+        /* CSS Geometric shapes as icons */
+        .feature-icon .icon-shape {
+            width: 30px;
+            height: 30px;
+            background: white;
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>'); /* Example: A triangle */
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            z-index: 2;
+        }
+
+        /* --- Specific Feature Card Content Styling --- */
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: white;
+            background: linear-gradient(90deg, var(--color-indigo) 0%, var(--color-pink) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            opacity: 0.8;
+            flex-grow: 1; /* Push content to bottom if needed */
+        }
+
+        /* --- Call to Action Section --- */
+        .cta-section {
+            background-color: var(--color-slate-light);
+            padding: 80px 0;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: clamp(1.1rem, 1.8vw + 0.5rem, 1.3rem);
+            opacity: 0.85;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Floating Theme Toggle --- */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--color-slate-light);
+            border-radius: 50%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 100;
+            transition: all var(--animation-duration-fast) ease;
+            border: 1px solid var(--color-white-translucent);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
+            border-color: var(--color-indigo);
+        }
+
+        .theme-toggle i { /* Font Awesome or similar icon */
+            color: var(--color-indigo);
+            font-size: 24px;
+            transition: transform var(--animation-duration-fast) ease;
+        }
+
+        .theme-toggle:hover i {
+            transform: rotate(360deg);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--color-slate-light);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: auto; /* Pushes footer to the bottom */
+            z-index: 1; /* Below toggle */
+        }
+
+        footer a {
+            color: var(--color-indigo);
+        }
+
+        footer a:hover {
+            color: var(--color-pink);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-section {
+                padding: 60px 0;
+            }
+
+            .hero-section h1 {
+                font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
+            }
+
+            .content-section {
+                padding: 40px 0;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr; /* Stack cards on smaller screens */
+            }
+
+            .feature-card {
+                padding: var(--card-padding);
+            }
+
+            .theme-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .theme-toggle i {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 15px; /* Slightly smaller base font on very small screens */
+            }
+
+            .hero-section h1 {
+                font-size: clamp(1.8rem, 5vw + 1rem, 3rem);
+            }
+
+            .button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+        }
+    </style>
+
+    <!-- Placeholder for Font Awesome (if you want icons for toggle) -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://techvridha.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- --- Background Orbs Animation --- -->
+    <div class="background-orbs">
+        <!-- Orbs will be generated and positioned by JavaScript -->
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">Prisma+: Beyond ORM</div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#optimization">Optimization</a></li>
+                    <li><a href="#realtime">Real-time</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="geometric-patterns"></div>
+                <h1>Unlock Prisma's Full Potential</h1>
+                <p>Go beyond the basics and leverage Prisma's advanced ecosystem for lightning-fast, real-time database applications. Optimize queries, manage data effortlessly, and build reactive experiences.</p>
+                <a href="#features" class="button">Explore Advanced Features</a>
+            </div>
+        </section>
+
+        <section id="features" class="content-section">
+            <div class="container">
+                <h2>Prisma Ecosystem: More Than Just an ORM</h2>
+                <p class="section-description">Discover the powerful suite of tools that elevate your database development workflow and application performance.</p>
+                <div class="feature-grid">
+                    <div class="feature-card" data-tooltip="Visualize and manipulate your database data with an intuitive GUI.">
+                        <span class="rank-badge">#1</span>
+                        <div class="feature-icon">
+                            <!-- CSS generated geometric pattern for icon -->
+                            <div class="icon-shape" style="background-color: var(--color-indigo); -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3V5M20 3V5M12 3V5M8 3V5M4 3V5M4 12V20M8 12V20M12 12V20M16 12V20M20 12V20M20 8H4M20 16H4"></path></svg>');"></div>
+                        </div>
+                        <h3>Prisma Studio</h3>
+                        <p>Effortlessly explore, edit, and manage your database data with a user-friendly graphical interface.</p>
+                    </div>
+                    <div class="feature-card" data-tooltip="Dramatically speed up your queries with a managed global caching layer.">
+                        <span class="rank-badge">#2</span>
+                        <div class="feature-icon">
+                            <div class="icon-shape" style="background-color: var(--color-pink); -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-4h-2v-5h2v5z"></path></svg>');"></div>
+                        </div>
+                        <h3>Prisma Accelerate</h3>
+                        <p>Reduce database load, improve response times, and solve connection pooling issues with intelligent caching and connection management.</p>
+                    </div>
+                    <div class="feature-card" data-tooltip="React to database changes in real-time and build dynamic, event-driven applications.">
+                        <span class="rank-badge">#3</span>
+                        <div class="feature-icon">
+                            <div class="icon-shape" style="background-color: var(--color-indigo); -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>');"></div>
+                        </div>
+                        <h3>Prisma Pulse</h3>
+                        <p>Stream database events (CDC) to your application for instant updates and build truly reactive user experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="optimization" class="content-section">
+            <div class="container">
+                <h2>Optimize Every Database Interaction</h2>
+                <p class="section-description">Learn how to fine-tune your Prisma setup for peak performance, scalability, and efficiency.</p>
+                <div class="feature-grid">
+                    <div class="feature-card" data-tooltip="Leverage 'relationLoadStrategy' for efficient data fetching.">
+                        <div class="feature-icon">
+                             <div class="icon-shape" style="background-color: var(--color-pink); -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>');"></div>
+                        </div>
+                        <h3>Query Optimization</h3>
+                        <p>Utilize Prisma Accelerate's caching, implement database-level joins (`relationLoadStrategy: 'join'`), and omit unnecessary fields to speed up responses.</p>
+                    </div>
+                    <div class="feature-card" data-tooltip="Organize large schemas into modular files for better maintainability.">
+                        <div class="feature-icon">
+                            <div class="icon-shape" style="background-color: var(--color-indigo); -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v13h9v-13M10 0h4v3h-4zM4 18h16v2H4z"></path></svg>');"></div>
+                        </div>
+                        <h3>Schema Organization</h3>
+                        <p>Segment your `schema.prisma` into multiple files (`.prisma` schema folder) for cleaner, more manageable codebases in larger projects.</p>
+                    </div>
+                    <div class="feature-card" data-tooltip="Configure preview features like 'relationJoins' for enhanced capabilities.">
+                        <div class="feature-icon">
+                            <div class="icon-shape" style="background-color: var(--color-pink); -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10l5 5 5-5M7 10l-3-3 3-3M17 10l3-3-3-3"></path></svg>');"></div>
+                        </div>
+                        <h3>Advanced Configuration</h3>
+                        <p>Enable cutting-edge features like `prismaSchemaFolder` and `relationJoins` via `previewFeatures` in your `schema.prisma` for early access to innovations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="realtime" class="content-section">
+            <div class="container">
+                <h2>Build Reactive Applications with Ease</h2>
+                <p class="section-description">Leverage Prisma Pulse and real-time data streaming to create dynamic, responsive user experiences.</p>
+                <div class="feature-grid">
+                    <div class="feature-card" data-tooltip="React instantly to database writes (create, update, delete).">
+                        <div class="feature-icon">
+                            <div class="icon-shape" style="background-color: var(--color-indigo); -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L16 13l-3 3 3 3 4-4 4-4L17 3z"></path><path d="M6 15l3 3 3-3"></path></svg>');"></div>
+                        </div>
+                        <h3>Change Data Capture (CDC)</h3>
+                        <p>Prisma Pulse utilizes CDC to detect and stream database write events, enabling your application to react instantly.</p>
+                    </div>
+                    <div class="feature-card" data-tooltip="Push real-time updates to clients without complex setup.">
+                        <div class="feature-icon">
+                            <div class="icon-shape" style="background-color: var(--color-pink); -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3m0 0h4a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H10v3zM7 15h10M7 19h10"></path></svg>');"></div>
+                        </div>
+                        <h3>Real-time Event Streaming</h3>
+                        <p>Subscribers receive database events as they happen, allowing for seamless updates of UI elements, notifications, and background processes.</p>
+                    </div>
+                    <div class="feature-card" data-tooltip="Build dynamic features like live notifications and collaborative editing.">
+                        <div class="feature-icon">
+                            <div class="icon-shape" style="background-color: var(--color-indigo); -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22V18a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6"></path><path d="M20.5 10.5l-6-6a2.828 2.828 0 0 0-4 0l-6 6"></path></svg>');"></div>
+                        </div>
+                        <h3>Reactive Applications</h3>
+                        <p>Trigger actions based on database changes, such as sending email alerts, updating dashboards, or enabling collaborative editing features.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Supercharge Your Database?</h2>
+                <p>Stop settling for basic ORM functionality. Embrace the full power of Prisma's ecosystem and transform your application's performance and responsiveness.</p>
+                <a href="https://www.prisma.io/docs" class="button" target="_blank" rel="noopener noreferrer">Dive into Prisma Docs</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            © <script>document.write(new Date().getFullYear())</script> TechVridha. All rights reserved. | Visit <a href="https://techvridha.vercel.app" target="_blank" rel="noopener noreferrer">techvridha.vercel.app</a>
+        </div>
+    </footer>
+
+    <!-- Floating Theme Toggle (Optional - Add Font Awesome for icon) -->
+    <div class="theme-toggle" id="themeToggle">
+        <!-- Replace with an actual icon if using Font Awesome -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun" width="24" height="24" style="color: var(--color-indigo);">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </div>
+
+    <script>
+        // --- JavaScript for Interactivity and Animations ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Background Orb Animation ---
+            const backgroundOrbsContainer = document.querySelector('.background-orbs');
+            const numOrbs = 10; // Number of orbs to create
+
+            for (let i = 0; i < numOrbs; i++) {
+                const orb = document.createElement('div');
+                orb.classList.add('orb');
+
+                // Random position and size
+                const size = Math.random() * 300 + 100; // Size between 100px and 400px
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+
+                orb.style.width = `${size}px`;
+                orb.style.height = `${size}px`;
+                orb.style.top = `${top}%`;
+                orb.style.left = `${left}%`;
+
+                // Random animation delay and duration
+                const delay = Math.random() * 10; // seconds
+                const duration = Math.random() * 4 + 4; // seconds (4 to 8 seconds)
+                orb.style.animationDuration = `${duration}s`;
+                orb.style.animationDelay = `-${delay}s`; // Negative delay to start mid-animation
+
+                // Random blur and opacity for variation
+                const blur = Math.random() * 50 + 100;
+                orb.style.filter = `blur(${blur}px)`;
+                orb.style.opacity = Math.random() * 0.3 + 0.3; // Opacity between 0.3 and 0.6
+
+                backgroundOrbsContainer.appendChild(orb);
+            }
+
+            // --- Smooth Scrolling for Navigation ---
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // --- Tooltip Functionality ---
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(card => {
+                const tooltipText = card.getAttribute('data-tooltip');
+                if (tooltipText) {
+                    const tooltip = document.createElement('div');
+                    tooltip.classList.add('feature-tooltip');
+                    tooltip.textContent = tooltipText;
+                    card.appendChild(tooltip);
+
+                    card.addEventListener('mouseenter', () => {
+                        tooltip.style.opacity = '1';
+                        tooltip.style.visibility = 'visible';
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        tooltip.style.opacity = '0';
+                        tooltip.style.visibility = 'hidden';
+                    });
+                }
+            });
+
+            // --- Theme Toggle Functionality ---
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const sunIcon = themeToggle.querySelector('.feather'); // Assuming the SVG is directly under themeToggle
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-theme');
+                if (sunIcon) sunIcon.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`; // Moon icon path
+            } else {
+                body.classList.remove('dark-theme');
+                if (sunIcon) sunIcon.innerHTML = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`; // Sun icon path
+            }
+
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                if (body.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark');
+                    if (sunIcon) sunIcon.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`; // Moon icon path
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    if (sunIcon) sunIcon.innerHTML = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`; // Sun icon path
+                }
+            });
+
+            // Add a simple CSS class for tooltips
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .feature-tooltip {
+                    position: absolute;
+                    bottom: 110%; /* Position above the card */
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 5px;
+                    font-size: 0.85rem;
+                    white-space: nowrap;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.3s ease, visibility 0.3s ease;
+                    z-index: 10;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+                }
+                .feature-card:hover .feature-tooltip {
+                    bottom: 100%; /* Adjust position when visible */
+                }
+            `;
+            document.head.appendChild(style);
+
+        });
+    </script>
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/linuxpowerkeys">Linux PowerKeys</a><a href="/linuxcore">Linux Core</a><a href="/typemaster">Type Master</a><a href="/tsrefine">TS Refine</a><a href="/tsmaster">TS Master</a><a href="/reactrender">React Render</a><a href="/reactsolid">React SOLID</a><a href="/reactkeys">React Keys</a><a href="/reactcore">React Core</a><a href="/htmlpower">HTML Power Ups</a><a href="/jsmaster">JS Master</a><a href="/jscore">JS Core</a><a href="/purecssscroll">Pure CSS Scroll</a><a href="/cloudnative">Cloud Native Explained</a><a href="/codeclean">Code Clean</a><a href="/awdevskills">AWS DevSkills</a><a href="/backend-mastery">Backend MASTERY</a><a href="/motiontext">Motion Text</a><a href="/cssfuncs">CSS Funcs</a><a href="/aistackunlocked">AI Stack Unlocked</a><a href="/canvaanimate">Canva Animate</a><a href="/cssrules">CSS Rules</a><a href="/cssscale">CSS Scale</a><a href="/pixelglitch">Pixel Glitch</a><a href="/proxies">Proxy, Balance, Gateway</a><a href="/authevolution">Auth Evolved</a><a href="/csspopovers">CSS Popovers</a><a href="/csslayout">CSS Layout Mastery</a><a href="/cssatrt">CSS Attr Type</a><a href="/csspos">CSS Pos</a><a href="/cssevolution">CSS Evolve</a><a href="/scrollfx">Scroll FX</a><a href="/cssflow">CSS Flow</a><a href="/stopscroll">Stop Scroll</a><a href="/geminivisions">Gemini Visions</a><a href="/algosecrets">Algorithm Secrets</a><a href="/buildaitools">Build AI Tools</a><a href="/designflaws">Design Flaws</a><a href="/designmastery">Design Mastery</a><a href="/designtrends">Design Trends</a><a href="/designgear">Design Gear</a><a href="/taxhacks">Tax Hacks</a><a href="/androidhacks">Android Hacks</a><a href="/spartangains">Spartan Gains</a><a href="/aiuxshift">AI UX Shift</a><a href="/speakfluent">Speak fluent</a><a href="/uicolorguide">UI Colors Guide</a><a href="/designessn">Design ESSN</a><a href="/aicodewins">AI Code Wins</a><a href="/2026gamesignite">2026 Games Ignite</a><a href="/designprovideo">Design Pro Video</a><a href="/claudechat">Claude Chat</a><a href="/cmdsecrets">CMD Secrets</a><a href="/ainow">AI Now</a><a href="/videomastery">Video Mastery</a><a href="/codetruths">Code Truths</a><a href="/harnesslust">Harness Lust</a><a href="/top16pc">Top PC Games</a><a href="/claudeoffline">Claude Offline</a><a href="/ownyourtruth">Own Your Truth</a><a href="/ypppayouts">YPP Payouts</a><a href="/ramboost">RAM Boost</a><a href="/gamervision">Gamer Vision</a><a href="/serverhacks">Server Hacks</a><a href="/win11makeover">Win11 Makeover</a><a href="/learnfaster">Learn Faster</a><a href="/AILimits">AI Limits</a><a href="/aivideoscale">AI Video Scale</a><a href="/aicareer">AI Career Path</a><a href="/claudemotion">Claude Motion</a><a href="/trademaster">TradeMaster</a><a href="/codehour">Code Hour</a><a href="/sorashut">Sora Shut</a><a href="/hostmine">Host Mine</a><a href="/earnnown">Earn Now</a><a href="/iphonehacks">iPhone Hacks</a><a href="/sleephack">Sleep Hack</a><a href="/genzdebt">Gen Z Debt</a><a href="/cloudpro">Cloud Pro</a><a href="/glow-up">Glow Up</a><a href="/achievegoals">Achieve Goals</a><a href="/wealthfirst">Wealth First</a><a href="/aicareer">AI Career</a><a href="/2minboost">2 Min Boost</a><a href="/mindhack">Mind Hack</a><a href="/aimodel">AI Model</a><a href="/mastergrit">Master Grit</a><a href="/tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

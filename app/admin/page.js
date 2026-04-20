@@ -58,6 +58,9 @@ const [urlListInCaseOfError, setUrlListInCaseOfError] = useState([])
       // --- LOGIC STEPS (Use 'item.url' and 'item.category', NOT state) ---
       
       const summary = await MakingADeepSummaryOfTheVideo(item.url);
+      setTimeout(() => {
+        
+      }, 10000);
       if (!summary || !summary.success) {
         console.error("Summary failed for:", item.url);
         setUrlListInCaseOfError([...urlListInCaseOfError,item.url])
@@ -65,8 +68,14 @@ const [urlListInCaseOfError, setUrlListInCaseOfError] = useState([])
       }
 
       const MetaTags = await MakingSeoFriendlyMetaTagsForBlog(summary.summary);
+      setTimeout(() => {
+        
+      }, 10000);
       
       const code = await GeneratingDeepCode(summary.summary, MetaTags.metaTags);
+      setTimeout(() => {
+        
+      }, 10000);
       if (!code || !code.success) {
         console.error("Code generation failed for:", item.url);
         setUrlListInCaseOfError([...urlListInCaseOfError,item.url])
@@ -74,6 +83,9 @@ const [urlListInCaseOfError, setUrlListInCaseOfError] = useState([])
       }
 
       const TitleFolder = await DecidingTitleFolder(summary.summary);
+      setTimeout(() => {
+        
+      }, 10000);
       
       if (TitleFolder && TitleFolder.success) {
         // Use item.category directly from the queue object
@@ -132,6 +144,9 @@ const [urlListInCaseOfError, setUrlListInCaseOfError] = useState([])
   setLoading(false);
   setMessage("Batch process complete!");
   console.log("Batch process complete!");
+  setTimeout(() => {
+    
+  }, 60*1000);
 return urlListForBlogGeneration
 }
 

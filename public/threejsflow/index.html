@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="🚀 Three.js: Pro 3D Web Tips & Tricks">
+    <meta name="description" content="Tired of basic 3D web? Unlock stunning visuals with these 10 essential Three.js tips: bloom, outlines, fog, scroll animations, and more! Elevate your scenes NOW.">
+    <meta name="keywords" content="Three.js tutorial for beginners, Enhance Three.js web development, Three.js post processing effects, How to add bloom effect Three.js, Three.js outline effect tutorial, Three.js geometry manipulation, Three.js background integration, Save Three.js scene as image, Scroll based animations Three.js, Three.js fog effects tutorial, Master Three.js 3D web, Best Three.js techniques, Web 3D development tips, #ThreeJS, #3DWebDevelopment, #Web3D, #JavaScript3D, #CreativeCoding, #GameDev, #WebGL, #FrontendDevelopment, #UIUX, #VisualEffects, #TechTips, #CodingTutorial, #BloomEffect, #ScrollAnimation, #3DScene">
+    <meta name="author" content="TechVridha">
+    <meta property="og:title" content="🚀 Three.js: Pro 3D Web Tips & Tricks">
+    <meta property="og:description" content="Tired of basic 3D web? Unlock stunning visuals with these 10 essential Three.js tips: bloom, outlines, fog, scroll animations, and more! Elevate your scenes NOW.">
+    <meta property="og:image" content="https://techvridha.vercel.app/og-image.png"> <!-- Placeholder for OG image -->
+    <meta property="og:url" content="https://techvridha.vercel.app">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="🚀 Three.js: Pro 3D Web Tips & Tricks">
+    <meta name="twitter:description" content="Tired of basic 3D web? Unlock stunning visuals with these 10 essential Three.js tips: bloom, outlines, fog, scroll animations, and more! Elevate your scenes NOW.">
+    <meta name="twitter:image" content="https://techvridha.vercel.app/twitter-image.png"> <!-- Placeholder for Twitter image -->
+
+    <title>🚀 Three.js: Pro 3D Web Tips & Tricks</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-900: #09172a; /* Darkest slate */
+            --color-slate-800: #1e293b; /* Slightly lighter slate for backgrounds */
+            --color-slate-700: #334155; /* For secondary text/elements */
+            --color-slate-300: #94a3b8; /* For subtle text/borders */
+            --color-white-transparent: rgba(255, 255, 255, 0.1);
+            --color-primary-gradient: linear-gradient(45deg, var(--color-indigo), var(--color-pink));
+            --color-secondary-gradient: linear-gradient(45deg, var(--color-pink), var(--color-indigo));
+
+            --font-primary: 'SF Pro Display', sans-serif;
+
+            --animation-duration-fast: 0.3s;
+            --animation-duration-medium: 0.5s;
+            --animation-duration-slow: 0.8s;
+
+            --border-radius: 8px;
+            --card-padding: 1.5rem;
+            --spacing-unit: 1rem;
+        }
+
+        /* Global Styles - Mobile First */
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-primary);
+            background-color: var(--color-slate-900);
+            color: var(--color-slate-300);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            scroll-behavior: smooth;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #ffffff;
+            margin-bottom: var(--spacing-unit);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            margin-top: 2rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: var(--spacing-unit);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+        }
+
+        a {
+            color: var(--color-indigo);
+            text-decoration: none;
+            transition: color var(--animation-duration-fast) ease-in-out;
+        }
+
+        a:hover {
+            color: var(--color-pink);
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(9, 23, 42, 0.8); /* Dark slate with slight transparency */
+            padding: var(--spacing-unit) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-white-transparent);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            background: var(--color-primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: calc(var(--spacing-unit) * 2);
+        }
+
+        nav a {
+            color: var(--color-slate-300);
+            font-weight: 600;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color var(--animation-duration-fast) ease-in-out;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-indigo);
+            transition: width var(--animation-duration-fast) ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 4) var(--spacing-unit);
+            background: radial-gradient(circle, #1e293b 0%, #09172a 70%); /* Subtle radial gradient for depth */
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-weight: 700;
+            background: var(--color-primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: var(--color-slate-300);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-unit);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-primary-gradient);
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+            margin-top: var(--spacing-unit);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Content Section - Tools */
+        .content-section {
+            padding: calc(var(--spacing-unit) * 4) 0;
+            position: relative;
+            z-index: 2; /* Ensure content is above background orbs */
+        }
+
+        .content-section h2 {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            background: var(--color-primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: var(--card-padding);
+            text-align: center;
+            transition: transform var(--animation-duration-medium) cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow var(--animation-duration-medium) cubic-bezier(0.25, 0.8, 0.25, 1), border-color var(--animation-duration-medium) ease-in-out;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--color-indigo); /* Border color transition */
+        }
+
+        /* Rank Badges (CSS Generated) */
+        .tool-card .rank-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--color-pink);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(236, 72, 153, 0.4);
+        }
+
+        /* Geometric Patterns (CSS Generated) */
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.02),
+                rgba(255, 255, 255, 0.02) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            pointer-events: none;
+        }
+
+        .tool-card .icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-unit);
+            background: var(--color-secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tool-card h3 {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            margin-top: 0;
+            background: var(--color-primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.75rem;
+        }
+
+        .tool-card p {
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
+            color: var(--color-slate-300);
+        }
+
+        /* Tool Details (Modal/Overlay) - Hidden by default */
+        .tool-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(9, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity var(--animation-duration-medium) ease-in-out;
+        }
+
+        .tool-modal.visible {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--border-radius);
+            padding: calc(var(--spacing-unit) * 3);
+            max-width: 700px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform var(--animation-duration-medium) ease-out;
+        }
+
+        .tool-modal.visible .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: left;
+            background: var(--color-primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal-content h3 {
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            margin-top: var(--spacing-unit);
+            color: #ffffff;
+        }
+
+        .modal-content p {
+            color: var(--color-slate-300);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+        }
+
+        .modal-content ul {
+            list-style: disc;
+            margin-left: 20px;
+            color: var(--color-slate-300);
+        }
+
+        .modal-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-content a {
+            color: var(--color-indigo);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--color-slate-300);
+            cursor: pointer;
+            transition: color var(--animation-duration-fast) ease-in-out;
+        }
+
+        .close-modal:hover {
+            color: var(--color-pink);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: calc(var(--spacing-unit) * 2);
+            right: calc(var(--spacing-unit) * 2);
+            z-index: 1002; /* Above modals */
+            background: var(--color-slate-800);
+            border: 1px solid var(--color-white-transparent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background var(--animation-duration-fast) ease-in-out, border-color var(--animation-duration-fast) ease-in-out, transform 0.3s ease-out;
+        }
+
+        .theme-toggle:hover {
+            background: var(--color-slate-700);
+            border-color: var(--color-indigo);
+            transform: translateY(-3px);
+        }
+
+        .theme-toggle i {
+            font-size: 1.8rem;
+            color: var(--color-slate-300);
+            transition: color var(--animation-duration-fast) ease-in-out;
+        }
+
+        .theme-toggle:hover i {
+            color: var(--color-pink);
+        }
+
+        /* Ambient Background Orbs */
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, rgba(99,102,241,0) 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0;
+            animation: float var(--animation-duration-slow) infinite ease-in-out alternate;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 2) 0;
+            margin-top: auto; /* Pushes footer to the bottom */
+            background-color: var(--color-slate-800);
+            border-top: 1px solid var(--color-white-transparent);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--color-indigo);
+        }
+
+        /* Animation Keyframes */
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                transform: translateY(20px) scale(1.05);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: var(--spacing-unit);
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav li {
+                margin: 0.5rem calc(var(--spacing-unit) / 2);
+            }
+            .hero {
+                padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+            }
+            .tools-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+            .modal-content {
+                padding: calc(var(--spacing-unit) * 2);
+            }
+            .theme-toggle {
+                bottom: calc(var(--spacing-unit));
+                right: calc(var(--spacing-unit));
+                width: 50px;
+                height: 50px;
+            }
+            .theme-toggle i {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://techvridha.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Ambient Background Orbs -->
+    <div class="background-orbs">
+        <div class="orb" style="width: 300px; height: 300px; top: 10%; left: 5%; animation-delay: -2s;"></div>
+        <div class="orb" style="width: 400px; height: 400px; top: 60%; right: 10%; animation-delay: -4s;"></div>
+        <div class="orb" style="width: 250px; height: 250px; top: 30%; left: 40%; animation-delay: -3s;"></div>
+        <div class="orb" style="width: 350px; height: 350px; bottom: 5%; right: 30%; animation-delay: -5s;"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">TechVridha</div>
+            <nav>
+                <ul>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Master Three.js: 10 Essential Tips for Stunning 3D Web</h1>
+                <p>Elevate your 3D web development skills with cutting-edge techniques in Three.js. From advanced post-processing to interactive scroll animations, unlock the full potential of your web scenes.</p>
+                <a href="#tools" class="cta-button">Explore Techniques</a>
+            </div>
+        </section>
+
+        <section id="tools" class="content-section">
+            <div class="container">
+                <h2>Key Techniques & Tools</h2>
+                <div class="tools-grid">
+                    <div class="tool-card" data-tool-title="Save Scene as Image"
+                         data-tool-content="Demonstrates how to capture the current Three.js renderer state and save it as a downloadable image, often triggered by a keyboard shortcut. This is invaluable for debugging, sharing progress, or creating previews.">
+                        <span class="rank-badge">#1</span>
+                        <div class="icon">📸</div>
+                        <h3>Save Image</h3>
+                        <p>Capture your 3D scenes effortlessly.</p>
+                    </div>
+                    <div class="tool-card" data-tool-title="Bloom Effect"
+                         data-tool-content="Enhance visual depth and add a glow to bright areas of your scene using post-processing with BloomPass and EffectComposer. This technique breathes life into emissive materials and highlights.">
+                        <span class="rank-badge">#2</span>
+                        <div class="icon">✨</div>
+                        <h3>Bloom Post-Processing</h3>
+                        <p>Add luminous glow to your scenes.</p>
+                    </div>
+                    <div class="tool-card" data-tool-title="Outline Effect"
+                         data-tool-content="Create distinct outlines around objects by rendering them with a slightly scaled, separate material. This is perfect for highlighting interactable objects or adding a stylized look.">
+                        <span class="rank-badge">#3</span>
+                        <div class="icon">✏️</div>
+                        <h3>Outline Effect</h3>
+                        <p>Define objects with crisp outlines.</p>
+                    </div>
+                    <div class="tool-card" data-tool-title="Built-in Geometries"
+                         data-tool-content="Leverage Three.js's extensive library of pre-defined geometries like TeapotGeometry, IcosahedronGeometry, and TorusGeometry to quickly build complex shapes and scene elements without manual creation.">
+                        <span class="rank-badge">#4</span>
+                        <div class="icon">🔶</div>
+                        <h3>Built-in Geometries</h3>
+                        <p>Rapidly create complex shapes.</p>
+                    </div>
+                    <div class="tool-card" data-tool-title="Configurable Materials"
+                         data-tool-content="Master material properties like `flatShading: true` for a distinct stylized look, and `side: THREE.DoubleSide` to ensure geometries render correctly from all angles, crucial for intricate models.">
+                        <span class="rank-badge">#5</span>
+                        <div class="icon">🎨</div>
+                        <h3>Configurable Materials</h3>
+                        <p>Customize object appearances with precision.</p>
+                    </div>
+                    <div class="tool-card" data-tool-title="Exponential Fog"
+                         data-tool-content="Implement atmospheric depth using `THREE.FogExp2`. Control the fog color and density to create immersive environments and guide the viewer's eye through the scene.">
+                        <span class="rank-badge">#6</span>
+                        <div class="icon">🌫️</div>
+                        <h3>Exponential Fog</h3>
+                        <p>Add atmospheric depth and perspective.</p>
+                    </div>
+                    <div class="tool-card" data-tool-title="Gradient Backgrounds with Fog"
+                         data-tool-content="Utilize `gradientBackground` for dynamic backgrounds, with the `hasFog` property to control whether sprites interact with the scene's fog, adding another layer of realism and depth.">
+                        <span class="rank-badge">#7</span>
+                        <div class="icon">🌈</div>
+                        <h3>Gradient Backgrounds</h3>
+                        <p>Dynamic backgrounds with fog integration.</p>
+                    </div>
+                    <div class="tool-card" data-tool-title="Scroll-Based Animations"
+                         data-tool-content="Create interactive 3D experiences by linking object transformations (position, rotation, scale) to user scroll events. This allows for dynamic storytelling and engaging user interfaces.">
+                        <span class="rank-badge">#8</span>
+                        <div class="icon">↕️</div>
+                        <h3>Scroll-Based Animations</h3>
+                        <p>Animate 3D elements with scrolling.</p>
+                    </div>
+                    <div class="tool-card" data-tool-title="Canvas as Background"
+                         data-tool-content="Integrate a Three.js canvas seamlessly as a fixed background element, allowing it to layer behind other HTML content for a truly immersive, hybrid web experience.">
+                        <span class="rank-badge">#9</span>
+                        <div class="icon">🖼️</div>
+                        <h3>Canvas Background</h3>
+                        <p>Use 3D canvas as a dynamic background.</p>
+                    </div>
+                    <div class="tool-card" data-tool-title="Scene to Image Function"
+                         data-tool-content="A practical implementation of capturing the scene. This function is essential for any developer looking to integrate capture functionality into their Three.js projects.">
+                        <span class="rank-badge">#10</span>
+                        <div class="icon">💾</div>
+                        <h3>Scene Capture Utility</h3>
+                        <p>Robust utility for saving rendered scenes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="content-section" style="background-color: var(--color-slate-800);">
+            <div class="container">
+                <h2 style="background: var(--color-secondary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Why Master These Techniques?</h2>
+                <div class="tools-grid">
+                    <div class="tool-card" style="background: rgba(255, 255, 255, 0.03);">
+                        <div class="icon" style="background: var(--color-primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">🚀</div>
+                        <h3>Elevated Visual Appeal</h3>
+                        <p>Post-processing effects like bloom and fog add professional polish and depth, making your 3D scenes truly captivating.</p>
+                    </div>
+                    <div class="tool-card" style="background: rgba(255, 255, 255, 0.03);">
+                        <div class="icon" style="background: var(--color-primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">💡</div>
+                        <h3>Enhanced Interactivity</h3>
+                        <p>Scroll-based animations and dynamic backgrounds create engaging user experiences that respond to user input.</p>
+                    </div>
+                    <div class="tool-card" style="background: rgba(255, 255, 255, 0.03);">
+                        <div class="icon" style="background: var(--color-primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">🔧</div>
+                        <h3>Developer Productivity</h3>
+                        <p>Utilizing built-in geometries and configurable materials streamlines development, allowing you to focus on creativity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <div class="container">
+                <h2 style="background: var(--color-primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Ready to Build Next-Gen 3D Experiences?</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto var(--spacing-unit);">Join the evolution of web 3D. Explore the code, experiment with these techniques, and bring your most ambitious 3D visions to life on the web.</p>
+                <div style="text-align: center;">
+                    <a href="https://techvridha.vercel.app" target="_blank" class="cta-button">Visit TechVridha</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 TechVridha. All rights reserved. | <a href="https://techvridha.vercel.app" target="_blank">Learn More</a></p>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i> <!-- Placeholder for Font Awesome -->
+    </div>
+
+    <!-- Tool Detail Modal -->
+    <div class="tool-modal" id="toolModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalContent"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM Elements ---
+            const toolCards = document.querySelectorAll('.tool-card');
+            const toolModal = document.getElementById('toolModal');
+            const closeModal = document.getElementById('closeModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const header = document.querySelector('header');
+            const faMoonIcon = themeToggle.querySelector('.fas.fa-moon'); // Assuming Font Awesome is used
+
+            // --- Ambient Orb Animation ---
+            function createOrbs() {
+                const backgroundOrbs = document.querySelector('.background-orbs');
+                const orbCount = 5; // Number of orbs to create dynamically
+                const colors = ['#6366f1', '#ec4899', 'rgba(99,102,241,0.2)', 'rgba(236,72,153,0.2)'];
+                const sizes = [200, 300, 400, 500];
+                const positions = ['top', 'bottom', 'left', 'right'];
+
+                for (let i = 0; i < orbCount; i++) {
+                    const orb = document.createElement('div');
+                    orb.classList.add('orb');
+
+                    const size = sizes[Math.floor(Math.random() * sizes.length)];
+                    orb.style.width = `${size}px`;
+                    orb.style.height = `${size}px`;
+
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    orb.style.background = `radial-gradient(circle, ${color} 0%, rgba(0,0,0,0) ${70 + Math.random() * 10}%)`;
+
+                    // Randomize position, ensuring some edge cases are covered
+                    const positionType = positions[Math.floor(Math.random() * positions.length)];
+                    if (positionType === 'top') {
+                        orb.style.top = `${Math.random() * 20 - 10}%`; // Can start slightly off-screen
+                        orb.style.left = `${Math.random() * 100}%`;
+                    } else if (positionType === 'bottom') {
+                        orb.style.bottom = `${Math.random() * 20 - 10}%`;
+                        orb.style.left = `${Math.random() * 100}%`;
+                    } else if (positionType === 'left') {
+                        orb.style.left = `${Math.random() * 20 - 10}%`;
+                        orb.style.top = `${Math.random() * 100}%`;
+                    } else { // right
+                        orb.style.right = `${Math.random() * 20 - 10}%`;
+                        orb.style.top = `${Math.random() * 100}%`;
+                    }
+
+                    // Randomize animation duration and delay
+                    const animationDuration = 5 + Math.random() * 5; // Seconds
+                    const animationDelay = -(Math.random() * 5); // Negative delay to stagger start
+                    orb.style.animation = `float ${animationDuration}s infinite ease-in-out alternate`;
+                    orb.style.animationDelay = `${animationDelay}s`;
+
+                    backgroundOrbs.appendChild(orb);
+                }
+            }
+
+            // Check if .background-orbs exists before calling createOrbs
+            if (document.querySelector('.background-orbs')) {
+                createOrbs();
+            }
+
+
+            // --- Tool Card Click Handler ---
+            toolCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.getAttribute('data-tool-title');
+                    const content = card.getAttribute('data-tool-content');
+
+                    modalTitle.textContent = title;
+                    modalContent.textContent = content;
+                    toolModal.classList.add('visible');
+                    body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+                });
+            });
+
+            // --- Close Modal Handler ---
+            closeModal.addEventListener('click', () => {
+                toolModal.classList.remove('visible');
+                body.style.overflow = ''; // Restore scrolling
+            });
+
+            // Close modal if clicking outside of modal content
+            toolModal.addEventListener('click', (event) => {
+                if (event.target === toolModal) {
+                    toolModal.classList.remove('visible');
+                    body.style.overflow = '';
+                }
+            });
+
+            // --- Theme Toggle ---
+            // Initially check for a saved theme or set a default
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                if (savedTheme === 'dark') {
+                    applyDarkTheme();
+                } else {
+                    applyLightTheme(); // Although the design is inherently dark, this is for completeness
+                }
+            } else {
+                applyDarkTheme(); // Default to dark theme
+            }
+
+
+            themeToggle.addEventListener('click', () => {
+                if (body.classList.contains('dark-theme')) {
+                    applyLightTheme();
+                } else {
+                    applyDarkTheme();
+                }
+            });
+
+            function applyDarkTheme() {
+                body.classList.add('dark-theme');
+                header.style.backgroundColor = 'rgba(9, 23, 42, 0.8)'; // Ensure header remains dark-themed
+                faMoonIcon.classList.replace('fa-sun', 'fa-moon'); // Assuming you switch between moon/sun
+                localStorage.setItem('theme', 'dark');
+            }
+
+            function applyLightTheme() {
+                // This design is inherently dark, so a "light theme" might just reset styles.
+                // For now, we'll assume a light theme is just reverting from dark.
+                body.classList.remove('dark-theme');
+                header.style.backgroundColor = ''; // Revert to default/CSS-defined header background
+                faMoonIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+            }
+
+            // --- Scroll Animation for Header/Hero on Scroll ---
+            const heroSection = document.querySelector('.hero');
+            const scrollThreshold = heroSection.offsetHeight * 0.5; // Trigger when 50% down the hero
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > scrollThreshold) {
+                    header.style.backgroundColor = 'rgba(9, 23, 42, 0.8)'; // Ensure header has glassmorphic effect even if not sticky by default
+                } else {
+                    header.style.backgroundColor = ''; // Revert if at the top
+                }
+            });
+
+            // --- Font Awesome Integration (Optional) ---
+            // If you want to use icons, you'll need to include Font Awesome CDN in the <head>
+            // <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+            // And uncomment the icon class below.
+
+            // --- Placeholder for Scroll-Based Three.js Scene (Conceptual) ---
+            // In a real scenario, you would initialize Three.js here, create a canvas,
+            // and implement the scroll-based animations as described in the summary.
+            // This is a single-file solution, so Three.js would ideally be bundled or
+            // dynamically loaded. For simplicity in this HTML file, we're omitting the
+            // actual Three.js implementation.
+            // Example:
+            // if (typeof THREE !== 'undefined') {
+            //     initThreeJS(); // Function to set up Three.js scene
+            // } else {
+            //     console.warn("Three.js not found. Scroll animations might not work.");
+            //     // Optionally load Three.js script dynamically
+            // }
+        });
+    </script>
+
+    <!-- Placeholder for Font Awesome CDN -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/3dprotips">3D ProTips</a><a href="/prismapower">Prisma Power</a><a href="/linuxpowerkeys">Linux PowerKeys</a><a href="/linuxcore">Linux Core</a><a href="/typemaster">Type Master</a><a href="/tsrefine">TS Refine</a><a href="/tsmaster">TS Master</a><a href="/reactrender">React Render</a><a href="/reactsolid">React SOLID</a><a href="/reactkeys">React Keys</a><a href="/reactcore">React Core</a><a href="/htmlpower">HTML Power Ups</a><a href="/jsmaster">JS Master</a><a href="/jscore">JS Core</a><a href="/purecssscroll">Pure CSS Scroll</a><a href="/cloudnative">Cloud Native Explained</a><a href="/codeclean">Code Clean</a><a href="/awdevskills">AWS DevSkills</a><a href="/backend-mastery">Backend MASTERY</a><a href="/motiontext">Motion Text</a><a href="/cssfuncs">CSS Funcs</a><a href="/aistackunlocked">AI Stack Unlocked</a><a href="/canvaanimate">Canva Animate</a><a href="/cssrules">CSS Rules</a><a href="/cssscale">CSS Scale</a><a href="/pixelglitch">Pixel Glitch</a><a href="/proxies">Proxy, Balance, Gateway</a><a href="/authevolution">Auth Evolved</a><a href="/csspopovers">CSS Popovers</a><a href="/csslayout">CSS Layout Mastery</a><a href="/cssatrt">CSS Attr Type</a><a href="/csspos">CSS Pos</a><a href="/cssevolution">CSS Evolve</a><a href="/scrollfx">Scroll FX</a><a href="/cssflow">CSS Flow</a><a href="/stopscroll">Stop Scroll</a><a href="/geminivisions">Gemini Visions</a><a href="/algosecrets">Algorithm Secrets</a><a href="/buildaitools">Build AI Tools</a><a href="/designflaws">Design Flaws</a><a href="/designmastery">Design Mastery</a><a href="/designtrends">Design Trends</a><a href="/designgear">Design Gear</a><a href="/taxhacks">Tax Hacks</a><a href="/androidhacks">Android Hacks</a><a href="/spartangains">Spartan Gains</a><a href="/aiuxshift">AI UX Shift</a><a href="/speakfluent">Speak fluent</a><a href="/uicolorguide">UI Colors Guide</a><a href="/designessn">Design ESSN</a><a href="/aicodewins">AI Code Wins</a><a href="/2026gamesignite">2026 Games Ignite</a><a href="/designprovideo">Design Pro Video</a><a href="/claudechat">Claude Chat</a><a href="/cmdsecrets">CMD Secrets</a><a href="/ainow">AI Now</a><a href="/videomastery">Video Mastery</a><a href="/codetruths">Code Truths</a><a href="/harnesslust">Harness Lust</a><a href="/top16pc">Top PC Games</a><a href="/claudeoffline">Claude Offline</a><a href="/ownyourtruth">Own Your Truth</a><a href="/ypppayouts">YPP Payouts</a><a href="/ramboost">RAM Boost</a><a href="/gamervision">Gamer Vision</a><a href="/serverhacks">Server Hacks</a><a href="/win11makeover">Win11 Makeover</a><a href="/learnfaster">Learn Faster</a><a href="/AILimits">AI Limits</a><a href="/aivideoscale">AI Video Scale</a><a href="/aicareer">AI Career Path</a><a href="/claudemotion">Claude Motion</a><a href="/trademaster">TradeMaster</a><a href="/codehour">Code Hour</a><a href="/sorashut">Sora Shut</a><a href="/hostmine">Host Mine</a><a href="/earnnown">Earn Now</a><a href="/iphonehacks">iPhone Hacks</a><a href="/sleephack">Sleep Hack</a><a href="/genzdebt">Gen Z Debt</a><a href="/cloudpro">Cloud Pro</a><a href="/glow-up">Glow Up</a><a href="/achievegoals">Achieve Goals</a><a href="/wealthfirst">Wealth First</a><a href="/aicareer">AI Career</a><a href="/2minboost">2 Min Boost</a><a href="/mindhack">Mind Hack</a><a href="/aimodel">AI Model</a><a href="/mastergrit">Master Grit</a><a href="/tradegold">Trade Gold</a><a href="/AI Thrive">Master AI Income: 5 Models for 2026 Success</a><a href="/FREEAIVID">Unlock Free AI Video Power</a><a href="/AIReady">Future Code: Agentic Engineering Guide</a><a href="/AIRules">Elevate AI Coding: Context Rules Unlocked</a><a href="/AIAgent">Claude CoWork: Your PC's Agent AI</a><a href="/RAG Master">RAG Architect</a><a href="/M5 Power">MacBook Air M5: Ultimate Power</a><a href="/Profit">AdSense Breakthrough</a><a href="/FreeCerts">Unlock Elite Tech Skills: Free Courses & Certifications Guide</a><a href="/BrainGrow">Sharpen Your Mind: 6 Habits for Smarter Brains</a><a href="/AIProfit">30-Day AI Wealth Blueprint</a><a href="/Mastery">The AI Engineer: Mastering Future Skills</a><a href="/GainPower">20 Skills To Win</a><a href="/DECIMLFRAUD">Deciml App Exposed: Influencer-Backed Fraud & Fund Recovery Guide</a>
+</div></body>
+</html>
+```

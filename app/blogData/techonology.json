@@ -1,5 +1,36 @@
 [
   {
+    "blog_title": "Laptop Specs",
+    "link": "/laptop-specs",
+    "description": "Unlocking your perfect laptop! Learn to match CPU, GPU, RAM, and display specs to your needs, whether you're productive, creative, or a performance gamer. Your informed buy starts here.",
+    "tags": [
+      "Laptop Specs",
+      "CPU",
+      "GPU",
+      "RAM",
+      "Display",
+      "Performance",
+      "Creative",
+      "Productive"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Prisma DB Speed",
+    "link": "/prismadb",
+    "description": "Master Next.js databases with Prisma! Learn to boost speed, optimize queries, and leverage tools like Studio and Accelerate beyond basic CRUD for faster, robust apps.",
+    "tags": [
+      "Prisma",
+      "Next.js",
+      "Database Management",
+      "ORM",
+      "Performance Optimization",
+      "Prisma Accelerate",
+      "Prisma Studio"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
     "blog_title": "Linux PowerKeys",
     "link": "/linuxpowerkeys",
     "description": "Unlock Linux speed! Master essential terminal shortcuts and tricks for lightning-fast navigation, command recall, and process management. Boost your workflow today.",

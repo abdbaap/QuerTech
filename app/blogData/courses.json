@@ -1,5 +1,101 @@
 [
   {
+    "blog_title": "Prompt Mastery",
+    "link": "/promptmastery",
+    "description": "Unlock GPT-5's full potential! Learn the 7 essential prompt engineering steps to 10x your AI outputs. Master role, task, context, rules, and more for expert results.",
+    "tags": [
+      "Prompt Engineering",
+      "AI Models",
+      "GPT-5",
+      "AI Prompts",
+      "Output Quality"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Unlock AI Secrets",
+    "link": "/unlockai",
+    "description": "Tired of AI giving you bad results? Learn the CRISPE method used by Google and Microsoft to get 3x more productive and achieve 40% better outcomes. Master structured prompting for superior AI performance.",
+    "tags": [
+      "AI Prompting",
+      "CRISPE Method",
+      "AI Productivity",
+      "AI Results",
+      "ChatGPT"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "JS Blitz",
+    "link": "/jsblitz",
+    "description": "Master JavaScript essentials in just 20 minutes! This crash course covers variables, data types, loops, functions, and DOM manipulation with clear code examples. Perfect for beginners.",
+    "tags": [
+      "JavaScript",
+      "Beginner",
+      "Crash Course",
+      "Programming",
+      "Web Development",
+      "DOM",
+      "Functions"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Prisma MongoDB Secrets",
+    "link": "/prisma",
+    "description": "Unlock top tips for Prisma ORM with MongoDB! Master replica sets, ObjectId fields, relations, and optimize queries for blazing-fast apps. Essential guide for devs.",
+    "tags": [
+      "Prisma",
+      "MongoDB",
+      "ORM",
+      "Database",
+      "Developer Tips",
+      "Backend"
+    ],
+    "color": "bg-cyan-700 shadow-cyan-400"
+  },
+  {
+    "blog_title": "ThreeJS Flow",
+    "link": "/threejsflow",
+    "description": "Master Three.js! Learn 10 essential tips for stunning 3D web effects, from glow to scroll animations. Elevate your 3D scenes with these expert techniques.",
+    "tags": [
+      "Three.js",
+      "3D Web",
+      "Web Development",
+      "JavaScript",
+      "Graphics"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "3D ProTips",
+    "link": "/3dprotips",
+    "description": "Master Three.js with 10 essential tips! Learn to optimize your 3D scenes, from advanced material overrides and HDR environments to efficient mesh management and camera layer controls. Boost your rendering performance and visual fidelity.",
+    "tags": [
+      "Three.js",
+      "3D Graphics",
+      "Web Development",
+      "Game Development",
+      "Rendering Tips"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Prisma Power",
+    "link": "/prismapower",
+    "description": "Unlock Prisma's hidden powers! Go beyond the ORM with Studio, Accelerate for blazing fast queries and connection pooling, and Pulse for real-time database updates. Supercharge your apps!",
+    "tags": [
+      "Prisma",
+      "ORM",
+      "Database Optimization",
+      "Real-time Data",
+      "Prisma Accelerate",
+      "Prisma Pulse",
+      "Prisma Studio"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
     "blog_title": "Type Master",
     "link": "/typemaster",
     "description": "Unlock TypeScript's power! Learn how to use Partial, Pick, Omit, Required, Readonly, and literal types to build robust, maintainable code.",

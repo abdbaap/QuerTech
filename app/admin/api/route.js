@@ -18,7 +18,7 @@ export async function POST(req) {
         method:"POST",
         headers:{"Content-Type":"application/json ; charset=utf-8"},
         body:JSON.stringify({
-            host:"quertech-articles.vercel.app",
+            host:"techvridha.vercel.app",
             key:process.env.INDEXNOWKEY,
             keyLocation:`https://techvridha.vercel.app/${process.env.INDEXNOWKEY}.txt`,
             urlList:urlList
@@ -64,4 +64,4 @@ return {success:true,message:"Url Added SuccessFully To Crawl In Gsc"}
 }
 
 // You can call this somewhere in your code to test:
-// checkUrlStatus("https://quertech-articles.vercel.app/your-article-url");
+// checkUrlStatus("https://techvridha.vercel.app/your-article-url");
