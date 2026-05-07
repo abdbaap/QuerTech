@@ -1,5 +1,31 @@
 [
   {
+    "blog_title": "Stalker 2",
+    "link": "stalker2",
+    "color": "bg-rose-700 shadow-rose-400",
+    "description": "Analyze Lego Batman PC requirements and the truth behind frame generation. Discover why it's a performance crutch, not a solution for Stalker 2.",
+    "tags": [
+      "Stalker 2",
+      "Lego Batman",
+      "PC Requirements",
+      "Frame Generation",
+      "Performance Analysis"
+    ]
+  },
+  {
+    "blog_title": "VibeVoice Instl",
+    "link": "vibevoiceinstl",
+    "color": "bg-violet-700 shadow-violet-400",
+    "description": "Master VibeVoice, the ultimate open-source AI for realistic, long-form voice generation. This tutorial guides you through setup and usage for multi-speaker audio and real-time TTS.",
+    "tags": [
+      "VibeVoice",
+      "AI Voice",
+      "TTS",
+      "Open Source",
+      "Tutorial"
+    ]
+  },
+  {
     "blog_title": "Prompt Mastery",
     "link": "promptmastery",
     "color": "bg-blue-700 shadow-blue-400",

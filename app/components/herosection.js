@@ -42,15 +42,16 @@ const Pixelify_sans = Pixelify_Sans({
 });
 export default function Herosection() {
   return (
-    <div id="https://techvridha.vercel.app/" className="herosection text-white w-full gap-32 bg-black justify-center items-center flex flex-col text-center xl:p-16 py-32 p-2">
-      <h1 className="text-6xl text-transparent bg-clip-text bg-linear-to-r from-orange-500 via-pink-500 to-purple-600 animate-gradient font-bold capitalize space-y-1 overflow-hidden ">
+    <div id="https://techvridha.vercel.app/" className="herosection text-white w-full gap-32 xl:py-32 bg-black justify-center items-center flex flex-col text-center xl:p-16 py-32 p-2">
+      <h1 className="text-6xl font-normal  text-white  animate-gradient font-bold capitalize space-y-1 overflow-hidden ">
         <span> Easy Tips and Life Hacks to Help You Stay Ahead in </span>{" "}
-        <span className={`${Pixelify_sans.className}`}> Tech</span>
+        <span className={`bg-green-500 bg-clip-text text-transparent ${Pixelify_sans.className}`}> Tech</span>
         <span> and</span>{" "}
-        <span className={`${Pixelify_sans.className}`}> School.</span>
+        <span className={`bg-green-500 bg-clip-text text-transparent ${Pixelify_sans.className}`}> School.</span>
       </h1>
       <div className="flex flex-wrap  justify-evenly items-center">
         {categories.map((item, i) => {
+          
           return (
             <Link href={`#${item.name}`}
               key={i}

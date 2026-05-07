@@ -1,5 +1,18 @@
 [
   {
+    "blog_title": "VibeVoice Instl",
+    "link": "/vibevoiceinstl",
+    "description": "Master VibeVoice, the ultimate open-source AI for realistic, long-form voice generation. This tutorial guides you through setup and usage for multi-speaker audio and real-time TTS.",
+    "tags": [
+      "VibeVoice",
+      "AI Voice",
+      "TTS",
+      "Open Source",
+      "Tutorial"
+    ],
+    "color": "bg-violet-700 shadow-violet-400"
+  },
+  {
     "blog_title": "Laptop Specs",
     "link": "/laptop-specs",
     "description": "Unlocking your perfect laptop! Learn to match CPU, GPU, RAM, and display specs to your needs, whether you're productive, creative, or a performance gamer. Your informed buy starts here.",

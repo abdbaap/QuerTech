@@ -359,6 +359,11 @@ return urlListForBlogGeneration
         style={{ width: "100%", height: "500px", border: "1px solid #ccc" }}
         title="Generated Site"
       />
+      <button onClick={async ()=>{
+        let a=await fetch("/admin/apijustapi")
+       console.log('a', a)
+      }}>Check Url List For Blog Generation</button>
     </div>
+    
   );
   }

@@ -1,5 +1,18 @@
 [
   {
+    "blog_title": "Stalker 2",
+    "link": "/stalker2",
+    "description": "Analyze Lego Batman PC requirements and the truth behind frame generation. Discover why it's a performance crutch, not a solution for Stalker 2.",
+    "tags": [
+      "Stalker 2",
+      "Lego Batman",
+      "PC Requirements",
+      "Frame Generation",
+      "Performance Analysis"
+    ],
+    "color": "bg-rose-700 shadow-rose-400"
+  },
+  {
     "blog_title": "2026 Games Ignite",
     "link": "2026gamesignite",
     "description": "Uncover the 10 most electrifying games of 2026! From massive sequels like GTA VI to hidden indie gems like Silksong, get ready for groundbreaking adventures and epic stories that will redefine gaming.",
