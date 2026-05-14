@@ -1,5 +1,83 @@
 [
   {
+    "blog_title": "Unlock Secure Browsing Understand HTTP vs HTTPS",
+    "link": "unlocksecureshoppingandloginswithhttps",
+    "color": "bg-blue-600 shadow-blue-400",
+    "description": "Learn the vital difference between HTTP and HTTPS. Discover how HTTPS secures your online shopping, logins, and sensitive data from hackers. Protect your information now!",
+    "tags": [
+      "HTTP",
+      "HTTPS",
+      "Web Security",
+      "Online Safety",
+      "Data Protection",
+      "TLS",
+      "SSL"
+    ]
+  },
+  {
+    "blog_title": "Master Software Design Patterns",
+    "link": "mastersoftwaredesignpatterns",
+    "color": "bg-indigo-700 shadow-indigo-400",
+    "description": "Unlock cleaner, flexible code. Learn essential Creational, Structural, and Behavioral design patterns for better software architecture. Simplify complex programming concepts and build more maintainable applications.",
+    "tags": [
+      "Software Design Patterns",
+      "Creational Patterns",
+      "Structural Patterns",
+      "Behavioral Patterns",
+      "Programming",
+      "Code Architecture",
+      "Singleton",
+      "Builder",
+      "Factory",
+      "Facade",
+      "Adapter",
+      "Strategy",
+      "Observer"
+    ]
+  },
+  {
+    "blog_title": "Master Software Authentication: Secure Your Systems Now",
+    "link": "mastersoftwareauthenticationsecureyoursystemsnow",
+    "color": "bg-blue-800 shadow-blue-400",
+    "description": "Unlock the secrets of software authentication. Discover essential methods like JWT, OAuth2, and secure API keys to protect your systems and data from unauthorized access.",
+    "tags": [
+      "Software Authentication",
+      "System Security",
+      "JWT",
+      "OAuth2",
+      "API Keys",
+      "Cybersecurity"
+    ]
+  },
+  {
+    "blog_title": "Master API Authentication Keys JWT OAuth",
+    "link": "masterapiauthenticationkeysjwt-oauth",
+    "color": "bg-indigo-700 shadow-indigo-400",
+    "description": "Unlock secure app access. Discover the best API authentication methods API Keys JWT and OAuth. Understand when to use each for maximum protection and seamless integration.",
+    "tags": [
+      "API Authentication",
+      "API Keys",
+      "JWT",
+      "OAuth",
+      "API Security",
+      "Web Development"
+    ]
+  },
+  {
+    "blog_title": "Master Amazon S3 Bucket Interaction Instantly",
+    "link": "masteramazons3bucketinteractioninstantly",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Learn to effortlessly manage Amazon S3 buckets using the AWS console, CLI, or SDKs. Discover essential settings like Block Public Access and Object Lock for secure cloud storage.",
+    "tags": [
+      "Amazon S3",
+      "AWS S3",
+      "S3 Buckets",
+      "AWS CLI",
+      "Cloud Storage",
+      "Data Security"
+    ]
+  },
+  {
     "blog_title": "Stalker 2",
     "link": "stalker2",
     "color": "bg-rose-700 shadow-rose-400",

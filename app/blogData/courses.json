@@ -1,5 +1,54 @@
 [
   {
+    "blog_title": "Master Software Design Patterns",
+    "link": "/mastersoftwaredesignpatterns",
+    "description": "Unlock cleaner, flexible code. Learn essential Creational, Structural, and Behavioral design patterns for better software architecture. Simplify complex programming concepts and build more maintainable applications.",
+    "tags": [
+      "Software Design Patterns",
+      "Creational Patterns",
+      "Structural Patterns",
+      "Behavioral Patterns",
+      "Programming",
+      "Code Architecture",
+      "Singleton",
+      "Builder",
+      "Factory",
+      "Facade",
+      "Adapter",
+      "Strategy",
+      "Observer"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Master API Authentication Keys JWT OAuth",
+    "link": "/masterapiauthenticationkeysjwt-oauth",
+    "description": "Unlock secure app access. Discover the best API authentication methods API Keys JWT and OAuth. Understand when to use each for maximum protection and seamless integration.",
+    "tags": [
+      "API Authentication",
+      "API Keys",
+      "JWT",
+      "OAuth",
+      "API Security",
+      "Web Development"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Master Amazon S3 Bucket Interaction Instantly",
+    "link": "/masteramazons3bucketinteractioninstantly",
+    "description": "Learn to effortlessly manage Amazon S3 buckets using the AWS console, CLI, or SDKs. Discover essential settings like Block Public Access and Object Lock for secure cloud storage.",
+    "tags": [
+      "Amazon S3",
+      "AWS S3",
+      "S3 Buckets",
+      "AWS CLI",
+      "Cloud Storage",
+      "Data Security"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
     "blog_title": "Prompt Mastery",
     "link": "/promptmastery",
     "description": "Unlock GPT-5's full potential! Learn the 7 essential prompt engineering steps to 10x your AI outputs. Master role, task, context, rules, and more for expert results.",
