@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- SEO Optimization Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Tailwind CSS v4 CLI Setup: Fast & Easy Guide">
+    <meta name="description" content="Tired of slow CSS? Master Tailwind CSS v4 with our quick CLI setup guide! Get precise styling & boosted efficiency. Install, build, & code faster.">
+    <meta name="keywords" content="how to install tailwind css v4 cli, tailwind css 4 setup command line, tailwind css cli tutorial beginners, easy tailwind css v4 installation, tailwind css with npm and nodejs, set up tailwind css without framework, tailwind css v4 build process explained, tailwind css intellisense vscode setup, tailwind css cli watch mode guide, best way to install tailwind css 4, tailwind css project structure cli, live reload tailwind css cli">
+    <meta name="author" content="TechVridha">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Tailwind CSS v4 CLI Setup: Fast & Easy Guide">
+    <meta property="og:description" content="Tired of slow CSS? Master Tailwind CSS v4 with our quick CLI setup guide! Get precise styling & boosted efficiency. Install, build, & code faster.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techvridha.vercel.app">
+    <meta property="og:image" content="https://techvridha.vercel.app/og-image.jpg"> <!-- Replace with your actual OG image URL -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tailwind CSS v4 CLI Setup: Fast & Easy Guide">
+    <meta name="twitter:description" content="Tired of slow CSS? Master Tailwind CSS v4 with our quick CLI setup guide! Get precise styling & boosted efficiency. Install, build, & code faster.">
+    <meta name="twitter:image" content="https://techvridha.vercel.app/twitter-image.jpg"> <!-- Replace with your actual Twitter image URL -->
+
+    <title>Tailwind CSS v4 CLI Setup: Fast & Easy Guide</title>
+
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --color-indigo: #6366f1;
+            --color-pink: #ec4899;
+            --color-slate-dark: #09172a;
+            --color-slate-light: #1e293b;
+            --color-white: #ffffff;
+            --color-gray-soft: #94a3b8;
+            --gradient-header: linear-gradient(90deg, var(--color-pink) 0%, var(--color-indigo) 100%);
+
+            --font-family-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            --font-family-body: var(--font-family-display);
+
+            --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.5);
+            --shadow-card-hover: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 10px 20px -5px rgba(0, 0, 0, 0.6);
+
+            --transition-smooth: all 0.3s ease-in-out;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-family-display);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75em;
+            color: var(--color-white);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem); /* Fluid scaling for larger screens */
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+        }
+
+        p, li, a {
+            font-family: var(--font-family-body);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-gray-soft);
+            font-size: clamp(1rem, 2vw, 1.1rem); /* Fluid scaling for body text */
+        }
+
+        a {
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        a:hover {
+            color: var(--color-pink);
+        }
+
+        /* --- General Body Styles --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-slate-dark);
+            color: var(--color-gray-soft);
+            font-family: var(--font-family-body);
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+        }
+
+        /* --- Background Animation: Ambient Orbs --- */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-slate-dark) 0%, #0d1b2a 100%); /* Subtle gradient for base */
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 60%);
+            filter: blur(100px);
+            animation: orb-float ease-in-out infinite alternate;
+            opacity: 0.7;
+        }
+
+        @keyframes orb-float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-50px) scale(1.1); }
+        }
+
+        /* --- Layout & Structure --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            position: relative; /* For z-index to work correctly with background */
+            z-index: 1;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 6rem 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden; /* To contain gradient mask */
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-header);
+            mask: radial-gradient(circle, transparent 50%, black 100%);
+            -webkit-mask: radial-gradient(circle, transparent 50%, black 100%);
+            z-index: 1;
+            opacity: 0.3;
+            pointer-events: none; /* So it doesn't interfere with interactions */
+        }
+
+        .hero-section h1 {
+            background: var(--gradient-header);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block; /* Essential for background-clip to work */
+            margin-bottom: 0.5em;
+        }
+
+        .hero-section p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--color-white);
+            opacity: 0.9;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05); /* Glassmorphic background */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); /* Safari support */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth), transform 0.2s ease-out;
+            position: relative;
+            overflow: hidden; /* For border-radius clipping */
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes content to top, if any footer */
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02); /* 3D card lifting effect */
+            box-shadow: var(--shadow-card-hover);
+            border-color: rgba(99, 102, 241, 0.5); /* Indigo border highlight */
+        }
+
+        .card-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-pink), var(--color-indigo));
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        }
+
+        .card-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--color-white);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            font-size: clamp(1.3rem, 3vw, 1.7rem);
+            background: var(--gradient-header);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .card p {
+            margin-bottom: 1.5rem;
+            flex-grow: 1; /* Allows paragraphs to push footer down */
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            color: var(--color-gray-soft);
+        }
+
+        .card-footer {
+            font-size: 0.85rem;
+            color: var(--color-indigo);
+            opacity: 0.8;
+            font-weight: 600;
+            margin-top: auto; /* Pushes to the bottom if card content is short */
+        }
+
+        /* --- CSS Geometric Patterns for Visuals --- */
+        .pattern-visual {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .pattern-a { /* Example: Hexagons */
+            background: repeating-linear-gradient(60deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 10px),
+                        repeating-linear-gradient(-60deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 10px);
+        }
+
+        .pattern-b { /* Example: Dashed Grid */
+            background: repeating-linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px 10px),
+                        repeating-linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px 10px);
+        }
+
+        /* --- Floating Theme Toggle (Accessibility Feature) --- */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background-color: var(--color-indigo);
+            color: var(--color-white);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+            cursor: pointer;
+            transition: var(--transition-smooth), transform 0.2s ease-out;
+            font-size: 1.5rem; /* Icon size */
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-5px) scale(1.1);
+            background-color: var(--color-pink);
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            .hero-section {
+                padding: 4rem 1rem;
+            }
+            .content-grid {
+                grid-template-columns: 1fr; /* Stack cards on smaller screens */
+            }
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            .hero-section p { font-size: 1rem; }
+            .theme-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://techvridha.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <!-- Background Animation: Ambient Orbs -->
+    <div class="background-container">
+        <!-- Orbs will be dynamically generated by JS -->
+    </div>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1>Video Analysis: Setting up Tailwind CSS 4 with CLI</h1>
+            <p>A straightforward guide to get your Tailwind CSS v4 project up and running quickly using the Command Line Interface.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="content-grid">
+
+            <!-- Card 1: Executive Summary -->
+            <article class="card">
+                <div class="pattern-visual pattern-a"></div>
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16.5l-7.65 4.67.75-8.93-6.51-6.41 8.99-.78L12 2v14.5zm0-6.23a2 2 0 100-4 2 2 0 000 4z"/><path d="M12 2v7.53L5.49 5.42 4.74 14.4 12 19.17l7.26-4.75-0.75-8.93L12 2z"/></svg>
+                </div>
+                <h3>Executive Summary</h3>
+                <p>This guide walks you through setting up Tailwind CSS v4 using its CLI. It's a faster way for developers to get styling. We'll cover everything you need, from installation to making sure it works. Plus, we'll show you how the Tailwind CSS IntelliSense extension can make coding way easier.</p>
+                <div class="card-footer">Streamlined Workflow</div>
+            </article>
+
+            <!-- Card 2: Key Takeaways -->
+            <article class="card">
+                <div class="pattern-visual pattern-b"></div>
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 21a1 1 0 001 1h14a1 1 0 001-1v-7.47a1 1 0 00-1-1h-2v-4a1 1 0 00-1-1H8a1 1 0 00-1 1v4H5a1 1 0 00-1 1v7.47zM8 9v4h7v-4H8zm-4 10h14V12H4v7zM9 6a1 1 0 011-1h4a1 1 0 011 1v2a1 1 0 01-1 1H10a1 1 0 01-1-1V6z"/></svg>
+                </div>
+                <h3>Key Takeaways</h3>
+                <ul>
+                    <li><strong>Prerequisites:</strong> You need Node.js and npm. They usually come together.</li>
+                    <li><strong>Steps:</strong> Install Node.js, then Tailwind CSS. Make an `input.css` file. Run the build command. Create `index.html` and link your compiled CSS.</li>
+                    <li><strong>VS Code Boost:</strong> Install "Tailwind CSS IntelliSense" for awesome auto-completion.</li>
+                    <li><strong>CLI Command:</strong> Use <code>npx tailwindcss -i ./input.css -o ./output.css --watch</code> to build and watch for changes.</li>
+                    <li><strong>Project Structure:</strong> Expect `node_modules`, `package.json`, `package-lock.json`, `input.css`, and `output.css`.</li>
+                    <li><strong>Verification:</strong> Check versions with <code>node -v</code> and <code>npm -v</code>. See changes live in your browser.</li>
+                </ul>
+                <div class="card-footer">Step-by-Step Guide</div>
+            </article>
+
+            <!-- Card 3: Actionable Insights -->
+            <article class="card">
+                <div class="pattern-visual pattern-a"></div>
+                <div class="card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 14H4V6h16v12zM11 10v2h2v-2h-2zm-3 0v2h2v-2H8zm6 0v2h2v-2h-2z"/></svg>
+                </div>
+                <h3>Actionable Insights</h3>
+                <p>Using the CLI makes your workflow super smooth by automating builds and live updates. The IntelliSense extension makes coding much faster and prevents mistakes. Understanding this setup is key for modern web projects. Always keep your Node.js and Tailwind versions updated!</p>
+                <div class="card-footer">Developer Experience</div>
+            </article>
+        </section>
+    </main>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455 1.595 6.744 4.205a11.848 11.848 0 00-1.66 4.435 11.848 11.848 0 00-1.66-4.435C14.555 4.595 11.855 3 12 3zm0 0a11.848 11.848 0 011.66 4.435C13.912 8.405 12.713 10 12 10c-.713 0-1.912-1.595-2.34-4.435A11.848 11.848 0 0112 3zm0 18c-2.755 0-5.455-1.595-6.744-4.205a11.848 11.848 0 001.66-4.435 11.848 11.848 0 001.66 4.435C14.555 19.405 11.855 21 12 21zm0 0a11.848 11.848 0 002.34-4.435c-.428-2.84-1.627-4.435-2.34-4.435-.713 0-1.912 1.595-2.34 4.435A11.848 11.848 0 0012 21z" />
+        </svg>
+    </button>
+
+    <script>
+        // --- Script for Dynamic Background and Theme Toggle ---
+
+        // Dynamic Background Orbs
+        const backgroundContainer = document.querySelector('.background-container');
+        const numOrbs = 8; // Number of orbs to create
+
+        for (let i = 0; i < numOrbs; i++) {
+            const orb = document.createElement('div');
+            orb.classList.add('orb');
+
+            // Random size, position, and animation delay
+            const size = Math.random() * 300 + 100; // Between 100px and 400px
+            orb.style.width = `${size}px`;
+            orb.style.height = `${size}px`;
+            orb.style.left = `${Math.random() * 100}%`;
+            orb.style.top = `${Math.random() * 100}%`;
+            orb.style.transform = `translate(-50%, -50%) scale(${Math.random() * 0.5 + 0.5})`; // Slightly varied scale
+            orb.style.animationDelay = `${Math.random() * -5}s`; // Negative delay for staggered start
+            orb.style.animationDuration = `${Math.random() * 5 + 10}s`; // Duration between 10s and 15s
+
+            // Assigning different colors subtly
+            const colors = ['#6366f1', '#ec4899', 'rgba(255,255,255,0.08)'];
+            orb.style.background = `radial-gradient(circle, ${colors[Math.floor(Math.random() * colors.length)]} 0%, rgba(255,255,255,0) 60%)`;
+
+            backgroundContainer.appendChild(orb);
+        }
+
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        let isDarkMode = prefersDarkMode; // Start with system preference
+
+        // Function to apply theme (currently just toggles a class, can be expanded)
+        function applyTheme() {
+            if (isDarkMode) {
+                document.body.classList.add('dark-theme'); // Example for future dark theme styling
+                themeToggle.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 11.163a10.05 10.05 0 00-4.334-5.816a10.05 10.05 0 00-6.432 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v7.756a10.05 10.05 0 00-1.66 4.435a10.05 10.05 0 00-1.66-4.435V3z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 19.75a9.75 9.75 0 01-8.227-5.816a10.05 10.05 0 000 6.284 10.05 10.05 0 006.284 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 19.75a9.75 9.75 0 008.227-5.816a10.05 10.05 0 000 6.284 10.05 10.05 0 00-6.284 0z" />
+                    </svg>
+                `; // Sun icon for light mode
+            } else {
+                document.body.classList.remove('dark-theme');
+                 themeToggle.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 11.163a10.05 10.05 0 00-4.334-5.816a10.05 10.05 0 00-6.432 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v7.756a10.05 10.05 0 00-1.66 4.435a10.05 10.05 0 00-1.66-4.435V3z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 19.75a9.75 9.75 0 01-8.227-5.816a10.05 10.05 0 000 6.284 10.05 10.05 0 006.284 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 19.75a9.75 9.75 0 008.227-5.816a10.05 10.05 0 000 6.284 10.05 10.05 0 00-6.284 0z" />
+                    </svg>
+                `; // Moon icon for dark mode
+            }
+        }
+
+        // Apply initial theme
+        applyTheme();
+
+        // Toggle theme on click
+        themeToggle.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            applyTheme();
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            isDarkMode = event.matches;
+            applyTheme();
+        });
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/minecraftliveupdates">Minecraft Live Reveals Explosive New Updates & Experiences</a><a href="/masterterraformawsdeploymentseasily">Master Terraform AWS Deployments Easily</a><a href="/masteramazons3cloudstorage">Master Amazon S3 Cloud Storage</a><a href="/masteropencvpypythoncomputervision">Master OpenCV Python for Computer Vision</a><a href="/masterpythonpandasdataanalysis">Master Python Pandas Data Analysis</a><a href="/masternextjsredissbookdata">Master Nextjs Redis Book Data</a><a href="/master-nextjs-app-router-api-routes-instantly">Master Nextjs App Router API Routes Instantly</a><a href="/masternextjswebdevfast">Master NextJS Web Dev Fast</a>
+</div></body>
+</html>
+```

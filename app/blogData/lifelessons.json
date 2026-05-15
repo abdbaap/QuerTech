@@ -1,110 +1,20 @@
 [
   {
-    "blog_title": "Harness Lust",
-    "link": "harnesslust",
-    "description": "Transform desire into power. Discover how to redirect 'lust' for ambition and achieve peak self-mastery and success.",
+    "blog_title": "Supercharge DevOps 2X Faster With AI Code Assistants",
+    "link": "/superchargedevops2xfasterwithaicodeassistants",
+    "description": "Unlock massive DevOps productivity gains with GitHub Copilot and Meta Llama 3. Automate scripting, code generation, and documentation to become twice as efficient. Learn how AI tools like Snyk and Draw.io enhance security and visualization. Essential guide for every DevOps engineer.",
     "tags": [
-      "Desire",
-      "Ambition",
-      "Self-Mastery",
-      "Personal Growth",
-      "Success",
-      "Motivation"
-    ],
-    "color": "bg-pink-700 shadow-pink-400"
-  },
-  {
-    "blog_title": "Own Your Truth",
-    "link": "ownyourtruth",
-    "description": "Break free from limits! This guide reveals how radical self-honesty and intense introspection can unlock your true potential. Discover powerful techniques like self-confinement and mirror rituals to confront yourself and rebuild.",
-    "tags": [
-      "Self Improvement",
-      "Personal Growth",
-      "Mindset",
-      "Introspection",
-      "Authenticity"
-    ],
-    "color": "bg-red-600 shadow-red-400"
-  },
-  {
-    "blog_title": "Code Hour",
-    "link": "codehour",
-    "description": "Unlock your coding potential in just 60 minutes a day! Discover the proven strategy to actively build, debug, and master programming skills faster than passive learning.",
-    "tags": [
-      "Coding",
-      "Learn to Code",
-      "Programming",
-      "60 Minute Challenge",
-      "Active Learning",
-      "Problem Solving"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Gen Z Debt",
-    "link": "genzdebt",
-    "description": "Gen Z in India faces mounting debt from lifestyle spending, job instability, and BNPL schemes. Discover the financial challenges and learn smart money management strategies to build wealth.",
-    "tags": [
-      "Gen Z",
-      "India",
-      "Debt",
-      "Financial Management",
-      "BNPL",
-      "Job Instability",
-      "Personal Finance"
-    ],
-    "color": "bg-red-700 shadow-red-400"
-  },
-  {
-    "blog_title": "Mind Hack",
-    "link": "mindhack",
-    "description": "Reclaim your brain from dopamine addiction. Learn how to break free from bad habits and master self-control with this 7-day detox system. Stop feeling weak, start living powerfully.",
-    "tags": [
-      "Mind Control",
-      "Dopamine Detox",
-      "Self-Mastery",
-      "Habit Breaking",
-      "Productivity"
-    ],
-    "color": "bg-red-600 shadow-red-400"
-  },
-  {
-    "blog_title": "Master Grit",
-    "link": "mastergrit",
-    "description": "Reclaim control from destructive urges. Discover a 5-step plan to build ironclad discipline, conquer temptation, and redirect your attention for ultimate self-mastery.",
-    "tags": [
-      "Self-Discipline",
-      "Willpower",
-      "Habit Control",
-      "Mental Fortitude",
-      "Productivity"
-    ],
-    "color": "bg-red-700 shadow-red-400"
-  },
-  {
-    "blog_title": "Sharpen Your Mind: 6 Habits for Smarter Brains",
-    "link": "BrainGrow",
-    "description": "Unlock your brain's true potential! This guide reveals 6 powerful, science-backed habits proven to actively boost your intelligence, memory, and problem-solving skills. Stop passive consumption, start growing your mind.",
-    "tags": [
-      "Intelligence Habits",
-      "Brain Growth",
-      "Cognitive Boost",
-      "Mindset Shift",
-      "Memory Training"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "20 Skills To Win",
-    "link": "GainPower",
-    "description": "Unlock your potential. Discover 20 critical skills like deep work, public speaking & emotional control for ultimate personal and professional growth. Your blueprint to mastery!",
-    "tags": [
-      "Personal Growth",
-      "Life Skills",
-      "Self-Improvement",
+      "DevOps",
+      "AI",
+      "GitHub Copilot",
+      "Meta Llama 3",
       "Productivity",
-      "Mastery"
+      "Scripting",
+      "Automation",
+      "Snyk",
+      "Draw.io",
+      "Cloud"
     ],
-    "color": "bg-indigo-900 shadow-indigo-400"
+    "color": "bg-green-800 shadow-green-400"
   }
 ]

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Next.js API Routes: Easy Backend Setup">
+    <meta name="description" content="Tired of complex backend setups? Learn to build powerful API routes in Next.js using the App Router. Effortlessly handle GET & POST requests, send JSON responses, and power your full-stack apps!">
+    <meta name="keywords" content="how to create api routes in nextjs app router, nextjs app directory api route example, nextjs route.js get post request, build backend with nextjs app router, nextjs api route json response tutorial, nextjs full stack development app router, easy nextjs api endpoints, nextjs server side api routes guide, nextjs fetch post request to api, nextjs create next app api setup">
+    <title>Next.js API Routes: Easy Backend Setup</title>
+    <link rel="canonical" href="https://techvridha.vercel.app">
+    <style>
+        /* Global Styles & Variables */
+        :root {
+            --primary-indigo: #6366f1;
+            --primary-pink: #ec4899;
+            --background-dark: #09172a;
+            --text-light: #e2e8f0;
+            --text-muted: #94a3b8;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            --gradient-text: linear-gradient(90deg, var(--primary-indigo), var(--primary-pink));
+            --body-font: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            --heading-font: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        }
+
+        /* Font Imports */
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.4.1/assets/SF-Pro-Display-Regular.woff2') format('woff2'),
+                 url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.4.1/assets/SF-Pro-Display-Medium.woff2') format('woff2'); /* Using Medium for general text if available, fallback */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Ambient Background Orbs */
+        body {
+            margin: 0;
+            font-family: var(--body-font);
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            overflow: hidden; /* Hide scrollbars for the orb effect */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .background-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden; /* Ensure orbs don't overflow their container */
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.3) 0%, rgba(0, 0, 0, 0) 70%),
+                        radial-gradient(circle at center, rgba(236, 72, 153, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            opacity: 0.7;
+            filter: blur(100px);
+            animation: float 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) scale(1); }
+            50% { transform: translateY(-50px) translateX(50px) scale(1.2); }
+            100% { transform: translateY(50px) translateX(-50px) scale(0.9); }
+        }
+
+        /* Page Container */
+        .page-container {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 1200px;
+            padding: 2rem 1rem;
+            background: rgba(255, 255, 255, 0.03); /* Subtle glassmorphic background */
+            backdrop-filter: blur(15px) saturate(180%);
+            -webkit-backdrop-filter: blur(15px) saturate(180%);
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Header */
+        .main-header {
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .gradient-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem); /* Fluid scaling for title */
+            font-weight: 700;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .sub-title {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Content Section */
+        .content-section {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px) saturate(150%);
+            -webkit-backdrop-filter: blur(10px) saturate(150%);
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            padding: 1.5rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Push content to top, footer to bottom if needed */
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-height: 250px; /* Ensure cards have a minimum height */
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* 3D card lifting effect */
+            box-shadow: var(--hover-shadow);
+            border-color: var(--primary-pink); /* Border color transition on hover */
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-indigo);
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-light);
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: var(--text-muted);
+            flex-grow: 1; /* Allow description to take up available space */
+        }
+
+        .card-footer {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--primary-indigo);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-footer .rank-badge {
+            background: linear-gradient(45deg, var(--primary-indigo), var(--primary-pink));
+            color: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .card-footer .material-icons {
+            font-size: 1.2rem;
+        }
+
+        /* Geometric Patterns as Imagery */
+        .card-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.05) 0px,
+                rgba(255, 255, 255, 0.05) 5px,
+                rgba(255, 255, 255, 0) 5px,
+                rgba(255, 255, 255, 0) 10px
+            );
+            border-radius: inherit; /* Inherit border-radius from parent */
+            pointer-events: none; /* Ensure it doesn't interfere with clicks */
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-indigo);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 100;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-pink);
+            transform: scale(1.1);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .page-container {
+                width: 95%;
+                padding: 1.5rem 0.75rem;
+            }
+
+            .main-header {
+                margin-bottom: 1.5rem;
+            }
+
+            .gradient-title {
+                font-size: clamp(2rem, 8vw, 3.5rem);
+            }
+
+            .sub-title {
+                font-size: clamp(0.9rem, 3vw, 1.2rem);
+            }
+
+            .content-section {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+                min-height: 200px;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+
+            .card-description {
+                font-size: 0.95rem;
+            }
+
+            .theme-toggle {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Accessible Toggle State - e.g., when the button is clicked */
+        .theme-toggle.active {
+            background: var(--primary-pink);
+            transform: rotate(180deg);
+        }
+    </style>
+    <!-- Material Icons for Rank Badges -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://techvridha.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Ambient Background Orbs -->
+    <div class="background-orbs"></div>
+
+    <div class="page-container">
+        <header class="main-header">
+            <h1 class="gradient-title">Next.js API Routes: Mastering the App Router</h1>
+            <p class="sub-title">Your quick guide to building backend magic directly within Next.js.</p>
+        </header>
+
+        <main class="content-section">
+            <article class="card" data-title="API Route Basics">
+                <div class="card-icon">🔧</div>
+                <h3 class="card-title">What Are API Routes?</h3>
+                <p class="card-description">
+                    Think of API routes as mini-server pieces you can build inside your Next.js project. They let your application talk to other services or handle data from forms, making Next.js a full-stack powerhouse!
+                </p>
+                <div class="card-footer">
+                    <span class="rank-badge">Core</span>
+                    <span class="material-icons">info</span>
+                    <span>Fundamental</span>
+                </div>
+            </article>
+
+            <article class="card" data-title="App Router Magic">
+                <div class="card-icon">🚀</div>
+                <h3 class="card-title">The App Router Way</h3>
+                <p class="card-description">
+                    With Next.js's new App Router, creating API routes is super simple. You just create a `route.js` file inside your `app` folder. It automatically understands how to handle requests!
+                </p>
+                <div class="card-footer">
+                    <span class="rank-badge">App Router</span>
+                    <span class="material-icons">folder</span>
+                    <span>Easy Setup</span>
+                </div>
+            </article>
+
+            <article class="card" data-title="GET & POST Handling">
+                <div class="card-icon">🔄</div>
+                <h3 class="card-title">Handling Different Requests</h3>
+                <p class="card-description">
+                    Your `route.js` file can easily manage requests like GET (getting data) and POST (sending data). You just export specific functions for each, like `export async function GET() {}`.
+                </p>
+                <div class="card-footer">
+                    <span class="rank-badge">HTTP</span>
+                    <span class="material-icons">swap_calls</span>
+                    <span>Versatile</span>
+                </div>
+            </article>
+
+            <article class="card" data-title="Sending JSON Responses">
+                <div class="card-icon">💬</div>
+                <h3 class="card-title">Talking with JSON</h3>
+                <p class="card-description">
+                    Need to send data back? No problem! Use `NextResponse.json()` to send structured information (like key-value pairs) that other parts of your app or other applications can understand.
+                </p>
+                <div class="card-footer">
+                    <span class="rank-badge">Data</span>
+                    <span class="material-icons">code</span>
+                    <span>Structured Data</span>
+                </div>
+            </article>
+
+            <article class="card" data-title="Frontend to API">
+                <div class="card-icon">🔗</div>
+                <h3 class="card-title">Connecting Frontend to API</h3>
+                <p class="card-description">
+                    Your website's buttons or forms can easily send data to your API routes using JavaScript's `fetch` function. This lets you update data or trigger actions on your server.
+                </p>
+                <div class="card-footer">
+                    <span class="rank-badge">Full-Stack</span>
+                    <span class="material-icons">link</span>
+                    <span>Interactive</span>
+                </div>
+            </article>
+
+            <article class="card" data-title="Project Setup">
+                <div class="card-icon">💻</div>
+                <h3 class="card-title">Starting a New Project</h3>
+                <p class="card-description">
+                    When you create a new Next.js app using `npx create-next-app@latest`, it's already set up to handle API routes nicely, making it quick to get started with backend tasks.
+                </p>
+                <div class="card-footer">
+                    <span class="rank-badge">Setup</span>
+                    <span class="material-icons">settings</span>
+                    <span>Beginner Friendly</span>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Floating Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+        <span class="material-icons">palette</span>
+    </button>
+
+    <script>
+        // --- Script for Ambient Orbs ---
+        const orbsContainer = document.querySelector('.background-orbs');
+
+        function createOrb() {
+            const orb = document.createElement('div');
+            orb.classList.add('orb');
+
+            // Randomize size, position, and animation delay
+            const size = Math.random() * 300 + 100; // Orb size between 100px and 400px
+            orb.style.width = `${size}px`;
+            orb.style.height = `${size}px`;
+
+            const top = Math.random() * 100;
+            const left = Math.random() * 100;
+            orb.style.top = `${top}vh`;
+            orb.style.left = `${left}vw`;
+
+            const animationDuration = Math.random() * 10 + 15; // Animation duration between 15s and 25s
+            orb.style.animationDuration = `${animationDuration}s`;
+
+            // Randomize initial position slightly to avoid perfect overlap
+            const initialTranslateX = (Math.random() - 0.5) * 50;
+            const initialTranslateY = (Math.random() - 0.5) * 50;
+            orb.style.transform = `translate(${initialTranslateX}px, ${initialTranslateY}px) scale(${Math.random() * 0.2 + 0.8})`; // Scale between 0.8 and 1.0
+
+            orbsContainer.appendChild(orb);
+
+            // Remove orb after its animation cycle is likely complete to prevent DOM bloat
+            setTimeout(() => {
+                orb.remove();
+                // Optionally create new orbs to maintain a dynamic background
+                // if (document.querySelectorAll('.orb').length < 5) {
+                //     createOrb();
+                // }
+            }, animationDuration * 1000);
+        }
+
+        // Create a few orbs on load
+        for (let i = 0; i < 5; i++) {
+            createOrb();
+        }
+
+        // Optionally, create new orbs periodically to keep the background dynamic
+        setInterval(createOrb, 5000); // Create a new orb every 5 seconds
+
+        // --- Script for Theme Toggle ---
+        const themeToggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+        const root = document.documentElement;
+
+        // Define theme variables
+        const lightTheme = {
+            '--background-dark': '#f0f4f8',
+            '--text-light': '#1e293b',
+            '--text-muted': '#64748b',
+            '--card-bg': 'rgba(255, 255, 255, 0.8)',
+            '--card-border': 'rgba(0, 0, 0, 0.1)',
+            '--hover-shadow': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+            '--gradient-text': 'linear-gradient(90deg, #6366f1, #ec4899)', // Keep same gradient for titles, but adjust colors if desired
+            '--primary-indigo': '#6366f1',
+            '--primary-pink': '#ec4899',
+        };
+
+        const darkTheme = {
+            '--background-dark': '#09172a',
+            '--text-light': '#e2e8f0',
+            '--text-muted': '#94a3b8',
+            '--card-bg': 'rgba(255, 255, 255, 0.03)',
+            '--card-border': 'rgba(255, 255, 255, 0.1)',
+            '--hover-shadow': '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)',
+            '--gradient-text': 'linear-gradient(90deg, #6366f1, #ec4899)', // Keep same gradient for titles, but adjust colors if desired
+            '--primary-indigo': '#6366f1',
+            '--primary-pink': '#ec4899',
+        };
+
+        function applyTheme(theme) {
+            for (const [key, value] of Object.entries(theme)) {
+                root.style.setProperty(key, value);
+            }
+        }
+
+        // Check for saved theme preference or default to dark
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            applyTheme(lightTheme);
+            themeToggleButton.classList.add('active'); // Reflect active state if light
+        } else {
+            applyTheme(darkTheme);
+            // Ensure toggle is not active for dark theme initially
+        }
+
+        themeToggleButton.addEventListener('click', () => {
+            const currentTheme = root.style.getPropertyValue('--background-dark');
+            if (currentTheme === darkTheme['--background-dark']) {
+                applyTheme(lightTheme);
+                localStorage.setItem('theme', 'light');
+                themeToggleButton.classList.add('active');
+            } else {
+                applyTheme(darkTheme);
+                localStorage.setItem('theme', 'dark');
+                themeToggleButton.classList.remove('active');
+            }
+        });
+
+        // --- Card Hover Interaction (for demonstration as per UX summary) ---
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const moveX = (x - centerX) / centerX * 10; // Adjust sensitivity
+                const moveY = (y - centerY) / centerY * 10; // Adjust sensitivity
+
+                card.style.transform = `perspective(1000px) rotateX(${moveY}deg) rotateY(${moveX}deg) translateY(-10px)`; // Added perspective for more 3D feel
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)'; // Reset on leave
+                // Re-apply the hover transform on mouseleave IF the base hover effect (translateY) should persist
+                // For this example, we're resetting completely. If you want the subtle lift, you might adjust.
+            });
+        });
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/masternextjswebdevfast">Master NextJS Web Dev Fast</a>
+</div></body>
+</html>
+```

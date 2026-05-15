@@ -1,597 +1,88 @@
 [
   {
-    "blog_title": "Master Software Design Patterns",
-    "link": "/mastersoftwaredesignpatterns",
-    "description": "Unlock cleaner, flexible code. Learn essential Creational, Structural, and Behavioral design patterns for better software architecture. Simplify complex programming concepts and build more maintainable applications.",
-    "tags": [
-      "Software Design Patterns",
-      "Creational Patterns",
-      "Structural Patterns",
-      "Behavioral Patterns",
-      "Programming",
-      "Code Architecture",
-      "Singleton",
-      "Builder",
-      "Factory",
-      "Facade",
-      "Adapter",
-      "Strategy",
-      "Observer"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Master API Authentication Keys JWT OAuth",
-    "link": "/masterapiauthenticationkeysjwt-oauth",
-    "description": "Unlock secure app access. Discover the best API authentication methods API Keys JWT and OAuth. Understand when to use each for maximum protection and seamless integration.",
-    "tags": [
-      "API Authentication",
-      "API Keys",
-      "JWT",
-      "OAuth",
-      "API Security",
-      "Web Development"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Master Amazon S3 Bucket Interaction Instantly",
-    "link": "/masteramazons3bucketinteractioninstantly",
-    "description": "Learn to effortlessly manage Amazon S3 buckets using the AWS console, CLI, or SDKs. Discover essential settings like Block Public Access and Object Lock for secure cloud storage.",
+    "blog_title": "Master Amazon S3 Cloud Storage",
+    "link": "/masteramazons3cloudstorage",
+    "description": "Unlock the power of Amazon S3 for ultimate cloud storage. Discover its incredible durability availability cost effectiveness and scalability. Secure your data with advanced encryption and understand object storage buckets and metadata like a pro. Essential for reliable scalable and secure data management.",
     "tags": [
       "Amazon S3",
-      "AWS S3",
-      "S3 Buckets",
-      "AWS CLI",
       "Cloud Storage",
-      "Data Security"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Prompt Mastery",
-    "link": "/promptmastery",
-    "description": "Unlock GPT-5's full potential! Learn the 7 essential prompt engineering steps to 10x your AI outputs. Master role, task, context, rules, and more for expert results.",
-    "tags": [
-      "Prompt Engineering",
-      "AI Models",
-      "GPT-5",
-      "AI Prompts",
-      "Output Quality"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Unlock AI Secrets",
-    "link": "/unlockai",
-    "description": "Tired of AI giving you bad results? Learn the CRISPE method used by Google and Microsoft to get 3x more productive and achieve 40% better outcomes. Master structured prompting for superior AI performance.",
-    "tags": [
-      "AI Prompting",
-      "CRISPE Method",
-      "AI Productivity",
-      "AI Results",
-      "ChatGPT"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "JS Blitz",
-    "link": "/jsblitz",
-    "description": "Master JavaScript essentials in just 20 minutes! This crash course covers variables, data types, loops, functions, and DOM manipulation with clear code examples. Perfect for beginners.",
-    "tags": [
-      "JavaScript",
-      "Beginner",
-      "Crash Course",
-      "Programming",
-      "Web Development",
-      "DOM",
-      "Functions"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Prisma MongoDB Secrets",
-    "link": "/prisma",
-    "description": "Unlock top tips for Prisma ORM with MongoDB! Master replica sets, ObjectId fields, relations, and optimize queries for blazing-fast apps. Essential guide for devs.",
-    "tags": [
-      "Prisma",
-      "MongoDB",
-      "ORM",
-      "Database",
-      "Developer Tips",
-      "Backend"
-    ],
-    "color": "bg-cyan-700 shadow-cyan-400"
-  },
-  {
-    "blog_title": "ThreeJS Flow",
-    "link": "/threejsflow",
-    "description": "Master Three.js! Learn 10 essential tips for stunning 3D web effects, from glow to scroll animations. Elevate your 3D scenes with these expert techniques.",
-    "tags": [
-      "Three.js",
-      "3D Web",
-      "Web Development",
-      "JavaScript",
-      "Graphics"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "3D ProTips",
-    "link": "/3dprotips",
-    "description": "Master Three.js with 10 essential tips! Learn to optimize your 3D scenes, from advanced material overrides and HDR environments to efficient mesh management and camera layer controls. Boost your rendering performance and visual fidelity.",
-    "tags": [
-      "Three.js",
-      "3D Graphics",
-      "Web Development",
-      "Game Development",
-      "Rendering Tips"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Prisma Power",
-    "link": "/prismapower",
-    "description": "Unlock Prisma's hidden powers! Go beyond the ORM with Studio, Accelerate for blazing fast queries and connection pooling, and Pulse for real-time database updates. Supercharge your apps!",
-    "tags": [
-      "Prisma",
-      "ORM",
-      "Database Optimization",
-      "Real-time Data",
-      "Prisma Accelerate",
-      "Prisma Pulse",
-      "Prisma Studio"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Type Master",
-    "link": "/typemaster",
-    "description": "Unlock TypeScript's power! Learn how to use Partial, Pick, Omit, Required, Readonly, and literal types to build robust, maintainable code.",
-    "tags": [
-      "TypeScript",
-      "Utility Types",
-      "Programming",
-      "Code Quality",
-      "Web Development"
-    ],
-    "color": "bg-blue-800 shadow-blue-400"
-  },
-  {
-    "blog_title": "TS Refine",
-    "link": "/tsrefine",
-    "description": "Master TypeScript's advanced features like literal types and discriminated unions to build safer, more predictable code. Learn to prevent errors and enhance your applications with practical examples.",
-    "tags": [
-      "TypeScript",
-      "Type Safety",
-      "Discriminated Unions",
-      "Literal Types",
-      "Mapped Types",
-      "Coding Best Practices"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "TS Master",
-    "link": "/tsmaster",
-    "description": "Unlock robust TypeScript code! Learn to distinguish React.ReactNode vs. JSX.Element, leverage the 'using' keyword for cleaner tests, and master type aliasing and inference for safer, more predictable code.",
-    "tags": [
-      "TypeScript",
-      "React",
-      "Programming",
-      "Coding",
-      "Software Development"
-    ],
-    "color": "bg-blue-800 shadow-blue-500"
-  },
-  {
-    "blog_title": "React Render",
-    "link": "/reactrender",
-    "description": "Understand the core of React: rendering. Learn how components transform into UI through React elements, the Virtual DOM, and efficient reconciliation. Master dynamic UIs.",
-    "tags": [
-      "React",
-      "Rendering",
-      "Virtual DOM",
-      "Reconciliation",
-      "Components",
-      "UI"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "React SOLID",
-    "link": "/reactsolid",
-    "description": "Master SOLID principles in React! Learn how to write clean, maintainable, and scalable code with practical examples for each of the five SOLID principles. Elevate your React development.",
-    "tags": [
-      "React",
-      "SOLID Principles",
-      "Clean Code",
-      "Software Design",
-      "JavaScript"
-    ],
-    "color": "bg-emerald-700 shadow-emerald-400"
-  },
-  {
-    "blog_title": "React Keys",
-    "link": "/reactkeys",
-    "description": "Stop React bugs! Learn the crucial `key` prop for dynamic lists. Fix state issues and ensure smooth rendering. Perfect for any React developer.",
-    "tags": [
-      "React",
-      "JavaScript",
-      "Frontend",
-      "Development",
-      "Coding"
-    ],
-    "color": "bg-blue-600 shadow-blue-400"
-  },
-  {
-    "blog_title": "React Core",
-    "link": "/reactcore",
-    "description": "Master React's fundamental building blocks! Learn key concepts like JSX, props, state, hooks, and rendering for dynamic web apps. Build better UIs with this essential guide.",
-    "tags": [
-      "React",
-      "JavaScript",
-      "Web Development",
-      "Frontend",
-      "UI Development",
-      "JSX",
-      "Hooks",
-      "State Management"
-    ],
-    "color": "bg-blue-800 shadow-blue-400"
-  },
-  {
-    "blog_title": "HTML Power Ups",
-    "link": "/htmlpower",
-    "description": "Unlock six powerful, yet overlooked HTML features like <template>, <dialog>, and <picture> to build more efficient, accessible, and performant web apps without extra libraries.",
-    "tags": [
-      "HTML",
-      "Web Development",
-      "Front-End",
-      "Web Design",
-      "Accessibility",
-      "Performance"
+      "Object Storage",
+      "Data Durability",
+      "Data Availability",
+      "Data Security",
+      "Cloud Computing",
+      "AWS"
     ],
     "color": "bg-indigo-700 shadow-indigo-400"
   },
   {
-    "blog_title": "JS Master",
-    "link": "/jsmaster",
-    "description": "Unlock cleaner, more efficient JavaScript! Discover modern debugging tricks like computed properties, console.table, and console.trace. Learn to master performance with console.time and streamline your code with destructuring, template literals, and powerful array methods like reduce, map, and filter. Write asynchronous code like a pro with async/await and Promise.all.",
+    "blog_title": "Master OpenCV Python for Computer Vision",
+    "link": "/masteropencvpypythoncomputervision",
+    "description": "Unlock powerful computer vision with OpenCV for Python. Learn setup, core algorithms for object detection, tracking, and more. Essential guide for AI and machine learning.",
     "tags": [
-      "JavaScript",
-      "Debugging",
-      "Coding Practices",
-      "JS Tricks",
-      "Async/Await",
-      "Modern JS"
+      "OpenCV",
+      "Python",
+      "Computer Vision",
+      "AI",
+      "Machine Learning",
+      "Object Detection",
+      "Image Processing"
+    ],
+    "color": "bg-blue-900 shadow-blue-700"
+  },
+  {
+    "blog_title": "Master Python Pandas Data Analysis",
+    "link": "/masterpythonpandasdataanalysis",
+    "description": "Unlock powerful Python data analysis with Pandas! Learn to load, clean, transform, and visualize any dataset like a pro. Essential skills for data insights.",
+    "tags": [
+      "Pandas",
+      "Python",
+      "Data Analysis",
+      "Data Science",
+      "Data Manipulation",
+      "Data Visualization"
     ],
     "color": "bg-green-700 shadow-green-400"
   },
   {
-    "blog_title": "JS Core",
-    "link": "/jscore",
-    "description": "Unlock the power of JavaScript! This comprehensive guide demystifies its history, core concepts, and modern usage patterns, perfect for beginners and intermediate devs.",
+    "blog_title": "Master Nextjs Redis Book Data",
+    "link": "/masternextjsredissbookdata",
+    "description": "Learn to integrate Redis with Next.js to store and retrieve book data. This tutorial covers connecting Redis, creating actions to add new books, and handling data submission effectively.",
     "tags": [
-      "JavaScript",
-      "Web Development",
-      "Programming",
-      "ECMAScript",
-      "JS Fundamentals"
+      "Next.js",
+      "Redis",
+      "Database Integration",
+      "Book Data",
+      "Web Development"
     ],
-    "color": "bg-indigo-700 shadow-indigo-400"
+    "color": "bg-purple-800 shadow-purple-400"
   },
   {
-    "blog_title": "Pure CSS Scroll",
-    "link": "/purecssscroll",
-    "description": "Unlock advanced web interactivity with pure CSS scroll-driven features. Discover how to create dynamic elements, carousels, and navigation without JavaScript, boosting performance and simplifying your code. Learn about scroll-state queries and scroll-marker pseudo-elements for powerful, efficient web design.",
+    "blog_title": "Master Nextjs App Router API Routes Instantly",
+    "link": "/master-nextjs-app-router-api-routes-instantly",
+    "description": "Unlock powerful backend features in your Nextjs projects. Learn to build API routes from scratch using the app directory and handle GET POST requests seamlessly. Build full stack apps faster.",
     "tags": [
-      "CSS",
-      "Web Development",
-      "Scroll Driven",
-      "JavaScript Alternative",
-      "Performance",
-      "Interactivity"
-    ],
-    "color": "bg-purple-700 shadow-purple-400"
-  },
-  {
-    "blog_title": "CSS Funcs",
-    "link": "/cssfuncs",
-    "description": "Unlock dynamic CSS styling with custom functions! Learn how to create reusable, responsive styles directly in CSS, making your stylesheets cleaner and more powerful.",
-    "tags": [
-      "CSS",
-      "Custom Functions",
-      "Responsive Design",
-      "Dynamic Styling",
-      "CSS Variables"
+      "Nextjs",
+      "App Router",
+      "API Routes",
+      "Backend Development",
+      "JavaScript"
     ],
     "color": "bg-blue-700 shadow-blue-400"
   },
   {
-    "blog_title": "AI Stack Unlocked",
-    "link": "/aistackunlocked",
-    "description": "Discover the 5 core components powering modern AI agents: Embeddings, Vector DBs, Orchestration, RAG, and MCP. Learn how they enable AI to interact with data and tools for smarter, context-aware responses.",
+    "blog_title": "Master NextJS Web Dev Fast",
+    "link": "/masternextjswebdevfast",
+    "description": "Unlock powerful web development with Next.js. Learn essential features like server rendering, API routes, and image optimization to build performant, SEO-friendly apps easily.",
     "tags": [
-      "AI Agents",
-      "Embeddings",
-      "Vector Databases",
-      "RAG",
-      "AI Stack"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Canva Animate",
-    "link": "/canvaanimate",
-    "description": "Instantly animate static graphics in Canva! This video shows how to use their AI 'Image to Video' feature to turn simple prompts into dynamic clips for your designs. Perfect for quick animations.",
-    "tags": [
-      "Canva AI",
-      "Image to Video",
-      "Graphic Animation",
-      "AI Video",
-      "Canva Tutorial"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "CSS Rules",
-    "link": "/cssrules",
-    "description": "Unlock potent new CSS features that demolish JavaScript needs for sleek UI! Discover anchor(), animation-timeline, @scope, and more for cleaner, faster code. Future-proof your web dev!",
-    "tags": [
-      "CSS",
-      "JavaScript",
+      "Next.js",
       "Web Development",
-      "UI Design",
+      "React Framework",
+      "Server Side Rendering",
+      "API Routes",
+      "SEO",
       "Performance"
     ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "CSS Scale",
-    "link": "/cssscale",
-    "description": "Master responsive design with CSS min(), max(), and clamp(). Learn to create fluid layouts and typography that adapt seamlessly across all devices, moving beyond traditional media queries for smarter scaling.",
-    "tags": [
-      "CSS",
-      "Responsive Design",
-      "min()",
-      "max()",
-      "clamp()",
-      "Web Development",
-      "Front-end"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Pixel Glitch",
-    "link": "/pixelglitch",
-    "description": "Learn to build a dynamic noisy pixel shader effect with HTML, CSS, and JavaScript using Three.js. Perfect for creating glitch-like, pixelated visuals and interactive web animations triggered by scrolling.",
-    "tags": [
-      "Three.js",
-      "Shaders",
-      "WebGL",
-      "Pixel Effect",
-      "Scroll Animation",
-      "Web Development",
-      "JavaScript",
-      "CSS",
-      "HTML"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Proxy, Balance, Gateway",
-    "link": "/proxies",
-    "description": "Unravel the differences between Reverse Proxies, Load Balancers, and API Gateways. Master your network architecture and choose the right tool for scalability and API management.",
-    "tags": [
-      "Reverse Proxy",
-      "Load Balancer",
-      "API Gateway",
-      "Network Architecture",
-      "Microservices",
-      "Scalability",
-      "Tech Explained"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Auth Evolved",
-    "link": "/authevolution",
-    "description": "Unlock secure APIs! Discover how authentication evolved from basic logins to modern JWT, OAuth, and OpenID Connect for seamless, protected web apps. Essential knowledge for developers.",
-    "tags": [
-      "Authentication",
-      "API Security",
-      "JWT",
-      "OAuth",
-      "OpenID Connect",
-      "Web Security"
-    ],
-    "color": "bg-blue-800 shadow-blue-400"
-  },
-  {
-    "blog_title": "CSS Popovers",
-    "link": "/csspopovers",
-    "description": "Discover the power of CSS anchor positioning and @position-try for creating dynamic, self-adjusting popovers. Learn how to build smarter UIs without JavaScript and enhance user experience by keeping popovers in view.",
-    "tags": [
-      "CSS",
-      "Positioning",
-      "Popovers",
-      "Anchor Positioning",
-      "Web Development",
-      "Frontend"
-    ],
-    "color": "bg-indigo-600 shadow-indigo-400"
-  },
-  {
-    "blog_title": "CSS Layout Mastery",
-    "link": "/csslayout",
-    "description": "Unlock powerful web design! Discover the optimal use cases for CSS Flexbox and Grid. Learn to build responsive, efficient layouts and avoid common developer pitfalls. Master page structure and component alignment for superior web development.",
-    "tags": [
-      "CSS Grid",
-      "CSS Flexbox",
-      "Web Design",
-      "Layouts",
-      "Responsive Design",
-      "CSS Best Practices"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "CSS Attr Type",
-    "link": "/cssatrt",
-    "description": "Unlock dynamic styling! Discover how the enhanced CSS `attr()` function with type support lets you control CSS properties with HTML data attributes, no JavaScript needed. Build more interactive and data-driven designs.",
-    "tags": [
-      "CSS",
-      "attr() function",
-      "data attributes",
-      "dynamic styling",
-      "frontend development",
-      "CSS enhancements",
-      "web design"
-    ],
-    "color": "bg-cyan-700 shadow-cyan-400"
-  },
-  {
-    "blog_title": "CSS Pos",
-    "link": "/csspos",
-    "description": "Master CSS positioning! Learn static, relative, absolute, fixed, and sticky to precisely control your web layouts. Essential for dynamic designs and improved user experience.",
-    "tags": [
-      "CSS",
-      "Positioning",
-      "Web Development",
-      "Frontend",
-      "Layout"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "CSS Evolve",
-    "link": "/cssevolution",
-    "description": "Discover 7 powerful CSS updates that simplify styling and boost web design. Learn about new layout controls, typed variables, advanced animations, and more!",
-    "tags": [
-      "CSS",
-      "Web Development",
-      "Frontend",
-      "Styling",
-      "New Features",
-      "Web Design"
-    ],
-    "color": "bg-purple-700 shadow-purple-400"
-  },
-  {
-    "blog_title": "Scroll FX",
-    "link": "/scrollfx",
-    "description": "Master scroll animations! Learn to reveal images, create horizontal scrolling, and add dynamic fade-up effects using only HTML and CSS. Elevate your web design with these powerful techniques.",
-    "tags": [
-      "Scroll Animations",
-      "CSS Animations",
-      "HTML Animations",
-      "Web Design",
-      "Interactive Web"
-    ],
-    "color": "bg-blue-800 shadow-blue-400"
-  },
-  {
-    "blog_title": "CSS Flow",
-    "link": "/cssflow",
-    "description": "Discover 10 game-changing CSS features like advanced border-radius, offset-path animations, and conditional styling. Elevate your web design and ditch JavaScript for complex effects!",
-    "tags": [
-      "CSS",
-      "Web Development",
-      "Frontend",
-      "Design",
-      "Animations"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Build AI Tools",
-    "link": "/buildaitools",
-    "description": "Unlock AI agent power! Learn to build your own Model Context Protocol server with Next.js and Supabase for a todo app. Master tools, context, and secure AI actions with Descope.",
-    "tags": [
-      "AI Agents",
-      "MCP Server",
-      "Next.js",
-      "Supabase",
-      "Descope",
-      "AI Tools",
-      "Dev Tutorial"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Design Mastery",
-    "link": "/designmastery",
-    "description": "Unlock top-tier website design! Learn essential principles for clarity, simplicity, and user experience. Discover how to build intuitive, impactful interfaces with practical tips on minimalism, Gestalt principles, and design systems.",
-    "tags": [
-      "Web Design",
-      "Design Principles",
-      "User Experience",
-      "Minimalism",
-      "Gestalt",
-      "Design Systems",
-      "Clarity",
-      "Website Building"
-    ],
-    "color": "bg-blue-700 shadow-blue-400"
-  },
-  {
-    "blog_title": "Design ESSN",
-    "link": "/designessn",
-    "description": "Master graphic design fundamentals like balance, unity, contrast, and variety with real-world examples. Elevate your designs from functional to impactful.",
-    "tags": [
-      "Graphic Design",
-      "Design Principles",
-      "Balance",
-      "Unity",
-      "Contrast",
-      "Variety",
-      "Visual Hierarchy"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Design Pro Video",
-    "link": "/designprovideo",
-    "description": "Master video design! Learn essential principles like hierarchy, alignment, contrast, and consistency to make your content engaging and professional. Boost viewer attention and elevate your video editing skills.",
-    "tags": [
-      "Video Design",
-      "Video Editing",
-      "Design Principles",
-      "Content Creation",
-      "Visual Hierarchy"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "Video Mastery",
-    "link": "/videomastery",
-    "description": "Unlock your video editing potential! Learn the essential design fundamentals, master editing software like Premiere Pro & After Effects, and build a killer portfolio to stand out.",
-    "tags": [
-      "Video Editing",
-      "Design Fundamentals",
-      "Motion Graphics",
-      "VFX",
-      "Portfolio Building",
-      "Freelance"
-    ],
-    "color": "bg-indigo-700 shadow-indigo-400"
-  },
-  {
-    "blog_title": "RAG Architect",
-    "link": "RAG Master",
-    "description": "Master RAG with this no-fluff deep dive for developers. Explore core concepts, debunk myths, and implement 10 advanced RAG patterns—like Agentic & Graph RAG—to build robust, accurate enterprise AI applications and eliminate LLM hallucinations.",
-    "tags": [
-      "RAG",
-      "LLM",
-      "AI",
-      "Enterprise AI",
-      "Machine Learning",
-      "Advanced RAG Patterns",
-      "AI Architecture",
-      "Hallucination Mitigation",
-      "Aishwarya Srinivasan"
-    ],
-    "color": "bg-indigo-900 shadow-indigo-500"
+    "color": "bg-blue-800 shadow-blue-600"
   }
 ]

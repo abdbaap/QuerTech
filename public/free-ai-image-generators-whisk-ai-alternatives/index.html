@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Tags for SEO Optimization -->
+    <title>Free AI Image Generators: Whisk AI Alternatives</title>
+    <meta name="description" content="Tired of Whisk AI being gone? Discover 5 FREE AI image tools to create stunning visuals with just text. Unlock creative power now!">
+    <meta name="keywords" content="free AI image generator, AI image creation tools, Whisk AI alternative, text to image AI, best AI art generator free, AI image editing tools, consistent AI images, AI image prompt generator, no login AI image generator, Google Flow AI, Raphael AI, Qwen AI image, FreeGen AI, Rave ART AI, how to create AI images without Whisk AI, best free AI art generators for consistent results, AI image tools that don't require login, creating AI images from text prompts free, free AI image generation with aspect ratio control, AI image generation for creative projects no cost, alternatives to Whisk AI for generating realistic images, easy to use AI image generator free online, AI image generation with reference images free, top 5 free AI image creation platforms">
+    <meta name="author" content="TechVridha">
+    <link rel="canonical" href="https://techvridha.vercel.app">
+    <meta property="og:title" content="Free AI Image Generators: Whisk AI Alternatives">
+    <meta property="og:description" content="Tired of Whisk AI being gone? Discover 5 FREE AI image tools to create stunning visuals with just text. Unlock creative power now!">
+    <meta property="og:image" content="URL_TO_YOUR_OG_IMAGE"> <!-- Replace with your actual OG image URL -->
+    <meta property="og:url" content="https://techvridha.vercel.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free AI Image Generators: Whisk AI Alternatives">
+    <meta name="twitter:description" content="Tired of Whisk AI being gone? Discover 5 FREE AI image tools to create stunning visuals with just text. Unlock creative power now!">
+    <meta name="twitter:image" content="URL_TO_YOUR_TWITTER_IMAGE"> <!-- Replace with your actual Twitter image URL -->
+    <meta name="robots" content="index, follow">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%236366f1'/><path fill='%23ffffff' d='M70.4 35.6c-.3-1.3-1.4-2.3-2.7-2.5-1.1-.2-2.2-.2-3.3 0-1.1.2-2.2.6-3 1.1-1.5 1-2.6 2.5-3.3 4-.7 1.5-1.1 3.1-1.1 4.7 0 1.6.4 3.2 1.1 4.7 0.7 1.5 1.8 3 3.3 4 1.5 1 3.2 1.5 5 1.5s3.5-.5 5-1.5c1.5-1 2.6-2.5 3.3-4 0.7-1.5 1.1-3.1 1.1-4.7 0-1.6-.4-3.2-1.1-4.7z'/></svg>" type="image/svg+xml">
+
+    <style>
+        /* --- Global Styles & Design System --- */
+        :root {
+            /* Color Palette */
+            --color-primary-indigo: #6366f1; /* Main accent */
+            --color-accent-pink: #ec4899;   /* Secondary accent */
+            --color-background: #09172a;    /* Dark slate background */
+            --color-surface-dark: rgba(9, 23, 42, 0.7); /* Semi-transparent dark for glassmorphism */
+            --color-surface-light: rgba(255, 255, 255, 0.05); /* Subtle highlight for glassmorphism */
+            --color-text-primary: #e2e8f0;  /* Light text for readability */
+            --color-text-secondary: #94a3b8; /* Muted text for less emphasis */
+            --color-border-hover: var(--color-accent-pink); /* Hover border color */
+
+            /* Typography */
+            --font-family-sans-serif: 'SF Pro Display', 'Inter', 'Arial', sans-serif; /* Modern sans-serif stack */
+            --font-weight-bold: 700;
+            --font-weight-semibold: 600;
+            --font-weight-regular: 400;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+
+            /* Borders & Shadows */
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+            --shadow-elevation-1: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-elevation-2: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.5); /* Indigo glow for emphasis */
+
+            /* Animation */
+            --transition-fast: 0.2s ease-in-out;
+            --transition-medium: 0.3s ease-in-out;
+        }
+
+        /* Ambient Background Orbs */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, var(--color-accent-pink) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, var(--color-primary-indigo) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.2) 0%, transparent 60%);
+            background-size: 150% 150%;
+            z-index: -1;
+            animation: ambient-orb-animation 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes ambient-orb-animation {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        /* Basic Reset & Box Sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Fluid Typography using clamp() */
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+        p, li, a, button, input, textarea { font-size: clamp(1rem, 2vw, 1.125rem); }
+        .subtitle { font-size: clamp(0.9rem, 1.8vw, 1rem); }
+
+        body {
+            font-family: var(--font-family-sans-serif);
+            background-color: var(--color-background);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: var(--color-surface-dark);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-sm) var(--spacing-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary-indigo);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .logo .highlight {
+            color: var(--color-accent-pink);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .main-nav a {
+            color: var(--color-text-primary);
+            text-decoration: none;
+            font-weight: var(--font-weight-semibold);
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent-pink);
+            transition: width var(--transition-medium);
+        }
+
+        .main-nav a:hover {
+            color: var(--color-accent-pink);
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: var(--spacing-xxl) var(--spacing-md);
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* For potential overlay */
+        }
+
+        .hero h1 {
+            margin-bottom: var(--spacing-sm);
+            background-image: linear-gradient(90deg, var(--color-primary-indigo), var(--color-accent-pink));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .hero .subtitle {
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-primary-indigo);
+            color: white;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            text-decoration: none;
+            font-weight: var(--font-weight-bold);
+            box-shadow: var(--shadow-elevation-1);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-glow), var(--shadow-elevation-2);
+        }
+
+        /* --- Main Content Area --- */
+        .main-content {
+            flex-grow: 1; /* Allows main content to fill available space */
+            padding: var(--spacing-lg) var(--spacing-md);
+            width: 100%;
+            max-width: 1200px; /* Max width for readability */
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary-indigo);
+        }
+
+        /* --- Tool Cards --- */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .tool-card {
+            background-color: var(--color-surface-dark);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-md);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-elevation-1);
+            transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer; /* Indicate interactivity */
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Inherit text color */
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-glow), var(--shadow-elevation-2);
+            border-color: var(--color-accent-pink);
+        }
+
+        .tool-card .rank-badge {
+            background-color: var(--color-primary-indigo);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius-md);
+            font-weight: var(--font-weight-bold);
+            font-size: 0.9em;
+            margin-bottom: var(--spacing-sm);
+            display: inline-block;
+            width: fit-content; /* Adjust width to content */
+        }
+
+        .tool-card h3 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-primary-indigo); /* Tool name in primary color */
+            font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+        }
+
+        .tool-card .subtitle {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-md);
+            flex-grow: 1; /* Allow description to take available space */
+        }
+
+        .tool-card .features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            margin-top: auto; /* Push features to the bottom */
+        }
+
+        .tool-card .features li {
+            background-color: var(--color-surface-light);
+            color: var(--color-text-secondary);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--border-radius-md);
+            font-size: 0.85em;
+            white-space: nowrap; /* Prevent wrapping of badges */
+        }
+
+        /* Geometric Pattern Placeholder - Replace with actual CSS generated patterns */
+        .geometric-pattern {
+            width: 100%;
+            height: 150px; /* Example height */
+            background-color: var(--color-surface-light);
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--color-text-secondary);
+            font-weight: var(--font-weight-bold);
+            font-size: 1.2em;
+            text-align: center;
+            /* Example: CSS Triangle for a simple pattern */
+            background-image:
+                linear-gradient(135deg, var(--color-primary-indigo) 25%, transparent 25%),
+                linear-gradient(225deg, var(--color-primary-indigo) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 50%, var(--color-accent-pink) 50%),
+                linear-gradient(315deg, transparent 50%, var(--color-accent-pink) 50%);
+            background-size: 20px 20px;
+        }
+
+        /* --- Theme Toggle --- */
+        .theme-toggle {
+            position: fixed;
+            bottom: var(--spacing-lg);
+            right: var(--spacing-lg);
+            z-index: 1001;
+            background-color: var(--color-primary-indigo);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-elevation-1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background-color: var(--color-accent-pink);
+            box-shadow: var(--shadow-glow), var(--shadow-elevation-2);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--color-surface-dark);
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            color: var(--color-text-secondary);
+            text-align: center;
+            padding: var(--spacing-lg) var(--spacing-md);
+            margin-top: auto; /* Push footer to the bottom */
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer a {
+            color: var(--color-text-primary);
+            text-decoration: none;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        footer a:hover {
+            color: var(--color-accent-pink);
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-sm);
+            }
+
+            .hero {
+                padding: var(--spacing-xl) var(--spacing-sm);
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+
+            .theme-toggle {
+                bottom: var(--spacing-md);
+                right: var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: clamp(2rem, 8vw, 3rem); }
+            h2 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
+            .hero { padding: var(--spacing-lg) var(--spacing-sm); }
+            .section-title { margin-bottom: var(--spacing-lg); }
+        }
+    </style>
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://techvridha.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+    <header>
+        <a href="https://techvridha.vercel.app" class="logo" aria-label="TechVridha Home">
+            <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="url(#logoGradient)"/>
+                <defs>
+                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path fill="white" d="M70.4 35.6c-.3-1.3-1.4-2.3-2.7-2.5-1.1-.2-2.2-.2-3.3 0-1.1.2-2.2.6-3 1.1-1.5 1-2.6 2.5-3.3 4-.7 1.5-1.1 3.1-1.1 4.7 0 1.6.4 3.2 1.1 4.7 0.7 1.5 1.8 3 3.3 4 1.5 1 3.2 1.5 5 1.5s3.5-.5 5-1.5c1.5-1 2.6-2.5 3.3-4 0.7-1.5 1.1-3.1 1.1-4.7 0-1.6-.4-3.2-1.1-4.7z"/>
+            </svg>
+            TechVridha<span class="highlight">.app</span>
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#tools">AI Tools</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero">
+            <h1>Your Free AI Image Generation Hub</h1>
+            <p class="subtitle">Discover powerful, free AI tools to create amazing images from text. Alternatives to Whisk AI, ready for your creative projects!</p>
+            <a href="#tools" class="cta-button">Explore Tools</a>
+        </section>
+
+        <section id="tools" class="tools-section">
+            <h2 class="section-title">Top 5 Free AI Image Generators</h2>
+            <div class="tools-grid">
+                <!-- Tool 1: Raphael.ai -->
+                <a href="https://www.raphael.ai/" target="_blank" rel="noopener noreferrer" class="tool-card" aria-label="Explore Raphael AI">
+                    <span class="rank-badge">#1</span>
+                    <h3>Raphael.ai</h3>
+                    <p class="subtitle">No login needed! Create and edit images with text prompts. Uses advanced "Nano Banana 2" models for high-fidelity results in seconds.</p>
+                    <ul class="features">
+                        <li>No Login</li>
+                        <li>Image Editing</li>
+                        <li>Fast Generation (2s)</li>
+                        <li>Multiple Aspect Ratios</li>
+                    </ul>
+                </a>
+
+                <!-- Tool 2: FreeGen AI -->
+                <a href="https://freegen.ai/" target="_blank" rel="noopener noreferrer" class="tool-card" aria-label="Explore FreeGen AI">
+                    <span class="rank-badge">#2</span>
+                    <h3>FreeGen AI</h3>
+                    <p class="subtitle">Sign up free! Generates high-quality AI images in under 10 seconds. Supports various aspect ratios and can use uploaded images as a base.</p>
+                    <ul class="features">
+                        <li>Free to Use</li>
+                        <li>Fast Generation (<10s)</li>
+                        <li>Aspect Ratio Control</li>
+                        <li>Image-to-Image</li>
+                    </ul>
+                </a>
+
+                <!-- Tool 3: Qwen AI -->
+                <a href="https://qwen.aliyun.com/webportal/visual" target="_blank" rel="noopener noreferrer" class="tool-card" aria-label="Explore Qwen AI">
+                    <span class="rank-badge">#3</span>
+                    <h3>Qwen AI</h3>
+                    <p class="subtitle">Integrated into chat! No login required for image creation. Reference existing images for style and select aspect ratios for multiple outputs.</p>
+                    <ul class="features">
+                        <li>No Login</li>
+                        <li>Chat Interface</li>
+                        <li>Style Referencing</li>
+                        <li>Multiple Outputs</li>
+                    </ul>
+                </a>
+
+                <!-- Tool 4: Rave.ART -->
+                <a href="https://www.rave.art/" target="_blank" rel="noopener noreferrer" class="tool-card" aria-label="Explore Rave.ART">
+                    <span class="rank-badge">#4</span>
+                    <h3>Rave.ART</h3>
+                    <p class="subtitle">Daily free credits! Requires login but offers 150 credits daily. Great for generating images with consistent character and atmosphere from references.</p>
+                    <ul class="features">
+                        <li>Daily Credits</li>
+                        <li>Image References</li>
+                        <li>Style Consistency</li>
+                        <li>Email Login</li>
+                    </ul>
+                </a>
+
+                <!-- Tool 5: Google Flow -->
+                <a href="https://flow.teddybear.ai/" target="_blank" rel="noopener noreferrer" class="tool-card" aria-label="Explore Google Flow">
+                    <span class="rank-badge">#5</span>
+                    <h3>Google Flow</h3>
+                    <p class="subtitle">Unlimited & Free! Google's powerful alternative. Uses "Nano Banana 2" with enhanced stylization and editing. Offers 150 daily credits, but no deduction for generation.</p>
+                    <ul class="features">
+                        <li>Unlimited Use</li>
+                        <li>Nano Banana 2 Model</li>
+                        <li>Stylization & Editing</li>
+                        <li>Free Daily Credits</li>
+                    </ul>
+                </a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>Have questions or feedback? We'd love to hear from you!</p>
+                <p>Visit our main website: <a href="https://techvridha.vercel.app" target="_blank" rel="noopener noreferrer">TechVridha.app</a></p>
+                <!-- Placeholder for a contact form if needed in the future -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 TechVridha. All rights reserved.</p>
+        <p>Crafted with <span style="color: var(--color-accent-pink);">♥</span> and cutting-edge tech.</p>
+    </footer>
+
+    <!-- Floating Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle Theme">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
+    <script>
+        // --- JavaScript Interactivity & Animations ---
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Hover Effect for Tool Cards (3D Lift & Border Glow)
+        const toolCards = document.querySelectorAll('.tool-card');
+        toolCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                // Get card dimensions and mouse position relative to the card
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // Calculate rotation for 3D effect (subtle tilt)
+                const rotateX = (y / rect.height - 0.5) * 20; // Max 20 degrees tilt
+                const rotateY = (x / rect.width - 0.5) * -20; // Max -20 degrees tilt
+
+                // Apply transform for 3D lift and tilt
+                card.style.transform = `translateZ(20px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                card.style.boxShadow = `var(--shadow-glow), var(--shadow-elevation-2)`; // Enhance shadow on hover
+                card.style.borderColor = `var(--color-accent-pink)`; // Border color transition
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // Reset transform and shadow
+                card.style.transform = 'translateZ(0) rotateX(0) rotateY(0)';
+                card.style.boxShadow = 'var(--shadow-elevation-1)'; // Original shadow
+                card.style.borderColor = 'rgba(255, 255, 255, 0.1)'; // Original border color
+            });
+        });
+
+        // Theme Toggle Functionality
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme');
+
+        // Apply saved theme on load
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-theme');
+            // Update SVG icon for dark theme if you have one
+            themeToggleBtn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            `;
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+
+            // Update SVG icon based on current theme
+            if (body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggleBtn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                `;
+            } else {
+                localStorage.removeItem('theme');
+                themeToggleBtn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                `;
+            }
+        });
+
+        // Optional: Simple animation for section titles on scroll
+        const sectionTitles = document.querySelectorAll('.section-title');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                } else {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+        sectionTitles.forEach(title => {
+            title.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+            title.style.opacity = '0';
+            title.style.transform = 'translateY(20px)';
+            observer.observe(title);
+        });
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/nestjscustomexceptionhandling">Master NestJS Custom Exception Handling for Robust APIs</a><a href="/master-tailwind-css-v4-setup-with-simple-cli-guide">Master Tailwind CSS v4 Setup with Simple CLI Guide</a><a href="/minecraftliveupdates">Minecraft Live Reveals Explosive New Updates & Experiences</a><a href="/masterterraformawsdeploymentseasily">Master Terraform AWS Deployments Easily</a><a href="/masteramazons3cloudstorage">Master Amazon S3 Cloud Storage</a><a href="/masteropencvpypythoncomputervision">Master OpenCV Python for Computer Vision</a><a href="/masterpythonpandasdataanalysis">Master Python Pandas Data Analysis</a><a href="/masternextjsredissbookdata">Master Nextjs Redis Book Data</a><a href="/master-nextjs-app-router-api-routes-instantly">Master Nextjs App Router API Routes Instantly</a><a href="/masternextjswebdevfast">Master NextJS Web Dev Fast</a>
+</div></body>
+</html>
+```

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>Minecraft Live: New Biomes, Mobs & MORE!</title>
+    <meta name="description" content="Tired of the same old Minecraft? Discover exciting new Sulfur Caves, the unique Sulfur Cube mob, and game-changing updates like Tiny Takeover & Bedrock Parties! Plus, get ready for Minecraft Dungeons 2 & real-world adventures!">
+    <meta name="keywords" content="minecraft live 2024 new updates, new minecraft biomes revealed, sulfur caves minecraft, sulfur cube mob minecraft, tiny takeover update minecraft, minecraft dungeons 2 release date, bedrock edition parties feature, minecraft moonlight trail, minecraft world theme park london, new minecraft mobs 2024, minecraft enchantments treasure hunt, golden dandelion minecraft, how to keep mobs baby minecraft, copper note block trumpet sound, starfish studios new minecraft game">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Minecraft Live: New Biomes, Mobs & MORE!">
+    <meta property="og:description" content="Discover exciting new Sulfur Caves, the unique Sulfur Cube mob, and game-changing updates like Tiny Takeover & Bedrock Parties! Plus, get ready for Minecraft Dungeons 2 & real-world adventures!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://techvridha.vercel.app/">
+    <meta property="og:image" content="https://techvridha.vercel.app/images/minecraft-live-preview.jpg"> <!-- Replace with actual image URL -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Minecraft Live: New Biomes, Mobs & MORE!">
+    <meta name="twitter:description" content="Discover exciting new Sulfur Caves, the unique Sulfur Cube mob, and game-changing updates like Tiny Takeover & Bedrock Parties! Plus, get ready for Minecraft Dungeons 2 & real-world adventures!">
+    <meta name="twitter:image" content="https://techvridha.vercel.app/images/minecraft-live-preview.jpg"> <!-- Replace with actual image URL -->
+    <link rel="canonical" href="https://techvridha.vercel.app/">
+
+    <style>
+        /* Global Styles & Variables */
+        :root {
+            --primary-indigo: #6366f1; /* Indigo */
+            --accent-pink: #ec4899;   /* Pink */
+            --background-slate: #09172a; /* Dark Slate */
+            --text-light: #e0e0e0;      /* Light Gray for text */
+            --text-muted: #9ca3af;      /* Muted Gray */
+            --card-background: rgba(255, 255, 255, 0.05); /* Slightly opaque white for glassmorphism */
+            --border-color-hover: var(--accent-pink);
+            --shadow-elevation: 0 4px 15px rgba(0, 0, 0, 0.2);
+            --shadow-elevation-hover: 0 20px 40px rgba(0, 0, 0, 0.3);
+            --transition-speed: 0.3s;
+            --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        /* Animations for background orbs */
+        @keyframes orb-float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+            100% { transform: translateY(0) rotate(360deg); opacity: 0.8; }
+        }
+
+        @keyframes orb-pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+
+        /* Utility Classes */
+        .text-gradient-mask {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .gradient-header {
+            background-image: linear-gradient(90deg, var(--primary-indigo), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            font-weight: 700; /* Bold */
+        }
+
+        .blur-effect {
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            background-color: var(--card-background);
+            border-radius: 12px;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: var(--font-display);
+            background-color: var(--background-slate);
+            color: var(--text-light);
+            line-height: 1.7;
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            scroll-behavior: smooth; /* Smooth scrolling */
+            font-size: clamp(1rem, 2.5vw, 1.125rem); /* Fluid font scaling */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4.5vw, 3rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+        }
+
+        a {
+            color: var(--primary-indigo);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease-in-out;
+        }
+
+        a:hover {
+            color: var(--accent-pink);
+        }
+
+        /* Container for centering content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative; /* For z-index layering */
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Hide overflowing orbs */
+            z-index: 10; /* Ensure header is on top */
+        }
+
+        header h1 {
+            margin-bottom: 15px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Area */
+        main {
+            padding: 60px 0;
+            position: relative;
+            z-index: 1; /* Ensure main content is above background */
+        }
+
+        /* Card-based Layout for Highlights */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--card-background);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out, border-color var(--transition-speed) ease-out;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes content to the top if needed */
+            position: relative;
+            overflow: hidden; /* For badge positioning */
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* 3D card lifting effect */
+            box-shadow: var(--shadow-elevation-hover);
+            border-color: var(--border-color-hover);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-indigo);
+            transition: color var(--transition-speed) ease-in-out;
+        }
+
+        .card:hover .card-icon {
+            color: var(--accent-pink);
+        }
+
+        .card h4 {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .card p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: var(--text-muted);
+            flex-grow: 1; /* Allows text to take available space */
+        }
+
+        /* Rank Badges */
+        .rank-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, var(--primary-indigo), var(--accent-pink));
+            color: white;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Geometric Patterns (Simulated) */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255,255,255,0.03) 0px,
+                rgba(255,255,255,0.03) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            opacity: 0.3;
+            pointer-events: none; /* Don't interfere with clicks */
+            z-index: 0; /* Behind content */
+        }
+
+        /* Specific Card Styling for Visual Distinction (Example) */
+        .card.biome {
+            border-left: 4px solid var(--primary-indigo);
+        }
+        .card.biome:hover {
+            border-left-color: var(--accent-pink);
+        }
+
+        .card.mob {
+            border-left: 4px solid var(--accent-pink);
+        }
+        .card.mob:hover {
+            border-left-color: var(--primary-indigo);
+        }
+
+        /* Text Contrast Improvements */
+        .card h4, .card p {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Call to Action / Links */
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all var(--transition-speed) ease-in-out;
+            margin: 10px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary-indigo), var(--accent-pink));
+            color: white;
+            box-shadow: var(--shadow-elevation);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-elevation-hover);
+            background: linear-gradient(90deg, var(--accent-pink), var(--primary-indigo));
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-indigo);
+            border-color: var(--primary-indigo);
+            box-shadow: inset 0 0 0 2px var(--primary-indigo);
+        }
+
+        .btn-secondary:hover {
+            color: white;
+            background: var(--primary-indigo);
+            border-color: var(--primary-indigo);
+        }
+
+        /* Floating Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--card-background);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 100; /* Highest z-index */
+            box-shadow: var(--shadow-elevation);
+            transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out, border-color var(--transition-speed) ease-out;
+            color: var(--text-muted);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-elevation-hover);
+            border-color: var(--accent-pink);
+            color: var(--accent-pink);
+        }
+
+        .theme-toggle i { /* Assuming Font Awesome or similar icon library */
+            font-size: 1.8rem;
+        }
+
+        /* Background Orbs */
+        .background-orbs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0; /* Behind all content */
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, rgba(236,72,153,0.3) 70%); /* Indigo to Pink gradient */
+            border-radius: 50%;
+            opacity: 0;
+            animation: orb-float 30s infinite ease-in-out, orb-pulse 5s infinite ease-in-out;
+            filter: blur(80px);
+        }
+
+        .orb:nth-child(1) { top: 10%; left: 15%; width: 200px; height: 200px; animation-delay: 0s; }
+        .orb:nth-child(2) { top: 60%; left: 70%; width: 150px; height: 150px; animation-delay: 5s; }
+        .orb:nth-child(3) { top: 30%; left: 50%; width: 250px; height: 250px; animation-delay: 10s; }
+        .orb:nth-child(4) { top: 80%; left: 20%; width: 180px; height: 180px; animation-delay: 15s; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 0;
+            }
+            h1 {
+                font-size: clamp(1.75rem, 6vw, 3rem);
+            }
+            h2 {
+                font-size: clamp(1.5rem, 5vw, 2.5rem);
+            }
+            .card-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+            .card {
+                padding: 25px;
+            }
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .theme-toggle i {
+                font-size: 1.5rem;
+            }
+            .orb {
+                filter: blur(50px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            header p {
+                font-size: 0.95rem;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <!-- Link to an icon library for the theme toggle. Font Awesome is a popular choice. -->
+    <!-- You would typically include this in the head for a production site, but for single file, it's here. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body><navbar style="display: flex;margin-bottom: 30px;  z-index: 40; justify-content: center; align-items: center; background-color: black; color: white; width: 100%; padding: 0.5rem 2rem;">
+  <a href="https://techvridha.vercel.app" style="text-decoration: none; color: white; font-size: 3rem; font-weight: bold;">
+    QuerTech
+  </a>
+</navbar>
+
+    <!-- Background Orbs -->
+    <div class="background-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="gradient-header">Minecraft Live: Get Ready for an Epic New Era!</h1>
+            <p>Discover the latest and greatest updates, new mobs, exciting adventures, and future games announced at Minecraft Live. It's all about fresh content to make your Minecraft world even cooler!</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+
+            <!-- Executive Summary & Key Highlights -->
+            <section>
+                <h2>What's New in the Minecraft Universe?</h2>
+                <p>Minecraft Live just dropped some seriously awesome news that's going to change how you play! Think new places to explore, wild new creatures to meet, and tons of updates to make your game experience way better. Plus, there are cool real-world events and even new game titles on the horizon!</p>
+
+                <div class="card-grid">
+
+                    <!-- New Biome: Sulfur Caves -->
+                    <div class="card biome">
+                        <div class="rank-badge">New Biome</div>
+                        <div class="card-icon"><i class="fas fa-mountain"></i></div>
+                        <h4>Sulfur Caves: A Fiery Underground World</h4>
+                        <p>Dive into the Sulfur Caves, a brand-new underground biome. It's packed with vibrant red and yellow blocks like "Sulfur" and "Cinnabar" (in polished, brick, and chiseled forms!). Watch out for "Potent Sulfur" pools – they make you feel a bit woozy if you get too close!</p>
+                    </div>
+
+                    <!-- New Mob: Sulfur Cube -->
+                    <div class="card mob">
+                        <div class="rank-badge">New Mob</div>
+                        <div class="card-icon"><i class="fas fa-cube"></i></div>
+                        <h4>Meet the Sulfur Cube: Your New Item Buddy</h4>
+                        <p>Say hello to the Sulfur Cube, a chill mob found in Sulfur Caves. It loves to collect items! Its movement changes based on what it picks up – it slides on ice like ice, and gets heavy with iron. You can reset it to its normal self with shears. Pretty neat, huh?</p>
+                    </div>
+
+                    <!-- Tiny Takeover Update -->
+                    <div class="card update">
+                        <div class="rank-badge">Update</div>
+                        <div class="card-icon"><i class="fas fa-child"></i></div>
+                        <h4>Tiny Takeover: Baby Mobs Get a Makeover!</h4>
+                        <p>This update, already out, makes baby mobs look even cuter with new models and animations! Plus, you can now craft name tags and keep your favorite baby mobs tiny forever using "Golden Dandelions." Just feed them one, and they won't grow up!</p>
+                    </div>
+
+                    <!-- Minecraft Dungeons 2 -->
+                    <div class="card game-sequel">
+                        <div class="rank-badge">Sequel Announced</div>
+                        <div class="card-icon"><i class="fas fa-swords"></i></div>
+                        <h4>Minecraft Dungeons 2: More Loot, More Action!</h4>
+                        <p>Get hyped! A sequel to Minecraft Dungeons is coming in 2026. Expect a new villain and awesome four-player co-op. More dungeons, more bosses, more fun!</p>
+                    </div>
+
+                    <!-- Bedrock Edition "Parties" Feature -->
+                    <div class="card feature">
+                        <div class="rank-badge">New Feature</div>
+                        <div class="card-icon"><i class="fas fa-users"></i></div>
+                        <h4>Bedrock Parties: Easier Multiplayer!</h4>
+                        <p>Playing with friends just got a whole lot simpler. The new "Parties" feature in Bedrock Edition lets you create groups to easily jump into each other's worlds and Realms. No more hassle!</p>
+                    </div>
+
+                    <!-- Minecraft Experience: Moonlight Trail -->
+                    <div class="card experience">
+                        <div class="rank-badge">Real-World</div>
+                        <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h4>Moonlight Trail: An Outdoor Night Adventure</h4>
+                        <p>Experience Minecraft like never before! Moonlight Trail is a cool outdoor adventure where you'll explore a forest at night to restore an ancient beacon. It's coming to cities like Herning, Singapore, Mexico City, and Chicago soon!</p>
+                    </div>
+
+                    <!-- Minecraft World Theme Park -->
+                    <div class="card experience">
+                        <div class="rank-badge">Real-World</div>
+                        <div class="card-icon"><i class="fas fa-chess-rook"></i></div>
+                        <h4>Minecraft World Theme Park: London Bound!</h4>
+                        <p>Get ready to step into the game! A massive Minecraft theme park is being built in London's Chessington World of Adventures, opening in 2027. It'll be packed with interactive stuff and encounters with your favorite mobs.</p>
+                    </div>
+
+                    <!-- New Trumpet Note Block Sound -->
+                    <div class="card detail">
+                        <div class="rank-badge">Small Update</div>
+                        <div class="card-icon"><i class="fas fa-music"></i></div>
+                        <h4>Trumpet Sound for Note Blocks</h4>
+                        <p>A small but fun detail: Copper note blocks now make a cool trumpet sound! Add some musical flair to your builds.</p>
+                    </div>
+
+                    <!-- Unannounced Title by Starfish Studios -->
+                    <div class="card unannounced">
+                        <div class="rank-badge">New Game</div>
+                        <div class="card-icon"><i class="fas fa-question-circle"></i></div>
+                        <h4>Mysterious New Game from Starfish Studios</h4>
+                        <p>Starfish Studios is cooking up something new in the Minecraft universe. We don't have all the details yet, but we'll keep you posted!</p>
+                    </div>
+
+                    <!-- Treasure Hunt by Enchanted -->
+                    <div class="card event">
+                        <div class="rank-badge">Coming Soon</div>
+                        <div class="card-icon"><i class="fas fa-box-open"></i></div>
+                        <h4>Treasure Hunt by Enchanted: A New Challenge</h4>
+                        <p>Prepare for a brand-new event or game mode called "Treasure Hunt by Enchanted." Sounds like an exciting quest awaits!</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Actionable Insights -->
+            <section class="cta-section">
+                <h2>What This Means for You!</h2>
+                <p>So, what's the big deal? All these updates mean Minecraft is getting bigger and better. You'll have new places to build, new friends (mob friends!) to discover, and more ways to play with your buddies. Whether you're a builder, explorer, or dungeon crawler, there's something exciting for everyone!</p>
+                <a href="https://www.minecraft.net/en-us/article/minecraft-live-2024-recap--live-from-the-community-celebration" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Explore All Minecraft Live Recaps</a>
+                <a href="https://techvridha.vercel.app/" class="btn btn-secondary">Visit Our Homepage</a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Floating Theme Toggle (Placeholder for functionality) -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
+        <i class="fas fa-sun"></i> <!-- Default to sun icon -->
+    </button>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TechVridha. All rights reserved.</p>
+            <p>Content inspired by Minecraft Live announcements.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Vanilla JavaScript for Interactivity
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggle Functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const sunIcon = '<i class="fas fa-sun"></i>';
+            const moonIcon = '<i class="fas fa-moon"></i>';
+            const root = document.documentElement;
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                enableDarkMode();
+            } else {
+                enableLightMode(); // Default to light mode if not saved or if saved is 'light'
+            }
+
+            themeToggle.addEventListener('click', () => {
+                if (root.classList.contains('dark-mode')) {
+                    enableLightMode();
+                } else {
+                    enableDarkMode();
+                }
+            });
+
+            function enableDarkMode() {
+                root.classList.add('dark-mode');
+                themeToggle.innerHTML = sunIcon;
+                localStorage.setItem('theme', 'dark');
+                // Update orb colors for dark mode if needed (more advanced customization)
+            }
+
+            function enableLightMode() {
+                root.classList.remove('dark-mode');
+                themeToggle.innerHTML = moonIcon;
+                localStorage.setItem('theme', 'light');
+                // Reset orb colors for light mode if needed
+            }
+
+            // Enhanced Card Hover Effects
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const moveX = (x - centerX) / centerX; // -1 to 1
+                    const moveY = (y - centerY) / centerY; // -1 to 1
+
+                    // Subtle tilt effect
+                    card.style.transform = `perspective(1000px) rotateX(${moveY * 5}deg) rotateY(${moveX * 5}deg) translateY(-10px)`;
+                    // Add slight glow on hover
+                    card.style.boxShadow = `0 20px 40px rgba(0, 0, 0, 0.3), 0 0 15px ${card.classList.contains('biome') ? 'rgba(99, 102, 241, 0.5)' : card.classList.contains('mob') ? 'rgba(236, 72, 153, 0.5)' : 'rgba(255, 255, 255, 0.2)'}`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-10px)'; // Maintain slight lift
+                    card.style.boxShadow = 'var(--shadow-elevation-hover)'; // Revert to hover shadow
+                });
+
+                // Add click effect for better UX
+                card.addEventListener('mousedown', () => {
+                    card.style.transform += ' scale(0.98)';
+                });
+                card.addEventListener('mouseup', () => {
+                    card.style.transform = card.style.transform.replace(' scale(0.98)', '');
+                });
+            });
+
+            // Adjust orb initial opacity for a smoother intro
+            const orbs = document.querySelectorAll('.orb');
+            orbs.forEach(orb => {
+                orb.style.opacity = Math.random() * 0.4 + 0.2; // Random opacity between 0.2 and 0.6
+                orb.style.animationPlayState = 'running'; // Ensure animation starts
+            });
+        });
+
+        // Add a style for dark mode if needed for theme toggle
+        const style = document.createElement('style');
+        style.textContent = `
+            /* Dark Mode Styles */
+            :root.dark-mode {
+                --background-slate: #050c14; /* Even darker slate */
+                --text-light: #f0f0f0;      /* Brighter text */
+                --text-muted: #a0a0a0;      /* Lighter muted text */
+                --card-background: rgba(255, 255, 255, 0.08); /* Slightly more opaque for dark mode */
+                --border-color-hover: var(--accent-pink);
+                --shadow-elevation: 0 4px 15px rgba(0, 0, 0, 0.3);
+                --shadow-elevation-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+            :root.dark-mode .background-orbs .orb {
+                background: radial-gradient(circle, rgba(99,102,241,0.5) 0%, rgba(236,72,153,0.4) 70%); /* Slightly adjusted for dark */
+            }
+            :root.dark-mode .card {
+                border-color: rgba(255, 255, 255, 0.15); /* Slightly more prominent border in dark mode */
+            }
+             :root.dark-mode .theme-toggle {
+                background: rgba(255, 255, 255, 0.08);
+                border-color: rgba(255, 255, 255, 0.15);
+            }
+            :root.dark-mode .theme-toggle:hover {
+                border-color: var(--accent-pink);
+            }
+        `;
+        document.head.appendChild(style);
+
+    </script>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.5rem; background-color: black; color: white; width: 100%; padding: 2rem;">
+  <a href="/masterterraformawsdeploymentseasily">Master Terraform AWS Deployments Easily</a><a href="/masteramazons3cloudstorage">Master Amazon S3 Cloud Storage</a><a href="/masteropencvpypythoncomputervision">Master OpenCV Python for Computer Vision</a><a href="/masterpythonpandasdataanalysis">Master Python Pandas Data Analysis</a><a href="/masternextjsredissbookdata">Master Nextjs Redis Book Data</a><a href="/master-nextjs-app-router-api-routes-instantly">Master Nextjs App Router API Routes Instantly</a><a href="/masternextjswebdevfast">Master NextJS Web Dev Fast</a>
+</div></body>
+</html>
+```
