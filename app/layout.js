@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
      crossorigin="anonymous"></script>
        {/* <script src="https://quge5.com/88/tag.min.js" data-zone="228625" async data-cfasync="false"></script> */}
     <link rel="canonical" href="https://techvridha.vercel.app" />
-       <meta name="google-site-verification" content="7GU0yZN31fEJZ6ejGBoKIWqkDuVLHyuFJHA485bWWE4" />
+       <meta name="google-site-verification" content="MIDLOYFbs4SS5EOC6oQcQd2CU6R4U0gxy70ESi1oLew" />
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6836466532865002"
      crossorigin="anonymous"></script>
        
