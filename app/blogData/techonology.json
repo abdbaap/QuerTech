@@ -1,5 +1,37 @@
 [
   {
+    "blog_title": "Unlock Azure Cloud Services Master Azure in 7 Key Buckets",
+    "link": "/azurecloudservicesoverview",
+    "description": "Demystify Azure Cloud Services! Learn to master Azure by understanding its 7 core service buckets, from foundations and security to AI ML and cost management. Essential guide for efficient cloud strategy and interview prep.",
+    "tags": [
+      "Azure",
+      "Cloud Services",
+      "Azure Overview",
+      "Cloud Computing",
+      "Microsoft Azure",
+      "AI",
+      "Machine Learning",
+      "DevOps",
+      "Networking"
+    ],
+    "color": "bg-blue-600 shadow-blue-400"
+  },
+  {
+    "blog_title": "Unlock Big Tech System Design Secrets",
+    "link": "/unlockbigtechsystemdesignsecrets",
+    "description": "Master essential system design concepts to advance your software engineering career and ace big tech interviews. Learn about APIs, databases, scaling, caching, and more.",
+    "tags": [
+      "System Design",
+      "Software Engineering",
+      "Big Tech",
+      "Interviews",
+      "Scalability",
+      "Databases",
+      "APIs"
+    ],
+    "color": "bg-indigo-800 shadow-indigo-500"
+  },
+  {
     "blog_title": "Master Tailwind CSS v4 Setup with Simple CLI Guide",
     "link": "/master-tailwind-css-v4-setup-with-simple-cli-guide",
     "description": "Instantly set up Tailwind CSS v4 using the CLI. This powerful guide reveals prerequisites, crucial installation steps, and how IntelliSense supercharges your workflow for faster, efficient web development. Discover the ultimate shortcut to dynamic styling.",

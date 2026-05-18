@@ -1,5 +1,86 @@
 [
   {
+    "blog_title": "Build Spring Boot API in 10 Minutes VS Code",
+    "link": "/buildspringbootapiin10minutesvscode",
+    "description": "Instantly build a Spring Boot API with VS Code in just 10 minutes! Master project setup, REST controllers, and API endpoints for rapid development.",
+    "tags": [
+      "Spring Boot",
+      "API Development",
+      "VS Code",
+      "REST API",
+      "Java"
+    ],
+    "color": "bg-teal-700 shadow-teal-400"
+  },
+  {
+    "blog_title": "Master OAuth 2.0 Secure Access",
+    "link": "/master-oauth-2-0-secure-access",
+    "description": "Unlock secure access delegation with OAuth 2.0. Discover its purpose, core components, and essential flows like Authorization Code and Client Credentials for robust API security.",
+    "tags": [
+      "OAuth 2.0",
+      "Authorization Framework",
+      "Access Tokens",
+      "API Security",
+      "JWT"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Unlock System Insights",
+    "link": "/mastering-monitoring-vs-observability-for-complex-systems",
+    "description": "Traditional monitoring fails in complex systems. Discover how observability with rich data unlocks root cause analysis and guarantees user experience.",
+    "tags": [
+      "Monitoring",
+      "Observability",
+      "Distributed Systems",
+      "Root Cause Analysis",
+      "System Health",
+      "Latency"
+    ],
+    "color": "bg-blue-600 shadow-blue-400"
+  },
+  {
+    "blog_title": "Automate Node JS Deployments With GitHub Actions CI CD Made Easy",
+    "link": "/automate-node-js-deployments-github-actions-ci-cd",
+    "description": "Unlock effortless Node.js deployments! Discover how GitHub Actions CI CD automates testing and shipping your code, saving time and eliminating errors. Perfect for faster, safer releases.",
+    "tags": [
+      "GitHub Actions",
+      "CI CD",
+      "Node JS",
+      "Automated Deployment",
+      "Software Development"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
+    "blog_title": "Unlock AI Agent Power Integrate Third Party Systems",
+    "link": "/unlockaiagentpowerintegratethirdpartysystems",
+    "description": "Discover how AI agents masterfully connect with external services using Model Context Protocol MCP and Agent-to-Agent A2A. Learn to automate bookings troubleshooting and data tasks.",
+    "tags": [
+      "AI Agents",
+      "MCP",
+      "A2A Protocol",
+      "API Integration",
+      "AI Automation",
+      "LLM"
+    ],
+    "color": "bg-indigo-700 shadow-indigo-400"
+  },
+  {
+    "blog_title": "Unlock Powerful Insights Integrate Power BI Azure Data",
+    "link": "/unlockpowerbiazureintegration",
+    "description": "Mastering business intelligence by seamlessly integrating Power BI with Azure services. Transform your raw data into stunning interactive dashboards and gain critical insights for impactful decisions.",
+    "tags": [
+      "Power BI",
+      "Azure Services",
+      "Data Visualization",
+      "Business Intelligence",
+      "Data Analysis",
+      "Azure SQL Database"
+    ],
+    "color": "bg-blue-700 shadow-blue-400"
+  },
+  {
     "blog_title": "Master Amazon S3 Cloud Storage",
     "link": "/masteramazons3cloudstorage",
     "description": "Unlock the power of Amazon S3 for ultimate cloud storage. Discover its incredible durability availability cost effectiveness and scalability. Secure your data with advanced encryption and understand object storage buckets and metadata like a pro. Essential for reliable scalable and secure data management.",

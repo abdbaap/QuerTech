@@ -1,5 +1,37 @@
 [
   {
+    "blog_title": "Fix Google AdSense Low Value Content Violation Instantly",
+    "link": "/fix-google-adsense-low-value-content-violation-instantly",
+    "description": "Discover the ultimate guide to resolving Google AdSense 'Low value content' policy violations. Learn to boost your site's quality and uniqueness with AI-generated articles and powerful automation for fast Google approval.",
+    "tags": [
+      "Google AdSense",
+      "Low Value Content",
+      "Content Quality",
+      "AI Content",
+      "Website Traffic",
+      "AdSense Policy",
+      "SEMrush",
+      "Activepieces",
+      "WordPress API"
+    ],
+    "color": "bg-rose-600 shadow-rose-400"
+  },
+  {
+    "blog_title": "Unlock Explosive YouTube Growth Algorithm Secrets",
+    "link": "/unlockexplosiveyoutubegrowthalgorithmsecrets",
+    "description": "Tired of stagnant YouTube growth? Discover the algorithm's hidden metrics and leverage trending topics for massive views. Learn the secrets behind viral success and build a loyal audience with consistent, high-quality content. Find out why predictable value beats chasing trends.",
+    "tags": [
+      "YouTube Growth",
+      "YouTube Algorithm",
+      "Content Strategy",
+      "Video Marketing",
+      "Trending Topics",
+      "Audience Engagement",
+      "YouTube SEO"
+    ],
+    "color": "bg-red-700 shadow-red-400"
+  },
+  {
     "blog_title": "Master NestJS Custom Exception Handling for Robust APIs",
     "link": "/nestjscustomexceptionhandling",
     "description": "Unlock powerful error management in NestJS! Discover how to build custom exception filters for cleaner code, better client responses, and secure APIs. Learn to handle every error like a pro.",

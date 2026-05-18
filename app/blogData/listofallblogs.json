@@ -1,5 +1,150 @@
 [
   {
+    "blog_title": "Build Spring Boot API in 10 Minutes VS Code",
+    "link": "buildspringbootapiin10minutesvscode",
+    "color": "bg-teal-700 shadow-teal-400",
+    "description": "Instantly build a Spring Boot API with VS Code in just 10 minutes! Master project setup, REST controllers, and API endpoints for rapid development.",
+    "tags": [
+      "Spring Boot",
+      "API Development",
+      "VS Code",
+      "REST API",
+      "Java"
+    ]
+  },
+  {
+    "blog_title": "Master OAuth 2.0 Secure Access",
+    "link": "master-oauth-2-0-secure-access",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Unlock secure access delegation with OAuth 2.0. Discover its purpose, core components, and essential flows like Authorization Code and Client Credentials for robust API security.",
+    "tags": [
+      "OAuth 2.0",
+      "Authorization Framework",
+      "Access Tokens",
+      "API Security",
+      "JWT"
+    ]
+  },
+  {
+    "blog_title": "Unlock System Insights",
+    "link": "mastering-monitoring-vs-observability-for-complex-systems",
+    "color": "bg-blue-600 shadow-blue-400",
+    "description": "Traditional monitoring fails in complex systems. Discover how observability with rich data unlocks root cause analysis and guarantees user experience.",
+    "tags": [
+      "Monitoring",
+      "Observability",
+      "Distributed Systems",
+      "Root Cause Analysis",
+      "System Health",
+      "Latency"
+    ]
+  },
+  {
+    "blog_title": "Automate Node JS Deployments With GitHub Actions CI CD Made Easy",
+    "link": "automate-node-js-deployments-github-actions-ci-cd",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Unlock effortless Node.js deployments! Discover how GitHub Actions CI CD automates testing and shipping your code, saving time and eliminating errors. Perfect for faster, safer releases.",
+    "tags": [
+      "GitHub Actions",
+      "CI CD",
+      "Node JS",
+      "Automated Deployment",
+      "Software Development"
+    ]
+  },
+  {
+    "blog_title": "Unlock Azure Cloud Services Master Azure in 7 Key Buckets",
+    "link": "azurecloudservicesoverview",
+    "color": "bg-blue-600 shadow-blue-400",
+    "description": "Demystify Azure Cloud Services! Learn to master Azure by understanding its 7 core service buckets, from foundations and security to AI ML and cost management. Essential guide for efficient cloud strategy and interview prep.",
+    "tags": [
+      "Azure",
+      "Cloud Services",
+      "Azure Overview",
+      "Cloud Computing",
+      "Microsoft Azure",
+      "AI",
+      "Machine Learning",
+      "DevOps",
+      "Networking"
+    ]
+  },
+  {
+    "blog_title": "Unlock AI Agent Power Integrate Third Party Systems",
+    "link": "unlockaiagentpowerintegratethirdpartysystems",
+    "color": "bg-indigo-700 shadow-indigo-400",
+    "description": "Discover how AI agents masterfully connect with external services using Model Context Protocol MCP and Agent-to-Agent A2A. Learn to automate bookings troubleshooting and data tasks.",
+    "tags": [
+      "AI Agents",
+      "MCP",
+      "A2A Protocol",
+      "API Integration",
+      "AI Automation",
+      "LLM"
+    ]
+  },
+  {
+    "blog_title": "Unlock Big Tech System Design Secrets",
+    "link": "unlockbigtechsystemdesignsecrets",
+    "color": "bg-indigo-800 shadow-indigo-500",
+    "description": "Master essential system design concepts to advance your software engineering career and ace big tech interviews. Learn about APIs, databases, scaling, caching, and more.",
+    "tags": [
+      "System Design",
+      "Software Engineering",
+      "Big Tech",
+      "Interviews",
+      "Scalability",
+      "Databases",
+      "APIs"
+    ]
+  },
+  {
+    "blog_title": "Fix Google AdSense Low Value Content Violation Instantly",
+    "link": "fix-google-adsense-low-value-content-violation-instantly",
+    "color": "bg-rose-600 shadow-rose-400",
+    "description": "Discover the ultimate guide to resolving Google AdSense 'Low value content' policy violations. Learn to boost your site's quality and uniqueness with AI-generated articles and powerful automation for fast Google approval.",
+    "tags": [
+      "Google AdSense",
+      "Low Value Content",
+      "Content Quality",
+      "AI Content",
+      "Website Traffic",
+      "AdSense Policy",
+      "SEMrush",
+      "Activepieces",
+      "WordPress API"
+    ]
+  },
+  {
+    "blog_title": "Unlock Powerful Insights Integrate Power BI Azure Data",
+    "link": "unlockpowerbiazureintegration",
+    "color": "bg-blue-700 shadow-blue-400",
+    "description": "Mastering business intelligence by seamlessly integrating Power BI with Azure services. Transform your raw data into stunning interactive dashboards and gain critical insights for impactful decisions.",
+    "tags": [
+      "Power BI",
+      "Azure Services",
+      "Data Visualization",
+      "Business Intelligence",
+      "Data Analysis",
+      "Azure SQL Database"
+    ]
+  },
+  {
+    "blog_title": "Unlock Explosive YouTube Growth Algorithm Secrets",
+    "link": "unlockexplosiveyoutubegrowthalgorithmsecrets",
+    "color": "bg-red-700 shadow-red-400",
+    "description": "Tired of stagnant YouTube growth? Discover the algorithm's hidden metrics and leverage trending topics for massive views. Learn the secrets behind viral success and build a loyal audience with consistent, high-quality content. Find out why predictable value beats chasing trends.",
+    "tags": [
+      "YouTube Growth",
+      "YouTube Algorithm",
+      "Content Strategy",
+      "Video Marketing",
+      "Trending Topics",
+      "Audience Engagement",
+      "YouTube SEO"
+    ]
+  },
+  {
     "blog_title": "Supercharge DevOps 2X Faster With AI Code Assistants",
     "link": "superchargedevops2xfasterwithaicodeassistants",
     "color": "bg-green-800 shadow-green-400",
